@@ -1,0 +1,517 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x664D4C232A335278",
+      "device": "xc7z010clg400-1",
+      "gen_directory": "../../../../Zynq_Testing.gen/sources_1/bd/system",
+      "name": "system",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "NCO_1": "",
+      "Mixer_0": "",
+      "Compressor_0": "",
+      "ConstantIP_0": "",
+      "ConstantIP_1": "",
+      "ConstantIP_2": "",
+      "ConstantIP_3": "",
+      "ConstantIP_4": "",
+      "FIR_Filter_1_0": "",
+      "Compressor_1": "",
+      "NCO_0": ""
+    },
+    "ports": {
+      "clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "system_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "Data": {
+        "type": "data",
+        "direction": "O",
+        "left": "15",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      }
+    },
+    "components": {
+      "NCO_1": {
+        "vlnv": "xilinx.com:module_ref:NCO:1.0",
+        "xci_name": "system_NCO_1_0",
+        "xci_path": "ip\\system_NCO_1_0\\system_NCO_1_0.xci",
+        "inst_hier_path": "NCO_1",
+        "parameters": {
+          "ADC_SIZE": {
+            "value": "16"
+          },
+          "Freq_Size": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "NCO",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Frequency": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PhaseOffset": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_clock",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "Mixer_0": {
+        "vlnv": "xilinx.com:module_ref:Mixer:1.0",
+        "xci_name": "system_Mixer_0_0",
+        "xci_path": "ip\\system_Mixer_0_0\\system_Mixer_0_0.xci",
+        "inst_hier_path": "Mixer_0",
+        "parameters": {
+          "MixerSize": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Mixer",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Q1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Q2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "Compressor_0": {
+        "vlnv": "xilinx.com:module_ref:Compressor:1.0",
+        "xci_name": "system_Compressor_0_0",
+        "xci_path": "ip\\system_Compressor_0_0\\system_Compressor_0_0.xci",
+        "inst_hier_path": "Compressor_0",
+        "parameters": {
+          "InputSize": {
+            "value": "32"
+          },
+          "OutputSize": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Compressor",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Q": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "D": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ConstantIP_0": {
+        "vlnv": "xilinx.com:module_ref:ConstantIP:1.0",
+        "xci_name": "system_ConstantIP_0_0",
+        "xci_path": "ip\\system_ConstantIP_0_0\\system_ConstantIP_0_0.xci",
+        "inst_hier_path": "ConstantIP_0",
+        "parameters": {
+          "OutputConstant": {
+            "value": "3500"
+          },
+          "OutputSize": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ConstantIP",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ConstantIP_1": {
+        "vlnv": "xilinx.com:module_ref:ConstantIP:1.0",
+        "xci_name": "system_ConstantIP_1_0",
+        "xci_path": "ip\\system_ConstantIP_1_0\\system_ConstantIP_1_0.xci",
+        "inst_hier_path": "ConstantIP_1",
+        "parameters": {
+          "OutputSize": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ConstantIP",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ConstantIP_2": {
+        "vlnv": "xilinx.com:module_ref:ConstantIP:1.0",
+        "xci_name": "system_ConstantIP_2_0",
+        "xci_path": "ip\\system_ConstantIP_2_0\\system_ConstantIP_2_0.xci",
+        "inst_hier_path": "ConstantIP_2",
+        "parameters": {
+          "OutputConstant": {
+            "value": "4000"
+          },
+          "OutputSize": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ConstantIP",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ConstantIP_3": {
+        "vlnv": "xilinx.com:module_ref:ConstantIP:1.0",
+        "xci_name": "system_ConstantIP_3_0",
+        "xci_path": "ip\\system_ConstantIP_3_0\\system_ConstantIP_3_0.xci",
+        "inst_hier_path": "ConstantIP_3",
+        "parameters": {
+          "OutputConstant": {
+            "value": "2000"
+          },
+          "OutputSize": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ConstantIP",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ConstantIP_4": {
+        "vlnv": "xilinx.com:module_ref:ConstantIP:1.0",
+        "xci_name": "system_ConstantIP_4_0",
+        "xci_path": "ip\\system_ConstantIP_4_0\\system_ConstantIP_4_0.xci",
+        "inst_hier_path": "ConstantIP_4",
+        "parameters": {
+          "OutputSize": {
+            "value": "1"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ConstantIP",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          }
+        }
+      },
+      "FIR_Filter_1_0": {
+        "vlnv": "xilinx.com:module_ref:FIR_Filter_1:1.0",
+        "xci_name": "system_FIR_Filter_1_0_0",
+        "xci_path": "ip\\system_FIR_Filter_1_0_0\\system_FIR_Filter_1_0_0.xci",
+        "inst_hier_path": "FIR_Filter_1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FIR_Filter_1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_clock",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Signal_Input": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Signal_Output": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "Compressor_1": {
+        "vlnv": "xilinx.com:module_ref:Compressor:1.0",
+        "xci_name": "system_Compressor_1_0",
+        "xci_path": "ip\\system_Compressor_1_0\\system_Compressor_1_0.xci",
+        "inst_hier_path": "Compressor_1",
+        "parameters": {
+          "InputSize": {
+            "value": "32"
+          },
+          "OutputSize": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Compressor",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Q": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "D": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "NCO_0": {
+        "vlnv": "xilinx.com:module_ref:NCO:1.0",
+        "xci_name": "system_NCO_0_0",
+        "xci_path": "ip\\system_NCO_0_0\\system_NCO_0_0.xci",
+        "inst_hier_path": "NCO_0",
+        "parameters": {
+          "ADC_SIZE": {
+            "value": "16"
+          },
+          "Freq_Size": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "NCO",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Frequency": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PhaseOffset": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_clock",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Compressor_0_D": {
+        "ports": [
+          "Compressor_0/D",
+          "FIR_Filter_1_0/Signal_Input"
+        ]
+      },
+      "Compressor_1_D": {
+        "ports": [
+          "Compressor_1/D",
+          "Data"
+        ]
+      },
+      "ConstantIP_0_D": {
+        "ports": [
+          "ConstantIP_0/D",
+          "NCO_0/Frequency"
+        ]
+      },
+      "ConstantIP_1_D": {
+        "ports": [
+          "ConstantIP_1/D",
+          "NCO_0/PhaseOffset"
+        ]
+      },
+      "ConstantIP_2_D": {
+        "ports": [
+          "ConstantIP_2/D",
+          "NCO_1/Frequency"
+        ]
+      },
+      "ConstantIP_3_D": {
+        "ports": [
+          "ConstantIP_3/D",
+          "NCO_1/PhaseOffset"
+        ]
+      },
+      "ConstantIP_4_D": {
+        "ports": [
+          "ConstantIP_4/D",
+          "NCO_1/rst",
+          "NCO_0/rst"
+        ]
+      },
+      "FIR_Filter_1_0_Signal_Output": {
+        "ports": [
+          "FIR_Filter_1_0/Signal_Output",
+          "Compressor_1/Q"
+        ]
+      },
+      "Mixer_0_Dout": {
+        "ports": [
+          "Mixer_0/Dout",
+          "Compressor_0/Q"
+        ]
+      },
+      "NCO_0_Dout": {
+        "ports": [
+          "NCO_0/Dout",
+          "Mixer_0/Q1"
+        ]
+      },
+      "NCO_1_Dout": {
+        "ports": [
+          "NCO_1/Dout",
+          "Mixer_0/Q2"
+        ]
+      },
+      "clock_1": {
+        "ports": [
+          "clock",
+          "NCO_1/clock",
+          "FIR_Filter_1_0/clock",
+          "NCO_0/clock"
+        ]
+      }
+    }
+  }
+}

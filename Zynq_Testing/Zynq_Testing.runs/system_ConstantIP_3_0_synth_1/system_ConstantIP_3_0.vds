@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Mar  8 17:43:06 2023
+# Process ID: 6504
+# Current directory: C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1
+# Command line: vivado.exe -log system_ConstantIP_3_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_ConstantIP_3_0.tcl
+# Log file: C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1/system_ConstantIP_3_0.vds
+# Journal file: C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1\vivado.jou
+# Running On: Centurion-Heavy, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17101 MB
+#-----------------------------------------------------------
+source system_ConstantIP_3_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 394.840 ; gain = 62.234
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_ConstantIP_3_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 1066ba2b2c376764 to dir: C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.cache/ip/2022.2/1/0/1066ba2b2c376764/system_ConstantIP_1_0.dcp to C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1/system_ConstantIP_3_0.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.cache/ip/2022.2/1/0/1066ba2b2c376764/system_ConstantIP_1_0_sim_netlist.v to C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1/system_ConstantIP_3_0_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.cache/ip/2022.2/1/0/1066ba2b2c376764/system_ConstantIP_1_0_sim_netlist.vhdl to C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1/system_ConstantIP_3_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.cache/ip/2022.2/1/0/1066ba2b2c376764/system_ConstantIP_1_0_stub.v to C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1/system_ConstantIP_3_0_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.cache/ip/2022.2/1/0/1066ba2b2c376764/system_ConstantIP_1_0_stub.vhdl to C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_3_0_synth_1/system_ConstantIP_3_0_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP system_ConstantIP_3_0, cache-ID = 1066ba2b2c376764.
+INFO: [Common 17-206] Exiting Vivado at Wed Mar  8 17:43:15 2023...

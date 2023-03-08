@@ -1,0 +1,278 @@
+
+*** Running vivado
+    with args -log system_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_wrapper.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source system_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
+add_files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 419.762 ; gain = 24.883
+Command: synth_design -top system_wrapper -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 21252
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1215.586 ; gain = 406.621
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'system_wrapper' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/hdl/system_wrapper.vhd:21]
+INFO: [Synth 8-3491] module 'system' declared at 'c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:14' bound to instance 'system_i' of component 'system' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/hdl/system_wrapper.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'system' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:25]
+INFO: [Synth 8-3491] module 'system_Compressor_0_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_Compressor_0_0_stub.vhdl:5' bound to instance 'Compressor_0' of component 'system_Compressor_0_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'system_Compressor_0_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_Compressor_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'system_ConstantIP_0_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_0_0_stub.vhdl:5' bound to instance 'ConstantIP_0' of component 'system_ConstantIP_0_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:114]
+INFO: [Synth 8-638] synthesizing module 'system_ConstantIP_0_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_0_0_stub.vhdl:12]
+INFO: [Synth 8-3491] module 'system_ConstantIP_1_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_1_0_stub.vhdl:5' bound to instance 'ConstantIP_1' of component 'system_ConstantIP_1_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:118]
+INFO: [Synth 8-638] synthesizing module 'system_ConstantIP_1_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_1_0_stub.vhdl:12]
+INFO: [Synth 8-3491] module 'system_ConstantIP_2_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_2_0_stub.vhdl:5' bound to instance 'ConstantIP_2' of component 'system_ConstantIP_2_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:122]
+INFO: [Synth 8-638] synthesizing module 'system_ConstantIP_2_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_2_0_stub.vhdl:12]
+INFO: [Synth 8-3491] module 'system_ConstantIP_3_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_3_0_stub.vhdl:5' bound to instance 'ConstantIP_3' of component 'system_ConstantIP_3_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:126]
+INFO: [Synth 8-638] synthesizing module 'system_ConstantIP_3_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_3_0_stub.vhdl:12]
+INFO: [Synth 8-3491] module 'system_ConstantIP_4_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_4_0_stub.vhdl:5' bound to instance 'ConstantIP_4' of component 'system_ConstantIP_4_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'system_ConstantIP_4_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_ConstantIP_4_0_stub.vhdl:12]
+INFO: [Synth 8-3491] module 'system_FIR_Filter_1_0_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_FIR_Filter_1_0_0_stub.vhdl:5' bound to instance 'FIR_Filter_1_0' of component 'system_FIR_Filter_1_0_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:134]
+INFO: [Synth 8-638] synthesizing module 'system_FIR_Filter_1_0_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_FIR_Filter_1_0_0_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'system_Mixer_0_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_Mixer_0_0_stub.vhdl:5' bound to instance 'Mixer_0' of component 'system_Mixer_0_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:140]
+INFO: [Synth 8-638] synthesizing module 'system_Mixer_0_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_Mixer_0_0_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'system_NCO_0_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_NCO_0_0_stub.vhdl:5' bound to instance 'NCO_0' of component 'system_NCO_0_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:146]
+INFO: [Synth 8-638] synthesizing module 'system_NCO_0_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_NCO_0_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'system_NCO_1_0' declared at 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_NCO_1_0_stub.vhdl:5' bound to instance 'NCO_1' of component 'system_NCO_1_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:154]
+INFO: [Synth 8-638] synthesizing module 'system_NCO_1_0' [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/.Xil/Vivado-14836-Centurion-Heavy/realtime/system_NCO_1_0_stub.vhdl:16]
+INFO: [Synth 8-256] done synthesizing module 'system' (0#1) [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/synth/system.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'system_wrapper' (0#1) [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/hdl/system_wrapper.vhd:21]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1306.648 ; gain = 497.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1306.648 ; gain = 497.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1306.648 ; gain = 497.684
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1306.648 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_NCO_0_0/system_NCO_0_0/system_NCO_0_0_in_context.xdc] for cell 'system_i/NCO_0'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_NCO_0_0/system_NCO_0_0/system_NCO_0_0_in_context.xdc] for cell 'system_i/NCO_0'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_NCO_1_0/system_NCO_1_0/system_NCO_1_0_in_context.xdc] for cell 'system_i/NCO_1'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_NCO_1_0/system_NCO_1_0/system_NCO_1_0_in_context.xdc] for cell 'system_i/NCO_1'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_Mixer_0_0/system_Mixer_0_0/system_Mixer_0_0_in_context.xdc] for cell 'system_i/Mixer_0'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_Mixer_0_0/system_Mixer_0_0/system_Mixer_0_0_in_context.xdc] for cell 'system_i/Mixer_0'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_0_0/system_ConstantIP_0_0/system_ConstantIP_0_0_in_context.xdc] for cell 'system_i/ConstantIP_0'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_0_0/system_ConstantIP_0_0/system_ConstantIP_0_0_in_context.xdc] for cell 'system_i/ConstantIP_0'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_1_0/system_ConstantIP_1_0/system_ConstantIP_1_0_in_context.xdc] for cell 'system_i/ConstantIP_1'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_1_0/system_ConstantIP_1_0/system_ConstantIP_1_0_in_context.xdc] for cell 'system_i/ConstantIP_1'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_2_0/system_ConstantIP_2_0/system_ConstantIP_2_0_in_context.xdc] for cell 'system_i/ConstantIP_2'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_2_0/system_ConstantIP_2_0/system_ConstantIP_2_0_in_context.xdc] for cell 'system_i/ConstantIP_2'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_3_0/system_ConstantIP_3_0/system_ConstantIP_3_0_in_context.xdc] for cell 'system_i/ConstantIP_3'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_3_0/system_ConstantIP_3_0/system_ConstantIP_3_0_in_context.xdc] for cell 'system_i/ConstantIP_3'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_4_0/system_ConstantIP_4_0/system_ConstantIP_4_0_in_context.xdc] for cell 'system_i/ConstantIP_4'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_4_0/system_ConstantIP_4_0/system_ConstantIP_4_0_in_context.xdc] for cell 'system_i/ConstantIP_4'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_FIR_Filter_1_0_0/system_FIR_Filter_1_0_0/system_FIR_Filter_1_0_0_in_context.xdc] for cell 'system_i/FIR_Filter_1_0'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_FIR_Filter_1_0_0/system_FIR_Filter_1_0_0/system_FIR_Filter_1_0_0_in_context.xdc] for cell 'system_i/FIR_Filter_1_0'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_Compressor_0_0/system_Compressor_0_0/system_Compressor_0_0_in_context.xdc] for cell 'system_i/Compressor_0'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_Compressor_0_0/system_Compressor_0_0/system_Compressor_0_0_in_context.xdc] for cell 'system_i/Compressor_0'
+Parsing XDC File [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1312.434 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1312.434 ; gain = 0.000
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for system_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/NCO_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/NCO_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Mixer_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ConstantIP_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ConstantIP_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ConstantIP_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ConstantIP_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ConstantIP_4. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/FIR_Filter_1_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Compressor_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1312.434 ; gain = 503.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+------------------------+----------+
+|      |BlackBox name           |Instances |
++------+------------------------+----------+
+|1     |system_Compressor_0_0   |         1|
+|2     |system_ConstantIP_0_0   |         1|
+|3     |system_ConstantIP_1_0   |         1|
+|4     |system_ConstantIP_2_0   |         1|
+|5     |system_ConstantIP_3_0   |         1|
+|6     |system_ConstantIP_4_0   |         1|
+|7     |system_FIR_Filter_1_0_0 |         1|
+|8     |system_Mixer_0_0        |         1|
+|9     |system_NCO_0_0          |         1|
+|10    |system_NCO_1_0          |         1|
++------+------------------------+----------+
+
+Report Cell Usage: 
++------+-----------------------------+------+
+|      |Cell                         |Count |
++------+-----------------------------+------+
+|1     |system_Compressor_0_0_bbox   |     1|
+|2     |system_ConstantIP_0_0_bbox   |     1|
+|3     |system_ConstantIP_1_0_bbox   |     1|
+|4     |system_ConstantIP_2_0_bbox   |     1|
+|5     |system_ConstantIP_3_0_bbox   |     1|
+|6     |system_ConstantIP_4_0_bbox   |     1|
+|7     |system_FIR_Filter_1_0_0_bbox |     1|
+|8     |system_Mixer_0_0_bbox        |     1|
+|9     |system_NCO_0_0_bbox          |     1|
+|10    |system_NCO_1_0_bbox          |     1|
+|11    |IBUF                         |     1|
+|12    |OBUF                         |    16|
++------+-----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1316.109 ; gain = 501.359
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1316.109 ; gain = 507.145
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1328.176 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1332.812 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 545e5575
+INFO: [Common 17-83] Releasing license: Synthesis
+42 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1332.812 ; gain = 913.051
+INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/synth_1/system_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Mar  8 16:45:24 2023...
