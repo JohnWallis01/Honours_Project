@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-samples = 2000  #this is samples per second
+samples = 20 00  #this is samples per second
 freq1 = 300 #this is measured in Hz
 freq2 = 400
 unprocessed_sig = np.sin(freq1*np.linspace(0, 2*np.pi, samples)) * np.sin(freq2*np.linspace(0, 2*np.pi, samples))

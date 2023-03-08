@@ -1,0 +1,39 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: E:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot system_tb_behav xil_defaultlib.system_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.math_real
+Compiling architecture compressor_arch of entity xil_defaultlib.Compressor [\Compressor(inputsize=32,outputs...]
+Compiling module xil_defaultlib.system_Compressor_0_0
+Compiling module xil_defaultlib.system_Compressor_1_0
+Compiling architecture constantip_arch of entity xil_defaultlib.ConstantIP [\ConstantIP(outputsize=16,output...]
+Compiling module xil_defaultlib.system_ConstantIP_0_0
+Compiling architecture constantip_arch of entity xil_defaultlib.ConstantIP [\ConstantIP(outputsize=16)\]
+Compiling module xil_defaultlib.system_ConstantIP_1_0
+Compiling architecture constantip_arch of entity xil_defaultlib.ConstantIP [\ConstantIP(outputsize=16,output...]
+Compiling module xil_defaultlib.system_ConstantIP_2_0
+Compiling architecture constantip_arch of entity xil_defaultlib.ConstantIP [\ConstantIP(outputsize=16,output...]
+Compiling module xil_defaultlib.system_ConstantIP_3_0
+Compiling architecture constantip_arch of entity xil_defaultlib.ConstantIP [\ConstantIP(outputsize=1)\]
+Compiling module xil_defaultlib.system_ConstantIP_4_0
+Compiling architecture fir_filter_1_arch of entity xil_defaultlib.FIR_Filter_1 [fir_filter_1_default]
+Compiling module xil_defaultlib.system_FIR_Filter_1_0_0
+Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=16)\]
+Compiling module xil_defaultlib.system_Mixer_0_0
+Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(freq_size=16,adc_size=16)\]
+Compiling module xil_defaultlib.system_NCO_0_0
+Compiling module xil_defaultlib.system_NCO_1_0
+Compiling module xil_defaultlib.system
+Compiling module xil_defaultlib.system_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot system_tb_behav
