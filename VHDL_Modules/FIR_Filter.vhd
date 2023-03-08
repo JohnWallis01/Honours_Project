@@ -3,23 +3,16 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-package kargs is
-    generic(
-        nargs : integer := 1;
-    );
-    type karg_table is array(0 to nargs-1) of integer;
-    end package;
-use work.all;
 
 entity FIR_Filter is
     generic(
         Filter_Size : integer := 8;
         Filter_Order : integer := 4;
-        kargs: karg_table
+        Impulse_Number: integer := 1
     );
     port (
-        Signal_Input : signed(Filter_Size-1 downto 0);
-        Signal_Output : signed(Filter_Size-1 downto 0)
+        Signal_Input : in  signed(Filter_Size-1 downto 0);
+        Signal_Output : out signed(Filter_Size-1 downto 0)
     );
     end FIR_Filter;
 
