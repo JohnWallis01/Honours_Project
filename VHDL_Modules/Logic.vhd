@@ -5,7 +5,7 @@ use ieee.math_real.all;
 
 entity Mixer is
     generic(
-        MixerSize: integer := 9
+        MixerSize: integer := 16
     );
     port (
       Q1: in signed(MixerSize-1 downto 0); -- need to specifiy the sizes

@@ -7,16 +7,16 @@ use ieee.math_real.all;
 
 entity NCO is
   generic (
-  Freq_Size: integer := 10;
+  Freq_Size: integer := 16;
   -- ROMSIZE:integer := 2**(Freq_Size-2); -- related to the phase size
-  ADC_SIZE:integer := 9
+  ADC_SIZE:integer := 16
   ) ;
   port (
-    Frequency: in unsigned(Freq_Size-1 downto 0);
-    PhaseOffset: in unsigned(Freq_Size-1 downto 0);
-    clock: in std_logic;
-    rst: in std_logic;
-    Dout: out std_logic_vector(ADC_SIZE-1 Downto 0) -- adc size
+    Frequency: in unsigned(Freq_Size-1 downto 0) := (others =>'0');
+    PhaseOffset: in unsigned(Freq_Size-1 downto 0) := (others =>'0');
+    clock: in std_logic := '0';
+    rst: in std_logic := '0';
+    Dout: out std_logic_vector(ADC_SIZE-1 Downto 0) := (others =>'0') -- adc size
 
   ) ;
 end NCO;

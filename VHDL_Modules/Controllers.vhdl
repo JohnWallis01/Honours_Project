@@ -13,7 +13,7 @@ entity PIG_Controller is
         Data_Size: integer := 16
     );
     port(SignalInput: in signed(Data_Size-1 downto 0) := (others => '0');
-         SignalOutput: out signed(Data_Size-1 downto 0);
+         SignalOutput: out signed(Data_Size-1 downto 0) := (others => '0');
          clock: in std_logic
     );
 end PIG_Controller;
