@@ -70,6 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
+set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -80,12 +84,12 @@ set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity i
 set_property webtalk.parent_dir C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.cache/wt [current_project]
 set_property parent.project_path C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language VHDL [current_project]
+set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/hdl/system_wrapper.vhd
+read_verilog -library xil_defaultlib c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/hdl/system_wrapper.v
 add_files C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.srcs/sources_1/bd/system/system.bd
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/system_ooc.xdc]
 
@@ -101,6 +105,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.srcs/utils_1/imports/synth_1/system_wrapper.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

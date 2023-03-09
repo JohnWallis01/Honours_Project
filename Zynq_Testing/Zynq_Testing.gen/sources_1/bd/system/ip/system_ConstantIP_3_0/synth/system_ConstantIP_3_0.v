@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "ConstantIP,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_ConstantIP_3_0,ConstantIP,{}" *)
-(* CORE_GENERATION_INFO = "system_ConstantIP_3_0,ConstantIP,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=ConstantIP,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,OutputSize=16,OutputConstant=0}" *)
+(* CORE_GENERATION_INFO = "system_ConstantIP_3_0,ConstantIP,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=ConstantIP,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,OutputSize=16,OutputConstant=2000}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_ConstantIP_3_0 (
@@ -63,7 +63,7 @@ output wire [15 : 0] D;
 
   ConstantIP #(
     .OutputSize(16),
-    .OutputConstant(0)
+    .OutputConstant(2000)
   ) inst (
     .D(D)
   );

@@ -62,7 +62,7 @@ output wire [15 : 0] D;
 
   ConstantIP #(
     .OutputSize(16),
-    .OutputConstant(3500)
+    .OutputConstant(6700)
   ) inst (
     .D(D)
   );

@@ -31,8 +31,9 @@ architecture NCO_str of NCO is
     signal OffsetPhase: unsigned(Freq_Size-1 downto 0) := (others => '0');
     alias sigbits is OffsetPhase(Freq_Size-1 downto Freq_Size-2);
     alias subbits is OffsetPhase(Freq_Size-3 downto 0);
-
-
+    signal databuffer: std_logic_vector(ADC_SIZE-1 downto 0) := (others => '0');
+    signal dataAddr: unsigned(Freq_Size-3 downto 0) := (others => '0');
+    signal sigbuffer: unsigned(1 downto 0) := (others => '0');
     --compile time setup
     function sinelut_init return SINTAB is
         variable sinlut : SINTAB;
@@ -62,28 +63,86 @@ architecture NCO_str of NCO is
 
     -- END GENERATE;
 
+    --implying a block ram
 
     process(clock)
     begin
-        if rising_edge(clock) then
-            if(rst = '1') then
-                phase <= (others => '0');
-            else
-                phase <= phase + Frequency;
-                OffsetPhase <= phase + PhaseOffset;
-                Dout(ADC_SIZE-1) <= OffsetPhase(Freq_Size-1); -- controls the sign of the output based on the zone of the wave
-                --logic to determine what zone you are in add signs or flip wave
-                if sigbits = "00" then
-                Dout(ADC_SIZE-2 downto 0) <= SINROM(to_integer(subbits));
-                elsif sigbits = "01" then
-                Dout(ADC_SIZE-2 downto 0) <= SINROM(to_integer(not subbits));
-                elsif sigbits = "10" then
-                Dout(ADC_SIZE-2 downto 0) <=  not SINROM(to_integer(subbits));    
-                else
-                Dout(ADC_SIZE-2 downto 0) <= not SINROM(to_integer(not subbits));    
-                end if;
-
-            end if;
+      if rising_edge(clock) then
+        if (rst='1') then
+          phase<=(others =>'0');
+        else
+        phase <= phase + Frequency;
+        OffsetPhase <= phase +PhaseOffset;
+        --implying ram
+        sigbuffer <= sigbits;
+        case sigbits is
+          when "00" =>
+            dataAddr <= (subbits);
+          when "01" =>
+            dataAddr <= (not subbits);
+          when "10" =>
+            dataAddr <= (subbits); 
+          when others =>
+            dataAddr <= (not subbits); 
+        end case;
+      end if;
     end if;
-    end process;				
+  end process;
+
+  process(clock)
+    begin
+      if rising_edge(clock) then
+        databuffer(ADC_Size-1) <= sigbuffer(1);
+        case sigbuffer is
+          when "00" =>
+            databuffer(ADC_SIZE-2 downto 0) <= SINROM(to_integer(dataAddr));
+          when "01" =>
+            databuffer(ADC_SIZE-2 downto 0) <= SINROM(to_integer(dataAddr));
+          when "10" =>
+            databuffer(ADC_SIZE-2 downto 0) <= not SINROM(to_integer(dataAddr));
+          when others =>
+            databuffer(ADC_SIZE-2 downto 0) <= not SINROM(to_integer(dataAddr));
+        end case;
+        Dout <= databuffer;
+      end if;
+  end process;
+
+
+
+
+
+    -- process(clock)
+    -- begin
+    --     if rising_edge(clock) then
+    --         if(rst = '1') then
+    --             phase <= (others => '0');
+    --         else
+    --             phase <= phase + Frequency;
+    --             OffsetPhase <= phase + PhaseOffset;
+    --             databuffer(ADC_SIZE-1) <= OffsetPhase(Freq_Size-1); -- controls the sign of the output based on the zone of the wave
+    --             -- if sigbits = "00" then
+    --             -- Dout(ADC_SIZE-2 downto 0) <= SINROM(to_integer(subbits));
+    --             -- elsif sigbits = "01" then
+    --             -- Dout(ADC_SIZE-2 downto 0) <= SINROM(to_integer(not subbits));
+    --             -- elsif sigbits = "10" then
+    --             -- Dout(ADC_SIZE-2 downto 0) <=  not SINROM(to_integer(subbits));    
+    --             -- else
+    --             -- Dout(ADC_SIZE-2 downto 0) <= not SINROM(to_integer(not subbits));    
+    --             -- end if;
+                
+    --             --logic to determine what zone you are in add signs or flip wave
+    --             case sigbits is
+    --               when "00" =>
+    --                 databuffer(ADC_SIZE-2 downto 0) <=  SINROM(to_integer(subbits));
+    --               when "01" =>
+    --                 databuffer(ADC_SIZE-2 downto 0) <=  SINROM(to_integer(not subbits));
+    --               when "10" =>
+    --                 databuffer(ADC_SIZE-2 downto 0) <=  not SINROM(to_integer(subbits)); 
+    --               when others =>
+    --                 databuffer(ADC_SIZE-2 downto 0) <=  not SINROM(to_integer(not subbits)); 
+    --             end case;
+    --             Dout <= databuffer;  
+    --         end if;
+    -- end if;
+    -- end process;				
 end architecture;

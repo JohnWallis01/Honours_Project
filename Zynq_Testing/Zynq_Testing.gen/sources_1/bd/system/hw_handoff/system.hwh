@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar  8 18:13:17 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar  9 14:24:20 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clock" SIGIS="clk" SIGNAME="External_Ports_clock">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="NCO_1" PORT="clock"/>
-        <CONNECTION INSTANCE="FIR_Filter_1_0" PORT="clock"/>
+        <CONNECTION INSTANCE="FIR_Filter_2_0" PORT="clock"/>
         <CONNECTION INSTANCE="NCO_0" PORT="clock"/>
+        <CONNECTION INSTANCE="NCO_1" PORT="clock"/>
+        <CONNECTION INSTANCE="PIG_Controller_0" PORT="clock"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="15" NAME="Data" RIGHT="0" SIGIS="data" SIGNAME="Compressor_1_D">
+    <PORT DIR="O" LEFT="15" NAME="Data" RIGHT="0" SIGIS="data" SIGNAME="PIG_Controller_0_SignalOutput">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="Compressor_1" PORT="D"/>
+        <CONNECTION INSTANCE="PIG_Controller_0" PORT="SignalOutput"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -37,29 +38,7 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="Compressor_0_D">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="FIR_Filter_1_0" PORT="Signal_Input"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/Compressor_1" HWVERSION="1.0" INSTANCE="Compressor_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Compressor" VLNV="xilinx.com:module_ref:Compressor:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="InputSize" VALUE="32"/>
-        <PARAMETER NAME="OutputSize" VALUE="16"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_Compressor_1_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" LEFT="31" NAME="Q" RIGHT="0" SIGIS="undef" SIGNAME="FIR_Filter_1_0_Signal_Output">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="FIR_Filter_1_0" PORT="Signal_Output"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="Compressor_1_D">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="Data"/>
+            <CONNECTION INSTANCE="FIR_Filter_2_0" PORT="Signal_Input"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -69,7 +48,7 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="OutputSize" VALUE="16"/>
-        <PARAMETER NAME="OutputConstant" VALUE="3500"/>
+        <PARAMETER NAME="OutputConstant" VALUE="6700"/>
         <PARAMETER NAME="Component_Name" VALUE="system_ConstantIP_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -94,23 +73,6 @@
         <PORT DIR="O" LEFT="15" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="ConstantIP_1_D">
           <CONNECTIONS>
             <CONNECTION INSTANCE="NCO_0" PORT="PhaseOffset"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/ConstantIP_2" HWVERSION="1.0" INSTANCE="ConstantIP_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ConstantIP" VLNV="xilinx.com:module_ref:ConstantIP:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="OutputSize" VALUE="16"/>
-        <PARAMETER NAME="OutputConstant" VALUE="4000"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_ConstantIP_2_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" LEFT="15" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="ConstantIP_2_D">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_1" PORT="Frequency"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -144,17 +106,17 @@
       <PORTS>
         <PORT DIR="O" LEFT="0" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="ConstantIP_4_D">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="NCO_1" PORT="rst"/>
             <CONNECTION INSTANCE="NCO_0" PORT="rst"/>
+            <CONNECTION INSTANCE="NCO_1" PORT="rst"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/FIR_Filter_1_0" HWVERSION="1.0" INSTANCE="FIR_Filter_1_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="FIR_Filter_1" VLNV="xilinx.com:module_ref:FIR_Filter_1:1.0">
+    <MODULE COREREVISION="1" FULLNAME="/FIR_Filter_2_0" HWVERSION="1.0" INSTANCE="FIR_Filter_2_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="FIR_Filter_2" VLNV="xilinx.com:module_ref:FIR_Filter_2:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="system_FIR_Filter_1_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_FIR_Filter_2_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -168,9 +130,10 @@
             <CONNECTION INSTANCE="Compressor_0" PORT="D"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="Signal_Output" RIGHT="0" SIGIS="undef" SIGNAME="FIR_Filter_1_0_Signal_Output">
+        <PORT DIR="O" LEFT="15" NAME="Signal_Output" RIGHT="0" SIGIS="undef" SIGNAME="FIR_Filter_2_0_Signal_Output">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Compressor_1" PORT="Q"/>
+            <CONNECTION INSTANCE="PIG_Controller_0" PORT="SignalInput"/>
+            <CONNECTION INSTANCE="NCO_1" PORT="Frequency"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -248,9 +211,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="Frequency" RIGHT="0" SIGIS="undef" SIGNAME="ConstantIP_2_D">
+        <PORT DIR="I" LEFT="15" NAME="Frequency" RIGHT="0" SIGIS="undef" SIGNAME="FIR_Filter_2_0_Signal_Output">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ConstantIP_2" PORT="D"/>
+            <CONNECTION INSTANCE="FIR_Filter_2_0" PORT="Signal_Output"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="PhaseOffset" RIGHT="0" SIGIS="undef" SIGNAME="ConstantIP_3_D">
@@ -271,6 +234,35 @@
         <PORT DIR="O" LEFT="15" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="NCO_1_Dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Mixer_0" PORT="Q2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/PIG_Controller_0" HWVERSION="1.0" INSTANCE="PIG_Controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="PIG_Controller" VLNV="xilinx.com:module_ref:PIG_Controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="kI" VALUE="1"/>
+        <PARAMETER NAME="kP" VALUE="1"/>
+        <PARAMETER NAME="kG" VALUE="1"/>
+        <PARAMETER NAME="Data_Size" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_PIG_Controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="SignalInput" RIGHT="0" SIGIS="undef" SIGNAME="FIR_Filter_2_0_Signal_Output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FIR_Filter_2_0" PORT="Signal_Output"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SignalOutput" RIGHT="0" SIGIS="undef" SIGNAME="PIG_Controller_0_SignalOutput">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clock" SIGIS="clk" SIGNAME="External_Ports_clock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clock"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

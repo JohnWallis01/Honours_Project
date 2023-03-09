@@ -1,5 +1,5 @@
 Filter_Size = 16
-Filter_Name = "FIR_Filter_1"
+Filter_Name = "FIR_Filter_2"
 
 #load the filter coffiecnts
 with open("impulse_coefficents.txt" , "r") as f:
@@ -19,7 +19,7 @@ entity {Filter_Name} is
     port (
         clock : in std_logic;
         Signal_Input : in  signed({Filter_Size}-1 downto 0);
-        Signal_Output : out signed(2*{Filter_Size}-1 downto 0)
+        Signal_Output : out signed({Filter_Size}-1 downto 0)
     );
     end {Filter_Name}; """.format(Filter_Size=Filter_Size, Filter_Name=Filter_Name)
 
@@ -65,13 +65,12 @@ architecture2 ="""
                 end loop;
 
                 signal_buffer({Filter_Order}-1) <= Signal_Input;
-                Signal_Output <= inner_product(signal_buffer, impulse_response);
+                Signal_Output <= inner_product(signal_buffer, impulse_response)(2*{Filter_Size}-1 downto {Filter_Size});
             end if;
     end process;
 
 end architecture;""".format(Filter_Order=len(data), Filter_Size = Filter_Size)
 
 total_filter = entity + architecture1 + constants + architecture2
-
-with open("filter.vhd", "w") as f:
+with open("{Filter_Name}.vhd".format(Filter_Name=Filter_Name), "w") as f:
     f.write(total_filter)

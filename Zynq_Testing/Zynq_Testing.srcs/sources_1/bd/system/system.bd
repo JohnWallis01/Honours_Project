@@ -11,17 +11,16 @@
       "validated": "true"
     },
     "design_tree": {
-      "NCO_1": "",
       "Mixer_0": "",
       "Compressor_0": "",
       "ConstantIP_0": "",
       "ConstantIP_1": "",
-      "ConstantIP_2": "",
       "ConstantIP_3": "",
       "ConstantIP_4": "",
-      "FIR_Filter_1_0": "",
-      "Compressor_1": "",
-      "NCO_0": ""
+      "FIR_Filter_2_0": "",
+      "NCO_0": "",
+      "NCO_1": "",
+      "PIG_Controller_0": ""
     },
     "ports": {
       "clock": {
@@ -63,64 +62,6 @@
       }
     },
     "components": {
-      "NCO_1": {
-        "vlnv": "xilinx.com:module_ref:NCO:1.0",
-        "xci_name": "system_NCO_1_0",
-        "xci_path": "ip\\system_NCO_1_0\\system_NCO_1_0.xci",
-        "inst_hier_path": "NCO_1",
-        "parameters": {
-          "ADC_SIZE": {
-            "value": "16"
-          },
-          "Freq_Size": {
-            "value": "16"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "NCO",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Frequency": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "PhaseOffset": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "system_clock",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "Dout": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
       "Mixer_0": {
         "vlnv": "xilinx.com:module_ref:Mixer:1.0",
         "xci_name": "system_Mixer_0_0",
@@ -192,7 +133,7 @@
         "inst_hier_path": "ConstantIP_0",
         "parameters": {
           "OutputConstant": {
-            "value": "3500"
+            "value": "6700"
           },
           "OutputSize": {
             "value": "16"
@@ -217,32 +158,6 @@
         "xci_path": "ip\\system_ConstantIP_1_0\\system_ConstantIP_1_0.xci",
         "inst_hier_path": "ConstantIP_1",
         "parameters": {
-          "OutputSize": {
-            "value": "16"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "ConstantIP",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "D": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "ConstantIP_2": {
-        "vlnv": "xilinx.com:module_ref:ConstantIP:1.0",
-        "xci_name": "system_ConstantIP_2_0",
-        "xci_path": "ip\\system_ConstantIP_2_0\\system_ConstantIP_2_0.xci",
-        "inst_hier_path": "ConstantIP_2",
-        "parameters": {
-          "OutputConstant": {
-            "value": "4000"
-          },
           "OutputSize": {
             "value": "16"
           }
@@ -309,14 +224,14 @@
           }
         }
       },
-      "FIR_Filter_1_0": {
-        "vlnv": "xilinx.com:module_ref:FIR_Filter_1:1.0",
-        "xci_name": "system_FIR_Filter_1_0_0",
-        "xci_path": "ip\\system_FIR_Filter_1_0_0\\system_FIR_Filter_1_0_0.xci",
-        "inst_hier_path": "FIR_Filter_1_0",
+      "FIR_Filter_2_0": {
+        "vlnv": "xilinx.com:module_ref:FIR_Filter_2:1.0",
+        "xci_name": "system_FIR_Filter_2_0_0",
+        "xci_path": "ip\\system_FIR_Filter_2_0_0\\system_FIR_Filter_2_0_0.xci",
+        "inst_hier_path": "FIR_Filter_2_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "FIR_Filter_1",
+          "ref_name": "FIR_Filter_2",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -340,37 +255,6 @@
             "right": "0"
           },
           "Signal_Output": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          }
-        }
-      },
-      "Compressor_1": {
-        "vlnv": "xilinx.com:module_ref:Compressor:1.0",
-        "xci_name": "system_Compressor_1_0",
-        "xci_path": "ip\\system_Compressor_1_0\\system_Compressor_1_0.xci",
-        "inst_hier_path": "Compressor_1",
-        "parameters": {
-          "InputSize": {
-            "value": "32"
-          },
-          "OutputSize": {
-            "value": "16"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Compressor",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Q": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "D": {
             "direction": "O",
             "left": "15",
             "right": "0"
@@ -434,19 +318,108 @@
             "right": "0"
           }
         }
+      },
+      "NCO_1": {
+        "vlnv": "xilinx.com:module_ref:NCO:1.0",
+        "xci_name": "system_NCO_1_0",
+        "xci_path": "ip\\system_NCO_1_0\\system_NCO_1_0.xci",
+        "inst_hier_path": "NCO_1",
+        "parameters": {
+          "ADC_SIZE": {
+            "value": "16"
+          },
+          "Freq_Size": {
+            "value": "16"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "NCO",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Frequency": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PhaseOffset": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_clock",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "PIG_Controller_0": {
+        "vlnv": "xilinx.com:module_ref:PIG_Controller:1.0",
+        "xci_name": "system_PIG_Controller_0_0",
+        "xci_path": "ip\\system_PIG_Controller_0_0\\system_PIG_Controller_0_0.xci",
+        "inst_hier_path": "PIG_Controller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "PIG_Controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "SignalInput": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "SignalOutput": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_clock",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
       "Compressor_0_D": {
         "ports": [
           "Compressor_0/D",
-          "FIR_Filter_1_0/Signal_Input"
-        ]
-      },
-      "Compressor_1_D": {
-        "ports": [
-          "Compressor_1/D",
-          "Data"
+          "FIR_Filter_2_0/Signal_Input"
         ]
       },
       "ConstantIP_0_D": {
@@ -461,12 +434,6 @@
           "NCO_0/PhaseOffset"
         ]
       },
-      "ConstantIP_2_D": {
-        "ports": [
-          "ConstantIP_2/D",
-          "NCO_1/Frequency"
-        ]
-      },
       "ConstantIP_3_D": {
         "ports": [
           "ConstantIP_3/D",
@@ -476,14 +443,15 @@
       "ConstantIP_4_D": {
         "ports": [
           "ConstantIP_4/D",
-          "NCO_1/rst",
-          "NCO_0/rst"
+          "NCO_0/rst",
+          "NCO_1/rst"
         ]
       },
-      "FIR_Filter_1_0_Signal_Output": {
+      "FIR_Filter_2_0_Signal_Output": {
         "ports": [
-          "FIR_Filter_1_0/Signal_Output",
-          "Compressor_1/Q"
+          "FIR_Filter_2_0/Signal_Output",
+          "PIG_Controller_0/SignalInput",
+          "NCO_1/Frequency"
         ]
       },
       "Mixer_0_Dout": {
@@ -504,12 +472,19 @@
           "Mixer_0/Q2"
         ]
       },
+      "PIG_Controller_0_SignalOutput": {
+        "ports": [
+          "PIG_Controller_0/SignalOutput",
+          "Data"
+        ]
+      },
       "clock_1": {
         "ports": [
           "clock",
+          "FIR_Filter_2_0/clock",
+          "NCO_0/clock",
           "NCO_1/clock",
-          "FIR_Filter_1_0/clock",
-          "NCO_0/clock"
+          "PIG_Controller_0/clock"
         ]
       }
     }
