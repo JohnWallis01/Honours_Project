@@ -1,35 +1,23 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.705711",
-   "Default View_TopLeft":"468,-205",
+   "Default View_ScaleFactor":"0.854109",
+   "Default View_TopLeft":"-162,-440",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
-preplace port port-id_clock -pg 1 -lvl 0 -x -50 -y 150 -defaultsOSRD
-preplace portBus Data -pg 1 -lvl 6 -x 1780 -y 160 -defaultsOSRD
-preplace inst Mixer_0 -pg 1 -lvl 3 -x 760 -y 140 -defaultsOSRD
-preplace inst Compressor_0 -pg 1 -lvl 4 -x 1060 -y 70 -defaultsOSRD
+preplace port port-id_clock -pg 1 -lvl 0 -x -80 -y 150 -defaultsOSRD
+preplace portBus Data -pg 1 -lvl 7 -x 1890 -y -70 -defaultsOSRD
 preplace inst ConstantIP_0 -pg 1 -lvl 1 -x 60 -y -200 -defaultsOSRD
-preplace inst ConstantIP_1 -pg 1 -lvl 1 -x 60 -y -90 -defaultsOSRD
-preplace inst ConstantIP_3 -pg 1 -lvl 1 -x 60 -y 290 -defaultsOSRD
-preplace inst ConstantIP_4 -pg 1 -lvl 1 -x 60 -y 410 -defaultsOSRD
-preplace inst FIR_Filter_2_0 -pg 1 -lvl 5 -x 1410 -y 170 -defaultsOSRD
-preplace inst NCO_0 -pg 1 -lvl 2 -x 500 -y -130 -defaultsOSRD
-preplace inst NCO_1 -pg 1 -lvl 2 -x 500 -y 220 -defaultsOSRD
-preplace inst PIG_Controller_0 -pg 1 -lvl 4 -x 1060 -y 310 -defaultsOSRD
-preplace netloc ConstantIP_4_D 1 1 1 170 -100n
-preplace netloc NCO_1_Dout 1 2 1 640 150n
-preplace netloc NCO_0_Dout 1 2 1 640 -130n
-preplace netloc clock_1 1 0 5 N 150 160 320 N 320 880 160 N
-preplace netloc Mixer_0_Dout 1 3 1 880 70n
-preplace netloc ConstantIP_1_D 1 1 1 150 -140n
-preplace netloc ConstantIP_0_D 1 1 1 150 -200n
-preplace netloc ConstantIP_3_D 1 1 1 180 210n
-preplace netloc Compressor_0_D 1 4 1 1220 70n
-preplace netloc FIR_Filter_2_0_Signal_Output 1 1 5 190 310 N 310 890 240 NJ 240 1580
-preplace netloc PIG_Controller_0_SignalOutput 1 4 2 NJ 310 1590
-levelinfo -pg 1 -50 60 500 760 1060 1410 1780
-pagesize -pg 1 -db -bbox -sgen -140 -260 1900 570
+preplace inst ConstantIP_1 -pg 1 -lvl 1 -x 60 -y 20 -defaultsOSRD
+preplace inst ConstantIP_3 -pg 1 -lvl 2 -x 250 -y 300 -defaultsOSRD
+preplace inst NCO_0 -pg 1 -lvl 3 -x 520 -y -50 -defaultsOSRD
+preplace netloc ConstantIP_0_D 1 1 2 N -200 340
+preplace netloc ConstantIP_1_D 1 1 2 150 -60 N
+preplace netloc Net 1 2 1 340 -20n
+preplace netloc clock_1 1 0 3 -60 -40 N -40 N
+preplace netloc NCO_0_Dout 1 3 4 NJ -50 NJ -50 NJ -50 1470
+levelinfo -pg 1 -80 60 250 520 810 1110 1450 1890
+pagesize -pg 1 -db -bbox -sgen -170 -400 2010 570
 "
 }
 0

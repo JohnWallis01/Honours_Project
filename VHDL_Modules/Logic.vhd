@@ -60,3 +60,47 @@ entity Compressor is
         begin
         D <= to_unsigned(OutputConstant, OutputSize);
         end architecture;
+
+-- library ieee;
+-- use ieee.std_logic_1164.all;
+-- use ieee.numeric_std.all;
+-- use ieee.math_real.all;
+
+-- entity Subtractor is
+--   generic(
+--     size : integer := 16
+--   );
+--   port (
+--     Q1: in signed(size-1 downto 0);
+--     Q2: in signed(size-1 downto 0);
+--     Dout : out signed(size-1 downto 0)
+--   );
+-- end Subtractor;
+
+-- architecture Subtractor_arch of Subtractor is
+--   begin
+--     Dout <= Q1 - Q2;
+-- end architecture; -- arch
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity PhaseDetector is 
+  generic(
+      size: integer := 16
+  );
+  port (
+    Sig1: in signed(size-1 downto 0);
+    Sig2: in signed(size-1 downto 0);
+    Dout: out signed(size-1 downto 0) :=(others => '0')
+  );
+    end PhaseDetector;
+
+architecture PhaseDetector_arch of PhaseDetector is
+  begin
+    Dout <= Sig1 xor Sig2;
+end architecture;

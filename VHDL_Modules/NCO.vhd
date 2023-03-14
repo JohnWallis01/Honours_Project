@@ -7,32 +7,32 @@ use ieee.math_real.all;
 
 entity NCO is
   generic (
-  Freq_Size: integer := 16;
-  -- ROMSIZE:integer := 2**(Freq_Size-2); -- related to the phase size
+  Freq_Size: integer := 32;
+  ROM_Size: integer := 8;
   ADC_SIZE:integer := 16
   ) ;
   port (
-    Frequency: in unsigned(Freq_Size-1 downto 0) := (others =>'0');
+    Frequency: in unsigned(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
     PhaseOffset: in unsigned(Freq_Size-1 downto 0) := (others =>'0');
     clock: in std_logic := '0';
     rst: in std_logic := '0';
-    Dout: out std_logic_vector(ADC_SIZE-1 Downto 0) := (others =>'0') -- adc size
+    Dout: out std_logic_vector(ADC_SIZE-1 Downto 0) := (others =>'0') -- DAC size
 
   ) ;
 end NCO;
 
 architecture NCO_str of NCO is
-
-    constant ROMSIZE:integer := 2**(Freq_Size-2);
+    --this is required to allow high frequency tuning resoultion
+    constant ROMSIZE:integer := 2**(ROM_Size);
 
 
     TYPE SINTAB IS ARRAY(0 TO ROMSIZE-1) OF STD_LOGIC_VECTOR (ADC_SIZE-2 DOWNTO 0);
     signal phase: unsigned(Freq_Size-1 downto 0) := (others => '0');
     signal OffsetPhase: unsigned(Freq_Size-1 downto 0) := (others => '0');
     alias sigbits is OffsetPhase(Freq_Size-1 downto Freq_Size-2);
-    alias subbits is OffsetPhase(Freq_Size-3 downto 0);
+    alias subbits is OffsetPhase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
     signal databuffer: std_logic_vector(ADC_SIZE-1 downto 0) := (others => '0');
-    signal dataAddr: unsigned(Freq_Size-3 downto 0) := (others => '0');
+    signal dataAddr: unsigned(ROM_Size-1 downto 0) := (others => '0');
     signal sigbuffer: unsigned(1 downto 0) := (others => '0');
     --compile time setup
     function sinelut_init return SINTAB is
@@ -42,14 +42,16 @@ architecture NCO_str of NCO is
       begin
         for i in 0 to ROMSIZE-1 loop
              x := SIN(real(i)*MATH_PI/real(2*ROMSIZE)); -- creates the quater wave table
-             xn := to_unsigned(INTEGER(x*real(ROMSIZE-1)),ADC_SIZE-1); -- this just the unsigned portion and add the signed bit later
-            sinlut(i) := STD_LOGIC_VECTOR(xn);	
+             xn := to_unsigned(INTEGER(x*real((2**(ADC_SIZE-2))-1)),ADC_SIZE-1); -- this just the unsigned portion and add the signed bit later
+            
+            
+            
+             sinlut(i) := STD_LOGIC_VECTOR(xn);	
         end loop;
         return sinlut;
       end;
       
-      constant SINROM: SINTAB := sinelut_init; --does this get stored in the block ram?
-
+      constant SINROM: SINTAB := sinelut_init;
 
     BEGIN
 

@@ -58,11 +58,11 @@ module system_ConstantIP_0_0 (
   D
 );
 
-output wire [15 : 0] D;
+output wire [31 : 0] D;
 
   ConstantIP #(
-    .OutputSize(16),
-    .OutputConstant(6700)
+    .OutputSize(32),
+    .OutputConstant(150000000)
   ) inst (
     .D(D)
   );

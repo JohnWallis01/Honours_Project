@@ -10,7 +10,6 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source system_ConstantIP_1_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 395.082 ; gain = 44.379
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
@@ -22,31 +21,31 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 16284
+INFO: [Synth 8-7075] Helper process launched with PID 31692
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 843.152 ; gain = 410.898
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 843.652 ; gain = 412.023
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_ConstantIP_1_0' [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_1_0/synth/system_ConstantIP_1_0.v:53]
 INFO: [Synth 8-638] synthesizing module 'ConstantIP' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:59]
 INFO: [Synth 8-256] done synthesizing module 'ConstantIP' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:59]
 INFO: [Synth 8-6155] done synthesizing module 'system_ConstantIP_1_0' (0#1) [c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_1_0/synth/system_ConstantIP_1_0.v:53]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 933.777 ; gain = 501.523
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 933.371 ; gain = 501.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 933.777 ; gain = 501.523
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 933.371 ; gain = 501.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 933.777 ; gain = 501.523
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 933.371 ; gain = 501.742
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 933.777 ; gain = 501.523
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 933.371 ; gain = 501.742
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -71,6 +70,22 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3330] design system_ConstantIP_1_0 has an empty top module
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[31] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[30] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[29] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[28] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[27] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[26] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[25] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[24] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[23] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[22] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[21] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[20] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[19] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[18] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[17] driven by constant 0
+INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[16] driven by constant 0
 INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[15] driven by constant 0
 INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[14] driven by constant 0
 INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[13] driven by constant 0
@@ -88,20 +103,20 @@ INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[2] driven by consta
 INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[1] driven by constant 0
 INFO: [Synth 8-3917] design system_ConstantIP_1_0 has port D[0] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -119,37 +134,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -174,28 +189,28 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.160 ; gain = 679.906
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1109.051 ; gain = 677.422
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1112.160 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1109.051 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1216.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1214.520 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 703fca6a
+Synth Design complete, checksum: 75453e4e
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+52 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1221.906 ; gain = 790.668
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1219.562 ; gain = 790.938
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_1_0_synth_1/system_ConstantIP_1_0.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1459.180 ; gain = 237.273
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_ConstantIP_1_0, cache-ID = 1066ba2b2c376764
+write_checkpoint: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1463.785 ; gain = 244.223
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_ConstantIP_1_0, cache-ID = d1e2a6ea3757d1fc
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.runs/system_ConstantIP_1_0_synth_1/system_ConstantIP_1_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_ConstantIP_1_0_utilization_synth.rpt -pb system_ConstantIP_1_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar  8 17:43:03 2023...
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 10 10:42:25 2023...

@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Mar  8 17:43:03 2023
+// Date        : Fri Mar 10 10:42:25 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_1_0/system_ConstantIP_1_0_sim_netlist.v
@@ -17,10 +17,26 @@
 (* NotValidForBitStream *)
 module system_ConstantIP_1_0
    (D);
-  output [15:0]D;
+  output [31:0]D;
 
   wire \<const0> ;
 
+  assign D[31] = \<const0> ;
+  assign D[30] = \<const0> ;
+  assign D[29] = \<const0> ;
+  assign D[28] = \<const0> ;
+  assign D[27] = \<const0> ;
+  assign D[26] = \<const0> ;
+  assign D[25] = \<const0> ;
+  assign D[24] = \<const0> ;
+  assign D[23] = \<const0> ;
+  assign D[22] = \<const0> ;
+  assign D[21] = \<const0> ;
+  assign D[20] = \<const0> ;
+  assign D[19] = \<const0> ;
+  assign D[18] = \<const0> ;
+  assign D[17] = \<const0> ;
+  assign D[16] = \<const0> ;
   assign D[15] = \<const0> ;
   assign D[14] = \<const0> ;
   assign D[13] = \<const0> ;

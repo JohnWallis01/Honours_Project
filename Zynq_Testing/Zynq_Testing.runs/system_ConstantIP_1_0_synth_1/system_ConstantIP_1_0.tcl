@@ -70,9 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "system_ConstantIP_1_0_synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {HDL 9-1061} -limit 100000
-set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/mref
@@ -92,7 +89,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd
-read_ip -quiet c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.srcs/sources_1/bd/system/ip/system_ConstantIP_1_0/system_ConstantIP_1_0.xci
+read_ip -quiet C:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.srcs/sources_1/bd/system/ip/system_ConstantIP_1_0/system_ConstantIP_1_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

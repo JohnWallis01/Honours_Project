@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Mar  8 17:43:03 2023
+-- Date        : Fri Mar 10 10:42:25 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/Zynq_Testing/Zynq_Testing.gen/sources_1/bd/system/ip/system_ConstantIP_1_0/system_ConstantIP_1_0_sim_netlist.vhdl
@@ -16,7 +16,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity system_ConstantIP_1_0 is
   port (
-    D : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    D : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of system_ConstantIP_1_0 : entity is true;
@@ -33,6 +33,22 @@ end system_ConstantIP_1_0;
 architecture STRUCTURE of system_ConstantIP_1_0 is
   signal \<const0>\ : STD_LOGIC;
 begin
+  D(31) <= \<const0>\;
+  D(30) <= \<const0>\;
+  D(29) <= \<const0>\;
+  D(28) <= \<const0>\;
+  D(27) <= \<const0>\;
+  D(26) <= \<const0>\;
+  D(25) <= \<const0>\;
+  D(24) <= \<const0>\;
+  D(23) <= \<const0>\;
+  D(22) <= \<const0>\;
+  D(21) <= \<const0>\;
+  D(20) <= \<const0>\;
+  D(19) <= \<const0>\;
+  D(18) <= \<const0>\;
+  D(17) <= \<const0>\;
+  D(16) <= \<const0>\;
   D(15) <= \<const0>\;
   D(14) <= \<const0>\;
   D(13) <= \<const0>\;

@@ -10,7 +10,8 @@ entity PIG_Controller is
         kI: integer := 1;
         kP: integer := 1;
         kG: integer := 1;
-        Data_Size: integer := 16
+        Data_Size: integer := 1;
+        Inital: integer := 0
     );
     port(SignalInput: in signed(Data_Size-1 downto 0) := (others => '0');
          SignalOutput: out signed(Data_Size-1 downto 0) := (others => '0');
@@ -20,7 +21,7 @@ end PIG_Controller;
 
 architecture PIG_Controller_arch of PIG_Controller is
     signal Accumulated_Output: signed(Data_Size-1 downto 0) := (others => '0');
-    signal Integral_Stage: signed(Data_Size-1 downto 0) :=  (others => '0');
+    signal Integral_Stage: signed(Data_Size-1 downto 0) := to_signed(Inital, Data_Size);
     signal Sig_Buffer: signed(3*Data_Size -1 downto 0):=  (others => '0');
 
 begin

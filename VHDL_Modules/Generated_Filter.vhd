@@ -6,7 +6,7 @@ use ieee.math_real.all;
 entity FIR_Filter_1 is
     port (
         clock : in std_logic := '0';
-        Signal_Input : in  signed(16-1 downto 0) := (others => '0;);
+        Signal_Input : in  signed(16-1 downto 0) := (others => '0');
         Signal_Output : out signed(2*16-1 downto 0) := (others => '0')
     );
     end FIR_Filter_1; 

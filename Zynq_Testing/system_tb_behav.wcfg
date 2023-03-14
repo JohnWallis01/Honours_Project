@@ -12,75 +12,28 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
-      <Cursor1Time time="5.000 ns"></Cursor1Time>
+      <ZoomEndTime time="669.501 ns"></ZoomEndTime>
+      <Cursor1Time time="35.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="246"></NameColumnWidth>
-      <ValueColumnWidth column_width="115"></ValueColumnWidth>
+      <NameColumnWidth column_width="225"></NameColumnWidth>
+      <ValueColumnWidth column_width="93"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="2" />
    <wvobject fp_name="/system_tb/clock" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
+      <obj_property name="label">System Clock</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_tb/out" type="array">
-      <obj_property name="ElementShortName">out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">out[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/system_tb/tst/NCO_0_Dout" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">NCO_0_Dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NCO_0_Dout[31:0]</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/Compressor_0/inst/D" type="array">
-      <obj_property name="ElementShortName">D[15:0]</obj_property>
-      <obj_property name="ObjectShortName">D[15:0]</obj_property>
+      <obj_property name="label">Input Wave Form</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/NCO_0/Dout" type="array">
-      <obj_property name="ElementShortName">Dout[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Dout[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/NCO_1/Dout" type="array">
-      <obj_property name="ElementShortName">Dout[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Dout[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/PIG_Controller_0/inst/Accumulated_Output" type="array">
-      <obj_property name="ElementShortName">Accumulated_Output[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Accumulated_Output[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/PIG_Controller_0/inst/Integral_Stage" type="array">
-      <obj_property name="ElementShortName">Integral_Stage[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Integral_Stage[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/PIG_Controller_0/inst/Sig_Buffer" type="array">
-      <obj_property name="ElementShortName">Sig_Buffer[47:0]</obj_property>
-      <obj_property name="ObjectShortName">Sig_Buffer[47:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/PIG_Controller_0/inst/SignalInput" type="array">
-      <obj_property name="ElementShortName">SignalInput[15:0]</obj_property>
-      <obj_property name="ObjectShortName">SignalInput[15:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
-      <obj_property name="AnalogYRangeMin">-850.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">850.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_tb/tst/PIG_Controller_0/inst/SignalOutput" type="array">
-      <obj_property name="ElementShortName">SignalOutput[15:0]</obj_property>
-      <obj_property name="ObjectShortName">SignalOutput[15:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -1,4 +1,4 @@
-Filter_Size = 16
+Filter_Size = 32
 Filter_Name = "FIR_Filter_2"
 
 #load the filter coffiecnts
