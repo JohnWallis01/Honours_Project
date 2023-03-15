@@ -1,0 +1,90 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.444302",
+   "Default View_TopLeft":"-786,-266",
+   "ExpandedHierarchyInLayout":"",
+   "Reduced Jogs_ExpandedHierarchyInLayout":"",
+   "Reduced Jogs_Layout":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x -80 -y 380 -defaultsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x -80 -y 540 -defaultsOSRD
+preplace portBus Freq_Guess -pg 1 -lvl 0 -x -80 -y 360 -defaultsOSRD
+preplace inst Subtractor_0 -pg 1 -lvl 1 -x 80 -y 340 -swap {1 0 2} -defaultsOSRD -pinBusY Q1 20L -pinBusY Q2 0L -pinBusY Dout 40R
+preplace inst ConstantIP_0 -pg 1 -lvl 4 -x 890 -y 220 -defaultsOSRD -pinBusY D 0R
+preplace inst NCO_0 -pg 1 -lvl 2 -x 380 -y 360 -swap {1 2 0 3 4} -defaultsOSRD -pinBusY Frequency 20L -pinBusY PhaseOffset 120L -pinY clock 0L -pinY rst 180L -pinBusY Dout 20R
+preplace inst ConstantIP_1 -pg 1 -lvl 4 -x 890 -y 120 -defaultsOSRD -pinBusY D 0R
+preplace inst ConstantIP_2 -pg 1 -lvl 1 -x 80 -y 480 -defaultsOSRD -pinBusY D 0R
+preplace inst Mixer_0 -pg 1 -lvl 3 -x 660 -y 360 -swap {1 0 2} -defaultsOSRD -pinBusY Q1 20L -pinBusY Q2 0L -pinBusY Dout 0R
+preplace inst Compressor_1 -pg 1 -lvl 4 -x 890 -y 360 -defaultsOSRD -pinBusY Q 0L -pinBusY D 0R
+preplace inst CIC_Filter_0 -pg 1 -lvl 5 -x 1220 -y 180 -swap {2 0 1 3 5 4} -defaultsOSRD -pinY clk 160L -pinY clk_enable 0L -pinY reset 60L -pinBusY filter_in 180L -pinBusY filter_out 180R -pinY ce_out 0R
+preplace inst PIG_Controller_0 -pg 1 -lvl 2 -x 380 -y 640 -swap {0 1 3 4 5 2} -defaultsOSRD -pinBusY SignalInput 0L -pinBusY SignalOutput 0R -pinBusY kI 40L -pinBusY kP 60L -pinBusY kG 80L -pinY clock 20L
+preplace netloc PIG_Controller_0_SignalOutput 1 0 3 -40 280 N 280 540
+preplace netloc Subtractor_0_Dout 1 1 1 N 380
+preplace netloc ConstantIP_0_D 1 4 1 1020J 220n
+preplace netloc ConstantIP_2_D 1 1 1 NJ 480
+preplace netloc NCO_0_Dout 1 2 1 NJ 380
+preplace netloc ConstantIP_1_D 1 4 1 1020J 120n
+preplace netloc Mixer_0_Dout 1 3 1 N 360
+preplace netloc CIC_Filter_0_filter_out 1 1 5 220 300 NJ 300 N 300 1000J 500 1360
+preplace netloc SignalGenerator_D 1 4 1 N 360
+preplace netloc axi_gpio_0_gpio_io_o 1 0 1 NJ 360
+preplace netloc Net 1 0 5 -60 260 200 260 NJ 260 780 280 1020
+preplace netloc SignalGenerator_D1 1 0 2 NJ 540 NJ
+levelinfo -pg 1 -80 80 380 660 890 1220 1380
+pagesize -pg 1 -db -bbox -sgen -250 0 1380 780
+",
+   "Reduced Jogs_ScaleFactor":"0.378929",
+   "Reduced Jogs_TopLeft":"-1185,-644",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 270 -defaultsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x 0 -y 290 -defaultsOSRD
+preplace port port-id_s_axi_aresetn -pg 1 -lvl 0 -x 0 -y 630 -defaultsOSRD
+preplace port port-id_s_axi_aclk -pg 1 -lvl 0 -x 0 -y 610 -defaultsOSRD
+preplace port S_AXI2_KG -pg 1 -lvl 0 -x 0 -y 1030 -defaultsOSRD
+preplace port S_AXI1_KI -pg 1 -lvl 0 -x 0 -y 900 -defaultsOSRD
+preplace port S_AXI_KP -pg 1 -lvl 0 -x 0 -y 760 -defaultsOSRD
+preplace port S_AXI3_Fguess -pg 1 -lvl 0 -x 0 -y 590 -defaultsOSRD
+preplace portBus ErrorSignal -pg 1 -lvl 6 -x 1660 -y 490 -defaultsOSRD
+preplace portBus LockedSignal -pg 1 -lvl 6 -x 1660 -y 530 -defaultsOSRD
+preplace portBus TargetSignal -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace inst NCO_0 -pg 1 -lvl 2 -x 630 -y 260 -swap {1 2 0 3 4} -defaultsOSRD
+preplace inst CIC_Filter_0 -pg 1 -lvl 5 -x 1490 -y 330 -swap {2 0 1 3 5 4} -defaultsOSRD
+preplace inst Compressor_1 -pg 1 -lvl 4 -x 1210 -y 360 -defaultsOSRD
+preplace inst ConstantIP_2 -pg 1 -lvl 1 -x 240 -y 380 -defaultsOSRD
+preplace inst ConstantIP_0 -pg 1 -lvl 4 -x 1210 -y 220 -defaultsOSRD
+preplace inst ConstantIP_1 -pg 1 -lvl 4 -x 1210 -y 110 -defaultsOSRD
+preplace inst Mixer_0 -pg 1 -lvl 3 -x 970 -y 220 -swap {1 0 2} -defaultsOSRD
+preplace inst Subtractor_0 -pg 1 -lvl 1 -x 240 -y 190 -swap {1 0 2} -defaultsOSRD
+preplace inst PIG_Controller_0 -pg 1 -lvl 2 -x 630 -y 480 -swap {0 1 3 4 5 2} -defaultsOSRD
+preplace inst axi_gpio_1 -pg 1 -lvl 1 -x 240 -y 780 -defaultsOSRD
+preplace inst axi_gpio_2 -pg 1 -lvl 1 -x 240 -y 920 -defaultsOSRD
+preplace inst axi_gpio_3 -pg 1 -lvl 1 -x 240 -y 1060 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 1 -x 240 -y 610 -defaultsOSRD
+preplace netloc PIG_Controller_0_SignalOutput 1 0 3 40 120 NJ 120 790
+preplace netloc Subtractor_0_Dout 1 1 1 380 190n
+preplace netloc ConstantIP_0_D 1 4 1 1330 220n
+preplace netloc ConstantIP_2_D 1 1 1 400J 270n
+preplace netloc NCO_0_Dout 1 2 4 800J 290 NJ 290 1340J 240 1640
+preplace netloc ConstantIP_1_D 1 4 1 1350 110n
+preplace netloc Mixer_0_Dout 1 3 1 1090 220n
+preplace netloc CIC_Filter_0_filter_out 1 1 5 410 380 NJ 380 1090J 420 NJ 420 1630
+preplace netloc SignalGenerator_D 1 4 1 N 360
+preplace netloc Net 1 0 5 N 270 390 350 800J 300 NJ 300 1320
+preplace netloc SignalGenerator_D1 1 0 2 NJ 290 NJ
+preplace netloc TargetSignal_1 1 0 3 NJ 60 NJ 60 800
+preplace netloc s_axi_aresetn_1 1 0 1 20 630n
+preplace netloc s_axi_aclk_1 1 0 1 40 610n
+preplace netloc axi_gpio_1_gpio_io_o 1 1 1 400 500n
+preplace netloc axi_gpio_2_gpio_io_o 1 1 1 390 480n
+preplace netloc axi_gpio_3_gpio_io_o 1 1 1 410 520n
+preplace netloc axi_gpio_0_gpio_io_o 1 0 2 40J 260 380
+preplace netloc Conn1 1 0 1 NJ 760
+preplace netloc Conn2 1 0 1 NJ 900
+preplace netloc Conn3 1 0 1 30J 1030n
+preplace netloc Conn4 1 0 1 NJ 590
+levelinfo -pg 1 0 240 630 970 1210 1490 1660
+pagesize -pg 1 -db -bbox -sgen -170 0 1840 1480
+"
+}
+

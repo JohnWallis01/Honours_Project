@@ -61,26 +61,26 @@ entity Compressor is
         D <= to_unsigned(OutputConstant, OutputSize);
         end architecture;
 
--- library ieee;
--- use ieee.std_logic_1164.all;
--- use ieee.numeric_std.all;
--- use ieee.math_real.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
 
--- entity Subtractor is
---   generic(
---     size : integer := 16
---   );
---   port (
---     Q1: in signed(size-1 downto 0);
---     Q2: in signed(size-1 downto 0);
---     Dout : out signed(size-1 downto 0)
---   );
--- end Subtractor;
+entity Subtractor is
+  generic(
+    size : integer := 16
+  );
+  port (
+    Q1: in signed(size-1 downto 0);
+    Q2: in signed(size-1 downto 0);
+    Dout : out signed(size-1 downto 0)
+  );
+end Subtractor;
 
--- architecture Subtractor_arch of Subtractor is
---   begin
---     Dout <= Q1 - Q2;
--- end architecture; -- arch
+architecture Subtractor_arch of Subtractor is
+  begin
+    Dout <= Q1 - Q2;
+end architecture; -- arch
 
 
 
@@ -104,3 +104,28 @@ architecture PhaseDetector_arch of PhaseDetector is
   begin
     Dout <= Sig1 xor Sig2;
 end architecture;
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity BitSlicer is 
+    generic(
+      Input_Size: integer:= 32;
+      Slice_Start: integer := 15;
+      Slice_End: integer := 0
+    );
+    port (
+      Data_In: in std_logic_vector(Input_Size -1 downto 0);
+      Data_Out: out std_logic_vector(Slice_Start-Slice_End downto 0)
+    );
+    end BitSlicer;
+
+   architecture BitSlicer_arch of Bitslicer is
+      begin
+        Data_Out(Slice_Start-Slice_End downto 0) <= Data_In(Slice_Start downto Slice_End);
+      end architecture;
+
+

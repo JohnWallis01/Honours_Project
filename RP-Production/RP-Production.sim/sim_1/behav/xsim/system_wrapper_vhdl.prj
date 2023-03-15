@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd" \
+"C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd" \
+"../../../../1_led_blink.ip_user_files/bd/system/ip/system_proc_sys_reset_0_0/sim/system_proc_sys_reset_0_0.vhd" \
+"../../../../1_led_blink.ip_user_files/bd/system/ip/system_util_ds_buf_0_0/util_ds_buf.vhd" \
+"../../../../1_led_blink.ip_user_files/bd/system/ip/system_util_ds_buf_0_0/sim/system_util_ds_buf_0_0.vhd" \
+"../../../../1_led_blink.ip_user_files/bd/system/ip/system_util_ds_buf_1_0/sim/system_util_ds_buf_1_0.vhd" \
+
+# Do not sort compile order
+nosort
