@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_Mixer_0_0",
-    "cell_name": "Mixer_0",
+    "cell_name": "PLL/Mixer_0",
     "component_reference": "xilinx.com:module_ref:Mixer:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_Mixer_0_0",

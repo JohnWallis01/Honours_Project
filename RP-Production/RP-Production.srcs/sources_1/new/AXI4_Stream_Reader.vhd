@@ -32,9 +32,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity AXI4_Stream_Reader is
+    generic(
+        stream_size: integer := 32
+    );
       Port ( 
-        s_axis_tdata : in STD_LOGIC_VECTOR (31 downto 0);
-        Dout : out STD_LOGIC_VECTOR (31 downto 0);
+        s_axis_tdata : in STD_LOGIC_VECTOR (stream_size-1 downto 0);
+        Dout : out STD_LOGIC_VECTOR (stream_size-1 downto 0);
         s_axis_tvalid : in STD_LOGIC;
         s_axis_tready : out STD_LOGIC := '1';
         aclk : in STD_LOGIC

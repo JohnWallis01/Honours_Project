@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "AXI4_Stream_Reader,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_AXI4_Stream_Reader_0_0,AXI4_Stream_Reader,{}" *)
-(* CORE_GENERATION_INFO = "system_AXI4_Stream_Reader_0_0,AXI4_Stream_Reader,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=AXI4_Stream_Reader,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "system_AXI4_Stream_Reader_0_0,AXI4_Stream_Reader,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=AXI4_Stream_Reader,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,stream_size=32}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_AXI4_Stream_Reader_0_0 (
@@ -75,7 +75,9 @@ output wire s_axis_tready;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 
-  AXI4_Stream_Reader inst (
+  AXI4_Stream_Reader #(
+    .stream_size(32)
+  ) inst (
     .s_axis_tdata(s_axis_tdata),
     .Dout(Dout),
     .s_axis_tvalid(s_axis_tvalid),

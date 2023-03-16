@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_Dual_Multiplexer_0_0",
-    "cell_name": "Dual_Multiplexer_0",
+    "cell_name": "ADC_override/Dual_Multiplexer_0",
     "component_reference": "xilinx.com:module_ref:Dual_Multiplexer:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_Dual_Multiplexer_0_0",

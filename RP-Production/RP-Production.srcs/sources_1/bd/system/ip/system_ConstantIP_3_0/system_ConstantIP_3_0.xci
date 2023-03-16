@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_ConstantIP_3_0",
-    "cell_name": "ConstantIP_4",
+    "cell_name": "ADC_override/ConstantIP_4",
     "component_reference": "xilinx.com:module_ref:ConstantIP:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_ConstantIP_3_0",

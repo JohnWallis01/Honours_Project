@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Wed Mar 15 12:53:27 2023
+| Date         : Thu Mar 16 15:09:27 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
@@ -165,12 +165,19 @@ Warning! LUT value is adjusted to account for LUT combining.
 | system_util_ds_buf_0_0         |    1 |
 | system_processing_system7_0_0  |    1 |
 | system_proc_sys_reset_0_0      |    1 |
+| system_n_Multiplexer_0_1       |    1 |
+| system_n_Multiplexer_0_0       |    1 |
 | system_clk_wiz_0_0             |    1 |
 | system_axis_red_pitaya_dac_1_0 |    1 |
 | system_axis_red_pitaya_adc_0_0 |    1 |
+| system_axis_constant_0_1       |    1 |
 | system_axis_constant_0_0       |    1 |
+| system_axi_gpio_5_0            |    1 |
 | system_axi_gpio_4_0            |    1 |
+| system_axi_gpio_3_2            |    1 |
 | system_axi_gpio_3_0            |    1 |
+| system_axi_gpio_0_5            |    1 |
+| system_axi_gpio_0_4            |    1 |
 | system_axi_gpio_0_3            |    1 |
 | system_axi_gpio_0_2            |    1 |
 | system_axi_gpio_0_1            |    1 |
@@ -178,9 +185,12 @@ Warning! LUT value is adjusted to account for LUT combining.
 | system_auto_pc_0               |    1 |
 | system_Subtractor_0_0          |    1 |
 | system_PIG_Controller_0_0      |    1 |
+| system_PID_Controller_0_0      |    1 |
 | system_NCO_0_1                 |    1 |
 | system_NCO_0_0                 |    1 |
 | system_Mixer_0_0               |    1 |
+| system_Fast_Divider_0_0        |    1 |
+| system_Dual_Multiplexer_0_2    |    1 |
 | system_Dual_Multiplexer_0_0    |    1 |
 | system_DacRoute_0_0            |    1 |
 | system_ConstantIP_3_0          |    1 |
@@ -188,11 +198,16 @@ Warning! LUT value is adjusted to account for LUT combining.
 | system_ConstantIP_1_0          |    1 |
 | system_ConstantIP_0_3          |    1 |
 | system_ConstantIP_0_1          |    1 |
+| system_Compressor_1_1          |    1 |
 | system_Compressor_1_0          |    1 |
-| system_Compressor_0_0          |    1 |
+| system_Compressor_0_4          |    1 |
+| system_Compressor_0_3          |    1 |
+| system_CIC_axis_0_0            |    1 |
 | system_CIC_Filter_0_0          |    1 |
+| system_CIC_Basic_128_0_0       |    1 |
 | system_BitSlicer_0_1           |    1 |
 | system_BitSlicer_0_0           |    1 |
+| system_AXI4_Stream_Reader_0_1  |    1 |
 | system_AXI4_Stream_Reader_0_0  |    1 |
 +--------------------------------+------+
 

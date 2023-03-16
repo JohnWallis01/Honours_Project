@@ -74,7 +74,9 @@ output wire s_axis_tready;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 
-  AXI4_Stream_Reader inst (
+  AXI4_Stream_Reader #(
+    .stream_size(32)
+  ) inst (
     .s_axis_tdata(s_axis_tdata),
     .Dout(Dout),
     .s_axis_tvalid(s_axis_tvalid),

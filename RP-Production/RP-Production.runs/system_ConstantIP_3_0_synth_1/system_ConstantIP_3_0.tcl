@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "system_ConstantIP_3_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_msg_config -id {Common 17-41} -limit 10000000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/mref
@@ -94,7 +93,7 @@ set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd
-read_ip -quiet c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ip/system_ConstantIP_3_0/system_ConstantIP_3_0.xci
+read_ip -quiet C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ip/system_ConstantIP_3_0/system_ConstantIP_3_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_BitSlicer_0_1",
-    "cell_name": "BitSlicer_1",
+    "cell_name": "ADC_Interface/BitSlicer_1",
     "component_reference": "xilinx.com:module_ref:BitSlicer:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_BitSlicer_0_1",

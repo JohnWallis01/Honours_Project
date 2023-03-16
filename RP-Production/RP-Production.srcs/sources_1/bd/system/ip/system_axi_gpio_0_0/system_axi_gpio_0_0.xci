@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_axi_gpio_0_0",
-    "cell_name": "PLL/axi_gpio_0",
+    "cell_name": "PLL/InternalOscillator/axi_gpio_0",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "29",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_0_0",

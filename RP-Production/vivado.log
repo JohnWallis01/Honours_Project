@@ -2039,3 +2039,434 @@ open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Productio
 set_property location {4 279 115} [get_bd_cells Compressor_0]
 set_property location {4 302 94} [get_bd_cells Compressor_0]
 set_property location {4 298 106} [get_bd_cells Compressor_0]
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_BitSlicer_0_0_synth_1
+
+INFO: [IP_Flow 19-3420] Updated system_BitSlicer_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_BitSlicer_0_1 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Compressor_1_0_synth_1
+
+INFO: [IP_Flow 19-3420] Updated system_Compressor_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_Compressor_1_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:46 . Memory (MB): peak = 3563.480 ; gain = 0.406
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1 system_ConstantIP_3_0}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_0_1_synth_1
+
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_0_3_synth_1
+
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_1_0_synth_1
+
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_1_1_synth_1
+
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_0_1 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_0_3 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_1_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_1_1 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_3_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:03 ; elapsed = 00:00:24 . Memory (MB): peak = 3563.594 ; gain = 0.113
+update_module_reference system_Dual_Multiplexer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Dual_Multiplexer_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 3563.777 ; gain = 0.184
+update_module_reference system_Mixer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Mixer_0_0_synth_1
+
+INFO: [IP_Flow 19-3420] Updated system_Mixer_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3563.777 ; gain = 0.000
+update_module_reference system_Subtractor_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Subtractor_0_0_synth_1
+
+INFO: [IP_Flow 19-3420] Updated system_Subtractor_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 3563.828 ; gain = 0.051
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ';' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:214]
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_BitSlicer_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_BitSlicer_0_1 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:30 . Memory (MB): peak = 3563.828 ; gain = 0.000
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Compressor_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_Compressor_1_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:21 . Memory (MB): peak = 3563.828 ; gain = 0.000
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1 system_ConstantIP_3_0}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_0_1 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_0_3 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_1_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_1_1 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_3_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:21 . Memory (MB): peak = 3563.828 ; gain = 0.000
+update_module_reference system_Dual_Multiplexer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Dual_Multiplexer_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 3563.828 ; gain = 0.000
+update_module_reference system_Mixer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Mixer_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:00 ; elapsed = 00:00:20 . Memory (MB): peak = 3563.828 ; gain = 0.000
+update_module_reference system_Subtractor_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Subtractor_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:04 ; elapsed = 00:00:20 . Memory (MB): peak = 3563.855 ; gain = 0.027
+create_bd_cell -type module -reference Fast_Divider PLL/Fast_Divider_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+move_bd_cells [get_bd_cells /] [get_bd_cells PLL/Fast_Divider_0]
+set_property location {3 459 -100} [get_bd_cells Fast_Divider_0]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells Fast_Divider_0]
+delete_bd_objs [get_bd_nets PLL/PIG_Controller_0_SignalOutput]
+set_property CONFIG.Data_Size {30} [get_bd_cells PLL/Fast_Divider_0]
+connect_bd_net [get_bd_pins PLL/Fast_Divider_0/Dout] [get_bd_pins PLL/Subtractor_0/Q2]
+connect_bd_net [get_bd_pins PLL/Fast_Divider_0/Input1] [get_bd_pins PLL/PIG_Controller_0/SignalOutput]
+move_bd_cells [get_bd_cells /] [get_bd_cells PLL/Fast_Divider_0]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells Fast_Divider_0]
+copy_bd_objs /  [get_bd_cells {PLL/axi_gpio_3}]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells axi_gpio_3]
+undo
+INFO: [Common 17-17] undo 'move_bd_cells [get_bd_cells PLL] [get_bd_cells axi_gpio_3]'
+undo
+INFO: [Common 17-17] undo 'copy_bd_objs /  [get_bd_cells {PLL/axi_gpio_3}]'
+undo
+INFO: [Common 17-17] undo 'move_bd_cells [get_bd_cells PLL] [get_bd_cells Fast_Divider_0]'
+redo
+INFO: [Common 17-16] redo 'move_bd_cells [get_bd_cells PLL] [get_bd_cells Fast_Divider_0]'
+copy_bd_objs /  [get_bd_cells {PLL/axi_gpio_3}]
+set_property location {3 -50 -1580} [get_bd_cells axi_gpio_3]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells axi_gpio_3]
+set_property CONFIG.C_GPIO_WIDTH {8} [get_bd_cells PLL/axi_gpio_4]
+connect_bd_net [get_bd_pins PLL/axi_gpio_4/gpio_io_o] [get_bd_pins PLL/Fast_Divider_0/Shift]
+WARNING: [BD 41-1306] The connection to interface pin </PLL/axi_gpio_4/gpio_io_o> is being overridden by the user with net <axi_gpio_4_gpio_io_o>. This pin will not be connected as a part of interface connection <GPIO>.
+startgroup
+set_property CONFIG.NUM_MI {7} [get_bd_cells PS7/axi_interconnect_1]
+endgroup
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M06_ACLK] [get_bd_pins PS7/processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M06_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+connect_bd_intf_net -boundary_type upper [get_bd_intf_pins PS7/axi_interconnect_1/M06_AXI] [get_bd_intf_pins PLL/axi_gpio_4/S_AXI]
+set_property location {3 712 -114} [get_bd_cells PLL]
+set_property location {4 955 -123} [get_bd_cells Compressor_0]
+set_property location {5 1227 323} [get_bd_cells DAC_Controller]
+delete_bd_objs [get_bd_nets Compressor_0_D]
+set_property location {4 235 130} [get_bd_cells Compressor_0]
+create_bd_cell -type module -reference n_Multiplexer n_Multiplexer_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+set_property location {2.5 -320 443} [get_bd_cells Compressor_0]
+connect_bd_net [get_bd_pins n_Multiplexer_0/Dout] [get_bd_pins DAC_Controller/DAC2]
+connect_bd_net [get_bd_pins n_Multiplexer_0/Input1] [get_bd_pins Compressor_0/D]
+connect_bd_net [get_bd_pins n_Multiplexer_0/Input2] [get_bd_pins ADC_override/Dout]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'in' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/VHDL_Modules/Logic.vhd:178]
+set_property location {3 405 1089} [get_bd_cells Compressor_0]
+set_property location {3 415 1079} [get_bd_cells Compressor_0]
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_BitSlicer_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_BitSlicer_0_1 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Compressor_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_Compressor_1_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:21 . Memory (MB): peak = 3613.324 ; gain = 3.039
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1 system_ConstantIP_3_0}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_0_1 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_0_3 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_1_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_1_1 to use current project options
+INFO: [IP_Flow 19-3420] Updated system_ConstantIP_3_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3632.816 ; gain = 19.492
+update_module_reference system_Dual_Multiplexer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Dual_Multiplexer_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3642.172 ; gain = 9.355
+update_module_reference system_Fast_Divider_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Fast_Divider_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3642.172 ; gain = 0.000
+update_module_reference system_Mixer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Mixer_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3645.156 ; gain = 2.984
+update_module_reference system_Subtractor_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_Subtractor_0_0 to use current project options
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3650.301 ; gain = 5.145
+update_module_reference system_n_Multiplexer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+Upgrading 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-3420] Updated system_n_Multiplexer_0_0 to use current project options
+WARNING: [IP_Flow 19-4706] Upgraded port 'Sel' width 3 differs from original width 1
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'Input3'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'Input4'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'Input5'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'Input6'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'Input7'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'Input8'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'system_n_Multiplexer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'system_n_Multiplexer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.srcs\sources_1\bd\system\system.bd> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbee37a5.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_7aeaf024.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_235e082b.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_bbe73601.ui> 
+Wrote  : <C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ui/bd_c2a1ccba.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:21 . Memory (MB): peak = 3650.301 ; gain = 0.000
+set_property location {3 404 1037} [get_bd_cells Compressor_0]
+set_property location {4 921 1023} [get_bd_cells n_Multiplexer_0]
+copy_bd_objs /  [get_bd_cells {ADC_override/axi_gpio_4}]
+set_property location {3 445 1224} [get_bd_cells axi_gpio_4]
+startgroup
+copy_bd_objs /  [get_bd_cells {Compressor_0}]
+INFO: [Common 17-365] Interrupt caught but 'copy_bd_objs' cannot be canceled. Please wait for command to finish.
+copy_bd_objs: Time (s): cpu = 00:00:03 ; elapsed = 00:01:29 . Memory (MB): peak = 3656.668 ; gain = 1.387
+INFO: [Common 17-681] Processing pending cancel.
+set_property location {1 -911 -316} [get_bd_cells Compressor_1]
+endgroup
+set_property location {3 382 621} [get_bd_cells Compressor_0]
+set_property location {3 340 726} [get_bd_cells axi_gpio_4]
+set_property location {4 854 699} [get_bd_cells n_Multiplexer_0]
