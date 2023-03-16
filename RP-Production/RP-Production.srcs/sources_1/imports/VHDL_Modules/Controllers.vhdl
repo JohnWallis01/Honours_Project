@@ -81,4 +81,4 @@ begin
     end process;
 
 
-end architecture; -- PIG_Controller
+end architecture; -- PID_Controller
