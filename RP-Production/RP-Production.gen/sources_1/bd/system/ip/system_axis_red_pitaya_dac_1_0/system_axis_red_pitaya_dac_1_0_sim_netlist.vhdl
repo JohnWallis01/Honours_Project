@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 -- Date        : Wed Mar 15 12:19:16 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_red_pitaya_dac_1_0/system_axis_red_pitaya_dac_1_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axis_red_pitaya_dac_1_0 -prefix
+--               system_axis_red_pitaya_dac_1_0_ system_axis_red_pitaya_dac_1_0_sim_netlist.vhdl
 -- Design      : system_axis_red_pitaya_dac_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,8 +27,6 @@ entity system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac is
     locked : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac : entity is "axis_red_pitaya_dac";
 end system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac;
 
 architecture STRUCTURE of system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac is

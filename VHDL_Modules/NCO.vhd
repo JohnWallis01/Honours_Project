@@ -12,8 +12,8 @@ entity NCO is
   ADC_SIZE:integer := 16
   ) ;
   port (
-    Frequency: in unsigned(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
-    PhaseOffset: in unsigned(Freq_Size-1 downto 0) := (others =>'0');
+    Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
+    PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
     clock: in std_logic := '0';
     rst: in std_logic := '0';
     Dout: out std_logic_vector(ADC_SIZE-1 Downto 0) := (others =>'0') -- DAC size
@@ -73,8 +73,8 @@ architecture NCO_str of NCO is
         if (rst='1') then
           phase<=(others =>'0');
         else
-        phase <= phase + Frequency;
-        OffsetPhase <= phase +PhaseOffset;
+        phase <= phase +  unsigned(Frequency);
+        OffsetPhase <= phase + unsigned(PhaseOffset);
         --implying ram
         sigbuffer <= sigbits;
         case sigbits is

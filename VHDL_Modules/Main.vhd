@@ -3,13 +3,11 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-
-
 entity Custom_System is
     port (
 
     ------GPIO's
-    PLL_Guess_Freq: in signed(31 downto 0);
+    PLL_Guess_Freq: in std_logic_vector(31 downto 0);
     Internal_Debug_Freq: in std_logic_vector(31 downto 0);
     ADC_Override: in std_logic;
     Debug_Signal_Select: in std_logic_vector(2 downto 0);
@@ -41,9 +39,9 @@ architecture System_Architecture of Custom_System is
           MixerSize: integer := 16
       );
       port (
-          Q1: in signed(MixerSize-1 downto 0); 
-          Q2: in signed(MixerSize-1 downto 0);
-          Dout: out signed((2*MixerSize)-1 downto 0)
+          Q1: in std_logic_vector(MixerSize-1 downto 0); 
+          Q2: in std_logic_vector(MixerSize-1 downto 0);
+          Dout: out std_logic_vector((2*MixerSize)-1 downto 0)
       ) ;
   end Component;
 
@@ -59,7 +57,7 @@ architecture System_Architecture of Custom_System is
         );
   end Component;
 
-  Component n_Multiplexer is
+  Component Octal_Multiplexer is
       generic(
           Data_Size: integer := 14
       );
@@ -81,12 +79,12 @@ architecture System_Architecture of Custom_System is
         generic(
             stream_size: integer := 32
         );
-          Port ( 
-            s_axis_tdata : in STD_LOGIC_VECTOR (stream_size-1 downto 0);
-            Dout : out STD_LOGIC_VECTOR (stream_size-1 downto 0);
-            s_axis_tvalid : in STD_LOGIC;
-            s_axis_tready : out STD_LOGIC := '1';
-            aclk : in STD_LOGIC
+        port ( 
+            s_axis_tdata : in std_logic_vector (stream_size-1 downto 0);
+            Dout : out std_logic_vector (stream_size-1 downto 0);
+            s_axis_tvalid : in std_logic;
+            s_axis_tready : out std_logic := '1';
+            aclk : in std_logic
                       );
   end component;
 
@@ -97,8 +95,8 @@ architecture System_Architecture of Custom_System is
       ADC_SIZE:integer := 16
       ) ;
       port (
-        Frequency: in unsigned(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
-        PhaseOffset: in unsigned(Freq_Size-1 downto 0) := (others =>'0');
+        Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
+        PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
         clock: in std_logic := '0';
         rst: in std_logic := '0';
         Dout: out std_logic_vector(ADC_SIZE-1 Downto 0) := (others =>'0') -- DAC size
@@ -111,33 +109,28 @@ architecture System_Architecture of Custom_System is
         Data_Size: integer := 32;
         Inital: integer := 0
     );
-    port(SignalInput: in signed(Data_Size-1 downto 0) := (others => '0');
-          SignalOutput: out signed(Data_Size-1 downto 0) := (others => '0');
-          kI: in signed(Data_Size-1 downto 0) := (others => '0');
-          kP: in signed(Data_Size-1 downto 0) := (others => '0');
-          kD: in signed(Data_Size-1 downto 0) := (others => '0');
+    port(SignalInput: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
+          SignalOutput: out std_logic_vector(Data_Size-1 downto 0) := (others => '0');
+          kI: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
+          kP: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
+          kD: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
           clock: in std_logic
     );
   end component;
     
   component CIC_Basic_128 IS
-  PORT( clk                             :   IN    std_logic; 
-        clk_enable                      :   IN    std_logic; 
-        reset                           :   IN    std_logic; 
-        filter_in                       :   IN    std_logic_vector(15 DOWNTO 0); -- sfix16_En15
-        filter_out                      :   OUT   std_logic_vector(27 DOWNTO 0); -- sfix28_En15
-        ce_out                          :   OUT   std_logic  
-        );
+    PORT( clk                             :   IN    std_logic; 
+          clk_enable                      :   IN    std_logic; 
+          reset                           :   IN    std_logic; 
+          filter_in                       :   IN    std_logic_vector(15 DOWNTO 0); -- sfix16_En15
+          filter_out                      :   OUT   std_logic_vector(27 DOWNTO 0); -- sfix28_En15
+          ce_out                          :   OUT   std_logic  
+          );
   END component;
 
-
-  signal ADC_Stream, ADC_Debug_NCO_Dout: std_logic_vector(31 downto 0);
-  signal Target_Signal, Locked_Signal: std_logic_vector(13 downto 0);
-  signal PLL_Freq, Control_Input: signed(31 downto 0);
-  signal Mixer_Output, Error_Signal, Filter_Test: signed(27 downto 0);
-
-  signal Test_Sig1, Test_Sig2: signed(7 downto 0);
-  signal Test_Sig_Mixed: signed(15 downto 0);
+  signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0);
+  signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout: std_logic_vector(13 downto 0);
+  signal Mixer_Output, Error_Signal: std_logic_vector(27 downto 0);
   
   begin
 
@@ -160,7 +153,7 @@ architecture System_Architecture of Custom_System is
   generic map(Freq_Size => 32, ROM_Size => 8, ADC_Size => 14)
   port map(
     Frequency =>Internal_Debug_Freq,
-    PhaseOffset => to_unsigned(0, 32),
+    PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
     clock => AD_CLK_in,
     rst => '0',
     Dout => ADC_Debug_NCO_Dout
@@ -177,13 +170,13 @@ architecture System_Architecture of Custom_System is
 
   --PLL--
 
-  PLL_Freq <= PLL_Guess_Freq - Control_Input;
+  PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) - signed(Control_Input));
 
   PLL_NCO: NCO
   generic map(Freq_Size => 32, ROM_Size => 8, ADC_Size => 14)
   port map(
       Frequency => PLL_Freq,
-      PhaseOffset => to_unsigned(0,32),
+      PhaseOffset => std_logic_vector(to_unsigned(0,32)),
       clock => AD_CLK_in,
       rst => '0',
       Dout => Locked_Signal
@@ -196,6 +189,7 @@ architecture System_Architecture of Custom_System is
     Dout => Mixer_Output
   );
 
+
   Loop_Filter: CIC_Basic_128
   port map(
     clk  => AD_CLK_in,
@@ -206,12 +200,10 @@ architecture System_Architecture of Custom_System is
     ce_out => open
   );
 
-  --Controller
-
   Loop_Controller: PID_Controller
   generic map(Data_Size => 32, Inital => 0)
   port map(
-    SignalInput => Error_Signal, -- Assign LSB to this signal
+    SignalInput => "0000" & Error_Signal, -- Assign LSB to this signal
     SignalOutput => Control_Input,
     kI => Control_Ki,
     kP => Control_Kp,
@@ -225,58 +217,19 @@ architecture System_Architecture of Custom_System is
   DAC_Stream_out(15 downto 14) <= "00";
 
   DAC_Stream_out(13 downto 0) <= Locked_Signal;
-  Debug_Selector_Mux: n_Multiplexer
+  Debug_Selector_Mux: Octal_Multiplexer
   generic map(Data_Size => 14)
   port map(
     Input1 => Error_Signal(27 downto 14),
     Input2 => Target_Signal,
     Input3 => Mixer_Output(27 downto 14),
-    Input4 => Control_Input,
-    Input5 => Filter_Test(27 downto 14),
-    Input6 => to_unsigned(0, 14),
-    Input7 => to_unsigned(0, 14),
-    Input8 => to_unsigned(0, 14),
+    Input4 => Control_Input(31 downto 18),
+    Input5 => std_logic_vector(to_unsigned(0, 14)),
+    Input6 => std_logic_vector(to_unsigned(0, 14)),
+    Input7 => std_logic_vector(to_unsigned(0, 14)),
+    Input8 => std_logic_vector(to_unsigned(0, 14)),
     Sel =>Debug_Signal_Select,
     Dout => DAC_Stream_out(29 downto 16)
-  );
-
-
-  --Filter Tester--
-  Test_NCO_1: NCO
-  generic map(Freq_Size => 32, ROM_Size => 8, ADC_SIZE => 8)
-  port map(
-    Frequency => to_unsigned(343597384,32),
-    PhaseOffset => to_unsigned(0,32),
-    clock => AD_CLK_in,
-    rst => '0',
-    Dout => Test_Sig1
-  );
-  Test_NCO_2: NCO
-  generic map(Freq_Size => 32, ROM_Size => 8, ADC_SIZE => 8)
-  port map(
-    Frequency => to_unsigned(343597384,32), --- 10Mhz
-    PhaseOffset => to_unsigned(347033358,32), --- 10.1 Mhz
-    clock => AD_CLK_in,
-    rst => '0',
-    Dout => Test_Sig2
-  );
-
-  Test_Mixer: Mixer
-  generic map(MixerSize => 8)
-  port map(
-  Q1 => Test_Sig1,
-  Q2 => Test_Sig2,
-  Dout => Test_Sig_Mixed
-  );
-
-  Test_Filter: CIC_Basic_128
-  port map(
-    clk  => AD_CLK_in,
-    clk_enable => '1',
-    reset => '0',
-    filter_in => Test_Sig_Mixed,
-    filter_out => Filter_Test,
-    ce_out => open
   );
 
 end architecture;

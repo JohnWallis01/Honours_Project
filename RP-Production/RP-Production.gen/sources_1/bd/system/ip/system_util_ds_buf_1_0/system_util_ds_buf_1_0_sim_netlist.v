@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Wed Mar 15 12:20:21 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_util_ds_buf_1_0 -prefix
+//               system_util_ds_buf_1_0_ system_util_ds_buf_1_0_sim_netlist.v
 // Design      : system_util_ds_buf_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -191,7 +191,7 @@ endmodule
 
 (* C_BUFGCE_DIV = "1" *) (* C_BUFG_GT_SYNC = "0" *) (* C_BUF_TYPE = "OBUFDS" *) 
 (* C_MODE = "PERFORMANCE" *) (* C_OBUFDS_GTE5_ADV = "2'b00" *) (* C_REFCLK_ICNTL_TX = "5'b00000" *) 
-(* C_SIM_DEVICE = "VERSAL_AI_CORE_ES1" *) (* C_SIZE = "2" *) (* ORIG_REF_NAME = "util_ds_buf" *) 
+(* C_SIM_DEVICE = "VERSAL_AI_CORE_ES1" *) (* C_SIZE = "2" *) 
 module system_util_ds_buf_1_0_util_ds_buf
    (IBUF_DS_P,
     IBUF_DS_N,
