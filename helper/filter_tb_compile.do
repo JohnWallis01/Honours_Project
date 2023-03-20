@@ -1,3 +1,3 @@
 vlib work
-vcom  filter.vhd
+vcom  IIR_High_Performance.vhd
 vcom  filter_tb.vhd

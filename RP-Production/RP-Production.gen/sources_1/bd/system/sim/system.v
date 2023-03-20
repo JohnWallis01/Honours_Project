@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Mar 17 13:13:14 2023
+//Date        : Sun Mar 19 20:56:04 2023
 //Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -2872,7 +2872,7 @@ module s00_couplers_imp_1BINDXC
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=31,numReposBlks=18,numNonXlnxBlks=3,numHierBlks=13,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,\"\"da_axi4_cnt\"\"=4,\"\"da_board_cnt\"\"=3,\"\"da_clkrst_cnt\"\"=1,\"\"da_ps7_cnt\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=31,numReposBlks=18,numNonXlnxBlks=3,numHierBlks=13,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,\"\"\"da_axi4_cnt\"\"\"=4,\"\"\"da_board_cnt\"\"\"=3,\"\"\"da_clkrst_cnt\"\"\"=1,\"\"\"da_ps7_cnt\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2960,7 +2960,7 @@ module system
   wire [31:0]Custom_System_0_DAC_Stream_out;
   wire Custom_System_0_Reset;
   wire [0:0]GPIO_ADC_Override_gpio_io_o;
-  wire [2:0]GPIO_Debug_Signal_Select_gpio_io_o;
+  wire [2:0]GPIO_Interface_gpio_io_o2;
   wire [31:0]GPIO_Internal_Debug_Freq_gpio_io_o;
   wire [31:0]GPIO_Kd_gpio_io_o;
   wire [31:0]GPIO_Ki_gpio_io_o;
@@ -2985,6 +2985,40 @@ module system
   wire PS7_M00_AXI_WREADY;
   wire [3:0]PS7_M00_AXI_WSTRB;
   wire PS7_M00_AXI_WVALID;
+  wire [31:0]PS7_M02_AXI_ARADDR;
+  wire PS7_M02_AXI_ARREADY;
+  wire PS7_M02_AXI_ARVALID;
+  wire [31:0]PS7_M02_AXI_AWADDR;
+  wire PS7_M02_AXI_AWREADY;
+  wire PS7_M02_AXI_AWVALID;
+  wire PS7_M02_AXI_BREADY;
+  wire [1:0]PS7_M02_AXI_BRESP;
+  wire PS7_M02_AXI_BVALID;
+  wire [31:0]PS7_M02_AXI_RDATA;
+  wire PS7_M02_AXI_RREADY;
+  wire [1:0]PS7_M02_AXI_RRESP;
+  wire PS7_M02_AXI_RVALID;
+  wire [31:0]PS7_M02_AXI_WDATA;
+  wire PS7_M02_AXI_WREADY;
+  wire [3:0]PS7_M02_AXI_WSTRB;
+  wire PS7_M02_AXI_WVALID;
+  wire [31:0]PS7_M03_AXI_ARADDR;
+  wire PS7_M03_AXI_ARREADY;
+  wire PS7_M03_AXI_ARVALID;
+  wire [31:0]PS7_M03_AXI_AWADDR;
+  wire PS7_M03_AXI_AWREADY;
+  wire PS7_M03_AXI_AWVALID;
+  wire PS7_M03_AXI_BREADY;
+  wire [1:0]PS7_M03_AXI_BRESP;
+  wire PS7_M03_AXI_BVALID;
+  wire [31:0]PS7_M03_AXI_RDATA;
+  wire PS7_M03_AXI_RREADY;
+  wire [1:0]PS7_M03_AXI_RRESP;
+  wire PS7_M03_AXI_RVALID;
+  wire [31:0]PS7_M03_AXI_WDATA;
+  wire PS7_M03_AXI_WREADY;
+  wire [3:0]PS7_M03_AXI_WSTRB;
+  wire PS7_M03_AXI_WVALID;
   wire [31:0]S_AXI1_1_ARADDR;
   wire S_AXI1_1_ARREADY;
   wire S_AXI1_1_ARVALID;
@@ -3002,40 +3036,6 @@ module system
   wire S_AXI1_1_WREADY;
   wire [3:0]S_AXI1_1_WSTRB;
   wire S_AXI1_1_WVALID;
-  wire [31:0]S_AXI2_1_ARADDR;
-  wire S_AXI2_1_ARREADY;
-  wire S_AXI2_1_ARVALID;
-  wire [31:0]S_AXI2_1_AWADDR;
-  wire S_AXI2_1_AWREADY;
-  wire S_AXI2_1_AWVALID;
-  wire S_AXI2_1_BREADY;
-  wire [1:0]S_AXI2_1_BRESP;
-  wire S_AXI2_1_BVALID;
-  wire [31:0]S_AXI2_1_RDATA;
-  wire S_AXI2_1_RREADY;
-  wire [1:0]S_AXI2_1_RRESP;
-  wire S_AXI2_1_RVALID;
-  wire [31:0]S_AXI2_1_WDATA;
-  wire S_AXI2_1_WREADY;
-  wire [3:0]S_AXI2_1_WSTRB;
-  wire S_AXI2_1_WVALID;
-  wire [31:0]S_AXI3_1_ARADDR;
-  wire S_AXI3_1_ARREADY;
-  wire S_AXI3_1_ARVALID;
-  wire [31:0]S_AXI3_1_AWADDR;
-  wire S_AXI3_1_AWREADY;
-  wire S_AXI3_1_AWVALID;
-  wire S_AXI3_1_BREADY;
-  wire [1:0]S_AXI3_1_BRESP;
-  wire S_AXI3_1_BVALID;
-  wire [31:0]S_AXI3_1_RDATA;
-  wire S_AXI3_1_RREADY;
-  wire [1:0]S_AXI3_1_RRESP;
-  wire S_AXI3_1_RVALID;
-  wire [31:0]S_AXI3_1_WDATA;
-  wire S_AXI3_1_WREADY;
-  wire [3:0]S_AXI3_1_WSTRB;
-  wire S_AXI3_1_WVALID;
   wire [31:0]S_AXI4_1_ARADDR;
   wire S_AXI4_1_ARREADY;
   wire S_AXI4_1_ARVALID;
@@ -3147,7 +3147,7 @@ module system
         .Control_Ki(GPIO_Ki_gpio_io_o),
         .Control_Kp(GPIO_Kp_gpio_io_o),
         .DAC_Stream_out(Custom_System_0_DAC_Stream_out),
-        .Debug_Signal_Select(GPIO_Debug_Signal_Select_gpio_io_o),
+        .Debug_Signal_Select(GPIO_Interface_gpio_io_o2),
         .Internal_Debug_Freq(GPIO_Internal_Debug_Freq_gpio_io_o),
         .PLL_Guess_Freq(GPIO_PLL_GUESS_Freq_gpio_io_o),
         .Reset(Custom_System_0_Reset),
@@ -3186,40 +3186,40 @@ module system
         .S_AXI1_wready(S_AXI1_1_WREADY),
         .S_AXI1_wstrb(S_AXI1_1_WSTRB),
         .S_AXI1_wvalid(S_AXI1_1_WVALID),
-        .S_AXI2_araddr(S_AXI2_1_ARADDR),
-        .S_AXI2_arready(S_AXI2_1_ARREADY),
-        .S_AXI2_arvalid(S_AXI2_1_ARVALID),
-        .S_AXI2_awaddr(S_AXI2_1_AWADDR),
-        .S_AXI2_awready(S_AXI2_1_AWREADY),
-        .S_AXI2_awvalid(S_AXI2_1_AWVALID),
-        .S_AXI2_bready(S_AXI2_1_BREADY),
-        .S_AXI2_bresp(S_AXI2_1_BRESP),
-        .S_AXI2_bvalid(S_AXI2_1_BVALID),
-        .S_AXI2_rdata(S_AXI2_1_RDATA),
-        .S_AXI2_rready(S_AXI2_1_RREADY),
-        .S_AXI2_rresp(S_AXI2_1_RRESP),
-        .S_AXI2_rvalid(S_AXI2_1_RVALID),
-        .S_AXI2_wdata(S_AXI2_1_WDATA),
-        .S_AXI2_wready(S_AXI2_1_WREADY),
-        .S_AXI2_wstrb(S_AXI2_1_WSTRB),
-        .S_AXI2_wvalid(S_AXI2_1_WVALID),
-        .S_AXI3_araddr(S_AXI3_1_ARADDR),
-        .S_AXI3_arready(S_AXI3_1_ARREADY),
-        .S_AXI3_arvalid(S_AXI3_1_ARVALID),
-        .S_AXI3_awaddr(S_AXI3_1_AWADDR),
-        .S_AXI3_awready(S_AXI3_1_AWREADY),
-        .S_AXI3_awvalid(S_AXI3_1_AWVALID),
-        .S_AXI3_bready(S_AXI3_1_BREADY),
-        .S_AXI3_bresp(S_AXI3_1_BRESP),
-        .S_AXI3_bvalid(S_AXI3_1_BVALID),
-        .S_AXI3_rdata(S_AXI3_1_RDATA),
-        .S_AXI3_rready(S_AXI3_1_RREADY),
-        .S_AXI3_rresp(S_AXI3_1_RRESP),
-        .S_AXI3_rvalid(S_AXI3_1_RVALID),
-        .S_AXI3_wdata(S_AXI3_1_WDATA),
-        .S_AXI3_wready(S_AXI3_1_WREADY),
-        .S_AXI3_wstrb(S_AXI3_1_WSTRB),
-        .S_AXI3_wvalid(S_AXI3_1_WVALID),
+        .S_AXI2_araddr(PS7_M02_AXI_ARADDR),
+        .S_AXI2_arready(PS7_M02_AXI_ARREADY),
+        .S_AXI2_arvalid(PS7_M02_AXI_ARVALID),
+        .S_AXI2_awaddr(PS7_M02_AXI_AWADDR),
+        .S_AXI2_awready(PS7_M02_AXI_AWREADY),
+        .S_AXI2_awvalid(PS7_M02_AXI_AWVALID),
+        .S_AXI2_bready(PS7_M02_AXI_BREADY),
+        .S_AXI2_bresp(PS7_M02_AXI_BRESP),
+        .S_AXI2_bvalid(PS7_M02_AXI_BVALID),
+        .S_AXI2_rdata(PS7_M02_AXI_RDATA),
+        .S_AXI2_rready(PS7_M02_AXI_RREADY),
+        .S_AXI2_rresp(PS7_M02_AXI_RRESP),
+        .S_AXI2_rvalid(PS7_M02_AXI_RVALID),
+        .S_AXI2_wdata(PS7_M02_AXI_WDATA),
+        .S_AXI2_wready(PS7_M02_AXI_WREADY),
+        .S_AXI2_wstrb(PS7_M02_AXI_WSTRB),
+        .S_AXI2_wvalid(PS7_M02_AXI_WVALID),
+        .S_AXI3_araddr(PS7_M03_AXI_ARADDR),
+        .S_AXI3_arready(PS7_M03_AXI_ARREADY),
+        .S_AXI3_arvalid(PS7_M03_AXI_ARVALID),
+        .S_AXI3_awaddr(PS7_M03_AXI_AWADDR),
+        .S_AXI3_awready(PS7_M03_AXI_AWREADY),
+        .S_AXI3_awvalid(PS7_M03_AXI_AWVALID),
+        .S_AXI3_bready(PS7_M03_AXI_BREADY),
+        .S_AXI3_bresp(PS7_M03_AXI_BRESP),
+        .S_AXI3_bvalid(PS7_M03_AXI_BVALID),
+        .S_AXI3_rdata(PS7_M03_AXI_RDATA),
+        .S_AXI3_rready(PS7_M03_AXI_RREADY),
+        .S_AXI3_rresp(PS7_M03_AXI_RRESP),
+        .S_AXI3_rvalid(PS7_M03_AXI_RVALID),
+        .S_AXI3_wdata(PS7_M03_AXI_WDATA),
+        .S_AXI3_wready(PS7_M03_AXI_WREADY),
+        .S_AXI3_wstrb(PS7_M03_AXI_WSTRB),
+        .S_AXI3_wvalid(PS7_M03_AXI_WVALID),
         .S_AXI4_araddr(S_AXI4_1_ARADDR),
         .S_AXI4_arready(S_AXI4_1_ARREADY),
         .S_AXI4_arvalid(S_AXI4_1_ARVALID),
@@ -3290,7 +3290,7 @@ module system
         .S_AXI_wvalid(PS7_M00_AXI_WVALID),
         .gpio_io_o(GPIO_Ki_gpio_io_o),
         .gpio_io_o1(GPIO_Internal_Debug_Freq_gpio_io_o),
-        .gpio_io_o2(GPIO_Debug_Signal_Select_gpio_io_o),
+        .gpio_io_o2(GPIO_Interface_gpio_io_o2),
         .gpio_io_o3(GPIO_Kp_gpio_io_o),
         .gpio_io_o4(GPIO_Kd_gpio_io_o),
         .gpio_io_o5(GPIO_ADC_Override_gpio_io_o),
@@ -3354,40 +3354,40 @@ module system
         .M01_AXI_wready(S_AXI1_1_WREADY),
         .M01_AXI_wstrb(S_AXI1_1_WSTRB),
         .M01_AXI_wvalid(S_AXI1_1_WVALID),
-        .M02_AXI_araddr(S_AXI2_1_ARADDR),
-        .M02_AXI_arready(S_AXI2_1_ARREADY),
-        .M02_AXI_arvalid(S_AXI2_1_ARVALID),
-        .M02_AXI_awaddr(S_AXI2_1_AWADDR),
-        .M02_AXI_awready(S_AXI2_1_AWREADY),
-        .M02_AXI_awvalid(S_AXI2_1_AWVALID),
-        .M02_AXI_bready(S_AXI2_1_BREADY),
-        .M02_AXI_bresp(S_AXI2_1_BRESP),
-        .M02_AXI_bvalid(S_AXI2_1_BVALID),
-        .M02_AXI_rdata(S_AXI2_1_RDATA),
-        .M02_AXI_rready(S_AXI2_1_RREADY),
-        .M02_AXI_rresp(S_AXI2_1_RRESP),
-        .M02_AXI_rvalid(S_AXI2_1_RVALID),
-        .M02_AXI_wdata(S_AXI2_1_WDATA),
-        .M02_AXI_wready(S_AXI2_1_WREADY),
-        .M02_AXI_wstrb(S_AXI2_1_WSTRB),
-        .M02_AXI_wvalid(S_AXI2_1_WVALID),
-        .M03_AXI_araddr(S_AXI3_1_ARADDR),
-        .M03_AXI_arready(S_AXI3_1_ARREADY),
-        .M03_AXI_arvalid(S_AXI3_1_ARVALID),
-        .M03_AXI_awaddr(S_AXI3_1_AWADDR),
-        .M03_AXI_awready(S_AXI3_1_AWREADY),
-        .M03_AXI_awvalid(S_AXI3_1_AWVALID),
-        .M03_AXI_bready(S_AXI3_1_BREADY),
-        .M03_AXI_bresp(S_AXI3_1_BRESP),
-        .M03_AXI_bvalid(S_AXI3_1_BVALID),
-        .M03_AXI_rdata(S_AXI3_1_RDATA),
-        .M03_AXI_rready(S_AXI3_1_RREADY),
-        .M03_AXI_rresp(S_AXI3_1_RRESP),
-        .M03_AXI_rvalid(S_AXI3_1_RVALID),
-        .M03_AXI_wdata(S_AXI3_1_WDATA),
-        .M03_AXI_wready(S_AXI3_1_WREADY),
-        .M03_AXI_wstrb(S_AXI3_1_WSTRB),
-        .M03_AXI_wvalid(S_AXI3_1_WVALID),
+        .M02_AXI_araddr(PS7_M02_AXI_ARADDR),
+        .M02_AXI_arready(PS7_M02_AXI_ARREADY),
+        .M02_AXI_arvalid(PS7_M02_AXI_ARVALID),
+        .M02_AXI_awaddr(PS7_M02_AXI_AWADDR),
+        .M02_AXI_awready(PS7_M02_AXI_AWREADY),
+        .M02_AXI_awvalid(PS7_M02_AXI_AWVALID),
+        .M02_AXI_bready(PS7_M02_AXI_BREADY),
+        .M02_AXI_bresp(PS7_M02_AXI_BRESP),
+        .M02_AXI_bvalid(PS7_M02_AXI_BVALID),
+        .M02_AXI_rdata(PS7_M02_AXI_RDATA),
+        .M02_AXI_rready(PS7_M02_AXI_RREADY),
+        .M02_AXI_rresp(PS7_M02_AXI_RRESP),
+        .M02_AXI_rvalid(PS7_M02_AXI_RVALID),
+        .M02_AXI_wdata(PS7_M02_AXI_WDATA),
+        .M02_AXI_wready(PS7_M02_AXI_WREADY),
+        .M02_AXI_wstrb(PS7_M02_AXI_WSTRB),
+        .M02_AXI_wvalid(PS7_M02_AXI_WVALID),
+        .M03_AXI_araddr(PS7_M03_AXI_ARADDR),
+        .M03_AXI_arready(PS7_M03_AXI_ARREADY),
+        .M03_AXI_arvalid(PS7_M03_AXI_ARVALID),
+        .M03_AXI_awaddr(PS7_M03_AXI_AWADDR),
+        .M03_AXI_awready(PS7_M03_AXI_AWREADY),
+        .M03_AXI_awvalid(PS7_M03_AXI_AWVALID),
+        .M03_AXI_bready(PS7_M03_AXI_BREADY),
+        .M03_AXI_bresp(PS7_M03_AXI_BRESP),
+        .M03_AXI_bvalid(PS7_M03_AXI_BVALID),
+        .M03_AXI_rdata(PS7_M03_AXI_RDATA),
+        .M03_AXI_rready(PS7_M03_AXI_RREADY),
+        .M03_AXI_rresp(PS7_M03_AXI_RRESP),
+        .M03_AXI_rvalid(PS7_M03_AXI_RVALID),
+        .M03_AXI_wdata(PS7_M03_AXI_WDATA),
+        .M03_AXI_wready(PS7_M03_AXI_WREADY),
+        .M03_AXI_wstrb(PS7_M03_AXI_WSTRB),
+        .M03_AXI_wvalid(PS7_M03_AXI_WVALID),
         .M04_AXI_araddr(S_AXI4_1_ARADDR),
         .M04_AXI_arready(S_AXI4_1_ARREADY),
         .M04_AXI_arvalid(S_AXI4_1_ARVALID),

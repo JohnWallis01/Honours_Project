@@ -3790,22 +3790,22 @@
           "GPIO_Interface/S_AXI"
         ]
       },
+      "PS7_M02_AXI": {
+        "interface_ports": [
+          "PS7/M02_AXI",
+          "GPIO_Interface/S_AXI2"
+        ]
+      },
+      "PS7_M03_AXI": {
+        "interface_ports": [
+          "PS7/M03_AXI",
+          "GPIO_Interface/S_AXI3"
+        ]
+      },
       "S_AXI1_1": {
         "interface_ports": [
           "GPIO_Interface/S_AXI1",
           "PS7/M01_AXI"
-        ]
-      },
-      "S_AXI2_1": {
-        "interface_ports": [
-          "GPIO_Interface/S_AXI2",
-          "PS7/M02_AXI"
-        ]
-      },
-      "S_AXI3_1": {
-        "interface_ports": [
-          "GPIO_Interface/S_AXI3",
-          "PS7/M03_AXI"
         ]
       },
       "S_AXI4_1": {
@@ -3864,7 +3864,7 @@
           "Custom_System_0/ADC_Override"
         ]
       },
-      "GPIO_Debug_Signal_Select_gpio_io_o": {
+      "GPIO_Interface_gpio_io_o2": {
         "ports": [
           "GPIO_Interface/gpio_io_o2",
           "Custom_System_0/Debug_Signal_Select"

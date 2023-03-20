@@ -92,14 +92,14 @@ architecture System_Architecture of Custom_System is
       generic (
       Freq_Size: integer := 32;
       ROM_Size: integer := 8;
-      ADC_SIZE:integer := 16
+      DAC_Size:integer := 16
       ) ;
       port (
         Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
         PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
         clock: in std_logic := '0';
         rst: in std_logic := '0';
-        Dout: out std_logic_vector(ADC_SIZE-1 Downto 0) := (others =>'0') -- DAC size
+        Dout: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0') -- DAC size
     
       ) ;
   end component;
@@ -119,7 +119,8 @@ architecture System_Architecture of Custom_System is
   end component;
     
   component CIC_Basic_128 IS
-    PORT( clk                             :   IN    std_logic; 
+    PORT( 
+          clk                             :   IN    std_logic; 
           clk_enable                      :   IN    std_logic; 
           reset                           :   IN    std_logic; 
           filter_in                       :   IN    std_logic_vector(15 DOWNTO 0); -- sfix16_En15
@@ -128,10 +129,20 @@ architecture System_Architecture of Custom_System is
           );
   END component;
 
+
+
+
+    --production signals
   signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0);
   signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout: std_logic_vector(13 downto 0);
   signal Mixer_Output, Error_Signal: std_logic_vector(27 downto 0);
   
+
+    ---testing signals 
+    signal Test_NCO_1_Dout, Test_NCO_2_Dout: std_logic_vector(7 downto 0);
+    signal Test_Mixed_Output: std_logic_vector(15 downto 0);
+    signal Test_Filtered_Output: std_logic_vector(27 downto 0);
+
   begin
 
  ---General
@@ -150,7 +161,7 @@ architecture System_Architecture of Custom_System is
   );
 
   ADC_Debug_NCO: NCO
-  generic map(Freq_Size => 32, ROM_Size => 8, ADC_Size => 14)
+  generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
   port map(
     Frequency =>Internal_Debug_Freq,
     PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
@@ -173,7 +184,7 @@ architecture System_Architecture of Custom_System is
   PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) - signed(Control_Input));
 
   PLL_NCO: NCO
-  generic map(Freq_Size => 32, ROM_Size => 8, ADC_Size => 14)
+  generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
   port map(
       Frequency => PLL_Freq,
       PhaseOffset => std_logic_vector(to_unsigned(0,32)),
@@ -224,12 +235,52 @@ architecture System_Architecture of Custom_System is
     Input2 => Target_Signal,
     Input3 => Mixer_Output(27 downto 14),
     Input4 => Control_Input(31 downto 18),
-    Input5 => std_logic_vector(to_unsigned(0, 14)),
+    Input5 => Test_Filtered_Output(24 downto 14) & "000",
     Input6 => std_logic_vector(to_unsigned(0, 14)),
     Input7 => std_logic_vector(to_unsigned(0, 14)),
     Input8 => std_logic_vector(to_unsigned(0, 14)),
     Sel =>Debug_Signal_Select,
     Dout => DAC_Stream_out(29 downto 16)
   );
+
+    --Test Stream 
+
+    Test_NCO_1: NCO
+    generic map(Freq_Size => 32, ROM_Size => 8 , DAC_Size => 8)
+    port map(
+    Frequency => std_logic_vector(to_unsigned(343597384, 32)), --- 10 MHz
+    PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
+    clock => AD_CLK_in,
+    rst => '0',
+    Dout => Test_NCO_1_Dout
+    );
+
+    Test_NCO_2: NCO
+    generic map(Freq_Size => 32, ROM_Size => 8 , DAC_Size => 8)
+    port map(
+    Frequency => std_logic_vector(to_unsigned(347033357, 32)), --- 10.1 MHz
+    PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
+    clock => AD_CLK_in,
+    rst => '0',
+    Dout => Test_NCO_2_Dout
+    );
+    Test_Mixer: Mixer
+    generic map (MixerSize => 8)
+    port map(
+      Q1 => Test_NCO_1_Dout,
+      Q2 => Test_NCO_2_Dout,
+      Dout => Test_Mixed_Output
+    );
+    Test_Filter: CIC_Basic_128
+    port map(
+    clk => AD_CLK_in,
+    clk_enable => '1', 
+    reset => '0',
+    filter_in => Test_Mixed_Output,
+    filter_out => Test_Filtered_Output,
+    ce_out => open
+    );
+
+
 
 end architecture;

@@ -20,6 +20,15 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar
 # IP: bd/system/ip/system_axi_interconnect_1_0/system_axi_interconnect_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_1_0 || ORIG_REF_NAME==system_axi_interconnect_1_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util_ds_buf_0_0 || ORIG_REF_NAME==system_util_ds_buf_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util_ds_buf_1_0 || ORIG_REF_NAME==system_util_ds_buf_1_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_red_pitaya_adc_0_0 || ORIG_REF_NAME==system_axis_red_pitaya_adc_0_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_axis_constant_0_0/system_axis_constant_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_constant_0_0 || ORIG_REF_NAME==system_axis_constant_0_0} -quiet] -quiet
 
@@ -28,18 +37,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_clk_
 
 # IP: bd/system/ip/system_axis_red_pitaya_dac_1_0/system_axis_red_pitaya_dac_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_red_pitaya_dac_1_0 || ORIG_REF_NAME==system_axis_red_pitaya_dac_1_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_red_pitaya_adc_0_0 || ORIG_REF_NAME==system_axis_red_pitaya_adc_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util_ds_buf_0_0 || ORIG_REF_NAME==system_util_ds_buf_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util_ds_buf_1_0 || ORIG_REF_NAME==system_util_ds_buf_1_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_GPIO_Kp_0/system_GPIO_Kp_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_Kp_0 || ORIG_REF_NAME==system_GPIO_Kp_0} -quiet] -quiet
@@ -61,6 +58,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_
 
 # IP: bd/system/ip/system_axi_gpio_0_5/system_axi_gpio_0_5.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_5 || ORIG_REF_NAME==system_axi_gpio_0_5} -quiet] -quiet
+
+# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet

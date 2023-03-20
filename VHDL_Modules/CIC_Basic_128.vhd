@@ -60,7 +60,7 @@ END CIC_Basic_128;
 ----------------------------------------------------------------
 --Module Architecture: CIC_Basic_128
 ----------------------------------------------------------------
-ARCHITECTURE rtl OF CIC_Basic_128 IS
+ARCHITECTURE CIC_Basic_128_rtl OF CIC_Basic_128 IS
   -- Local Functions
   -- Type Definitions
   -- Constants
@@ -248,4 +248,4 @@ BEGIN
   -- Assignment Statements
   ce_out <= ce_out_reg;
   filter_out <= std_logic_vector(output_register);
-END rtl;
+END CIC_Basic_128_rtl;
