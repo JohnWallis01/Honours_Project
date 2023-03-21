@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Sun Mar 19 21:00:18 2023
+| Date         : Tue Mar 21 08:14:22 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 70
+             Violations found: 38
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -31,7 +31,6 @@ Table of Contents
 | TIMING-6  | Critical Warning | No common primary clock between related clocks     | 1          |
 | TIMING-7  | Critical Warning | No common node between related clocks              | 1          |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
-| TIMING-16 | Warning          | Large setup violation                              | 32         |
 | TIMING-18 | Warning          | Missing input or output delay                      | 30         |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten    | 4          |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -56,166 +55,6 @@ Related violations: <none>
 TIMING-27#1 Critical Warning
 Invalid primary clock on hierarchical pin  
 A primary clock system_i/DAC_Interface/clk_wiz_0/inst/clk_in1 is created on an inappropriate internal pin system_i/DAC_Interface/clk_wiz_0/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
-Related violations: <none>
-
-TIMING-16#1 Warning
-Large setup violation  
-There is a large setup violation of -2.804 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[32]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#2 Warning
-Large setup violation  
-There is a large setup violation of -2.820 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[34]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#3 Warning
-Large setup violation  
-There is a large setup violation of -2.894 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[35]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#4 Warning
-Large setup violation  
-There is a large setup violation of -2.915 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[33]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#5 Warning
-Large setup violation  
-There is a large setup violation of -2.920 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[36]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#6 Warning
-Large setup violation  
-There is a large setup violation of -2.936 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[38]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#7 Warning
-Large setup violation  
-There is a large setup violation of -3.010 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[39]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#8 Warning
-Large setup violation  
-There is a large setup violation of -3.031 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[37]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#9 Warning
-Large setup violation  
-There is a large setup violation of -3.043 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[40]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#10 Warning
-Large setup violation  
-There is a large setup violation of -3.059 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[42]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#11 Warning
-Large setup violation  
-There is a large setup violation of -3.133 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[43]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#12 Warning
-Large setup violation  
-There is a large setup violation of -3.154 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__1/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[41]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#13 Warning
-Large setup violation  
-There is a large setup violation of -3.269 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[44]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#14 Warning
-Large setup violation  
-There is a large setup violation of -3.285 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[46]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#15 Warning
-Large setup violation  
-There is a large setup violation of -3.359 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[47]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#16 Warning
-Large setup violation  
-There is a large setup violation of -3.380 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[45]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#17 Warning
-Large setup violation  
-There is a large setup violation of -3.438 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[48]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#18 Warning
-Large setup violation  
-There is a large setup violation of -3.454 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[50]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#19 Warning
-Large setup violation  
-There is a large setup violation of -3.528 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[51]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#20 Warning
-Large setup violation  
-There is a large setup violation of -3.549 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[49]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#21 Warning
-Large setup violation  
-There is a large setup violation of -3.550 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[52]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#22 Warning
-Large setup violation  
-There is a large setup violation of -3.566 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[54]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#23 Warning
-Large setup violation  
-There is a large setup violation of -3.640 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[55]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#24 Warning
-Large setup violation  
-There is a large setup violation of -3.661 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[53]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#25 Warning
-Large setup violation  
-There is a large setup violation of -3.663 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[56]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#26 Warning
-Large setup violation  
-There is a large setup violation of -3.679 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[58]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#27 Warning
-Large setup violation  
-There is a large setup violation of -3.753 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[59]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#28 Warning
-Large setup violation  
-There is a large setup violation of -3.774 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[57]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#29 Warning
-Large setup violation  
-There is a large setup violation of -3.777 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[60]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#30 Warning
-Large setup violation  
-There is a large setup violation of -3.793 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[62]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#31 Warning
-Large setup violation  
-There is a large setup violation of -3.867 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[63]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#32 Warning
-Large setup violation  
-There is a large setup violation of -3.888 ns between system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer2__3/CLK (clocked by adc_clk) and system_i/Custom_System_0/inst/Loop_Controller/Sig_Buffer_reg[61]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

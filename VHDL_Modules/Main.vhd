@@ -41,7 +41,8 @@ architecture System_Architecture of Custom_System is
       port (
           Q1: in std_logic_vector(MixerSize-1 downto 0); 
           Q2: in std_logic_vector(MixerSize-1 downto 0);
-          Dout: out std_logic_vector((2*MixerSize)-1 downto 0)
+          Dout: out std_logic_vector((2*MixerSize)-1 downto 0);
+          clk: in std_logic
       ) ;
   end Component;
 
@@ -197,7 +198,8 @@ architecture System_Architecture of Custom_System is
   port map(
     Q1 => Target_Signal,
     Q2 => Locked_Signal,
-    Dout => Mixer_Output
+    Dout => Mixer_Output,
+    clk => AD_CLK_in
   );
 
 
@@ -269,7 +271,8 @@ architecture System_Architecture of Custom_System is
     port map(
       Q1 => Test_NCO_1_Dout,
       Q2 => Test_NCO_2_Dout,
-      Dout => Test_Mixed_Output
+      Dout => Test_Mixed_Output,
+      clk => AD_CLK_in
     );
     Test_Filter: CIC_Basic_128
     port map(

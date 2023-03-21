@@ -94,7 +94,7 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/new/AXI4_Stream_Reader.vhd
-  C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/Honours_Project/helper/CIC_Basic_128.vhd
+  C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC_Basic_128.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd

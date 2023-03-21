@@ -23,8 +23,9 @@ architecture PID_Controller_arch of PID_Controller is
     signal Integral_Stage: signed(Data_Size-1 downto 0) := to_signed(Inital, Data_Size);
     signal Sig_Buffer: signed(2*Data_Size -1 downto 0):=  (others => '0');
     signal Derivative_Stage: signed(Data_Size-1 downto 0) := (others => '0');
+    signal P_pipeline, I_pipeline, D_pipeline: signed(2*Data_Size -1 downto 0) := (others => '0');
 
-begin
+    begin
 
     process(clock)
         begin
@@ -33,7 +34,10 @@ begin
                 Integral_Stage <= (Accumulated_Output + signed(SignalInput));
                 Derivative_Stage <= signed(SignalInput) - Data_Memory;
                 Data_Memory <= signed(SignalInput);
-                Sig_Buffer <= (signed(kP)*signed(SignalInput) + signed(kI)*Integral_Stage+signed(kD)*Derivative_Stage);
+                P_pipeline <= signed(kP)*signed(SignalInput);
+                I_pipeline <= signed(kI)*Integral_Stage;
+                D_pipeline <= signed(kD)*Derivative_Stage;
+                Sig_Buffer <= P_pipeline + I_pipeline + D_pipeline;
                 SignalOutput <= std_logic_vector(Sig_Buffer(2*Data_Size-1 downto Data_Size));
                 end if;
     end process;

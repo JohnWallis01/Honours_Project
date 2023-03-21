@@ -10,13 +10,19 @@ entity Mixer is
     port (
       Q1: in std_logic_vector(MixerSize-1 downto 0); -- need to specifiy the sizes
       Q2: in std_logic_vector(MixerSize-1 downto 0);
-      Dout: out std_logic_vector((2*MixerSize)-1 downto 0)
+      Dout: out std_logic_vector((2*MixerSize)-1 downto 0);
+      clk: in std_logic
     ) ;
   end Mixer;
 
   architecture Mixer_arch of Mixer is
     begin
-    Dout <= std_logic_vector(signed(Q1) * signed(Q2));
+    process(clk)
+    begin
+      if rising_edge(clk) then
+        Dout <= std_logic_vector(signed(Q1) * signed(Q2));
+      end if;
+    end process;
     end architecture;
 
 library ieee;
