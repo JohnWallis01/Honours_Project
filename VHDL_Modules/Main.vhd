@@ -15,6 +15,9 @@ entity Custom_System is
     Control_Ki: in std_logic_vector(31 downto 0);
     Control_Kd: in std_logic_vector(31 downto 0);
 
+    --debug outputs
+    Freq_Measured: out std_logic_vector(31 downto 0);
+
     ------ADC Control
     s_axis_tdata_ADC_Stream_in: in std_logic_vector(31 downto 0);
     s_axis_tvalid_ADC_Stream_in: in std_logic;
@@ -93,15 +96,15 @@ architecture System_Architecture of Custom_System is
       generic (
       Freq_Size: integer := 32;
       ROM_Size: integer := 8;
-      DAC_Size:integer := 16
+      DAC_SIZE:integer := 16
       ) ; -- vhdl-linter-disable-line component
       port (
         Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
         PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
         clock: in std_logic := '0';
         rst: in std_logic := '0';
-        Dout: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0') -- DAC size
-    
+        Dout: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0'); -- DAC size
+        Quadrature_out: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0')
       ) ;
   end component;
 
@@ -118,17 +121,6 @@ architecture System_Architecture of Custom_System is
           clock: in std_logic
     );
   end component;
-    
-  component CIC_Basic_128 IS
-    PORT( 
-          clk                             :   IN    std_logic; 
-          clk_enable                      :   IN    std_logic; 
-          reset                           :   IN    std_logic; 
-          filter_in                       :   IN    std_logic_vector(15 DOWNTO 0); -- sfix16_En15
-          filter_out                      :   OUT   std_logic_vector(27 DOWNTO 0); -- sfix28_En15
-          ce_out                          :   OUT   std_logic  
-          );
-  END component;
 
   component CIC32 IS
   PORT( 
@@ -145,7 +137,7 @@ END component;
 
     --production signals
   signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0);
-  signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout: std_logic_vector(13 downto 0);
+  signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal: std_logic_vector(13 downto 0);
   signal Mixer_Output: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
   
@@ -179,7 +171,8 @@ END component;
     PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
     clock => AD_CLK_in,
     rst => '0',
-    Dout => ADC_Debug_NCO_Dout
+    Dout => ADC_Debug_NCO_Dout,
+    Quadrature_out => open
   );
 
   ADC_Override_Mux: Dual_Multiplexer
@@ -192,8 +185,14 @@ END component;
   );
 
   --PLL--
+  process(AD_CLK_in)
+  begin
+    if rising_edge(AD_CLK_in) then
+      PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) - signed(Control_Input));
+      Freq_Measured <= PLL_Freq;
+    end if;
+  end process;
 
-  PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) - signed(Control_Input));
 
   PLL_NCO: NCO
   generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
@@ -202,13 +201,14 @@ END component;
       PhaseOffset => std_logic_vector(to_unsigned(0,32)),
       clock => AD_CLK_in,
       rst => '0',
-      Dout => Locked_Signal
+      Dout => Locked_Signal,  
+      Quadrature_out => Quadrature_Signal
   );
   Phase_Mixer: Mixer
   generic map(MixerSize => 14)
   port map(
     Q1 => Target_Signal,
-    Q2 => Locked_Signal,
+    Q2 => Quadrature_Signal,
     Dout => Mixer_Output,
     clk => AD_CLK_in
   );
@@ -249,7 +249,7 @@ END component;
     Input3 => Mixer_Output(27 downto 14),
     Input4 => Control_Input(31 downto 18),
     Input5 => Control_Input(13 downto 0), -- what is going on with this filter
-    Input6 => std_logic_vector(to_unsigned(0, 14)),
+    Input6 => Quadrature_Signal(13 downto 0),
     Input7 => std_logic_vector(to_unsigned(0, 14)),
     Input8 => std_logic_vector(to_unsigned(0, 14)),
     Sel =>Debug_Signal_Select,

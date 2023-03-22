@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "system_Custom_System_0_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/mref
@@ -96,7 +95,6 @@ OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/new/AXI4_Stream_Reader.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd
-  C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC_Basic_128.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd

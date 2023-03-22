@@ -13334,7 +13334,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.M07_AXI" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) > 7)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.M07_AXI" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) > 7)">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -27344,7 +27344,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:efa65639</spirit:value>
+            <spirit:value>9:5883029e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -27358,11 +27358,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Mar 17 02:40:05 UTC 2023</spirit:value>
+            <spirit:value>Wed Mar 22 08:14:40 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:efa65639</spirit:value>
+            <spirit:value>9:5883029e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -27378,11 +27378,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Mar 17 02:40:05 UTC 2023</spirit:value>
+            <spirit:value>Wed Mar 22 08:14:40 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:efa65639</spirit:value>
+            <spirit:value>9:5883029e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -27417,7 +27417,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ff341c1f</spirit:value>
+            <spirit:value>9:d28e0b84</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -27433,11 +27433,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Mar 19 12:39:01 UTC 2023</spirit:value>
+            <spirit:value>Wed Mar 22 08:14:40 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b8a8728e</spirit:value>
+            <spirit:value>9:86f15f99</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -27461,11 +27461,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Mar 19 12:39:01 UTC 2023</spirit:value>
+            <spirit:value>Wed Mar 22 08:14:40 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ff341c1f</spirit:value>
+            <spirit:value>9:d28e0b84</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -27481,11 +27481,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Mar 19 12:39:01 UTC 2023</spirit:value>
+            <spirit:value>Wed Mar 22 08:14:40 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b8a8728e</spirit:value>
+            <spirit:value>9:86f15f99</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -27503,11 +27503,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 21 03:24:30 UTC 2023</spirit:value>
+            <spirit:value>Wed Mar 22 08:15:36 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:efa65639</spirit:value>
+            <spirit:value>9:5883029e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -28568,7 +28568,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28592,7 +28592,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ADDR_WIDTH&apos;))) - 1)">223</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ADDR_WIDTH&apos;))) - 1)">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28609,7 +28609,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 4 : 8)) - 1)">55</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 4 : 8)) - 1)">63</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28633,7 +28633,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">20</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">23</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28657,7 +28657,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">13</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28681,7 +28681,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 2 : 1)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 2 : 1)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28705,7 +28705,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28729,7 +28729,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">20</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">23</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28746,7 +28746,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28770,7 +28770,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28794,7 +28794,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_AWUSER_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_AWUSER_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28818,7 +28818,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28842,7 +28842,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28862,7 +28862,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28886,7 +28886,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;))) - 1)">223</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;))) - 1)">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28903,7 +28903,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;))) / 8) - 1)">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;))) / 8) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28920,7 +28920,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28944,7 +28944,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_WUSER_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_WUSER_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28968,7 +28968,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28992,7 +28992,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29012,7 +29012,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29039,7 +29039,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">13</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29059,7 +29059,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_BUSER_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_BUSER_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29086,7 +29086,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29113,7 +29113,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29130,7 +29130,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29154,7 +29154,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ADDR_WIDTH&apos;))) - 1)">223</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ADDR_WIDTH&apos;))) - 1)">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29171,7 +29171,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 4 : 8)) - 1)">55</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 4 : 8)) - 1)">63</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29195,7 +29195,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">20</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">23</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29219,7 +29219,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">13</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29243,7 +29243,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 2 : 1)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_PROTOCOL&apos;)) = 1) ? 2 : 1)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29267,7 +29267,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29291,7 +29291,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">20</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 3) - 1)">23</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29308,7 +29308,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29332,7 +29332,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 4) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29356,7 +29356,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ARUSER_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ARUSER_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29380,7 +29380,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29404,7 +29404,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29424,7 +29424,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_ID_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29451,7 +29451,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;))) - 1)">223</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;))) - 1)">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29462,7 +29462,7 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
-            <spirit:defaultValue spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="{((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;)))){0}}" spirit:bitStringLength="64">0x00000000000000000000000000000000000000000000000000000000</spirit:defaultValue>
+            <spirit:defaultValue spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="{((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_DATA_WIDTH&apos;)))){0}}" spirit:bitStringLength="64">0x0000000000000000000000000000000000000000000000000000000000000000</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
       </spirit:port>
@@ -29471,7 +29471,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">13</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * 2) - 1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29491,7 +29491,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29502,7 +29502,7 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
-            <spirit:defaultValue spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="{(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;))){1}}" spirit:bitStringLength="2">0x7F</spirit:defaultValue>
+            <spirit:defaultValue spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="{(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;))){1}}" spirit:bitStringLength="2">0xFF</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
@@ -29518,7 +29518,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_RUSER_WIDTH&apos;))) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) * spirit:decode(id(&apos;MODELPARAM_VALUE.C_AXI_RUSER_WIDTH&apos;))) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29545,7 +29545,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29572,7 +29572,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">6</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MASTER_SLOTS&apos;)) - 1)">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -31644,7 +31644,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NUM_MASTER_SLOTS</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_MASTER_SLOTS">7</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_MASTER_SLOTS">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_AXI_ID_WIDTH</spirit:name>
@@ -31668,11 +31668,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_M_AXI_BASE_ADDR</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_BASE_ADDR" spirit:bitStringLength="448">0x0000000041260000000000004120000000000000412300000000000041250000000000004121000000000000412200000000000041240000</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_BASE_ADDR" spirit:bitStringLength="512">0x00000000412700000000000041260000000000004120000000000000412300000000000041250000000000004121000000000000412200000000000041240000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_M_AXI_ADDR_WIDTH</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_ADDR_WIDTH" spirit:bitStringLength="224">0x00000010000000100000001000000010000000100000001000000010</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_ADDR_WIDTH" spirit:bitStringLength="256">0x0000001000000010000000100000001000000010000000100000001000000010</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_AXI_BASE_ID</spirit:name>
@@ -31708,11 +31708,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_M_AXI_WRITE_CONNECTIVITY</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_WRITE_CONNECTIVITY" spirit:bitStringLength="224">0x00000001000000010000000100000001000000010000000100000001</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_WRITE_CONNECTIVITY" spirit:bitStringLength="256">0x0000000100000001000000010000000100000001000000010000000100000001</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_M_AXI_READ_CONNECTIVITY</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_READ_CONNECTIVITY" spirit:bitStringLength="224">0x00000001000000010000000100000001000000010000000100000001</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_READ_CONNECTIVITY" spirit:bitStringLength="256">0x0000000100000001000000010000000100000001000000010000000100000001</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_R_REGISTER</spirit:name>
@@ -31732,11 +31732,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_M_AXI_WRITE_ISSUING</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_WRITE_ISSUING" spirit:bitStringLength="224">0x00000001000000010000000100000001000000010000000100000001</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_WRITE_ISSUING" spirit:bitStringLength="256">0x0000000100000001000000010000000100000001000000010000000100000001</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_M_AXI_READ_ISSUING</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_READ_ISSUING" spirit:bitStringLength="224">0x00000001000000010000000100000001000000010000000100000001</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_READ_ISSUING" spirit:bitStringLength="256">0x0000000100000001000000010000000100000001000000010000000100000001</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_AXI_ARB_PRIORITY</spirit:name>
@@ -31744,7 +31744,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M_AXI_SECURE</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SECURE" spirit:bitStringLength="224">0x00000000000000000000000000000000000000000000000000000000</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SECURE" spirit:bitStringLength="256">0x0000000000000000000000000000000000000000000000000000000000000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_CONNECTIVITY_MODE</spirit:name>
@@ -32106,6 +32106,18 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
+        <spirit:name>system_xbar_2_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>system_xbar_2_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>system_xbar_2_sim_netlist.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
@@ -32117,18 +32129,6 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>system_xbar_2_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>system_xbar_2_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -32162,7 +32162,7 @@
     <spirit:parameter>
       <spirit:name>NUM_MI</spirit:name>
       <spirit:displayName>Number of Master Interfaces</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_MI" spirit:order="4" spirit:minimum="2" spirit:maximum="16" spirit:rangeType="long">7</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_MI" spirit:order="4" spirit:minimum="2" spirit:maximum="16" spirit:rangeType="long">8</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -41726,7 +41726,7 @@
     <spirit:parameter>
       <spirit:name>M07_A00_BASE_ADDR</spirit:name>
       <spirit:displayName>My M07_A00_BASE_ADDR</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.M07_A00_BASE_ADDR" spirit:order="805" spirit:bitStringLength="64">0xffffffffffffffff</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.M07_A00_BASE_ADDR" spirit:order="805" spirit:bitStringLength="64">0x0000000041270000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -44798,7 +44798,7 @@
     <spirit:parameter>
       <spirit:name>M07_A00_ADDR_WIDTH</spirit:name>
       <spirit:displayName>My M07_A00_ADDR_WIDTH</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.M07_A00_ADDR_WIDTH" spirit:order="1061" spirit:minimum="0" spirit:maximum="64" spirit:rangeType="long">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.M07_A00_ADDR_WIDTH" spirit:order="1061" spirit:minimum="0" spirit:maximum="64" spirit:rangeType="long">16</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -46758,7 +46758,7 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M06_AXI.SUPPORTS_NARROW_BURST" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M06_AXI.WUSER_BITS_PER_BYTE" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M06_AXI.WUSER_WIDTH" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.ADDR_WIDTH" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.ADDR_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.ARUSER_WIDTH" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.AWUSER_WIDTH" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.BUSER_WIDTH" xilinx:valuePermission="bd"/>
@@ -46766,12 +46766,12 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.DATA_WIDTH" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_BRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_BURST" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_CACHE" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_LOCK" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_BURST" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_CACHE" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_LOCK" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_PROT" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_QOS" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_REGION" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_QOS" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_REGION" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_RRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.HAS_WSTRB" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M07_AXI.ID_WIDTH" xilinx:valuePermission="bd"/>
@@ -47439,8 +47439,8 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M06_S15_READ_CONNECTIVITY" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M06_S15_WRITE_CONNECTIVITY" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M06_WRITE_ISSUING" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A00_ADDR_WIDTH" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A00_BASE_ADDR" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A00_ADDR_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A00_BASE_ADDR" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A01_ADDR_WIDTH" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A01_BASE_ADDR" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A02_ADDR_WIDTH" xilinx:valuePermission="bd_and_user"/>
@@ -47472,8 +47472,8 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A15_ADDR_WIDTH" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_A15_BASE_ADDR" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_READ_ISSUING" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_S00_READ_CONNECTIVITY" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_S00_WRITE_CONNECTIVITY" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_S00_READ_CONNECTIVITY" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_S00_WRITE_CONNECTIVITY" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_S01_READ_CONNECTIVITY" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_S01_WRITE_CONNECTIVITY" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M07_S02_READ_CONNECTIVITY" xilinx:valuePermission="bd_and_user"/>

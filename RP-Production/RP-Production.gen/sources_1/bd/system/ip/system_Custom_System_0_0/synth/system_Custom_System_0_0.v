@@ -63,6 +63,7 @@ module system_Custom_System_0_0 (
   Control_Kp,
   Control_Ki,
   Control_Kd,
+  Freq_Measured,
   s_axis_tdata_ADC_Stream_in,
   s_axis_tvalid_ADC_Stream_in,
   s_axis_tready_ADC_Stream_in,
@@ -79,6 +80,7 @@ input wire [2 : 0] Debug_Signal_Select;
 input wire [31 : 0] Control_Kp;
 input wire [31 : 0] Control_Ki;
 input wire [31 : 0] Control_Kd;
+output wire [31 : 0] Freq_Measured;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *)
 input wire [31 : 0] s_axis_tdata_ADC_Stream_in;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *)
@@ -101,6 +103,7 @@ output wire Reset;
     .Control_Kp(Control_Kp),
     .Control_Ki(Control_Ki),
     .Control_Kd(Control_Kd),
+    .Freq_Measured(Freq_Measured),
     .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in),
     .s_axis_tvalid_ADC_Stream_in(s_axis_tvalid_ADC_Stream_in),
     .s_axis_tready_ADC_Stream_in(s_axis_tready_ADC_Stream_in),

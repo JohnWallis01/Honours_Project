@@ -16,9 +16,10 @@ entity NCO is
     PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
     clock: in std_logic := '0';
     rst: in std_logic := '0';
-    Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0') -- DAC size
+    Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
+    Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0') 
 
-  ) ;
+  );
 end NCO;
 
 architecture NCO_str of NCO is
@@ -34,6 +35,9 @@ architecture NCO_str of NCO is
     signal databuffer: std_logic_vector(DAC_Size-1 downto 0) := (others => '0');
     signal dataAddr: unsigned(ROM_Size-1 downto 0) := (others => '0');
     signal sigbuffer: unsigned(1 downto 0) := (others => '0');
+    signal Quadrature_buffer: std_logic_vector(DAC_Size-1 downto 0) := (others => '0');
+    signal Quadrature_addr: unsigned(ROM_Size-1 downto 0) := (others => '0');
+
     --compile time setup
     function sinelut_init return SINTAB is
         variable sinlut : SINTAB;
@@ -80,12 +84,16 @@ architecture NCO_str of NCO is
         case sigbits is
           when "00" =>
             dataAddr <= (subbits);
+            Quadrature_addr <= (not subbits);
           when "01" =>
             dataAddr <= (not subbits);
+            Quadrature_addr <= (subbits);
           when "10" =>
             dataAddr <= (subbits); 
+            Quadrature_addr <= (not subbits);
           when others =>
             dataAddr <= (not subbits); 
+            Quadrature_addr <= (not subbits);
         end case;
       end if;
     end if;
@@ -98,14 +106,23 @@ architecture NCO_str of NCO is
         case sigbuffer is
           when "00" =>
             databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(dataAddr));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(Quadrature_addr));
+            Quadrature_buffer(DAC_Size-1) <= '0';
           when "01" =>
             databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(dataAddr));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(Quadrature_addr));
+            Quadrature_buffer(DAC_Size-1) <= '1';
           when "10" =>
             databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(dataAddr));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(Quadrature_addr));
+            Quadrature_buffer(DAC_Size-1) <= '1';
           when others =>
             databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(dataAddr));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(Quadrature_addr));
+            Quadrature_buffer(DAC_Size-1) <= '0';
         end case;
         Dout <= databuffer;
+        Quadrature_out <= Quadrature_buffer;
       end if;
   end process;
 

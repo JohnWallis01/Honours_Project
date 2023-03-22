@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Wed Mar 22 11:56:48 2023
-# Process ID: 114116
+# Start of session at: Wed Mar 22 16:27:57 2023
+# Process ID: 163976
 # Current directory: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1
 # Command line: vivado.exe -log system_Custom_System_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_Custom_System_0_0.tcl
 # Log file: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1/system_Custom_System_0_0.vds
@@ -22,65 +22,49 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 64436
+INFO: [Synth 8-7075] Helper process launched with PID 49704
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1214.465 ; gain = 406.520
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1214.148 ; gain = 407.270
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-9112] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:219]
-WARNING: [Synth 8-9112] actual for formal port 'input5' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:240]
+WARNING: [Synth 8-9112] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:230]
 INFO: [Synth 8-6157] synthesizing module 'system_Custom_System_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/synth/system_Custom_System_0_0.v:53]
-INFO: [Synth 8-638] synthesizing module 'Custom_System' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:35]
+INFO: [Synth 8-638] synthesizing module 'Custom_System' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:38]
 	Parameter stream_size bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'AXI4_Stream_Reader' declared at 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/new/AXI4_Stream_Reader.vhd:34' bound to instance 'ADC_Stream_Reader' of component 'AXI4_Stream_Reader' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:154]
+INFO: [Synth 8-3491] module 'AXI4_Stream_Reader' declared at 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/new/AXI4_Stream_Reader.vhd:34' bound to instance 'ADC_Stream_Reader' of component 'AXI4_Stream_Reader' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:157]
 INFO: [Synth 8-638] synthesizing module 'AXI4_Stream_Reader' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/new/AXI4_Stream_Reader.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'AXI4_Stream_Reader' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/new/AXI4_Stream_Reader.vhd:47]
 	Parameter Freq_Size bound to: 32 - type: integer 
 	Parameter ROM_Size bound to: 8 - type: integer 
-	Parameter DAC_Size bound to: 14 - type: integer 
-INFO: [Synth 8-3491] module 'NCO' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:8' bound to instance 'ADC_Debug_NCO' of component 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:164]
-INFO: [Synth 8-638] synthesizing module 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:24]
-INFO: [Synth 8-256] done synthesizing module 'NCO' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:24]
+	Parameter DAC_SIZE bound to: 14 - type: integer 
+INFO: [Synth 8-3491] module 'NCO' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:8' bound to instance 'ADC_Debug_NCO' of component 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:167]
+INFO: [Synth 8-638] synthesizing module 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'NCO' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:25]
 	Parameter Data_Size bound to: 14 - type: integer 
-INFO: [Synth 8-3491] module 'Dual_Multiplexer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:33' bound to instance 'ADC_Override_Mux' of component 'Dual_Multiplexer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:174]
+INFO: [Synth 8-3491] module 'Dual_Multiplexer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:33' bound to instance 'ADC_Override_Mux' of component 'Dual_Multiplexer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:178]
 INFO: [Synth 8-638] synthesizing module 'Dual_Multiplexer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'Dual_Multiplexer' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:45]
 	Parameter Freq_Size bound to: 32 - type: integer 
 	Parameter ROM_Size bound to: 8 - type: integer 
-	Parameter DAC_Size bound to: 14 - type: integer 
-INFO: [Synth 8-3491] module 'NCO' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:8' bound to instance 'PLL_NCO' of component 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:187]
+	Parameter DAC_SIZE bound to: 14 - type: integer 
+INFO: [Synth 8-3491] module 'NCO' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:8' bound to instance 'PLL_NCO' of component 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:197]
 	Parameter MixerSize bound to: 14 - type: integer 
-INFO: [Synth 8-3491] module 'Mixer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:6' bound to instance 'Phase_Mixer' of component 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:196]
+INFO: [Synth 8-3491] module 'Mixer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:6' bound to instance 'Phase_Mixer' of component 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:207]
 INFO: [Synth 8-638] synthesizing module 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'Mixer' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:18]
-INFO: [Synth 8-3491] module 'CIC_Basic_128' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC_Basic_128.vhd:48' bound to instance 'Loop_Filter' of component 'CIC_Basic_128' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:206]
-INFO: [Synth 8-638] synthesizing module 'CIC_Basic_128' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC_Basic_128.vhd:63]
-INFO: [Synth 8-256] done synthesizing module 'CIC_Basic_128' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC_Basic_128.vhd:63]
+INFO: [Synth 8-3491] module 'CIC32' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd:46' bound to instance 'Loop_Filter' of component 'CIC32' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:217]
+INFO: [Synth 8-638] synthesizing module 'CIC32' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'CIC32' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd:61]
 	Parameter Data_Size bound to: 32 - type: integer 
 	Parameter Inital bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'PID_Controller' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd:6' bound to instance 'Loop_Controller' of component 'PID_Controller' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:216]
+INFO: [Synth 8-3491] module 'PID_Controller' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd:6' bound to instance 'Loop_Controller' of component 'PID_Controller' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:227]
 INFO: [Synth 8-638] synthesizing module 'PID_Controller' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'PID_Controller' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd:20]
 	Parameter Data_Size bound to: 14 - type: integer 
-INFO: [Synth 8-3491] module 'Octal_Multiplexer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:65' bound to instance 'Debug_Selector_Mux' of component 'Octal_Multiplexer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:233]
+INFO: [Synth 8-3491] module 'Octal_Multiplexer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:65' bound to instance 'Debug_Selector_Mux' of component 'Octal_Multiplexer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:244]
 INFO: [Synth 8-638] synthesizing module 'Octal_Multiplexer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:83]
 INFO: [Synth 8-256] done synthesizing module 'Octal_Multiplexer' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:83]
-	Parameter Freq_Size bound to: 32 - type: integer 
-	Parameter ROM_Size bound to: 8 - type: integer 
-	Parameter DAC_Size bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'NCO' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:8' bound to instance 'Test_NCO_1' of component 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:250]
-INFO: [Synth 8-638] synthesizing module 'NCO__parameterized2' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:24]
-INFO: [Synth 8-256] done synthesizing module 'NCO__parameterized2' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:24]
-	Parameter Freq_Size bound to: 32 - type: integer 
-	Parameter ROM_Size bound to: 8 - type: integer 
-	Parameter DAC_Size bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'NCO' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:8' bound to instance 'Test_NCO_2' of component 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:260]
-	Parameter MixerSize bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'Mixer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:6' bound to instance 'Test_Mixer' of component 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:269]
-INFO: [Synth 8-638] synthesizing module 'Mixer__parameterized1' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'Mixer__parameterized1' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:18]
-INFO: [Synth 8-3491] module 'CIC_Basic_128' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC_Basic_128.vhd:48' bound to instance 'Test_Filter' of component 'CIC_Basic_128' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:277]
-INFO: [Synth 8-256] done synthesizing module 'Custom_System' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'Custom_System' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:38]
 INFO: [Synth 8-6155] done synthesizing module 'system_Custom_System_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/synth/system_Custom_System_0_0.v:53]
 WARNING: [Synth 8-7129] Port Input8[13] in module Octal_Multiplexer is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Input8[12] in module Octal_Multiplexer is either unconnected or has no load
@@ -99,51 +83,51 @@ WARNING: [Synth 8-7129] Port Input8[0] in module Octal_Multiplexer is either unc
 WARNING: [Synth 8-7129] Port s_axis_tvalid in module AXI4_Stream_Reader is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Sys_CLK_in in module Custom_System is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.285 ; gain = 504.340
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.535 ; gain = 504.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.285 ; gain = 504.340
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.535 ; gain = 504.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.285 ; gain = 504.340
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.535 ; gain = 504.656
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1312.285 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1311.535 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1367.902 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1424.688 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1367.902 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1424.750 ; gain = 0.062
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1367.902 ; gain = 559.957
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1367.902 ; gain = 559.957
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1367.902 ; gain = 559.957
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6040] Register dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
-WARNING: [Synth 8-6040] Register dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+WARNING: [Synth 8-6040] Register Quadrature_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1367.902 ; gain = 559.957
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -151,29 +135,29 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input   64 Bit       Adders := 1     
-	   2 Input   32 Bit       Adders := 5     
+	   2 Input   32 Bit       Adders := 3     
 	   3 Input   32 Bit       Adders := 2     
-	   3 Input   28 Bit       Adders := 2     
-	   4 Input   28 Bit       Adders := 2     
-	   2 Input    6 Bit       Adders := 2     
+	   3 Input   26 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
 	               64 Bit    Registers := 4     
 	               32 Bit    Registers := 10    
-	               28 Bit    Registers := 6     
-	               16 Bit    Registers := 2     
-	               14 Bit    Registers := 4     
-	                8 Bit    Registers := 8     
-	                6 Bit    Registers := 2     
-	                2 Bit    Registers := 4     
+	               26 Bit    Registers := 4     
+	               16 Bit    Registers := 1     
+	               14 Bit    Registers := 8     
+	                8 Bit    Registers := 4     
+	                5 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 2     
 +---Multipliers : 
 	              32x32  Multipliers := 3     
 +---Muxes : 
 	   2 Input   14 Bit        Muxes := 1     
-	   4 Input   13 Bit        Muxes := 2     
+	   4 Input   13 Bit        Muxes := 4     
 	   4 Input    8 Bit        Muxes := 4     
-	   4 Input    7 Bit        Muxes := 2     
-	   2 Input    6 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -192,12 +176,12 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 INFO: [Synth 8-3936] Found unconnected internal register 'inst/ADC_Stream_Reader/Dout_reg' and it is trimmed from '32' to '14' bits. [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/new/AXI4_Stream_Reader.vhd:52]
 WARNING: [Synth 8-6040] Register inst/ADC_Debug_NCO/dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+WARNING: [Synth 8-6040] Register inst/ADC_Debug_NCO/Quadrature_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 WARNING: [Synth 8-6040] Register inst/PLL_NCO/dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
-WARNING: [Synth 8-6040] Register inst/Test_NCO_1/dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
-WARNING: [Synth 8-6040] Register inst/Test_NCO_2/dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+WARNING: [Synth 8-6040] Register inst/PLL_NCO/Quadrature_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 DSP Report: Generating DSP inst/Phase_Mixer/Dout_reg, operation Mode is: (A*B'')'.
-DSP Report: register inst/Phase_Mixer/Dout_reg is absorbed into DSP inst/Phase_Mixer/Dout_reg.
-DSP Report: register inst/Phase_Mixer/Dout_reg is absorbed into DSP inst/Phase_Mixer/Dout_reg.
+DSP Report: register inst/PLL_NCO/Quadrature_buffer_reg is absorbed into DSP inst/Phase_Mixer/Dout_reg.
+DSP Report: register inst/PLL_NCO/Quadrature_out_reg is absorbed into DSP inst/Phase_Mixer/Dout_reg.
 DSP Report: register inst/Phase_Mixer/Dout_reg is absorbed into DSP inst/Phase_Mixer/Dout_reg.
 DSP Report: operator inst/Phase_Mixer/Dout0 is absorbed into DSP inst/Phase_Mixer/Dout_reg.
 DSP Report: Generating DSP inst/Loop_Controller/I_pipeline0, operation Mode is: A*B.
@@ -376,7 +360,7 @@ INFO: [Synth 8-3332] Sequential element (inst/Loop_Controller/D_pipeline_reg[42]
 INFO: [Synth 8-3332] Sequential element (inst/Loop_Controller/D_pipeline_reg[41]__0) is unused and will be removed from module system_Custom_System_0_0.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1367.902 ; gain = 559.957
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -387,11 +371,11 @@ ROM: Preliminary Mapping Report
 |Module Name              | RTL Object                   | Depth x Width | Implemented As | 
 +-------------------------+------------------------------+---------------+----------------+
 |NCO                      | SINROM[0]                    | 256x12        | LUT            | 
-|NCO                      | SINROM[0]                    | 256x6         | LUT            | 
+|NCO                      | SINROM[0]                    | 256x12        | LUT            | 
+|system_Custom_System_0_0 | inst/ADC_Debug_NCO/SINROM[0] | 256x12        | LUT            | 
 |system_Custom_System_0_0 | inst/ADC_Debug_NCO/SINROM[0] | 256x12        | LUT            | 
 |system_Custom_System_0_0 | inst/PLL_NCO/SINROM[0]       | 256x12        | LUT            | 
-|system_Custom_System_0_0 | inst/Test_NCO_1/SINROM[0]    | 256x6         | LUT            | 
-|system_Custom_System_0_0 | inst/Test_NCO_2/SINROM[0]    | 256x6         | LUT            | 
+|system_Custom_System_0_0 | inst/PLL_NCO/SINROM[0]       | 256x12        | LUT            | 
 +-------------------------+------------------------------+---------------+----------------+
 
 
@@ -409,9 +393,9 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 |system_Custom_System_0_0 | A*B2            | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
 |system_Custom_System_0_0 | (PCIN>>17)+A*B2 | 18     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A2*B            | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17)+A*B  | 15     | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | (PCIN>>17)+A*B  | 15     | 10     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A*B2            | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17)+A*B  | 18     | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | (PCIN>>17)+A*B  | 18     | 10     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 +-------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
@@ -422,19 +406,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1383.051 ; gain = 575.105
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1384.789 ; gain = 576.844
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1413.406 ; gain = 605.461
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -452,37 +436,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -501,9 +485,9 @@ DSP Final Report (the ' indicates corresponding REG is set)
 |system_Custom_System_0_0 | A*B'             | 17     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
 |system_Custom_System_0_0 | (PCIN>>17+A*B')' | 0      | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A'*B             | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17+A*B')' | 30     | 11     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | (PCIN>>17+A*B')' | 30     | 9      | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A*B'             | 17     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17+A*B')' | 0      | 11     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | (PCIN>>17+A*B')' | 0      | 9      | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | (A*B'')'         | 30     | 18     | -      | -      | 28     | 0    | 2    | -    | -    | -     | 0    | 1    | 
 +-------------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
@@ -518,42 +502,42 @@ Report Cell Usage:
 +------+--------+------+
 |      |Cell    |Count |
 +------+--------+------+
-|1     |CARRY4  |   173|
+|1     |CARRY4  |   118|
 |2     |DSP48E1 |    13|
-|10    |LUT1    |    31|
-|11    |LUT2    |   513|
-|12    |LUT3    |   132|
-|13    |LUT4    |   120|
-|14    |LUT5    |    29|
-|15    |LUT6    |   195|
-|16    |MUXF7   |    22|
-|17    |FDRE    |   829|
+|10    |LUT1    |     1|
+|11    |LUT2    |   410|
+|12    |LUT3    |    89|
+|13    |LUT4    |    66|
+|14    |LUT5    |    19|
+|15    |LUT6    |   191|
+|16    |MUXF7   |    37|
+|17    |FDRE    |   669|
 |18    |FDSE    |    31|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 27 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1421.652 ; gain = 558.090
-Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:27 . Memory (MB): peak = 1424.750 ; gain = 504.656
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1424.750 ; gain = 617.871
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1425.875 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 208 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1435.852 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 168 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1428.242 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1439.578 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 43c574b0
+Synth Design complete, checksum: 144417c3
 INFO: [Common 17-83] Releasing license: Synthesis
-163 Infos, 45 Warnings, 0 Critical Warnings and 0 Errors encountered.
+155 Infos, 44 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1428.242 ; gain = 998.953
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1439.578 ; gain = 1009.090
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1/system_Custom_System_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_Custom_System_0_0, cache-ID = 16a4fccca83cce93
-INFO: [Coretcl 2-1174] Renamed 11 cell refs.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_Custom_System_0_0, cache-ID = 8b236e194a73b35b
+INFO: [Coretcl 2-1174] Renamed 7 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1/system_Custom_System_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_Custom_System_0_0_utilization_synth.rpt -pb system_Custom_System_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar 22 11:57:25 2023...
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 22 16:28:35 2023...
