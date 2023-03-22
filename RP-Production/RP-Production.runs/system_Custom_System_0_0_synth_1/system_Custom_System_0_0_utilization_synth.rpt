@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue Mar 21 08:12:38 2023
-| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
+| Date         : Tue Mar 21 14:11:13 2023
+| Host         : DESKTOP-ORRMO2Q running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_Custom_System_0_0_utilization_synth.rpt -pb system_Custom_System_0_0_utilization_synth.pb
 | Design       : system_Custom_System_0_0
 | Device       : xc7z010clg400-1
@@ -31,13 +31,13 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  875 |     0 |          0 |     17600 |  4.97 |
-|   LUT as Logic          |  875 |     0 |          0 |     17600 |  4.97 |
+| Slice LUTs*             |  634 |     0 |          0 |     17600 |  3.60 |
+|   LUT as Logic          |  634 |     0 |          0 |     17600 |  3.60 |
 |   LUT as Memory         |    0 |     0 |          0 |      6000 |  0.00 |
-| Slice Registers         |  860 |     0 |          0 |     35200 |  2.44 |
-|   Register as Flip Flop |  860 |     0 |          0 |     35200 |  2.44 |
+| Slice Registers         |  601 |     0 |          0 |     35200 |  1.71 |
+|   Register as Flip Flop |  601 |     0 |          0 |     35200 |  1.71 |
 |   Register as Latch     |    0 |     0 |          0 |     35200 |  0.00 |
-| F7 Muxes                |   22 |     0 |          0 |      8800 |  0.25 |
+| F7 Muxes                |   32 |     0 |          0 |      8800 |  0.36 |
 | F8 Muxes                |    0 |     0 |          0 |      4400 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -59,7 +59,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 860   |          Yes |       Reset |            - |
+| 601   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,16 +149,16 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  860 |        Flop & Latch |
-| LUT2     |  512 |                 LUT |
-| LUT6     |  195 |                 LUT |
-| CARRY4   |  173 |          CarryLogic |
-| LUT3     |  132 |                 LUT |
-| LUT4     |  120 |                 LUT |
-| LUT1     |   31 |                 LUT |
-| LUT5     |   29 |                 LUT |
-| MUXF7    |   22 |               MuxFx |
+| FDRE     |  601 |        Flop & Latch |
+| LUT2     |  408 |                 LUT |
+| LUT6     |  121 |                 LUT |
+| CARRY4   |  118 |          CarryLogic |
+| LUT4     |   77 |                 LUT |
+| LUT3     |   77 |                 LUT |
+| MUXF7    |   32 |               MuxFx |
+| LUT5     |   22 |                 LUT |
 | DSP48E1  |   13 |    Block Arithmetic |
+| LUT1     |    1 |                 LUT |
 +----------+------+---------------------+
 
 

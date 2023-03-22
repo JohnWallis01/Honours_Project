@@ -1,8 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'NCO'
-ERROR: [VRFC 10-9435] type conversion of 'unsigned' does not match with type 'std_ulogic' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:103]
-ERROR: [VRFC 10-3760] type 'std_ulogic' does not match with the integer literal [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:103]
-ERROR: [VRFC 10-9435] type conversion of 'unsigned' does not match with type 'std_ulogic' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:105]
-ERROR: [VRFC 10-3760] type 'std_ulogic' does not match with the integer literal [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:105]
-ERROR: [VRFC 10-9458] unit 'nco_str' is ignored due to previous errors [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:24]
-INFO: [VRFC 10-8704] VHDL file 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd' is ignored due to errors

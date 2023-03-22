@@ -70,16 +70,16 @@ pagesize -pg 1 -db -bbox -sgen -220 -850 2400 1890
 ",
    "Color Coded_ScaleFactor":"0.696819",
    "Color Coded_TopLeft":"-159,-459",
-   "Default View_Layers":"/DAC_Controller/axis_red_pitaya_dac_1_dac_rst:true|/PS7/processing_system7_0_FCLK_CLK0:true|/PS7/processing_system7_0_FCLK_RESET0_N:true|/DAC_Controller/axis_red_pitaya_dac_1_dac_clk:true|/Daisy_Controller/util_ds_buf_0_IBUF_OUT:true|/DAC_Controller/clk_wiz_0_clk_out1:true|/ADC_Interface/Net:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_P:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_N:true|/PS7/S00_ARESETN_1:true|/PS7/proc_sys_reset_0_interconnect_aresetn:true|",
-   "Default View_ScaleFactor":"1.364",
-   "Default View_TopLeft":"555,-240",
+   "Default View_Layers":"/DAC_Controller/axis_red_pitaya_dac_1_dac_rst:true|/PS7/processing_system7_0_FCLK_CLK0:true|/PS7/processing_system7_0_FCLK_RESET0_N:true|/DAC_Controller/axis_red_pitaya_dac_1_dac_clk:true|/Daisy_Controller/util_ds_buf_0_IBUF_OUT:true|/DAC_Controller/clk_wiz_0_clk_out1:true|/ADC_Interface/Net:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_P:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_N:true|/PS7/S00_ARESETN_1:true|/PS7/proc_sys_reset_0_interconnect_aresetn:true|/Net:true|/Custom_System_0_Reset:true|/DAC_Interface/axis_red_pitaya_dac_1_dac_clk:true|/DAC_Interface/clk_wiz_0_clk_out1:true|/DAC_Interface/axis_red_pitaya_dac_1_dac_rst:true|",
+   "Default View_ScaleFactor":"0.693684",
+   "Default View_TopLeft":"-248,-519",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "Display-PortTypeReset":"true",
    "ExpandedHierarchyInLayout":"",
-   "Interfaces View_Layers":"/DAC_Controller/axis_red_pitaya_dac_1_dac_rst:false|/PS7/processing_system7_0_FCLK_CLK0:false|/PS7/processing_system7_0_FCLK_RESET0_N:false|/DAC_Controller/axis_red_pitaya_dac_1_dac_clk:false|/Daisy_Controller/util_ds_buf_0_IBUF_OUT:false|/DAC_Controller/clk_wiz_0_clk_out1:false|/ADC_Interface/Net:false|/Daisy_Controller/util_ds_buf_1_OBUF_DS_P:false|/Daisy_Controller/util_ds_buf_1_OBUF_DS_N:false|/PS7/S00_ARESETN_1:false|/PS7/proc_sys_reset_0_interconnect_aresetn:false|",
-   "Interfaces View_ScaleFactor":"1.0",
-   "Interfaces View_TopLeft":"-445,-232",
+   "Interfaces View_Layers":"/DAC_Controller/axis_red_pitaya_dac_1_dac_rst:false|/PS7/processing_system7_0_FCLK_CLK0:false|/PS7/processing_system7_0_FCLK_RESET0_N:false|/DAC_Controller/axis_red_pitaya_dac_1_dac_clk:false|/Daisy_Controller/util_ds_buf_0_IBUF_OUT:false|/DAC_Controller/clk_wiz_0_clk_out1:false|/ADC_Interface/Net:false|/Daisy_Controller/util_ds_buf_1_OBUF_DS_P:false|/Daisy_Controller/util_ds_buf_1_OBUF_DS_N:false|/PS7/S00_ARESETN_1:false|/PS7/proc_sys_reset_0_interconnect_aresetn:false|/Net:false|/Custom_System_0_Reset:false|/DAC_Interface/axis_red_pitaya_dac_1_dac_clk:false|/DAC_Interface/clk_wiz_0_clk_out1:false|/DAC_Interface/axis_red_pitaya_dac_1_dac_rst:false|",
+   "Interfaces View_ScaleFactor":"0.757858",
+   "Interfaces View_TopLeft":"-310,-65",
    "PinnedBlocks":"",
    "Reduced Jogs_ExpandedHierarchyInLayout":"",
    "Reduced Jogs_Layout":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
@@ -159,98 +159,82 @@ pagesize -pg 1 -db -bbox -sgen -220 -510 2790 1170
    "commentid":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port Vp_Vn -pg 1 -lvl 0 -x -90 -y -70 -defaultsOSRD
-preplace port Vaux0 -pg 1 -lvl 0 -x -90 -y -40 -defaultsOSRD
-preplace port Vaux1 -pg 1 -lvl 0 -x -90 -y -10 -defaultsOSRD
-preplace port Vaux9 -pg 1 -lvl 0 -x -90 -y 50 -defaultsOSRD
-preplace port Vaux8 -pg 1 -lvl 0 -x -90 -y 20 -defaultsOSRD
-preplace port DDR -pg 1 -lvl 6 -x 2340 -y 350 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 6 -x 2340 -y 380 -defaultsOSRD
-preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x -90 -y 80 -defaultsOSRD
-preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x -90 -y 110 -defaultsOSRD
-preplace port port-id_adc_enc_p_o -pg 1 -lvl 6 -x 2340 -y -160 -defaultsOSRD
-preplace port port-id_adc_enc_n_o -pg 1 -lvl 6 -x 2340 -y -120 -defaultsOSRD
-preplace port port-id_adc_csn_o -pg 1 -lvl 6 -x 2340 -y 0 -defaultsOSRD
-preplace port port-id_dac_clk_o -pg 1 -lvl 6 -x 2340 -y 200 -defaultsOSRD
-preplace port port-id_dac_rst_o -pg 1 -lvl 6 -x 2340 -y 220 -defaultsOSRD
-preplace port port-id_dac_sel_o -pg 1 -lvl 6 -x 2340 -y 240 -defaultsOSRD
-preplace port port-id_dac_wrt_o -pg 1 -lvl 6 -x 2340 -y 260 -defaultsOSRD
+preplace port Vp_Vn -pg 1 -lvl 0 -x -90 -y -80 -defaultsOSRD
+preplace port Vaux0 -pg 1 -lvl 0 -x -90 -y -50 -defaultsOSRD
+preplace port Vaux1 -pg 1 -lvl 0 -x -90 -y -20 -defaultsOSRD
+preplace port Vaux9 -pg 1 -lvl 0 -x -90 -y 40 -defaultsOSRD
+preplace port Vaux8 -pg 1 -lvl 0 -x -90 -y 10 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 7 -x 2340 -y 350 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 7 -x 2340 -y 380 -defaultsOSRD
+preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x -90 -y 70 -defaultsOSRD
+preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x -90 -y 100 -defaultsOSRD
+preplace port port-id_adc_enc_p_o -pg 1 -lvl 7 -x 2340 -y -200 -defaultsOSRD
+preplace port port-id_adc_enc_n_o -pg 1 -lvl 7 -x 2340 -y -140 -defaultsOSRD
+preplace port port-id_adc_csn_o -pg 1 -lvl 7 -x 2340 -y 0 -defaultsOSRD
+preplace port port-id_dac_clk_o -pg 1 -lvl 7 -x 2340 -y 160 -defaultsOSRD
+preplace port port-id_dac_rst_o -pg 1 -lvl 7 -x 2340 -y 190 -defaultsOSRD
+preplace port port-id_dac_sel_o -pg 1 -lvl 7 -x 2340 -y 220 -defaultsOSRD
+preplace port port-id_dac_wrt_o -pg 1 -lvl 7 -x 2340 -y 250 -defaultsOSRD
 preplace portBus adc_dat_b_i -pg 1 -lvl 0 -x -90 -y 160 -defaultsOSRD
-preplace portBus dac_dat_o -pg 1 -lvl 6 -x 2340 -y 280 -defaultsOSRD
-preplace portBus dac_pwm_o -pg 1 -lvl 6 -x 2340 -y -190 -defaultsOSRD
-preplace portBus exp_p_tri_io -pg 1 -lvl 6 -x 2340 -y -140 -defaultsOSRD
-preplace portBus exp_n_tri_io -pg 1 -lvl 6 -x 2340 -y -80 -defaultsOSRD
-preplace portBus daisy_p_o -pg 1 -lvl 6 -x 2340 -y -290 -defaultsOSRD
-preplace portBus daisy_n_o -pg 1 -lvl 6 -x 2340 -y -250 -defaultsOSRD
-preplace portBus daisy_p_i -pg 1 -lvl 0 -x -90 -y -280 -defaultsOSRD
+preplace portBus dac_dat_o -pg 1 -lvl 7 -x 2340 -y 280 -defaultsOSRD
+preplace portBus dac_pwm_o -pg 1 -lvl 7 -x 2340 -y -230 -defaultsOSRD
+preplace portBus exp_p_tri_io -pg 1 -lvl 7 -x 2340 -y -170 -defaultsOSRD
+preplace portBus exp_n_tri_io -pg 1 -lvl 7 -x 2340 -y -80 -defaultsOSRD
+preplace portBus daisy_p_o -pg 1 -lvl 7 -x 2340 -y -290 -defaultsOSRD
+preplace portBus daisy_n_o -pg 1 -lvl 7 -x 2340 -y -260 -defaultsOSRD
+preplace portBus daisy_p_i -pg 1 -lvl 0 -x -90 -y -290 -defaultsOSRD
 preplace portBus daisy_n_i -pg 1 -lvl 0 -x -90 -y -260 -defaultsOSRD
-preplace portBus led_o -pg 1 -lvl 6 -x 2340 -y -100 -defaultsOSRD
-preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x -90 -y 140 -defaultsOSRD
+preplace portBus led_o -pg 1 -lvl 7 -x 2340 -y -110 -defaultsOSRD
+preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x -90 -y 130 -defaultsOSRD
 preplace inst PS7 -pg 1 -lvl 1 -x 76 -y 450 -defaultsOSRD
 preplace inst Daisy_Controller -pg 1 -lvl 1 -x 76 -y -270 -defaultsOSRD
 preplace inst axis_red_pitaya_adc_0 -pg 1 -lvl 1 -x 76 -y 120 -defaultsOSRD
-preplace inst DAC_Interface -pg 1 -lvl 5 -x 1680 -y 242 -defaultsOSRD
-preplace inst GPIO_Interface -pg 1 -lvl 2 -x 500 -y 450 -defaultsOSRD
-preplace inst Custom_System_0 -pg 1 -lvl 4 -x 1230 -y 160 -defaultsOSRD
-preplace inst DAC_Interface|axis_constant_0 -pg 1 -lvl 1 -x 1730 -y 242 -defaultsOSRD
-preplace inst DAC_Interface|clk_wiz_0 -pg 1 -lvl 1 -x 1730 -y 382 -defaultsOSRD
-preplace inst DAC_Interface|axis_red_pitaya_dac_1 -pg 1 -lvl 2 -x 1990 -y 272 -defaultsOSRD
-preplace netloc Custom_System_0_DAC_Stream_out 1 4 1 1440 150n
-preplace netloc Custom_System_0_Reset 1 4 1 1450 170n
-preplace netloc GPIO_ADC_Override_gpio_io_o 1 2 2 670 130 N
-preplace netloc GPIO_Interface_gpio_io_o2 1 2 2 640 150 N
-preplace netloc GPIO_Internal_Debug_Freq_gpio_io_o 1 2 2 630 110 N
-preplace netloc GPIO_Kd_gpio_io_o 1 2 2 690 210 N
-preplace netloc GPIO_Ki_gpio_io_o 1 2 2 650 190 N
-preplace netloc GPIO_Kp_gpio_io_o 1 2 2 680 170 N
-preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 2 2 660 90 N
-preplace netloc Net 1 1 4 N 120 N 120 750 330 1470
-preplace netloc PS7_FCLK_CLK0 1 1 3 230 250 N 250 N
-preplace netloc adc_clk_n_i_1 1 0 1 N 110
-preplace netloc adc_clk_p_i_1 1 0 1 -70 80n
-preplace netloc adc_dat_a_i_1 1 0 1 -70 130n
+preplace inst DAC_Interface -pg 1 -lvl 6 -x 1870 -y 242 -defaultsOSRD
+preplace inst GPIO_Interface -pg 1 -lvl 3 -x 720 -y 450 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 108 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 90 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 72 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 54 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 36 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 18 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134} -defaultsOSRD
+preplace inst Custom_System_0 -pg 1 -lvl 5 -x 1490 -y 160 -defaultsOSRD
+preplace netloc Custom_System_0_Reset 1 5 1 1690 170n
+preplace netloc GPIO_ADC_Override_gpio_io_o 1 3 2 900 130 N
+preplace netloc GPIO_Interface_gpio_io_o2 1 3 2 860 150 N
+preplace netloc GPIO_Internal_Debug_Freq_gpio_io_o 1 3 2 850 110 N
+preplace netloc GPIO_Kd_gpio_io_o 1 3 2 920 210 N
+preplace netloc GPIO_Ki_gpio_io_o 1 3 2 870 190 N
+preplace netloc GPIO_Kp_gpio_io_o 1 3 2 910 170 N
+preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 3 2 890 90 N
+preplace netloc Net 1 1 5 N 120 N 120 N 120 1090 310 1700
+preplace netloc PS7_FCLK_CLK0 1 1 4 N 520 410 250 N 250 N
+preplace netloc adc_clk_n_i_1 1 0 1 -70 100n
+preplace netloc adc_clk_p_i_1 1 0 1 -70 70n
+preplace netloc adc_dat_a_i_1 1 0 1 N 130
 preplace netloc adc_dat_b_i_1 1 0 1 -70 150n
-preplace netloc axis_red_pitaya_adc_0_adc_csn 1 1 5 210 0 N 0 N 0 N 0 N
-preplace netloc axis_red_pitaya_dac_1_dac_clk 1 5 1 2260 200n
-preplace netloc axis_red_pitaya_dac_1_dac_dat 1 5 1 2320 280n
-preplace netloc axis_red_pitaya_dac_1_dac_rst 1 5 1 2270 220n
-preplace netloc axis_red_pitaya_dac_1_dac_sel 1 5 1 2300 240n
-preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 5 1 2310 260n
+preplace netloc axis_red_pitaya_adc_0_adc_csn 1 1 6 210 0 N 0 N 0 N 0 N 0 N
+preplace netloc axis_red_pitaya_dac_1_dac_clk 1 6 1 2000 160n
+preplace netloc axis_red_pitaya_dac_1_dac_dat 1 6 1 2010 280n
+preplace netloc axis_red_pitaya_dac_1_dac_rst 1 6 1 2010 190n
+preplace netloc axis_red_pitaya_dac_1_dac_sel 1 6 1 2020 220n
+preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 6 1 2030 250n
 preplace netloc daisy_n_i_1 1 0 1 NJ -260
-preplace netloc daisy_p_i_1 1 0 1 NJ -280
-preplace netloc s_axi_aresetn_1 1 1 1 220 530n
-preplace netloc util_ds_buf_1_OBUF_DS_N 1 1 5 210 -250 N -250 N -250 N -250 N
-preplace netloc util_ds_buf_1_OBUF_DS_P 1 1 5 210 -290 N -290 N -290 N -290 N
-preplace netloc PS7_M00_AXI 1 1 1 210 370n
-preplace netloc PS7_M02_AXI 1 1 1 240 410n
-preplace netloc PS7_M03_AXI 1 1 1 240 430n
-preplace netloc S_AXI1_1 1 1 1 220 390n
-preplace netloc S_AXI4_1 1 1 1 240 450n
-preplace netloc S_AXI5_1 1 1 1 240 470n
-preplace netloc S_AXI6_1 1 1 1 240 490n
-preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 3 230 70 N 70 N
-preplace netloc processing_system7_0_DDR 1 1 5 210 300 N 300 740 320 1460 142 2280
-preplace netloc processing_system7_0_FIXED_IO 1 1 5 220 310 N 310 N 310 1430 132 2290
-preplace netloc DAC_Interface|Custom_System_0_DAC_Stream_out 1 0 1 N 252
-preplace netloc DAC_Interface|Custom_System_0_Reset 1 0 1 N 372
-preplace netloc DAC_Interface|Net 1 0 2 1610 312 1850
-preplace netloc DAC_Interface|axis_red_pitaya_dac_1_dac_clk 1 2 1 N 232
-preplace netloc DAC_Interface|axis_red_pitaya_dac_1_dac_dat 1 2 1 N 312
-preplace netloc DAC_Interface|axis_red_pitaya_dac_1_dac_rst 1 2 1 N 252
-preplace netloc DAC_Interface|axis_red_pitaya_dac_1_dac_sel 1 2 1 N 272
-preplace netloc DAC_Interface|axis_red_pitaya_dac_1_dac_wrt 1 2 1 N 292
-preplace netloc DAC_Interface|clk_wiz_0_clk_out1 1 1 1 1860 282n
-preplace netloc DAC_Interface|clk_wiz_0_locked 1 1 1 1870 302n
-preplace netloc DAC_Interface|axis_constant_0_M_AXIS 1 1 1 N 242
-levelinfo -pg 1 -90 76 500 720 1230 1680 2340
-levelinfo -hier DAC_Interface * 1730 1990 *
-pagesize -pg 1 -db -bbox -sgen -260 -5560 2500 2360
-pagesize -hier DAC_Interface -db -bbox -sgen 1580 172 2140 452
+preplace netloc daisy_p_i_1 1 0 1 -70J -290n
+preplace netloc s_axi_aresetn_1 1 1 2 N 540 420
+preplace netloc util_ds_buf_1_OBUF_DS_N 1 1 6 N -260 N -260 N -260 N -260 N -260 N
+preplace netloc util_ds_buf_1_OBUF_DS_P 1 1 6 210 -290 N -290 N -290 N -290 N -290 N
+preplace netloc Custom_System_0_DAC_Stream_out 1 5 1 1710 150n
+preplace netloc PS7_M00_AXI 1 1 2 220 370 N
+preplace netloc PS7_M02_AXI 1 1 2 200 430 420
+preplace netloc PS7_M03_AXI 1 1 2 200 450 N
+preplace netloc S_AXI1_1 1 1 2 N 400 430
+preplace netloc S_AXI4_1 1 1 2 230 440 440
+preplace netloc S_AXI5_1 1 1 2 220 420 420
+preplace netloc S_AXI6_1 1 1 2 210 410 400
+preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 4 220 70 N 70 N 70 N
+preplace netloc processing_system7_0_DDR 1 1 6 220 310 N 310 880 350 N 350 N 350 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 6 210 300 N 300 N 300 1080 380 N 380 N
+levelinfo -pg 1 -90 76 380 720 1060 1490 1870 2340
+pagesize -pg 1 -db -bbox -sgen -250 -5560 2500 2360
 "
 }
 {
-   """""da_axi4_cnt""""":"4",
-   """""da_board_cnt""""":"3",
-   """""da_clkrst_cnt""""":"1",
-   """""da_ps7_cnt""""":"1"
+   """"""da_axi4_cnt"""""":"4",
+   """"""da_board_cnt"""""":"3",
+   """"""da_clkrst_cnt"""""":"1",
+   """"""da_ps7_cnt"""""":"1"
 }

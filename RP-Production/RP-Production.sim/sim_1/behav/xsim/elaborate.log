@@ -1,0 +1,12 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_13 -L processing_system7_vip_v1_0_15 -L lib_cdc_v1_0_2 -L proc_sys_reset_v5_0_13 -L generic_baseblocks_v2_1_0 -L axi_register_slice_v2_1_27 -L fifo_generator_v13_2_7 -L axi_data_fifo_v2_1_26 -L axi_crossbar_v2_1_28 -L axi_lite_ipif_v3_0_4 -L interrupt_control_v3_1_4 -L axi_gpio_v2_0_29 -L axi_protocol_converter_v2_1_27 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot system_wrapper_behav xil_defaultlib.system_wrapper xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-2063] Module <system_xbar_0> not found while processing module instance <xbar> [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.ip_user_files/bd/system/sim/system.v:1857]
+ERROR: [VRFC 10-2063] Module <system_ConstantIP_1_0> not found while processing module instance <ConstantIP_1> [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.ip_user_files/bd/system/sim/system.v:334]
+ERROR: [VRFC 10-2063] Module <system_ConstantIP_0_1> not found while processing module instance <ConstantIP_2> [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.ip_user_files/bd/system/sim/system.v:336]
+ERROR: [VRFC 10-2063] Module <system_ConstantIP_1_1> not found while processing module instance <ConstantIP_3> [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.ip_user_files/bd/system/sim/system.v:338]
+ERROR: [VRFC 10-2063] Module <system_NCO_0_0> not found while processing module instance <NCO_0> [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.ip_user_files/bd/system/sim/system.v:340]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
