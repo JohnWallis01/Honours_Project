@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Mar 21 08:12:38 2023
+// Date        : Wed Mar 22 11:57:25 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0_sim_netlist.v
@@ -12568,8 +12568,8 @@ module system_Custom_System_0_0_PID_Controller
     \PLL_Guess_Freq[31] ,
     DAC_Stream_out,
     \Data_Memory_reg[27]_0 ,
-    AD_CLK_in,
     Control_Ki,
+    AD_CLK_in,
     Control_Kd,
     phase_1,
     Control_Kp,
@@ -12600,8 +12600,8 @@ module system_Custom_System_0_0_PID_Controller
   output [3:0]\PLL_Guess_Freq[31] ;
   output [13:0]DAC_Stream_out;
   output [27:0]\Data_Memory_reg[27]_0 ;
-  input AD_CLK_in;
   input [31:0]Control_Ki;
+  input AD_CLK_in;
   input [31:0]Control_Kd;
   input phase_1;
   input [31:0]Control_Kp;
@@ -12625,7 +12625,37 @@ module system_Custom_System_0_0_PID_Controller
 
   wire [10:0]A;
   wire AD_CLK_in;
-  wire [31:0]Accumulated_Output;
+  wire \Accumulated_Output_reg_n_0_[0] ;
+  wire \Accumulated_Output_reg_n_0_[10] ;
+  wire \Accumulated_Output_reg_n_0_[11] ;
+  wire \Accumulated_Output_reg_n_0_[12] ;
+  wire \Accumulated_Output_reg_n_0_[13] ;
+  wire \Accumulated_Output_reg_n_0_[14] ;
+  wire \Accumulated_Output_reg_n_0_[15] ;
+  wire \Accumulated_Output_reg_n_0_[16] ;
+  wire \Accumulated_Output_reg_n_0_[17] ;
+  wire \Accumulated_Output_reg_n_0_[18] ;
+  wire \Accumulated_Output_reg_n_0_[19] ;
+  wire \Accumulated_Output_reg_n_0_[1] ;
+  wire \Accumulated_Output_reg_n_0_[20] ;
+  wire \Accumulated_Output_reg_n_0_[21] ;
+  wire \Accumulated_Output_reg_n_0_[22] ;
+  wire \Accumulated_Output_reg_n_0_[23] ;
+  wire \Accumulated_Output_reg_n_0_[24] ;
+  wire \Accumulated_Output_reg_n_0_[25] ;
+  wire \Accumulated_Output_reg_n_0_[26] ;
+  wire \Accumulated_Output_reg_n_0_[27] ;
+  wire \Accumulated_Output_reg_n_0_[28] ;
+  wire \Accumulated_Output_reg_n_0_[29] ;
+  wire \Accumulated_Output_reg_n_0_[2] ;
+  wire \Accumulated_Output_reg_n_0_[30] ;
+  wire \Accumulated_Output_reg_n_0_[3] ;
+  wire \Accumulated_Output_reg_n_0_[4] ;
+  wire \Accumulated_Output_reg_n_0_[5] ;
+  wire \Accumulated_Output_reg_n_0_[6] ;
+  wire \Accumulated_Output_reg_n_0_[7] ;
+  wire \Accumulated_Output_reg_n_0_[8] ;
+  wire \Accumulated_Output_reg_n_0_[9] ;
   wire [31:0]Control_Kd;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
@@ -13578,7 +13608,8 @@ module system_Custom_System_0_0_PID_Controller
   wire I_pipeline_reg_n_97;
   wire I_pipeline_reg_n_98;
   wire I_pipeline_reg_n_99;
-  wire [31:0]Integral_Stage;
+  wire [30:0]Integral_Stage;
+  wire Integral_Stage01_out;
   wire \Integral_Stage[11]_i_2_n_0 ;
   wire \Integral_Stage[11]_i_3_n_0 ;
   wire \Integral_Stage[11]_i_4_n_0 ;
@@ -13647,13 +13678,13 @@ module system_Custom_System_0_0_PID_Controller
   wire \Integral_Stage_reg[27]_i_1_n_5 ;
   wire \Integral_Stage_reg[27]_i_1_n_6 ;
   wire \Integral_Stage_reg[27]_i_1_n_7 ;
-  wire \Integral_Stage_reg[31]_i_1_n_1 ;
-  wire \Integral_Stage_reg[31]_i_1_n_2 ;
-  wire \Integral_Stage_reg[31]_i_1_n_3 ;
-  wire \Integral_Stage_reg[31]_i_1_n_4 ;
-  wire \Integral_Stage_reg[31]_i_1_n_5 ;
-  wire \Integral_Stage_reg[31]_i_1_n_6 ;
-  wire \Integral_Stage_reg[31]_i_1_n_7 ;
+  wire \Integral_Stage_reg[31]_i_2_n_1 ;
+  wire \Integral_Stage_reg[31]_i_2_n_2 ;
+  wire \Integral_Stage_reg[31]_i_2_n_3 ;
+  wire \Integral_Stage_reg[31]_i_2_n_4 ;
+  wire \Integral_Stage_reg[31]_i_2_n_5 ;
+  wire \Integral_Stage_reg[31]_i_2_n_6 ;
+  wire \Integral_Stage_reg[31]_i_2_n_7 ;
   wire \Integral_Stage_reg[3]_i_1_n_0 ;
   wire \Integral_Stage_reg[3]_i_1_n_1 ;
   wire \Integral_Stage_reg[3]_i_1_n_2 ;
@@ -14363,6 +14394,8 @@ module system_Custom_System_0_0_PID_Controller
   wire \SignalOutput_reg_n_0_[9] ;
   wire [13:0]data3;
   wire [31:0]p_0_in;
+  wire p_0_in_0;
+  wire p_2_in;
   wire phase_1;
   wire NLW_D_pipeline0_CARRYCASCOUT_UNCONNECTED;
   wire NLW_D_pipeline0_MULTSIGNOUT_UNCONNECTED;
@@ -14442,7 +14475,7 @@ module system_Custom_System_0_0_PID_Controller
   wire [17:0]NLW_I_pipeline_reg__0_BCOUT_UNCONNECTED;
   wire [3:0]NLW_I_pipeline_reg__0_CARRYOUT_UNCONNECTED;
   wire [47:0]NLW_I_pipeline_reg__0_PCOUT_UNCONNECTED;
-  wire [3:3]\NLW_Integral_Stage_reg[31]_i_1_CO_UNCONNECTED ;
+  wire [3:3]\NLW_Integral_Stage_reg[31]_i_2_CO_UNCONNECTED ;
   wire NLW_P_pipeline0_CARRYCASCOUT_UNCONNECTED;
   wire NLW_P_pipeline0_MULTSIGNOUT_UNCONNECTED;
   wire NLW_P_pipeline0_OVERFLOW_UNCONNECTED;
@@ -14498,7 +14531,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[0]),
-        .Q(Accumulated_Output[0]),
+        .Q(\Accumulated_Output_reg_n_0_[0] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14506,7 +14539,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[10]),
-        .Q(Accumulated_Output[10]),
+        .Q(\Accumulated_Output_reg_n_0_[10] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14514,7 +14547,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[11]),
-        .Q(Accumulated_Output[11]),
+        .Q(\Accumulated_Output_reg_n_0_[11] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14522,7 +14555,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[12]),
-        .Q(Accumulated_Output[12]),
+        .Q(\Accumulated_Output_reg_n_0_[12] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14530,7 +14563,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[13]),
-        .Q(Accumulated_Output[13]),
+        .Q(\Accumulated_Output_reg_n_0_[13] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14538,7 +14571,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[14]),
-        .Q(Accumulated_Output[14]),
+        .Q(\Accumulated_Output_reg_n_0_[14] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14546,7 +14579,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[15]),
-        .Q(Accumulated_Output[15]),
+        .Q(\Accumulated_Output_reg_n_0_[15] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14554,7 +14587,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[16]),
-        .Q(Accumulated_Output[16]),
+        .Q(\Accumulated_Output_reg_n_0_[16] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14562,7 +14595,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[17]),
-        .Q(Accumulated_Output[17]),
+        .Q(\Accumulated_Output_reg_n_0_[17] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14570,7 +14603,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[18]),
-        .Q(Accumulated_Output[18]),
+        .Q(\Accumulated_Output_reg_n_0_[18] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14578,7 +14611,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[19]),
-        .Q(Accumulated_Output[19]),
+        .Q(\Accumulated_Output_reg_n_0_[19] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14586,7 +14619,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[1]),
-        .Q(Accumulated_Output[1]),
+        .Q(\Accumulated_Output_reg_n_0_[1] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14594,7 +14627,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[20]),
-        .Q(Accumulated_Output[20]),
+        .Q(\Accumulated_Output_reg_n_0_[20] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14602,7 +14635,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[21]),
-        .Q(Accumulated_Output[21]),
+        .Q(\Accumulated_Output_reg_n_0_[21] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14610,7 +14643,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[22]),
-        .Q(Accumulated_Output[22]),
+        .Q(\Accumulated_Output_reg_n_0_[22] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14618,7 +14651,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[23]),
-        .Q(Accumulated_Output[23]),
+        .Q(\Accumulated_Output_reg_n_0_[23] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14626,7 +14659,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[24]),
-        .Q(Accumulated_Output[24]),
+        .Q(\Accumulated_Output_reg_n_0_[24] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14634,7 +14667,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[25]),
-        .Q(Accumulated_Output[25]),
+        .Q(\Accumulated_Output_reg_n_0_[25] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14642,7 +14675,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[26]),
-        .Q(Accumulated_Output[26]),
+        .Q(\Accumulated_Output_reg_n_0_[26] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14650,7 +14683,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[27]),
-        .Q(Accumulated_Output[27]),
+        .Q(\Accumulated_Output_reg_n_0_[27] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14658,7 +14691,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[28]),
-        .Q(Accumulated_Output[28]),
+        .Q(\Accumulated_Output_reg_n_0_[28] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14666,7 +14699,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[29]),
-        .Q(Accumulated_Output[29]),
+        .Q(\Accumulated_Output_reg_n_0_[29] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14674,7 +14707,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[2]),
-        .Q(Accumulated_Output[2]),
+        .Q(\Accumulated_Output_reg_n_0_[2] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14682,15 +14715,15 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[30]),
-        .Q(Accumulated_Output[30]),
+        .Q(\Accumulated_Output_reg_n_0_[30] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Accumulated_Output_reg[31] 
        (.C(AD_CLK_in),
         .CE(1'b1),
-        .D(Integral_Stage[31]),
-        .Q(Accumulated_Output[31]),
+        .D(p_0_in_0),
+        .Q(p_2_in),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14698,7 +14731,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[3]),
-        .Q(Accumulated_Output[3]),
+        .Q(\Accumulated_Output_reg_n_0_[3] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14706,7 +14739,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[4]),
-        .Q(Accumulated_Output[4]),
+        .Q(\Accumulated_Output_reg_n_0_[4] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14714,7 +14747,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[5]),
-        .Q(Accumulated_Output[5]),
+        .Q(\Accumulated_Output_reg_n_0_[5] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14722,7 +14755,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[6]),
-        .Q(Accumulated_Output[6]),
+        .Q(\Accumulated_Output_reg_n_0_[6] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14730,7 +14763,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[7]),
-        .Q(Accumulated_Output[7]),
+        .Q(\Accumulated_Output_reg_n_0_[7] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14738,7 +14771,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[8]),
-        .Q(Accumulated_Output[8]),
+        .Q(\Accumulated_Output_reg_n_0_[8] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -14746,7 +14779,7 @@ module system_Custom_System_0_0_PID_Controller
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(Integral_Stage[9]),
-        .Q(Accumulated_Output[9]),
+        .Q(\Accumulated_Output_reg_n_0_[9] ),
         .R(1'b0));
   LUT6 #(
     .INIT(64'h00000000B8FFB800)) 
@@ -16159,10 +16192,10 @@ module system_Custom_System_0_0_PID_Controller
         .S({1'b0,1'b0,1'b0,1'b1}));
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-10 {cell *THIS*} {string 15x18 4}}" *) 
   DSP48E1 #(
-    .ACASCREG(1),
+    .ACASCREG(0),
     .ADREG(1),
     .ALUMODEREG(0),
-    .AREG(1),
+    .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
     .A_INPUT("DIRECT"),
     .BCASCREG(0),
@@ -16185,7 +16218,7 @@ module system_Custom_System_0_0_PID_Controller
     .USE_PATTERN_DETECT("NO_PATDET"),
     .USE_SIMD("ONE48")) 
     I_pipeline0
-       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,\Integral_Stage_reg[19]_i_1_n_7 ,\Integral_Stage_reg[15]_i_1_n_4 ,\Integral_Stage_reg[15]_i_1_n_5 ,\Integral_Stage_reg[15]_i_1_n_6 ,\Integral_Stage_reg[15]_i_1_n_7 ,\Integral_Stage_reg[11]_i_1_n_4 ,\Integral_Stage_reg[11]_i_1_n_5 ,\Integral_Stage_reg[11]_i_1_n_6 ,\Integral_Stage_reg[11]_i_1_n_7 ,\Integral_Stage_reg[7]_i_1_n_4 ,\Integral_Stage_reg[7]_i_1_n_5 ,\Integral_Stage_reg[7]_i_1_n_6 ,\Integral_Stage_reg[7]_i_1_n_7 ,\Integral_Stage_reg[3]_i_1_n_4 ,\Integral_Stage_reg[3]_i_1_n_5 ,\Integral_Stage_reg[3]_i_1_n_6 ,\Integral_Stage_reg[3]_i_1_n_7 }),
+       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,Integral_Stage[16:0]}),
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .ACOUT(NLW_I_pipeline0_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
@@ -16199,7 +16232,7 @@ module system_Custom_System_0_0_PID_Controller
         .CARRYINSEL({1'b0,1'b0,1'b0}),
         .CARRYOUT(NLW_I_pipeline0_CARRYOUT_UNCONNECTED[3:0]),
         .CEA1(1'b0),
-        .CEA2(1'b1),
+        .CEA2(1'b0),
         .CEAD(1'b0),
         .CEALUMODE(1'b0),
         .CEB1(1'b0),
@@ -16211,7 +16244,7 @@ module system_Custom_System_0_0_PID_Controller
         .CEINMODE(1'b0),
         .CEM(1'b0),
         .CEP(1'b0),
-        .CLK(AD_CLK_in),
+        .CLK(1'b0),
         .D({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .INMODE({1'b0,1'b0,1'b0,1'b0,1'b0}),
         .MULTSIGNIN(1'b0),
@@ -16242,8 +16275,8 @@ module system_Custom_System_0_0_PID_Controller
     .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
     .A_INPUT("DIRECT"),
-    .BCASCREG(1),
-    .BREG(1),
+    .BCASCREG(0),
+    .BREG(0),
     .B_INPUT("DIRECT"),
     .CARRYINREG(0),
     .CARRYINSELREG(0),
@@ -16266,7 +16299,7 @@ module system_Custom_System_0_0_PID_Controller
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .ACOUT({I_pipeline0__0_n_24,I_pipeline0__0_n_25,I_pipeline0__0_n_26,I_pipeline0__0_n_27,I_pipeline0__0_n_28,I_pipeline0__0_n_29,I_pipeline0__0_n_30,I_pipeline0__0_n_31,I_pipeline0__0_n_32,I_pipeline0__0_n_33,I_pipeline0__0_n_34,I_pipeline0__0_n_35,I_pipeline0__0_n_36,I_pipeline0__0_n_37,I_pipeline0__0_n_38,I_pipeline0__0_n_39,I_pipeline0__0_n_40,I_pipeline0__0_n_41,I_pipeline0__0_n_42,I_pipeline0__0_n_43,I_pipeline0__0_n_44,I_pipeline0__0_n_45,I_pipeline0__0_n_46,I_pipeline0__0_n_47,I_pipeline0__0_n_48,I_pipeline0__0_n_49,I_pipeline0__0_n_50,I_pipeline0__0_n_51,I_pipeline0__0_n_52,I_pipeline0__0_n_53}),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
-        .B({1'b0,\Integral_Stage_reg[19]_i_1_n_7 ,\Integral_Stage_reg[15]_i_1_n_4 ,\Integral_Stage_reg[15]_i_1_n_5 ,\Integral_Stage_reg[15]_i_1_n_6 ,\Integral_Stage_reg[15]_i_1_n_7 ,\Integral_Stage_reg[11]_i_1_n_4 ,\Integral_Stage_reg[11]_i_1_n_5 ,\Integral_Stage_reg[11]_i_1_n_6 ,\Integral_Stage_reg[11]_i_1_n_7 ,\Integral_Stage_reg[7]_i_1_n_4 ,\Integral_Stage_reg[7]_i_1_n_5 ,\Integral_Stage_reg[7]_i_1_n_6 ,\Integral_Stage_reg[7]_i_1_n_7 ,\Integral_Stage_reg[3]_i_1_n_4 ,\Integral_Stage_reg[3]_i_1_n_5 ,\Integral_Stage_reg[3]_i_1_n_6 ,\Integral_Stage_reg[3]_i_1_n_7 }),
+        .B({1'b0,Integral_Stage[16:0]}),
         .BCIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .BCOUT(NLW_I_pipeline0__0_BCOUT_UNCONNECTED[17:0]),
         .C({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
@@ -16280,7 +16313,7 @@ module system_Custom_System_0_0_PID_Controller
         .CEAD(1'b0),
         .CEALUMODE(1'b0),
         .CEB1(1'b0),
-        .CEB2(1'b1),
+        .CEB2(1'b0),
         .CEC(1'b0),
         .CECARRYIN(1'b0),
         .CECTRL(1'b0),
@@ -16288,7 +16321,7 @@ module system_Custom_System_0_0_PID_Controller
         .CEINMODE(1'b0),
         .CEM(1'b0),
         .CEP(1'b0),
-        .CLK(AD_CLK_in),
+        .CLK(1'b0),
         .D({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .INMODE({1'b0,1'b0,1'b0,1'b0,1'b0}),
         .MULTSIGNIN(1'b0),
@@ -16697,8 +16730,8 @@ module system_Custom_System_0_0_PID_Controller
     .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
     .A_INPUT("DIRECT"),
-    .BCASCREG(1),
-    .BREG(1),
+    .BCASCREG(0),
+    .BREG(0),
     .B_INPUT("DIRECT"),
     .CARRYINREG(0),
     .CARRYINSELREG(0),
@@ -16721,7 +16754,7 @@ module system_Custom_System_0_0_PID_Controller
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .ACOUT(NLW_I_pipeline_reg_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
-        .B({\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_5 ,\Integral_Stage_reg[31]_i_1_n_6 ,\Integral_Stage_reg[31]_i_1_n_7 ,\Integral_Stage_reg[27]_i_1_n_4 ,\Integral_Stage_reg[27]_i_1_n_5 ,\Integral_Stage_reg[27]_i_1_n_6 ,\Integral_Stage_reg[27]_i_1_n_7 ,\Integral_Stage_reg[23]_i_1_n_4 ,\Integral_Stage_reg[23]_i_1_n_5 ,\Integral_Stage_reg[23]_i_1_n_6 ,\Integral_Stage_reg[23]_i_1_n_7 ,\Integral_Stage_reg[19]_i_1_n_4 ,\Integral_Stage_reg[19]_i_1_n_5 ,\Integral_Stage_reg[19]_i_1_n_6 }),
+        .B({p_0_in_0,p_0_in_0,p_0_in_0,p_0_in_0,Integral_Stage[30:17]}),
         .BCIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .BCOUT(NLW_I_pipeline_reg_BCOUT_UNCONNECTED[17:0]),
         .C({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
@@ -16735,7 +16768,7 @@ module system_Custom_System_0_0_PID_Controller
         .CEAD(1'b0),
         .CEALUMODE(1'b0),
         .CEB1(1'b0),
-        .CEB2(1'b1),
+        .CEB2(1'b0),
         .CEC(1'b0),
         .CECARRYIN(1'b0),
         .CECTRL(1'b0),
@@ -16978,8 +17011,8 @@ module system_Custom_System_0_0_PID_Controller
     .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
     .A_INPUT("CASCADE"),
-    .BCASCREG(1),
-    .BREG(1),
+    .BCASCREG(0),
+    .BREG(0),
     .B_INPUT("DIRECT"),
     .CARRYINREG(0),
     .CARRYINSELREG(0),
@@ -17002,7 +17035,7 @@ module system_Custom_System_0_0_PID_Controller
         .ACIN({I_pipeline0__0_n_24,I_pipeline0__0_n_25,I_pipeline0__0_n_26,I_pipeline0__0_n_27,I_pipeline0__0_n_28,I_pipeline0__0_n_29,I_pipeline0__0_n_30,I_pipeline0__0_n_31,I_pipeline0__0_n_32,I_pipeline0__0_n_33,I_pipeline0__0_n_34,I_pipeline0__0_n_35,I_pipeline0__0_n_36,I_pipeline0__0_n_37,I_pipeline0__0_n_38,I_pipeline0__0_n_39,I_pipeline0__0_n_40,I_pipeline0__0_n_41,I_pipeline0__0_n_42,I_pipeline0__0_n_43,I_pipeline0__0_n_44,I_pipeline0__0_n_45,I_pipeline0__0_n_46,I_pipeline0__0_n_47,I_pipeline0__0_n_48,I_pipeline0__0_n_49,I_pipeline0__0_n_50,I_pipeline0__0_n_51,I_pipeline0__0_n_52,I_pipeline0__0_n_53}),
         .ACOUT(NLW_I_pipeline_reg__0_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
-        .B({\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_5 ,\Integral_Stage_reg[31]_i_1_n_6 ,\Integral_Stage_reg[31]_i_1_n_7 ,\Integral_Stage_reg[27]_i_1_n_4 ,\Integral_Stage_reg[27]_i_1_n_5 ,\Integral_Stage_reg[27]_i_1_n_6 ,\Integral_Stage_reg[27]_i_1_n_7 ,\Integral_Stage_reg[23]_i_1_n_4 ,\Integral_Stage_reg[23]_i_1_n_5 ,\Integral_Stage_reg[23]_i_1_n_6 ,\Integral_Stage_reg[23]_i_1_n_7 ,\Integral_Stage_reg[19]_i_1_n_4 ,\Integral_Stage_reg[19]_i_1_n_5 ,\Integral_Stage_reg[19]_i_1_n_6 }),
+        .B({p_0_in_0,p_0_in_0,p_0_in_0,p_0_in_0,Integral_Stage[30:17]}),
         .BCIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .BCOUT(NLW_I_pipeline_reg__0_BCOUT_UNCONNECTED[17:0]),
         .C({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
@@ -17016,7 +17049,7 @@ module system_Custom_System_0_0_PID_Controller
         .CEAD(1'b0),
         .CEALUMODE(1'b0),
         .CEB1(1'b0),
-        .CEB2(1'b1),
+        .CEB2(1'b0),
         .CEC(1'b0),
         .CECARRYIN(1'b0),
         .CECTRL(1'b0),
@@ -17050,491 +17083,497 @@ module system_Custom_System_0_0_PID_Controller
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[11]_i_2 
-       (.I0(Accumulated_Output[11]),
+       (.I0(\Accumulated_Output_reg_n_0_[11] ),
         .I1(Q[11]),
         .O(\Integral_Stage[11]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[11]_i_3 
-       (.I0(Accumulated_Output[10]),
+       (.I0(\Accumulated_Output_reg_n_0_[10] ),
         .I1(Q[10]),
         .O(\Integral_Stage[11]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[11]_i_4 
-       (.I0(Accumulated_Output[9]),
+       (.I0(\Accumulated_Output_reg_n_0_[9] ),
         .I1(Q[9]),
         .O(\Integral_Stage[11]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[11]_i_5 
-       (.I0(Accumulated_Output[8]),
+       (.I0(\Accumulated_Output_reg_n_0_[8] ),
         .I1(Q[8]),
         .O(\Integral_Stage[11]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[15]_i_2 
-       (.I0(Accumulated_Output[15]),
+       (.I0(\Accumulated_Output_reg_n_0_[15] ),
         .I1(Q[15]),
         .O(\Integral_Stage[15]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[15]_i_3 
-       (.I0(Accumulated_Output[14]),
+       (.I0(\Accumulated_Output_reg_n_0_[14] ),
         .I1(Q[14]),
         .O(\Integral_Stage[15]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[15]_i_4 
-       (.I0(Accumulated_Output[13]),
+       (.I0(\Accumulated_Output_reg_n_0_[13] ),
         .I1(Q[13]),
         .O(\Integral_Stage[15]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[15]_i_5 
-       (.I0(Accumulated_Output[12]),
+       (.I0(\Accumulated_Output_reg_n_0_[12] ),
         .I1(Q[12]),
         .O(\Integral_Stage[15]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[19]_i_2 
-       (.I0(Accumulated_Output[19]),
+       (.I0(\Accumulated_Output_reg_n_0_[19] ),
         .I1(Q[19]),
         .O(\Integral_Stage[19]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[19]_i_3 
-       (.I0(Accumulated_Output[18]),
+       (.I0(\Accumulated_Output_reg_n_0_[18] ),
         .I1(Q[18]),
         .O(\Integral_Stage[19]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[19]_i_4 
-       (.I0(Accumulated_Output[17]),
+       (.I0(\Accumulated_Output_reg_n_0_[17] ),
         .I1(Q[17]),
         .O(\Integral_Stage[19]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[19]_i_5 
-       (.I0(Accumulated_Output[16]),
+       (.I0(\Accumulated_Output_reg_n_0_[16] ),
         .I1(Q[16]),
         .O(\Integral_Stage[19]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[23]_i_2 
-       (.I0(Accumulated_Output[23]),
+       (.I0(\Accumulated_Output_reg_n_0_[23] ),
         .I1(Q[23]),
         .O(\Integral_Stage[23]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[23]_i_3 
-       (.I0(Accumulated_Output[22]),
+       (.I0(\Accumulated_Output_reg_n_0_[22] ),
         .I1(Q[22]),
         .O(\Integral_Stage[23]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[23]_i_4 
-       (.I0(Accumulated_Output[21]),
+       (.I0(\Accumulated_Output_reg_n_0_[21] ),
         .I1(Q[21]),
         .O(\Integral_Stage[23]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[23]_i_5 
-       (.I0(Accumulated_Output[20]),
+       (.I0(\Accumulated_Output_reg_n_0_[20] ),
         .I1(Q[20]),
         .O(\Integral_Stage[23]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[27]_i_2 
-       (.I0(Accumulated_Output[27]),
+       (.I0(\Accumulated_Output_reg_n_0_[27] ),
         .I1(Q[27]),
         .O(\Integral_Stage[27]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[27]_i_3 
-       (.I0(Accumulated_Output[26]),
+       (.I0(\Accumulated_Output_reg_n_0_[26] ),
         .I1(Q[26]),
         .O(\Integral_Stage[27]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[27]_i_4 
-       (.I0(Accumulated_Output[25]),
+       (.I0(\Accumulated_Output_reg_n_0_[25] ),
         .I1(Q[25]),
         .O(\Integral_Stage[27]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[27]_i_5 
-       (.I0(Accumulated_Output[24]),
+       (.I0(\Accumulated_Output_reg_n_0_[24] ),
         .I1(Q[24]),
         .O(\Integral_Stage[27]_i_5_n_0 ));
   LUT2 #(
+    .INIT(4'h2)) 
+    \Integral_Stage[31]_i_1 
+       (.I0(p_0_in_0),
+        .I1(p_2_in),
+        .O(Integral_Stage01_out));
+  LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[3]_i_2 
-       (.I0(Accumulated_Output[3]),
+       (.I0(\Accumulated_Output_reg_n_0_[3] ),
         .I1(Q[3]),
         .O(\Integral_Stage[3]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[3]_i_3 
-       (.I0(Accumulated_Output[2]),
+       (.I0(\Accumulated_Output_reg_n_0_[2] ),
         .I1(Q[2]),
         .O(\Integral_Stage[3]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[3]_i_4 
-       (.I0(Accumulated_Output[1]),
+       (.I0(\Accumulated_Output_reg_n_0_[1] ),
         .I1(Q[1]),
         .O(\Integral_Stage[3]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[3]_i_5 
-       (.I0(Accumulated_Output[0]),
+       (.I0(\Accumulated_Output_reg_n_0_[0] ),
         .I1(Q[0]),
         .O(\Integral_Stage[3]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[7]_i_2 
-       (.I0(Accumulated_Output[7]),
+       (.I0(\Accumulated_Output_reg_n_0_[7] ),
         .I1(Q[7]),
         .O(\Integral_Stage[7]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[7]_i_3 
-       (.I0(Accumulated_Output[6]),
+       (.I0(\Accumulated_Output_reg_n_0_[6] ),
         .I1(Q[6]),
         .O(\Integral_Stage[7]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[7]_i_4 
-       (.I0(Accumulated_Output[5]),
+       (.I0(\Accumulated_Output_reg_n_0_[5] ),
         .I1(Q[5]),
         .O(\Integral_Stage[7]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \Integral_Stage[7]_i_5 
-       (.I0(Accumulated_Output[4]),
+       (.I0(\Accumulated_Output_reg_n_0_[4] ),
         .I1(Q[4]),
         .O(\Integral_Stage[7]_i_5_n_0 ));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[0] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[3]_i_1_n_7 ),
         .Q(Integral_Stage[0]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[10] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[11]_i_1_n_5 ),
         .Q(Integral_Stage[10]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[11] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[11]_i_1_n_4 ),
         .Q(Integral_Stage[11]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \Integral_Stage_reg[11]_i_1 
        (.CI(\Integral_Stage_reg[7]_i_1_n_0 ),
         .CO({\Integral_Stage_reg[11]_i_1_n_0 ,\Integral_Stage_reg[11]_i_1_n_1 ,\Integral_Stage_reg[11]_i_1_n_2 ,\Integral_Stage_reg[11]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(Accumulated_Output[11:8]),
+        .DI({\Accumulated_Output_reg_n_0_[11] ,\Accumulated_Output_reg_n_0_[10] ,\Accumulated_Output_reg_n_0_[9] ,\Accumulated_Output_reg_n_0_[8] }),
         .O({\Integral_Stage_reg[11]_i_1_n_4 ,\Integral_Stage_reg[11]_i_1_n_5 ,\Integral_Stage_reg[11]_i_1_n_6 ,\Integral_Stage_reg[11]_i_1_n_7 }),
         .S({\Integral_Stage[11]_i_2_n_0 ,\Integral_Stage[11]_i_3_n_0 ,\Integral_Stage[11]_i_4_n_0 ,\Integral_Stage[11]_i_5_n_0 }));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[12] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[15]_i_1_n_7 ),
         .Q(Integral_Stage[12]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[13] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[15]_i_1_n_6 ),
         .Q(Integral_Stage[13]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[14] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[15]_i_1_n_5 ),
         .Q(Integral_Stage[14]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[15] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[15]_i_1_n_4 ),
         .Q(Integral_Stage[15]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \Integral_Stage_reg[15]_i_1 
        (.CI(\Integral_Stage_reg[11]_i_1_n_0 ),
         .CO({\Integral_Stage_reg[15]_i_1_n_0 ,\Integral_Stage_reg[15]_i_1_n_1 ,\Integral_Stage_reg[15]_i_1_n_2 ,\Integral_Stage_reg[15]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(Accumulated_Output[15:12]),
+        .DI({\Accumulated_Output_reg_n_0_[15] ,\Accumulated_Output_reg_n_0_[14] ,\Accumulated_Output_reg_n_0_[13] ,\Accumulated_Output_reg_n_0_[12] }),
         .O({\Integral_Stage_reg[15]_i_1_n_4 ,\Integral_Stage_reg[15]_i_1_n_5 ,\Integral_Stage_reg[15]_i_1_n_6 ,\Integral_Stage_reg[15]_i_1_n_7 }),
         .S({\Integral_Stage[15]_i_2_n_0 ,\Integral_Stage[15]_i_3_n_0 ,\Integral_Stage[15]_i_4_n_0 ,\Integral_Stage[15]_i_5_n_0 }));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[16] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[19]_i_1_n_7 ),
         .Q(Integral_Stage[16]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[17] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[19]_i_1_n_6 ),
         .Q(Integral_Stage[17]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[18] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[19]_i_1_n_5 ),
         .Q(Integral_Stage[18]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[19] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[19]_i_1_n_4 ),
         .Q(Integral_Stage[19]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \Integral_Stage_reg[19]_i_1 
        (.CI(\Integral_Stage_reg[15]_i_1_n_0 ),
         .CO({\Integral_Stage_reg[19]_i_1_n_0 ,\Integral_Stage_reg[19]_i_1_n_1 ,\Integral_Stage_reg[19]_i_1_n_2 ,\Integral_Stage_reg[19]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(Accumulated_Output[19:16]),
+        .DI({\Accumulated_Output_reg_n_0_[19] ,\Accumulated_Output_reg_n_0_[18] ,\Accumulated_Output_reg_n_0_[17] ,\Accumulated_Output_reg_n_0_[16] }),
         .O({\Integral_Stage_reg[19]_i_1_n_4 ,\Integral_Stage_reg[19]_i_1_n_5 ,\Integral_Stage_reg[19]_i_1_n_6 ,\Integral_Stage_reg[19]_i_1_n_7 }),
         .S({\Integral_Stage[19]_i_2_n_0 ,\Integral_Stage[19]_i_3_n_0 ,\Integral_Stage[19]_i_4_n_0 ,\Integral_Stage[19]_i_5_n_0 }));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[1] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[3]_i_1_n_6 ),
         .Q(Integral_Stage[1]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[20] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[23]_i_1_n_7 ),
         .Q(Integral_Stage[20]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[21] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[23]_i_1_n_6 ),
         .Q(Integral_Stage[21]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[22] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[23]_i_1_n_5 ),
         .Q(Integral_Stage[22]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[23] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[23]_i_1_n_4 ),
         .Q(Integral_Stage[23]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \Integral_Stage_reg[23]_i_1 
        (.CI(\Integral_Stage_reg[19]_i_1_n_0 ),
         .CO({\Integral_Stage_reg[23]_i_1_n_0 ,\Integral_Stage_reg[23]_i_1_n_1 ,\Integral_Stage_reg[23]_i_1_n_2 ,\Integral_Stage_reg[23]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(Accumulated_Output[23:20]),
+        .DI({\Accumulated_Output_reg_n_0_[23] ,\Accumulated_Output_reg_n_0_[22] ,\Accumulated_Output_reg_n_0_[21] ,\Accumulated_Output_reg_n_0_[20] }),
         .O({\Integral_Stage_reg[23]_i_1_n_4 ,\Integral_Stage_reg[23]_i_1_n_5 ,\Integral_Stage_reg[23]_i_1_n_6 ,\Integral_Stage_reg[23]_i_1_n_7 }),
         .S({\Integral_Stage[23]_i_2_n_0 ,\Integral_Stage[23]_i_3_n_0 ,\Integral_Stage[23]_i_4_n_0 ,\Integral_Stage[23]_i_5_n_0 }));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[24] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[27]_i_1_n_7 ),
         .Q(Integral_Stage[24]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[25] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[27]_i_1_n_6 ),
         .Q(Integral_Stage[25]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[26] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[27]_i_1_n_5 ),
         .Q(Integral_Stage[26]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[27] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[27]_i_1_n_4 ),
         .Q(Integral_Stage[27]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \Integral_Stage_reg[27]_i_1 
        (.CI(\Integral_Stage_reg[23]_i_1_n_0 ),
         .CO({\Integral_Stage_reg[27]_i_1_n_0 ,\Integral_Stage_reg[27]_i_1_n_1 ,\Integral_Stage_reg[27]_i_1_n_2 ,\Integral_Stage_reg[27]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(Accumulated_Output[27:24]),
+        .DI({\Accumulated_Output_reg_n_0_[27] ,\Accumulated_Output_reg_n_0_[26] ,\Accumulated_Output_reg_n_0_[25] ,\Accumulated_Output_reg_n_0_[24] }),
         .O({\Integral_Stage_reg[27]_i_1_n_4 ,\Integral_Stage_reg[27]_i_1_n_5 ,\Integral_Stage_reg[27]_i_1_n_6 ,\Integral_Stage_reg[27]_i_1_n_7 }),
         .S({\Integral_Stage[27]_i_2_n_0 ,\Integral_Stage[27]_i_3_n_0 ,\Integral_Stage[27]_i_4_n_0 ,\Integral_Stage[27]_i_5_n_0 }));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[28] 
        (.C(AD_CLK_in),
         .CE(1'b1),
-        .D(\Integral_Stage_reg[31]_i_1_n_7 ),
+        .D(\Integral_Stage_reg[31]_i_2_n_7 ),
         .Q(Integral_Stage[28]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[29] 
        (.C(AD_CLK_in),
         .CE(1'b1),
-        .D(\Integral_Stage_reg[31]_i_1_n_6 ),
+        .D(\Integral_Stage_reg[31]_i_2_n_6 ),
         .Q(Integral_Stage[29]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[2] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[3]_i_1_n_5 ),
         .Q(Integral_Stage[2]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[30] 
        (.C(AD_CLK_in),
         .CE(1'b1),
-        .D(\Integral_Stage_reg[31]_i_1_n_5 ),
+        .D(\Integral_Stage_reg[31]_i_2_n_5 ),
         .Q(Integral_Stage[30]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   FDRE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[31] 
        (.C(AD_CLK_in),
         .CE(1'b1),
-        .D(\Integral_Stage_reg[31]_i_1_n_4 ),
-        .Q(Integral_Stage[31]),
-        .R(1'b0));
+        .D(\Integral_Stage_reg[31]_i_2_n_4 ),
+        .Q(p_0_in_0),
+        .R(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \Integral_Stage_reg[31]_i_1 
+  CARRY4 \Integral_Stage_reg[31]_i_2 
        (.CI(\Integral_Stage_reg[27]_i_1_n_0 ),
-        .CO({\NLW_Integral_Stage_reg[31]_i_1_CO_UNCONNECTED [3],\Integral_Stage_reg[31]_i_1_n_1 ,\Integral_Stage_reg[31]_i_1_n_2 ,\Integral_Stage_reg[31]_i_1_n_3 }),
+        .CO({\NLW_Integral_Stage_reg[31]_i_2_CO_UNCONNECTED [3],\Integral_Stage_reg[31]_i_2_n_1 ,\Integral_Stage_reg[31]_i_2_n_2 ,\Integral_Stage_reg[31]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\Integral_Stage_reg[31]_i_1_n_4 ,\Integral_Stage_reg[31]_i_1_n_5 ,\Integral_Stage_reg[31]_i_1_n_6 ,\Integral_Stage_reg[31]_i_1_n_7 }),
-        .S(Accumulated_Output[31:28]));
-  FDRE #(
+        .O({\Integral_Stage_reg[31]_i_2_n_4 ,\Integral_Stage_reg[31]_i_2_n_5 ,\Integral_Stage_reg[31]_i_2_n_6 ,\Integral_Stage_reg[31]_i_2_n_7 }),
+        .S({p_2_in,\Accumulated_Output_reg_n_0_[30] ,\Accumulated_Output_reg_n_0_[29] ,\Accumulated_Output_reg_n_0_[28] }));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[3] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[3]_i_1_n_4 ),
         .Q(Integral_Stage[3]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \Integral_Stage_reg[3]_i_1 
        (.CI(1'b0),
         .CO({\Integral_Stage_reg[3]_i_1_n_0 ,\Integral_Stage_reg[3]_i_1_n_1 ,\Integral_Stage_reg[3]_i_1_n_2 ,\Integral_Stage_reg[3]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(Accumulated_Output[3:0]),
+        .DI({\Accumulated_Output_reg_n_0_[3] ,\Accumulated_Output_reg_n_0_[2] ,\Accumulated_Output_reg_n_0_[1] ,\Accumulated_Output_reg_n_0_[0] }),
         .O({\Integral_Stage_reg[3]_i_1_n_4 ,\Integral_Stage_reg[3]_i_1_n_5 ,\Integral_Stage_reg[3]_i_1_n_6 ,\Integral_Stage_reg[3]_i_1_n_7 }),
         .S({\Integral_Stage[3]_i_2_n_0 ,\Integral_Stage[3]_i_3_n_0 ,\Integral_Stage[3]_i_4_n_0 ,\Integral_Stage[3]_i_5_n_0 }));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[4] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[7]_i_1_n_7 ),
         .Q(Integral_Stage[4]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[5] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[7]_i_1_n_6 ),
         .Q(Integral_Stage[5]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[6] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[7]_i_1_n_5 ),
         .Q(Integral_Stage[6]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[7] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[7]_i_1_n_4 ),
         .Q(Integral_Stage[7]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \Integral_Stage_reg[7]_i_1 
        (.CI(\Integral_Stage_reg[3]_i_1_n_0 ),
         .CO({\Integral_Stage_reg[7]_i_1_n_0 ,\Integral_Stage_reg[7]_i_1_n_1 ,\Integral_Stage_reg[7]_i_1_n_2 ,\Integral_Stage_reg[7]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI(Accumulated_Output[7:4]),
+        .DI({\Accumulated_Output_reg_n_0_[7] ,\Accumulated_Output_reg_n_0_[6] ,\Accumulated_Output_reg_n_0_[5] ,\Accumulated_Output_reg_n_0_[4] }),
         .O({\Integral_Stage_reg[7]_i_1_n_4 ,\Integral_Stage_reg[7]_i_1_n_5 ,\Integral_Stage_reg[7]_i_1_n_6 ,\Integral_Stage_reg[7]_i_1_n_7 }),
         .S({\Integral_Stage[7]_i_2_n_0 ,\Integral_Stage[7]_i_3_n_0 ,\Integral_Stage[7]_i_4_n_0 ,\Integral_Stage[7]_i_5_n_0 }));
-  FDRE #(
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[8] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[11]_i_1_n_7 ),
         .Q(Integral_Stage[8]),
-        .R(1'b0));
-  FDRE #(
+        .S(Integral_Stage01_out));
+  FDSE #(
     .INIT(1'b0)) 
     \Integral_Stage_reg[9] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(\Integral_Stage_reg[11]_i_1_n_6 ),
         .Q(Integral_Stage[9]),
-        .R(1'b0));
+        .S(Integral_Stage01_out));
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-10 {cell *THIS*} {string 15x18 4}}" *) 
   DSP48E1 #(
     .ACASCREG(1),

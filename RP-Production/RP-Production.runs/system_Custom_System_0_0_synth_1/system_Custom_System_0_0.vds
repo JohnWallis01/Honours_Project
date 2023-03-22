@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Tue Mar 21 08:12:01 2023
-# Process ID: 132492
+# Start of session at: Wed Mar 22 11:56:48 2023
+# Process ID: 114116
 # Current directory: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1
 # Command line: vivado.exe -log system_Custom_System_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_Custom_System_0_0.tcl
 # Log file: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1/system_Custom_System_0_0.vds
@@ -22,10 +22,10 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 129976
+INFO: [Synth 8-7075] Helper process launched with PID 64436
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1213.852 ; gain = 407.504
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1214.465 ; gain = 406.520
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9112] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:219]
 WARNING: [Synth 8-9112] actual for formal port 'input5' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:240]
@@ -99,51 +99,51 @@ WARNING: [Synth 8-7129] Port Input8[0] in module Octal_Multiplexer is either unc
 WARNING: [Synth 8-7129] Port s_axis_tvalid in module AXI4_Stream_Reader is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Sys_CLK_in in module Custom_System is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.203 ; gain = 504.855
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.285 ; gain = 504.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.203 ; gain = 504.855
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.285 ; gain = 504.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.203 ; gain = 504.855
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.285 ; gain = 504.340
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1311.203 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1312.285 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1422.711 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1367.902 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1422.723 ; gain = 0.012
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1367.902 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1367.902 ; gain = 559.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1367.902 ; gain = 559.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1367.902 ; gain = 559.957
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6040] Register dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 WARNING: [Synth 8-6040] Register dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1367.902 ; gain = 559.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -200,21 +200,17 @@ DSP Report: register inst/Phase_Mixer/Dout_reg is absorbed into DSP inst/Phase_M
 DSP Report: register inst/Phase_Mixer/Dout_reg is absorbed into DSP inst/Phase_Mixer/Dout_reg.
 DSP Report: register inst/Phase_Mixer/Dout_reg is absorbed into DSP inst/Phase_Mixer/Dout_reg.
 DSP Report: operator inst/Phase_Mixer/Dout0 is absorbed into DSP inst/Phase_Mixer/Dout_reg.
-DSP Report: Generating DSP inst/Loop_Controller/I_pipeline0, operation Mode is: A2*B.
-DSP Report: register inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline0.
+DSP Report: Generating DSP inst/Loop_Controller/I_pipeline0, operation Mode is: A*B.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline0.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline0.
-DSP Report: Generating DSP inst/Loop_Controller/I_pipeline_reg, operation Mode is: (PCIN>>17)+A*B2.
-DSP Report: register inst/Loop_Controller/Integral_Stage_reg is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
+DSP Report: Generating DSP inst/Loop_Controller/I_pipeline_reg, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: register inst/Loop_Controller/I_pipeline_reg is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
-DSP Report: Generating DSP inst/Loop_Controller/I_pipeline0, operation Mode is: A*B2.
-DSP Report: register inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline0.
+DSP Report: Generating DSP inst/Loop_Controller/I_pipeline0, operation Mode is: A*B.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline0.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline0.
-DSP Report: Generating DSP inst/Loop_Controller/I_pipeline_reg, operation Mode is: (PCIN>>17)+A*B2.
-DSP Report: register inst/Loop_Controller/Integral_Stage_reg is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
+DSP Report: Generating DSP inst/Loop_Controller/I_pipeline_reg, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: register inst/Loop_Controller/I_pipeline_reg is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
 DSP Report: operator inst/Loop_Controller/I_pipeline0 is absorbed into DSP inst/Loop_Controller/I_pipeline_reg.
@@ -380,7 +376,7 @@ INFO: [Synth 8-3332] Sequential element (inst/Loop_Controller/D_pipeline_reg[42]
 INFO: [Synth 8-3332] Sequential element (inst/Loop_Controller/D_pipeline_reg[41]__0) is unused and will be removed from module system_Custom_System_0_0.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1367.902 ; gain = 559.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -404,10 +400,10 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 |Module Name              | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +-------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |system_Custom_System_0_0 | (A*B'')'        | 14     | 14     | -      | -      | 28     | 0    | 2    | -    | -    | -     | 1    | 0    | 
-|system_Custom_System_0_0 | A2*B            | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17)+A*B2 | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
-|system_Custom_System_0_0 | A*B2            | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17)+A*B2 | 18     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | A*B             | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Custom_System_0_0 | (PCIN>>17)+A*B  | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | A*B             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Custom_System_0_0 | (PCIN>>17)+A*B  | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A2*B            | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
 |system_Custom_System_0_0 | (PCIN>>17)+A*B2 | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A*B2            | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
@@ -426,19 +422,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1383.051 ; gain = 575.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1384.789 ; gain = 576.844
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1413.406 ; gain = 605.461
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -456,37 +452,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -496,10 +492,10 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +-------------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name              | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +-------------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|system_Custom_System_0_0 | A'*B             | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17+A*B')' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
-|system_Custom_System_0_0 | A*B'             | 17     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|system_Custom_System_0_0 | (PCIN>>17+A*B')' | 0      | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | A*B              | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Custom_System_0_0 | (PCIN>>17+A*B)'  | 30     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|system_Custom_System_0_0 | A*B              | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Custom_System_0_0 | (PCIN>>17+A*B)'  | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A'*B             | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
 |system_Custom_System_0_0 | (PCIN>>17+A*B')' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
 |system_Custom_System_0_0 | A*B'             | 17     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
@@ -524,39 +520,40 @@ Report Cell Usage:
 +------+--------+------+
 |1     |CARRY4  |   173|
 |2     |DSP48E1 |    13|
-|7     |LUT1    |    31|
-|8     |LUT2    |   512|
-|9     |LUT3    |   132|
-|10    |LUT4    |   120|
-|11    |LUT5    |    29|
-|12    |LUT6    |   195|
-|13    |MUXF7   |    22|
-|14    |FDRE    |   860|
+|10    |LUT1    |    31|
+|11    |LUT2    |   513|
+|12    |LUT3    |   132|
+|13    |LUT4    |   120|
+|14    |LUT5    |    29|
+|15    |LUT6    |   195|
+|16    |MUXF7   |    22|
+|17    |FDRE    |   829|
+|18    |FDSE    |    31|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 27 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 1422.723 ; gain = 504.855
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.723 ; gain = 616.375
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1421.652 ; gain = 558.090
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1421.652 ; gain = 613.707
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1424.371 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1425.875 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 208 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1428.012 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1428.242 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: f1dea2bd
+Synth Design complete, checksum: 43c574b0
 INFO: [Common 17-83] Releasing license: Synthesis
 163 Infos, 45 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1428.012 ; gain = 998.648
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1428.242 ; gain = 998.953
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1/system_Custom_System_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_Custom_System_0_0, cache-ID = 0c45cc889d90c4c5
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_Custom_System_0_0, cache-ID = 16a4fccca83cce93
 INFO: [Coretcl 2-1174] Renamed 11 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1/system_Custom_System_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_Custom_System_0_0_utilization_synth.rpt -pb system_Custom_System_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 21 08:12:38 2023...
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 22 11:57:25 2023...

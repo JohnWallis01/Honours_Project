@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue Mar 21 08:12:38 2023
+| Date         : Wed Mar 22 11:57:25 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_Custom_System_0_0_utilization_synth.rpt -pb system_Custom_System_0_0_utilization_synth.pb
 | Design       : system_Custom_System_0_0
@@ -31,8 +31,8 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  875 |     0 |          0 |     17600 |  4.97 |
-|   LUT as Logic          |  875 |     0 |          0 |     17600 |  4.97 |
+| Slice LUTs*             |  876 |     0 |          0 |     17600 |  4.98 |
+|   LUT as Logic          |  876 |     0 |          0 |     17600 |  4.98 |
 |   LUT as Memory         |    0 |     0 |          0 |      6000 |  0.00 |
 | Slice Registers         |  860 |     0 |          0 |     35200 |  2.44 |
 |   Register as Flip Flop |  860 |     0 |          0 |     35200 |  2.44 |
@@ -58,8 +58,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 860   |          Yes |       Reset |            - |
+| 31    |          Yes |         Set |            - |
+| 829   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,13 +149,14 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  860 |        Flop & Latch |
-| LUT2     |  512 |                 LUT |
+| FDRE     |  829 |        Flop & Latch |
+| LUT2     |  513 |                 LUT |
 | LUT6     |  195 |                 LUT |
 | CARRY4   |  173 |          CarryLogic |
 | LUT3     |  132 |                 LUT |
 | LUT4     |  120 |                 LUT |
 | LUT1     |   31 |                 LUT |
+| FDSE     |   31 |        Flop & Latch |
 | LUT5     |   29 |                 LUT |
 | MUXF7    |   22 |               MuxFx |
 | DSP48E1  |   13 |    Block Arithmetic |

@@ -32,6 +32,13 @@ architecture PID_Controller_arch of PID_Controller is
             if rising_edge(clock) then
                 Accumulated_Output <= Integral_Stage;
                 Integral_Stage <= (Accumulated_Output + signed(SignalInput));
+                --check for negative underflow both 1
+                if (Accumulated_Output(Data_Size-1) = '1') and (SignalInput(Data_Size-1) = '1') and (Integral_Stage(Data_Size-1) = '0') then
+                    Integral_Stage <= to_signed(-(2**(Data_Size-1)), Data_Size); -- largest negative number
+                end if;
+                if (Accumulated_Output(Data_Size-1) = '0') and (SignalInput(Data_Size-1) = '0') and (Integral_Stage(Data_Size-1) = '1') then
+                    Integral_Stage <= to_signed((2**(Data_Size-1))-1, Data_Size); -- largest positive number
+                end if;
                 Derivative_Stage <= signed(SignalInput) - Data_Memory;
                 Data_Memory <= signed(SignalInput);
                 P_pipeline <= signed(kP)*signed(SignalInput);

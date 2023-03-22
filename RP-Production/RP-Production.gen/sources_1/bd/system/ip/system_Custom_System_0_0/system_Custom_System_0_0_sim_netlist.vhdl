@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Mar 21 08:12:38 2023
+-- Date        : Wed Mar 22 11:57:25 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0_sim_netlist.vhdl
@@ -16708,8 +16708,8 @@ entity system_Custom_System_0_0_PID_Controller is
     \PLL_Guess_Freq[31]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
     DAC_Stream_out : out STD_LOGIC_VECTOR ( 13 downto 0 );
     \Data_Memory_reg[27]_0\ : out STD_LOGIC_VECTOR ( 27 downto 0 );
-    AD_CLK_in : in STD_LOGIC;
     Control_Ki : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    AD_CLK_in : in STD_LOGIC;
     Control_Kd : in STD_LOGIC_VECTOR ( 31 downto 0 );
     phase_1 : in STD_LOGIC;
     Control_Kp : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -16736,7 +16736,37 @@ entity system_Custom_System_0_0_PID_Controller is
 end system_Custom_System_0_0_PID_Controller;
 
 architecture STRUCTURE of system_Custom_System_0_0_PID_Controller is
-  signal Accumulated_Output : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \Accumulated_Output_reg_n_0_[0]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[10]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[11]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[12]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[13]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[14]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[15]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[16]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[17]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[18]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[19]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[1]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[20]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[21]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[22]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[23]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[24]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[25]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[26]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[27]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[28]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[29]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[2]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[30]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[3]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[4]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[5]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[6]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[7]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[8]\ : STD_LOGIC;
+  signal \Accumulated_Output_reg_n_0_[9]\ : STD_LOGIC;
   signal \DAC_Stream_out[19]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \DAC_Stream_out[20]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \DAC_Stream_out[21]_INST_0_i_1_n_0\ : STD_LOGIC;
@@ -17671,7 +17701,8 @@ architecture STRUCTURE of system_Custom_System_0_0_PID_Controller is
   signal I_pipeline_reg_n_97 : STD_LOGIC;
   signal I_pipeline_reg_n_98 : STD_LOGIC;
   signal I_pipeline_reg_n_99 : STD_LOGIC;
-  signal Integral_Stage : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal Integral_Stage : STD_LOGIC_VECTOR ( 30 downto 0 );
+  signal Integral_Stage01_out : STD_LOGIC;
   signal \Integral_Stage[11]_i_2_n_0\ : STD_LOGIC;
   signal \Integral_Stage[11]_i_3_n_0\ : STD_LOGIC;
   signal \Integral_Stage[11]_i_4_n_0\ : STD_LOGIC;
@@ -17740,13 +17771,13 @@ architecture STRUCTURE of system_Custom_System_0_0_PID_Controller is
   signal \Integral_Stage_reg[27]_i_1_n_5\ : STD_LOGIC;
   signal \Integral_Stage_reg[27]_i_1_n_6\ : STD_LOGIC;
   signal \Integral_Stage_reg[27]_i_1_n_7\ : STD_LOGIC;
-  signal \Integral_Stage_reg[31]_i_1_n_1\ : STD_LOGIC;
-  signal \Integral_Stage_reg[31]_i_1_n_2\ : STD_LOGIC;
-  signal \Integral_Stage_reg[31]_i_1_n_3\ : STD_LOGIC;
-  signal \Integral_Stage_reg[31]_i_1_n_4\ : STD_LOGIC;
-  signal \Integral_Stage_reg[31]_i_1_n_5\ : STD_LOGIC;
-  signal \Integral_Stage_reg[31]_i_1_n_6\ : STD_LOGIC;
-  signal \Integral_Stage_reg[31]_i_1_n_7\ : STD_LOGIC;
+  signal \Integral_Stage_reg[31]_i_2_n_1\ : STD_LOGIC;
+  signal \Integral_Stage_reg[31]_i_2_n_2\ : STD_LOGIC;
+  signal \Integral_Stage_reg[31]_i_2_n_3\ : STD_LOGIC;
+  signal \Integral_Stage_reg[31]_i_2_n_4\ : STD_LOGIC;
+  signal \Integral_Stage_reg[31]_i_2_n_5\ : STD_LOGIC;
+  signal \Integral_Stage_reg[31]_i_2_n_6\ : STD_LOGIC;
+  signal \Integral_Stage_reg[31]_i_2_n_7\ : STD_LOGIC;
   signal \Integral_Stage_reg[3]_i_1_n_0\ : STD_LOGIC;
   signal \Integral_Stage_reg[3]_i_1_n_1\ : STD_LOGIC;
   signal \Integral_Stage_reg[3]_i_1_n_2\ : STD_LOGIC;
@@ -18445,6 +18476,8 @@ architecture STRUCTURE of system_Custom_System_0_0_PID_Controller is
   signal \SignalOutput_reg_n_0_[9]\ : STD_LOGIC;
   signal data3 : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal p_0_in : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal p_0_in_0 : STD_LOGIC;
+  signal p_2_in : STD_LOGIC;
   signal NLW_D_pipeline0_CARRYCASCOUT_UNCONNECTED : STD_LOGIC;
   signal NLW_D_pipeline0_MULTSIGNOUT_UNCONNECTED : STD_LOGIC;
   signal NLW_D_pipeline0_OVERFLOW_UNCONNECTED : STD_LOGIC;
@@ -18523,7 +18556,7 @@ architecture STRUCTURE of system_Custom_System_0_0_PID_Controller is
   signal \NLW_I_pipeline_reg__0_BCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 17 downto 0 );
   signal \NLW_I_pipeline_reg__0_CARRYOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_I_pipeline_reg__0_PCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 0 );
-  signal \NLW_Integral_Stage_reg[31]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_Integral_Stage_reg[31]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal NLW_P_pipeline0_CARRYCASCOUT_UNCONNECTED : STD_LOGIC;
   signal NLW_P_pipeline0_MULTSIGNOUT_UNCONNECTED : STD_LOGIC;
   signal NLW_P_pipeline0_OVERFLOW_UNCONNECTED : STD_LOGIC;
@@ -18611,7 +18644,7 @@ architecture STRUCTURE of system_Custom_System_0_0_PID_Controller is
   attribute ADDER_THRESHOLD of \Integral_Stage_reg[19]_i_1\ : label is 35;
   attribute ADDER_THRESHOLD of \Integral_Stage_reg[23]_i_1\ : label is 35;
   attribute ADDER_THRESHOLD of \Integral_Stage_reg[27]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \Integral_Stage_reg[31]_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \Integral_Stage_reg[31]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \Integral_Stage_reg[3]_i_1\ : label is 35;
   attribute ADDER_THRESHOLD of \Integral_Stage_reg[7]_i_1\ : label is 35;
   attribute METHODOLOGY_DRC_VIOS of P_pipeline0 : label is "{SYNTH-10 {cell *THIS*} {string 15x18 4}}";
@@ -18774,7 +18807,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(0),
-      Q => Accumulated_Output(0),
+      Q => \Accumulated_Output_reg_n_0_[0]\,
       R => '0'
     );
 \Accumulated_Output_reg[10]\: unisim.vcomponents.FDRE
@@ -18785,7 +18818,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(10),
-      Q => Accumulated_Output(10),
+      Q => \Accumulated_Output_reg_n_0_[10]\,
       R => '0'
     );
 \Accumulated_Output_reg[11]\: unisim.vcomponents.FDRE
@@ -18796,7 +18829,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(11),
-      Q => Accumulated_Output(11),
+      Q => \Accumulated_Output_reg_n_0_[11]\,
       R => '0'
     );
 \Accumulated_Output_reg[12]\: unisim.vcomponents.FDRE
@@ -18807,7 +18840,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(12),
-      Q => Accumulated_Output(12),
+      Q => \Accumulated_Output_reg_n_0_[12]\,
       R => '0'
     );
 \Accumulated_Output_reg[13]\: unisim.vcomponents.FDRE
@@ -18818,7 +18851,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(13),
-      Q => Accumulated_Output(13),
+      Q => \Accumulated_Output_reg_n_0_[13]\,
       R => '0'
     );
 \Accumulated_Output_reg[14]\: unisim.vcomponents.FDRE
@@ -18829,7 +18862,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(14),
-      Q => Accumulated_Output(14),
+      Q => \Accumulated_Output_reg_n_0_[14]\,
       R => '0'
     );
 \Accumulated_Output_reg[15]\: unisim.vcomponents.FDRE
@@ -18840,7 +18873,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(15),
-      Q => Accumulated_Output(15),
+      Q => \Accumulated_Output_reg_n_0_[15]\,
       R => '0'
     );
 \Accumulated_Output_reg[16]\: unisim.vcomponents.FDRE
@@ -18851,7 +18884,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(16),
-      Q => Accumulated_Output(16),
+      Q => \Accumulated_Output_reg_n_0_[16]\,
       R => '0'
     );
 \Accumulated_Output_reg[17]\: unisim.vcomponents.FDRE
@@ -18862,7 +18895,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(17),
-      Q => Accumulated_Output(17),
+      Q => \Accumulated_Output_reg_n_0_[17]\,
       R => '0'
     );
 \Accumulated_Output_reg[18]\: unisim.vcomponents.FDRE
@@ -18873,7 +18906,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(18),
-      Q => Accumulated_Output(18),
+      Q => \Accumulated_Output_reg_n_0_[18]\,
       R => '0'
     );
 \Accumulated_Output_reg[19]\: unisim.vcomponents.FDRE
@@ -18884,7 +18917,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(19),
-      Q => Accumulated_Output(19),
+      Q => \Accumulated_Output_reg_n_0_[19]\,
       R => '0'
     );
 \Accumulated_Output_reg[1]\: unisim.vcomponents.FDRE
@@ -18895,7 +18928,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(1),
-      Q => Accumulated_Output(1),
+      Q => \Accumulated_Output_reg_n_0_[1]\,
       R => '0'
     );
 \Accumulated_Output_reg[20]\: unisim.vcomponents.FDRE
@@ -18906,7 +18939,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(20),
-      Q => Accumulated_Output(20),
+      Q => \Accumulated_Output_reg_n_0_[20]\,
       R => '0'
     );
 \Accumulated_Output_reg[21]\: unisim.vcomponents.FDRE
@@ -18917,7 +18950,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(21),
-      Q => Accumulated_Output(21),
+      Q => \Accumulated_Output_reg_n_0_[21]\,
       R => '0'
     );
 \Accumulated_Output_reg[22]\: unisim.vcomponents.FDRE
@@ -18928,7 +18961,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(22),
-      Q => Accumulated_Output(22),
+      Q => \Accumulated_Output_reg_n_0_[22]\,
       R => '0'
     );
 \Accumulated_Output_reg[23]\: unisim.vcomponents.FDRE
@@ -18939,7 +18972,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(23),
-      Q => Accumulated_Output(23),
+      Q => \Accumulated_Output_reg_n_0_[23]\,
       R => '0'
     );
 \Accumulated_Output_reg[24]\: unisim.vcomponents.FDRE
@@ -18950,7 +18983,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(24),
-      Q => Accumulated_Output(24),
+      Q => \Accumulated_Output_reg_n_0_[24]\,
       R => '0'
     );
 \Accumulated_Output_reg[25]\: unisim.vcomponents.FDRE
@@ -18961,7 +18994,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(25),
-      Q => Accumulated_Output(25),
+      Q => \Accumulated_Output_reg_n_0_[25]\,
       R => '0'
     );
 \Accumulated_Output_reg[26]\: unisim.vcomponents.FDRE
@@ -18972,7 +19005,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(26),
-      Q => Accumulated_Output(26),
+      Q => \Accumulated_Output_reg_n_0_[26]\,
       R => '0'
     );
 \Accumulated_Output_reg[27]\: unisim.vcomponents.FDRE
@@ -18983,7 +19016,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(27),
-      Q => Accumulated_Output(27),
+      Q => \Accumulated_Output_reg_n_0_[27]\,
       R => '0'
     );
 \Accumulated_Output_reg[28]\: unisim.vcomponents.FDRE
@@ -18994,7 +19027,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(28),
-      Q => Accumulated_Output(28),
+      Q => \Accumulated_Output_reg_n_0_[28]\,
       R => '0'
     );
 \Accumulated_Output_reg[29]\: unisim.vcomponents.FDRE
@@ -19005,7 +19038,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(29),
-      Q => Accumulated_Output(29),
+      Q => \Accumulated_Output_reg_n_0_[29]\,
       R => '0'
     );
 \Accumulated_Output_reg[2]\: unisim.vcomponents.FDRE
@@ -19016,7 +19049,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(2),
-      Q => Accumulated_Output(2),
+      Q => \Accumulated_Output_reg_n_0_[2]\,
       R => '0'
     );
 \Accumulated_Output_reg[30]\: unisim.vcomponents.FDRE
@@ -19027,7 +19060,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(30),
-      Q => Accumulated_Output(30),
+      Q => \Accumulated_Output_reg_n_0_[30]\,
       R => '0'
     );
 \Accumulated_Output_reg[31]\: unisim.vcomponents.FDRE
@@ -19037,8 +19070,8 @@ begin
         port map (
       C => AD_CLK_in,
       CE => '1',
-      D => Integral_Stage(31),
-      Q => Accumulated_Output(31),
+      D => p_0_in_0,
+      Q => p_2_in,
       R => '0'
     );
 \Accumulated_Output_reg[3]\: unisim.vcomponents.FDRE
@@ -19049,7 +19082,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(3),
-      Q => Accumulated_Output(3),
+      Q => \Accumulated_Output_reg_n_0_[3]\,
       R => '0'
     );
 \Accumulated_Output_reg[4]\: unisim.vcomponents.FDRE
@@ -19060,7 +19093,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(4),
-      Q => Accumulated_Output(4),
+      Q => \Accumulated_Output_reg_n_0_[4]\,
       R => '0'
     );
 \Accumulated_Output_reg[5]\: unisim.vcomponents.FDRE
@@ -19071,7 +19104,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(5),
-      Q => Accumulated_Output(5),
+      Q => \Accumulated_Output_reg_n_0_[5]\,
       R => '0'
     );
 \Accumulated_Output_reg[6]\: unisim.vcomponents.FDRE
@@ -19082,7 +19115,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(6),
-      Q => Accumulated_Output(6),
+      Q => \Accumulated_Output_reg_n_0_[6]\,
       R => '0'
     );
 \Accumulated_Output_reg[7]\: unisim.vcomponents.FDRE
@@ -19093,7 +19126,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(7),
-      Q => Accumulated_Output(7),
+      Q => \Accumulated_Output_reg_n_0_[7]\,
       R => '0'
     );
 \Accumulated_Output_reg[8]\: unisim.vcomponents.FDRE
@@ -19104,7 +19137,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(8),
-      Q => Accumulated_Output(8),
+      Q => \Accumulated_Output_reg_n_0_[8]\,
       R => '0'
     );
 \Accumulated_Output_reg[9]\: unisim.vcomponents.FDRE
@@ -19115,7 +19148,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => Integral_Stage(9),
-      Q => Accumulated_Output(9),
+      Q => \Accumulated_Output_reg_n_0_[9]\,
       R => '0'
     );
 \DAC_Stream_out[16]_INST_0\: unisim.vcomponents.LUT6
@@ -21532,10 +21565,10 @@ Derivative_Stage0_carry: unisim.vcomponents.CARRY4
     );
 I_pipeline0: unisim.vcomponents.DSP48E1
     generic map(
-      ACASCREG => 1,
+      ACASCREG => 0,
       ADREG => 1,
       ALUMODEREG => 0,
-      AREG => 1,
+      AREG => 0,
       AUTORESET_PATDET => "NO_RESET",
       A_INPUT => "DIRECT",
       BCASCREG => 0,
@@ -21560,23 +21593,7 @@ I_pipeline0: unisim.vcomponents.DSP48E1
     )
         port map (
       A(29 downto 17) => B"0000000000000",
-      A(16) => \Integral_Stage_reg[19]_i_1_n_7\,
-      A(15) => \Integral_Stage_reg[15]_i_1_n_4\,
-      A(14) => \Integral_Stage_reg[15]_i_1_n_5\,
-      A(13) => \Integral_Stage_reg[15]_i_1_n_6\,
-      A(12) => \Integral_Stage_reg[15]_i_1_n_7\,
-      A(11) => \Integral_Stage_reg[11]_i_1_n_4\,
-      A(10) => \Integral_Stage_reg[11]_i_1_n_5\,
-      A(9) => \Integral_Stage_reg[11]_i_1_n_6\,
-      A(8) => \Integral_Stage_reg[11]_i_1_n_7\,
-      A(7) => \Integral_Stage_reg[7]_i_1_n_4\,
-      A(6) => \Integral_Stage_reg[7]_i_1_n_5\,
-      A(5) => \Integral_Stage_reg[7]_i_1_n_6\,
-      A(4) => \Integral_Stage_reg[7]_i_1_n_7\,
-      A(3) => \Integral_Stage_reg[3]_i_1_n_4\,
-      A(2) => \Integral_Stage_reg[3]_i_1_n_5\,
-      A(1) => \Integral_Stage_reg[3]_i_1_n_6\,
-      A(0) => \Integral_Stage_reg[3]_i_1_n_7\,
+      A(16 downto 0) => Integral_Stage(16 downto 0),
       ACIN(29 downto 0) => B"000000000000000000000000000000",
       ACOUT(29 downto 0) => NLW_I_pipeline0_ACOUT_UNCONNECTED(29 downto 0),
       ALUMODE(3 downto 0) => B"0000",
@@ -21593,7 +21610,7 @@ I_pipeline0: unisim.vcomponents.DSP48E1
       CARRYINSEL(2 downto 0) => B"000",
       CARRYOUT(3 downto 0) => NLW_I_pipeline0_CARRYOUT_UNCONNECTED(3 downto 0),
       CEA1 => '0',
-      CEA2 => '1',
+      CEA2 => '0',
       CEAD => '0',
       CEALUMODE => '0',
       CEB1 => '0',
@@ -21605,7 +21622,7 @@ I_pipeline0: unisim.vcomponents.DSP48E1
       CEINMODE => '0',
       CEM => '0',
       CEP => '0',
-      CLK => AD_CLK_in,
+      CLK => '0',
       D(24 downto 0) => B"0000000000000000000000000",
       INMODE(4 downto 0) => B"00000",
       MULTSIGNIN => '0',
@@ -21731,8 +21748,8 @@ I_pipeline0: unisim.vcomponents.DSP48E1
       AREG => 0,
       AUTORESET_PATDET => "NO_RESET",
       A_INPUT => "DIRECT",
-      BCASCREG => 1,
-      BREG => 1,
+      BCASCREG => 0,
+      BREG => 0,
       B_INPUT => "DIRECT",
       CARRYINREG => 0,
       CARRYINSELREG => 0,
@@ -21787,23 +21804,7 @@ I_pipeline0: unisim.vcomponents.DSP48E1
       ACOUT(0) => \I_pipeline0__0_n_53\,
       ALUMODE(3 downto 0) => B"0000",
       B(17) => '0',
-      B(16) => \Integral_Stage_reg[19]_i_1_n_7\,
-      B(15) => \Integral_Stage_reg[15]_i_1_n_4\,
-      B(14) => \Integral_Stage_reg[15]_i_1_n_5\,
-      B(13) => \Integral_Stage_reg[15]_i_1_n_6\,
-      B(12) => \Integral_Stage_reg[15]_i_1_n_7\,
-      B(11) => \Integral_Stage_reg[11]_i_1_n_4\,
-      B(10) => \Integral_Stage_reg[11]_i_1_n_5\,
-      B(9) => \Integral_Stage_reg[11]_i_1_n_6\,
-      B(8) => \Integral_Stage_reg[11]_i_1_n_7\,
-      B(7) => \Integral_Stage_reg[7]_i_1_n_4\,
-      B(6) => \Integral_Stage_reg[7]_i_1_n_5\,
-      B(5) => \Integral_Stage_reg[7]_i_1_n_6\,
-      B(4) => \Integral_Stage_reg[7]_i_1_n_7\,
-      B(3) => \Integral_Stage_reg[3]_i_1_n_4\,
-      B(2) => \Integral_Stage_reg[3]_i_1_n_5\,
-      B(1) => \Integral_Stage_reg[3]_i_1_n_6\,
-      B(0) => \Integral_Stage_reg[3]_i_1_n_7\,
+      B(16 downto 0) => Integral_Stage(16 downto 0),
       BCIN(17 downto 0) => B"000000000000000000",
       BCOUT(17 downto 0) => \NLW_I_pipeline0__0_BCOUT_UNCONNECTED\(17 downto 0),
       C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
@@ -21817,7 +21818,7 @@ I_pipeline0: unisim.vcomponents.DSP48E1
       CEAD => '0',
       CEALUMODE => '0',
       CEB1 => '0',
-      CEB2 => '1',
+      CEB2 => '0',
       CEC => '0',
       CECARRYIN => '0',
       CECTRL => '0',
@@ -21825,7 +21826,7 @@ I_pipeline0: unisim.vcomponents.DSP48E1
       CEINMODE => '0',
       CEM => '0',
       CEP => '0',
-      CLK => AD_CLK_in,
+      CLK => '0',
       D(24 downto 0) => B"0000000000000000000000000",
       INMODE(4 downto 0) => B"00000",
       MULTSIGNIN => '0',
@@ -22590,8 +22591,8 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       AREG => 0,
       AUTORESET_PATDET => "NO_RESET",
       A_INPUT => "DIRECT",
-      BCASCREG => 1,
-      BREG => 1,
+      BCASCREG => 0,
+      BREG => 0,
       B_INPUT => "DIRECT",
       CARRYINREG => 0,
       CARRYINSELREG => 0,
@@ -22630,24 +22631,11 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       ACIN(29 downto 0) => B"000000000000000000000000000000",
       ACOUT(29 downto 0) => NLW_I_pipeline_reg_ACOUT_UNCONNECTED(29 downto 0),
       ALUMODE(3 downto 0) => B"0000",
-      B(17) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(16) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(15) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(14) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(13) => \Integral_Stage_reg[31]_i_1_n_5\,
-      B(12) => \Integral_Stage_reg[31]_i_1_n_6\,
-      B(11) => \Integral_Stage_reg[31]_i_1_n_7\,
-      B(10) => \Integral_Stage_reg[27]_i_1_n_4\,
-      B(9) => \Integral_Stage_reg[27]_i_1_n_5\,
-      B(8) => \Integral_Stage_reg[27]_i_1_n_6\,
-      B(7) => \Integral_Stage_reg[27]_i_1_n_7\,
-      B(6) => \Integral_Stage_reg[23]_i_1_n_4\,
-      B(5) => \Integral_Stage_reg[23]_i_1_n_5\,
-      B(4) => \Integral_Stage_reg[23]_i_1_n_6\,
-      B(3) => \Integral_Stage_reg[23]_i_1_n_7\,
-      B(2) => \Integral_Stage_reg[19]_i_1_n_4\,
-      B(1) => \Integral_Stage_reg[19]_i_1_n_5\,
-      B(0) => \Integral_Stage_reg[19]_i_1_n_6\,
+      B(17) => p_0_in_0,
+      B(16) => p_0_in_0,
+      B(15) => p_0_in_0,
+      B(14) => p_0_in_0,
+      B(13 downto 0) => Integral_Stage(30 downto 17),
       BCIN(17 downto 0) => B"000000000000000000",
       BCOUT(17 downto 0) => NLW_I_pipeline_reg_BCOUT_UNCONNECTED(17 downto 0),
       C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
@@ -22661,7 +22649,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CEAD => '0',
       CEALUMODE => '0',
       CEB1 => '0',
-      CEB2 => '1',
+      CEB2 => '0',
       CEC => '0',
       CECARRYIN => '0',
       CECTRL => '0',
@@ -23067,8 +23055,8 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       AREG => 0,
       AUTORESET_PATDET => "NO_RESET",
       A_INPUT => "CASCADE",
-      BCASCREG => 1,
-      BREG => 1,
+      BCASCREG => 0,
+      BREG => 0,
       B_INPUT => "DIRECT",
       CARRYINREG => 0,
       CARRYINSELREG => 0,
@@ -23121,24 +23109,11 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       ACIN(0) => \I_pipeline0__0_n_53\,
       ACOUT(29 downto 0) => \NLW_I_pipeline_reg__0_ACOUT_UNCONNECTED\(29 downto 0),
       ALUMODE(3 downto 0) => B"0000",
-      B(17) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(16) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(15) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(14) => \Integral_Stage_reg[31]_i_1_n_4\,
-      B(13) => \Integral_Stage_reg[31]_i_1_n_5\,
-      B(12) => \Integral_Stage_reg[31]_i_1_n_6\,
-      B(11) => \Integral_Stage_reg[31]_i_1_n_7\,
-      B(10) => \Integral_Stage_reg[27]_i_1_n_4\,
-      B(9) => \Integral_Stage_reg[27]_i_1_n_5\,
-      B(8) => \Integral_Stage_reg[27]_i_1_n_6\,
-      B(7) => \Integral_Stage_reg[27]_i_1_n_7\,
-      B(6) => \Integral_Stage_reg[23]_i_1_n_4\,
-      B(5) => \Integral_Stage_reg[23]_i_1_n_5\,
-      B(4) => \Integral_Stage_reg[23]_i_1_n_6\,
-      B(3) => \Integral_Stage_reg[23]_i_1_n_7\,
-      B(2) => \Integral_Stage_reg[19]_i_1_n_4\,
-      B(1) => \Integral_Stage_reg[19]_i_1_n_5\,
-      B(0) => \Integral_Stage_reg[19]_i_1_n_6\,
+      B(17) => p_0_in_0,
+      B(16) => p_0_in_0,
+      B(15) => p_0_in_0,
+      B(14) => p_0_in_0,
+      B(13 downto 0) => Integral_Stage(30 downto 17),
       BCIN(17 downto 0) => B"000000000000000000",
       BCOUT(17 downto 0) => \NLW_I_pipeline_reg__0_BCOUT_UNCONNECTED\(17 downto 0),
       C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
@@ -23152,7 +23127,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CEAD => '0',
       CEALUMODE => '0',
       CEB1 => '0',
-      CEB2 => '1',
+      CEB2 => '0',
       CEC => '0',
       CECARRYIN => '0',
       CECTRL => '0',
@@ -23283,7 +23258,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(11),
+      I0 => \Accumulated_Output_reg_n_0_[11]\,
       I1 => Q(11),
       O => \Integral_Stage[11]_i_2_n_0\
     );
@@ -23292,7 +23267,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(10),
+      I0 => \Accumulated_Output_reg_n_0_[10]\,
       I1 => Q(10),
       O => \Integral_Stage[11]_i_3_n_0\
     );
@@ -23301,7 +23276,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(9),
+      I0 => \Accumulated_Output_reg_n_0_[9]\,
       I1 => Q(9),
       O => \Integral_Stage[11]_i_4_n_0\
     );
@@ -23310,7 +23285,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(8),
+      I0 => \Accumulated_Output_reg_n_0_[8]\,
       I1 => Q(8),
       O => \Integral_Stage[11]_i_5_n_0\
     );
@@ -23319,7 +23294,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(15),
+      I0 => \Accumulated_Output_reg_n_0_[15]\,
       I1 => Q(15),
       O => \Integral_Stage[15]_i_2_n_0\
     );
@@ -23328,7 +23303,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(14),
+      I0 => \Accumulated_Output_reg_n_0_[14]\,
       I1 => Q(14),
       O => \Integral_Stage[15]_i_3_n_0\
     );
@@ -23337,7 +23312,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(13),
+      I0 => \Accumulated_Output_reg_n_0_[13]\,
       I1 => Q(13),
       O => \Integral_Stage[15]_i_4_n_0\
     );
@@ -23346,7 +23321,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(12),
+      I0 => \Accumulated_Output_reg_n_0_[12]\,
       I1 => Q(12),
       O => \Integral_Stage[15]_i_5_n_0\
     );
@@ -23355,7 +23330,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(19),
+      I0 => \Accumulated_Output_reg_n_0_[19]\,
       I1 => Q(19),
       O => \Integral_Stage[19]_i_2_n_0\
     );
@@ -23364,7 +23339,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(18),
+      I0 => \Accumulated_Output_reg_n_0_[18]\,
       I1 => Q(18),
       O => \Integral_Stage[19]_i_3_n_0\
     );
@@ -23373,7 +23348,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(17),
+      I0 => \Accumulated_Output_reg_n_0_[17]\,
       I1 => Q(17),
       O => \Integral_Stage[19]_i_4_n_0\
     );
@@ -23382,7 +23357,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(16),
+      I0 => \Accumulated_Output_reg_n_0_[16]\,
       I1 => Q(16),
       O => \Integral_Stage[19]_i_5_n_0\
     );
@@ -23391,7 +23366,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(23),
+      I0 => \Accumulated_Output_reg_n_0_[23]\,
       I1 => Q(23),
       O => \Integral_Stage[23]_i_2_n_0\
     );
@@ -23400,7 +23375,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(22),
+      I0 => \Accumulated_Output_reg_n_0_[22]\,
       I1 => Q(22),
       O => \Integral_Stage[23]_i_3_n_0\
     );
@@ -23409,7 +23384,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(21),
+      I0 => \Accumulated_Output_reg_n_0_[21]\,
       I1 => Q(21),
       O => \Integral_Stage[23]_i_4_n_0\
     );
@@ -23418,7 +23393,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(20),
+      I0 => \Accumulated_Output_reg_n_0_[20]\,
       I1 => Q(20),
       O => \Integral_Stage[23]_i_5_n_0\
     );
@@ -23427,7 +23402,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(27),
+      I0 => \Accumulated_Output_reg_n_0_[27]\,
       I1 => Q(27),
       O => \Integral_Stage[27]_i_2_n_0\
     );
@@ -23436,7 +23411,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(26),
+      I0 => \Accumulated_Output_reg_n_0_[26]\,
       I1 => Q(26),
       O => \Integral_Stage[27]_i_3_n_0\
     );
@@ -23445,7 +23420,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(25),
+      I0 => \Accumulated_Output_reg_n_0_[25]\,
       I1 => Q(25),
       O => \Integral_Stage[27]_i_4_n_0\
     );
@@ -23454,16 +23429,25 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(24),
+      I0 => \Accumulated_Output_reg_n_0_[24]\,
       I1 => Q(24),
       O => \Integral_Stage[27]_i_5_n_0\
+    );
+\Integral_Stage[31]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => p_0_in_0,
+      I1 => p_2_in,
+      O => Integral_Stage01_out
     );
 \Integral_Stage[3]_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(3),
+      I0 => \Accumulated_Output_reg_n_0_[3]\,
       I1 => Q(3),
       O => \Integral_Stage[3]_i_2_n_0\
     );
@@ -23472,7 +23456,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(2),
+      I0 => \Accumulated_Output_reg_n_0_[2]\,
       I1 => Q(2),
       O => \Integral_Stage[3]_i_3_n_0\
     );
@@ -23481,7 +23465,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(1),
+      I0 => \Accumulated_Output_reg_n_0_[1]\,
       I1 => Q(1),
       O => \Integral_Stage[3]_i_4_n_0\
     );
@@ -23490,7 +23474,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(0),
+      I0 => \Accumulated_Output_reg_n_0_[0]\,
       I1 => Q(0),
       O => \Integral_Stage[3]_i_5_n_0\
     );
@@ -23499,7 +23483,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(7),
+      I0 => \Accumulated_Output_reg_n_0_[7]\,
       I1 => Q(7),
       O => \Integral_Stage[7]_i_2_n_0\
     );
@@ -23508,7 +23492,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(6),
+      I0 => \Accumulated_Output_reg_n_0_[6]\,
       I1 => Q(6),
       O => \Integral_Stage[7]_i_3_n_0\
     );
@@ -23517,7 +23501,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(5),
+      I0 => \Accumulated_Output_reg_n_0_[5]\,
       I1 => Q(5),
       O => \Integral_Stage[7]_i_4_n_0\
     );
@@ -23526,11 +23510,11 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       INIT => X"6"
     )
         port map (
-      I0 => Accumulated_Output(4),
+      I0 => \Accumulated_Output_reg_n_0_[4]\,
       I1 => Q(4),
       O => \Integral_Stage[7]_i_5_n_0\
     );
-\Integral_Stage_reg[0]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[0]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23539,9 +23523,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[3]_i_1_n_7\,
       Q => Integral_Stage(0),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[10]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[10]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23550,9 +23534,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[11]_i_1_n_5\,
       Q => Integral_Stage(10),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[11]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[11]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23561,7 +23545,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[11]_i_1_n_4\,
       Q => Integral_Stage(11),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[11]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -23571,7 +23555,10 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CO(1) => \Integral_Stage_reg[11]_i_1_n_2\,
       CO(0) => \Integral_Stage_reg[11]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => Accumulated_Output(11 downto 8),
+      DI(3) => \Accumulated_Output_reg_n_0_[11]\,
+      DI(2) => \Accumulated_Output_reg_n_0_[10]\,
+      DI(1) => \Accumulated_Output_reg_n_0_[9]\,
+      DI(0) => \Accumulated_Output_reg_n_0_[8]\,
       O(3) => \Integral_Stage_reg[11]_i_1_n_4\,
       O(2) => \Integral_Stage_reg[11]_i_1_n_5\,
       O(1) => \Integral_Stage_reg[11]_i_1_n_6\,
@@ -23581,7 +23568,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       S(1) => \Integral_Stage[11]_i_4_n_0\,
       S(0) => \Integral_Stage[11]_i_5_n_0\
     );
-\Integral_Stage_reg[12]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[12]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23590,9 +23577,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[15]_i_1_n_7\,
       Q => Integral_Stage(12),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[13]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[13]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23601,9 +23588,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[15]_i_1_n_6\,
       Q => Integral_Stage(13),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[14]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[14]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23612,9 +23599,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[15]_i_1_n_5\,
       Q => Integral_Stage(14),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[15]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[15]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23623,7 +23610,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[15]_i_1_n_4\,
       Q => Integral_Stage(15),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[15]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -23633,7 +23620,10 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CO(1) => \Integral_Stage_reg[15]_i_1_n_2\,
       CO(0) => \Integral_Stage_reg[15]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => Accumulated_Output(15 downto 12),
+      DI(3) => \Accumulated_Output_reg_n_0_[15]\,
+      DI(2) => \Accumulated_Output_reg_n_0_[14]\,
+      DI(1) => \Accumulated_Output_reg_n_0_[13]\,
+      DI(0) => \Accumulated_Output_reg_n_0_[12]\,
       O(3) => \Integral_Stage_reg[15]_i_1_n_4\,
       O(2) => \Integral_Stage_reg[15]_i_1_n_5\,
       O(1) => \Integral_Stage_reg[15]_i_1_n_6\,
@@ -23643,7 +23633,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       S(1) => \Integral_Stage[15]_i_4_n_0\,
       S(0) => \Integral_Stage[15]_i_5_n_0\
     );
-\Integral_Stage_reg[16]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[16]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23652,9 +23642,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[19]_i_1_n_7\,
       Q => Integral_Stage(16),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[17]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[17]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23663,9 +23653,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[19]_i_1_n_6\,
       Q => Integral_Stage(17),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[18]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[18]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23674,9 +23664,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[19]_i_1_n_5\,
       Q => Integral_Stage(18),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[19]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[19]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23685,7 +23675,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[19]_i_1_n_4\,
       Q => Integral_Stage(19),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[19]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -23695,7 +23685,10 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CO(1) => \Integral_Stage_reg[19]_i_1_n_2\,
       CO(0) => \Integral_Stage_reg[19]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => Accumulated_Output(19 downto 16),
+      DI(3) => \Accumulated_Output_reg_n_0_[19]\,
+      DI(2) => \Accumulated_Output_reg_n_0_[18]\,
+      DI(1) => \Accumulated_Output_reg_n_0_[17]\,
+      DI(0) => \Accumulated_Output_reg_n_0_[16]\,
       O(3) => \Integral_Stage_reg[19]_i_1_n_4\,
       O(2) => \Integral_Stage_reg[19]_i_1_n_5\,
       O(1) => \Integral_Stage_reg[19]_i_1_n_6\,
@@ -23705,7 +23698,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       S(1) => \Integral_Stage[19]_i_4_n_0\,
       S(0) => \Integral_Stage[19]_i_5_n_0\
     );
-\Integral_Stage_reg[1]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[1]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23714,9 +23707,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[3]_i_1_n_6\,
       Q => Integral_Stage(1),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[20]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[20]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23725,9 +23718,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[23]_i_1_n_7\,
       Q => Integral_Stage(20),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[21]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[21]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23736,9 +23729,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[23]_i_1_n_6\,
       Q => Integral_Stage(21),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[22]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[22]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23747,9 +23740,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[23]_i_1_n_5\,
       Q => Integral_Stage(22),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[23]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[23]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23758,7 +23751,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[23]_i_1_n_4\,
       Q => Integral_Stage(23),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[23]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -23768,7 +23761,10 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CO(1) => \Integral_Stage_reg[23]_i_1_n_2\,
       CO(0) => \Integral_Stage_reg[23]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => Accumulated_Output(23 downto 20),
+      DI(3) => \Accumulated_Output_reg_n_0_[23]\,
+      DI(2) => \Accumulated_Output_reg_n_0_[22]\,
+      DI(1) => \Accumulated_Output_reg_n_0_[21]\,
+      DI(0) => \Accumulated_Output_reg_n_0_[20]\,
       O(3) => \Integral_Stage_reg[23]_i_1_n_4\,
       O(2) => \Integral_Stage_reg[23]_i_1_n_5\,
       O(1) => \Integral_Stage_reg[23]_i_1_n_6\,
@@ -23778,7 +23774,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       S(1) => \Integral_Stage[23]_i_4_n_0\,
       S(0) => \Integral_Stage[23]_i_5_n_0\
     );
-\Integral_Stage_reg[24]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[24]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23787,9 +23783,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[27]_i_1_n_7\,
       Q => Integral_Stage(24),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[25]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[25]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23798,9 +23794,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[27]_i_1_n_6\,
       Q => Integral_Stage(25),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[26]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[26]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23809,9 +23805,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[27]_i_1_n_5\,
       Q => Integral_Stage(26),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[27]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[27]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23820,7 +23816,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[27]_i_1_n_4\,
       Q => Integral_Stage(27),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[27]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -23830,7 +23826,10 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CO(1) => \Integral_Stage_reg[27]_i_1_n_2\,
       CO(0) => \Integral_Stage_reg[27]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => Accumulated_Output(27 downto 24),
+      DI(3) => \Accumulated_Output_reg_n_0_[27]\,
+      DI(2) => \Accumulated_Output_reg_n_0_[26]\,
+      DI(1) => \Accumulated_Output_reg_n_0_[25]\,
+      DI(0) => \Accumulated_Output_reg_n_0_[24]\,
       O(3) => \Integral_Stage_reg[27]_i_1_n_4\,
       O(2) => \Integral_Stage_reg[27]_i_1_n_5\,
       O(1) => \Integral_Stage_reg[27]_i_1_n_6\,
@@ -23840,29 +23839,29 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       S(1) => \Integral_Stage[27]_i_4_n_0\,
       S(0) => \Integral_Stage[27]_i_5_n_0\
     );
-\Integral_Stage_reg[28]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[28]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
         port map (
       C => AD_CLK_in,
       CE => '1',
-      D => \Integral_Stage_reg[31]_i_1_n_7\,
+      D => \Integral_Stage_reg[31]_i_2_n_7\,
       Q => Integral_Stage(28),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[29]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[29]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
         port map (
       C => AD_CLK_in,
       CE => '1',
-      D => \Integral_Stage_reg[31]_i_1_n_6\,
+      D => \Integral_Stage_reg[31]_i_2_n_6\,
       Q => Integral_Stage(29),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[2]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[2]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23871,18 +23870,18 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[3]_i_1_n_5\,
       Q => Integral_Stage(2),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[30]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[30]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
         port map (
       C => AD_CLK_in,
       CE => '1',
-      D => \Integral_Stage_reg[31]_i_1_n_5\,
+      D => \Integral_Stage_reg[31]_i_2_n_5\,
       Q => Integral_Stage(30),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[31]\: unisim.vcomponents.FDRE
     generic map(
@@ -23891,26 +23890,29 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
         port map (
       C => AD_CLK_in,
       CE => '1',
-      D => \Integral_Stage_reg[31]_i_1_n_4\,
-      Q => Integral_Stage(31),
-      R => '0'
+      D => \Integral_Stage_reg[31]_i_2_n_4\,
+      Q => p_0_in_0,
+      R => Integral_Stage01_out
     );
-\Integral_Stage_reg[31]_i_1\: unisim.vcomponents.CARRY4
+\Integral_Stage_reg[31]_i_2\: unisim.vcomponents.CARRY4
      port map (
       CI => \Integral_Stage_reg[27]_i_1_n_0\,
-      CO(3) => \NLW_Integral_Stage_reg[31]_i_1_CO_UNCONNECTED\(3),
-      CO(2) => \Integral_Stage_reg[31]_i_1_n_1\,
-      CO(1) => \Integral_Stage_reg[31]_i_1_n_2\,
-      CO(0) => \Integral_Stage_reg[31]_i_1_n_3\,
+      CO(3) => \NLW_Integral_Stage_reg[31]_i_2_CO_UNCONNECTED\(3),
+      CO(2) => \Integral_Stage_reg[31]_i_2_n_1\,
+      CO(1) => \Integral_Stage_reg[31]_i_2_n_2\,
+      CO(0) => \Integral_Stage_reg[31]_i_2_n_3\,
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
-      O(3) => \Integral_Stage_reg[31]_i_1_n_4\,
-      O(2) => \Integral_Stage_reg[31]_i_1_n_5\,
-      O(1) => \Integral_Stage_reg[31]_i_1_n_6\,
-      O(0) => \Integral_Stage_reg[31]_i_1_n_7\,
-      S(3 downto 0) => Accumulated_Output(31 downto 28)
+      O(3) => \Integral_Stage_reg[31]_i_2_n_4\,
+      O(2) => \Integral_Stage_reg[31]_i_2_n_5\,
+      O(1) => \Integral_Stage_reg[31]_i_2_n_6\,
+      O(0) => \Integral_Stage_reg[31]_i_2_n_7\,
+      S(3) => p_2_in,
+      S(2) => \Accumulated_Output_reg_n_0_[30]\,
+      S(1) => \Accumulated_Output_reg_n_0_[29]\,
+      S(0) => \Accumulated_Output_reg_n_0_[28]\
     );
-\Integral_Stage_reg[3]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[3]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23919,7 +23921,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[3]_i_1_n_4\,
       Q => Integral_Stage(3),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[3]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -23929,7 +23931,10 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CO(1) => \Integral_Stage_reg[3]_i_1_n_2\,
       CO(0) => \Integral_Stage_reg[3]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => Accumulated_Output(3 downto 0),
+      DI(3) => \Accumulated_Output_reg_n_0_[3]\,
+      DI(2) => \Accumulated_Output_reg_n_0_[2]\,
+      DI(1) => \Accumulated_Output_reg_n_0_[1]\,
+      DI(0) => \Accumulated_Output_reg_n_0_[0]\,
       O(3) => \Integral_Stage_reg[3]_i_1_n_4\,
       O(2) => \Integral_Stage_reg[3]_i_1_n_5\,
       O(1) => \Integral_Stage_reg[3]_i_1_n_6\,
@@ -23939,7 +23944,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       S(1) => \Integral_Stage[3]_i_4_n_0\,
       S(0) => \Integral_Stage[3]_i_5_n_0\
     );
-\Integral_Stage_reg[4]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[4]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23948,9 +23953,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[7]_i_1_n_7\,
       Q => Integral_Stage(4),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[5]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[5]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23959,9 +23964,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[7]_i_1_n_6\,
       Q => Integral_Stage(5),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[6]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[6]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23970,9 +23975,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[7]_i_1_n_5\,
       Q => Integral_Stage(6),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[7]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[7]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -23981,7 +23986,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[7]_i_1_n_4\,
       Q => Integral_Stage(7),
-      R => '0'
+      S => Integral_Stage01_out
     );
 \Integral_Stage_reg[7]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -23991,7 +23996,10 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CO(1) => \Integral_Stage_reg[7]_i_1_n_2\,
       CO(0) => \Integral_Stage_reg[7]_i_1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => Accumulated_Output(7 downto 4),
+      DI(3) => \Accumulated_Output_reg_n_0_[7]\,
+      DI(2) => \Accumulated_Output_reg_n_0_[6]\,
+      DI(1) => \Accumulated_Output_reg_n_0_[5]\,
+      DI(0) => \Accumulated_Output_reg_n_0_[4]\,
       O(3) => \Integral_Stage_reg[7]_i_1_n_4\,
       O(2) => \Integral_Stage_reg[7]_i_1_n_5\,
       O(1) => \Integral_Stage_reg[7]_i_1_n_6\,
@@ -24001,7 +24009,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       S(1) => \Integral_Stage[7]_i_4_n_0\,
       S(0) => \Integral_Stage[7]_i_5_n_0\
     );
-\Integral_Stage_reg[8]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[8]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -24010,9 +24018,9 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[11]_i_1_n_7\,
       Q => Integral_Stage(8),
-      R => '0'
+      S => Integral_Stage01_out
     );
-\Integral_Stage_reg[9]\: unisim.vcomponents.FDRE
+\Integral_Stage_reg[9]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '0'
     )
@@ -24021,7 +24029,7 @@ I_pipeline_reg: unisim.vcomponents.DSP48E1
       CE => '1',
       D => \Integral_Stage_reg[11]_i_1_n_6\,
       Q => Integral_Stage(9),
-      R => '0'
+      S => Integral_Stage01_out
     );
 P_pipeline0: unisim.vcomponents.DSP48E1
     generic map(
