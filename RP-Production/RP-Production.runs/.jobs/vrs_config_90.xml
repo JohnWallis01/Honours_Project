@@ -1,12 +1,26 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
 	<Run Id="system_Custom_System_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Custom_System_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+<<<<<<< HEAD
 	<Run Id="synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
 		<Parent Id="system_Custom_System_0_0_synth_1"/>
+=======
+	<Run Id="system_CIC_axis_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_CIC_axis_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_bitslicer_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_bitslicer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="system_Custom_System_0_0_synth_1"/>
+		<Parent Id="system_CIC_axis_0_0_synth_1"/>
+		<Parent Id="system_bitslicer_0_0_synth_1"/>
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 	</Run>
 	<Run Id="impl_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
 		<Parent Id="synth_1"/>
 		<Parent Id="system_Custom_System_0_0_synth_1"/>
+<<<<<<< HEAD
+=======
+		<Parent Id="system_CIC_axis_0_0_synth_1"/>
+		<Parent Id="system_bitslicer_0_0_synth_1"/>
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 	</Run>
 	<Parameters>
 		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>

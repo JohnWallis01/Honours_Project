@@ -1,8 +1,13 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+<<<<<<< HEAD
 | Date             : Wed Mar 22 11:59:13 2023
 | Host             : Centurion-Heavy running 64-bit major release  (build 9200)
+=======
+| Date             : Tue Mar 21 14:13:23 2023
+| Host             : DESKTOP-ORRMO2Q running 64-bit major release  (build 9200)
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
 | Device           : xc7z010clg400-1
@@ -30,10 +35,17 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
+<<<<<<< HEAD
 | Total On-Chip Power (W)  | 1.946        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 1.814        |
+=======
+| Total On-Chip Power (W)  | 1.943        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 1.812        |
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 | Device Static (W)        | 0.131        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 62.6         |
@@ -52,6 +64,7 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
+<<<<<<< HEAD
 | Clocks                  |     0.018 |        8 |       --- |             --- |
 | Slice Logic             |     0.015 |     5338 |       --- |             --- |
 |   LUT as Logic          |     0.013 |     1936 |     17600 |           11.00 |
@@ -61,12 +74,27 @@ Table of Contents
 |   LUT as Shift Register |    <0.001 |       62 |      6000 |            1.03 |
 |   Others                |     0.000 |      286 |       --- |             --- |
 | Signals                 |     0.019 |     4706 |       --- |             --- |
+=======
+| Clocks                  |     0.016 |        8 |       --- |             --- |
+| Slice Logic             |     0.011 |     4731 |       --- |             --- |
+|   LUT as Logic          |     0.009 |     1709 |     17600 |            9.71 |
+|   CARRY4                |    <0.001 |      136 |      4400 |            3.09 |
+|   Register              |    <0.001 |     2191 |     35200 |            6.22 |
+|   F7/F8 Muxes           |    <0.001 |       32 |     17600 |            0.18 |
+|   LUT as Shift Register |    <0.001 |       62 |      6000 |            1.03 |
+|   Others                |     0.000 |      278 |       --- |             --- |
+| Signals                 |     0.014 |     4310 |       --- |             --- |
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 | MMCM                    |     0.107 |        1 |         2 |           50.00 |
 | DSPs                    |     0.009 |       13 |        80 |           16.25 |
-| I/O                     |     0.365 |       50 |       100 |           50.00 |
+| I/O                     |     0.373 |       50 |       100 |           50.00 |
 | PS7                     |     1.282 |        1 |       --- |             --- |
 | Static Power            |     0.131 |          |           |                 |
+<<<<<<< HEAD
 | Total                   |     1.945 |          |           |                 |
+=======
+| Total                   |     1.943 |          |           |                 |
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,9 +104,15 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+<<<<<<< HEAD
 | Vccint    |       1.000 |     0.073 |       0.065 |      0.008 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.077 |       0.069 |      0.009 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.099 |       0.098 |      0.001 |       NA    | Unspecified | NA         |
+=======
+| Vccint    |       1.000 |     0.063 |       0.055 |      0.008 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.078 |       0.069 |      0.009 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.101 |       0.100 |      0.001 |       NA    | Unspecified | NA         |
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.013 |       0.012 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -157,10 +191,17 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
+<<<<<<< HEAD
 | system_wrapper              |     1.814 |
 |   system_i                  |     1.483 |
 |     Custom_System_0         |     0.045 |
 |       inst                  |     0.045 |
+=======
+| system_wrapper              |     1.812 |
+|   system_i                  |     1.472 |
+|     Custom_System_0         |     0.035 |
+|       inst                  |     0.035 |
+>>>>>>> 12afe3d4f82a24b8689265e7a93e3126e9f3f9c0
 |     DAC_Interface           |     0.111 |
 |       axis_red_pitaya_dac_1 |     0.004 |
 |       clk_wiz_0             |     0.107 |
