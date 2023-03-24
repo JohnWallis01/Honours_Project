@@ -136,7 +136,7 @@ END component;
 
 
     --production signals
-  signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0);
+  signal ADC_Stream, PLL_Freq, Control_Input, Control_Input_Prev, Freq_Error: std_logic_vector(31 downto 0) := (others => '0');
   signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal: std_logic_vector(13 downto 0);
   signal Mixer_Output: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
@@ -184,11 +184,17 @@ END component;
     Dout => Target_Signal
   );
 
+
+
+
+
   --PLL--
   process(AD_CLK_in)
   begin
     if rising_edge(AD_CLK_in) then
-      PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) - signed(Control_Input));
+      -- Freq_Error <= std_logic_vector(signed(Control_Input) -  signed(Control_Input_Prev));
+      -- Control_Input_Prev <= Control_Input;
+      PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) + signed(Control_Input));
       Freq_Measured <= PLL_Freq;
     end if;
   end process;
@@ -198,13 +204,14 @@ END component;
   generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
   port map(
       Frequency => PLL_Freq,
-      PhaseOffset => std_logic_vector(to_unsigned(0,32)),
+      PhaseOffset => std_logic_vector(to_unsigned(0, 32)),--Control_Input,
       clock => AD_CLK_in,
       rst => '0',
       Dout => Locked_Signal,  
       Quadrature_out => Quadrature_Signal
   );
-  Phase_Mixer: Mixer
+  
+  Quadrature_Mixer: Mixer
   generic map(MixerSize => 14)
   port map(
     Q1 => Target_Signal,
@@ -212,6 +219,8 @@ END component;
     Dout => Mixer_Output,
     clk => AD_CLK_in
   );
+
+  --Phase Mixer (Tracks Amplitude)
 
 
   Loop_Filter: CIC32
@@ -235,6 +244,9 @@ END component;
     clock => AD_CLK_in
   );
 
+
+
+
   --DAC Controller--
 
   DAC_Stream_out(31 downto 30) <= "00";
@@ -255,49 +267,6 @@ END component;
     Sel =>Debug_Signal_Select,
     Dout => DAC_Stream_out(29 downto 16)
   );
-
-    
-    -- --Test Stream 
-
-    -- Test_NCO_1: NCO
-    -- generic map(Freq_Size => 32, ROM_Size => 8 , DAC_Size => 8)
-    -- port map(
-    -- Frequency => std_logic_vector(to_unsigned(343597384, 32)), --- 10 MHz
-    -- PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
-    -- clock => AD_CLK_in,
-    -- rst => '0',
-    -- Dout => Test_NCO_1_Dout
-    -- );
-
-    -- Test_NCO_2: NCO
-    -- generic map(Freq_Size => 32, ROM_Size => 8 , DAC_Size => 8)
-    -- port map(
-    -- Frequency => std_logic_vector(to_unsigned(347033357, 32)), --- 10.1 MHz
-    -- PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
-    -- clock => AD_CLK_in,
-    -- rst => '0',
-    -- Dout => Test_NCO_2_Dout
-    -- );
-    -- Test_Mixer: Mixer
-    -- generic map (MixerSize => 8)
-    -- port map(
-    --   Q1 => Test_NCO_1_Dout,
-    --   Q2 => Test_NCO_2_Dout,
-    --   Dout => Test_Mixed_Output,
-    --   clk => AD_CLK_in
-    -- );
-
-
-    -- Test_Filter: CIC32
-    -- port map(
-    -- clk => AD_CLK_in,
-    -- clk_enable => '1', 
-    -- reset => '0',
-    -- filter_in => Test_Mixed_Output,
-    -- filter_out => Test_Filtered_Output,
-    -- ce_out => open
-    -- );
-
 
 
 end architecture;

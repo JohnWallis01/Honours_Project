@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Wed Mar 22 16:30:26 2023
+| Date             : Thu Mar 23 13:47:10 2023
 | Host             : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
@@ -52,15 +52,15 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.019 |        8 |       --- |             --- |
-| Slice Logic             |     0.012 |     5377 |       --- |             --- |
-|   LUT as Logic          |     0.010 |     1911 |     17600 |           10.86 |
+| Clocks                  |     0.018 |        8 |       --- |             --- |
+| Slice Logic             |     0.012 |     5374 |       --- |             --- |
+|   LUT as Logic          |     0.010 |     1908 |     17600 |           10.84 |
 |   Register              |     0.001 |     2610 |     35200 |            7.41 |
 |   CARRY4                |    <0.001 |      136 |      4400 |            3.09 |
 |   F7/F8 Muxes           |    <0.001 |       37 |     17600 |            0.21 |
 |   LUT as Shift Register |    <0.001 |       62 |      6000 |            1.03 |
 |   Others                |     0.000 |      289 |       --- |             --- |
-| Signals                 |     0.017 |     4788 |       --- |             --- |
+| Signals                 |     0.017 |     4785 |       --- |             --- |
 | MMCM                    |     0.107 |        1 |         2 |           50.00 |
 | DSPs                    |     0.010 |       13 |        80 |           16.25 |
 | I/O                     |     0.392 |       50 |       100 |           50.00 |
@@ -159,8 +159,8 @@ Table of Contents
 +-----------------------------+-----------+
 | system_wrapper              |     1.839 |
 |   system_i                  |     1.480 |
-|     Custom_System_0         |     0.039 |
-|       inst                  |     0.039 |
+|     Custom_System_0         |     0.040 |
+|       inst                  |     0.040 |
 |     DAC_Interface           |     0.111 |
 |       axis_red_pitaya_dac_1 |     0.004 |
 |       clk_wiz_0             |     0.107 |

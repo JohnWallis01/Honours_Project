@@ -93,7 +93,7 @@ architecture NCO_str of NCO is
             Quadrature_addr <= (not subbits);
           when others =>
             dataAddr <= (not subbits); 
-            Quadrature_addr <= (not subbits);
+            Quadrature_addr <= subbits;
         end case;
       end if;
     end if;
