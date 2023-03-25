@@ -31,7 +31,16 @@ entity Custom_System is
     AD_CLK_in: in std_logic;
     Sys_CLK_in: in std_logic;
     Reset: out std_logic
+
+    --IP core interconnects
+    -- AB2SinPhi: out std_logic_vector(25 downto 0);
+    -- AB2CosPhi: out std_logic_vector(25 downto 0);
+    -- PHI_Error_IN: in std_logic_vector(31 downto 0)
     );
+
+
+
+
 end entity;
 
 
@@ -136,11 +145,15 @@ END component;
 
 
     --production signals
-  signal ADC_Stream, PLL_Freq, Control_Input, Control_Input_Prev, Freq_Error: std_logic_vector(31 downto 0) := (others => '0');
+  signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
   signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal: std_logic_vector(13 downto 0);
-  signal Mixer_Output: std_logic_vector(27 downto 0);
+  signal Quadrature_Mixer_Output: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
   
+  --Quadrature Signals
+  -- signal Phase_Mixer_Output: std_logic_vector(27 downto 0);
+  -- signal Amplitude_Signal: std_logic_vector(25 downto 0);
+
 
     ---testing signals 
     -- signal Test_NCO_1_Dout, Test_NCO_2_Dout: std_logic_vector(7 downto 0);
@@ -216,11 +229,20 @@ END component;
   port map(
     Q1 => Target_Signal,
     Q2 => Quadrature_Signal,
-    Dout => Mixer_Output,
+    Dout => Quadrature_Mixer_Output,
     clk => AD_CLK_in
   );
 
   --Phase Mixer (Tracks Amplitude)
+
+  Phase_Mixer: Mixer
+  generic map(MixerSize => 14)
+  port map(
+    Q1 => Target_Signal,
+    Q2 => Locked_Signal,
+    Dout => Phase_Mixer_Output,
+    clk => AD_CLK_in
+  );
 
 
   Loop_Filter: CIC32
@@ -228,10 +250,25 @@ END component;
     clk  => AD_CLK_in,
     clk_enable => '1',
     reset => '0',
-    filter_in => Mixer_Output(27 downto 12),
+    filter_in => Quadrature_Mixer_Output(27 downto 12),
     filter_out => Error_Signal,
     ce_out => open
   );
+
+  -- Phase_Filter: CIC32
+  -- port map(
+  --   clk  => AD_CLK_in,
+  --   clk_enable => '1',
+  --   reset => '0',
+  --   filter_in => Phase_Mixer_Output(27 downto 12),
+  --   filter_out => Amplitude_Signal,
+  --   ce_out => open
+  -- );
+
+  -- AB2SinPhi <= Error_Signal;
+  -- AB2CosPhi <= Amplitude_Signal;
+
+
 
   Loop_Controller: PID_Controller
   generic map(Data_Size => 32, Inital => 0)
