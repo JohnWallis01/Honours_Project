@@ -1,0 +1,99 @@
+---Peak detector and Stream in sliding DFT componets for phase locked loop course frequency adjustment
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Sliding_DFT_Processor is
+    generic(Stream_Size: integer := 16; 
+            Bin_Bits: integer := 10; --This will set to determine the frequency resoultion
+            Freq_Bits: integer:= 8 -- this will be as low as required to resolve noise
+            );
+    port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
+        clock: in std_logic;
+        Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
+        Fourier_Output_Real: out std_logic_vector(Freq_Bits-1 downto 0);
+        Fourier_Output_Imag: out std_logic_vector(Freq_Bits-1 downto 0)
+        );
+    end Sliding_DFT_Processor;
+
+architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
+
+    ---array of the complex rotators (the twiddle factors).
+    ---array to store the data stream.
+    ---array to store the complex data stream as well.
+    TYPE Window_Array is array(0 to 2**(Bin_Bits)-1) of std_logic_vector(Stream_Size-1 downto 0);
+    
+    signal Delta: std_logic_vector(Stream_Size-1 downto 0);
+    signal Sample_Stream_Memory, Fourier_Reals, Fourier_Imags, Fourier_Reals_Premultiply: Window_Array;
+    --pipelines for the complex multiply (a+jb)(c+jd)
+    signal ac,bd,ad,bc: Window_Array;
+    
+    ---initalisation function for the twiddles
+        function twiddles_real_init return window_array is
+        variable twiddle_out: Window_Array;
+        begin
+            for i in 0 to 2**(Bin_Bits)-1 loop
+                --play with twiddle convention to optimise maths
+                twiddle_out(i) <= std_logic_vector(to_signed(cos(2*MATH_PI*i/(2**Bin_Bits))),Stream_Size);
+            end loop;
+            return twiddle_out;
+        end function;
+
+        function twiddles_imag_init return window_array is
+        variable twiddle_out: Window_Array;
+        begin
+            for i in 0 to 2**(Bin_Bits)-1 loop
+                --play with twiddle convention to optimise maths
+                twiddle_out(i) <= std_logic_vector(to_signed(sin(2*MATH_PI*i/(2**Bin_Bits))),Stream_Size);
+            end loop;
+            return twiddle_out;
+        end function;
+
+        constant Twiddles_Real: Window_Array := twiddles_real_init;
+        
+        constant Twiddles_Imag: Window_Array := twiddles_imag_init;
+
+
+
+    begin
+
+    process(clock)
+    begin
+        if rising_edge(clock) then
+        Delta <= std_logic_vector(signed(Sample_Stream_In) - signed(Sample_Stream_Memory(0)));
+        for n in 0 to 2**(Bin_Bits)-2 generate
+        Sample_Stream_Memory(n)<= Sample_Stream_Memory(n+1);
+        end generate;
+        Sample_Stream_Memory(2**(Bin_Bits)-1)<=Sample_Stream_In;
+        end if;
+        end process;
+   
+    for n in 0 to 2**(Bin_Bits)-1 generate
+    process(clock)
+    begin
+        if rising_edge(clock) then
+            Fourier_Reals_Premultiply(n) <= std_logic_vector(signed(Fourier_Reals(n)) + signed(Delta));
+            --compute the product
+            ac(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Real(n)));
+            bd(n) <= std_logic_vector(signed(Fourier_Imags_Premultiply(n))*signed(Twiddles_Imag(n)));
+            ad(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Imag(n)));
+            bc(n) <= std_logic_vector(signed(Fourier_Imagss_Premultiply(n))*signed(Twiddles_Real(n)));
+            Fourier_Reals(n) <= std_logic_vector(signed(ac(n)) - signed(bd(n)));
+            Fourier_Imags(n) <= std_logic_vector(signed(ad(n))+ signed(bc(n)));
+        end if;
+        end process;
+    end generate;
+
+    ---output/memeory controller
+    process(clock)
+    begin
+        if rising_edge(clock) then
+            Fourier_Output_Real <= Fourier_Reals(Bin_Addr);
+            Fourier_Output_Imag <= Fourier_Imags(Bin_Addr);
+        end if;
+    end process;
+
+begin
+
+end Sliding_DFT_Processor_arch ; -- Sliding_DFT_Procesesor_arch

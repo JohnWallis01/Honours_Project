@@ -14,9 +14,12 @@ entity Custom_System is
     Control_Kp: in std_logic_vector(31 downto 0);
     Control_Ki: in std_logic_vector(31 downto 0);
     Control_Kd: in std_logic_vector(31 downto 0);
-
+    
+    Test_Bin_select: in std_logic_vector(8 downto 0);
     --debug outputs
     Freq_Measured: out std_logic_vector(31 downto 0);
+    Fourier_Real: out std_logic_vector(13 downto 0);
+    Fourier_Imag: out std_logic_vector(13 downto 0);
 
     ------ADC Control
     s_axis_tdata_ADC_Stream_in: in std_logic_vector(31 downto 0);
@@ -143,6 +146,20 @@ architecture System_Architecture of Custom_System is
 END component;
 
 
+component Sliding_DFT_Processor is
+  generic(Stream_Size: integer := 16; 
+          Bin_Bits: integer := 10; --This will set to determine the frequency resoultion
+          Freq_Bits: integer:= 8 -- this will be as low as required to resolve noise
+          );
+  port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
+      clock: in std_logic;
+      Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
+      Fourier_Output_Real: out std_logic_vector(Freq_Bits-1 downto 0);
+      Fourier_Output_Imag: out std_logic_vector(Freq_Bits-1 downto 0)
+      );
+  end component;
+
+
 
     --production signals
   signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
@@ -159,6 +176,9 @@ END component;
     -- signal Test_NCO_1_Dout, Test_NCO_2_Dout: std_logic_vector(7 downto 0);
     -- signal Test_Mixed_Output: std_logic_vector(15 downto 0);
     -- signal Test_Filtered_Output: std_logic_vector(25 downto 0);
+    signal Fourier_Test_Real: std_logic_vector(13 downto 0);
+    signal Fourier_Test_Imag: std_logic_vector(13 downto 0);
+
 
   begin
 
@@ -197,10 +217,6 @@ END component;
     Dout => Target_Signal
   );
 
-
-
-
-
   --PLL--
   process(AD_CLK_in)
   begin
@@ -235,14 +251,14 @@ END component;
 
   --Phase Mixer (Tracks Amplitude)
 
-  Phase_Mixer: Mixer
-  generic map(MixerSize => 14)
-  port map(
-    Q1 => Target_Signal,
-    Q2 => Locked_Signal,
-    Dout => Phase_Mixer_Output,
-    clk => AD_CLK_in
-  );
+  -- Phase_Mixer: Mixer
+  -- generic map(MixerSize => 14)
+  -- port map(
+  --   Q1 => Target_Signal,
+  --   Q2 => Locked_Signal,
+  --   Dout => Phase_Mixer_Output,
+  --   clk => AD_CLK_in
+  -- );
 
 
   Loop_Filter: CIC32
@@ -295,7 +311,7 @@ END component;
   port map(
     Input1 => Error_Signal(25 downto 12),
     Input2 => Target_Signal,
-    Input3 => Mixer_Output(27 downto 14),
+    Input3 => Quadrature_Mixer_Output(27 downto 14),
     Input4 => Control_Input(31 downto 18),
     Input5 => Control_Input(13 downto 0), -- what is going on with this filter
     Input6 => Quadrature_Signal(13 downto 0),
@@ -304,6 +320,19 @@ END component;
     Sel =>Debug_Signal_Select,
     Dout => DAC_Stream_out(29 downto 16)
   );
+
+
+
+  FFT_Test: Sliding_DFT_Processor
+  generic map(Stream_Size <= 14, Bin_Bits <= 9, Freq_Bits<= 14)
+  port map(
+  Sample_Stream_In <= Quadrature_Signal,
+  clock <= AD_CLK_in,
+  Bin_Addr <= Test_Bin_select,
+  Fourier_Output_Real <= Fourier_Test_Real,
+  Fourier_Output_Imag <= Fourier_Test_Imag
+  );
+
 
 
 end architecture;
