@@ -35,7 +35,7 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
         begin
             for i in 0 to 2**(Bin_Bits)-1 loop
                 --play with twiddle convention to optimise maths
-                twiddle_out(i) <= std_logic_vector(to_signed(cos(2*MATH_PI*i/(2**Bin_Bits))),Stream_Size);
+                twiddle_out(i) := std_logic_vector(to_signed(cos(2*MATH_PI*i/(2**Bin_Bits)),Stream_Size));
             end loop;
             return twiddle_out;
         end function;
@@ -45,7 +45,7 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
         begin
             for i in 0 to 2**(Bin_Bits)-1 loop
                 --play with twiddle convention to optimise maths
-                twiddle_out(i) <= std_logic_vector(to_signed(sin(2*MATH_PI*i/(2**Bin_Bits))),Stream_Size);
+                twiddle_out(i) := std_logic_vector(to_signed(sin(2*MATH_PI*i/(2**Bin_Bits)),Stream_Size));
             end loop;
             return twiddle_out;
         end function;
@@ -62,23 +62,23 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
     begin
         if rising_edge(clock) then
         Delta <= std_logic_vector(signed(Sample_Stream_In) - signed(Sample_Stream_Memory(0)));
-        for n in 0 to 2**(Bin_Bits)-2 generate
+        Stream_Shift: for n in 0 to 2**(Bin_Bits)-2 loop
         Sample_Stream_Memory(n)<= Sample_Stream_Memory(n+1);
-        end generate;
+        end loop;
         Sample_Stream_Memory(2**(Bin_Bits)-1)<=Sample_Stream_In;
         end if;
         end process;
    
-    for n in 0 to 2**(Bin_Bits)-1 generate
+    Fourier_Multiply: for n in 0 to 2**(Bin_Bits)-1 generate
     process(clock)
     begin
         if rising_edge(clock) then
             Fourier_Reals_Premultiply(n) <= std_logic_vector(signed(Fourier_Reals(n)) + signed(Delta));
             --compute the product
             ac(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Real(n)));
-            bd(n) <= std_logic_vector(signed(Fourier_Imags_Premultiply(n))*signed(Twiddles_Imag(n)));
+            bd(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Imag(n)));
             ad(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Imag(n)));
-            bc(n) <= std_logic_vector(signed(Fourier_Imagss_Premultiply(n))*signed(Twiddles_Real(n)));
+            bc(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Real(n)));
             Fourier_Reals(n) <= std_logic_vector(signed(ac(n)) - signed(bd(n)));
             Fourier_Imags(n) <= std_logic_vector(signed(ad(n))+ signed(bc(n)));
         end if;
@@ -93,7 +93,5 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
             Fourier_Output_Imag <= Fourier_Imags(Bin_Addr);
         end if;
     end process;
-
-begin
 
 end Sliding_DFT_Processor_arch ; -- Sliding_DFT_Procesesor_arch

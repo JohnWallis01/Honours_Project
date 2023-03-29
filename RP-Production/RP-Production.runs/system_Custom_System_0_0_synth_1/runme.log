@@ -1,0 +1,45 @@
+
+*** Running vivado
+    with args -log system_Custom_System_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_Custom_System_0_0.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source system_Custom_System_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_Custom_System_0_0
+Command: synth_design -top system_Custom_System_0_0 -part xc7z010clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 147064
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1214.758 ; gain = 407.711
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-11234] type error near 'cos'; expected type 'integer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd:38]
+ERROR: [Synth 8-10616] could not find a match for subprogram 'cos' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd:38]
+ERROR: [Synth 8-11234] type error near 'sin'; expected type 'integer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd:48]
+ERROR: [Synth 8-10616] could not find a match for subprogram 'sin' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd:48]
+ERROR: [Synth 8-10097] type error near bin_addr ; current type std_logic_vector; expected type integer [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd:92]
+ERROR: [Synth 8-10097] type error near bin_addr ; current type std_logic_vector; expected type integer [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd:93]
+INFO: [Synth 8-11252] unit 'sliding_dft_processor_arch' is ignored due to previous errors [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd:97]
+INFO: [Synth 8-10443] VHDL file 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FFT.vhd' is ignored due to errors
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1302.914 ; gain = 495.867
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+13 Infos, 0 Warnings, 0 Critical Warnings and 7 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 28 20:27:37 2023...
