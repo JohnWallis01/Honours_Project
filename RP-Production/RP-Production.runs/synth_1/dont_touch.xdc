@@ -62,9 +62,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_
 # IP: bd/system/ip/system_GPIO_Kd_0/system_GPIO_Kd_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_Kd_0 || ORIG_REF_NAME==system_GPIO_Kd_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_axi_gpio_1_1/system_axi_gpio_1_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_1_1 || ORIG_REF_NAME==system_axi_gpio_1_1} -quiet] -quiet
 
@@ -74,10 +71,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_
 # IP: bd/system/ip/system_axi_gpio_0_7/system_axi_gpio_0_7.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_7 || ORIG_REF_NAME==system_axi_gpio_0_7} -quiet] -quiet
 
+# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_s00_mmu_0/system_s00_mmu_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_s00_mmu_0 || ORIG_REF_NAME==system_s00_mmu_0} -quiet] -quiet
 
 # XDC: c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/system_ooc.xdc

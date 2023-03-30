@@ -149,7 +149,7 @@ END component;
 component Sliding_DFT_Processor is
   generic(Stream_Size: integer := 16; 
           Bin_Bits: integer := 10; --This will set to determine the frequency resoultion
-          Freq_Bits: integer:= 8 -- this will be as low as required to resolve noise
+          Freq_Bits: integer := 8 -- this will be as low as required to resolve noise
           );
   port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
       clock: in std_logic;
@@ -322,15 +322,14 @@ component Sliding_DFT_Processor is
   );
 
 
-
   FFT_Test: Sliding_DFT_Processor
-  generic map(Stream_Size <= 14, Bin_Bits <= 9, Freq_Bits<= 14)
+  generic map(Stream_Size => 14, Bin_Bits => 9, Freq_Bits => 14)
   port map(
-  Sample_Stream_In <= Quadrature_Signal,
-  clock <= AD_CLK_in,
-  Bin_Addr <= Test_Bin_select,
-  Fourier_Output_Real <= Fourier_Test_Real,
-  Fourier_Output_Imag <= Fourier_Test_Imag
+  Sample_Stream_In => Quadrature_Signal,
+  clock => AD_CLK_in,
+  Bin_Addr => Test_Bin_select,
+  Fourier_Output_Real => Fourier_Test_Real,
+  Fourier_Output_Imag => Fourier_Test_Imag
   );
 
 

@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Mar 22 16:15:28 2023
+-- Date        : Wed Mar 22 16:15:27 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_Kd_0/system_GPIO_Kd_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_GPIO_Kd_0 -prefix
+--               system_GPIO_Kd_0_ system_GPIO_Kd_0_sim_netlist.vhdl
 -- Design      : system_GPIO_Kd_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,8 +20,6 @@ entity system_GPIO_Kd_0_cdc_sync is
     gpio_io_i : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_GPIO_Kd_0_cdc_sync : entity is "cdc_sync";
 end system_GPIO_Kd_0_cdc_sync;
 
 architecture STRUCTURE of system_GPIO_Kd_0_cdc_sync is
@@ -1994,8 +1992,6 @@ entity system_GPIO_Kd_0_pselect_f is
     ce_expnd_i_3 : out STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_GPIO_Kd_0_pselect_f : entity is "pselect_f";
 end system_GPIO_Kd_0_pselect_f;
 
 architecture STRUCTURE of system_GPIO_Kd_0_pselect_f is
@@ -2061,8 +2057,6 @@ entity system_GPIO_Kd_0_GPIO_Core is
     Bus_RNW_reg : in STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_GPIO_Kd_0_GPIO_Core : entity is "GPIO_Core";
 end system_GPIO_Kd_0_GPIO_Core;
 
 architecture STRUCTURE of system_GPIO_Kd_0_GPIO_Core is
@@ -3948,8 +3942,6 @@ entity system_GPIO_Kd_0_address_decoder is
     ip2bus_wrack_i_D1 : in STD_LOGIC;
     s_axi_awready : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_GPIO_Kd_0_address_decoder : entity is "address_decoder";
 end system_GPIO_Kd_0_address_decoder;
 
 architecture STRUCTURE of system_GPIO_Kd_0_address_decoder is
@@ -4167,8 +4159,6 @@ entity system_GPIO_Kd_0_slave_attachment is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_GPIO_Kd_0_slave_attachment : entity is "slave_attachment";
 end system_GPIO_Kd_0_slave_attachment;
 
 architecture STRUCTURE of system_GPIO_Kd_0_slave_attachment is
@@ -5095,8 +5085,6 @@ entity system_GPIO_Kd_0_axi_lite_ipif is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_GPIO_Kd_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end system_GPIO_Kd_0_axi_lite_ipif;
 
 architecture STRUCTURE of system_GPIO_Kd_0_axi_lite_ipif is
@@ -5198,8 +5186,6 @@ entity system_GPIO_Kd_0_axi_gpio is
   attribute C_TRI_DEFAULT of system_GPIO_Kd_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
   attribute C_TRI_DEFAULT_2 : string;
   attribute C_TRI_DEFAULT_2 of system_GPIO_Kd_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_GPIO_Kd_0_axi_gpio : entity is "axi_gpio";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_GPIO_Kd_0_axi_gpio : entity is "yes";
   attribute ip_group : string;
