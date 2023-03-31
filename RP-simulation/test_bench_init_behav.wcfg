@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_bench_init_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_bench_init" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="50.000001 us"></ZoomEndTime>
+      <Cursor1Time time="50.000000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="181"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/test_bench_init/test_clock" type="logic">
+      <obj_property name="ElementShortName">test_clock</obj_property>
+      <obj_property name="ObjectShortName">test_clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/stream_out" type="array">
+      <obj_property name="ElementShortName">stream_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">stream_out[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/Debug" type="array">
+      <obj_property name="ElementShortName">Debug[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Debug[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/mixed_sinusoid" type="array">
+      <obj_property name="ElementShortName">mixed_sinusoid[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mixed_sinusoid[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../VHDL_Modules/FIR_Filter.vhd" \
+"../../../../../VHDL_Modules/Logic.vhd" \
+"../../../../../VHDL_Modules/NCO.vhd" \
+"../../../../../VHDL_Modules/test_system.vhd" \
+
+# Do not sort compile order
+nosort

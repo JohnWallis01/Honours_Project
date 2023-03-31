@@ -34,10 +34,12 @@ architecture {Filter_Name}_arch of {Filter_Name} is
     function inner_product(v1: signed_array;
                             v2: signed_array)
                             return signed is
-            variable sum : signed (2*{Filter_Size} -1 downto 0 ) := (others => '0');
+            variable sum : signed ({Filter_Size} -1 downto 0 ) := (others => '0');
+            variable temp: signed(2*{Filter_Size}-1 downto 0):= (others => '0');
             begin
                 for i in 0 to {Filter_Order} -1 loop
-                    sum := sum + v1(i)*v2(i);
+                    temp := v1(i)*v2(i);
+                    sum := sum + temp(2*{Filter_Size}-1 downto {Filter_Size});
                 end loop;
                 return sum;
             end function;

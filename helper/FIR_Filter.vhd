@@ -20,12 +20,10 @@ architecture FIR_Filter_arch of FIR_Filter is
     function inner_product(v1: signed_array;
                             v2: signed_array)
                             return signed is
-            variable sum : signed (32 -1 downto 0 ) := (others => '0');
-            variable temp: signed(2*32-1 downto 0):=(others =>'0');
+            variable sum : signed (2*32 -1 downto 0 ) := (others => '0');
             begin
                 for i in 0 to 33 -1 loop
-                    temp := (v1(i)*v2(i));
-                    sum := sum + temp(2*32-1 downto 32);
+                    sum := sum + v1(i)*v2(i);
                 end loop;
                 return sum;
             end function;
@@ -75,8 +73,8 @@ impulse_response(32) <= to_signed(-1544707, 32);
                 end loop;
 
                 signal_buffer(33-1) <= Signal_Input;
-                Signal_Output <= inner_product(signal_buffer, impulse_response);
-                end if;
+                Signal_Output <= inner_product(signal_buffer, impulse_response)(2*32-1 downto 32);
+            end if;
     end process;
 
 end architecture;

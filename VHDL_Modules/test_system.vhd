@@ -6,7 +6,8 @@ use ieee.math_real.all;
 entity test_bench is
     port (
         test_clock : in std_logic;
-        stream_out: out signed(31 downto 0)
+        stream_out: out signed(31 downto 0);
+        Debug: out signed(63 downto 0)
     );
     end test_bench; 
 
@@ -48,6 +49,9 @@ architecture test of test_bench is
             Signal_Output : out signed(32-1 downto 0)
         );
         end component; 
+
+    
+
 
     signal sinusoid1, sinusoid2: std_logic_vector(15 downto 0);
     signal mixed_sinusoid: std_logic_vector(31 downto 0);
