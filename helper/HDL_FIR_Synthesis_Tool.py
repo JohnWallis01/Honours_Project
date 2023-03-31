@@ -1,5 +1,5 @@
 Filter_Size = 32
-Filter_Name = "FIR_Filter_2"
+Filter_Name = "FIR_Filter"
 
 #load the filter coffiecnts
 with open("impulse_coefficents.txt" , "r") as f:

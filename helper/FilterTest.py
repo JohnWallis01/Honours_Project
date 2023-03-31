@@ -24,6 +24,8 @@ def FIR_Filter(unprocessed_sig, impulse_response):
         out.append(sum)
     return np.array(out)
 
+
+
 def IIR_Filter(unprocessed_sig):
     #difference equation is simply y[n]= x[n] + y[n-1]
     ynn1 = 0 #set y[n-1] to  0
@@ -43,5 +45,5 @@ def load_impulse_data(filename):
 # filter_impulse = 10*(load_impulse_data("filter_impulse.lsv"))
 fig ,axs = plt.subplots(2)
 axs[0].plot(unprocessed_sig)
-axs[1].plot(IIR_Filter(unprocessed_sig))
+axs[1].plot(FIR_Filter(unprocessed_sig))
 plt.show()
