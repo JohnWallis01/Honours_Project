@@ -8,10 +8,11 @@ entity Mixer is
         MixerSize: integer := 16
     );
     port (
-      Q1: in std_logic_vector(MixerSize-1 downto 0); -- need to specifiy the sizes
-      Q2: in std_logic_vector(MixerSize-1 downto 0);
-      Dout: out std_logic_vector((2*MixerSize)-1 downto 0);
-      clk: in std_logic
+      Q1: in std_logic_vector(MixerSize-1 downto 0) := (others =>'0'); -- need to specifiy the sizes
+      Q2: in std_logic_vector(MixerSize-1 downto 0) := (others =>'0');
+      Dout: out std_logic_vector((2*MixerSize)-1 downto 0) := (others =>'0');
+      clk: in std_logic;
+      Reset: in std_logic
     ) ;
   end Mixer;
 
@@ -20,7 +21,11 @@ entity Mixer is
     process(clk)
     begin
       if rising_edge(clk) then
-        Dout <= std_logic_vector(signed(Q1) * signed(Q2));
+        if Reset = '1' then
+          Dout <= std_logic_vector(to_signed(0, 2*MixerSize));
+        else
+          Dout <= std_logic_vector(signed(Q1) * signed(Q2));
+        end if;
       end if;
     end process;
     end architecture;

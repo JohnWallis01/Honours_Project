@@ -4,7 +4,6 @@ Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-5021] port 'debug' is not connected on this instance [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/test_bench_init.v:29]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -14,10 +13,15 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling architecture nco_str of entity xil_defaultlib.NCO [nco_default]
-Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [mixer_default]
-Compiling architecture fir_filter_arch of entity xil_defaultlib.FIR_Filter [fir_filter_default]
-Compiling architecture test of entity xil_defaultlib.test_bench [test_bench_default]
+Compiling architecture behavioral of entity xil_defaultlib.AXI4_Stream_Reader [axi4_stream_reader_default]
+Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(dac_size=14)\]
+Compiling architecture dual_multiplexer_arch of entity xil_defaultlib.Dual_Multiplexer [dual_multiplexer_default]
+Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
+Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
+Compiling architecture pi_controller_arch of entity xil_defaultlib.PI_Controller [pi_controller_default]
+Compiling architecture octal_multiplexer_arch of entity xil_defaultlib.Octal_Multiplexer [octal_multiplexer_default]
+Compiling architecture system_architecture of entity xil_defaultlib.Custom_System [custom_system_default]
+Compiling architecture test_wrapper_arch of entity xil_defaultlib.Test_Wrapper [test_wrapper_default]
 Compiling module xil_defaultlib.test_bench_init
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot test_bench_init_behav

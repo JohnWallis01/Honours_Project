@@ -28,25 +28,25 @@ architecture NCO_str of NCO is
 
 
     TYPE SINTAB IS ARRAY(0 TO ROMSIZE-1) OF STD_LOGIC_VECTOR (DAC_Size-2 DOWNTO 0);
-    signal phase: unsigned(Freq_Size-1 downto 0) := (others => '0');
-    signal OffsetPhase: unsigned(Freq_Size-1 downto 0) := (others => '0');
+    signal phase: signed(Freq_Size-1 downto 0) := (others => '0');
+    signal OffsetPhase: signed(Freq_Size-1 downto 0) := (others => '0');
     alias sigbits is OffsetPhase(Freq_Size-1 downto Freq_Size-2);
     alias subbits is OffsetPhase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
     signal databuffer: std_logic_vector(DAC_Size-1 downto 0) := (others => '0');
-    signal dataAddr: unsigned(ROM_Size-1 downto 0) := (others => '0');
-    signal sigbuffer: unsigned(1 downto 0) := (others => '0');
+    signal dataAddr: signed(ROM_Size-1 downto 0) := (others => '0');
+    signal sigbuffer: signed(1 downto 0) := (others => '0');
     signal Quadrature_buffer: std_logic_vector(DAC_Size-1 downto 0) := (others => '0');
-    signal Quadrature_addr: unsigned(ROM_Size-1 downto 0) := (others => '0');
+    signal Quadrature_addr: signed(ROM_Size-1 downto 0) := (others => '0');
 
     --compile time setup
     function sinelut_init return SINTAB is
         variable sinlut : SINTAB;
         variable x: Real;
-        variable xn: unsigned(DAC_Size-2 DOWNTO 0);
+        variable xn: signed(DAC_Size-2 DOWNTO 0);
       begin
         for i in 0 to ROMSIZE-1 loop
              x := SIN(real(i)*MATH_PI/real(2*ROMSIZE)); -- creates the quater wave table
-             xn := to_unsigned(INTEGER(x*real((2**(DAC_Size-2))-1)),DAC_Size-1); -- this just the unsigned portion and add the signed bit later
+             xn := to_signed(INTEGER(x*real((2**(DAC_Size-2))-1)),DAC_Size-1); -- this just the unsigned portion and add the signed bit later
             
             
             
@@ -77,8 +77,8 @@ architecture NCO_str of NCO is
         if (rst='1') then
           phase<=(others =>'0');
         else
-        phase <= phase +  unsigned(Frequency);
-        OffsetPhase <= phase + unsigned(PhaseOffset);
+        phase <= phase +  signed(Frequency);
+        OffsetPhase <= phase + signed(PhaseOffset);
         --implying ram
         sigbuffer <= sigbits;
         case sigbits is
@@ -105,20 +105,20 @@ architecture NCO_str of NCO is
         databuffer(DAC_Size-1) <= sigbuffer(1);
         case sigbuffer is
           when "00" =>
-            databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(dataAddr));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(Quadrature_addr));
+            databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(dataAddr)));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(Quadrature_addr)));
             Quadrature_buffer(DAC_Size-1) <= '0';
           when "01" =>
-            databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(dataAddr));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(Quadrature_addr));
+            databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(dataAddr)));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(Quadrature_addr)));
             Quadrature_buffer(DAC_Size-1) <= '1';
           when "10" =>
-            databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(dataAddr));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(Quadrature_addr));
+            databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(dataAddr)));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(Quadrature_addr)));
             Quadrature_buffer(DAC_Size-1) <= '1';
           when others =>
-            databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(dataAddr));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(Quadrature_addr));
+            databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(dataAddr)));
+            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(Quadrature_addr)));
             Quadrature_buffer(DAC_Size-1) <= '0';
         end case;
         Dout <= databuffer;

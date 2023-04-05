@@ -23,22 +23,33 @@
 module test_bench_init(
 
     );
-    reg test_clock;
-    wire[31:0] stream_out;
+    reg clock;
+    reg Reset;
+    wire[13:0] Locked_frequency;
+    wire[13:0] Simulated_frequency;
+    wire[31:0] Freq_Measured;
  
-    test_bench DUT(.test_clock(test_clock), .stream_out(stream_out));
+    Test_Wrapper DUT(.clock(clock), .Simulated_frequency(Simulated_frequency), .Locked_frequency(Locked_frequency), .Freq_Measured(Freq_Measured), .Reset(Reset));
 
     initial 
         begin
-            test_clock = 0;
+            clock = 0;
+            Reset = 1;
+            #1 // wait
+            clock = 1;
+            #1 // Wait
+            clock = 0;
+            #1 // Wait
+            clock = 1;
+            Reset = 0;
         end
     
     always 
     begin
-        test_clock = 1'b1; 
+        clock = 1'b1; 
         #1; // high for 20 * timescale = 1 ns
 
-        test_clock = 1'b0;
+        clock = 1'b0;
         #1; // low for 20 * timescale = 1 ns
     end
         

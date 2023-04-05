@@ -1,4 +1,4 @@
-Filter_Size = 32
+Filter_Size = 28
 Filter_Name = "FIR_Filter"
 
 #load the filter coffiecnts
@@ -18,8 +18,9 @@ use ieee.math_real.all;
 entity {Filter_Name} is
     port (
         clock : in std_logic;
-        Signal_Input : in  signed({Filter_Size}-1 downto 0);
-        Signal_Output : out signed({Filter_Size}-1 downto 0)
+        Signal_Input : in  std_logic_vector({Filter_Size}-1 downto 0);
+        Signal_Output : out std_logic_vector({Filter_Size}-1 downto 0);
+        Reset: in std_logic
     );
     end {Filter_Name}; """.format(Filter_Size=Filter_Size, Filter_Name=Filter_Name)
 
@@ -62,12 +63,18 @@ architecture2 ="""
     process(clock)
         begin
             if rising_edge(clock) then
-                for i in 0 to {Filter_Order}-2 loop
-                    signal_buffer(i) <= signal_buffer(i+1);
-                end loop;
-
-                signal_buffer({Filter_Order}-1) <= Signal_Input;
-                Signal_Output <= inner_product(signal_buffer, impulse_response)(2*{Filter_Size}-1 downto {Filter_Size});
+                if Reset = '1' then
+                    for i in 0 to {Filter_Order}-1 loop
+                        signal_buffer(i) <= (others => '0');
+                    end loop;
+                    Signal_Output <= (others ='0');
+                else
+                    for i in 0 to {Filter_Order}-2 loop
+                        signal_buffer(i) <= signal_buffer(i+1);
+                    end loop;
+                    signal_buffer({Filter_Order}-1) <= signed(Signal_Input);
+                    Signal_Output <= std_logic_vector(inner_product(signal_buffer, impulse_response));
+                end if;
             end if;
     end process;
 

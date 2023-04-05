@@ -4,6 +4,13 @@ vhdl xil_defaultlib  \
 "../../../../../VHDL_Modules/Logic.vhd" \
 "../../../../../VHDL_Modules/NCO.vhd" \
 "../../../../../VHDL_Modules/test_system.vhd" \
+"../../../../../VHDL_Modules/Debuging.vhd" \
+"../../../../../VHDL_Modules/Main.vhd" \
+"../../../../../VHDL_Modules/CIC32.vhd" \
+"../../../../../VHDL_Modules/Controllers.vhd" \
+"../../../../../VHDL_Modules/Test_Wrapper.vhd" \
+"../../../../../VHDL_Modules/FFT.vhd" \
+"../../../../../VHDL_Modules/AXI4_Stream_Reader.vhd" \
 
 # Do not sort compile order
 nosort

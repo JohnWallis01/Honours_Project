@@ -11,36 +11,127 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="50.000001 us"></ZoomEndTime>
-      <Cursor1Time time="50.000000 us"></Cursor1Time>
+      <ZoomStartTime time="49,338.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="51,364.001 ns"></ZoomEndTime>
+      <Cursor1Time time="49,892.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="181"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="564"></NameColumnWidth>
+      <ValueColumnWidth column_width="277"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="4" />
-   <wvobject fp_name="/test_bench_init/test_clock" type="logic">
-      <obj_property name="ElementShortName">test_clock</obj_property>
-      <obj_property name="ObjectShortName">test_clock</obj_property>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/test_bench_init/clock" type="logic">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_bench_init/stream_out" type="array">
-      <obj_property name="ElementShortName">stream_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">stream_out[31:0]</obj_property>
+   <wvobject fp_name="/test_bench_init/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/Freq_Measured" type="array">
+      <obj_property name="ElementShortName">Freq_Measured[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Freq_Measured[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">3.43593e+08</obj_property>
+      <obj_property name="AnalogYRRangeMax">3.43603e+08</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Target_Signal" type="array">
+      <obj_property name="ElementShortName">Target_Signal[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Target_Signal[13:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_bench_init/Debug" type="array">
-      <obj_property name="ElementShortName">Debug[63:0]</obj_property>
-      <obj_property name="ObjectShortName">Debug[63:0]</obj_property>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Locked_Signal" type="array">
+      <obj_property name="ElementShortName">Locked_Signal[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Locked_Signal[13:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-5345</obj_property>
+      <obj_property name="AnalogYRRangeMax">9711</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Control_Kp" type="array">
+      <obj_property name="ElementShortName">Control_Kp[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Control_Kp[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Control_Ki" type="array">
+      <obj_property name="ElementShortName">Control_Ki[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Control_Ki[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Error_Signal" type="array">
+      <obj_property name="ElementShortName">Error_Signal[25:0]</obj_property>
+      <obj_property name="ObjectShortName">Error_Signal[25:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-6.3625e+06</obj_property>
+      <obj_property name="AnalogYRRangeMax">9.13353e+06</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Control_Input" type="array">
+      <obj_property name="ElementShortName">Control_Input[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Control_Input[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-8.23281e+07</obj_property>
+      <obj_property name="AnalogYRRangeMax">1.1623e+08</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Loop_Controller/Sig_Buffer" type="array">
+      <obj_property name="ElementShortName">Sig_Buffer[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Sig_Buffer[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Loop_Controller/P_pipeline" type="array">
+      <obj_property name="ElementShortName">P_pipeline[63:0]</obj_property>
+      <obj_property name="ObjectShortName">P_pipeline[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Loop_Controller/Integral_Stage" type="array">
+      <obj_property name="ElementShortName">Integral_Stage[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Integral_Stage[63:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_bench_init/DUT/mixed_sinusoid" type="array">
-      <obj_property name="ElementShortName">mixed_sinusoid[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mixed_sinusoid[31:0]</obj_property>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Loop_Controller/Accumulated_Output" type="array">
+      <obj_property name="ElementShortName">Accumulated_Output[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Accumulated_Output[63:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>

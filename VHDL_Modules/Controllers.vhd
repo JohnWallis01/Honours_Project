@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity PID_Controller is
+entity PI_Controller is
     generic(
         Data_Size: integer := 32;
         Inital: integer := 0
@@ -12,41 +12,35 @@ entity PID_Controller is
          SignalOutput: out std_logic_vector(Data_Size-1 downto 0) := (others => '0');
          kI: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
          kP: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
-         kD: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
-         clock: in std_logic
+         clock: in std_logic;
+         Reset: in std_logic
     );
-end PID_Controller;
+end PI_Controller;
 
-architecture PID_Controller_arch of PID_Controller is
-    signal Data_Memory: signed(Data_Size-1 downto 0) := (others => '0');
-    signal Accumulated_Output: signed(Data_Size-1 downto 0) := (others => '0');
-    signal Integral_Stage: signed(Data_Size-1 downto 0) := to_signed(Inital, Data_Size);
+architecture PI_Controller_arch of PI_Controller is
+    signal Accumulated_Output: signed(2*Data_Size-1 downto 0) := (others => '0'); --boost the resoultion of this
+    signal Integral_Stage: signed(2*Data_Size-1 downto 0) := to_signed(Inital, 2*Data_Size);
     signal Sig_Buffer: signed(2*Data_Size -1 downto 0):=  (others => '0');
-    signal Derivative_Stage: signed(Data_Size-1 downto 0) := (others => '0');
-    signal P_pipeline, I_pipeline, D_pipeline: signed(2*Data_Size -1 downto 0) := (others => '0');
+    signal P_pipeline: signed(2*Data_Size -1 downto 0) := (others => '0');
 
     begin
 
     process(clock)
         begin
             if rising_edge(clock) then
-                Accumulated_Output <= Integral_Stage;
-                Integral_Stage <= (Accumulated_Output + signed(SignalInput));
-                --check for negative underflow both 1
-                if (Accumulated_Output(Data_Size-1) = '1') and (SignalInput(Data_Size-1) = '1') and (Integral_Stage(Data_Size-1) = '0') then
-                    Integral_Stage <= to_signed(-(2**(Data_Size-1)), Data_Size); -- largest negative number
+                if Reset = '1' then 
+                    P_pipeline <= to_signed(0, 2*Data_Size);
+                    Accumulated_Output <= to_signed(0, 2*Data_Size);
+                    Integral_Stage <= to_signed(0, 2*Data_Size);
+                    Sig_Buffer <= to_signed(0, 2*Data_Size);
+                else
+                    P_pipeline <= signed(kP)*signed(SignalInput);
+                    Accumulated_Output <= Integral_Stage + signed(kI)*signed(SignalInput);
+                    Integral_Stage <= Accumulated_Output;
+                    Sig_Buffer <= P_pipeline + Integral_Stage;
+                    SignalOutput <= std_logic_vector(Sig_Buffer(Data_Size-1 downto 0));
                 end if;
-                if (Accumulated_Output(Data_Size-1) = '0') and (SignalInput(Data_Size-1) = '0') and (Integral_Stage(Data_Size-1) = '1') then
-                    Integral_Stage <= to_signed((2**(Data_Size-1))-1, Data_Size); -- largest positive number
-                end if;
-                Derivative_Stage <= signed(SignalInput) - Data_Memory;
-                Data_Memory <= signed(SignalInput);
-                P_pipeline <= signed(kP)*signed(SignalInput);
-                I_pipeline <= signed(kI)*Integral_Stage;
-                D_pipeline <= signed(kD)*Derivative_Stage;
-                Sig_Buffer <= P_pipeline + I_pipeline + D_pipeline;
-                SignalOutput <= std_logic_vector(Sig_Buffer(2*Data_Size-1 downto Data_Size));
-                end if;
+            end if;
     end process;
 
 

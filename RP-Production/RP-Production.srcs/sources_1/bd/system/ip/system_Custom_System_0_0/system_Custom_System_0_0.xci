@@ -44,18 +44,14 @@
         "Debug_Signal_Select": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
         "Control_Kp": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "Control_Ki": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "Control_Kd": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "Test_Bin_select": [ { "direction": "in", "size_left": "8", "size_right": "0" } ],
         "Freq_Measured": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
-        "Fourier_Real": [ { "direction": "out", "size_left": "13", "size_right": "0" } ],
-        "Fourier_Imag": [ { "direction": "out", "size_left": "13", "size_right": "0" } ],
         "s_axis_tdata_ADC_Stream_in": [ { "direction": "in", "size_left": "31", "size_right": "0", "driver_value": "0" } ],
         "s_axis_tvalid_ADC_Stream_in": [ { "direction": "in" } ],
         "s_axis_tready_ADC_Stream_in": [ { "direction": "out" } ],
         "DAC_Stream_out": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
         "AD_CLK_in": [ { "direction": "in" } ],
         "Sys_CLK_in": [ { "direction": "in" } ],
-        "Reset": [ { "direction": "out" } ]
+        "Reset_In": [ { "direction": "in" } ]
       },
       "interfaces": {
         "s_axis_ADC_Stream_in": {
@@ -83,16 +79,16 @@
             "TREADY": [ { "physical_name": "s_axis_tready_ADC_Stream_in" } ]
           }
         },
-        "Reset": {
+        "Reset_In": {
           "vlnv": "xilinx.com:signal:reset:1.0",
           "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
-          "mode": "master",
+          "mode": "slave",
           "parameters": {
-            "POLARITY": [ { "value": "ACTIVE_HIGH", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
           },
           "port_maps": {
-            "RST": [ { "physical_name": "Reset" } ]
+            "RST": [ { "physical_name": "Reset_In" } ]
           }
         }
       }
