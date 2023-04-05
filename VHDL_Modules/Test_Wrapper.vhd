@@ -57,6 +57,7 @@ architecture Test_Wrapper_arch of Test_Wrapper is
     end component;
 
     signal DAC_Buffer: std_logic_vector(31 downto 0);
+    signal Stimulus_Sig: std_logic_vector(13 downto 0);
 
 
 begin
@@ -69,7 +70,7 @@ begin
     Control_Kp => std_logic_vector(to_signed(-4, 32)),
     Control_Ki => std_logic_vector(to_signed(-0, 32)),
     Freq_Measured => Freq_Measured,
-    s_axis_tdata_ADC_Stream_in => std_logic_vector(to_signed(0, 32)),
+    s_axis_tdata_ADC_Stream_in => std_logic_vector(resize(signed(Stimulus_Sig), 32)),
     s_axis_tvalid_ADC_Stream_in => '0',
     s_axis_tready_ADC_Stream_in => open,
     DAC_Stream_out => DAC_Buffer,
@@ -78,8 +79,22 @@ begin
     Reset_In => Reset
     );
 
-    Stimulus_NCO
+    Stimulus_NCO: NCO
+    generic map (
+        Freq_Size => 32,
+        ROM_Size => 8,
+        DAC_SIZE => 14
+        )
+        port map (
+          Frequency => std_logic_vector(to_signed(343597383, 32)),
+          PhaseOffset => (others =>'0'),
+          clock => clock,
+          rst => Reset,
+          Dout => Stimulus_Sig,
+          Quadrature_out => open 
+        );
 
     Locked_Frequency <= DAC_Buffer(13 downto 0);
+    Simulated_frequency <= Stimulus_Sig;
 
 end Test_Wrapper_arch ; -- Test_Wrapper_arch
