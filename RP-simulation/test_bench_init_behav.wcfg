@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="49,338.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="51,364.001 ns"></ZoomEndTime>
-      <Cursor1Time time="49,892.000 ns"></Cursor1Time>
+      <ZoomStartTime time="49,800.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="50,180.401 ns"></ZoomEndTime>
+      <Cursor1Time time="50,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="564"></NameColumnWidth>
-      <ValueColumnWidth column_width="277"></ValueColumnWidth>
+      <NameColumnWidth column_width="353"></NameColumnWidth>
+      <ValueColumnWidth column_width="261"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="25" />
    <wvobject fp_name="/test_bench_init/clock" type="logic">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
@@ -35,8 +35,8 @@
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
-      <obj_property name="AnalogYRangeMin">3.43593e+08</obj_property>
-      <obj_property name="AnalogYRRangeMax">3.43603e+08</obj_property>
+      <obj_property name="AnalogYRangeMin">1.41512e+08</obj_property>
+      <obj_property name="AnalogYRRangeMax">2.9987e+08</obj_property>
       <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
       <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
@@ -49,6 +49,13 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/test_bench_init/DUT/System_UT/Locked_Signal" type="array">
       <obj_property name="ElementShortName">Locked_Signal[13:0]</obj_property>
@@ -70,6 +77,10 @@
       <obj_property name="ObjectShortName">Control_Ki[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Loop_Controller/kD" type="array">
+      <obj_property name="ElementShortName">kD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">kD[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/test_bench_init/DUT/System_UT/Error_Signal" type="array">
       <obj_property name="ElementShortName">Error_Signal[25:0]</obj_property>
       <obj_property name="ObjectShortName">Error_Signal[25:0]</obj_property>
@@ -78,9 +89,9 @@
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="CustomSignalColor">#0000FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
-      <obj_property name="AnalogYRangeMin">-6.3625e+06</obj_property>
-      <obj_property name="AnalogYRRangeMax">9.13353e+06</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">-3509.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">3182.000000</obj_property>
       <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
       <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
@@ -135,5 +146,162 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Output_Real" type="array">
+      <obj_property name="ElementShortName">Fourier_Output_Real[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Fourier_Output_Real[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Output_Imag" type="array">
+      <obj_property name="ElementShortName">Fourier_Output_Imag[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Fourier_Output_Imag[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals" type="array">
+      <obj_property name="ElementShortName">Fourier_Reals[0:15][13:0]</obj_property>
+      <obj_property name="ObjectShortName">Fourier_Reals[0:15][13:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[0]" type="array">
+         <obj_property name="ElementShortName">[0][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[1]" type="array">
+         <obj_property name="ElementShortName">[1][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[2]" type="array">
+         <obj_property name="ElementShortName">[2][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[3]" type="array">
+         <obj_property name="ElementShortName">[3][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[4]" type="array">
+         <obj_property name="ElementShortName">[4][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[5]" type="array">
+         <obj_property name="ElementShortName">[5][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[6]" type="array">
+         <obj_property name="ElementShortName">[6][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[7]" type="array">
+         <obj_property name="ElementShortName">[7][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[8]" type="array">
+         <obj_property name="ElementShortName">[8][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[9]" type="array">
+         <obj_property name="ElementShortName">[9][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[10]" type="array">
+         <obj_property name="ElementShortName">[10][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[11]" type="array">
+         <obj_property name="ElementShortName">[11][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[12]" type="array">
+         <obj_property name="ElementShortName">[12][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[13]" type="array">
+         <obj_property name="ElementShortName">[13][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[14]" type="array">
+         <obj_property name="ElementShortName">[14][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals[15]" type="array">
+         <obj_property name="ElementShortName">[15][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Imags" type="array">
+      <obj_property name="ElementShortName">Fourier_Imags[0:15][13:0]</obj_property>
+      <obj_property name="ObjectShortName">Fourier_Imags[0:15][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Fourier_Reals_Premultiply" type="array">
+      <obj_property name="ElementShortName">Fourier_Reals_Premultiply[0:15][13:0]</obj_property>
+      <obj_property name="ObjectShortName">Fourier_Reals_Premultiply[0:15][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/ac" type="array">
+      <obj_property name="ElementShortName">ac[0:15][27:0]</obj_property>
+      <obj_property name="ObjectShortName">ac[0:15][27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/bd" type="array">
+      <obj_property name="ElementShortName">bd[0:15][27:0]</obj_property>
+      <obj_property name="ObjectShortName">bd[0:15][27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/ad" type="array">
+      <obj_property name="ElementShortName">ad[0:15][27:0]</obj_property>
+      <obj_property name="ObjectShortName">ad[0:15][27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/bc" type="array">
+      <obj_property name="ElementShortName">bc[0:15][27:0]</obj_property>
+      <obj_property name="ObjectShortName">bc[0:15][27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Temp_Fourier_Reals" type="array">
+      <obj_property name="ElementShortName">Temp_Fourier_Reals[0:15][27:0]</obj_property>
+      <obj_property name="ObjectShortName">Temp_Fourier_Reals[0:15][27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Test/Temp_Fourier_Imags" type="array">
+      <obj_property name="ElementShortName">Temp_Fourier_Imags[0:15][27:0]</obj_property>
+      <obj_property name="ObjectShortName">Temp_Fourier_Imags[0:15][27:0]</obj_property>
    </wvobject>
 </wave_config>

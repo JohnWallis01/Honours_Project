@@ -13,7 +13,8 @@ entity Custom_System is
     -- Debug_Signal_Select: in std_logic_vector(2 downto 0);
     Control_Kp: in std_logic_vector(31 downto 0);
     Control_Ki: in std_logic_vector(31 downto 0);
-    
+    Control_Kd: in std_logic_vector(31 downto 0);
+
     --debug outputs
     Freq_Measured: out std_logic_vector(31 downto 0);
 
@@ -31,13 +32,6 @@ entity Custom_System is
     AD_CLK_in: in std_logic;
     Sys_CLK_in: in std_logic;
     Reset_In: in std_logic
-
-    --FFT related testing platform
-
-    -- Test_Bin_select: in std_logic_vector(8 downto 0);
-    -- Fourier_Real: out std_logic_vector(13 downto 0);
-    -- Fourier_Imag: out std_logic_vector(13 downto 0);
-
     );
 
 
@@ -120,7 +114,7 @@ architecture System_Architecture of Custom_System is
       ) ;
   end component;
 
-  component PI_Controller is
+  component PID_Controller is
     generic(
         Data_Size: integer := 32;
         Inital: integer := 0
@@ -129,6 +123,7 @@ architecture System_Architecture of Custom_System is
           SignalOutput: out std_logic_vector(Data_Size-1 downto 0) := (others => '0');
           kI: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
           kP: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
+          kD: in std_logic_vector(Data_Size-1 downto 0) := (others => '0');
           clock: in std_logic;
           Reset: in std_logic
     );
@@ -156,18 +151,18 @@ END component;
 
 
 
--- component Sliding_DFT_Processor is
---   generic(Stream_Size: integer := 16; 
---           Bin_Bits: integer := 10; --This will set to determine the frequency resoultion
---           Freq_Bits: integer := 8 -- this will be as low as required to resolve noise
---           );
---   port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
---       clock: in std_logic;
---       Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
---       Fourier_Output_Real: out std_logic_vector(Freq_Bits-1 downto 0);
---       Fourier_Output_Imag: out std_logic_vector(Freq_Bits-1 downto 0)
---       );
---   end component;  
+  component Sliding_DFT_Processor is
+    generic(Stream_Size: integer := 16; 
+            Bin_Bits: integer := 10 --This will set to determine the frequency resoultion
+            );
+    port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
+        clock: in std_logic;
+        Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
+        Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
+        Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
+        Reset: in std_logic
+        );
+    end component;  
 
 
 
@@ -182,8 +177,8 @@ END component;
   -- signal Amplitude_Signal: std_logic_vector(25 downto 0);
 
 
-    -- signal Fourier_Test_Real: std_logic_vector(13 downto 0);
-    -- signal Fourier_Test_Imag: std_logic_vector(13 downto 0);
+    signal Fourier_Test_Real: std_logic_vector(13 downto 0);
+    signal Fourier_Test_Imag: std_logic_vector(13 downto 0);
 
 
   begin
@@ -297,7 +292,7 @@ END component;
 
 
 
-  Loop_Controller: PI_Controller
+  Loop_Controller: PID_Controller
   generic map(Data_Size => 32, Inital => 0)
   port map(
     -- SignalInput => "0000" & Error_Signal, -- Assign LSB to this signal
@@ -305,6 +300,7 @@ END component;
     SignalOutput => Control_Input,
     kI => Control_Ki,
     kP => Control_Kp,
+    kD => Control_Kd,
     clock => AD_CLK_in,
     Reset => Reset_In
   );
@@ -336,15 +332,16 @@ END component;
   -- );
 
 
-  -- FFT_Test: Sliding_DFT_Processor
-  -- generic map(Stream_Size => 14, Bin_Bits => 9, Freq_Bits => 14)
-  -- port map(
-  -- Sample_Stream_In => Quadrature_Signal,
-  -- clock => AD_CLK_in,
-  -- Bin_Addr => Test_Bin_select,
-  -- Fourier_Output_Real => Fourier_Test_Real,
-  -- Fourier_Output_Imag => Fourier_Test_Imag
-  -- );
+    FFT_Test: Sliding_DFT_Processor
+    generic map(Stream_Size => 14, Bin_Bits => 4)
+    port map(
+    Sample_Stream_In => Target_Signal,
+    clock => AD_CLK_in,
+    Bin_Addr => (others =>'0'),
+    Fourier_Output_Real => Fourier_Test_Real,
+    Fourier_Output_Imag => Fourier_Test_Imag,
+    Reset => Reset_In
+    );
 
 
 

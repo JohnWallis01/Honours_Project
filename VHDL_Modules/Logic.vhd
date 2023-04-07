@@ -110,3 +110,23 @@ entity Octal_Multiplexer is
         end process;
   
   end architecture ; -- n
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity inverter is
+  port(
+      D_in: in std_logic;
+      D_out: out std_logic
+  );
+  end inverter;
+
+
+architecture inverter_arch of inverter is
+  begin
+    D_out <= D_in;
+  end architecture;

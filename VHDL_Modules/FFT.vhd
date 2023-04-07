@@ -12,7 +12,8 @@ entity Sliding_DFT_Processor is
         clock: in std_logic;
         Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
         Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
-        Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0)
+        Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
+        Reset: in std_logic
         );
     end entity;
 
@@ -23,10 +24,18 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
     ---array to store the complex data stream as well.
     TYPE Window_Array is array(0 to 2**(Bin_Bits)-1) of std_logic_vector(Stream_Size-1 downto 0);
     Type Slice_Array is array(0 to 2**(Bin_Bits)-1) of std_logic_vector(2*Stream_Size-1 downto 0);
-    signal Delta: std_logic_vector(Stream_Size-1 downto 0);
-    signal Sample_Stream_Memory, Fourier_Reals, Fourier_Imags, Fourier_Reals_Premultiply: Window_Array;
+    signal Delta: std_logic_vector(Stream_Size-1 downto 0) := (others => '0');
+    signal Sample_Stream_Memory : Window_Array := (others => (others => '0'));
+    signal Fourier_Reals : Window_Array := (others => (others => '0'));
+    signal Fourier_Imags : Window_Array := (others => (others => '0'));
+    signal Fourier_Reals_Premultiply : Window_Array := (others => (others => '0'));
     --pipelines for the complex multiply (a+jb)(c+jd)
-    signal ac,bd,ad,bc, Temp_Fourier_Reals, Temp_Fourier_Imags: Slice_Array;
+    signal ac: Slice_Array := (others => (others => '0'));
+    signal bd: Slice_Array := (others => (others => '0'));
+    signal ad: Slice_Array := (others => (others => '0'));
+    signal bc: Slice_Array := (others => (others => '0'));
+    signal Temp_Fourier_Reals: Slice_Array := (others => (others => '0'));
+    signal Temp_Fourier_Imags: Slice_Array := (others => (others => '0'));
     
     ---initalisation function for the twiddles
         function twiddles_real_init return window_array is
@@ -60,11 +69,18 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
     process(clock)
     begin
         if rising_edge(clock) then
-        Delta <= std_logic_vector(signed(Sample_Stream_In) - signed(Sample_Stream_Memory(0)));
-        Stream_Shift: for n in 0 to 2**(Bin_Bits)-2 loop
-        Sample_Stream_Memory(n)<= Sample_Stream_Memory(n+1);
-        end loop;
-        Sample_Stream_Memory(2**(Bin_Bits)-1)<=Sample_Stream_In;
+            if Reset = '1' then
+                Delta <= (others => '0');
+                Stream_Reset: for n in 0 to 2**(Bin_Bits)-1 loop
+                    Sample_Stream_Memory(n)<= (others => '0');
+                end loop;
+            else
+                Delta <= std_logic_vector(signed(Sample_Stream_In) - signed(Sample_Stream_Memory(0)));
+                Stream_Shift: for n in 0 to 2**(Bin_Bits)-2 loop
+                    Sample_Stream_Memory(n)<= Sample_Stream_Memory(n+1);
+                end loop;
+                Sample_Stream_Memory(2**(Bin_Bits)-1)<=Sample_Stream_In;
+            end if;
         end if;
         end process;
    
@@ -72,16 +88,27 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
     process(clock)
     begin
         if rising_edge(clock) then
-            Fourier_Reals_Premultiply(n) <= std_logic_vector(signed(Fourier_Reals(n)) + signed(Delta));
-            --compute the product
-            ac(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Real(n)));
-            bd(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Imag(n)));
-            ad(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Imag(n)));
-            bc(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Real(n)));
-            Temp_Fourier_Reals(n) <= std_logic_vector(signed(ac(n)) - signed(bd(n)));
-            Temp_Fourier_Imags(n) <= std_logic_vector(signed(ad(n))+ signed(bc(n)));
-            Fourier_Reals(n) <= Temp_Fourier_Reals(n)(Stream_Size-1 downto 0);
-            Fourier_Imags(n) <= Temp_Fourier_Imags(n)(Stream_Size-1 downto 0);
+            if Reset ='1' then
+                ac(n) <= (others => '0');
+                bd(n) <= (others => '0');
+                ad(n) <= (others => '0');
+                bc(n) <= (others => '0');
+                Temp_Fourier_Reals(n) <= (others => '0');
+                Temp_Fourier_Imags(n) <= (others => '0');
+                Fourier_Reals(n) <= (others => '0');
+                Fourier_Imags(n) <= (others => '0');
+            else
+                Fourier_Reals_Premultiply(n) <= std_logic_vector(signed(Fourier_Reals(n)) + signed(Delta));
+                --compute the product
+                ac(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Real(n)));
+                bd(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Imag(n)));
+                ad(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Imag(n)));
+                bc(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Real(n)));
+                Temp_Fourier_Reals(n) <= std_logic_vector(signed(ac(n)) - signed(bd(n)));
+                Temp_Fourier_Imags(n) <= std_logic_vector(signed(ad(n))+ signed(bc(n)));
+                Fourier_Reals(n) <= Temp_Fourier_Reals(n)(Stream_Size-1 downto 0);
+                Fourier_Imags(n) <= Temp_Fourier_Imags(n)(Stream_Size-1 downto 0);
+            end if;
         end if;
         end process;
     end generate;
@@ -90,8 +117,13 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
     process(clock)
     begin
         if rising_edge(clock) then
-            Fourier_Output_Real <= Fourier_Reals(to_integer(unsigned(Bin_Addr)));
-            Fourier_Output_Imag <= Fourier_Imags(to_integer(unsigned(Bin_Addr)));
+            if Reset = '1' then
+                Fourier_Output_Real <= Fourier_Reals(0);
+                Fourier_Output_Imag <= Fourier_Imags(0);    
+            else
+                Fourier_Output_Real <= Fourier_Reals(to_integer(unsigned(Bin_Addr)));
+                Fourier_Output_Imag <= Fourier_Imags(to_integer(unsigned(Bin_Addr)));    
+            end if;
         end if;
     end process;
 

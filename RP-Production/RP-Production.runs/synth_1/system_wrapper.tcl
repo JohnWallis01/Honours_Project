@@ -70,10 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {HDL 9-1061} -limit 100000
-set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -119,9 +115,6 @@ set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_3_1/system_axi_gpio_3_1_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_3_1/system_axi_gpio_3_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_3_1/system_axi_gpio_3_1.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_Kp_1/system_GPIO_Kp_1_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_Kp_1/system_GPIO_Kp_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_Kp_1/system_GPIO_Kp_1.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0.xdc]

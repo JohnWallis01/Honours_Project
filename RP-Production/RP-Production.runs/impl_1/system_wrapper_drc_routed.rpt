@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Mar 31 11:02:53 2023
-| Host         : DESKTOP-ORRMO2Q running 64-bit major release  (build 9200)
+| Date         : Thu Apr  6 09:46:49 2023
+| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
 | Design       : system_wrapper
 | Device       : xc7z010clg400-1
@@ -24,530 +24,120 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 103
+             Violations found: 21
 +--------+----------+------------------------+------------+
 | Rule   | Severity | Description            | Violations |
 +--------+----------+------------------------+------------+
-| DPIP-1 | Warning  | Input pipelining       | 18         |
-| DPOP-1 | Warning  | PREG Output pipelining | 39         |
-| DPOP-2 | Warning  | MREG Output pipelining | 46         |
+| DPIP-1 | Warning  | Input pipelining       | 11         |
+| DPOP-1 | Warning  | PREG Output pipelining | 4          |
+| DPOP-2 | Warning  | MREG Output pipelining | 6          |
 +--------+----------+------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 DPIP-1#1 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0 input system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1 input system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#2 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0__0 input system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1 input system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#3 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline_reg input system_i/Custom_System_0/inst/Loop_Controller/D_pipeline_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0 input system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#4 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0 input system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0 input system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#5 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0 input system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__1 input system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#6 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0 input system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#7 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0 input system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#8 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg input system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#9 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg input system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#10 Warning
 Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg__0 input system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#11 Warning
-Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#12 Warning
-Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#13 Warning
-Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#14 Warning
-Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#15 Warning
-Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#16 Warning
-Input pipelining  
 DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
-DPIP-1#17 Warning
-Input pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg__0 input system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#18 Warning
+DPIP-1#11 Warning
 Input pipelining  
 DSP system_i/Custom_System_0/inst/Quadrature_Mixer/Dout_reg input system_i/Custom_System_0/inst/Quadrature_Mixer/Dout_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
 PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0 output system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1 output system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#2 Warning
 PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0__0 output system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0 output system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#3 Warning
 PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0 output system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__1 output system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#4 Warning
 PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0 output system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#5 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0 output system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#6 Warning
-PREG Output pipelining  
 DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0 output system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#7 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product0__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#8 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product10__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product10__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#9 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product11__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product11__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#10 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product12__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product12__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#11 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product13__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product13__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#12 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product14__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product14__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#13 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product15__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product15__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#14 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product16__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product16__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#15 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product17__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product17__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#16 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product18__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product18__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#17 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product19__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product19__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#18 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product1__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product1__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#19 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product20__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product20__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#20 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product21__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product21__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#21 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product22__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product22__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#22 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product23__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product23__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#23 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product24__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product24__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#24 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product25__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product25__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#25 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product26__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product26__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#26 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product27__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product27__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#27 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product28__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product28__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#28 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product29__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product29__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#29 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product2__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product2__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#30 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product30__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product30__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#31 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product31__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product31__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#32 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product31__2 output system_i/Custom_System_0/inst/Loop_Filter/inner_product31__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#33 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product3__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product3__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#34 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product4__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product4__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#35 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product5__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product5__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#36 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product6__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product6__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#37 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product7__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product7__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#38 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product8__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product8__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#39 Warning
-PREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product9__0 output system_i/Custom_System_0/inst/Loop_Filter/inner_product9__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-2#1 Warning
 MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#2 Warning
 MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/D_pipeline0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#3 Warning
 MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline_reg multiplier stage system_i/Custom_System_0/inst/Loop_Controller/D_pipeline_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__1 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/Accumulated_Output1__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#4 Warning
 MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/D_pipeline_reg__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/D_pipeline_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#5 Warning
 MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#6 Warning
 MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/I_pipeline0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#7 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg multiplier stage system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#8 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/I_pipeline_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#9 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#10 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/P_pipeline0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#11 Warning
-MREG Output pipelining  
 DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg multiplier stage system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#12 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg__0 multiplier stage system_i/Custom_System_0/inst/Loop_Controller/P_pipeline_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#13 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product0__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#14 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product10__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product10__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#15 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product11__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product11__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#16 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product12__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product12__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#17 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product13__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product13__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#18 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product14__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product14__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#19 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product15__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product15__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#20 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product16__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product16__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#21 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product17__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product17__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#22 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product18__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product18__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#23 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product19__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product19__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#24 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product1__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product1__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#25 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product20__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product20__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#26 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product21__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product21__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#27 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product22__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product22__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#28 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product23__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product23__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#29 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product24__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product24__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#30 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product25__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product25__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#31 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product26__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product26__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#32 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product27__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product27__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#33 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product28__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product28__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#34 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product29__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product29__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#35 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product2__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product2__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#36 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product30__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product30__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#37 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product31__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product31__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#38 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product31__2 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product31__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#39 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product3__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product3__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#40 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product4__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product4__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#41 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product5__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product5__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#42 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product6__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product6__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#43 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product7__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product7__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#44 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product8__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product8__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#45 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Loop_Filter/inner_product9__0 multiplier stage system_i/Custom_System_0/inst/Loop_Filter/inner_product9__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#46 Warning
-MREG Output pipelining  
-DSP system_i/Custom_System_0/inst/Quadrature_Mixer/Dout_reg multiplier stage system_i/Custom_System_0/inst/Quadrature_Mixer/Dout_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 

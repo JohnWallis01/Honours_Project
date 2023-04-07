@@ -47,6 +47,7 @@
         "GPIO_PLL_GUESS_Freq": "",
         "GPIO_FreqMeasure": ""
       },
+      "inverter_0": "",
       "Custom_System_0": ""
     },
     "interface_ports": {
@@ -3702,6 +3703,31 @@
           }
         }
       },
+      "inverter_0": {
+        "vlnv": "xilinx.com:module_ref:inverter:1.0",
+        "xci_name": "system_inverter_0_0",
+        "xci_path": "ip\\system_inverter_0_0\\system_inverter_0_0.xci",
+        "inst_hier_path": "inverter_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "inverter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D_in": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "D_out": {
+            "direction": "O"
+          }
+        }
+      },
       "Custom_System_0": {
         "vlnv": "xilinx.com:module_ref:Custom_System:1.0",
         "xci_name": "system_Custom_System_0_0",
@@ -3786,17 +3812,17 @@
           "ADC_Override": {
             "direction": "I"
           },
-          "Debug_Signal_Select": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
           "Control_Kp": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
           "Control_Ki": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_Kd": {
             "direction": "I",
             "left": "31",
             "right": "0"
@@ -3905,11 +3931,6 @@
           "GPIO_Interface/gpio_io_i"
         ]
       },
-      "Custom_System_0_Reset": {
-        "ports": [
-          "DAC_Interface/reset"
-        ]
-      },
       "GPIO_ADC_Override_gpio_io_o": {
         "ports": [
           "GPIO_Interface/gpio_io_o5",
@@ -3918,8 +3939,7 @@
       },
       "GPIO_Interface_gpio_io_o2": {
         "ports": [
-          "GPIO_Interface/gpio_io_o2",
-          "Custom_System_0/Debug_Signal_Select"
+          "GPIO_Interface/gpio_io_o2"
         ]
       },
       "GPIO_Internal_Debug_Freq_gpio_io_o": {
@@ -4032,10 +4052,18 @@
           "Daisy_Controller/daisy_p_i"
         ]
       },
+      "inverter_0_D_out": {
+        "ports": [
+          "inverter_0/D_out",
+          "DAC_Interface/reset",
+          "Custom_System_0/Reset_In"
+        ]
+      },
       "s_axi_aresetn_1": {
         "ports": [
           "PS7/peripheral_aresetn",
-          "GPIO_Interface/s_axi_aresetn"
+          "GPIO_Interface/s_axi_aresetn",
+          "inverter_0/D_in"
         ]
       },
       "util_ds_buf_1_OBUF_DS_N": {
