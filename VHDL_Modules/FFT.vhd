@@ -128,3 +128,58 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
     end process;
 
 end architecture ; -- Sliding_DFT_Procesesor_arch
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+--this is a multiplexed peak detector that will cycle through the FFT data
+entity Peak_Detector is
+    generic(
+        Input_Word_Size: integer := 16;
+        Bin_Addr_Word_Size: integer := 10
+    );
+    port (
+    clock: in std_logic;
+    Input_Data: in std_logic_vector(Input_Word_Size-1 downto 0);
+    Addr_Selector: out std_logic_vector(Bin_Addr_Word_Size-1 downto 0);
+    reset: in std_logic;
+    Peak_Addr: out std_logic_vector(Bin_Addr_Word_Size-1 downto 0)
+    );
+end Peak_Detector;
+
+architecture Peak_Detector_arch of Peak_Detector is
+    signal Current_Bin,Maxima_Addr: std_logic_vector(Bin_Addr_Word_Size-1 downto 0);
+    signal Maxima_Value, Streamed_Data_In: std_logic_vector(Input_Word_Size-1 downto 0);
+    
+    begin
+        --- this has a very large risk of creating a race condition
+
+    Addr_Selector <= Current_Bin;
+    
+    process(clock)
+        begin
+        if rising_edge(clock) then
+            Streamed_Data_In <= Input_Data;
+            if reset = '1' then
+                Current_Bin <= (others =>'0');
+                Maxima_Value <= (others =>'0');
+                Peak_Addr <=  (others =>'0');
+            else
+                --only every does one scan at a time
+                if Current_Bin = std_logic_vector(to_unsigned(0, Bin_Addr_Word_Size)) then
+                    Peak_Addr <= Maxima_Addr;
+                    Maxima_Value <= (others =>'0');
+                end if;
+                if Streamed_Data_In >= Maxima_Value then
+                    Maxima_Value <= Streamed_Data_In;
+                    Maxima_Addr <= Current_Bin;
+                end if;
+
+                Current_Bin <= std_logic_vector(unsigned(Current_Bin) + to_unsigned(1, Bin_Addr_Word_Size));
+            end if;
+        end if;
+    end process;
+
+end architecture;

@@ -4,6 +4,10 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 entity Custom_System is
+  generic(
+    FFT_Bins: integer:= 6
+
+  );
     port (
 
     ------GPIO's
@@ -164,6 +168,21 @@ END component;
         );
     end component;  
 
+    component Peak_Detector is
+      generic(
+          Input_Word_Size: integer := 16;
+          Bin_Addr_Word_Size: integer := 10
+      );
+      port (
+      clock: in std_logic;
+      Input_Data: in std_logic_vector(Input_Word_Size-1 downto 0);
+      Addr_Selector: out std_logic_vector(Bin_Addr_Word_Size-1 downto 0);
+      reset: in std_logic;
+      Peak_Addr: out std_logic_vector(Bin_Addr_Word_Size-1 downto 0)
+      );
+    end component;
+
+
 
 
     --production signals
@@ -177,9 +196,9 @@ END component;
   -- signal Amplitude_Signal: std_logic_vector(25 downto 0);
 
 
-    signal Fourier_Test_Real: std_logic_vector(13 downto 0);
-    signal Fourier_Test_Imag: std_logic_vector(13 downto 0);
-
+    signal Fourier_Real, Fourier_Imag: std_logic_vector(13 downto 0);
+    signal Fourier_Magnitude: std_logic_vector(27 downto 0);
+    signal Fourier_Addr, Fourier_Peak: std_logic_vector(FFT_Bins-1 downto 0);
 
   begin
 
@@ -332,17 +351,29 @@ END component;
   -- );
 
 
-    FFT_Test: Sliding_DFT_Processor
-    generic map(Stream_Size => 14, Bin_Bits => 4)
+    FFT_Processor: Sliding_DFT_Processor
+    generic map(Stream_Size => 14, Bin_Bits => FFT_Bins)
     port map(
     Sample_Stream_In => Target_Signal,
     clock => AD_CLK_in,
-    Bin_Addr => (others =>'0'),
-    Fourier_Output_Real => Fourier_Test_Real,
-    Fourier_Output_Imag => Fourier_Test_Imag,
+    Bin_Addr => Fourier_Addr,
+    Fourier_Output_Real => Fourier_Real,
+    Fourier_Output_Imag => Fourier_Imag,
     Reset => Reset_In
     );
 
+
+    Fourier_Magnitude <= std_logic_vector(signed(Fourier_Real)*signed(Fourier_Real) + signed(Fourier_Imag)*signed(Fourier_Imag));
+
+    Course_Freq_Detector: Peak_Detector
+    generic map(Input_Word_Size => 28, Bin_Addr_Word_Size => FFT_Bins)
+    port map(
+      clock => AD_CLK_in,
+      Input_Data => Fourier_Magnitude,
+      Addr_Selector => Fourier_Addr,
+      reset => Reset_In,
+      Peak_Addr => Fourier_Peak
+    );
 
 
 end architecture;

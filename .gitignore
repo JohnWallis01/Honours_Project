@@ -2,3 +2,4 @@ Zynq_Testing/
 RP-simulation/RP-simulation.sim/sim_1/behav/xsim/test_bench_init_behav.wdb
 RP-simulation/RP-simulation.sim/sim_1/behav/xsim/xsim_dump.vcd
 RP-simulation/RP-simulation.sim/sim_1/behav/xsim/test_bench_init_behav.wdb
+helper/Frames/*

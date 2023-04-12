@@ -33,6 +33,9 @@ architecture Test_Wrapper_arch of Test_Wrapper is
     end component;
 
     component Custom_System is
+        generic(
+            FFT_Bins: integer:= 6
+        );
         port (
         ------GPIO's
         PLL_Guess_Freq: in std_logic_vector(31 downto 0);
@@ -64,8 +67,9 @@ architecture Test_Wrapper_arch of Test_Wrapper is
 begin
 
     System_UT: Custom_System
+    generic map(FFT_Bins => 12)
     port map(
-    PLL_Guess_Freq => std_logic_vector(to_signed(690630741, 32)),
+    PLL_Guess_Freq => std_logic_vector(to_signed(343597383, 32)),
     Internal_Debug_Freq => std_logic_vector(to_signed(integer(0), 32)),
     ADC_Override => '0', --setup NCO for externally driven signal
     Control_Kp => std_logic_vector(to_signed(-2**17, 32)),
@@ -88,7 +92,7 @@ begin
         DAC_SIZE => 14
         )
         port map (
-          Frequency => std_logic_vector(to_signed(687194767, 32)),
+          Frequency => std_logic_vector(to_signed(343597383, 32)),
           PhaseOffset => (others =>'0'),
           clock => clock,
           rst => Reset,

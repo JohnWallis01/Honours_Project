@@ -13,7 +13,7 @@ sigtime = 50 * 10 ** (-6) # 100 us capture time
 points = int(np.floor(sampling_frequency*sigtime))
 print("number of points is", points)
 # signal = np.concatenate((np.sin(freq*np.linspace(0,sigtime,points)),10*np.sin(freq2*np.linspace(0,sigtime,points))n))
-signal =(np.sin(freq*np.linspace(0,sigtime,points))+ np.sin(freq2*np.linspace(0,2,points)*np.linspace(0,sigtime,apoints)))
+signal =(np.sin(freq*np.linspace(0,sigtime,points))+ np.sin(freq2*np.linspace(0,2,points)*np.linspace(0,sigtime,points)))
 # plt.plot(signal)
 # plt.show()
 
