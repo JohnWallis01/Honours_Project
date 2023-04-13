@@ -21,7 +21,7 @@ Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
 Compiling architecture pid_controller_arch of entity xil_defaultlib.PID_Controller [pid_controller_default]
 Compiling architecture sliding_dft_processor_arch of entity xil_defaultlib.Sliding_DFT_Processor [\Sliding_DFT_Processor(stream_si...]
 Compiling architecture peak_detector_arch of entity xil_defaultlib.Peak_Detector [\Peak_Detector(input_word_size=2...]
-Compiling architecture system_architecture of entity xil_defaultlib.Custom_System [\Custom_System(fft_bins=12)\]
+Compiling architecture system_architecture of entity xil_defaultlib.Custom_System [\Custom_System(fft_bins=8)\]
 Compiling architecture test_wrapper_arch of entity xil_defaultlib.Test_Wrapper [test_wrapper_default]
 Compiling module xil_defaultlib.test_bench_init
 Compiling module xil_defaultlib.glbl

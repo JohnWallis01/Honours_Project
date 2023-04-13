@@ -1,0 +1,171 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Apr 12 14:47:00 2023
+# Process ID: 12772
+# Current directory: C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/impl_1
+# Command line: vivado.exe -log Sliding_DFT_Processor.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Sliding_DFT_Processor.tcl -notrace
+# Log file: C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/impl_1/Sliding_DFT_Processor.vdi
+# Journal file: C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/impl_1\vivado.jou
+# Running On: DESKTOP-ORRMO2Q, OS: Windows, CPU Frequency: 1996 MHz, CPU Physical cores: 16, Host memory: 14870 MB
+#-----------------------------------------------------------
+source Sliding_DFT_Processor.tcl -notrace
+Command: link_design -top Sliding_DFT_Processor -part xc7z030sbv485-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7z030sbv485-1
+Netlist sorting complete. Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 1803.027 ; gain = 9.230
+INFO: [Netlist 29-17] Analyzing 112886 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'Sliding_DFT_Processor' is not ideal for floorplanning, since the cellview 'Sliding_DFT_Processor' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.204 . Memory (MB): peak = 2268.688 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+6 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 2268.688 ; gain = 1869.695
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z030'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z030'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2268.688 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1a510e329
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:24 . Memory (MB): peak = 3402.055 ; gain = 1133.367
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 1a510e329
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:22 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 1189df1a9
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:55 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 49475 cells and removed 152669 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 1281bfcc4
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:01:15 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 389 cells
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-129] Inserted BUFG to drive high-fanout reset|set|enable net. BUFG cell: Reset_IBUF_BUFG_inst, Net: Reset_IBUF
+INFO: [Opt 31-129] Inserted BUFG to drive high-fanout reset|set|enable net. BUFG cell: Fourier_Reals_Buffer[57][15]_i_1_n_0_BUFG_inst, Net: Fourier_Reals_Buffer[57][15]_i_1_n_0
+Phase 4 BUFG optimization | Checksum: 1d8caab1b
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:25 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [Opt 31-662] Phase BUFG optimization created 2 cells of which 2 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 122cf0220
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:27 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 1af80e813
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:31 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               0  |                                              0  |
+|  Constant propagation         |           49475  |          152669  |                                              0  |
+|  Sweep                        |               0  |             389  |                                              0  |
+|  BUFG optimization            |               2  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3706.828 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: ab82b708
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:02:10 . Memory (MB): peak = 3706.828 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: ab82b708
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.456 . Memory (MB): peak = 3706.828 ; gain = 0.000
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: ab82b708
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.085 . Memory (MB): peak = 3706.828 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.193 . Memory (MB): peak = 3706.828 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: ab82b708
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.279 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+25 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:03:04 ; elapsed = 00:02:42 . Memory (MB): peak = 3706.828 ; gain = 1438.141
+INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/impl_1/Sliding_DFT_Processor_opt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:55 ; elapsed = 00:00:38 . Memory (MB): peak = 3706.828 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_drc -file Sliding_DFT_Processor_drc_opted.rpt -pb Sliding_DFT_Processor_drc_opted.pb -rpx Sliding_DFT_Processor_drc_opted.rpx
+Command: report_drc -file Sliding_DFT_Processor_drc_opted.rpt -pb Sliding_DFT_Processor_drc_opted.pb -rpx Sliding_DFT_Processor_drc_opted.rpx
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/impl_1/Sliding_DFT_Processor_drc_opted.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:33 ; elapsed = 00:00:17 . Memory (MB): peak = 3706.828 ; gain = 0.000
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z030'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z030'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+ERROR: [DRC UTLZ-1] Resource utilization: CARRY4 over-utilized in Top Level Design (This design requires more CARRY4 cells than are available in the target device. This design requires 85673 of such cell types but only 19650 compatible sites are available in the target device. Please analyze your synthesis results and constraints to ensure the design is mapped to Xilinx primitives as expected. If so, please consider targeting a larger device.)
+ERROR: [DRC UTLZ-1] Resource utilization: FDRE over-utilized in Top Level Design (This design requires more FDRE cells than are available in the target device. This design requires 166029 of such cell types but only 157650 compatible sites are available in the target device. Please analyze your synthesis results and constraints to ensure the design is mapped to Xilinx primitives as expected. If so, please consider targeting a larger device.)
+ERROR: [DRC UTLZ-1] Resource utilization: LUT as Logic over-utilized in Top Level Design (This design requires more LUT as Logic cells than are available in the target device. This design requires 242361 of such cell types but only 78600 compatible sites are available in the target device. Please analyze your synthesis results and constraints to ensure the design is mapped to Xilinx primitives as expected. If so, please consider targeting a larger device. Please set tcl parameter "drc.disableLUTOverUtilError" to 1 to change this error to warning.)
+ERROR: [DRC UTLZ-1] Resource utilization: LUT2 over-utilized in Top Level Design (This design requires more LUT2 cells than are available in the target device. This design requires 159678 of such cell types but only 157200 compatible sites are available in the target device. Please analyze your synthesis results and constraints to ensure the design is mapped to Xilinx primitives as expected. If so, please consider targeting a larger device.)
+ERROR: [DRC UTLZ-1] Resource utilization: Register as Flip Flop over-utilized in Top Level Design (This design requires more Register as Flip Flop cells than are available in the target device. This design requires 166029 of such cell types but only 157200 compatible sites are available in the target device. Please analyze your synthesis results and constraints to ensure the design is mapped to Xilinx primitives as expected. If so, please consider targeting a larger device.)
+ERROR: [DRC UTLZ-1] Resource utilization: Slice LUTs over-utilized in Top Level Design (This design requires more Slice LUTs cells than are available in the target device. This design requires 242873 of such cell types but only 78600 compatible sites are available in the target device. Please analyze your synthesis results and constraints to ensure the design is mapped to Xilinx primitives as expected. If so, please consider targeting a larger device. Please set tcl parameter "drc.disableLUTOverUtilError" to 1 to change this error to warning.)
+ERROR: [DRC UTLZ-1] Resource utilization: Slice Registers over-utilized in Top Level Design (This design requires more Slice Registers cells than are available in the target device. This design requires 166029 of such cell types but only 157200 compatible sites are available in the target device. Please analyze your synthesis results and constraints to ensure the design is mapped to Xilinx primitives as expected. If so, please consider targeting a larger device.)
+INFO: [Vivado_Tcl 4-198] DRC finished with 7 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-23] Error(s) found during DRC. Placer not run.
+INFO: [Common 17-83] Releasing license: Implementation
+40 Infos, 1 Warnings, 0 Critical Warnings and 8 Errors encountered.
+place_design failed
+place_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 3706.828 ; gain = 0.000
+ERROR: [Common 17-39] 'place_design' failed due to earlier errors.
+
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 12 14:51:57 2023...

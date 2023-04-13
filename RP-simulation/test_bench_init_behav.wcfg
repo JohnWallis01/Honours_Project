@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="46,239.667 ns"></ZoomStartTime>
-      <ZoomEndTime time="48,437.668 ns"></ZoomEndTime>
-      <Cursor1Time time="46,555.667 ns"></Cursor1Time>
+      <ZoomStartTime time="24.546334 us"></ZoomStartTime>
+      <ZoomEndTime time="25.986335 us"></ZoomEndTime>
+      <Cursor1Time time="26.628000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="387"></NameColumnWidth>
-      <ValueColumnWidth column_width="375"></ValueColumnWidth>
+      <NameColumnWidth column_width="522"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="/test_bench_init/clock" type="logic">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
@@ -34,9 +34,8 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
-      <obj_property name="AnalogYRangeMin">1.41512e+08</obj_property>
-      <obj_property name="AnalogYRRangeMax">2.9987e+08</obj_property>
+      <obj_property name="AnalogYRangeMin">141512000.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">299870000.000000</obj_property>
       <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
       <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
@@ -74,12 +73,12 @@
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="CustomSignalColor">#0000FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">-3509.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">3182.000000</obj_property>
+      <obj_property name="AnalogYRangeMin">989365</obj_property>
+      <obj_property name="AnalogYRRangeMax">1.58678e+06</obj_property>
       <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
       <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
    </wvobject>
    <wvobject fp_name="/test_bench_init/DUT/System_UT/Course_Freq_Detector/Current_Bin" type="array">
       <obj_property name="ElementShortName">Current_Bin[7:0]</obj_property>
@@ -96,8 +95,12 @@
       <obj_property name="ElementShortName">Maxima_Value[27:0]</obj_property>
       <obj_property name="ObjectShortName">Maxima_Value[27:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/Course_Freq_Detector/Peak_Addr" type="array">
+      <obj_property name="ElementShortName">Peak_Addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Peak_Addr[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_bench_init/DUT/System_UT/Fourier_Magnitude" type="array">
       <obj_property name="ElementShortName">Fourier_Magnitude[27:0]</obj_property>
@@ -106,9 +109,2321 @@
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_bench_init/DUT/System_UT/Course_Freq_Detector/Peak_Addr" type="array">
-      <obj_property name="ElementShortName">Peak_Addr[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Peak_Addr[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Bin_Addr" type="array">
+      <obj_property name="ElementShortName">Bin_Addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Bin_Addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real" type="array">
+      <obj_property name="ElementShortName">Twiddles_Real[0:255][13:0]</obj_property>
+      <obj_property name="ObjectShortName">Twiddles_Real[0:255][13:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[0]" type="array">
+         <obj_property name="ElementShortName">[0][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[1]" type="array">
+         <obj_property name="ElementShortName">[1][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[2]" type="array">
+         <obj_property name="ElementShortName">[2][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[3]" type="array">
+         <obj_property name="ElementShortName">[3][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[4]" type="array">
+         <obj_property name="ElementShortName">[4][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[5]" type="array">
+         <obj_property name="ElementShortName">[5][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[6]" type="array">
+         <obj_property name="ElementShortName">[6][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[7]" type="array">
+         <obj_property name="ElementShortName">[7][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[8]" type="array">
+         <obj_property name="ElementShortName">[8][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[9]" type="array">
+         <obj_property name="ElementShortName">[9][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[10]" type="array">
+         <obj_property name="ElementShortName">[10][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[11]" type="array">
+         <obj_property name="ElementShortName">[11][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[12]" type="array">
+         <obj_property name="ElementShortName">[12][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[13]" type="array">
+         <obj_property name="ElementShortName">[13][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[14]" type="array">
+         <obj_property name="ElementShortName">[14][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[15]" type="array">
+         <obj_property name="ElementShortName">[15][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[16]" type="array">
+         <obj_property name="ElementShortName">[16][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[17]" type="array">
+         <obj_property name="ElementShortName">[17][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[18]" type="array">
+         <obj_property name="ElementShortName">[18][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[19]" type="array">
+         <obj_property name="ElementShortName">[19][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[20]" type="array">
+         <obj_property name="ElementShortName">[20][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[21]" type="array">
+         <obj_property name="ElementShortName">[21][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[22]" type="array">
+         <obj_property name="ElementShortName">[22][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[23]" type="array">
+         <obj_property name="ElementShortName">[23][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[24]" type="array">
+         <obj_property name="ElementShortName">[24][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[25]" type="array">
+         <obj_property name="ElementShortName">[25][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[26]" type="array">
+         <obj_property name="ElementShortName">[26][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[27]" type="array">
+         <obj_property name="ElementShortName">[27][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[28]" type="array">
+         <obj_property name="ElementShortName">[28][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[29]" type="array">
+         <obj_property name="ElementShortName">[29][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[30]" type="array">
+         <obj_property name="ElementShortName">[30][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[31]" type="array">
+         <obj_property name="ElementShortName">[31][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[32]" type="array">
+         <obj_property name="ElementShortName">[32][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[32][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[33]" type="array">
+         <obj_property name="ElementShortName">[33][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[33][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[34]" type="array">
+         <obj_property name="ElementShortName">[34][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[34][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[35]" type="array">
+         <obj_property name="ElementShortName">[35][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[35][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[36]" type="array">
+         <obj_property name="ElementShortName">[36][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[36][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[37]" type="array">
+         <obj_property name="ElementShortName">[37][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[37][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[38]" type="array">
+         <obj_property name="ElementShortName">[38][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[38][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[39]" type="array">
+         <obj_property name="ElementShortName">[39][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[39][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[40]" type="array">
+         <obj_property name="ElementShortName">[40][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[40][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[41]" type="array">
+         <obj_property name="ElementShortName">[41][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[41][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[42]" type="array">
+         <obj_property name="ElementShortName">[42][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[42][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[43]" type="array">
+         <obj_property name="ElementShortName">[43][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[43][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[44]" type="array">
+         <obj_property name="ElementShortName">[44][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[44][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[45]" type="array">
+         <obj_property name="ElementShortName">[45][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[45][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[46]" type="array">
+         <obj_property name="ElementShortName">[46][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[46][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[47]" type="array">
+         <obj_property name="ElementShortName">[47][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[47][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[48]" type="array">
+         <obj_property name="ElementShortName">[48][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[48][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[49]" type="array">
+         <obj_property name="ElementShortName">[49][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[49][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[50]" type="array">
+         <obj_property name="ElementShortName">[50][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[50][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[51]" type="array">
+         <obj_property name="ElementShortName">[51][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[51][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[52]" type="array">
+         <obj_property name="ElementShortName">[52][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[52][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[53]" type="array">
+         <obj_property name="ElementShortName">[53][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[53][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[54]" type="array">
+         <obj_property name="ElementShortName">[54][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[54][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[55]" type="array">
+         <obj_property name="ElementShortName">[55][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[55][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[56]" type="array">
+         <obj_property name="ElementShortName">[56][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[56][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[57]" type="array">
+         <obj_property name="ElementShortName">[57][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[57][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[58]" type="array">
+         <obj_property name="ElementShortName">[58][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[58][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[59]" type="array">
+         <obj_property name="ElementShortName">[59][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[59][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[60]" type="array">
+         <obj_property name="ElementShortName">[60][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[60][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[61]" type="array">
+         <obj_property name="ElementShortName">[61][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[61][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[62]" type="array">
+         <obj_property name="ElementShortName">[62][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[62][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[63]" type="array">
+         <obj_property name="ElementShortName">[63][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[63][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[64]" type="array">
+         <obj_property name="ElementShortName">[64][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[64][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[65]" type="array">
+         <obj_property name="ElementShortName">[65][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[65][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[66]" type="array">
+         <obj_property name="ElementShortName">[66][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[66][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[67]" type="array">
+         <obj_property name="ElementShortName">[67][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[67][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[68]" type="array">
+         <obj_property name="ElementShortName">[68][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[68][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[69]" type="array">
+         <obj_property name="ElementShortName">[69][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[69][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[70]" type="array">
+         <obj_property name="ElementShortName">[70][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[70][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[71]" type="array">
+         <obj_property name="ElementShortName">[71][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[71][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[72]" type="array">
+         <obj_property name="ElementShortName">[72][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[72][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[73]" type="array">
+         <obj_property name="ElementShortName">[73][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[73][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[74]" type="array">
+         <obj_property name="ElementShortName">[74][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[74][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[75]" type="array">
+         <obj_property name="ElementShortName">[75][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[75][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[76]" type="array">
+         <obj_property name="ElementShortName">[76][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[76][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[77]" type="array">
+         <obj_property name="ElementShortName">[77][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[77][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[78]" type="array">
+         <obj_property name="ElementShortName">[78][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[78][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[79]" type="array">
+         <obj_property name="ElementShortName">[79][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[79][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[80]" type="array">
+         <obj_property name="ElementShortName">[80][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[80][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[81]" type="array">
+         <obj_property name="ElementShortName">[81][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[81][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[82]" type="array">
+         <obj_property name="ElementShortName">[82][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[82][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[83]" type="array">
+         <obj_property name="ElementShortName">[83][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[83][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[84]" type="array">
+         <obj_property name="ElementShortName">[84][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[84][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[85]" type="array">
+         <obj_property name="ElementShortName">[85][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[85][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[86]" type="array">
+         <obj_property name="ElementShortName">[86][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[86][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[87]" type="array">
+         <obj_property name="ElementShortName">[87][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[87][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[88]" type="array">
+         <obj_property name="ElementShortName">[88][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[88][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[89]" type="array">
+         <obj_property name="ElementShortName">[89][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[89][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[90]" type="array">
+         <obj_property name="ElementShortName">[90][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[90][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[91]" type="array">
+         <obj_property name="ElementShortName">[91][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[91][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[92]" type="array">
+         <obj_property name="ElementShortName">[92][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[92][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[93]" type="array">
+         <obj_property name="ElementShortName">[93][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[93][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[94]" type="array">
+         <obj_property name="ElementShortName">[94][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[94][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[95]" type="array">
+         <obj_property name="ElementShortName">[95][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[95][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[96]" type="array">
+         <obj_property name="ElementShortName">[96][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[96][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[97]" type="array">
+         <obj_property name="ElementShortName">[97][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[97][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[98]" type="array">
+         <obj_property name="ElementShortName">[98][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[98][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[99]" type="array">
+         <obj_property name="ElementShortName">[99][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[99][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[100]" type="array">
+         <obj_property name="ElementShortName">[100][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[100][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[101]" type="array">
+         <obj_property name="ElementShortName">[101][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[101][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[102]" type="array">
+         <obj_property name="ElementShortName">[102][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[102][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[103]" type="array">
+         <obj_property name="ElementShortName">[103][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[103][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[104]" type="array">
+         <obj_property name="ElementShortName">[104][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[104][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[105]" type="array">
+         <obj_property name="ElementShortName">[105][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[105][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[106]" type="array">
+         <obj_property name="ElementShortName">[106][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[106][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[107]" type="array">
+         <obj_property name="ElementShortName">[107][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[107][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[108]" type="array">
+         <obj_property name="ElementShortName">[108][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[108][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[109]" type="array">
+         <obj_property name="ElementShortName">[109][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[109][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[110]" type="array">
+         <obj_property name="ElementShortName">[110][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[110][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[111]" type="array">
+         <obj_property name="ElementShortName">[111][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[111][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[112]" type="array">
+         <obj_property name="ElementShortName">[112][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[112][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[113]" type="array">
+         <obj_property name="ElementShortName">[113][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[113][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[114]" type="array">
+         <obj_property name="ElementShortName">[114][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[114][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[115]" type="array">
+         <obj_property name="ElementShortName">[115][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[115][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[116]" type="array">
+         <obj_property name="ElementShortName">[116][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[116][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[117]" type="array">
+         <obj_property name="ElementShortName">[117][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[117][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[118]" type="array">
+         <obj_property name="ElementShortName">[118][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[118][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[119]" type="array">
+         <obj_property name="ElementShortName">[119][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[119][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[120]" type="array">
+         <obj_property name="ElementShortName">[120][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[120][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[121]" type="array">
+         <obj_property name="ElementShortName">[121][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[121][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[122]" type="array">
+         <obj_property name="ElementShortName">[122][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[122][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[123]" type="array">
+         <obj_property name="ElementShortName">[123][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[123][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[124]" type="array">
+         <obj_property name="ElementShortName">[124][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[124][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[125]" type="array">
+         <obj_property name="ElementShortName">[125][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[125][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[126]" type="array">
+         <obj_property name="ElementShortName">[126][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[126][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[127]" type="array">
+         <obj_property name="ElementShortName">[127][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[127][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[128]" type="array">
+         <obj_property name="ElementShortName">[128][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[128][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[129]" type="array">
+         <obj_property name="ElementShortName">[129][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[129][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[130]" type="array">
+         <obj_property name="ElementShortName">[130][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[130][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[131]" type="array">
+         <obj_property name="ElementShortName">[131][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[131][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[132]" type="array">
+         <obj_property name="ElementShortName">[132][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[132][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[133]" type="array">
+         <obj_property name="ElementShortName">[133][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[133][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[134]" type="array">
+         <obj_property name="ElementShortName">[134][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[134][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[135]" type="array">
+         <obj_property name="ElementShortName">[135][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[135][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[136]" type="array">
+         <obj_property name="ElementShortName">[136][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[136][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[137]" type="array">
+         <obj_property name="ElementShortName">[137][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[137][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[138]" type="array">
+         <obj_property name="ElementShortName">[138][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[138][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[139]" type="array">
+         <obj_property name="ElementShortName">[139][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[139][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[140]" type="array">
+         <obj_property name="ElementShortName">[140][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[140][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[141]" type="array">
+         <obj_property name="ElementShortName">[141][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[141][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[142]" type="array">
+         <obj_property name="ElementShortName">[142][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[142][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[143]" type="array">
+         <obj_property name="ElementShortName">[143][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[143][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[144]" type="array">
+         <obj_property name="ElementShortName">[144][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[144][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[145]" type="array">
+         <obj_property name="ElementShortName">[145][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[145][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[146]" type="array">
+         <obj_property name="ElementShortName">[146][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[146][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[147]" type="array">
+         <obj_property name="ElementShortName">[147][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[147][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[148]" type="array">
+         <obj_property name="ElementShortName">[148][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[148][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[149]" type="array">
+         <obj_property name="ElementShortName">[149][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[149][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[150]" type="array">
+         <obj_property name="ElementShortName">[150][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[150][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[151]" type="array">
+         <obj_property name="ElementShortName">[151][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[151][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[152]" type="array">
+         <obj_property name="ElementShortName">[152][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[152][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[153]" type="array">
+         <obj_property name="ElementShortName">[153][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[153][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[154]" type="array">
+         <obj_property name="ElementShortName">[154][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[154][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[155]" type="array">
+         <obj_property name="ElementShortName">[155][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[155][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[156]" type="array">
+         <obj_property name="ElementShortName">[156][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[156][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[157]" type="array">
+         <obj_property name="ElementShortName">[157][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[157][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[158]" type="array">
+         <obj_property name="ElementShortName">[158][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[158][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[159]" type="array">
+         <obj_property name="ElementShortName">[159][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[159][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[160]" type="array">
+         <obj_property name="ElementShortName">[160][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[160][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[161]" type="array">
+         <obj_property name="ElementShortName">[161][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[161][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[162]" type="array">
+         <obj_property name="ElementShortName">[162][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[162][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[163]" type="array">
+         <obj_property name="ElementShortName">[163][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[163][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[164]" type="array">
+         <obj_property name="ElementShortName">[164][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[164][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[165]" type="array">
+         <obj_property name="ElementShortName">[165][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[165][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[166]" type="array">
+         <obj_property name="ElementShortName">[166][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[166][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[167]" type="array">
+         <obj_property name="ElementShortName">[167][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[167][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[168]" type="array">
+         <obj_property name="ElementShortName">[168][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[168][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[169]" type="array">
+         <obj_property name="ElementShortName">[169][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[169][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[170]" type="array">
+         <obj_property name="ElementShortName">[170][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[170][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[171]" type="array">
+         <obj_property name="ElementShortName">[171][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[171][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[172]" type="array">
+         <obj_property name="ElementShortName">[172][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[172][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[173]" type="array">
+         <obj_property name="ElementShortName">[173][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[173][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[174]" type="array">
+         <obj_property name="ElementShortName">[174][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[174][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[175]" type="array">
+         <obj_property name="ElementShortName">[175][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[175][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[176]" type="array">
+         <obj_property name="ElementShortName">[176][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[176][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[177]" type="array">
+         <obj_property name="ElementShortName">[177][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[177][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[178]" type="array">
+         <obj_property name="ElementShortName">[178][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[178][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[179]" type="array">
+         <obj_property name="ElementShortName">[179][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[179][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[180]" type="array">
+         <obj_property name="ElementShortName">[180][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[180][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[181]" type="array">
+         <obj_property name="ElementShortName">[181][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[181][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[182]" type="array">
+         <obj_property name="ElementShortName">[182][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[182][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[183]" type="array">
+         <obj_property name="ElementShortName">[183][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[183][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[184]" type="array">
+         <obj_property name="ElementShortName">[184][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[184][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[185]" type="array">
+         <obj_property name="ElementShortName">[185][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[185][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[186]" type="array">
+         <obj_property name="ElementShortName">[186][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[186][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[187]" type="array">
+         <obj_property name="ElementShortName">[187][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[187][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[188]" type="array">
+         <obj_property name="ElementShortName">[188][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[188][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[189]" type="array">
+         <obj_property name="ElementShortName">[189][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[189][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[190]" type="array">
+         <obj_property name="ElementShortName">[190][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[190][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[191]" type="array">
+         <obj_property name="ElementShortName">[191][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[191][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[192]" type="array">
+         <obj_property name="ElementShortName">[192][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[192][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[193]" type="array">
+         <obj_property name="ElementShortName">[193][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[193][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[194]" type="array">
+         <obj_property name="ElementShortName">[194][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[194][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[195]" type="array">
+         <obj_property name="ElementShortName">[195][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[195][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[196]" type="array">
+         <obj_property name="ElementShortName">[196][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[196][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[197]" type="array">
+         <obj_property name="ElementShortName">[197][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[197][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[198]" type="array">
+         <obj_property name="ElementShortName">[198][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[198][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[199]" type="array">
+         <obj_property name="ElementShortName">[199][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[199][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[200]" type="array">
+         <obj_property name="ElementShortName">[200][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[200][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[201]" type="array">
+         <obj_property name="ElementShortName">[201][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[201][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[202]" type="array">
+         <obj_property name="ElementShortName">[202][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[202][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[203]" type="array">
+         <obj_property name="ElementShortName">[203][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[203][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[204]" type="array">
+         <obj_property name="ElementShortName">[204][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[204][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[205]" type="array">
+         <obj_property name="ElementShortName">[205][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[205][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[206]" type="array">
+         <obj_property name="ElementShortName">[206][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[206][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[207]" type="array">
+         <obj_property name="ElementShortName">[207][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[207][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[208]" type="array">
+         <obj_property name="ElementShortName">[208][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[208][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[209]" type="array">
+         <obj_property name="ElementShortName">[209][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[209][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[210]" type="array">
+         <obj_property name="ElementShortName">[210][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[210][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[211]" type="array">
+         <obj_property name="ElementShortName">[211][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[211][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[212]" type="array">
+         <obj_property name="ElementShortName">[212][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[212][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[213]" type="array">
+         <obj_property name="ElementShortName">[213][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[213][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[214]" type="array">
+         <obj_property name="ElementShortName">[214][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[214][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[215]" type="array">
+         <obj_property name="ElementShortName">[215][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[215][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[216]" type="array">
+         <obj_property name="ElementShortName">[216][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[216][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[217]" type="array">
+         <obj_property name="ElementShortName">[217][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[217][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[218]" type="array">
+         <obj_property name="ElementShortName">[218][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[218][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[219]" type="array">
+         <obj_property name="ElementShortName">[219][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[219][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[220]" type="array">
+         <obj_property name="ElementShortName">[220][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[220][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[221]" type="array">
+         <obj_property name="ElementShortName">[221][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[221][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[222]" type="array">
+         <obj_property name="ElementShortName">[222][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[222][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[223]" type="array">
+         <obj_property name="ElementShortName">[223][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[223][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[224]" type="array">
+         <obj_property name="ElementShortName">[224][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[224][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[225]" type="array">
+         <obj_property name="ElementShortName">[225][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[225][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[226]" type="array">
+         <obj_property name="ElementShortName">[226][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[226][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[227]" type="array">
+         <obj_property name="ElementShortName">[227][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[227][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[228]" type="array">
+         <obj_property name="ElementShortName">[228][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[228][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[229]" type="array">
+         <obj_property name="ElementShortName">[229][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[229][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[230]" type="array">
+         <obj_property name="ElementShortName">[230][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[230][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[231]" type="array">
+         <obj_property name="ElementShortName">[231][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[231][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[232]" type="array">
+         <obj_property name="ElementShortName">[232][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[232][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[233]" type="array">
+         <obj_property name="ElementShortName">[233][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[233][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[234]" type="array">
+         <obj_property name="ElementShortName">[234][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[234][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[235]" type="array">
+         <obj_property name="ElementShortName">[235][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[235][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[236]" type="array">
+         <obj_property name="ElementShortName">[236][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[236][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[237]" type="array">
+         <obj_property name="ElementShortName">[237][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[237][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[238]" type="array">
+         <obj_property name="ElementShortName">[238][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[238][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[239]" type="array">
+         <obj_property name="ElementShortName">[239][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[239][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[240]" type="array">
+         <obj_property name="ElementShortName">[240][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[240][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[241]" type="array">
+         <obj_property name="ElementShortName">[241][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[241][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[242]" type="array">
+         <obj_property name="ElementShortName">[242][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[242][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[243]" type="array">
+         <obj_property name="ElementShortName">[243][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[243][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[244]" type="array">
+         <obj_property name="ElementShortName">[244][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[244][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[245]" type="array">
+         <obj_property name="ElementShortName">[245][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[245][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[246]" type="array">
+         <obj_property name="ElementShortName">[246][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[246][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[247]" type="array">
+         <obj_property name="ElementShortName">[247][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[247][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[248]" type="array">
+         <obj_property name="ElementShortName">[248][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[248][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[249]" type="array">
+         <obj_property name="ElementShortName">[249][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[249][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[250]" type="array">
+         <obj_property name="ElementShortName">[250][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[250][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[251]" type="array">
+         <obj_property name="ElementShortName">[251][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[251][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[252]" type="array">
+         <obj_property name="ElementShortName">[252][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[252][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[253]" type="array">
+         <obj_property name="ElementShortName">[253][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[253][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[254]" type="array">
+         <obj_property name="ElementShortName">[254][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[254][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[255]" type="array">
+         <obj_property name="ElementShortName">[255][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[255][13:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[0]" type="array">
+         <obj_property name="ElementShortName">[0][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[1]" type="array">
+         <obj_property name="ElementShortName">[1][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[2]" type="array">
+         <obj_property name="ElementShortName">[2][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[3]" type="array">
+         <obj_property name="ElementShortName">[3][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[4]" type="array">
+         <obj_property name="ElementShortName">[4][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[5]" type="array">
+         <obj_property name="ElementShortName">[5][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[6]" type="array">
+         <obj_property name="ElementShortName">[6][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[7]" type="array">
+         <obj_property name="ElementShortName">[7][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[8]" type="array">
+         <obj_property name="ElementShortName">[8][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[9]" type="array">
+         <obj_property name="ElementShortName">[9][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[10]" type="array">
+         <obj_property name="ElementShortName">[10][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[11]" type="array">
+         <obj_property name="ElementShortName">[11][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[12]" type="array">
+         <obj_property name="ElementShortName">[12][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[13]" type="array">
+         <obj_property name="ElementShortName">[13][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[14]" type="array">
+         <obj_property name="ElementShortName">[14][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[15]" type="array">
+         <obj_property name="ElementShortName">[15][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[16]" type="array">
+         <obj_property name="ElementShortName">[16][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[17]" type="array">
+         <obj_property name="ElementShortName">[17][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[18]" type="array">
+         <obj_property name="ElementShortName">[18][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[19]" type="array">
+         <obj_property name="ElementShortName">[19][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[20]" type="array">
+         <obj_property name="ElementShortName">[20][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[21]" type="array">
+         <obj_property name="ElementShortName">[21][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[22]" type="array">
+         <obj_property name="ElementShortName">[22][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[23]" type="array">
+         <obj_property name="ElementShortName">[23][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[24]" type="array">
+         <obj_property name="ElementShortName">[24][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[25]" type="array">
+         <obj_property name="ElementShortName">[25][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[26]" type="array">
+         <obj_property name="ElementShortName">[26][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[27]" type="array">
+         <obj_property name="ElementShortName">[27][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[28]" type="array">
+         <obj_property name="ElementShortName">[28][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[29]" type="array">
+         <obj_property name="ElementShortName">[29][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[30]" type="array">
+         <obj_property name="ElementShortName">[30][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[31]" type="array">
+         <obj_property name="ElementShortName">[31][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[32]" type="array">
+         <obj_property name="ElementShortName">[32][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[32][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[33]" type="array">
+         <obj_property name="ElementShortName">[33][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[33][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[34]" type="array">
+         <obj_property name="ElementShortName">[34][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[34][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[35]" type="array">
+         <obj_property name="ElementShortName">[35][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[35][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[36]" type="array">
+         <obj_property name="ElementShortName">[36][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[36][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[37]" type="array">
+         <obj_property name="ElementShortName">[37][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[37][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[38]" type="array">
+         <obj_property name="ElementShortName">[38][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[38][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[39]" type="array">
+         <obj_property name="ElementShortName">[39][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[39][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[40]" type="array">
+         <obj_property name="ElementShortName">[40][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[40][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[41]" type="array">
+         <obj_property name="ElementShortName">[41][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[41][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[42]" type="array">
+         <obj_property name="ElementShortName">[42][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[42][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[43]" type="array">
+         <obj_property name="ElementShortName">[43][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[43][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[44]" type="array">
+         <obj_property name="ElementShortName">[44][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[44][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[45]" type="array">
+         <obj_property name="ElementShortName">[45][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[45][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[46]" type="array">
+         <obj_property name="ElementShortName">[46][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[46][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[47]" type="array">
+         <obj_property name="ElementShortName">[47][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[47][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[48]" type="array">
+         <obj_property name="ElementShortName">[48][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[48][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[49]" type="array">
+         <obj_property name="ElementShortName">[49][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[49][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[50]" type="array">
+         <obj_property name="ElementShortName">[50][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[50][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[51]" type="array">
+         <obj_property name="ElementShortName">[51][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[51][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[52]" type="array">
+         <obj_property name="ElementShortName">[52][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[52][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[53]" type="array">
+         <obj_property name="ElementShortName">[53][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[53][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[54]" type="array">
+         <obj_property name="ElementShortName">[54][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[54][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[55]" type="array">
+         <obj_property name="ElementShortName">[55][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[55][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[56]" type="array">
+         <obj_property name="ElementShortName">[56][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[56][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[57]" type="array">
+         <obj_property name="ElementShortName">[57][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[57][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[58]" type="array">
+         <obj_property name="ElementShortName">[58][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[58][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[59]" type="array">
+         <obj_property name="ElementShortName">[59][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[59][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[60]" type="array">
+         <obj_property name="ElementShortName">[60][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[60][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[61]" type="array">
+         <obj_property name="ElementShortName">[61][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[61][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[62]" type="array">
+         <obj_property name="ElementShortName">[62][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[62][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[63]" type="array">
+         <obj_property name="ElementShortName">[63][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[63][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[64]" type="array">
+         <obj_property name="ElementShortName">[64][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[64][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[65]" type="array">
+         <obj_property name="ElementShortName">[65][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[65][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[66]" type="array">
+         <obj_property name="ElementShortName">[66][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[66][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[67]" type="array">
+         <obj_property name="ElementShortName">[67][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[67][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[68]" type="array">
+         <obj_property name="ElementShortName">[68][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[68][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[69]" type="array">
+         <obj_property name="ElementShortName">[69][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[69][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[70]" type="array">
+         <obj_property name="ElementShortName">[70][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[70][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[71]" type="array">
+         <obj_property name="ElementShortName">[71][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[71][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[72]" type="array">
+         <obj_property name="ElementShortName">[72][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[72][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[73]" type="array">
+         <obj_property name="ElementShortName">[73][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[73][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[74]" type="array">
+         <obj_property name="ElementShortName">[74][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[74][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[75]" type="array">
+         <obj_property name="ElementShortName">[75][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[75][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[76]" type="array">
+         <obj_property name="ElementShortName">[76][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[76][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[77]" type="array">
+         <obj_property name="ElementShortName">[77][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[77][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[78]" type="array">
+         <obj_property name="ElementShortName">[78][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[78][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[79]" type="array">
+         <obj_property name="ElementShortName">[79][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[79][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[80]" type="array">
+         <obj_property name="ElementShortName">[80][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[80][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[81]" type="array">
+         <obj_property name="ElementShortName">[81][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[81][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[82]" type="array">
+         <obj_property name="ElementShortName">[82][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[82][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[83]" type="array">
+         <obj_property name="ElementShortName">[83][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[83][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[84]" type="array">
+         <obj_property name="ElementShortName">[84][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[84][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[85]" type="array">
+         <obj_property name="ElementShortName">[85][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[85][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[86]" type="array">
+         <obj_property name="ElementShortName">[86][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[86][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[87]" type="array">
+         <obj_property name="ElementShortName">[87][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[87][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[88]" type="array">
+         <obj_property name="ElementShortName">[88][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[88][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[89]" type="array">
+         <obj_property name="ElementShortName">[89][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[89][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[90]" type="array">
+         <obj_property name="ElementShortName">[90][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[90][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[91]" type="array">
+         <obj_property name="ElementShortName">[91][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[91][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[92]" type="array">
+         <obj_property name="ElementShortName">[92][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[92][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[93]" type="array">
+         <obj_property name="ElementShortName">[93][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[93][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[94]" type="array">
+         <obj_property name="ElementShortName">[94][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[94][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[95]" type="array">
+         <obj_property name="ElementShortName">[95][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[95][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[96]" type="array">
+         <obj_property name="ElementShortName">[96][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[96][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[97]" type="array">
+         <obj_property name="ElementShortName">[97][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[97][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[98]" type="array">
+         <obj_property name="ElementShortName">[98][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[98][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[99]" type="array">
+         <obj_property name="ElementShortName">[99][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[99][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[100]" type="array">
+         <obj_property name="ElementShortName">[100][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[100][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[101]" type="array">
+         <obj_property name="ElementShortName">[101][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[101][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[102]" type="array">
+         <obj_property name="ElementShortName">[102][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[102][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[103]" type="array">
+         <obj_property name="ElementShortName">[103][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[103][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[104]" type="array">
+         <obj_property name="ElementShortName">[104][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[104][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[105]" type="array">
+         <obj_property name="ElementShortName">[105][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[105][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[106]" type="array">
+         <obj_property name="ElementShortName">[106][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[106][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[107]" type="array">
+         <obj_property name="ElementShortName">[107][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[107][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[108]" type="array">
+         <obj_property name="ElementShortName">[108][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[108][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[109]" type="array">
+         <obj_property name="ElementShortName">[109][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[109][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[110]" type="array">
+         <obj_property name="ElementShortName">[110][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[110][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[111]" type="array">
+         <obj_property name="ElementShortName">[111][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[111][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[112]" type="array">
+         <obj_property name="ElementShortName">[112][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[112][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[113]" type="array">
+         <obj_property name="ElementShortName">[113][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[113][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[114]" type="array">
+         <obj_property name="ElementShortName">[114][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[114][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[115]" type="array">
+         <obj_property name="ElementShortName">[115][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[115][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[116]" type="array">
+         <obj_property name="ElementShortName">[116][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[116][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[117]" type="array">
+         <obj_property name="ElementShortName">[117][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[117][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[118]" type="array">
+         <obj_property name="ElementShortName">[118][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[118][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[119]" type="array">
+         <obj_property name="ElementShortName">[119][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[119][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[120]" type="array">
+         <obj_property name="ElementShortName">[120][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[120][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[121]" type="array">
+         <obj_property name="ElementShortName">[121][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[121][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[122]" type="array">
+         <obj_property name="ElementShortName">[122][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[122][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[123]" type="array">
+         <obj_property name="ElementShortName">[123][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[123][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[124]" type="array">
+         <obj_property name="ElementShortName">[124][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[124][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[125]" type="array">
+         <obj_property name="ElementShortName">[125][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[125][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[126]" type="array">
+         <obj_property name="ElementShortName">[126][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[126][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[127]" type="array">
+         <obj_property name="ElementShortName">[127][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[127][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[128]" type="array">
+         <obj_property name="ElementShortName">[128][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[128][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[129]" type="array">
+         <obj_property name="ElementShortName">[129][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[129][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[130]" type="array">
+         <obj_property name="ElementShortName">[130][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[130][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[131]" type="array">
+         <obj_property name="ElementShortName">[131][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[131][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[132]" type="array">
+         <obj_property name="ElementShortName">[132][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[132][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[133]" type="array">
+         <obj_property name="ElementShortName">[133][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[133][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[134]" type="array">
+         <obj_property name="ElementShortName">[134][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[134][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[135]" type="array">
+         <obj_property name="ElementShortName">[135][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[135][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[136]" type="array">
+         <obj_property name="ElementShortName">[136][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[136][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[137]" type="array">
+         <obj_property name="ElementShortName">[137][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[137][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[138]" type="array">
+         <obj_property name="ElementShortName">[138][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[138][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[139]" type="array">
+         <obj_property name="ElementShortName">[139][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[139][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[140]" type="array">
+         <obj_property name="ElementShortName">[140][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[140][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[141]" type="array">
+         <obj_property name="ElementShortName">[141][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[141][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[142]" type="array">
+         <obj_property name="ElementShortName">[142][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[142][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[143]" type="array">
+         <obj_property name="ElementShortName">[143][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[143][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[144]" type="array">
+         <obj_property name="ElementShortName">[144][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[144][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[145]" type="array">
+         <obj_property name="ElementShortName">[145][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[145][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[146]" type="array">
+         <obj_property name="ElementShortName">[146][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[146][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[147]" type="array">
+         <obj_property name="ElementShortName">[147][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[147][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[148]" type="array">
+         <obj_property name="ElementShortName">[148][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[148][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[149]" type="array">
+         <obj_property name="ElementShortName">[149][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[149][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[150]" type="array">
+         <obj_property name="ElementShortName">[150][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[150][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[151]" type="array">
+         <obj_property name="ElementShortName">[151][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[151][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[152]" type="array">
+         <obj_property name="ElementShortName">[152][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[152][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[153]" type="array">
+         <obj_property name="ElementShortName">[153][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[153][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[154]" type="array">
+         <obj_property name="ElementShortName">[154][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[154][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[155]" type="array">
+         <obj_property name="ElementShortName">[155][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[155][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[156]" type="array">
+         <obj_property name="ElementShortName">[156][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[156][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[157]" type="array">
+         <obj_property name="ElementShortName">[157][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[157][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[158]" type="array">
+         <obj_property name="ElementShortName">[158][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[158][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[159]" type="array">
+         <obj_property name="ElementShortName">[159][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[159][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[160]" type="array">
+         <obj_property name="ElementShortName">[160][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[160][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[161]" type="array">
+         <obj_property name="ElementShortName">[161][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[161][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[162]" type="array">
+         <obj_property name="ElementShortName">[162][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[162][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[163]" type="array">
+         <obj_property name="ElementShortName">[163][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[163][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[164]" type="array">
+         <obj_property name="ElementShortName">[164][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[164][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[165]" type="array">
+         <obj_property name="ElementShortName">[165][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[165][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[166]" type="array">
+         <obj_property name="ElementShortName">[166][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[166][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[167]" type="array">
+         <obj_property name="ElementShortName">[167][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[167][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[168]" type="array">
+         <obj_property name="ElementShortName">[168][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[168][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[169]" type="array">
+         <obj_property name="ElementShortName">[169][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[169][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[170]" type="array">
+         <obj_property name="ElementShortName">[170][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[170][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[171]" type="array">
+         <obj_property name="ElementShortName">[171][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[171][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[172]" type="array">
+         <obj_property name="ElementShortName">[172][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[172][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[173]" type="array">
+         <obj_property name="ElementShortName">[173][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[173][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[174]" type="array">
+         <obj_property name="ElementShortName">[174][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[174][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[175]" type="array">
+         <obj_property name="ElementShortName">[175][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[175][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[176]" type="array">
+         <obj_property name="ElementShortName">[176][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[176][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[177]" type="array">
+         <obj_property name="ElementShortName">[177][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[177][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[178]" type="array">
+         <obj_property name="ElementShortName">[178][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[178][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[179]" type="array">
+         <obj_property name="ElementShortName">[179][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[179][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[180]" type="array">
+         <obj_property name="ElementShortName">[180][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[180][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[181]" type="array">
+         <obj_property name="ElementShortName">[181][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[181][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[182]" type="array">
+         <obj_property name="ElementShortName">[182][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[182][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[183]" type="array">
+         <obj_property name="ElementShortName">[183][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[183][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[184]" type="array">
+         <obj_property name="ElementShortName">[184][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[184][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[185]" type="array">
+         <obj_property name="ElementShortName">[185][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[185][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[186]" type="array">
+         <obj_property name="ElementShortName">[186][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[186][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[187]" type="array">
+         <obj_property name="ElementShortName">[187][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[187][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[188]" type="array">
+         <obj_property name="ElementShortName">[188][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[188][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[189]" type="array">
+         <obj_property name="ElementShortName">[189][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[189][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[190]" type="array">
+         <obj_property name="ElementShortName">[190][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[190][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[191]" type="array">
+         <obj_property name="ElementShortName">[191][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[191][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[192]" type="array">
+         <obj_property name="ElementShortName">[192][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[192][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[193]" type="array">
+         <obj_property name="ElementShortName">[193][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[193][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[194]" type="array">
+         <obj_property name="ElementShortName">[194][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[194][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[195]" type="array">
+         <obj_property name="ElementShortName">[195][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[195][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[196]" type="array">
+         <obj_property name="ElementShortName">[196][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[196][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[197]" type="array">
+         <obj_property name="ElementShortName">[197][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[197][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[198]" type="array">
+         <obj_property name="ElementShortName">[198][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[198][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[199]" type="array">
+         <obj_property name="ElementShortName">[199][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[199][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[200]" type="array">
+         <obj_property name="ElementShortName">[200][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[200][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[201]" type="array">
+         <obj_property name="ElementShortName">[201][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[201][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[202]" type="array">
+         <obj_property name="ElementShortName">[202][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[202][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[203]" type="array">
+         <obj_property name="ElementShortName">[203][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[203][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[204]" type="array">
+         <obj_property name="ElementShortName">[204][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[204][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[205]" type="array">
+         <obj_property name="ElementShortName">[205][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[205][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[206]" type="array">
+         <obj_property name="ElementShortName">[206][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[206][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[207]" type="array">
+         <obj_property name="ElementShortName">[207][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[207][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[208]" type="array">
+         <obj_property name="ElementShortName">[208][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[208][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[209]" type="array">
+         <obj_property name="ElementShortName">[209][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[209][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[210]" type="array">
+         <obj_property name="ElementShortName">[210][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[210][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[211]" type="array">
+         <obj_property name="ElementShortName">[211][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[211][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[212]" type="array">
+         <obj_property name="ElementShortName">[212][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[212][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[213]" type="array">
+         <obj_property name="ElementShortName">[213][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[213][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[214]" type="array">
+         <obj_property name="ElementShortName">[214][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[214][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[215]" type="array">
+         <obj_property name="ElementShortName">[215][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[215][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[216]" type="array">
+         <obj_property name="ElementShortName">[216][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[216][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[217]" type="array">
+         <obj_property name="ElementShortName">[217][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[217][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[218]" type="array">
+         <obj_property name="ElementShortName">[218][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[218][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[219]" type="array">
+         <obj_property name="ElementShortName">[219][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[219][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[220]" type="array">
+         <obj_property name="ElementShortName">[220][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[220][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[221]" type="array">
+         <obj_property name="ElementShortName">[221][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[221][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[222]" type="array">
+         <obj_property name="ElementShortName">[222][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[222][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[223]" type="array">
+         <obj_property name="ElementShortName">[223][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[223][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[224]" type="array">
+         <obj_property name="ElementShortName">[224][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[224][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[225]" type="array">
+         <obj_property name="ElementShortName">[225][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[225][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[226]" type="array">
+         <obj_property name="ElementShortName">[226][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[226][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[227]" type="array">
+         <obj_property name="ElementShortName">[227][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[227][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[228]" type="array">
+         <obj_property name="ElementShortName">[228][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[228][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[229]" type="array">
+         <obj_property name="ElementShortName">[229][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[229][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[230]" type="array">
+         <obj_property name="ElementShortName">[230][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[230][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[231]" type="array">
+         <obj_property name="ElementShortName">[231][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[231][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[232]" type="array">
+         <obj_property name="ElementShortName">[232][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[232][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[233]" type="array">
+         <obj_property name="ElementShortName">[233][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[233][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[234]" type="array">
+         <obj_property name="ElementShortName">[234][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[234][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[235]" type="array">
+         <obj_property name="ElementShortName">[235][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[235][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[236]" type="array">
+         <obj_property name="ElementShortName">[236][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[236][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[237]" type="array">
+         <obj_property name="ElementShortName">[237][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[237][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[238]" type="array">
+         <obj_property name="ElementShortName">[238][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[238][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[239]" type="array">
+         <obj_property name="ElementShortName">[239][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[239][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[240]" type="array">
+         <obj_property name="ElementShortName">[240][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[240][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[241]" type="array">
+         <obj_property name="ElementShortName">[241][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[241][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[242]" type="array">
+         <obj_property name="ElementShortName">[242][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[242][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[243]" type="array">
+         <obj_property name="ElementShortName">[243][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[243][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[244]" type="array">
+         <obj_property name="ElementShortName">[244][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[244][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[245]" type="array">
+         <obj_property name="ElementShortName">[245][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[245][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[246]" type="array">
+         <obj_property name="ElementShortName">[246][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[246][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[247]" type="array">
+         <obj_property name="ElementShortName">[247][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[247][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[248]" type="array">
+         <obj_property name="ElementShortName">[248][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[248][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[249]" type="array">
+         <obj_property name="ElementShortName">[249][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[249][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[250]" type="array">
+         <obj_property name="ElementShortName">[250][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[250][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[251]" type="array">
+         <obj_property name="ElementShortName">[251][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[251][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[252]" type="array">
+         <obj_property name="ElementShortName">[252][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[252][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[253]" type="array">
+         <obj_property name="ElementShortName">[253][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[253][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[254]" type="array">
+         <obj_property name="ElementShortName">[254][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[254][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Real[255]" type="array">
+         <obj_property name="ElementShortName">[255][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[255][13:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/test_bench_init/DUT/System_UT/FFT_Processor/Twiddles_Imag" type="array">
+      <obj_property name="ElementShortName">Twiddles_Imag[0:255][13:0]</obj_property>
+      <obj_property name="ObjectShortName">Twiddles_Imag[0:255][13:0]</obj_property>
    </wvobject>
 </wave_config>

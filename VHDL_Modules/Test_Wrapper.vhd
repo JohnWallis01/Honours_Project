@@ -67,7 +67,7 @@ architecture Test_Wrapper_arch of Test_Wrapper is
 begin
 
     System_UT: Custom_System
-    generic map(FFT_Bins => 12)
+    generic map(FFT_Bins => 8)
     port map(
     PLL_Guess_Freq => std_logic_vector(to_signed(343597383, 32)),
     Internal_Debug_Freq => std_logic_vector(to_signed(integer(0), 32)),
