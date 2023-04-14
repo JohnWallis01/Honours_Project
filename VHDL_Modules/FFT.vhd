@@ -45,7 +45,6 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
     signal bc: Slice_Array := (others => (others => '0'));
     signal Temp_Fourier_Reals: Slice_Array := (others => (others => '0'));
     signal Temp_Fourier_Imags: Slice_Array := (others => (others => '0'));
-    signal Temp_ComplexPair : CompexArray;
     signal Counter: std_logic_vector(Bin_Bits-1 downto 0);
     
     
@@ -72,23 +71,6 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
                 twiddle_out(i) := std_logic_vector(to_signed(integer(x*Real((2**Twiddle_Size-2)-1)),Twiddle_Size));
             end loop;
             return twiddle_out;
-        end function;
-
-        function complex_multiply ( rex1: signed(Stream_Size-1 downto 0); 
-                                    imx1: signed(Stream_Size-1 downto 0); 
-                                    rex2: signed(Twiddle_Size-1 downto 0); 
-                                    imx2: signed(Twiddle_Size-1 downto 0))
-        return ComplexPair is
-            variable ac,ad,bc,bd: signed(Stream_Size+Twiddle_Size-1 downto 0);
-            variable result: ComplexPair;
-            begin
-            ac := rex1*rex2;
-            ad := rex1*imx2;
-            bc := imx1*rex2;
-            bd := imx1*imx2;
-            result(0) := std_logic_vector(ac - bd);
-            result(1) := std_logic_vector(ad + bc);
-            return result;
         end function;
 
 
