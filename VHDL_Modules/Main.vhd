@@ -157,8 +157,8 @@ END component;
 
   component Sliding_DFT_Processor is
     generic(Stream_Size: integer := 16; 
-            Bin_Bits: integer := 10; --This will set to determine the frequency resoultion
-            Twiddle_Size: integer:= 16
+            Bin_Bits: integer := 10;--This will set to determine the frequency resoultion
+            Twiddle_Size: integer:= 8
             );
     port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
         clock: in std_logic;
@@ -353,7 +353,7 @@ END component;
 
 
     FFT_Processor: Sliding_DFT_Processor
-    generic map(Stream_Size => 14, Bin_Bits => FFT_Bins, Twiddle_Size => 14)
+    generic map(Stream_Size => 14, Bin_Bits => FFT_Bins)
     port map(
     Sample_Stream_In => Target_Signal,
     clock => AD_CLK_in,

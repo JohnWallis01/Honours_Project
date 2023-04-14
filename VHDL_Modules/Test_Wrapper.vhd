@@ -34,7 +34,7 @@ architecture Test_Wrapper_arch of Test_Wrapper is
 
     component Custom_System is
         generic(
-            FFT_Bins: integer:= 6
+            FFT_Bins: integer:= 8
         );
         port (
         ------GPIO's
