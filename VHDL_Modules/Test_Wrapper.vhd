@@ -67,7 +67,7 @@ architecture Test_Wrapper_arch of Test_Wrapper is
 begin
 
     System_UT: Custom_System
-    generic map(FFT_Bins => 8)
+    generic map(FFT_Bins => 10)
     port map(
     PLL_Guess_Freq => std_logic_vector(to_signed(343597383, 32)),
     Internal_Debug_Freq => std_logic_vector(to_signed(integer(0), 32)),
@@ -92,7 +92,7 @@ begin
         DAC_SIZE => 14
         )
         port map (
-          Frequency => std_logic_vector(to_signed(343597383, 32)),
+          Frequency => std_logic_vector(to_signed(240518168, 32)),
           PhaseOffset => (others =>'0'),
           clock => clock,
           rst => Reset,

@@ -147,10 +147,10 @@ architecture Sliding_DFT_Processor_arch of Sliding_DFT_Processor is
                 bd(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Imag(n)));
                 ad(n) <= std_logic_vector(signed(Fourier_Reals_Premultiply(n))*signed(Twiddles_Imag(n)));
                 bc(n) <= std_logic_vector(signed(Fourier_Imags(n))*signed(Twiddles_Real(n)));
-                Temp_Fourier_Reals(n) <= std_logic_vector(signed(ac(n)) - signed(bd(n)));
-                Temp_Fourier_Imags(n) <= std_logic_vector(signed(ad(n))+ signed(bc(n)));
-                Fourier_Reals(n) <= Temp_Fourier_Reals(n)(Twiddle_Size+Stream_Size-1 downto Twiddle_Size);
-                Fourier_Imags(n) <= Temp_Fourier_Imags(n)(Twiddle_Size+Stream_Size-1 downto Twiddle_Size);
+                Temp_Fourier_Reals(n) <= std_logic_vector(shift_right(signed(ac(n)) - signed(bd(n)),Twiddle_Size));
+                Temp_Fourier_Imags(n) <= std_logic_vector(shift_right(signed(ad(n)) + signed(bc(n)),Twiddle_Size));
+                Fourier_Reals(n) <= Temp_Fourier_Reals(n)(Stream_Size-1 downto 0);
+                Fourier_Imags(n) <= Temp_Fourier_Imags(n)(Stream_Size-1 downto 0);
             end if;
         end if;
         end process;
@@ -224,5 +224,77 @@ architecture Peak_Detector_arch of Peak_Detector is
             end if;
         end if;
     end process;
+
+end architecture;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity FFT_Processor is
+    generic(Stream_Size: integer := 14; 
+            Bin_Bits: integer := 12; --This will set to determine the frequency resoultion
+            Twiddle_Size: integer:= 8
+            );
+    port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
+        clock: in std_logic;
+        Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
+        Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
+        Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
+        Reset: in std_logic
+        );
+    end entity;
+
+architecture FFT_Processor_arch of FFT_Processor is
+    
+    
+    Type Window_Array is array(0 to 2**(Bin_Bits)-1) of std_logic_vector(Stream_Size-1 downto 0);
+    Type Twiddle_Array is array(0 to 2**(Bin_Bits)-1) of std_logic_vector(Twiddle_Size-1 downto 0);
+    signal State: std_logic;
+    signal Sample_Array: Window_Array;
+    signal Twiddled_Odd: std_logic_vector(Twiddle_Size+Stream_Size downto 0);
+    signal Count: unsigned(Bin_Bits downto 0);
+    --complile time store the twiddles in a twiddle array
+
+
+
+    begin
+        process(clock)
+        begin
+            if Reset = '1' then
+                State <= 0;
+                Sample_Array <= (others =>(others =>'0'));
+                Count <= (others => '0');
+            else
+                if State = '0' then
+                    Stream_Shift: for n in 1 to 2**(Bin_Bits)-1 loop
+                        Sample_Stream_Memory(n) <= Sample_Stream_Memory(n-1);
+                    end loop;
+                    Sample_Stream_Memory(0)<=Sample_Stream_In;
+                    Count <= Count + to_unsigned(1, Bin_bits);
+                    if Count <= to_unsigned(2**Bin_bits-1, Bin_bits) then
+                        State <= '1';
+                        Coutner <= '0';
+                    end if
+                else
+                    -- perform a FFT on the data;
+                    
+                end if;
+            end if;
+        end process;
+            
+
+    ---feed the samples to the butterfly structure
+
+
+
+
+    ----some kind of centeral memory for everything
+
+    
+
+
+    ----and an output contorl
 
 end architecture;
