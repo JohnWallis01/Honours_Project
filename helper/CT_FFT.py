@@ -34,7 +34,7 @@ def FFT(vector):
         y[i+int(n/2)] = transformed_even[i] - (omega**i)*transformed_odd[i]
     return y
 
-data = np.abs(FFT(signal[0:4093]))
+data = np.abs(FFT(signal[0:4096]))
 plt.plot(data)
-plt.plot(np.abs(sppfft.fft(signal[0:4093])))
+# plt.plot(np.abs(sppfft.fft(signal[0:4096])))
 plt.show()
