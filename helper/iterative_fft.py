@@ -40,10 +40,11 @@ def fft(a, A, log2n):
         m = 1 << s  # 2 power s
         m2 = m >> 1  # m2 = m/2 -1
         w = complex(1, 0)
- 
+        print(s)
         # principle root of nth complex
         # root of unity.
         wm = cmath.exp(J * (cmath.pi / m2))
+        print(wm*(2**7-1))
         for j in range(m2):
             for k in range(j, n, m):
  

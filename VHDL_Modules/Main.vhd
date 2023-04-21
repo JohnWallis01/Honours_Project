@@ -155,19 +155,19 @@ END component;
 
 
 
-  component Sliding_DFT_Processor is
-    generic(Stream_Size: integer := 16; 
-            Bin_Bits: integer := 10;--This will set to determine the frequency resoultion
-            Twiddle_Size: integer:= 8
-            );
-    port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
-        clock: in std_logic;
-        Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
-        Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
-        Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
-        Reset: in std_logic
-        );
-    end component;  
+  -- component Sliding_DFT_Processor is
+  --   generic(Stream_Size: integer := 16; 
+  --           Bin_Bits: integer := 10;--This will set to determine the frequency resoultion
+  --           Twiddle_Size: integer:= 8
+  --           );
+  --   port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
+  --       clock: in std_logic;
+  --       Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
+  --       Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
+  --       Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
+  --       Reset: in std_logic
+  --       );
+  --   end component;  
 
     component Peak_Detector is
       generic(
@@ -182,6 +182,20 @@ END component;
       Peak_Addr: out std_logic_vector(Bin_Addr_Word_Size-1 downto 0)
       );
     end component;
+
+    component FFT_Processor is
+      generic(Stream_Size: integer := 14; 
+              Bin_Bits: integer := 12; --This will set to determine the frequency resoultion
+              Twiddle_Size: integer:= 8
+              );
+      port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
+          clock: in std_logic;
+          Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
+          Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
+          Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
+          Reset: in std_logic
+          );
+      end component;
 
 
 
@@ -352,8 +366,8 @@ END component;
   -- );
 
 
-    FFT_Processor: Sliding_DFT_Processor
-    generic map(Stream_Size => 14, Bin_Bits => FFT_Bins)
+    FFT_Hardware: FFT_Processor
+    generic map(Stream_Size => 14, Bin_Bits => FFT_Bins, Twiddle_Size => 16)
     port map(
     Sample_Stream_In => Target_Signal,
     clock => AD_CLK_in,
