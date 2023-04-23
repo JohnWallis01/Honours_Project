@@ -9,7 +9,6 @@ vhdl xil_defaultlib  \
 "../../../../../VHDL_Modules/CIC32.vhd" \
 "../../../../../VHDL_Modules/Controllers.vhd" \
 "../../../../../VHDL_Modules/Test_Wrapper.vhd" \
-"../../../../../VHDL_Modules/FFT.vhd" \
 "../../../../../VHDL_Modules/AXI4_Stream_Reader.vhd" \
 
 # Do not sort compile order

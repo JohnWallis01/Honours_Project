@@ -77,7 +77,7 @@ ENTITY system_axi_gpio_2_0 IS
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
-    gpio_io_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+    gpio_io_i : IN STD_LOGIC_VECTOR(13 DOWNTO 0)
   );
 END system_axi_gpio_2_0;
 
@@ -123,9 +123,9 @@ ARCHITECTURE system_axi_gpio_2_0_arch OF system_axi_gpio_2_0 IS
       s_axi_rvalid : OUT STD_LOGIC;
       s_axi_rready : IN STD_LOGIC;
       ip2intc_irpt : OUT STD_LOGIC;
-      gpio_io_i : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-      gpio_io_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-      gpio_io_t : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      gpio_io_i : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+      gpio_io_o : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
+      gpio_io_t : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
       gpio2_io_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       gpio2_io_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       gpio2_io_t : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -133,8 +133,8 @@ ARCHITECTURE system_axi_gpio_2_0_arch OF system_axi_gpio_2_0 IS
   END COMPONENT axi_gpio;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF gpio_io_o: SIGNAL IS "XIL_INTERFACENAME GPIO, BOARD.ASSOCIATED_PARAM GPIO_BOARD_INTERFACE";
-  ATTRIBUTE X_INTERFACE_INFO OF gpio_io_o: SIGNAL IS "xilinx.com:interface:gpio:1.0 GPIO TRI_O";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF gpio_io_i: SIGNAL IS "XIL_INTERFACENAME GPIO, BOARD.ASSOCIATED_PARAM GPIO_BOARD_INTERFACE";
+  ATTRIBUTE X_INTERFACE_INFO OF gpio_io_i: SIGNAL IS "xilinx.com:interface:gpio:1.0 GPIO TRI_I";
   ATTRIBUTE X_INTERFACE_PARAMETER OF s_axi_aclk: SIGNAL IS "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_araddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI ARADDR";
@@ -164,11 +164,11 @@ BEGIN
       C_FAMILY => "zynq",
       C_S_AXI_ADDR_WIDTH => 9,
       C_S_AXI_DATA_WIDTH => 32,
-      C_GPIO_WIDTH => 3,
+      C_GPIO_WIDTH => 14,
       C_GPIO2_WIDTH => 32,
-      C_ALL_INPUTS => 0,
+      C_ALL_INPUTS => 1,
       C_ALL_INPUTS_2 => 0,
-      C_ALL_OUTPUTS => 1,
+      C_ALL_OUTPUTS => 0,
       C_ALL_OUTPUTS_2 => 0,
       C_INTERRUPT_PRESENT => 0,
       C_DOUT_DEFAULT => X"00000000",
@@ -197,8 +197,7 @@ BEGIN
       s_axi_rresp => s_axi_rresp,
       s_axi_rvalid => s_axi_rvalid,
       s_axi_rready => s_axi_rready,
-      gpio_io_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 3)),
-      gpio_io_o => gpio_io_o,
+      gpio_io_i => gpio_io_i,
       gpio2_io_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32))
     );
 END system_axi_gpio_2_0_arch;

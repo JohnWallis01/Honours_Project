@@ -58,26 +58,26 @@ module system_Custom_System_0_0 (
   PLL_Guess_Freq,
   Internal_Debug_Freq,
   ADC_Override,
-  Debug_Signal_Select,
   Control_Kp,
   Control_Ki,
   Control_Kd,
+  Freq_Measured,
   s_axis_tdata_ADC_Stream_in,
   s_axis_tvalid_ADC_Stream_in,
   s_axis_tready_ADC_Stream_in,
   DAC_Stream_out,
   AD_CLK_in,
   Sys_CLK_in,
-  Reset
+  Reset_In
 );
 
 input wire [31 : 0] PLL_Guess_Freq;
 input wire [31 : 0] Internal_Debug_Freq;
 input wire ADC_Override;
-input wire [2 : 0] Debug_Signal_Select;
 input wire [31 : 0] Control_Kp;
 input wire [31 : 0] Control_Ki;
 input wire [31 : 0] Control_Kd;
+output wire [31 : 0] Freq_Measured;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *)
 input wire [31 : 0] s_axis_tdata_ADC_Stream_in;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *)
@@ -88,24 +88,26 @@ output wire s_axis_tready_ADC_Stream_in;
 output wire [31 : 0] DAC_Stream_out;
 input wire AD_CLK_in;
 input wire Sys_CLK_in;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *)
-output wire Reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_In, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset_In RST" *)
+input wire Reset_In;
 
-  Custom_System inst (
+  Custom_System #(
+    .FFT_Bins(6)
+  ) inst (
     .PLL_Guess_Freq(PLL_Guess_Freq),
     .Internal_Debug_Freq(Internal_Debug_Freq),
     .ADC_Override(ADC_Override),
-    .Debug_Signal_Select(Debug_Signal_Select),
     .Control_Kp(Control_Kp),
     .Control_Ki(Control_Ki),
     .Control_Kd(Control_Kd),
+    .Freq_Measured(Freq_Measured),
     .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in),
     .s_axis_tvalid_ADC_Stream_in(s_axis_tvalid_ADC_Stream_in),
     .s_axis_tready_ADC_Stream_in(s_axis_tready_ADC_Stream_in),
     .DAC_Stream_out(DAC_Stream_out),
     .AD_CLK_in(AD_CLK_in),
     .Sys_CLK_in(Sys_CLK_in),
-    .Reset(Reset)
+    .Reset_In(Reset_In)
   );
 endmodule

@@ -33,29 +33,39 @@ architecture Test_Wrapper_arch of Test_Wrapper is
     end component;
 
     component Custom_System is
-        generic(
-            FFT_Bins: integer:= 8
-        );
         port (
+
         ------GPIO's
         PLL_Guess_Freq: in std_logic_vector(31 downto 0);
         Internal_Debug_Freq: in std_logic_vector(31 downto 0);
         ADC_Override: in std_logic;
+    
+        -- Debug_Signal_Select: in std_logic_vector(2 downto 0);
         Control_Kp: in std_logic_vector(31 downto 0);
         Control_Ki: in std_logic_vector(31 downto 0);
-        Control_Kd: in std_logic_vector(31 downto 0);
+    
         --debug outputs
         Freq_Measured: out std_logic_vector(31 downto 0);
+    
+    
         ------ADC Control
         s_axis_tdata_ADC_Stream_in: in std_logic_vector(31 downto 0);
         s_axis_tvalid_ADC_Stream_in: in std_logic;
         s_axis_tready_ADC_Stream_in: out std_logic;
+    
         ------DAC control   
         DAC_Stream_out: out std_logic_vector(31 downto 0);
+        
+    
+      
+    
+    
+    
         ---General
         AD_CLK_in: in std_logic;
         Sys_CLK_in: in std_logic;
-        Reset_In: in std_logic
+        Reset_In: in std_logic;
+        Target_Signal_out: out std_logic_vector(13 downto 0)
         );
 
     end component;
@@ -67,14 +77,12 @@ architecture Test_Wrapper_arch of Test_Wrapper is
 begin
 
     System_UT: Custom_System
-    generic map(FFT_Bins => 10)
     port map(
     PLL_Guess_Freq => std_logic_vector(to_signed(343597383, 32)),
     Internal_Debug_Freq => std_logic_vector(to_signed(integer(0), 32)),
     ADC_Override => '0', --setup NCO for externally driven signal
     Control_Kp => std_logic_vector(to_signed(-2**17, 32)),
     Control_Ki => std_logic_vector(to_signed(-2**6, 32)),
-    Control_Kd => std_logic_vector(to_signed(0, 32)),
     Freq_Measured => Freq_Measured,
     s_axis_tdata_ADC_Stream_in => std_logic_vector(resize(signed(Stimulus_Sig), 32)),
     s_axis_tvalid_ADC_Stream_in => '0',
@@ -82,7 +90,8 @@ begin
     DAC_Stream_out => DAC_Buffer,
     AD_CLK_in => clock,
     Sys_CLK_in => '0',
-    Reset_In => Reset
+    Reset_In => Reset,
+    Target_Signal_out => open
     );
 
     Stimulus_NCO: NCO
@@ -92,7 +101,7 @@ begin
         DAC_SIZE => 14
         )
         port map (
-          Frequency => std_logic_vector(to_signed(240518168, 32)),
+          Frequency => std_logic_vector(to_signed(343897383, 32)),
           PhaseOffset => (others =>'0'),
           clock => clock,
           rst => Reset,

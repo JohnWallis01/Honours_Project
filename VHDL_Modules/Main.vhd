@@ -4,20 +4,16 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 entity Custom_System is
-  generic(
-    FFT_Bins: integer:= 6
-
-  );
     port (
 
     ------GPIO's
     PLL_Guess_Freq: in std_logic_vector(31 downto 0);
     Internal_Debug_Freq: in std_logic_vector(31 downto 0);
     ADC_Override: in std_logic;
+
     -- Debug_Signal_Select: in std_logic_vector(2 downto 0);
     Control_Kp: in std_logic_vector(31 downto 0);
     Control_Ki: in std_logic_vector(31 downto 0);
-    Control_Kd: in std_logic_vector(31 downto 0);
 
     --debug outputs
     Freq_Measured: out std_logic_vector(31 downto 0);
@@ -31,11 +27,19 @@ entity Custom_System is
     ------DAC control   
     DAC_Stream_out: out std_logic_vector(31 downto 0);
     
-    
+
+  
+
+
+
     ---General
     AD_CLK_in: in std_logic;
     Sys_CLK_in: in std_logic;
-    Reset_In: in std_logic
+    Reset_In: in std_logic;
+    Reset_Out: out std_logic;
+    Integrator_Reset: in std_logic;
+    --FIFO
+    Target_Signal_out: out std_logic_vector(13 downto 0)
     );
 
 
@@ -107,7 +111,7 @@ architecture System_Architecture of Custom_System is
       Freq_Size: integer := 32;
       ROM_Size: integer := 8;
       DAC_SIZE:integer := 16
-      ) ; -- vhdl-linter-disable-line component
+      );
       port (
         Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
         PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
@@ -144,59 +148,6 @@ architecture System_Architecture of Custom_System is
         );
 END component;
 
--- component FIR_Filter is
---   port (
---       clock : in std_logic;
---       Signal_Input : in  std_logic_vector(28-1 downto 0);
---       Signal_Output : out std_logic_vector(28-1 downto 0);
---       Reset: in std_logic
---   );
---   end component; 
-
-
-
-  -- component Sliding_DFT_Processor is
-  --   generic(Stream_Size: integer := 16; 
-  --           Bin_Bits: integer := 10;--This will set to determine the frequency resoultion
-  --           Twiddle_Size: integer:= 8
-  --           );
-  --   port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
-  --       clock: in std_logic;
-  --       Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
-  --       Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
-  --       Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
-  --       Reset: in std_logic
-  --       );
-  --   end component;  
-
-    component Peak_Detector is
-      generic(
-          Input_Word_Size: integer := 16;
-          Bin_Addr_Word_Size: integer := 10
-      );
-      port (
-      clock: in std_logic;
-      Input_Data: in std_logic_vector(Input_Word_Size-1 downto 0);
-      Addr_Selector: out std_logic_vector(Bin_Addr_Word_Size-1 downto 0);
-      reset: in std_logic;
-      Peak_Addr: out std_logic_vector(Bin_Addr_Word_Size-1 downto 0)
-      );
-    end component;
-
-    component FFT_Processor is
-      generic(Stream_Size: integer := 14; 
-              Bin_Bits: integer := 12; --This will set to determine the frequency resoultion
-              Twiddle_Size: integer:= 8
-              );
-      port(Sample_Stream_In: in std_logic_vector(Stream_Size-1 downto 0);
-          clock: in std_logic;
-          Bin_Addr: in std_logic_vector(Bin_Bits-1 downto 0);
-          Fourier_Output_Real: out std_logic_vector(Stream_Size-1 downto 0);
-          Fourier_Output_Imag: out std_logic_vector(Stream_Size-1 downto 0);
-          Reset: in std_logic
-          );
-      end component;
-
 
 
 
@@ -206,16 +157,22 @@ END component;
   signal Quadrature_Mixer_Output: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
   
-  --Quadrature Signals
-  -- signal Phase_Mixer_Output: std_logic_vector(27 downto 0);
-  -- signal Amplitude_Signal: std_logic_vector(25 downto 0);
-
-
-    signal Fourier_Real, Fourier_Imag: std_logic_vector(13 downto 0);
-    signal Fourier_Magnitude: std_logic_vector(27 downto 0);
-    signal Fourier_Addr, Fourier_Peak: std_logic_vector(FFT_Bins-1 downto 0);
+  signal Init_State: std_logic := '1';
 
   begin
+
+
+
+
+  process(AD_CLK_in)
+  begin
+    if Init_State = '1' then
+      Reset_Out <= '1';
+      Init_State <= '0';
+    else
+      Reset_Out <= '0';
+    end if;
+  end process;
 
   --ADC interface/Override--
 
@@ -249,12 +206,24 @@ END component;
     Dout => Target_Signal
   );
 
+
+  --FIFO Controller;
+
+  process(AD_CLK_in)
+  begin
+  if rising_edge(AD_CLK_in) then
+    if Reset_In = '1' then
+      Target_Signal_out <= (others => '0');
+    else
+      Target_Signal_out <= Target_Signal;   
+    end if;
+  end if;
+  end process;
+
   --PLL--
   process(AD_CLK_in)
   begin
     if rising_edge(AD_CLK_in) then
-      -- Freq_Error <= std_logic_vector(signed(Control_Input) -  signed(Control_Input_Prev));
-      -- Control_Input_Prev <= Control_Input;
       PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) + signed(Control_Input));
       Freq_Measured <= PLL_Freq;
     end if;
@@ -282,18 +251,6 @@ END component;
     Reset => Reset_In
   );
 
-  --Phase Mixer (Tracks Amplitude)
-
-  -- Phase_Mixer: Mixer
-  -- generic map(MixerSize => 14)
-  -- port map(
-  --   Q1 => Target_Signal,
-  --   Q2 => Locked_Signal,
-  --   Dout => Phase_Mixer_Output,
-  --   clk => AD_CLK_in
-  -- );
-
-
   Loop_Filter: CIC32
   port map(
     clk  => AD_CLK_in,
@@ -304,43 +261,18 @@ END component;
     ce_out => open
   );
 
-  -- Loop_Filter: FIR_Filter
-  -- port map(
-  --     clock => AD_CLK_in,
-  --     Signal_Input => Quadrature_Mixer_Output,
-  --     Signal_Output => Error_Signal,
-  --     Reset => Reset_In
-  -- );
-
-
-  -- Phase_Filter: CIC32
-  -- port map(
-  --   clk  => AD_CLK_in,
-  --   clk_enable => '1',
-  --   reset => '0',
-  --   filter_in => Phase_Mixer_Output(27 downto 12),
-  --   filter_out => Amplitude_Signal,
-  --   ce_out => open
-  -- );
-
-
-
 
   Loop_Controller: PID_Controller
   generic map(Data_Size => 32, Inital => 0)
   port map(
-    -- SignalInput => "0000" & Error_Signal, -- Assign LSB to this signal
     SignalInput => std_logic_vector(resize(signed(Error_Signal), 32)),
     SignalOutput => Control_Input,
     kI => Control_Ki,
     kP => Control_Kp,
-    kD => Control_Kd,
+    kD => std_logic_vector(to_signed(0, 32)),
     clock => AD_CLK_in,
-    Reset => Reset_In
+    Reset => (Reset_In or Integrator_Reset)
   );
-
-
-
 
   --DAC Controller--
 
@@ -364,31 +296,6 @@ END component;
   --   Sel =>Debug_Signal_Select,
   --   Dout => DAC_Stream_out(29 downto 16)
   -- );
-
-
-    FFT_Hardware: FFT_Processor
-    generic map(Stream_Size => 14, Bin_Bits => FFT_Bins, Twiddle_Size => 16)
-    port map(
-    Sample_Stream_In => Target_Signal,
-    clock => AD_CLK_in,
-    Bin_Addr => Fourier_Addr,
-    Fourier_Output_Real => Fourier_Real,
-    Fourier_Output_Imag => Fourier_Imag,
-    Reset => Reset_In
-    );
-
-
-    Fourier_Magnitude <= std_logic_vector(signed(Fourier_Real)*signed(Fourier_Real) + signed(Fourier_Imag)*signed(Fourier_Imag));
-
-    Course_Freq_Detector: Peak_Detector
-    generic map(Input_Word_Size => 28, Bin_Addr_Word_Size => FFT_Bins)
-    port map(
-      clock => AD_CLK_in,
-      Input_Data => Fourier_Magnitude,
-      Addr_Selector => Fourier_Addr,
-      reset => Reset_In,
-      Peak_Addr => Fourier_Peak
-    );
 
 
 end architecture;

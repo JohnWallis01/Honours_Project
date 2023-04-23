@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sat Mar 11 19:49:59 2023
+-- Date        : Wed Mar 15 12:19:55 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/Libraries/Documents/UNIFPGA/redpitaya_guide/tmp/1_led_blink/1_led_blink.gen/sources_1/bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axis_red_pitaya_adc_0_0 -prefix
+--               system_axis_red_pitaya_adc_0_0_ system_axis_red_pitaya_adc_0_0_sim_netlist.vhdl
 -- Design      : system_axis_red_pitaya_adc_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -23,8 +23,6 @@ entity system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc is
     adc_dat_a : in STD_LOGIC_VECTOR ( 13 downto 0 );
     adc_dat_b : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc : entity is "axis_red_pitaya_adc";
 end system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc;
 
 architecture STRUCTURE of system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc is

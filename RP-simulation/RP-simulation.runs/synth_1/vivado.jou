@@ -2,12 +2,12 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Wed Apr 12 14:34:37 2023
-# Process ID: 11056
+# Start of session at: Fri Apr 14 13:13:16 2023
+# Process ID: 168584
 # Current directory: C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/synth_1
 # Command line: vivado.exe -log Sliding_DFT_Processor.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Sliding_DFT_Processor.tcl
 # Log file: C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/synth_1/Sliding_DFT_Processor.vds
 # Journal file: C:/Users/John/Desktop/Honours_Project/RP-simulation/RP-simulation.runs/synth_1\vivado.jou
-# Running On: DESKTOP-ORRMO2Q, OS: Windows, CPU Frequency: 1996 MHz, CPU Physical cores: 16, Host memory: 14870 MB
+# Running On: Centurion-Heavy, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17101 MB
 #-----------------------------------------------------------
 source Sliding_DFT_Processor.tcl -notrace

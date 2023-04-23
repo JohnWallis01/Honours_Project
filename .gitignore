@@ -4,3 +4,5 @@ RP-simulation/RP-simulation.sim/sim_1/behav/xsim/xsim_dump.vcd
 RP-simulation/RP-simulation.sim/sim_1/behav/xsim/test_bench_init_behav.wdb
 helper/Frames/*
 RP-simulation/RP-simulation.runs/synth_1/Sliding_DFT_Processor.dcp
+RP-simulation/RP-simulation.runs/impl_1/Sliding_DFT_Processor_opt.dcp
+RP-simulation/RP-simulation.srcs/utils_1/imports/synth_1/Sliding_DFT_Processor.dcp

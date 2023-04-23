@@ -43,7 +43,6 @@
         "ADC_Override": [ { "direction": "in" } ],
         "Control_Kp": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "Control_Ki": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "Control_Kd": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "Freq_Measured": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
         "s_axis_tdata_ADC_Stream_in": [ { "direction": "in", "size_left": "31", "size_right": "0", "driver_value": "0" } ],
         "s_axis_tvalid_ADC_Stream_in": [ { "direction": "in" } ],
@@ -51,7 +50,10 @@
         "DAC_Stream_out": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
         "AD_CLK_in": [ { "direction": "in" } ],
         "Sys_CLK_in": [ { "direction": "in" } ],
-        "Reset_In": [ { "direction": "in" } ]
+        "Reset_In": [ { "direction": "in" } ],
+        "Reset_Out": [ { "direction": "out" } ],
+        "Integrator_Reset": [ { "direction": "in" } ],
+        "Target_Signal_out": [ { "direction": "out", "size_left": "13", "size_right": "0" } ]
       },
       "interfaces": {
         "s_axis_ADC_Stream_in": {
@@ -79,6 +81,18 @@
             "TREADY": [ { "physical_name": "s_axis_tready_ADC_Stream_in" } ]
           }
         },
+        "Integrator_Reset": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "Integrator_Reset" } ]
+          }
+        },
         "Reset_In": {
           "vlnv": "xilinx.com:signal:reset:1.0",
           "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
@@ -89,6 +103,18 @@
           },
           "port_maps": {
             "RST": [ { "physical_name": "Reset_In" } ]
+          }
+        },
+        "Reset_Out": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "master",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "Reset_Out" } ]
           }
         }
       }

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Apr  6 09:45:01 2023
+| Date         : Sun Apr 23 21:02:07 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
@@ -157,29 +157,33 @@ Warning! LUT value is adjusted to account for LUT combining.
 8. Black Boxes
 --------------
 
-+--------------------------------+------+
-|            Ref Name            | Used |
-+--------------------------------+------+
-| system_xbar_2                  |    1 |
-| system_util_ds_buf_1_0         |    1 |
-| system_util_ds_buf_0_0         |    1 |
-| system_processing_system7_0_0  |    1 |
-| system_proc_sys_reset_0_0      |    1 |
-| system_inverter_0_0            |    1 |
-| system_clk_wiz_0_0             |    1 |
-| system_axis_red_pitaya_dac_1_0 |    1 |
-| system_axis_red_pitaya_adc_0_0 |    1 |
-| system_axis_constant_0_0       |    1 |
-| system_axi_gpio_3_1            |    1 |
-| system_axi_gpio_2_0            |    1 |
-| system_axi_gpio_1_0            |    1 |
-| system_axi_gpio_0_6            |    1 |
-| system_axi_gpio_0_5            |    1 |
-| system_auto_pc_0               |    1 |
-| system_GPIO_Kp_0               |    1 |
-| system_GPIO_Kd_0               |    1 |
-| system_Custom_System_0_0       |    1 |
-+--------------------------------+------+
++-------------------------------------+------+
+|               Ref Name              | Used |
++-------------------------------------+------+
+| system_xbar_2                       |    1 |
+| system_util_ds_buf_1_0              |    1 |
+| system_util_ds_buf_0_0              |    1 |
+| system_processing_system7_0_0       |    1 |
+| system_proc_sys_reset_0_0           |    1 |
+| system_fifo_generator_0_0           |    1 |
+| system_clk_wiz_0_0                  |    1 |
+| system_axis_red_pitaya_dac_1_0      |    1 |
+| system_axis_red_pitaya_adc_0_0      |    1 |
+| system_axis_constant_0_0            |    1 |
+| system_axi_gpio_3_1                 |    1 |
+| system_axi_gpio_2_0                 |    1 |
+| system_axi_gpio_1_0                 |    1 |
+| system_axi_gpio_0_6                 |    1 |
+| system_axi_gpio_0_5                 |    1 |
+| system_auto_pc_0                    |    1 |
+| system_GPIO_Kp_0                    |    1 |
+| system_GPIO_Kd_0                    |    1 |
+| system_GPIO_FIFO_Write_Controller_0 |    1 |
+| system_GPIO_FIFO_Read_Ready_2       |    1 |
+| system_GPIO_FIFO_Clock_0            |    1 |
+| system_GPIO_FIFO_0                  |    1 |
+| system_Custom_System_0_0            |    1 |
++-------------------------------------+------+
 
 
 9. Instantiated Netlists

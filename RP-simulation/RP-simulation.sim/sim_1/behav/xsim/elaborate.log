@@ -1,6 +1,6 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_bench_init_behav xil_defaultlib.test_bench_init xil_defaultlib.glbl -log elaborate.log 
+Running: E:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_bench_init_behav xil_defaultlib.test_bench_init xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -19,9 +19,7 @@ Compiling architecture dual_multiplexer_arch of entity xil_defaultlib.Dual_Multi
 Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
 Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
 Compiling architecture pid_controller_arch of entity xil_defaultlib.PID_Controller [pid_controller_default]
-Compiling architecture sliding_dft_processor_arch of entity xil_defaultlib.Sliding_DFT_Processor [\Sliding_DFT_Processor(stream_si...]
-Compiling architecture peak_detector_arch of entity xil_defaultlib.Peak_Detector [\Peak_Detector(input_word_size=2...]
-Compiling architecture system_architecture of entity xil_defaultlib.Custom_System [\Custom_System(fft_bins=8)\]
+Compiling architecture system_architecture of entity xil_defaultlib.Custom_System [custom_system_default]
 Compiling architecture test_wrapper_arch of entity xil_defaultlib.Test_Wrapper [test_wrapper_default]
 Compiling module xil_defaultlib.test_bench_init
 Compiling module xil_defaultlib.glbl

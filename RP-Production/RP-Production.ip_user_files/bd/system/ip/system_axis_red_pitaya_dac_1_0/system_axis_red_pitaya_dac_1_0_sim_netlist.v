@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sat Mar 11 19:49:58 2023
+// Date        : Wed Mar 15 12:19:15 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/Libraries/Documents/UNIFPGA/redpitaya_guide/tmp/1_led_blink/1_led_blink.gen/sources_1/bd/system/ip/system_axis_red_pitaya_dac_1_0/system_axis_red_pitaya_dac_1_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_axis_red_pitaya_dac_1_0 -prefix
+//               system_axis_red_pitaya_dac_1_0_ system_axis_red_pitaya_dac_1_0_sim_netlist.v
 // Design      : system_axis_red_pitaya_dac_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,62 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_axis_red_pitaya_dac_1_0,axis_red_pitaya_dac,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "axis_red_pitaya_dac,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module system_axis_red_pitaya_dac_1_0
-   (aclk,
-    ddr_clk,
-    locked,
-    dac_clk,
-    dac_rst,
-    dac_sel,
-    dac_wrt,
-    dac_dat,
-    s_axis_tready,
-    s_axis_tdata,
-    s_axis_tvalid);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXIS, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input aclk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 ddr_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /SignalGenerator/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input ddr_clk;
-  input locked;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 dac_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME dac_clk, ASSOCIATED_RESET dac_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_dac_1_0_dac_clk, INSERT_VIP 0" *) output dac_clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 dac_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME dac_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output dac_rst;
-  output dac_sel;
-  output dac_wrt;
-  output [13:0]dac_dat;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TREADY" *) output s_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TDATA" *) input [31:0]s_axis_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_tvalid;
-
-  wire \<const1> ;
-  wire aclk;
-  wire dac_clk;
-  wire [13:0]dac_dat;
-  wire dac_rst;
-  wire dac_sel;
-  wire dac_wrt;
-  wire ddr_clk;
-  wire locked;
-  wire [31:0]s_axis_tdata;
-  wire s_axis_tvalid;
-
-  assign s_axis_tready = \<const1> ;
-  VCC VCC
-       (.P(\<const1> ));
-  system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac inst
-       (.aclk(aclk),
-        .dac_clk(dac_clk),
-        .dac_dat(dac_dat),
-        .dac_rst(dac_rst),
-        .dac_sel(dac_sel),
-        .dac_wrt(dac_wrt),
-        .ddr_clk(ddr_clk),
-        .locked(locked),
-        .s_axis_tdata({s_axis_tdata[29:16],s_axis_tdata[13:0]}),
-        .s_axis_tvalid(s_axis_tvalid));
-endmodule
-
-(* ORIG_REF_NAME = "axis_red_pitaya_dac" *) 
 module system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac
    (dac_dat,
     dac_rst,
@@ -789,6 +733,61 @@ module system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac
         .D(int_rst_reg_i_1_n_0),
         .Q(int_rst_reg),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_axis_red_pitaya_dac_1_0,axis_red_pitaya_dac,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "axis_red_pitaya_dac,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module system_axis_red_pitaya_dac_1_0
+   (aclk,
+    ddr_clk,
+    locked,
+    dac_clk,
+    dac_rst,
+    dac_sel,
+    dac_wrt,
+    dac_dat,
+    s_axis_tready,
+    s_axis_tdata,
+    s_axis_tvalid);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXIS, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 ddr_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr_clk, FREQ_HZ 250000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /DAC_Controller/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input ddr_clk;
+  input locked;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 dac_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME dac_clk, ASSOCIATED_RESET dac_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_dac_1_0_dac_clk, INSERT_VIP 0" *) output dac_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 dac_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME dac_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output dac_rst;
+  output dac_sel;
+  output dac_wrt;
+  output [13:0]dac_dat;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TREADY" *) output s_axis_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TDATA" *) input [31:0]s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_tvalid;
+
+  wire \<const1> ;
+  wire aclk;
+  wire dac_clk;
+  wire [13:0]dac_dat;
+  wire dac_rst;
+  wire dac_sel;
+  wire dac_wrt;
+  wire ddr_clk;
+  wire locked;
+  wire [31:0]s_axis_tdata;
+  wire s_axis_tvalid;
+
+  assign s_axis_tready = \<const1> ;
+  VCC VCC
+       (.P(\<const1> ));
+  system_axis_red_pitaya_dac_1_0_axis_red_pitaya_dac inst
+       (.aclk(aclk),
+        .dac_clk(dac_clk),
+        .dac_dat(dac_dat),
+        .dac_rst(dac_rst),
+        .dac_sel(dac_sel),
+        .dac_wrt(dac_wrt),
+        .ddr_clk(ddr_clk),
+        .locked(locked),
+        .s_axis_tdata({s_axis_tdata[29:16],s_axis_tdata[13:0]}),
+        .s_axis_tvalid(s_axis_tvalid));
 endmodule
 `ifndef GLBL
 `define GLBL
