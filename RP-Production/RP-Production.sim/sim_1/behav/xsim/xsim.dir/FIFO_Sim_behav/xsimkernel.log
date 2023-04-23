@@ -2,3 +2,6 @@ Running: xsim.dir/FIFO_Sim_behav/xsimk.exe -simmode gui -wdb FIFO_Sim_behav.wdb 
 Design successfully loaded
 Design Loading Memory Usage: 7368 KB (Peak: 7368 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 16108 KB (Peak: 16108 KB)
+Simulation CPU Usage: 2984 ms

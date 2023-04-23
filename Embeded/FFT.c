@@ -186,7 +186,7 @@ int main() {
     // do this is only if significant discrepancy between the PLL measure and the FFT measurment
     //this will continously tune the PLL)
     int Freq_Measurment = *(uint32_t *)PLL_Freq_Measured;
-    if (f_tuning-Freq_Measurment > 1048575/2 || f_tuning-Freq_Measurment < -1048575/2)
+    if (f_tuning-Freq_Measurment > pow(2,31)/npoints || f_tuning-Freq_Measurment < -pow(2,31)/npoints)
     {
     *(uint32_t*)Integrator_Reset = 1;
     *(uint32_t*)PLL_Guess_Freq = f_tuning;
