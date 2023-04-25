@@ -6,3 +6,4 @@ helper/Frames/*
 RP-simulation/RP-simulation.runs/synth_1/Sliding_DFT_Processor.dcp
 RP-simulation/RP-simulation.runs/impl_1/Sliding_DFT_Processor_opt.dcp
 RP-simulation/RP-simulation.srcs/utils_1/imports/synth_1/Sliding_DFT_Processor.dcp
+helper/log.txt

@@ -6,9 +6,17 @@
 #include <stdlib.h>
 #include <math.h>
 #include <complex.h>
+#include <signal.h>
+
 #define PI 3.14159265358979323846
 #define npoints 4096
 #define fSampling 125 //in Mhz
+
+
+#define step_size 525000
+#define init_freq 343597383
+#define kp_value 0xFFFE0000
+#define ki_value 0xFFFFFFF8// 0xFFFFFFF8
 
 int s14(int number) {
     if (number > 8191){
@@ -20,10 +28,12 @@ int s14(int number) {
     }
 }
 
-void debug() {
-
-
-
+double rand_std_normal() {
+    double u1 = rand() / (double)RAND_MAX;
+    double u2 = rand() / (double)RAND_MAX;
+    double r = sqrt(-2.0 * log(u1));
+    double theta = 2.0 * M_PI * u2;
+    return r * sin(theta);
 }
 
 void FFT(double complex *vector, int n)
@@ -62,10 +72,21 @@ void FFT(double complex *vector, int n)
 }
 
 
+
+
+void handle_sigint(int sig) {
+    //Engineer: chat_gpt
+    printf("\nTerminating Gracefully\n");
+    exit(0);
+}
+
 int main() {
+    // Register signal handler for SIGINT
+    signal(SIGINT, handle_sigint);
     int stream_data[npoints];
     double complex computed_stream[npoints];
-    int Debug_Value = 343597383;
+    int Debug_Value = init_freq;
+    srand(time(NULL)); // seed the random number generator with the current time
     int fd = open("/dev/mem", O_RDWR);
     void *datastream = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
              PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x41210000);
@@ -98,21 +119,31 @@ int main() {
 
 
 
-    *(uint32_t*)Ki = 0xFFFFFFC0;
-    *(uint32_t*)Kp = 0xFFFE0000;
-
+    *(uint32_t*)Ki = ki_value;
+    *(uint32_t*)Kp = kp_value;
 
     *(uint32_t*)ADC_Override = 1;
     *(uint32_t*)Debug_Freq = Debug_Value;
 
-    //end debug
+    *(uint32_t*)Integrator_Reset = 0;
+    *(uint32_t*)Integrator_Reset = 1;
+    *(uint32_t*)Integrator_Reset = 0;
 
+
+
+    //end debug
+    int step = 0;
     while (1)
     {
-    // Debug_Value = Debug_Value-100000;
-    // printf("Debug_Value %d\n", Debug_Value);
-    // *(uint32_t*)Debug_Freq = Debug_Value;
-
+    
+    step ++;
+    if (step == 10) {
+    Debug_Value += (int)(step_size*rand_std_normal());
+    // Debug_Value += step_size;
+    printf("Debug_Value: %d\n", Debug_Value);
+    *(uint32_t*)Debug_Freq = Debug_Value;
+    step = 0;
+    }
 
     //Setup
     *(uint32_t*)FIFO_Clock = 0;
@@ -192,13 +223,12 @@ int main() {
     *(uint32_t*)PLL_Guess_Freq = f_tuning;
     usleep(1);
     *(uint32_t*)Integrator_Reset = 0;
-    printf("Relocking: delta = %d\n", f_tuning-Freq_Measurment);
+    printf("Relocking:");
     printf("FFT Measured Tuning: %d\n" , f_tuning);
     printf("PLL Measured Tuning: %d\n", Freq_Measurment);
-
     }
 
-    printf("PLL Real Error: %d\n",  *(uint32_t *)PLL_Freq_Measured - Debug_Value);
+    printf("PLL Error: %d\n",  *(uint32_t *)PLL_Freq_Measured - Debug_Value);
     }
 
 
