@@ -15,8 +15,9 @@
 
 #define step_size 525000
 #define init_freq 343597383
-#define kp_value 0xFFFE0000
-#define ki_value 0xFFFFFFF8// 0xFFFFFFF8
+#define kp_value    0xFFFE0000
+#define ki_value    0xFFFFFFF8// 0xFFFFFFF8
+#define lock_value  0x00000016
 
 int s14(int number) {
     if (number > 8191){
@@ -116,11 +117,18 @@ int main() {
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x41250000);  
     void *Kp = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x41260000);  
+    void *PLL_Lock = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
+        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412c0000);  
+    void *Lock_Threshold = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
+        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412b0000); 
+        
 
 
 
     *(uint32_t*)Ki = ki_value;
     *(uint32_t*)Kp = kp_value;
+    *(uint32_t*)Lock_Threshold = lock_value;
+
 
     *(uint32_t*)ADC_Override = 0;
     *(uint32_t*)Debug_Freq = Debug_Value;
@@ -214,11 +222,20 @@ int main() {
 
 
    
-    // do this is only if significant discrepancy between the PLL measure and the FFT measurment
-    //this will continously tune the PLL)
+    // do this is only if significant discrepancy between the PLL measure and the FFT measurment and the PLL error is high,
     int Freq_Measurment = *(uint32_t *)PLL_Freq_Measured;
+    int PLL_Status =    *(uint32_t *)PLL_Lock;
     if (f_tuning-Freq_Measurment > pow(2,32)/npoints || f_tuning-Freq_Measurment < -pow(2,32)/npoints)
     {
+    if (PLL_Status == 0x00000001) {
+    *(uint32_t*)Integrator_Reset = 1;
+    *(uint32_t*)PLL_Guess_Freq = f_tuning;
+    usleep(1);
+    *(uint32_t*)Integrator_Reset = 0;
+    printf("Relocking:");
+    printf("FFT Measured Tuning: %d\n" , f_tuning);
+    printf("PLL Measured Tuning: %d\n", Freq_Measurment);
+    
     *(uint32_t*)Integrator_Reset = 1;
     *(uint32_t*)PLL_Guess_Freq = f_tuning;
     usleep(1);
@@ -227,8 +244,9 @@ int main() {
     printf("FFT Measured Tuning: %d\n" , f_tuning);
     printf("PLL Measured Tuning: %d\n", Freq_Measurment);
     }
+    }
+    
 	printf("Measured Frequency %f (Mhz)\n:", (float)Freq_Measurment*fSampling/pow(2,32));
-//    printf("PLL Error: %d\n",  *(uint32_t *)PLL_Freq_Measured - Debug_Value);
     }
 
 
