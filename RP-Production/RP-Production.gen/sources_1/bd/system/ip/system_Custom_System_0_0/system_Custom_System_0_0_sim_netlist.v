@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Apr 23 21:01:30 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Thu Apr 27 15:45:54 2023
+// Host        : DESKTOP-ORRMO2Q running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0_sim_netlist.v
 // Design      : system_Custom_System_0_0
@@ -21,6 +21,8 @@ module system_Custom_System_0_0
     ADC_Override,
     Control_Kp,
     Control_Ki,
+    Control_Lock_Threshold,
+    Lock_Detect,
     Freq_Measured,
     s_axis_tdata_ADC_Stream_in,
     s_axis_tvalid_ADC_Stream_in,
@@ -37,6 +39,8 @@ module system_Custom_System_0_0
   input ADC_Override;
   input [31:0]Control_Kp;
   input [31:0]Control_Ki;
+  input [25:0]Control_Lock_Threshold;
+  input Lock_Detect;
   output [31:0]Freq_Measured;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *) input [31:0]s_axis_tdata_ADC_Stream_in;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *) input s_axis_tvalid_ADC_Stream_in;
@@ -55,7 +59,7 @@ module system_Custom_System_0_0
   wire AD_CLK_in;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire [13:0]\^DAC_Stream_out ;
+  wire [29:0]\^DAC_Stream_out ;
   wire [31:0]Freq_Measured;
   wire Integrator_Reset;
   wire [31:0]Internal_Debug_Freq;
@@ -68,20 +72,7 @@ module system_Custom_System_0_0
 
   assign DAC_Stream_out[31] = \<const0> ;
   assign DAC_Stream_out[30] = \<const0> ;
-  assign DAC_Stream_out[29] = \<const0> ;
-  assign DAC_Stream_out[28] = \<const0> ;
-  assign DAC_Stream_out[27] = \<const0> ;
-  assign DAC_Stream_out[26] = \<const0> ;
-  assign DAC_Stream_out[25] = \<const0> ;
-  assign DAC_Stream_out[24] = \<const0> ;
-  assign DAC_Stream_out[23] = \<const0> ;
-  assign DAC_Stream_out[22] = \<const0> ;
-  assign DAC_Stream_out[21] = \<const0> ;
-  assign DAC_Stream_out[20] = \<const0> ;
-  assign DAC_Stream_out[19] = \<const0> ;
-  assign DAC_Stream_out[18] = \<const0> ;
-  assign DAC_Stream_out[17] = \<const0> ;
-  assign DAC_Stream_out[16] = \<const0> ;
+  assign DAC_Stream_out[29:16] = \^DAC_Stream_out [29:16];
   assign DAC_Stream_out[15] = \<const0> ;
   assign DAC_Stream_out[14] = \<const0> ;
   assign DAC_Stream_out[13] = \^DAC_Stream_out [13];
@@ -97,7 +88,7 @@ module system_Custom_System_0_0
         .AD_CLK_in(AD_CLK_in),
         .Control_Ki(Control_Ki),
         .Control_Kp(Control_Kp),
-        .DAC_Stream_out({\^DAC_Stream_out [13],\^DAC_Stream_out [11:0]}),
+        .DAC_Stream_out({\^DAC_Stream_out [29:16],\^DAC_Stream_out [13],\^DAC_Stream_out [11:0]}),
         .Freq_Measured(Freq_Measured),
         .Integrator_Reset(Integrator_Reset),
         .Internal_Debug_Freq(Internal_Debug_Freq),
@@ -2104,31 +2095,31 @@ endmodule
 (* ORIG_REF_NAME = "Custom_System" *) 
 module system_Custom_System_0_0_Custom_System
    (Reset_Out,
+    DAC_Stream_out,
     Freq_Measured,
     Target_Signal_out,
-    DAC_Stream_out,
     \section_out1_reg[23] ,
     AD_CLK_in,
     s_axis_tdata_ADC_Stream_in,
     ADC_Override,
-    Reset_In,
     Control_Ki,
     Control_Kp,
     PLL_Guess_Freq,
+    Reset_In,
     Internal_Debug_Freq,
     Integrator_Reset);
   output Reset_Out;
+  output [26:0]DAC_Stream_out;
   output [31:0]Freq_Measured;
   output [13:0]Target_Signal_out;
-  output [12:0]DAC_Stream_out;
   input \section_out1_reg[23] ;
   input AD_CLK_in;
   input [13:0]s_axis_tdata_ADC_Stream_in;
   input ADC_Override;
-  input Reset_In;
   input [31:0]Control_Ki;
   input [31:0]Control_Kp;
   input [31:0]PLL_Guess_Freq;
+  input Reset_In;
   input [31:0]Internal_Debug_Freq;
   input Integrator_Reset;
 
@@ -2150,7 +2141,7 @@ module system_Custom_System_0_0_Custom_System
   wire AD_CLK_in;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire [12:0]DAC_Stream_out;
+  wire [26:0]DAC_Stream_out;
   wire [13:0]Dout;
   wire [31:0]Freq_Measured;
   wire Integrator_Reset;
@@ -2325,7 +2316,7 @@ module system_Custom_System_0_0_Custom_System
   wire Quadrature_Mixer_n_9;
   wire Reset_In;
   wire Reset_Out;
-  wire [31:0]SignalOutput;
+  wire [17:0]SignalOutput;
   wire [13:0]Target_Signal_out;
   wire [25:0]output_register;
   wire [13:0]s_axis_tdata_ADC_Stream_in;
@@ -2558,7 +2549,7 @@ module system_Custom_System_0_0_Custom_System
         .Integrator_Reset(Integrator_Reset),
         .Q(output_register),
         .Reset_In(Reset_In),
-        .\SignalOutput_reg[31]_0 (SignalOutput));
+        .\SignalOutput_reg[31]_0 ({DAC_Stream_out[26:13],SignalOutput}));
   system_Custom_System_0_0_CIC32 Loop_Filter
        (.AD_CLK_in(AD_CLK_in),
         .O({Quadrature_Mixer_n_0,Quadrature_Mixer_n_1,Quadrature_Mixer_n_2,Quadrature_Mixer_n_3}),
@@ -2623,13 +2614,13 @@ module system_Custom_System_0_0_Custom_System
     .INIT(4'h6)) 
     \PLL_Freq[19]_i_2 
        (.I0(PLL_Guess_Freq[19]),
-        .I1(SignalOutput[19]),
+        .I1(DAC_Stream_out[14]),
         .O(\PLL_Freq[19]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[19]_i_3 
        (.I0(PLL_Guess_Freq[18]),
-        .I1(SignalOutput[18]),
+        .I1(DAC_Stream_out[13]),
         .O(\PLL_Freq[19]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
@@ -2647,73 +2638,73 @@ module system_Custom_System_0_0_Custom_System
     .INIT(4'h6)) 
     \PLL_Freq[23]_i_2 
        (.I0(PLL_Guess_Freq[23]),
-        .I1(SignalOutput[23]),
+        .I1(DAC_Stream_out[18]),
         .O(\PLL_Freq[23]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[23]_i_3 
        (.I0(PLL_Guess_Freq[22]),
-        .I1(SignalOutput[22]),
+        .I1(DAC_Stream_out[17]),
         .O(\PLL_Freq[23]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[23]_i_4 
        (.I0(PLL_Guess_Freq[21]),
-        .I1(SignalOutput[21]),
+        .I1(DAC_Stream_out[16]),
         .O(\PLL_Freq[23]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[23]_i_5 
        (.I0(PLL_Guess_Freq[20]),
-        .I1(SignalOutput[20]),
+        .I1(DAC_Stream_out[15]),
         .O(\PLL_Freq[23]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[27]_i_2 
        (.I0(PLL_Guess_Freq[27]),
-        .I1(SignalOutput[27]),
+        .I1(DAC_Stream_out[22]),
         .O(\PLL_Freq[27]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[27]_i_3 
        (.I0(PLL_Guess_Freq[26]),
-        .I1(SignalOutput[26]),
+        .I1(DAC_Stream_out[21]),
         .O(\PLL_Freq[27]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[27]_i_4 
        (.I0(PLL_Guess_Freq[25]),
-        .I1(SignalOutput[25]),
+        .I1(DAC_Stream_out[20]),
         .O(\PLL_Freq[27]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[27]_i_5 
        (.I0(PLL_Guess_Freq[24]),
-        .I1(SignalOutput[24]),
+        .I1(DAC_Stream_out[19]),
         .O(\PLL_Freq[27]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[31]_i_2 
        (.I0(PLL_Guess_Freq[31]),
-        .I1(SignalOutput[31]),
+        .I1(DAC_Stream_out[26]),
         .O(\PLL_Freq[31]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[31]_i_3 
        (.I0(PLL_Guess_Freq[30]),
-        .I1(SignalOutput[30]),
+        .I1(DAC_Stream_out[25]),
         .O(\PLL_Freq[31]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[31]_i_4 
        (.I0(PLL_Guess_Freq[29]),
-        .I1(SignalOutput[29]),
+        .I1(DAC_Stream_out[24]),
         .O(\PLL_Freq[31]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \PLL_Freq[31]_i_5 
        (.I0(PLL_Guess_Freq[28]),
-        .I1(SignalOutput[28]),
+        .I1(DAC_Stream_out[23]),
         .O(\PLL_Freq[31]_i_5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
@@ -3086,7 +3077,7 @@ module system_Custom_System_0_0_Custom_System
   system_Custom_System_0_0_NCO_0 PLL_NCO
        (.AD_CLK_in(AD_CLK_in),
         .B({PLL_NCO_n_14,PLL_NCO_n_15,PLL_NCO_n_16,PLL_NCO_n_17,PLL_NCO_n_18,PLL_NCO_n_19,PLL_NCO_n_20,PLL_NCO_n_21,PLL_NCO_n_22,PLL_NCO_n_23,PLL_NCO_n_24,PLL_NCO_n_25,PLL_NCO_n_26}),
-        .DAC_Stream_out(DAC_Stream_out),
+        .DAC_Stream_out(DAC_Stream_out[12:0]),
         .E(PLL_NCO_n_0),
         .Q({\PLL_Freq_reg_n_0_[31] ,\PLL_Freq_reg_n_0_[30] ,\PLL_Freq_reg_n_0_[29] ,\PLL_Freq_reg_n_0_[28] ,\PLL_Freq_reg_n_0_[27] ,\PLL_Freq_reg_n_0_[26] ,\PLL_Freq_reg_n_0_[25] ,\PLL_Freq_reg_n_0_[24] ,\PLL_Freq_reg_n_0_[23] ,\PLL_Freq_reg_n_0_[22] ,\PLL_Freq_reg_n_0_[21] ,\PLL_Freq_reg_n_0_[20] ,\PLL_Freq_reg_n_0_[19] ,\PLL_Freq_reg_n_0_[18] ,\PLL_Freq_reg_n_0_[17] ,\PLL_Freq_reg_n_0_[16] ,\PLL_Freq_reg_n_0_[15] ,\PLL_Freq_reg_n_0_[14] ,\PLL_Freq_reg_n_0_[13] ,\PLL_Freq_reg_n_0_[12] ,\PLL_Freq_reg_n_0_[11] ,\PLL_Freq_reg_n_0_[10] ,\PLL_Freq_reg_n_0_[9] ,\PLL_Freq_reg_n_0_[8] ,\PLL_Freq_reg_n_0_[7] ,\PLL_Freq_reg_n_0_[6] ,\PLL_Freq_reg_n_0_[5] ,\PLL_Freq_reg_n_0_[4] ,\PLL_Freq_reg_n_0_[3] ,\PLL_Freq_reg_n_0_[2] ,\PLL_Freq_reg_n_0_[1] ,\PLL_Freq_reg_n_0_[0] }),
         .Reset_In(Reset_In));

@@ -60,6 +60,8 @@ module system_Custom_System_0_0 (
   ADC_Override,
   Control_Kp,
   Control_Ki,
+  Control_Lock_Threshold,
+  Lock_Detect,
   Freq_Measured,
   s_axis_tdata_ADC_Stream_in,
   s_axis_tvalid_ADC_Stream_in,
@@ -78,6 +80,8 @@ input wire [31 : 0] Internal_Debug_Freq;
 input wire ADC_Override;
 input wire [31 : 0] Control_Kp;
 input wire [31 : 0] Control_Ki;
+input wire [25 : 0] Control_Lock_Threshold;
+input wire Lock_Detect;
 output wire [31 : 0] Freq_Measured;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *)
 input wire [31 : 0] s_axis_tdata_ADC_Stream_in;
@@ -106,6 +110,8 @@ output wire [13 : 0] Target_Signal_out;
     .ADC_Override(ADC_Override),
     .Control_Kp(Control_Kp),
     .Control_Ki(Control_Ki),
+    .Control_Lock_Threshold(Control_Lock_Threshold),
+    .Lock_Detect(Lock_Detect),
     .Freq_Measured(Freq_Measured),
     .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in),
     .s_axis_tvalid_ADC_Stream_in(s_axis_tvalid_ADC_Stream_in),

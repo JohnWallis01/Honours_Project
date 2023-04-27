@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1682254847">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1682581505">
   <File Type="ROUTE-PWR" Name="system_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="system_wrapper.mmi"/>
@@ -182,9 +182,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2022">
-      <Desc>To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)</Desc>
-    </StratHandle>
+    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2022"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -201,6 +199,11 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="system_GPIO_FIFO1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_dma_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_xbar_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axis_constant_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_fifo_generator_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_Custom_System_0_0"/>
 </GenRun>

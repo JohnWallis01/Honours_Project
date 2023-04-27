@@ -12,10 +12,14 @@ entity Custom_System is
     ADC_Override: in std_logic;
 
     -- Debug_Signal_Select: in std_logic_vector(2 downto 0);
+
+    --PLL Conrols
     Control_Kp: in std_logic_vector(31 downto 0);
     Control_Ki: in std_logic_vector(31 downto 0);
+    Control_Lock_Threshold: in std_logic_vector(25 downto 0);
 
-    --debug outputs
+    --Measurments
+    Lock_Detect: out std_logic;
     Freq_Measured: out std_logic_vector(31 downto 0);
 
 
@@ -79,7 +83,7 @@ architecture System_Architecture of Custom_System is
   --     generic(
   --         Data_Size: integer := 14
   --     );
-  --     port(
+  --     port(s
   --         Input1: in std_logic_vector(Data_Size-1 downto 0);
   --         Input2: in std_logic_vector(Data_Size-1 downto 0);
   --         Input3: in std_logic_vector(Data_Size-1 downto 0);
@@ -240,6 +244,27 @@ END component;
       Dout => Locked_Signal,  
       Quadrature_out => Quadrature_Signal
   );
+
+  --lock detection;
+
+  process(AD_CLK_in)
+  begin
+    if Rising_Edge(AD_CLK_in) then
+      if Reset_In = '1' then
+        Lock_Detect <= '0';
+      else
+        if unsigned(abs(signed(Error_Signal))) < unsigned(Control_Lock_Threshold) then
+          Lock_Detect <= '1';
+        else
+          Lock_Detect <= '0';
+        end if;
+      end if;
+    end if;
+  end process;
+
+      
+
+
   
   Quadrature_Mixer: Mixer
   generic map(MixerSize => 14)
@@ -280,7 +305,7 @@ END component;
   DAC_Stream_out(15 downto 14) <= "00";
 
   DAC_Stream_out(13 downto 0) <= Locked_Signal;
-  DAC_Stream_out(29 downto 16) <= (others => '0');
+  DAC_Stream_out(29 downto 16) <= Control_Input(31 downto 18); --Just testing FM demodulation
 
   -- Debug_Selector_Mux: Octal_Multiplexer
   -- generic map(Data_Size => 14)

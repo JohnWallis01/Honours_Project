@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Apr 23 21:01:30 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Thu Apr 27 15:45:54 2023
+// Host        : DESKTOP-ORRMO2Q running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0_stub.v
 // Design      : system_Custom_System_0_0
@@ -15,15 +15,18 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "Custom_System,Vivado 2022.2" *)
 module system_Custom_System_0_0(PLL_Guess_Freq, Internal_Debug_Freq, 
-  ADC_Override, Control_Kp, Control_Ki, Freq_Measured, s_axis_tdata_ADC_Stream_in, 
-  s_axis_tvalid_ADC_Stream_in, s_axis_tready_ADC_Stream_in, DAC_Stream_out, AD_CLK_in, 
-  Sys_CLK_in, Reset_In, Reset_Out, Integrator_Reset, Target_Signal_out)
-/* synthesis syn_black_box black_box_pad_pin="PLL_Guess_Freq[31:0],Internal_Debug_Freq[31:0],ADC_Override,Control_Kp[31:0],Control_Ki[31:0],Freq_Measured[31:0],s_axis_tdata_ADC_Stream_in[31:0],s_axis_tvalid_ADC_Stream_in,s_axis_tready_ADC_Stream_in,DAC_Stream_out[31:0],AD_CLK_in,Sys_CLK_in,Reset_In,Reset_Out,Integrator_Reset,Target_Signal_out[13:0]" */;
+  ADC_Override, Control_Kp, Control_Ki, Control_Lock_Threshold, Lock_Detect, Freq_Measured, 
+  s_axis_tdata_ADC_Stream_in, s_axis_tvalid_ADC_Stream_in, s_axis_tready_ADC_Stream_in, 
+  DAC_Stream_out, AD_CLK_in, Sys_CLK_in, Reset_In, Reset_Out, Integrator_Reset, 
+  Target_Signal_out)
+/* synthesis syn_black_box black_box_pad_pin="PLL_Guess_Freq[31:0],Internal_Debug_Freq[31:0],ADC_Override,Control_Kp[31:0],Control_Ki[31:0],Control_Lock_Threshold[25:0],Lock_Detect,Freq_Measured[31:0],s_axis_tdata_ADC_Stream_in[31:0],s_axis_tvalid_ADC_Stream_in,s_axis_tready_ADC_Stream_in,DAC_Stream_out[31:0],AD_CLK_in,Sys_CLK_in,Reset_In,Reset_Out,Integrator_Reset,Target_Signal_out[13:0]" */;
   input [31:0]PLL_Guess_Freq;
   input [31:0]Internal_Debug_Freq;
   input ADC_Override;
   input [31:0]Control_Kp;
   input [31:0]Control_Ki;
+  input [25:0]Control_Lock_Threshold;
+  input Lock_Detect;
   output [31:0]Freq_Measured;
   input [31:0]s_axis_tdata_ADC_Stream_in;
   input s_axis_tvalid_ADC_Stream_in;

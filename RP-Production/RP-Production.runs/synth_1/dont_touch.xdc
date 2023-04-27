@@ -20,6 +20,18 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar
 # IP: bd/system/ip/system_axi_interconnect_1_0/system_axi_interconnect_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_1_0 || ORIG_REF_NAME==system_axi_interconnect_1_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_axi_dma_0_1/system_axi_dma_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_dma_0_1 || ORIG_REF_NAME==system_axi_dma_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_axis_constant_0_1/system_axis_constant_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_constant_0_1 || ORIG_REF_NAME==system_axis_constant_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_axi_interconnect_0_0/system_axi_interconnect_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_0_0 || ORIG_REF_NAME==system_axi_interconnect_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_fifo_generator_0_2/system_fifo_generator_0_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fifo_generator_0_2 || ORIG_REF_NAME==system_fifo_generator_0_2} -quiet] -quiet
+
 # IP: bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util_ds_buf_0_0 || ORIG_REF_NAME==system_util_ds_buf_0_0} -quiet] -quiet
 
@@ -59,14 +71,8 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_
 # IP: bd/system/ip/system_GPIO_Kd_0/system_GPIO_Kd_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_Kd_0 || ORIG_REF_NAME==system_GPIO_Kd_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_GPIO_FIFO_0/system_GPIO_FIFO_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_FIFO_0 || ORIG_REF_NAME==system_GPIO_FIFO_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_fifo_generator_0_0/system_fifo_generator_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fifo_generator_0_0 || ORIG_REF_NAME==system_fifo_generator_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_GPIO_FIFO_Clock_0/system_GPIO_FIFO_Clock_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_FIFO_Clock_0 || ORIG_REF_NAME==system_GPIO_FIFO_Clock_0} -quiet] -quiet
@@ -77,7 +83,25 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO
 # IP: bd/system/ip/system_GPIO_FIFO_Write_Controller_0/system_GPIO_FIFO_Write_Controller_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_FIFO_Write_Controller_0 || ORIG_REF_NAME==system_GPIO_FIFO_Write_Controller_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_fifo_generator_0_0/system_fifo_generator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fifo_generator_0_0 || ORIG_REF_NAME==system_fifo_generator_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_GPIO_FIFO_1/system_GPIO_FIFO_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_FIFO_1 || ORIG_REF_NAME==system_GPIO_FIFO_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_GPIO_FIFO1_0/system_GPIO_FIFO1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_FIFO1_0 || ORIG_REF_NAME==system_GPIO_FIFO1_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_1 || ORIG_REF_NAME==system_auto_pc_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_us_0/system_auto_us_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_us_0 || ORIG_REF_NAME==system_auto_us_0} -quiet] -quiet
 
 # XDC: c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/system_ooc.xdc

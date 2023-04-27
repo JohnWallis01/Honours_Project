@@ -7,3 +7,5 @@ RP-simulation/RP-simulation.runs/synth_1/Sliding_DFT_Processor.dcp
 RP-simulation/RP-simulation.runs/impl_1/Sliding_DFT_Processor_opt.dcp
 RP-simulation/RP-simulation.srcs/utils_1/imports/synth_1/Sliding_DFT_Processor.dcp
 helper/log.txt
+RP-simulation/RP-simulation.sim/sim_1/synth/func/xsim/test_bench_init_func_synth.v
+RP-simulation/RP-simulation.sim/sim_1/synth/func/xsim/xsim.dir/xil_defaultlib/@sliding_@d@f@t_@processor.sdb

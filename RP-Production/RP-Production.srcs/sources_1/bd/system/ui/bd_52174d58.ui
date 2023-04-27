@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.840764",
-   "Default View_TopLeft":"-555,42",
+   "Default View_ScaleFactor":"0.840763",
+   "Default View_TopLeft":"264,496",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -16,56 +16,66 @@ preplace port S_AXI_FIFO_Clock -pg 1 -lvl 0 -x -40 -y 880 -defaultsOSRD
 preplace port S_AXI_FIFO_Read -pg 1 -lvl 0 -x -40 -y 1050 -defaultsOSRD
 preplace port S_AXI_FIFO_Write -pg 1 -lvl 0 -x -40 -y 1170 -defaultsOSRD
 preplace port S_AXI_Integrator_Reset -pg 1 -lvl 0 -x -40 -y 1320 -defaultsOSRD
-preplace port port-id_s_axi_aclk -pg 1 -lvl 0 -x -40 -y 660 -defaultsOSRD
+preplace port S_AXI -pg 1 -lvl 0 -x -40 -y 580 -defaultsOSRD
+preplace port S_AXI1 -pg 1 -lvl 0 -x -40 -y 650 -defaultsOSRD
+preplace port port-id_s_axi_aclk -pg 1 -lvl 0 -x -40 -y 680 -defaultsOSRD
 preplace port port-id_s_axi_aresetn -pg 1 -lvl 0 -x -40 -y 800 -defaultsOSRD
-preplace portBus gpio_Ki -pg 1 -lvl 3 -x 860 -y 210 -defaultsOSRD
-preplace portBus gpio_Debug_Freq -pg 1 -lvl 3 -x 860 -y 1480 -defaultsOSRD
-preplace portBus gpio_Kp -pg 1 -lvl 3 -x 860 -y 510 -defaultsOSRD
-preplace portBus gpio_ADC_Overide -pg 1 -lvl 3 -x 860 -y 1640 -defaultsOSRD
-preplace portBus gpio_PLL_Guess_Freq -pg 1 -lvl 3 -x 860 -y 1110 -defaultsOSRD
-preplace portBus gpio_Freq_Measured -pg 1 -lvl 3 -x 860 -y 70 -defaultsOSRD -right
-preplace portBus gpio_FIFO_Clock -pg 1 -lvl 3 -x 860 -y 900 -defaultsOSRD
-preplace portBus gpio_FIFO_data -pg 1 -lvl 3 -x 860 -y 640 -defaultsOSRD -right
-preplace portBus gpio_FIFO_Read -pg 1 -lvl 3 -x 860 -y 1040 -defaultsOSRD
-preplace portBus gpio_FIFO_Write -pg 1 -lvl 3 -x 860 -y 1200 -defaultsOSRD
-preplace portBus gpio_Integrator_Reset -pg 1 -lvl 3 -x 860 -y 1350 -defaultsOSRD
+preplace portBus gpio_Ki -pg 1 -lvl 3 -x 870 -y 210 -defaultsOSRD
+preplace portBus gpio_Debug_Freq -pg 1 -lvl 3 -x 870 -y 1480 -defaultsOSRD
+preplace portBus gpio_Kp -pg 1 -lvl 3 -x 870 -y 510 -defaultsOSRD
+preplace portBus gpio_ADC_Overide -pg 1 -lvl 3 -x 870 -y 1640 -defaultsOSRD
+preplace portBus gpio_PLL_Guess_Freq -pg 1 -lvl 3 -x 870 -y 1110 -defaultsOSRD
+preplace portBus gpio_Freq_Measured -pg 1 -lvl 3 -x 870 -y 70 -defaultsOSRD -right
+preplace portBus gpio_FIFO_Clock -pg 1 -lvl 3 -x 870 -y 900 -defaultsOSRD
+preplace portBus gpio_FIFO_data -pg 1 -lvl 3 -x 870 -y 750 -defaultsOSRD -right
+preplace portBus gpio_FIFO_Read -pg 1 -lvl 3 -x 870 -y 1040 -defaultsOSRD
+preplace portBus gpio_FIFO_Write -pg 1 -lvl 3 -x 870 -y 1200 -defaultsOSRD
+preplace portBus gpio_Integrator_Reset -pg 1 -lvl 3 -x 870 -y 1350 -defaultsOSRD
+preplace portBus gpio_io_i -pg 1 -lvl 0 -x -40 -y 420 -defaultsOSRD
+preplace portBus gpio_io_o -pg 1 -lvl 3 -x 870 -y 670 -defaultsOSRD
 preplace inst GPIO_Ki -pg 1 -lvl 1 -x 170 -y 220 -defaultsOSRD
 preplace inst GPIO_Internal_Debug_Freq -pg 1 -lvl 1 -x 170 -y 1460 -defaultsOSRD
-preplace inst GPIO_FIFO -pg 1 -lvl 1 -x 170 -y 640 -defaultsOSRD
+preplace inst GPIO_FIFO -pg 1 -lvl 2 -x 680 -y 800 -defaultsOSRD
 preplace inst GPIO_Kp -pg 1 -lvl 1 -x 170 -y 500 -defaultsOSRD
 preplace inst GPIO_ADC_Override -pg 1 -lvl 1 -x 170 -y 1630 -defaultsOSRD
 preplace inst GPIO_PLL_GUESS_Freq -pg 1 -lvl 1 -x 170 -y 970 -defaultsOSRD
 preplace inst GPIO_FreqMeasure -pg 1 -lvl 1 -x 170 -y 60 -defaultsOSRD
-preplace inst GPIO_FIFO_Clock -pg 1 -lvl 2 -x 680 -y 890 -defaultsOSRD
-preplace inst GPIO_FIFO_Read_Ready -pg 1 -lvl 2 -x 680 -y 1030 -defaultsOSRD
-preplace inst GPIO_FIFO_Write_Controller -pg 1 -lvl 2 -x 680 -y 1190 -defaultsOSRD
-preplace inst GPIO_Integrator_Reset -pg 1 -lvl 2 -x 680 -y 1340 -defaultsOSRD
+preplace inst GPIO_FIFO_Clock -pg 1 -lvl 2 -x 680 -y 940 -defaultsOSRD
+preplace inst GPIO_FIFO_Read_Ready -pg 1 -lvl 2 -x 680 -y 1080 -defaultsOSRD
+preplace inst GPIO_FIFO_Write_Controller -pg 1 -lvl 2 -x 680 -y 1240 -defaultsOSRD
+preplace inst GPIO_Integrator_Reset -pg 1 -lvl 2 -x 680 -y 1380 -defaultsOSRD
+preplace inst GPIO_LockDetect -pg 1 -lvl 2 -x 680 -y 520 -defaultsOSRD
+preplace inst GPIO_LockThreshold -pg 1 -lvl 2 -x 680 -y 660 -defaultsOSRD
 preplace netloc GPIO_ADC_Override_gpio_io_o 1 1 2 NJ 1640 NJ
-preplace netloc GPIO_Internal_Debug_Freq_gpio_io_o 1 1 2 NJ 1470 820J
-preplace netloc GPIO_Ki_gpio_io_o 1 1 2 340J 210 NJ
-preplace netloc GPIO_Kp_gpio_io_o 1 1 2 NJ 510 NJ
-preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 1 2 310J 1110 NJ
-preplace netloc Net 1 0 2 -10 880 330J
-preplace netloc Net1 1 0 2 0 860 340J
+preplace netloc GPIO_FIFO_Clock_gpio_io_o 1 2 1 820 900n
+preplace netloc GPIO_FIFO_Read_Ready_gpio_io_o 1 2 1 830 1040n
+preplace netloc GPIO_FIFO_Write_Controller_gpio_io_o 1 2 1 830 1200n
+preplace netloc GPIO_Integrator_Reset_gpio_io_o 1 2 1 820 1350n
+preplace netloc GPIO_Internal_Debug_Freq_gpio_io_o 1 1 2 NJ 1470 830J
+preplace netloc GPIO_Ki_gpio_io_o 1 1 2 310J 210 NJ
+preplace netloc GPIO_Kp_gpio_io_o 1 1 2 310J 440 830J
+preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 1 2 320J 1160 820J
+preplace netloc Net 1 0 2 -10 600 330J
+preplace netloc Net1 1 0 2 0 590 340J
+preplace netloc gpio_io_i1_1 1 2 1 830 750n
 preplace netloc gpio_io_i_1 1 1 2 N 70 N
-preplace netloc GPIO_FIFO_Clock_gpio_io_o 1 2 1 N 900
-preplace netloc gpio_io_i1_1 1 1 2 340 640 N
-preplace netloc GPIO_FIFO_Read_Ready_gpio_io_o 1 2 1 N 1040
-preplace netloc GPIO_FIFO_Write_Controller_gpio_io_o 1 2 1 N 1200
-preplace netloc GPIO_Integrator_Reset_gpio_io_o 1 2 1 N 1350
+preplace netloc gpio_io_i_2 1 0 3 NJ 420 NJ 420 820
+preplace netloc GPIO_LockThreshold_gpio_io_o 1 2 1 N 670
+preplace netloc Conn1 1 0 2 NJ 1050 310J
 preplace netloc PS7_M00_AXI 1 0 1 NJ 950
 preplace netloc PS7_M01_AXI 1 0 1 NJ 1440
 preplace netloc PS7_M02_AXI 1 0 1 NJ 1610
-preplace netloc PS7_M03_AXI 1 0 1 NJ 620
+preplace netloc PS7_M03_AXI 1 0 2 NJ 620 350
 preplace netloc PS7_M04_AXI 1 0 1 -20J 470n
 preplace netloc PS7_M05_AXI 1 0 1 NJ 200
+preplace netloc S_AXI10_1 1 0 2 NJ 1320 310J
+preplace netloc S_AXI4_1 1 0 2 NJ 1170 310J
 preplace netloc S_AXI7_1 1 0 1 NJ 40
-preplace netloc S_AXI8_1 1 0 2 -20J 870 NJ
-preplace netloc Conn1 1 0 2 10J 890 320J
-preplace netloc S_AXI4_1 1 0 2 NJ 1170 NJ
-preplace netloc S_AXI10_1 1 0 2 NJ 1320 NJ
-levelinfo -pg 1 -40 170 680 860
-pagesize -pg 1 -db -bbox -sgen -250 -70 1100 1710
+preplace netloc S_AXI8_1 1 0 2 NJ 880 310J
+preplace netloc S_AXI_1 1 0 2 NJ 580 320J
+preplace netloc S_AXI1_1 1 0 2 10J 640 NJ
+levelinfo -pg 1 -40 170 680 870
+pagesize -pg 1 -db -bbox -sgen -240 -250 1090 1710
 "
 }
 0
