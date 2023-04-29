@@ -92,14 +92,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO
 # IP: bd/system/ip/system_fifo_generator_0_0/system_fifo_generator_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fifo_generator_0_0 || ORIG_REF_NAME==system_fifo_generator_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_GPIO_LockDetect_0/system_GPIO_LockDetect_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_LockDetect_0 || ORIG_REF_NAME==system_GPIO_LockDetect_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_GPIO_LockThreshold_0/system_GPIO_LockThreshold_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_LockThreshold_0 || ORIG_REF_NAME==system_GPIO_LockThreshold_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet

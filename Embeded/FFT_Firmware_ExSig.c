@@ -29,13 +29,6 @@ int s14(int number) {
     }
 }
 
-double rand_std_normal() {
-    double u1 = rand() / (double)RAND_MAX;
-    double u2 = rand() / (double)RAND_MAX;
-    double r = sqrt(-2.0 * log(u1));
-    double theta = 2.0 * M_PI * u2;
-    return r * sin(theta);
-}
 
 void FFT(double complex *vector, int n)
 {
@@ -254,6 +247,9 @@ int main() {
 	printf("Measured Frequency %f (Mhz)\n:", (float)Freq_Measurment*fSampling/pow(2,32));
     *(uint32_t*)Timer_Enable = 0;
     int Timer_End = *(uint32_t *)Timer_Value;
+    printf("Loop Time Start: %d ticks\n:", Timer_Start);
+    printf("Loop Time End: %d ticks\n:", Timer_End);
+
     printf("Loop Time Elapsed: %f (us)\n:", ((float)Timer_End - (float)Timer_Start)*0.008);
    
     }
