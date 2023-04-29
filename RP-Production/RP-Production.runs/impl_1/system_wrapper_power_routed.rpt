@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Thu Apr 27 15:50:05 2023
+| Date             : Fri Apr 28 10:58:35 2023
 | Host             : DESKTOP-ORRMO2Q running 64-bit major release  (build 9200)
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.983        |
+| Total On-Chip Power (W)  | 1.984        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 1.851        |
@@ -52,24 +52,24 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.028 |        8 |       --- |             --- |
-| Slice Logic              |     0.012 |     9713 |       --- |             --- |
-|   LUT as Logic           |     0.010 |     3261 |     17600 |           18.53 |
-|   Register               |    <0.001 |     4848 |     35200 |           13.77 |
-|   CARRY4                 |    <0.001 |      159 |      4400 |            3.61 |
+| Clocks                   |     0.030 |        8 |       --- |             --- |
+| Slice Logic              |     0.012 |    10414 |       --- |             --- |
+|   LUT as Logic           |     0.010 |     3490 |     17600 |           19.83 |
+|   Register               |    <0.001 |     5236 |     35200 |           14.88 |
+|   CARRY4                 |    <0.001 |      170 |      4400 |            3.86 |
 |   F7/F8 Muxes            |    <0.001 |       37 |     17600 |            0.21 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   LUT as Distributed RAM |    <0.001 |       16 |      6000 |            0.27 |
 |   LUT as Shift Register  |    <0.001 |      136 |      6000 |            2.27 |
-|   Others                 |     0.000 |      540 |       --- |             --- |
-| Signals                  |     0.014 |     7233 |       --- |             --- |
+|   Others                 |     0.000 |      554 |       --- |             --- |
+| Signals                  |     0.014 |     7773 |       --- |             --- |
 | Block RAM                |     0.003 |      4.5 |        60 |            7.50 |
 | MMCM                     |     0.107 |        1 |         2 |           50.00 |
-| DSPs                     |     0.008 |        9 |        80 |           11.25 |
+| DSPs                     |     0.006 |        9 |        80 |           11.25 |
 | I/O                      |     0.398 |       50 |       100 |           50.00 |
 | PS7                      |     1.282 |        1 |       --- |             --- |
 | Static Power             |     0.132 |          |           |                 |
-| Total                    |     1.983 |          |           |                 |
+| Total                    |     1.984 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -79,7 +79,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.077 |       0.069 |      0.008 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.078 |       0.070 |      0.008 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.078 |       0.069 |      0.009 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.108 |       0.107 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -162,19 +162,21 @@ Table of Contents
 +-----------------------------+-----------+
 | system_wrapper              |     1.851 |
 |   system_i                  |     1.487 |
-|     Custom_System_0         |     0.030 |
-|       inst                  |     0.030 |
+|     Custom_System_0         |     0.028 |
+|       inst                  |     0.028 |
 |     DAC_Interface           |     0.111 |
 |       axis_red_pitaya_dac_1 |     0.004 |
 |       clk_wiz_0             |     0.107 |
 |     Daisy_Controller        |     0.031 |
 |       util_ds_buf_1         |     0.030 |
 |     GPIO_Interface          |     0.009 |
+|       GPIO_FIFO             |     0.001 |
 |       GPIO_FreqMeasure      |     0.002 |
-|       GPIO_Ki               |     0.001 |
-|     PS7                     |     1.300 |
+|     GPIO_TimerValue         |     0.002 |
+|       U0                    |     0.002 |
+|     PS7                     |     1.301 |
 |       DMA_Interface         |     0.011 |
-|       axi_interconnect_1    |     0.006 |
+|       axi_interconnect_1    |     0.007 |
 |       processing_system7_0  |     1.284 |
 |     fifo_generator_0        |     0.005 |
 |       U0                    |     0.005 |

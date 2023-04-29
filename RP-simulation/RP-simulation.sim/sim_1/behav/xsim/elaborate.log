@@ -1,26 +1,9 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: E:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_bench_init_behav xil_defaultlib.test_bench_init xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_bench_init_behav xil_defaultlib.test_bench_init xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling architecture behavioral of entity xil_defaultlib.AXI4_Stream_Reader [axi4_stream_reader_default]
-Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(dac_size=14)\]
-Compiling architecture dual_multiplexer_arch of entity xil_defaultlib.Dual_Multiplexer [dual_multiplexer_default]
-Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
-Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
-Compiling architecture pid_controller_arch of entity xil_defaultlib.PID_Controller [pid_controller_default]
-Compiling architecture system_architecture of entity xil_defaultlib.Custom_System [custom_system_default]
-Compiling architecture test_wrapper_arch of entity xil_defaultlib.Test_Wrapper [test_wrapper_default]
-Compiling module xil_defaultlib.test_bench_init
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot test_bench_init_behav
+ERROR: [VRFC 10-3353] formal port 'control_lock_threshold' has no actual or default value [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:19]
+ERROR: [VRFC 10-3353] formal port 'integrator_reset' has no actual or default value [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:44]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Thu Apr 27 15:45:56 2023
-# Process ID: 13792
+# Start of session at: Fri Apr 28 10:53:49 2023
+# Process ID: 17440
 # Current directory: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1
 # Command line: vivado.exe -log system_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_wrapper.tcl
 # Log file: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/system_wrapper.vds
@@ -14,7 +14,7 @@ source system_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
-add_files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 429.906 ; gain = 11.613
+add_files: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 431.109 ; gain = 11.391
 Command: read_checkpoint -auto_incremental -incremental C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/utils_1/imports/synth_1/system_wrapper.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/utils_1/imports/synth_1/system_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -27,181 +27,194 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10552
+INFO: [Synth 8-7075] Helper process launched with PID 26664
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1246.727 ; gain = 409.754
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1247.633 ; gain = 408.691
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_wrapper' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/system_wrapper.v:12]
-INFO: [Synth 8-6157] synthesizing module 'system' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5508]
-INFO: [Synth 8-6157] synthesizing module 'system_Custom_System_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_Custom_System_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_Custom_System_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_Custom_System_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'Lock_Detect' of module 'system_Custom_System_0_0' is unconnected for instance 'Custom_System_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5884]
-WARNING: [Synth 8-7071] port 's_axis_tready_ADC_Stream_in' of module 'system_Custom_System_0_0' is unconnected for instance 'Custom_System_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5884]
-WARNING: [Synth 8-7023] instance 'Custom_System_0' of module 'system_Custom_System_0_0' has 18 connections declared, but only 16 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5884]
+INFO: [Synth 8-6157] synthesizing module 'system' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5946]
+INFO: [Synth 8-6157] synthesizing module 'system_Custom_System_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_Custom_System_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_Custom_System_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_Custom_System_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 's_axis_tready_ADC_Stream_in' of module 'system_Custom_System_0_0' is unconnected for instance 'Custom_System_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6360]
+WARNING: [Synth 8-7023] instance 'Custom_System_0' of module 'system_Custom_System_0_0' has 21 connections declared, but only 20 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6360]
 INFO: [Synth 8-6157] synthesizing module 'DAC_Interface_imp_DA799F' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:12]
-INFO: [Synth 8-6157] synthesizing module 'system_axis_constant_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_constant_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_dac_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_dac_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_dac_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_dac_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axis_constant_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_constant_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_dac_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_dac_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_dac_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_dac_1_0_stub.v:5]
 WARNING: [Synth 8-7071] port 's_axis_tready' of module 'system_axis_red_pitaya_dac_1_0' is unconnected for instance 'axis_red_pitaya_dac_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:56]
 WARNING: [Synth 8-7023] instance 'axis_red_pitaya_dac_1' of module 'system_axis_red_pitaya_dac_1_0' has 11 connections declared, but only 10 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:56]
-INFO: [Synth 8-6157] synthesizing module 'system_clk_wiz_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_clk_wiz_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_clk_wiz_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_clk_wiz_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_clk_wiz_0_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'DAC_Interface_imp_DA799F' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:12]
 INFO: [Synth 8-6157] synthesizing module 'Daisy_Controller_imp_4HNF48' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:359]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_util_ds_buf_1_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'Daisy_Controller_imp_4HNF48' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:359]
 INFO: [Synth 8-6157] synthesizing module 'GPIO_Interface_imp_V73Q6H' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:389]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_2_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_2_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_2_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_2_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_Clock_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Clock_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_Clock_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Clock_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_Read_Ready_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Read_Ready_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_Read_Ready_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Read_Ready_2_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_Kd_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kd_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_Kd_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kd_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_Write_Controller_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Write_Controller_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_Write_Controller_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Write_Controller_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_6' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_6_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_6' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_6_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_Kp_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kp_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_Kp_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kp_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_3_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_3_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_3_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_3_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_5' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_5_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_5' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_5_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_2_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_2_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_2_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_2_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_Clock_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Clock_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_Clock_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Clock_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_Read_Ready_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Read_Ready_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_Read_Ready_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Read_Ready_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_Kd_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kd_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_Kd_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kd_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_Write_Controller_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Write_Controller_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_Write_Controller_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_Write_Controller_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_6' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_6_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_6' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_6_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_Kp_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kp_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_Kp_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_Kp_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_3_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_3_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_3_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_3_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_FIFO1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_FIFO1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_FIFO1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_5' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_5_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_5' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_gpio_0_5_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'GPIO_Interface_imp_V73Q6H' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:389]
-WARNING: [Synth 8-7071] port 'gpio_io_i' of module 'GPIO_Interface_imp_V73Q6H' is unconnected for instance 'GPIO_Interface' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5915]
-WARNING: [Synth 8-7023] instance 'GPIO_Interface' of module 'GPIO_Interface_imp_V73Q6H' has 236 connections declared, but only 235 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5915]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_LockDetect_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_LockDetect_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_LockDetect_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_LockDetect_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_GPIO_LockThreshold_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_LockThreshold_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_GPIO_LockThreshold_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_GPIO_LockThreshold_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'PS7_imp_1QJPAX8' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:1611]
 INFO: [Synth 8-6157] synthesizing module 'DMA_Interface_imp_1GKU9IE' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:74]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_dma_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_dma_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_dma_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axi_dma_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_dma_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_dma_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_dma_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axi_dma_0_1_stub.v:5]
 WARNING: [Synth 8-7071] port 's2mm_prmry_reset_out_n' of module 'system_axi_dma_0_1' is unconnected for instance 'axi_dma_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:256]
 WARNING: [Synth 8-7071] port 's2mm_introut' of module 'system_axi_dma_0_1' is unconnected for instance 'axi_dma_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:256]
 WARNING: [Synth 8-7071] port 'axi_dma_tstvec' of module 'system_axi_dma_0_1' is unconnected for instance 'axi_dma_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:256]
 WARNING: [Synth 8-7023] instance 'axi_dma_0' of module 'system_axi_dma_0_1' has 43 connections declared, but only 40 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:256]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_interconnect_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6416]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_3MGCZD' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5258]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_auto_pc_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_auto_pc_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_us_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_auto_us_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_us_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_auto_us_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_3MGCZD' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5258]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_interconnect_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6416]
-INFO: [Synth 8-6157] synthesizing module 'system_axis_constant_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_constant_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_fifo_generator_0_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_fifo_generator_0_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_interconnect_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6973]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_3MGCZD' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5696]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_auto_pc_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_auto_pc_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_us_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_auto_us_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_us_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_auto_us_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_3MGCZD' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5696]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_interconnect_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6973]
+INFO: [Synth 8-6157] synthesizing module 'system_axis_constant_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_constant_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_constant_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_fifo_generator_0_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_fifo_generator_0_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_2_stub.v:5]
 WARNING: [Synth 8-7071] port 's_axis_tready' of module 'system_fifo_generator_0_2' is unconnected for instance 'fifo_generator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:343]
 WARNING: [Synth 8-7071] port 'm_axis_tuser' of module 'system_fifo_generator_0_2' is unconnected for instance 'fifo_generator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:343]
 WARNING: [Synth 8-7023] instance 'fifo_generator_0' of module 'system_fifo_generator_0_2' has 15 connections declared, but only 13 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:343]
 INFO: [Synth 8-6155] done synthesizing module 'DMA_Interface_imp_1GKU9IE' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:74]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_interconnect_1_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6616]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_17I7PHT' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3112]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_17I7PHT' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3112]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_E1V6F4' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3244]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_E1V6F4' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3244]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_7LXFW2' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3376]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_7LXFW2' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3376]
-INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1E85FKZ' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3508]
-INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_1E85FKZ' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3508]
-INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_K929NA' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3640]
-INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_K929NA' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3640]
-INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1RZ8NGN' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3772]
-INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1RZ8NGN' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3772]
-INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_1LJAV5H' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3904]
-INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_1LJAV5H' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3904]
-INFO: [Synth 8-6157] synthesizing module 'm07_couplers_imp_QYZYCK' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4036]
-INFO: [Synth 8-6155] done synthesizing module 'm07_couplers_imp_QYZYCK' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4036]
-INFO: [Synth 8-6157] synthesizing module 'm08_couplers_imp_1UK1A5A' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4168]
-INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_1UK1A5A' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4168]
-INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_I8F4EN' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4300]
-INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_I8F4EN' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4300]
-INFO: [Synth 8-6157] synthesizing module 'm10_couplers_imp_7LUQAA' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4432]
-INFO: [Synth 8-6155] done synthesizing module 'm10_couplers_imp_7LUQAA' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4432]
-INFO: [Synth 8-6157] synthesizing module 'm11_couplers_imp_1E81BER' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4564]
-INFO: [Synth 8-6155] done synthesizing module 'm11_couplers_imp_1E81BER' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4564]
-INFO: [Synth 8-6157] synthesizing module 'm12_couplers_imp_17I5E5T' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4689]
-INFO: [Synth 8-6155] done synthesizing module 'm12_couplers_imp_17I5E5T' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4689]
-INFO: [Synth 8-6157] synthesizing module 'm13_couplers_imp_E1RGIO' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4821]
-INFO: [Synth 8-6155] done synthesizing module 'm13_couplers_imp_E1RGIO' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4821]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1BINDXC' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4953]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1BINDXC' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4953]
-INFO: [Synth 8-6157] synthesizing module 'system_xbar_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_xbar_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_xbar_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_xbar_2_stub.v:5]
-WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'system_xbar_2' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:8710]
-WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'system_xbar_2' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:8710]
-WARNING: [Synth 8-7023] instance 'xbar' of module 'system_xbar_2' has 40 connections declared, but only 38 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:8710]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_interconnect_1_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6616]
-INFO: [Synth 8-6157] synthesizing module 'system_proc_sys_reset_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_proc_sys_reset_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_proc_sys_reset_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_proc_sys_reset_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:2999]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:2999]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:2999]
-WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'system_proc_sys_reset_0_0' has 10 connections declared, but only 7 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:2999]
-INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_processing_system7_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_processing_system7_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_processing_system7_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_ARREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RLAST' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RVALID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RRESP' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RDATA' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
-WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'system_processing_system7_0_0' has 131 connections declared, but only 102 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3007]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_interconnect_1_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:7173]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_17I7PHT' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3286]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_17I7PHT' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3286]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_E1V6F4' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3418]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_E1V6F4' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3418]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_7LXFW2' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3550]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_7LXFW2' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3550]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1E85FKZ' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3682]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_1E85FKZ' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3682]
+INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_K929NA' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3814]
+INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_K929NA' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3814]
+INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1RZ8NGN' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3946]
+INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1RZ8NGN' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3946]
+INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_1LJAV5H' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4078]
+INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_1LJAV5H' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4078]
+INFO: [Synth 8-6157] synthesizing module 'm07_couplers_imp_QYZYCK' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4210]
+INFO: [Synth 8-6155] done synthesizing module 'm07_couplers_imp_QYZYCK' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4210]
+INFO: [Synth 8-6157] synthesizing module 'm08_couplers_imp_1UK1A5A' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4342]
+INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_1UK1A5A' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4342]
+INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_I8F4EN' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4474]
+INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_I8F4EN' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4474]
+INFO: [Synth 8-6157] synthesizing module 'm10_couplers_imp_7LUQAA' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4606]
+INFO: [Synth 8-6155] done synthesizing module 'm10_couplers_imp_7LUQAA' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4606]
+INFO: [Synth 8-6157] synthesizing module 'm11_couplers_imp_1E81BER' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4738]
+INFO: [Synth 8-6155] done synthesizing module 'm11_couplers_imp_1E81BER' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4738]
+INFO: [Synth 8-6157] synthesizing module 'm12_couplers_imp_17I5E5T' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4863]
+INFO: [Synth 8-6155] done synthesizing module 'm12_couplers_imp_17I5E5T' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4863]
+INFO: [Synth 8-6157] synthesizing module 'm13_couplers_imp_E1RGIO' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4995]
+INFO: [Synth 8-6155] done synthesizing module 'm13_couplers_imp_E1RGIO' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:4995]
+INFO: [Synth 8-6157] synthesizing module 'm14_couplers_imp_1LJ8ZKL' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5127]
+INFO: [Synth 8-6155] done synthesizing module 'm14_couplers_imp_1LJ8ZKL' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5127]
+INFO: [Synth 8-6157] synthesizing module 'm15_couplers_imp_QYWO78' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5259]
+INFO: [Synth 8-6155] done synthesizing module 'm15_couplers_imp_QYWO78' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5259]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1BINDXC' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5391]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1BINDXC' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5391]
+INFO: [Synth 8-6157] synthesizing module 'system_xbar_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_xbar_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_xbar_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_xbar_2_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'system_xbar_2' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:9531]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'system_xbar_2' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:9531]
+WARNING: [Synth 8-7023] instance 'xbar' of module 'system_xbar_2' has 40 connections declared, but only 38 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:9531]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_interconnect_1_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:7173]
+INFO: [Synth 8-6157] synthesizing module 'system_proc_sys_reset_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_proc_sys_reset_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_proc_sys_reset_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_proc_sys_reset_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3173]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3173]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3173]
+WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'system_proc_sys_reset_0_0' has 10 connections declared, but only 7 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3173]
+INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_processing_system7_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_processing_system7_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_processing_system7_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_ARREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RLAST' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RVALID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RRESP' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RDATA' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
+WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'system_processing_system7_0_0' has 131 connections declared, but only 102 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:3181]
 INFO: [Synth 8-6155] done synthesizing module 'PS7_imp_1QJPAX8' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:1611]
-INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_adc_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_adc_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_fifo_generator_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_fifo_generator_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-13792-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'full' of module 'system_fifo_generator_0_0' is unconnected for instance 'fifo_generator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6407]
-WARNING: [Synth 8-7071] port 'empty' of module 'system_fifo_generator_0_0' is unconnected for instance 'fifo_generator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6407]
-WARNING: [Synth 8-7023] instance 'fifo_generator_0' of module 'system_fifo_generator_0_0' has 8 connections declared, but only 6 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6407]
-INFO: [Synth 8-6155] done synthesizing module 'system' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5508]
+INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_adc_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_adc_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_fifo_generator_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_fifo_generator_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-17440-DESKTOP-ORRMO2Q/realtime/system_fifo_generator_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'full' of module 'system_fifo_generator_0_0' is unconnected for instance 'fifo_generator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6964]
+WARNING: [Synth 8-7071] port 'empty' of module 'system_fifo_generator_0_0' is unconnected for instance 'fifo_generator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6964]
+WARNING: [Synth 8-7023] instance 'fifo_generator_0' of module 'system_fifo_generator_0_0' has 8 connections declared, but only 6 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6964]
+INFO: [Synth 8-6155] done synthesizing module 'system' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5946]
 INFO: [Synth 8-6155] done synthesizing module 'system_wrapper' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/imports/system_wrapper.v:12]
-WARNING: [Synth 8-3848] Net adc_enc_n_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5577]
-WARNING: [Synth 8-3848] Net adc_enc_p_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5578]
-WARNING: [Synth 8-3848] Net dac_pwm_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5581]
-WARNING: [Synth 8-3848] Net led_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:5591]
+WARNING: [Synth 8-3848] Net adc_enc_n_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6015]
+WARNING: [Synth 8-3848] Net adc_enc_p_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6016]
+WARNING: [Synth 8-3848] Net dac_pwm_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6019]
+WARNING: [Synth 8-3848] Net led_o in module/entity system does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/synth/system.v:6029]
 WARNING: [Synth 8-7129] Port M_ACLK in module s00_couplers_imp_1BINDXC is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_ARESETN in module s00_couplers_imp_1BINDXC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ACLK in module m15_couplers_imp_QYWO78 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ARESETN in module m15_couplers_imp_QYWO78 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ACLK in module m15_couplers_imp_QYWO78 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ARESETN in module m15_couplers_imp_QYWO78 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ACLK in module m14_couplers_imp_1LJ8ZKL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ARESETN in module m14_couplers_imp_1LJ8ZKL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ACLK in module m14_couplers_imp_1LJ8ZKL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ARESETN in module m14_couplers_imp_1LJ8ZKL is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_ACLK in module m13_couplers_imp_E1RGIO is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_ARESETN in module m13_couplers_imp_E1RGIO is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_ACLK in module m13_couplers_imp_E1RGIO is either unconnected or has no load
@@ -292,28 +305,20 @@ WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[27] in module DMA_Interface_imp_1
 WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[26] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[25] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[24] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[23] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[22] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[21] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[20] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[19] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[18] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[17] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_LITE_awaddr[16] in module DMA_Interface_imp_1GKU9IE is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1359.301 ; gain = 520.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1359.301 ; gain = 520.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1359.301 ; gain = 520.359
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.103 . Memory (MB): peak = 1356.867 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.111 . Memory (MB): peak = 1359.301 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -376,6 +381,10 @@ Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Product
 Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_FIFO1_0/system_GPIO_FIFO1_0/system_GPIO_FIFO1_0_in_context.xdc] for cell 'system_i/GPIO_Interface/GPIO_LockThreshold'
 Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_fifo_generator_0_0/system_fifo_generator_0_0/system_fifo_generator_0_0_in_context.xdc] for cell 'system_i/fifo_generator_0'
 Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_fifo_generator_0_0/system_fifo_generator_0_0/system_fifo_generator_0_0_in_context.xdc] for cell 'system_i/fifo_generator_0'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_LockDetect_0/system_GPIO_LockDetect_0/system_axi_gpio_3_0_in_context.xdc] for cell 'system_i/GPIO_TimerEnable'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_LockDetect_0/system_GPIO_LockDetect_0/system_axi_gpio_3_0_in_context.xdc] for cell 'system_i/GPIO_TimerEnable'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_LockThreshold_0/system_GPIO_LockThreshold_0/system_GPIO_Kd_0_in_context.xdc] for cell 'system_i/GPIO_TimerValue'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_LockThreshold_0/system_GPIO_LockThreshold_0/system_GPIO_Kd_0_in_context.xdc] for cell 'system_i/GPIO_TimerValue'
 Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0/system_Custom_System_0_0_in_context.xdc] for cell 'system_i/Custom_System_0'
 Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0/system_Custom_System_0_0_in_context.xdc] for cell 'system_i/Custom_System_0'
 Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/constrs_1/imports/cfg/clocks.xdc]
@@ -427,11 +436,13 @@ Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Product
 Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1356.867 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1378.984 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1356.867 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1378.984 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/GPIO_TimerEnable' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/GPIO_TimerValue' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/Daisy_Controller/util_ds_buf_0' at clock pin 'IBUF_DS_P[1]' is different from the actual clock period '4.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/GPIO_Interface/GPIO_ADC_Override' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/GPIO_Interface/GPIO_FIFO' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
@@ -451,14 +462,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1378.988 ; gain = 540.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1378.988 ; gain = 540.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -775,12 +786,14 @@ Applied set_property KEEP_HIERARCHY = SOFT for system_i/GPIO_Interface/GPIO_Inte
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/GPIO_Interface/GPIO_LockDetect. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/GPIO_Interface/GPIO_LockThreshold. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/fifo_generator_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/GPIO_TimerEnable. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/GPIO_TimerValue. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/Custom_System_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1378.988 ; gain = 540.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1378.988 ; gain = 540.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -803,25 +816,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1378.988 ; gain = 540.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1378.988 ; gain = 540.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1378.988 ; gain = 540.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1356.867 ; gain = 519.895
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1379.262 ; gain = 540.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -838,39 +851,38 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Custom_System_0 has unconnected pin Lock_Detect
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -881,35 +893,37 @@ Report BlackBoxes:
 |      |BlackBox name                       |Instances |
 +------+------------------------------------+----------+
 |1     |system_Custom_System_0_0            |         1|
-|2     |system_axis_red_pitaya_adc_0_0      |         1|
-|3     |system_fifo_generator_0_0           |         1|
-|4     |system_axis_constant_0_0            |         1|
-|5     |system_axis_red_pitaya_dac_1_0      |         1|
-|6     |system_clk_wiz_0_0                  |         1|
-|7     |system_util_ds_buf_0_0              |         1|
-|8     |system_util_ds_buf_1_0              |         1|
-|9     |system_axi_gpio_1_0                 |         1|
-|10    |system_axi_gpio_2_0                 |         1|
-|11    |system_GPIO_FIFO_0                  |         1|
-|12    |system_GPIO_FIFO_Clock_0            |         1|
-|13    |system_GPIO_FIFO_Read_Ready_2       |         1|
-|14    |system_GPIO_Kd_0                    |         1|
-|15    |system_GPIO_FIFO_Write_Controller_0 |         1|
-|16    |system_axi_gpio_0_6                 |         1|
-|17    |system_GPIO_Kp_0                    |         1|
-|18    |system_axi_gpio_3_1                 |         1|
-|19    |system_GPIO_FIFO_1                  |         1|
-|20    |system_GPIO_FIFO1_0                 |         1|
-|21    |system_axi_gpio_0_5                 |         1|
-|22    |system_xbar_2                       |         1|
-|23    |system_auto_pc_0                    |         1|
-|24    |system_proc_sys_reset_0_0           |         1|
-|25    |system_processing_system7_0_0       |         1|
-|26    |system_auto_pc_1                    |         1|
-|27    |system_auto_us_0                    |         1|
-|28    |system_axi_dma_0_1                  |         1|
-|29    |system_axis_constant_0_1            |         1|
-|30    |system_fifo_generator_0_2           |         1|
+|2     |system_GPIO_LockDetect_0            |         1|
+|3     |system_GPIO_LockThreshold_0         |         1|
+|4     |system_axis_red_pitaya_adc_0_0      |         1|
+|5     |system_fifo_generator_0_0           |         1|
+|6     |system_axis_constant_0_0            |         1|
+|7     |system_axis_red_pitaya_dac_1_0      |         1|
+|8     |system_clk_wiz_0_0                  |         1|
+|9     |system_util_ds_buf_0_0              |         1|
+|10    |system_util_ds_buf_1_0              |         1|
+|11    |system_axi_gpio_1_0                 |         1|
+|12    |system_axi_gpio_2_0                 |         1|
+|13    |system_GPIO_FIFO_0                  |         1|
+|14    |system_GPIO_FIFO_Clock_0            |         1|
+|15    |system_GPIO_FIFO_Read_Ready_2       |         1|
+|16    |system_GPIO_Kd_0                    |         1|
+|17    |system_GPIO_FIFO_Write_Controller_0 |         1|
+|18    |system_axi_gpio_0_6                 |         1|
+|19    |system_GPIO_Kp_0                    |         1|
+|20    |system_axi_gpio_3_1                 |         1|
+|21    |system_GPIO_FIFO_1                  |         1|
+|22    |system_GPIO_FIFO1_0                 |         1|
+|23    |system_axi_gpio_0_5                 |         1|
+|24    |system_xbar_2                       |         1|
+|25    |system_auto_pc_0                    |         1|
+|26    |system_proc_sys_reset_0_0           |         1|
+|27    |system_processing_system7_0_0       |         1|
+|28    |system_auto_pc_1                    |         1|
+|29    |system_auto_us_0                    |         1|
+|30    |system_axi_dma_0_1                  |         1|
+|31    |system_axis_constant_0_1            |         1|
+|32    |system_fifo_generator_0_2           |         1|
 +------+------------------------------------+----------+
 
 Report Cell Usage: 
@@ -924,47 +938,48 @@ Report Cell Usage:
 |7     |system_GPIO_FIFO_Write_Controller |     1|
 |8     |system_GPIO_Kd                    |     1|
 |9     |system_GPIO_Kp                    |     1|
-|10    |system_auto_pc                    |     2|
-|12    |system_auto_us                    |     1|
-|13    |system_axi_dma_0                  |     1|
-|14    |system_axi_gpio_0                 |     2|
-|16    |system_axi_gpio_1                 |     1|
-|17    |system_axi_gpio_2                 |     1|
-|18    |system_axi_gpio_3                 |     1|
-|19    |system_axis_constant_0            |     2|
-|21    |system_axis_red_pitaya_adc_0      |     1|
-|22    |system_axis_red_pitaya_dac_1      |     1|
-|23    |system_clk_wiz_0                  |     1|
-|24    |system_fifo_generator_0           |     2|
-|26    |system_proc_sys_reset_0           |     1|
-|27    |system_processing_system7_0       |     1|
-|28    |system_util_ds_buf_0              |     1|
-|29    |system_util_ds_buf_1              |     1|
-|30    |system_xbar                       |     1|
-|31    |IBUF                              |    44|
-|32    |OBUF                              |    19|
-|33    |OBUFT                             |     7|
+|10    |system_GPIO_LockDetect            |     1|
+|11    |system_GPIO_LockThreshold         |     1|
+|12    |system_auto_pc                    |     2|
+|14    |system_auto_us                    |     1|
+|15    |system_axi_dma_0                  |     1|
+|16    |system_axi_gpio_0                 |     2|
+|18    |system_axi_gpio_1                 |     1|
+|19    |system_axi_gpio_2                 |     1|
+|20    |system_axi_gpio_3                 |     1|
+|21    |system_axis_constant_0            |     2|
+|23    |system_axis_red_pitaya_adc_0      |     1|
+|24    |system_axis_red_pitaya_dac_1      |     1|
+|25    |system_clk_wiz_0                  |     1|
+|26    |system_fifo_generator_0           |     2|
+|28    |system_proc_sys_reset_0           |     1|
+|29    |system_processing_system7_0       |     1|
+|30    |system_util_ds_buf_0              |     1|
+|31    |system_util_ds_buf_1              |     1|
+|32    |system_xbar                       |     1|
+|33    |IBUF                              |    44|
+|34    |OBUF                              |    19|
+|35    |OBUFT                             |     7|
 +------+----------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 56 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1357.754 ; gain = 520.781
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1357.754 ; gain = 520.781
+Synthesis finished with 0 errors, 0 critical warnings and 60 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:24 . Memory (MB): peak = 1383.809 ; gain = 525.180
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1383.809 ; gain = 544.867
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.063 . Memory (MB): peak = 1369.801 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.072 . Memory (MB): peak = 1395.848 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1381.625 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1403.859 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 294ef200
+Synth Design complete, checksum: 895a6cf6
 INFO: [Common 17-83] Releasing license: Synthesis
-136 Infos, 212 Warnings, 1 Critical Warnings and 0 Errors encountered.
+144 Infos, 211 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1381.625 ; gain = 930.129
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1403.859 ; gain = 951.242
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/system_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 27 15:46:40 2023...
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 28 10:54:35 2023...

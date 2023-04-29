@@ -14,7 +14,8 @@ INFO: [VRFC 10-3107] analyzing entity 'bitslicer'
 INFO: [VRFC 10-3107] analyzing entity 'HighTie'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Custom_System'
-WARNING: [VRFC 10-3093] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:255]
+WARNING: [VRFC 10-3093] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:293]
+WARNING: [VRFC 10-3093] actual for formal port 'reset' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd:299]
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'CIC32'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd" into library xil_defaultlib

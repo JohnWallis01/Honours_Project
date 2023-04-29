@@ -42,6 +42,13 @@ entity Custom_System is
     Reset_In: in std_logic;
     Reset_Out: out std_logic;
     Integrator_Reset: in std_logic;
+
+    --Debug
+    Debug_Signal: out std_logic_vector(13 downto 0);
+    Timer_Value: out std_logic_vector(31 downto 0);
+    Timer_Enable: in std_logic;
+
+
     --FIFO
     Target_Signal_out: out std_logic_vector(13 downto 0)
     );
@@ -53,6 +60,13 @@ end entity;
 
 
 architecture System_Architecture of Custom_System is
+
+  
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER of s_axis_tdata_ADC_Stream_in: SIGNAL is "FREQ_HZ 125000000";
+
+
+
 
   Component Mixer is
       generic(
@@ -162,19 +176,48 @@ END component;
   signal Error_Signal: std_logic_vector(25 downto 0);
   
   signal Init_State: std_logic := '1';
-
+  signal Debug_State: std_logic;
+  signal Count: unsigned(31 downto 0);
+  
   begin
 
 
+  --debugging DMA
+  process(AD_Clk_in)
+    begin  
+    if Rising_Edge(AD_CLK_in) then
+      if Debug_State = '1' then
+        Debug_State <= not Debug_State;
+        Debug_Signal <= "01010101010101";
+      else
+        Debug_State <= not Debug_State;
+        Debug_Signal <= "10101010101010";
+      end if;
+    end if;
+    end process;
 
+  ---Timer
+  process(AD_CLK_In)
+        begin
+    if Rising_Edge(AD_CLK_In) then
+      if Timer_Enable = '1' then
+        Count <= Count + to_unsigned(1,32);
+      end if;
+    Timer_Value <= std_logic_vector(Count);
+    end if;
+  end process;
 
+  ---Init/Reset Process  
   process(AD_CLK_in)
   begin
+    if Rising_Edge(AD_CLK_in) then
     if Init_State = '1' then
       Reset_Out <= '1';
       Init_State <= '0';
+      Count <= (others => '0');
     else
       Reset_Out <= '0';
+    end if;
     end if;
   end process;
 

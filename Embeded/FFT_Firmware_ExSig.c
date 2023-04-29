@@ -121,15 +121,17 @@ int main() {
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412c0000);  
     void *Lock_Threshold = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412b0000); 
-        
-
+    void *Timer_Enable = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
+        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412d0000); 
+    void *Timer_Value = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
+        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412e0000); 
 
 
     *(uint32_t*)Ki = ki_value;
     *(uint32_t*)Kp = kp_value;
     *(uint32_t*)Lock_Threshold = lock_value;
 
-
+    *(uint32_t*)Timer_Value = 0;
     *(uint32_t*)ADC_Override = 0;
     *(uint32_t*)Debug_Freq = Debug_Value;
 
@@ -143,6 +145,9 @@ int main() {
     int step = 0;
     while (1)
     {
+    int Timer_Start = *(uint32_t *)Timer_Value;
+    *(uint32_t*)Timer_Enable = 1;
+
   /*  
     step ++;
     if (step == 10) {
@@ -247,8 +252,11 @@ int main() {
     }
     
 	printf("Measured Frequency %f (Mhz)\n:", (float)Freq_Measurment*fSampling/pow(2,32));
+    *(uint32_t*)Timer_Enable = 0;
+    int Timer_End = *(uint32_t *)Timer_Value;
+    printf("Loop Time Elapsed: %f (us)\n:", ((float)Timer_End - (float)Timer_Start)*0.008);
+   
     }
-
 
 }
 

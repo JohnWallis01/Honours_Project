@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Apr 27 15:50:03 2023
+| Date         : Fri Apr 28 10:58:33 2023
 | Host         : DESKTOP-ORRMO2Q running 64-bit major release  (build 9200)
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 280
+             Violations found: 279
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -37,7 +37,6 @@ Table of Contents
 | PDRC-190  | Warning          | Suboptimally placed synchronized register chain    | 1          |
 | TIMING-18 | Warning          | Missing input or output delay                      | 30         |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten    | 4          |
-| LATCH-1   | Advisory         | Existing latches in the design                     | 1          |
 +-----------+------------------+----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -1294,7 +1293,7 @@ Related violations: <none>
 
 PDRC-190#1 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell system_i/PS7/DMA_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X20Y12 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell system_i/PS7/DMA_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+The FDRE cell system_i/PS7/DMA_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X22Y0 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell system_i/PS7/DMA_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -1473,11 +1472,6 @@ User Non-Timing constraint/property overwritten
 A new XDC property IOSTANDARD on dac_pwm_o[3] overrides a previous user property.
 New Source: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/constrs_1/imports/cfg/ports.xdc (Line: 111)
 Previous Source: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/constrs_1/imports/cfg/ports.xdc (Line: 99)
-Related violations: <none>
-
-LATCH-1#1 Advisory
-Existing latches in the design  
-There are 1 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 

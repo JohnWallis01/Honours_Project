@@ -31,7 +31,9 @@
           "m10_couplers": {},
           "m11_couplers": {},
           "m12_couplers": {},
-          "m13_couplers": {}
+          "m13_couplers": {},
+          "m14_couplers": {},
+          "m15_couplers": {}
         },
         "DMA_Interface": {
           "axi_dma_0": "",
@@ -71,6 +73,8 @@
         "GPIO_LockThreshold": ""
       },
       "fifo_generator_0": "",
+      "GPIO_TimerEnable": "",
+      "GPIO_TimerValue": "",
       "Custom_System_0": ""
     },
     "interface_ports": {
@@ -426,6 +430,16 @@
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M13_AXI": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "M14_AXI": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "M15_AXI": {
             "mode": "Master",
             "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
@@ -2070,7 +2084,7 @@
             "xci_name": "system_axi_interconnect_1_0",
             "parameters": {
               "NUM_MI": {
-                "value": "14"
+                "value": "16"
               },
               "NUM_SI": {
                 "value": "1"
@@ -2148,6 +2162,16 @@
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "M13_AXI": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+              },
+              "M14_AXI": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+              },
+              "M15_AXI": {
                 "mode": "Master",
                 "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
@@ -2406,6 +2430,38 @@
               "M13_ARESETN": {
                 "type": "rst",
                 "direction": "I"
+              },
+              "M14_ACLK": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "M14_AXI"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "M14_ARESETN"
+                  }
+                }
+              },
+              "M14_ARESETN": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "M15_ACLK": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "M15_AXI"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "M15_ARESETN"
+                  }
+                }
+              },
+              "M15_ARESETN": {
+                "type": "rst",
+                "direction": "I"
               }
             },
             "components": {
@@ -2416,7 +2472,7 @@
                 "inst_hier_path": "PS7/axi_interconnect_1/xbar",
                 "parameters": {
                   "NUM_MI": {
-                    "value": "14"
+                    "value": "16"
                   },
                   "NUM_SI": {
                     "value": "1"
@@ -2443,7 +2499,9 @@
                       "M10_AXI",
                       "M11_AXI",
                       "M12_AXI",
-                      "M13_AXI"
+                      "M13_AXI",
+                      "M14_AXI",
+                      "M15_AXI"
                     ]
                   }
                 }
@@ -3332,6 +3390,118 @@
                     ]
                   }
                 }
+              },
+              "m14_couplers": {
+                "interface_ports": {
+                  "M_AXI": {
+                    "mode": "Master",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  },
+                  "S_AXI": {
+                    "mode": "Slave",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  }
+                },
+                "ports": {
+                  "M_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "M_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "M_ARESETN"
+                      }
+                    }
+                  },
+                  "M_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  },
+                  "S_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "S_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "S_ARESETN"
+                      }
+                    }
+                  },
+                  "S_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  }
+                },
+                "interface_nets": {
+                  "m14_couplers_to_m14_couplers": {
+                    "interface_ports": [
+                      "S_AXI",
+                      "M_AXI"
+                    ]
+                  }
+                }
+              },
+              "m15_couplers": {
+                "interface_ports": {
+                  "M_AXI": {
+                    "mode": "Master",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  },
+                  "S_AXI": {
+                    "mode": "Slave",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  }
+                },
+                "ports": {
+                  "M_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "M_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "M_ARESETN"
+                      }
+                    }
+                  },
+                  "M_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  },
+                  "S_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "S_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "S_ARESETN"
+                      }
+                    }
+                  },
+                  "S_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  }
+                },
+                "interface_nets": {
+                  "m15_couplers_to_m15_couplers": {
+                    "interface_ports": [
+                      "S_AXI",
+                      "M_AXI"
+                    ]
+                  }
+                }
               }
             },
             "interface_nets": {
@@ -3425,6 +3595,18 @@
                   "m13_couplers/M_AXI"
                 ]
               },
+              "m14_couplers_to_axi_interconnect_1": {
+                "interface_ports": [
+                  "M14_AXI",
+                  "m14_couplers/M_AXI"
+                ]
+              },
+              "m15_couplers_to_axi_interconnect_1": {
+                "interface_ports": [
+                  "M15_AXI",
+                  "m15_couplers/M_AXI"
+                ]
+              },
               "s00_couplers_to_xbar": {
                 "interface_ports": [
                   "s00_couplers/M_AXI",
@@ -3513,6 +3695,18 @@
                 "interface_ports": [
                   "xbar/M13_AXI",
                   "m13_couplers/S_AXI"
+                ]
+              },
+              "xbar_to_m14_couplers": {
+                "interface_ports": [
+                  "xbar/M14_AXI",
+                  "m14_couplers/S_AXI"
+                ]
+              },
+              "xbar_to_m15_couplers": {
+                "interface_ports": [
+                  "xbar/M15_AXI",
+                  "m15_couplers/S_AXI"
                 ]
               }
             },
@@ -3685,6 +3879,30 @@
                   "m13_couplers/M_ARESETN"
                 ]
               },
+              "M14_ACLK_1": {
+                "ports": [
+                  "M14_ACLK",
+                  "m14_couplers/M_ACLK"
+                ]
+              },
+              "M14_ARESETN_1": {
+                "ports": [
+                  "M14_ARESETN",
+                  "m14_couplers/M_ARESETN"
+                ]
+              },
+              "M15_ACLK_1": {
+                "ports": [
+                  "M15_ACLK",
+                  "m15_couplers/M_ACLK"
+                ]
+              },
+              "M15_ARESETN_1": {
+                "ports": [
+                  "M15_ARESETN",
+                  "m15_couplers/M_ARESETN"
+                ]
+              },
               "S00_ACLK_1": {
                 "ports": [
                   "S00_ACLK",
@@ -3715,7 +3933,9 @@
                   "m10_couplers/S_ACLK",
                   "m11_couplers/S_ACLK",
                   "m12_couplers/S_ACLK",
-                  "m13_couplers/S_ACLK"
+                  "m13_couplers/S_ACLK",
+                  "m14_couplers/S_ACLK",
+                  "m15_couplers/S_ACLK"
                 ]
               },
               "axi_interconnect_1_ARESETN_net": {
@@ -3736,7 +3956,9 @@
                   "m10_couplers/S_ARESETN",
                   "m11_couplers/S_ARESETN",
                   "m12_couplers/S_ARESETN",
-                  "m13_couplers/S_ARESETN"
+                  "m13_couplers/S_ARESETN",
+                  "m14_couplers/S_ARESETN",
+                  "m15_couplers/S_ARESETN"
                 ]
               }
             }
@@ -4244,6 +4466,18 @@
               "axi_interconnect_1/M04_AXI"
             ]
           },
+          "Conn10": {
+            "interface_ports": [
+              "M14_AXI",
+              "axi_interconnect_1/M14_AXI"
+            ]
+          },
+          "Conn11": {
+            "interface_ports": [
+              "M15_AXI",
+              "axi_interconnect_1/M15_AXI"
+            ]
+          },
           "DMA_Interface_M00_AXI": {
             "interface_ports": [
               "processing_system7_0/S_AXI_HP0",
@@ -4319,7 +4553,9 @@
               "DMA_Interface/M00_ARESETN",
               "axi_interconnect_1/M11_ARESETN",
               "axi_interconnect_1/M12_ARESETN",
-              "axi_interconnect_1/M13_ARESETN"
+              "axi_interconnect_1/M13_ARESETN",
+              "axi_interconnect_1/M14_ARESETN",
+              "axi_interconnect_1/M15_ARESETN"
             ]
           },
           "aclk_1": {
@@ -4364,7 +4600,9 @@
               "DMA_Interface/m_axi_s2mm_aclk",
               "axi_interconnect_1/M11_ACLK",
               "axi_interconnect_1/M13_ACLK",
-              "axi_interconnect_1/M12_ACLK"
+              "axi_interconnect_1/M12_ACLK",
+              "axi_interconnect_1/M14_ACLK",
+              "axi_interconnect_1/M15_ACLK"
             ]
           },
           "processing_system7_0_FCLK_RESET0_N": {
@@ -5148,6 +5386,37 @@
           }
         }
       },
+      "GPIO_TimerEnable": {
+        "vlnv": "xilinx.com:ip:axi_gpio:2.0",
+        "xci_name": "system_GPIO_LockDetect_0",
+        "xci_path": "ip\\system_GPIO_LockDetect_0\\system_GPIO_LockDetect_0.xci",
+        "inst_hier_path": "GPIO_TimerEnable",
+        "parameters": {
+          "C_ALL_INPUTS": {
+            "value": "0"
+          },
+          "C_ALL_OUTPUTS": {
+            "value": "1"
+          },
+          "C_GPIO_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "GPIO_TimerValue": {
+        "vlnv": "xilinx.com:ip:axi_gpio:2.0",
+        "xci_name": "system_GPIO_LockThreshold_0",
+        "xci_path": "ip\\system_GPIO_LockThreshold_0\\system_GPIO_LockThreshold_0.xci",
+        "inst_hier_path": "GPIO_TimerValue",
+        "parameters": {
+          "C_ALL_INPUTS": {
+            "value": "1"
+          },
+          "C_GPIO_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
       "Custom_System_0": {
         "vlnv": "xilinx.com:module_ref:Custom_System:1.0",
         "xci_name": "system_Custom_System_0_0",
@@ -5164,6 +5433,10 @@
             "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
             "vlnv": "xilinx.com:interface:axis_rtl:1.0",
             "parameters": {
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "constant"
+              },
               "TDATA_NUM_BYTES": {
                 "value": "4",
                 "value_src": "constant"
@@ -5275,6 +5548,19 @@
             "type": "rst",
             "direction": "I"
           },
+          "Debug_Signal": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Timer_Value": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Timer_Enable": {
+            "direction": "I"
+          },
           "Target_Signal_out": {
             "direction": "O",
             "left": "13",
@@ -5294,6 +5580,18 @@
         "interface_ports": [
           "PS7/M12_AXI",
           "GPIO_Interface/S_AXI"
+        ]
+      },
+      "PS7_M14_AXI": {
+        "interface_ports": [
+          "GPIO_TimerEnable/S_AXI",
+          "PS7/M14_AXI"
+        ]
+      },
+      "PS7_M15_AXI": {
+        "interface_ports": [
+          "GPIO_TimerValue/S_AXI",
+          "PS7/M15_AXI"
         ]
       },
       "S_AXI1_1": {
@@ -5388,6 +5686,12 @@
           "DAC_Interface/cfg_data"
         ]
       },
+      "Custom_System_0_Debug_Signal": {
+        "ports": [
+          "Custom_System_0/Debug_Signal",
+          "PS7/cfg_data"
+        ]
+      },
       "Custom_System_0_FIFO_Write": {
         "ports": [
           "GPIO_Interface/gpio_FIFO_Write",
@@ -5409,8 +5713,13 @@
       "Custom_System_0_Target_Signal_out": {
         "ports": [
           "Custom_System_0/Target_Signal_out",
-          "fifo_generator_0/din",
-          "PS7/cfg_data"
+          "fifo_generator_0/din"
+        ]
+      },
+      "Custom_System_0_Timer_Value": {
+        "ports": [
+          "Custom_System_0/Timer_Value",
+          "GPIO_TimerValue/gpio_io_i"
         ]
       },
       "GPIO_ADC_Override_gpio_io_o": {
@@ -5467,6 +5776,12 @@
           "Custom_System_0/PLL_Guess_Freq"
         ]
       },
+      "GPIO_TimerEnable_gpio_io_o": {
+        "ports": [
+          "GPIO_TimerEnable/gpio_io_o",
+          "Custom_System_0/Timer_Enable"
+        ]
+      },
       "Net": {
         "ports": [
           "axis_red_pitaya_adc_0/adc_clk",
@@ -5480,6 +5795,8 @@
         "ports": [
           "PS7/FCLK_CLK0",
           "GPIO_Interface/s_axi_aclk",
+          "GPIO_TimerEnable/s_axi_aclk",
+          "GPIO_TimerValue/s_axi_aclk",
           "Custom_System_0/Sys_CLK_in"
         ]
       },
@@ -5570,7 +5887,9 @@
       "s_axi_aresetn_1": {
         "ports": [
           "PS7/peripheral_aresetn",
-          "GPIO_Interface/s_axi_aresetn"
+          "GPIO_Interface/s_axi_aresetn",
+          "GPIO_TimerEnable/s_axi_aresetn",
+          "GPIO_TimerValue/s_axi_aresetn"
         ]
       },
       "util_ds_buf_1_OBUF_DS_N": {
@@ -5654,6 +5973,16 @@
               "SEG_GPIO_PLL_GUESS_Freq_Reg": {
                 "address_block": "/GPIO_Interface/GPIO_PLL_GUESS_Freq/S_AXI/Reg",
                 "offset": "0x41270000",
+                "range": "64K"
+              },
+              "SEG_GPIO_TimerEnable_Reg": {
+                "address_block": "/GPIO_TimerEnable/S_AXI/Reg",
+                "offset": "0x412D0000",
+                "range": "64K"
+              },
+              "SEG_GPIO_TimerValue_Reg": {
+                "address_block": "/GPIO_TimerValue/S_AXI/Reg",
+                "offset": "0x412E0000",
                 "range": "64K"
               },
               "SEG_axi_dma_0_Reg": {
