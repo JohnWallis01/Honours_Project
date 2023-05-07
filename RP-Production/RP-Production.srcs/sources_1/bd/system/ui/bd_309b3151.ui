@@ -1,0 +1,44 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.784404",
+   "Default View_TopLeft":"-737,121",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port S_AXI -pg 1 -lvl 0 -x -50 -y 670 -defaultsOSRD
+preplace port S_AXI1 -pg 1 -lvl 0 -x -50 -y 960 -defaultsOSRD
+preplace port S_AXI2 -pg 1 -lvl 0 -x -50 -y 490 -defaultsOSRD
+preplace port S_AXI3 -pg 1 -lvl 0 -x -50 -y 810 -defaultsOSRD
+preplace port S_AXI4 -pg 1 -lvl 0 -x -50 -y 1110 -defaultsOSRD
+preplace port port-id_rd_clk -pg 1 -lvl 0 -x -50 -y 610 -defaultsOSRD
+preplace port port-id_Reset -pg 1 -lvl 0 -x -50 -y 250 -defaultsOSRD
+preplace portBus Freq_Out -pg 1 -lvl 3 -x 910 -y 240 -defaultsOSRD
+preplace inst GPIO_SweepFIFO_RST -pg 1 -lvl 1 -x 150 -y 690 -defaultsOSRD
+preplace inst GPIO_SweepData -pg 1 -lvl 1 -x 150 -y 510 -defaultsOSRD
+preplace inst fifo_generator_1 -pg 1 -lvl 2 -x 720 -y 590 -defaultsOSRD
+preplace inst Sweep_Generator_0 -pg 1 -lvl 1 -x 150 -y 220 -defaultsOSRD
+preplace inst GPIO_SweepGen_WrCLK -pg 1 -lvl 1 -x 150 -y 830 -defaultsOSRD
+preplace inst GPIO_SweepFIFO_WrEn -pg 1 -lvl 1 -x 150 -y 980 -defaultsOSRD
+preplace inst GPIO_SweepGenWriteDone -pg 1 -lvl 1 -x 150 -y 1130 -defaultsOSRD
+preplace netloc fifo_generator_1_dout 1 0 2 -20 600 310J
+preplace netloc GPIO_SweepData_gpio_io_o 1 1 1 340 520n
+preplace netloc GPIO_DebugFIFO_gpio_io_o 1 1 1 310 650n
+preplace netloc GPIO_DebugFIFO1_gpio_io_o 1 1 1 340 670n
+preplace netloc GPIO_DebugFIFO2_gpio_io_o 1 1 1 320 550n
+preplace netloc Sweep_Generator_0_Read_For_Data 1 1 1 330 200n
+preplace netloc rd_clk_1 1 0 2 -30J 610 300J
+preplace netloc Sweep_Generator_0_Freq_Out 1 1 2 NJ 240 NJ
+preplace netloc Net 1 0 1 -10 510n
+preplace netloc Net1 1 0 1 0 530n
+preplace netloc GPIO_DebugFIFO3_gpio_io_o 1 0 2 -30 130 290
+preplace netloc Reset_1 1 0 1 N 250
+preplace netloc S_AXI_1 1 0 1 N 670
+preplace netloc S_AXI1_1 1 0 1 N 960
+preplace netloc S_AXI2_1 1 0 1 N 490
+preplace netloc S_AXI3_1 1 0 1 N 810
+preplace netloc S_AXI4_1 1 0 1 N 1110
+levelinfo -pg 1 -50 150 720 910
+pagesize -pg 1 -db -bbox -sgen -150 -80 1060 1320
+"
+}
+

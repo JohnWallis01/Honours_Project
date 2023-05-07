@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_GPIO_LockThreshold_0",
-    "cell_name": "GPIO_TimerValue",
+    "cell_name": "Debug_Timer/GPIO_TimerValue",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "29",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_GPIO_LockThreshold_0",

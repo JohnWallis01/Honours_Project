@@ -16,10 +16,8 @@ entity Custom_System is
     --PLL Conrols
     Control_Kp: in std_logic_vector(31 downto 0);
     Control_Ki: in std_logic_vector(31 downto 0);
-    Control_Lock_Threshold: in std_logic_vector(25 downto 0);
 
     --Measurments
-    Lock_Detect: out std_logic;
     Freq_Measured: out std_logic_vector(31 downto 0);
 
 
@@ -44,7 +42,7 @@ entity Custom_System is
     Integrator_Reset: in std_logic;
 
     --Debug
-    Debug_Signal: out std_logic_vector(13 downto 0);
+    -- Debug_Signal: out std_logic_vector(13 downto 0);
     Timer_Value: out std_logic_vector(31 downto 0);
     Timer_Enable: in std_logic;
 
@@ -167,6 +165,21 @@ architecture System_Architecture of Custom_System is
 END component;
 
 
+component Sweep_Generator is
+  generic(
+
+      Control_Points: integer := 4
+  );
+  port(
+      Data_In: in std_logic_vector(31 downto 0);
+      Data_Avaliable: in std_logic;
+      Read_For_Data: out std_logic;
+      Looped: out std_logic;
+      Sys_CLK: in std_logic;
+      Reset: in std_logic;
+      Freq_Out: out std_logic_vector(31 downto 0)
+  );
+end component;
 
 
     --production signals
@@ -182,19 +195,19 @@ END component;
   begin
 
 
-  --debugging DMA
-  process(AD_Clk_in)
-    begin  
-    if Rising_Edge(AD_CLK_in) then
-      if Debug_State = '1' then
-        Debug_State <= not Debug_State;
-        Debug_Signal <= "01010101010101";
-      else
-        Debug_State <= not Debug_State;
-        Debug_Signal <= "10101010101010";
-      end if;
-    end if;
-    end process;
+  -- --debugging DMA
+  -- process(AD_Clk_in)
+  --   begin  
+  --   if Rising_Edge(AD_CLK_in) then
+  --     if Debug_State = '1' then
+  --       Debug_State <= not Debug_State;
+  --       Debug_Signal <= "01010101010101";
+  --     else
+  --       Debug_State <= not Debug_State;
+  --       Debug_Signal <= "10101010101010";
+  --     end if;
+  --   end if;
+  --   end process;
 
   ---Timer
   process(AD_CLK_In)
@@ -288,26 +301,8 @@ END component;
       Quadrature_out => Quadrature_Signal
   );
 
-  --lock detection;
 
-  process(AD_CLK_in)
-  begin
-    if Rising_Edge(AD_CLK_in) then
-      if Reset_In = '1' then
-        Lock_Detect <= '0';
-      else
-        if unsigned(abs(signed(Error_Signal))) < unsigned(Control_Lock_Threshold) then
-          Lock_Detect <= '1';
-        else
-          Lock_Detect <= '0';
-        end if;
-      end if;
-    end if;
-  end process;
-
-      
-
-
+    
   
   Quadrature_Mixer: Mixer
   generic map(MixerSize => 14)

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
-#include <unistd.h>
 #include <sys/mman.h>
+#include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <math.h>
@@ -83,6 +83,21 @@ void handle_sigint(int sig) {
     exit(0);
 }
 
+void setup_sweep_gen() {
+    void *SweepData = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, fd,   0x81200000);
+    void *Sweep_FIFO_RST = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, fd,  0x81210000);
+    void *Sweep_FIFO_WREN = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, fd,  0x81220000);
+    void *SweepGenWriteDone = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, fd,  0x81230000);
+    void *SweepGenWrCLK = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, fd,  0x81240000);
+
+    //do something
+
+}
+
+
+
+
+
 int main() {
     // Register signal handler for SIGINT
     signal(SIGINT, handle_sigint);
@@ -120,21 +135,16 @@ int main() {
     void *Kp = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x41260000);  
 
-    void *PLL_Lock = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
-        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412c0000);  
-    void *Lock_Threshold = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
-        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412b0000); 
     void *Timer_Enable = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
-        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412d0000); 
+        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x81250000); 
     void *Timer_Value = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
-        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412e0000); 
+        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x81260000); 
 
 
 
 
     *(uint32_t*)Ki = ki_value;
     *(uint32_t*)Kp = kp_value;
-    *(uint32_t*)Lock_Threshold = lock_value;
 
     *(uint32_t*)Timer_Value = 0;
     *(uint32_t*)ADC_Override = 1;
@@ -228,7 +238,7 @@ int main() {
 
     //Compute the tuning word
 
-    int f_tuning = f_measured/(fSampling)*pow(2,32);
+    uint f_tuning = f_measured/(fSampling)*pow(2,32);
     // printf("%d\n", f_tuning);
 
 
@@ -251,6 +261,13 @@ int main() {
     lock_loss = 0;
     }
     }
+    else if (lock_loss > 0)
+    {
+    lock_loss--;
+    printf("Lock Stablizing: %d\n", lock_loss);
+
+    }
+    
     printf("PLL Error: %d\n",  Freq_Measurment - Debug_Value);
 
 

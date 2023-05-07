@@ -24,6 +24,7 @@ for line in data:
     if "Debug_Value" in line:
         debug_value = int(line.split(":")[1][:-1])
 
+errors = [(np.abs(pair[1]-pair[0]), pair[0]) for pair in tunings if pair[1] < 2**31]
 
 
 
@@ -84,10 +85,12 @@ ax2.set_ylabel('Sensor Output (Hz)')
 
 # Third plot on the second row, second column
 ax3 = fig.add_subplot(gs[1, 1])
-ax3.plot(errors)
+ax3.scatter(conversion*np.transpose(errors)[1],conversion*np.transpose(errors)[0], s=0.2)
 ax3.set_title("Raw noise")
-ax3.set_xlabel('Time')
+ax3.set_xlabel('Measurement Frequency(Hz)')
 ax3.set_ylabel('Frequency offset (Hz)')
+ax3.set_yscale('log')
+# ax3.set_xscale('log')
 
 
 # Adjust spacing between the plots
