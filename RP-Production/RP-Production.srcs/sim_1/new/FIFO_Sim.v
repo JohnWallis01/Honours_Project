@@ -24,60 +24,296 @@ module FIFO_Sim(
 
     );
 
-    reg GPIO_Interface_gpio_io_o2;
-    reg Net;
     reg Reset;
-    reg GPIO_Interface_gpio_io_o4;
-    reg Custom_System_0_FIFO_Write;
-    reg[13:0] Custom_System_0_Target_Signal_out;
-    wire[13:0] fifo_generator_0_dout;
-    wire fifo_generator_0_empty;
-    wire fifo_generator_0_full;
+    reg Clock;
+    reg Data_CLK;
+    reg[31:0] Data_In;
+    wire[31:0] Data_Out;
 
 
-      fifo_generator_0 DUT 
-       (.din(Custom_System_0_Target_Signal_out),
-        .dout(fifo_generator_0_dout),
-        .empty(fifo_generator_0_empty),
-        .full(fifo_generator_0_full),
-        .rd_clk(GPIO_Interface_gpio_io_o2),
-        .rd_en(GPIO_Interface_gpio_io_o4),
-        .wr_clk(Net),
-        .wr_en(Custom_System_0_FIFO_Write));
+        Sweep_Generator DUT(.Data_In(Data_In), .Reset(Reset), .Data_CLK(Data_CLK), .Freq_Out(Data_Out), .Sys_CLK(Clock)); 
+
+
+      initial 
+      begin
+        Data_CLK = 0;
+        Reset = 1;
+        Clock = 0;
+        #1; // low for 20 * timescale = 1 ns
+        Clock = 1;
+        #1; // low for 20 * timescale = 1 ns
+        Clock = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 1;
+                #1; // low for 20 * timescale = 1 ns
+                Clock = 0;
+
+
+
+
+
+        #1; // low for 20 * timescale = 1 ns
+        Reset = 0;
+
+        #1; // low for 20 * timescale = 1 ns
+        Data_In = 32'b00010100011110101110000101000111; //10 Mhz target
+        Clock = 0; 
+        #1; // low for 20 * timescale = 1 ns
+        Clock = 1;
+        Data_CLK = 1;
+
+        #1; // low for 20 * timescale = 1 ns
+        Data_CLK = 0;
+
+        Clock = 0;
+        #1; // low for 20 * timescale = 1 ns
+
+        Data_In = 32'b00000000001101000110110111000101; // 0.1 Mhz 
+        Clock = 1;
+        #1; // low for 20 * timescale = 1 ns
+        Data_CLK = 1;
+        #1;
+        Data_CLK = 0;
+
+
+
+        Clock = 0;
+        Data_In = 32'b00000100011110101110000101000111; //Lower Targer
+        #1; // low for 20 * timescale = 1 ns
+        Data_CLK = 1;
+
+        Clock = 1;
+        #1; // low for 20 * timescale = 1 ns
+        Data_CLK = 0;
+
+        Clock = 0;
+        Data_In = 32'b11111111011101000110110111000101; // -ve value
+        #1; // low for 20 * timescale = 1 ns
+        Data_CLK = 1;
+
+        // Shit the bed time
+        
+        Clock = 1;
+        #1; // low for 20 * timescale = 1 ns
+        Data_In = 32'b00000000000000000000000000000000; // 0.2 Mhz
+
+        Clock = 0;
+        Data_CLK = 0;
+
+        #1; // low for 20 * timescale = 1 ns
+        Data_CLK = 1;
+        Clock = 1;
+        #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+        #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+        #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 1;
+        Data_CLK = 1;
+
+                #1; // low for 20 * timescale = 1 ns
+
+        Clock = 0;
+        Data_CLK = 0;
+
+                #1; // low for 20 * timescale = 1 ns
+        Data_CLK = 1;
+
+
+      end
+
+
 
     always 
     begin
-        Custom_System_0_FIFO_Write = 1'b1;
-        GPIO_Interface_gpio_io_o4 = 1'b1;
-        Custom_System_0_Target_Signal_out = 14'b01010101010101;
-        Net = 1'b1; 
+        Clock = 0;
         #1; // high for 20 * timescale = 1 ns
 
-        Net = 1'b0;
-        #1; // low for 20 * timescale = 1 ns
-
-        Custom_System_0_FIFO_Write = 1'b1;
-        GPIO_Interface_gpio_io_o4 = 1'b1;
-        Custom_System_0_Target_Signal_out = 14'b10101010101010;
-        Net = 1'b1; 
-        #1; // high for 20 * timescale = 1 ns
-
-        Net = 1'b0;
-        #1; // low for 20 * timescale = 1 ns
-    end
-
-    always
-    begin
-        GPIO_Interface_gpio_io_o2 = 1'b1; 
-        #1; // high for 20 * timescale = 1 ns
-        #1; // high for 20 * timescale = 1 ns
-
-        GPIO_Interface_gpio_io_o2 = 1'b0;
-        #1; // low for 20 * timescale = 1 ns
+        Clock = 1;
         #1; // low for 20 * timescale = 1 ns
 
     end
-
 
 
 endmodule

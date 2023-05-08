@@ -1,44 +1,107 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.784404",
-   "Default View_TopLeft":"-737,121",
+   "Default View_ScaleFactor":"0.836002",
+   "Default View_TopLeft":"-421,482",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port S_AXI -pg 1 -lvl 0 -x -50 -y 670 -defaultsOSRD
-preplace port S_AXI1 -pg 1 -lvl 0 -x -50 -y 960 -defaultsOSRD
-preplace port S_AXI2 -pg 1 -lvl 0 -x -50 -y 490 -defaultsOSRD
-preplace port S_AXI3 -pg 1 -lvl 0 -x -50 -y 810 -defaultsOSRD
-preplace port S_AXI4 -pg 1 -lvl 0 -x -50 -y 1110 -defaultsOSRD
-preplace port port-id_rd_clk -pg 1 -lvl 0 -x -50 -y 610 -defaultsOSRD
-preplace port port-id_Reset -pg 1 -lvl 0 -x -50 -y 250 -defaultsOSRD
-preplace portBus Freq_Out -pg 1 -lvl 3 -x 910 -y 240 -defaultsOSRD
-preplace inst GPIO_SweepFIFO_RST -pg 1 -lvl 1 -x 150 -y 690 -defaultsOSRD
-preplace inst GPIO_SweepData -pg 1 -lvl 1 -x 150 -y 510 -defaultsOSRD
-preplace inst fifo_generator_1 -pg 1 -lvl 2 -x 720 -y 590 -defaultsOSRD
-preplace inst Sweep_Generator_0 -pg 1 -lvl 1 -x 150 -y 220 -defaultsOSRD
-preplace inst GPIO_SweepGen_WrCLK -pg 1 -lvl 1 -x 150 -y 830 -defaultsOSRD
-preplace inst GPIO_SweepFIFO_WrEn -pg 1 -lvl 1 -x 150 -y 980 -defaultsOSRD
-preplace inst GPIO_SweepGenWriteDone -pg 1 -lvl 1 -x 150 -y 1130 -defaultsOSRD
-preplace netloc fifo_generator_1_dout 1 0 2 -20 600 310J
-preplace netloc GPIO_SweepData_gpio_io_o 1 1 1 340 520n
-preplace netloc GPIO_DebugFIFO_gpio_io_o 1 1 1 310 650n
-preplace netloc GPIO_DebugFIFO1_gpio_io_o 1 1 1 340 670n
-preplace netloc GPIO_DebugFIFO2_gpio_io_o 1 1 1 320 550n
-preplace netloc Sweep_Generator_0_Read_For_Data 1 1 1 330 200n
-preplace netloc rd_clk_1 1 0 2 -30J 610 300J
-preplace netloc Sweep_Generator_0_Freq_Out 1 1 2 NJ 240 NJ
-preplace netloc Net 1 0 1 -10 510n
-preplace netloc Net1 1 0 1 0 530n
-preplace netloc GPIO_DebugFIFO3_gpio_io_o 1 0 2 -30 130 290
-preplace netloc Reset_1 1 0 1 N 250
-preplace netloc S_AXI_1 1 0 1 N 670
-preplace netloc S_AXI1_1 1 0 1 N 960
-preplace netloc S_AXI2_1 1 0 1 N 490
-preplace netloc S_AXI3_1 1 0 1 N 810
-preplace netloc S_AXI4_1 1 0 1 N 1110
-levelinfo -pg 1 -50 150 720 910
-pagesize -pg 1 -db -bbox -sgen -150 -80 1060 1320
+preplace port S_AXI2 -pg 1 -lvl 0 -x -170 -y 490 -defaultsOSRD
+preplace port S_AXI3 -pg 1 -lvl 0 -x -170 -y 200 -defaultsOSRD
+preplace port S_AXI -pg 1 -lvl 0 -x -170 -y 340 -defaultsOSRD
+preplace port S_AXI1 -pg 1 -lvl 0 -x -170 -y 470 -defaultsOSRD
+preplace port S_AXI4 -pg 1 -lvl 0 -x -170 -y 1672 -defaultsOSRD
+preplace port S_AXI5 -pg 1 -lvl 0 -x -170 -y 620 -defaultsOSRD
+preplace port S_AXI6 -pg 1 -lvl 0 -x -170 -y 892 -defaultsOSRD
+preplace port S_AXI7 -pg 1 -lvl 0 -x -170 -y 1032 -defaultsOSRD
+preplace port S_AXI8 -pg 1 -lvl 0 -x -170 -y 1172 -defaultsOSRD
+preplace port S_AXI9 -pg 1 -lvl 0 -x -170 -y 1320 -defaultsOSRD
+preplace port S_AXI10 -pg 1 -lvl 0 -x -170 -y 1470 -defaultsOSRD
+preplace port S_AXI11 -pg 1 -lvl 0 -x -170 -y 1700 -defaultsOSRD
+preplace port S_AXI12 -pg 1 -lvl 0 -x -170 -y 1720 -defaultsOSRD
+preplace port S_AXI13 -pg 1 -lvl 0 -x -170 -y 1740 -defaultsOSRD
+preplace port S_AXI14 -pg 1 -lvl 0 -x -170 -y 1760 -defaultsOSRD
+preplace port S_AXI15 -pg 1 -lvl 0 -x -170 -y 1780 -defaultsOSRD
+preplace port S_AXI16 -pg 1 -lvl 0 -x -170 -y 1800 -defaultsOSRD
+preplace port S_AXI17 -pg 1 -lvl 0 -x -170 -y 1820 -defaultsOSRD
+preplace port port-id_rd_clk -pg 1 -lvl 0 -x -170 -y 580 -defaultsOSRD
+preplace port port-id_s_axi_aresetn -pg 1 -lvl 0 -x -170 -y 600 -defaultsOSRD
+preplace port port-id_s_axi_aclk -pg 1 -lvl 0 -x -170 -y 220 -defaultsOSRD
+preplace portBus Freq_Out -pg 1 -lvl 3 -x 1030 -y 760 -defaultsOSRD
+preplace inst GPIO_SweepGen_Enable -pg 1 -lvl 1 -x 170 -y 180 -defaultsOSRD
+preplace inst GPIO_SweepGen_Reset -pg 1 -lvl 1 -x 170 -y 320 -defaultsOSRD
+preplace inst Targets -pg 1 -lvl 1 -x 170 -y 530 -defaultsOSRD
+preplace inst Changes -pg 1 -lvl 1 -x 170 -y 1730 -defaultsOSRD
+preplace inst Sweep_Generator_0 -pg 1 -lvl 2 -x 858 -y 760 -defaultsOSRD
+preplace inst Targets|GPIO_Target0 -pg 1 -lvl 1 -x 250 -y 790 -defaultsOSRD
+preplace inst Targets|GPIO_Target1 -pg 1 -lvl 1 -x 250 -y 510 -defaultsOSRD
+preplace inst Targets|GPIO_Target2 -pg 1 -lvl 1 -x 250 -y 650 -defaultsOSRD
+preplace inst Targets|GPIO_Target3 -pg 1 -lvl 1 -x 250 -y 930 -defaultsOSRD
+preplace inst Targets|GPIO_Target4 -pg 1 -lvl 1 -x 250 -y 1070 -defaultsOSRD
+preplace inst Targets|GPIO_Target5 -pg 1 -lvl 1 -x 250 -y 1210 -defaultsOSRD
+preplace inst Targets|GPIO_Target6 -pg 1 -lvl 1 -x 250 -y 1350 -defaultsOSRD
+preplace inst Targets|GPIO_Target7 -pg 1 -lvl 1 -x 250 -y 1490 -defaultsOSRD
+preplace netloc GPIO_SweepData_gpio_io_o 1 1 1 630 500n
+preplace netloc GPIO_SweepGen_Reset_gpio_io_o 1 1 1 640 330n
+preplace netloc GPIO_SweepGen_WrCLK_gpio_io_o 1 1 1 650 190n
+preplace netloc Net 1 0 1 -70 180n
+preplace netloc Net1 1 0 1 -60 200n
+preplace netloc Sweep_Generator_0_Freq_Out 1 2 1 N 760
+preplace netloc rd_clk_1 1 0 2 -140J 100 660J
+preplace netloc GPIO_Target3_gpio_io_o 1 1 1 540 760n
+preplace netloc GPIO_Target4_gpio_io_o 1 1 1 560 800n
+preplace netloc GPIO_Target5_gpio_io_o 1 1 1 590 840n
+preplace netloc GPIO_Target7_gpio_io_o 1 1 1 630 920n
+preplace netloc GPIO_Target2_gpio_io_o 1 1 1 540 660n
+preplace netloc GPIO_Target6_gpio_io_o 1 1 1 610 880n
+preplace netloc GPIO_Target1_gpio_io_o 1 1 1 570 520n
+preplace netloc Changes_gpio_io_o 1 1 1 550 660n
+preplace netloc Changes_gpio_io_o1 1 1 1 570 700n
+preplace netloc Changes_gpio_io_o2 1 1 1 580 740n
+preplace netloc Changes_gpio_io_o3 1 1 1 600 780n
+preplace netloc Changes_gpio_io_o4 1 1 1 620 820n
+preplace netloc Changes_gpio_io_o5 1 1 1 640 860n
+preplace netloc Changes_gpio_io_o6 1 1 1 650 900n
+preplace netloc Changes_gpio_io_o7 1 1 1 660 940n
+preplace netloc S_AXI2_1 1 0 1 -130J 470n
+preplace netloc S_AXI3_1 1 0 1 -150J 160n
+preplace netloc S_AXI_1 1 0 1 -130J 300n
+preplace netloc S_AXI1_1 1 0 1 -150 470n
+preplace netloc S_AXI4_1 1 0 1 -150 1640n
+preplace netloc S_AXI5_1 1 0 1 -50 620n
+preplace netloc S_AXI6_1 1 0 1 -150 892n
+preplace netloc S_AXI7_1 1 0 1 -150 1032n
+preplace netloc S_AXI8_1 1 0 1 -150 1172n
+preplace netloc S_AXI9_1 1 0 1 -150 1320n
+preplace netloc S_AXI10_1 1 0 1 N 1470
+preplace netloc S_AXI11_1 1 0 1 -140 1660n
+preplace netloc S_AXI12_1 1 0 1 -130 1680n
+preplace netloc S_AXI13_1 1 0 1 -120 1700n
+preplace netloc S_AXI14_1 1 0 1 -110 1720n
+preplace netloc S_AXI15_1 1 0 1 -100 1740n
+preplace netloc S_AXI16_1 1 0 1 -90 1760n
+preplace netloc S_AXI17_1 1 0 1 -80 1780n
+preplace netloc Targets|Net 1 0 1 90 510n
+preplace netloc Targets|Net1 1 0 1 110 530n
+preplace netloc Targets|GPIO_SweepData_gpio_io_o 1 1 1 390 500n
+preplace netloc Targets|GPIO_Target1_gpio_io_o 1 1 1 N 520
+preplace netloc Targets|GPIO_Target2_gpio_io_o 1 1 1 N 660
+preplace netloc Targets|GPIO_Target3_gpio_io_o 1 1 1 N 940
+preplace netloc Targets|GPIO_Target4_gpio_io_o 1 1 1 N 1080
+preplace netloc Targets|GPIO_Target5_gpio_io_o 1 1 1 N 1220
+preplace netloc Targets|GPIO_Target6_gpio_io_o 1 1 1 N 1360
+preplace netloc Targets|GPIO_Target7_gpio_io_o 1 1 1 N 1500
+preplace netloc Targets|S_AXI2_1 1 0 1 100 470n
+preplace netloc Targets|Conn1 1 0 1 N 490
+preplace netloc Targets|Conn2 1 0 1 N 630
+preplace netloc Targets|Conn3 1 0 1 N 910
+preplace netloc Targets|Conn4 1 0 1 N 1050
+preplace netloc Targets|Conn5 1 0 1 N 1190
+preplace netloc Targets|Conn6 1 0 1 N 1330
+preplace netloc Targets|Conn7 1 0 1 N 1470
+levelinfo -pg 1 -170 170 858 1030
+levelinfo -hier Targets * 250 *
+pagesize -pg 1 -db -bbox -sgen -310 0 1180 1870
+pagesize -hier Targets -db -bbox -sgen 60 410 420 1570
 "
 }
-
+0

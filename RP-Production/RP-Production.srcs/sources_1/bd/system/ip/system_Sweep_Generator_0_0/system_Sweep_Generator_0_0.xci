@@ -8,11 +8,7 @@
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_Sweep_Generator_0_0",
     "parameters": {
       "component_parameters": {
-        "Control_Points": [ { "value": "4", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "system_Sweep_Generator_0_0", "resolve_type": "user", "usage": "all" } ]
-      },
-      "model_parameters": {
-        "Control_Points": [ { "value": "4", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -42,13 +38,26 @@
     },
     "boundary": {
       "ports": {
-        "Data_In": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "Data_Avaliable": [ { "direction": "in" } ],
-        "Read_For_Data": [ { "direction": "out" } ],
-        "Looped": [ { "direction": "out" } ],
         "Sys_CLK": [ { "direction": "in" } ],
         "Reset": [ { "direction": "in" } ],
-        "Freq_Out": [ { "direction": "out", "size_left": "31", "size_right": "0" } ]
+        "Freq_Out": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
+        "En": [ { "direction": "in" } ],
+        "Target0": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change0": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Target1": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change1": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Target2": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change2": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Target3": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change3": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Target4": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change4": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Target5": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change5": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Target6": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change6": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Target7": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Change7": [ { "direction": "in", "size_left": "31", "size_right": "0" } ]
       },
       "interfaces": {
         "Reset": {
@@ -69,10 +78,10 @@
           "mode": "slave",
           "parameters": {
             "ASSOCIATED_RESET": [ { "value": "Reset", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
-            "FREQ_HZ": [ { "value": "100000000", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_HZ": [ { "value": "125000000", "value_src": "constant_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "system_axis_red_pitaya_adc_0_0_adc_clk", "value_src": "default_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]

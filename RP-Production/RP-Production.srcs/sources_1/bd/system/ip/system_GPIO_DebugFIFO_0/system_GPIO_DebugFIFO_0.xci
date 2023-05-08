@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_GPIO_DebugFIFO_0",
-    "cell_name": "Sweep_Generator/GPIO_SweepGen_WrCLK",
+    "cell_name": "GPIO_SweepGen_Enable",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "29",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_GPIO_DebugFIFO_0",

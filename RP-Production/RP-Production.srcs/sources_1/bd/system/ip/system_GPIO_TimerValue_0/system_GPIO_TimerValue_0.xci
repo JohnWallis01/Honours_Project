@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_GPIO_TimerValue_0",
-    "cell_name": "Sweep_Generator/GPIO_SweepData",
+    "cell_name": "Sweep_Generator/Targets/GPIO_Target0",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "29",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_GPIO_TimerValue_0",

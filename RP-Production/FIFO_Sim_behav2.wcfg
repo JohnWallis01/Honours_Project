@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="FIFO_Sim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="FIFO_Sim" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="190.601 ns"></ZoomEndTime>
+      <Cursor1Time time="50.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="481"></NameColumnWidth>
+      <ValueColumnWidth column_width="237"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/FIFO_Sim/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/Data_CLK" type="logic">
+      <obj_property name="ElementShortName">Data_CLK</obj_property>
+      <obj_property name="ObjectShortName">Data_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/Data_In" type="array">
+      <obj_property name="ElementShortName">Data_In[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_In[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/Data_Out" type="array">
+      <obj_property name="ElementShortName">Data_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Data_In" type="array">
+      <obj_property name="ElementShortName">Data_In[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_In[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Data_CLK" type="logic">
+      <obj_property name="ElementShortName">Data_CLK</obj_property>
+      <obj_property name="ObjectShortName">Data_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Sys_CLK" type="logic">
+      <obj_property name="ElementShortName">Sys_CLK</obj_property>
+      <obj_property name="ObjectShortName">Sys_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Freq_Out" type="array">
+      <obj_property name="ElementShortName">Freq_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Freq_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/State_Info" type="logic">
+      <obj_property name="ElementShortName">State_Info</obj_property>
+      <obj_property name="ObjectShortName">State_Info</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/stack_pointer" type="array">
+      <obj_property name="ElementShortName">stack_pointer[3:0]</obj_property>
+      <obj_property name="ObjectShortName">stack_pointer[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/State" type="logic">
+      <obj_property name="ElementShortName">State</obj_property>
+      <obj_property name="ObjectShortName">State</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Sweep_Data" type="array">
+      <obj_property name="ElementShortName">Sweep_Data[0:15][31:0]</obj_property>
+      <obj_property name="ObjectShortName">Sweep_Data[0:15][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Current_Freq" type="array">
+      <obj_property name="ElementShortName">Current_Freq[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Current_Freq[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Next_Stack_Pointer" type="array">
+      <obj_property name="ElementShortName">Next_Stack_Pointer[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Next_Stack_Pointer[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIFO_Sim/DUT/Control_Points" type="other">
+      <obj_property name="ElementShortName">Control_Points</obj_property>
+      <obj_property name="ObjectShortName">Control_Points</obj_property>
+   </wvobject>
+</wave_config>
