@@ -343,32 +343,32 @@ int main() {
 
     // FFT watchdog for the PLL that resets to the actual frequency if signifcant slipping is detected
 
-    // if (f_tuning-Freq_Measurment > pow(2,31)/npoints || f_tuning-Freq_Measurment < -pow(2,31)/npoints)
-    // {
-    // lock_loss++; //add somehting to reduce lock slip when it is stable
-    // printf("\nSTATUS_LOCKSLIP: %d\n", lock_loss);
-    // if (lock_loss == 10) {
-    // *(uint32_t*)Integrator_Reset = 1;
-    // *(uint32_t*)PLL_Guess_Freq = f_tuning;
-    // usleep(1);
-    // *(uint32_t*)Integrator_Reset = 0;
-    // printf("\nSTATUS_RELOCKING\n");
-    // printf("FFT Measured Tuning: %d\n" , f_tuning);
-    // printf("PLL Measured Tuning: %d\n", Freq_Measurment);
-    // lock_loss = 0;
-    // }
-    // }
-    // else if (lock_loss > 0)
-    // {
-    // lock_loss--;
-    // printf("\nSTATUS_LOCKSTAB: %d\n", lock_loss);
+    if (f_tuning-Freq_Measurment > pow(2,31)/npoints || f_tuning-Freq_Measurment < -pow(2,31)/npoints)
+    {
+    lock_loss++; //add somehting to reduce lock slip when it is stable
+    printf("\nSTATUS_LOCKSLIP: %d\n", lock_loss);
+    if (lock_loss == 10) {
+    *(uint32_t*)Integrator_Reset = 1;
+    *(uint32_t*)PLL_Guess_Freq = f_tuning;
+    usleep(1);
+    *(uint32_t*)Integrator_Reset = 0;
+    printf("\nSTATUS_RELOCKING\n");
+    printf("FFT Measured Tuning: %d\n" , f_tuning);
+    printf("PLL Measured Tuning: %d\n", Freq_Measurment);
+    lock_loss = 0;
+    }
+    }
+    else if (lock_loss > 0)
+    {
+    lock_loss--;
+    printf("\nSTATUS_LOCKSTAB: %d\n", lock_loss);
 
-    // }
-    // else {
-    //         printf("\nSTATUS_STABLE: %d\n", lock_loss);
+    }
+    else {
+            printf("\nSTATUS_STABLE: %d\n", lock_loss);
 
 
-    // }
+    }
 
     printf("\nMEASURMENTS\n");
     printf("Actual Freq: %d\n", Debug_Value);

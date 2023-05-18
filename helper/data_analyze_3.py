@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 conversion = 1/(2**32)*125*10**6
-with open("logTracking.txt", "r") as file:
+with open("logTrackingFFT.txt", "r") as file:
     data =file.readlines()
     
 errors = [conversion*float(line.split(":")[1][:-1]) for line in data if "PLL" in line and "Measured" not in line]
@@ -28,6 +28,7 @@ for line in data:
         if freqMeasured < 0:
             freqMeasured = -freqMeasured
         tunings.append([actualFreq,freqMeasured])    
+
 
 
 
