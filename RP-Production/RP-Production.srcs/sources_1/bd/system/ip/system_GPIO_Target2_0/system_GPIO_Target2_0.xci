@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_GPIO_Target2_0",
-    "cell_name": "Sweep_Generator/Targets1/GPIO_Target2",
+    "cell_name": "Sweep_Generator/Changes/GPIO_Target2",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "29",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_GPIO_Target2_0",

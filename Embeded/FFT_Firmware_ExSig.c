@@ -109,16 +109,12 @@ int main() {
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x41250000);  
     void *Kp = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x41260000);  
-    void *Timer_Enable = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
-        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412d0000); 
-    void *Timer_Value = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
-        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412e0000); 
+
 
 
     *(uint32_t*)Ki = ki_value;
     *(uint32_t*)Kp = kp_value;
 
-    *(uint32_t*)Timer_Value = 0;
     *(uint32_t*)ADC_Override = 0;
     *(uint32_t*)Debug_Freq = Debug_Value;
 
@@ -134,8 +130,6 @@ int main() {
 
     while (1)
     {
-    int Timer_Start = *(uint32_t *)Timer_Value;
-    *(uint32_t*)Timer_Enable = 1;
 
   /*  
     step ++;
@@ -222,6 +216,7 @@ int main() {
     {
     lock_loss++; //add somehting to reduce lock slip when it is stable
     printf("Lock Slipping: %d\n", lock_loss);
+    printf("Error %d\n", f_tuning-Freq_Measurment);
     if (lock_loss == 10) {
     *(uint32_t*)Integrator_Reset = 1;
     *(uint32_t*)PLL_Guess_Freq = f_tuning;
@@ -241,13 +236,6 @@ int main() {
     }
     
 	printf("Measured Frequency %f (Mhz)\n:", (float)Freq_Measurment*fSampling/pow(2,32));
-    *(uint32_t*)Timer_Enable = 0;
-    int Timer_End = *(uint32_t *)Timer_Value;
-    printf("Loop Time Start: %d ticks\n:", Timer_Start);
-    printf("Loop Time End: %d ticks\n:", Timer_End);
-
-    printf("Loop Time Elapsed: %f (us)\n:", ((float)Timer_End - (float)Timer_Start)*0.008);
-   
     }
 
 }

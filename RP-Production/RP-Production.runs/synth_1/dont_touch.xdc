@@ -98,20 +98,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO
 # IP: bd/system/ip/system_GPIO_LockDetect_0/system_GPIO_LockDetect_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_LockDetect_0 || ORIG_REF_NAME==system_GPIO_LockDetect_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_GPIO_TimerValue_0/system_GPIO_TimerValue_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_TimerValue_0 || ORIG_REF_NAME==system_GPIO_TimerValue_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_GPIO_DebugFIFO_0/system_GPIO_DebugFIFO_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_DebugFIFO_0 || ORIG_REF_NAME==system_GPIO_DebugFIFO_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_GPIO_SweepGen_WrCLK_0/system_GPIO_SweepGen_WrCLK_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_SweepGen_WrCLK_0 || ORIG_REF_NAME==system_GPIO_SweepGen_WrCLK_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_Sweep_Generator_0_0/system_Sweep_Generator_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Sweep_Generator_0_0 || ORIG_REF_NAME==system_Sweep_Generator_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
+# IP: bd/system/ip/system_GPIO_TimerValue_0/system_GPIO_TimerValue_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_TimerValue_0 || ORIG_REF_NAME==system_GPIO_TimerValue_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_GPIO_Target0_0/system_GPIO_Target0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_Target0_0 || ORIG_REF_NAME==system_GPIO_Target0_0} -quiet] -quiet
@@ -157,6 +151,12 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO
 
 # IP: bd/system/ip/system_GPIO_Target7_0/system_GPIO_Target7_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_Target7_0 || ORIG_REF_NAME==system_GPIO_Target7_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Sweep_Generator_0_0/system_Sweep_Generator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Sweep_Generator_0_0 || ORIG_REF_NAME==system_Sweep_Generator_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Custom_System_0_0/system_Custom_System_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Custom_System_0_0 || ORIG_REF_NAME==system_Custom_System_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
