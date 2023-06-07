@@ -209,10 +209,9 @@ int main() {
     // printf("%d\n", f_tuning);
 
 
-   
     // do this is only if significant discrepancy between the PLL measure and the FFT measurment and the PLL error is high,
     uint Freq_Measurment = *(uint32_t *)PLL_Freq_Measured;
-    if (f_tuning-Freq_Measurment > pow(2,31)/npoints || f_tuning-Freq_Measurment < -pow(2,31)/npoints)
+    if ((float)f_tuning-(float)Freq_Measurment > pow(2,31)/npoints || (float)f_tuning-(float)Freq_Measurment < -1*pow(2,31)/npoints)
     {
     lock_loss++; //add somehting to reduce lock slip when it is stable
     printf("Lock Slipping: %d\n", lock_loss);
