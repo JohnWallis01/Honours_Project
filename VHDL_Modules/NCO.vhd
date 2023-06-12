@@ -75,7 +75,7 @@ architecture NCO_str of NCO is
     begin
       if rising_edge(clock) then
         if (rst='1') then
-          phase<=(others =>'0');
+          phase <= (others =>'0');
         else
         phase <= phase +  signed(Frequency);
         OffsetPhase <= phase + signed(PhaseOffset);

@@ -7,5 +7,6 @@
 # of Vivado)
 ################################################################################
 create_clock -name PS7_processing_system7_0_FCLK_CLK0 -period 8 [get_pins PS7/processing_system7_0/FCLK_CLK0]
+create_clock -name PS7_processing_system7_0_FCLK_CLK1 -period 6.562 [get_pins PS7/processing_system7_0/FCLK_CLK1]
 
 ################################################################################

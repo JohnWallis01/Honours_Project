@@ -71,8 +71,8 @@ pagesize -pg 1 -db -bbox -sgen -220 -850 2400 1890
    "Color Coded_ScaleFactor":"0.696819",
    "Color Coded_TopLeft":"-159,-459",
    "Default View_Layers":"/DAC_Controller/axis_red_pitaya_dac_1_dac_rst:true|/PS7/processing_system7_0_FCLK_CLK0:true|/PS7/processing_system7_0_FCLK_RESET0_N:true|/DAC_Controller/axis_red_pitaya_dac_1_dac_clk:true|/Daisy_Controller/util_ds_buf_0_IBUF_OUT:true|/DAC_Controller/clk_wiz_0_clk_out1:true|/ADC_Interface/Net:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_P:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_N:true|/PS7/S00_ARESETN_1:true|/PS7/proc_sys_reset_0_interconnect_aresetn:true|",
-   "Default View_ScaleFactor":"0.52129",
-   "Default View_TopLeft":"-902,0",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-180,-12",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "Display-PortTypeReset":"true",
@@ -168,112 +168,76 @@ preplace port Vaux0 -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
 preplace port Vaux1 -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
 preplace port Vaux9 -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
 preplace port Vaux8 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
-preplace port DDR -pg 1 -lvl 5 -x 1780 -y 20 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 5 -x 1780 -y 40 -defaultsOSRD
-preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x 0 -y 1250 -defaultsOSRD
-preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x 0 -y 1270 -defaultsOSRD
-preplace port port-id_adc_enc_p_o -pg 1 -lvl 5 -x 1780 -y 160 -defaultsOSRD
-preplace port port-id_adc_enc_n_o -pg 1 -lvl 5 -x 1780 -y 140 -defaultsOSRD
-preplace port port-id_adc_csn_o -pg 1 -lvl 5 -x 1780 -y 1420 -defaultsOSRD
-preplace port port-id_dac_clk_o -pg 1 -lvl 5 -x 1780 -y 1290 -defaultsOSRD
-preplace port port-id_dac_rst_o -pg 1 -lvl 5 -x 1780 -y 1310 -defaultsOSRD
-preplace port port-id_dac_sel_o -pg 1 -lvl 5 -x 1780 -y 1330 -defaultsOSRD
-preplace port port-id_dac_wrt_o -pg 1 -lvl 5 -x 1780 -y 1350 -defaultsOSRD
-preplace portBus adc_dat_b_i -pg 1 -lvl 0 -x 0 -y 1310 -defaultsOSRD
-preplace portBus dac_dat_o -pg 1 -lvl 5 -x 1780 -y 1370 -defaultsOSRD
-preplace portBus dac_pwm_o -pg 1 -lvl 5 -x 1780 -y 60 -defaultsOSRD
-preplace portBus exp_p_tri_io -pg 1 -lvl 5 -x 1780 -y 100 -defaultsOSRD
-preplace portBus exp_n_tri_io -pg 1 -lvl 5 -x 1780 -y 80 -defaultsOSRD
-preplace portBus daisy_p_o -pg 1 -lvl 5 -x 1780 -y 1480 -defaultsOSRD
-preplace portBus daisy_n_o -pg 1 -lvl 5 -x 1780 -y 1500 -defaultsOSRD
-preplace portBus daisy_p_i -pg 1 -lvl 0 -x 0 -y 1480 -defaultsOSRD
-preplace portBus daisy_n_i -pg 1 -lvl 0 -x 0 -y 1500 -defaultsOSRD
-preplace portBus led_o -pg 1 -lvl 5 -x 1780 -y 120 -defaultsOSRD
-preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x 0 -y 1290 -defaultsOSRD
-preplace inst PS7 -pg 1 -lvl 1 -x 170 -y 550 -defaultsOSRD
-preplace inst Daisy_Controller -pg 1 -lvl 4 -x 1610 -y 1490 -defaultsOSRD
-preplace inst axis_red_pitaya_adc_0 -pg 1 -lvl 2 -x 700 -y 1280 -defaultsOSRD
-preplace inst DAC_Interface -pg 1 -lvl 4 -x 1610 -y 1330 -defaultsOSRD
-preplace inst GPIO_Interface -pg 1 -lvl 2 -x 700 -y 250 -defaultsOSRD
-preplace inst fifo_generator_0 -pg 1 -lvl 4 -x 1610 -y 1120 -defaultsOSRD
-preplace inst Debug_Timer -pg 1 -lvl 2 -x 700 -y 1070 -defaultsOSRD
-preplace inst Sweep_Generator -pg 1 -lvl 2 -x 700 -y 720 -defaultsOSRD
-preplace inst Custom_System_0 -pg 1 -lvl 3 -x 1200 -y 1020 -defaultsOSRD
-preplace netloc Custom_System_0_DAC_Stream_out 1 3 1 1410 1000n
-preplace netloc Custom_System_0_Debug_Signal 1 0 1 N 540
-preplace netloc Custom_System_0_FIFO_Write 1 2 2 930 840 1460J
-preplace netloc Custom_System_0_Freq_Measured 1 1 3 480 10 NJ 10 1410
-preplace netloc Custom_System_0_Reset_Out 1 2 2 1000 850 1400
-preplace netloc Custom_System_0_Target_Signal_out 1 3 1 1420 1060n
-preplace netloc Custom_System_0_Timer_Value 1 1 3 490 1180 NJ 1180 1400
-preplace netloc GPIO_ADC_Override_gpio_io_o 1 2 1 950 210n
-preplace netloc GPIO_Interface_gpio_io_o2 1 2 2 1000 820 1450J
-preplace netloc GPIO_Interface_gpio_io_o4 1 2 2 980 830 1440J
-preplace netloc GPIO_Interface_gpio_io_o8 1 2 1 910 310n
-preplace netloc GPIO_Ki_gpio_io_o 1 2 1 970 170n
-preplace netloc GPIO_Kp_gpio_io_o 1 2 1 960 190n
-preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 2 1 990 230n
-preplace netloc GPIO_TimerEnable_gpio_io_o 1 2 1 900 1070n
-preplace netloc Net 1 0 4 20 950 460 1170 980 1190 1430
-preplace netloc PS7_FCLK_CLK0 1 1 2 450 1160 960J
-preplace netloc Sweep_Generator_Freq_Out 1 1 2 490 460 920
-preplace netloc adc_clk_n_i_1 1 0 2 NJ 1270 NJ
-preplace netloc adc_clk_p_i_1 1 0 2 NJ 1250 NJ
-preplace netloc adc_dat_a_i_1 1 0 2 NJ 1290 NJ
-preplace netloc adc_dat_b_i_1 1 0 2 NJ 1310 NJ
-preplace netloc axis_red_pitaya_adc_0_adc_csn 1 2 3 NJ 1300 1400J 1420 NJ
-preplace netloc axis_red_pitaya_dac_1_dac_clk 1 4 1 NJ 1290
-preplace netloc axis_red_pitaya_dac_1_dac_dat 1 4 1 NJ 1370
-preplace netloc axis_red_pitaya_dac_1_dac_rst 1 4 1 NJ 1310
-preplace netloc axis_red_pitaya_dac_1_dac_sel 1 4 1 NJ 1330
-preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 4 1 NJ 1350
-preplace netloc daisy_n_i_1 1 0 4 NJ 1500 NJ 1500 NJ 1500 NJ
-preplace netloc daisy_p_i_1 1 0 4 NJ 1480 NJ 1480 NJ 1480 NJ
-preplace netloc fifo_generator_0_dout 1 1 3 480 970 930J 860 1430J
-preplace netloc s_axi_aresetn_1 1 1 1 470 330n
-preplace netloc util_ds_buf_1_OBUF_DS_N 1 4 1 NJ 1500
-preplace netloc util_ds_buf_1_OBUF_DS_P 1 4 1 NJ 1480
-preplace netloc PS7_M04_AXI1 1 1 1 320 540n
-preplace netloc PS7_M07_AXI1 1 1 1 N 600
-preplace netloc PS7_M08_AXI1 1 1 1 N 620
-preplace netloc PS7_M09_AXI1 1 1 1 N 640
-preplace netloc PS7_M10_AXI 1 1 1 440 290n
-preplace netloc PS7_M10_AXI1 1 1 1 N 660
-preplace netloc PS7_M11_AXI 1 1 1 N 680
-preplace netloc PS7_M12_AXI 1 1 1 N 700
-preplace netloc PS7_M13_AXI 1 1 1 N 740
-preplace netloc PS7_M14_AXI 1 1 1 N 720
-preplace netloc PS7_M15_AXI 1 1 1 N 760
-preplace netloc PS7_M16_AXI 1 1 1 N 860
-preplace netloc PS7_M17_AXI 1 1 1 N 780
-preplace netloc PS7_M18_AXI 1 1 1 N 800
-preplace netloc PS7_M19_AXI 1 1 1 N 820
-preplace netloc PS7_M20_AXI 1 1 1 N 840
-preplace netloc S_AXI1_1 1 1 1 370 110n
-preplace netloc S_AXI1_2 1 1 1 N 580
-preplace netloc S_AXI1_3 1 1 1 340 480n
-preplace netloc S_AXI2_1 1 1 1 390 130n
-preplace netloc S_AXI2_2 1 1 1 430 500n
-preplace netloc S_AXI3_1 1 1 1 340 150n
-preplace netloc S_AXI3_2 1 1 1 360 520n
-preplace netloc S_AXI4_1 1 1 1 430 270n
-preplace netloc S_AXI5_1 1 1 1 360 170n
-preplace netloc S_AXI6_1 1 1 1 380 190n
-preplace netloc S_AXI7_1 1 1 1 400 210n
-preplace netloc S_AXI8_1 1 1 1 410 230n
-preplace netloc S_AXI9_1 1 1 1 420 250n
-preplace netloc S_AXI_1 1 1 1 350 90n
-preplace netloc S_AXI_2 1 1 1 400 460n
-preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 2 1 940 920n
-preplace netloc processing_system7_0_DDR 1 1 4 320J 20 NJ 20 NJ 20 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 1 4 330J 30 NJ 30 NJ 30 1760J
-levelinfo -pg 1 0 170 700 1200 1610 1780
-pagesize -pg 1 -db -bbox -sgen -170 0 1940 1550
+preplace port DDR -pg 1 -lvl 5 -x 1510 -y 20 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 5 -x 1510 -y 40 -defaultsOSRD
+preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x 0 -y 360 -defaultsOSRD
+preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x 0 -y 380 -defaultsOSRD
+preplace port port-id_adc_enc_p_o -pg 1 -lvl 5 -x 1510 -y 160 -defaultsOSRD
+preplace port port-id_adc_enc_n_o -pg 1 -lvl 5 -x 1510 -y 140 -defaultsOSRD
+preplace port port-id_adc_csn_o -pg 1 -lvl 5 -x 1510 -y 650 -defaultsOSRD
+preplace port port-id_dac_clk_o -pg 1 -lvl 5 -x 1510 -y 710 -defaultsOSRD
+preplace port port-id_dac_rst_o -pg 1 -lvl 5 -x 1510 -y 730 -defaultsOSRD
+preplace port port-id_dac_sel_o -pg 1 -lvl 5 -x 1510 -y 750 -defaultsOSRD
+preplace port port-id_dac_wrt_o -pg 1 -lvl 5 -x 1510 -y 770 -defaultsOSRD
+preplace portBus adc_dat_b_i -pg 1 -lvl 0 -x 0 -y 420 -defaultsOSRD
+preplace portBus dac_dat_o -pg 1 -lvl 5 -x 1510 -y 790 -defaultsOSRD
+preplace portBus dac_pwm_o -pg 1 -lvl 5 -x 1510 -y 60 -defaultsOSRD
+preplace portBus exp_p_tri_io -pg 1 -lvl 5 -x 1510 -y 100 -defaultsOSRD
+preplace portBus exp_n_tri_io -pg 1 -lvl 5 -x 1510 -y 80 -defaultsOSRD
+preplace portBus daisy_p_o -pg 1 -lvl 5 -x 1510 -y 580 -defaultsOSRD
+preplace portBus daisy_n_o -pg 1 -lvl 5 -x 1510 -y 600 -defaultsOSRD
+preplace portBus daisy_p_i -pg 1 -lvl 0 -x 0 -y 580 -defaultsOSRD
+preplace portBus daisy_n_i -pg 1 -lvl 0 -x 0 -y 600 -defaultsOSRD
+preplace portBus led_o -pg 1 -lvl 5 -x 1510 -y 120 -defaultsOSRD
+preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x 0 -y 400 -defaultsOSRD
+preplace inst PS7 -pg 1 -lvl 3 -x 830 -y 140 -defaultsOSRD
+preplace inst Daisy_Controller -pg 1 -lvl 4 -x 1260 -y 590 -defaultsOSRD
+preplace inst axis_red_pitaya_adc_0 -pg 1 -lvl 1 -x 140 -y 390 -defaultsOSRD
+preplace inst DAC_Interface -pg 1 -lvl 4 -x 1260 -y 750 -defaultsOSRD
+preplace inst GPIO_Interface -pg 1 -lvl 4 -x 1260 -y 170 -defaultsOSRD
+preplace inst axis_broadcaster_0 -pg 1 -lvl 2 -x 430 -y 390 -defaultsOSRD
+preplace inst Phase_Locked_Loop_0 -pg 1 -lvl 3 -x 830 -y 440 -defaultsOSRD
+preplace netloc Net 1 1 3 270 310 590 570 1030J
+preplace netloc PS7_FCLK_CLK0 1 3 1 N 200
+preplace netloc adc_clk_n_i_1 1 0 1 NJ 380
+preplace netloc adc_clk_p_i_1 1 0 1 NJ 360
+preplace netloc adc_dat_a_i_1 1 0 1 NJ 400
+preplace netloc adc_dat_b_i_1 1 0 1 NJ 420
+preplace netloc axis_red_pitaya_adc_0_adc_csn 1 1 4 260J 280 NJ 280 1050J 520 1470J
+preplace netloc axis_red_pitaya_dac_1_dac_clk 1 4 1 NJ 710
+preplace netloc axis_red_pitaya_dac_1_dac_dat 1 4 1 NJ 790
+preplace netloc axis_red_pitaya_dac_1_dac_rst 1 4 1 NJ 730
+preplace netloc axis_red_pitaya_dac_1_dac_sel 1 4 1 NJ 750
+preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 4 1 NJ 770
+preplace netloc daisy_n_i_1 1 0 4 NJ 600 NJ 600 NJ 600 NJ
+preplace netloc daisy_p_i_1 1 0 4 NJ 580 NJ 580 NJ 580 NJ
+preplace netloc s_axi_aresetn_1 1 1 3 280 270 NJ 270 1050
+preplace netloc util_ds_buf_1_OBUF_DS_N 1 4 1 NJ 600
+preplace netloc util_ds_buf_1_OBUF_DS_P 1 4 1 NJ 580
+preplace netloc gpio_Freq_Measured_1 1 3 1 1060 240n
+preplace netloc Phase_Locked_Loop_0_DAC_Stream_out 1 3 1 1040 440n
+preplace netloc Phase_Locked_Loop_0_Reset_Out 1 2 2 630 560 1030
+preplace netloc GPIO_Interface_gpio_Integrator_Reset 1 2 3 600 290 NJ 290 1460
+preplace netloc GPIO_Interface_gpio_PLL_Guess_Freq 1 2 3 630 320 NJ 320 1480
+preplace netloc GPIO_Interface_gpio_Ki 1 2 3 620 310 NJ 310 1490
+preplace netloc GPIO_Interface_gpio_Kp 1 2 3 610 300 NJ 300 1470
+preplace netloc PS7_M10_AXI 1 3 1 N 180
+preplace netloc S_AXI6_1 1 3 1 N 140
+preplace netloc S_AXI7_1 1 3 1 N 160
+preplace netloc processing_system7_0_DDR 1 3 2 1050J 20 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 3 2 1060J 40 NJ
+preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 1 N 370
+preplace netloc axis_broadcaster_0_M01_AXIS 1 2 1 580 130n
+preplace netloc axis_broadcaster_0_M00_AXIS 1 2 1 N 380
+preplace netloc PS7_M03_AXI 1 3 1 N 100
+preplace netloc PS7_M00_AXI 1 3 1 N 120
+levelinfo -pg 1 0 140 430 830 1260 1510
+pagesize -pg 1 -db -bbox -sgen -170 0 1670 840
 "
 }
 {
-   """"""""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""""":"4",
-   """"""""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""""":"3",
-   """"""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""""""""""""da_ps7_cnt"""""""""""""""""""""""""""""""":"1"
+   """"""""""""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""""""""":"4",
+   """"""""""""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""""""""":"3",
+   """"""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""":"1",
+   """"""""""""""""""""""""""""""""""""da_ps7_cnt"""""""""""""""""""""""""""""""""""":"1"
 }
