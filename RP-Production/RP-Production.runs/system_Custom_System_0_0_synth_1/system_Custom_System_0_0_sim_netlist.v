@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Jun  6 12:04:42 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Wed Jun  7 14:57:48 2023
+// Host        : Valkyrie running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_Custom_System_0_0_sim_netlist.v
 // Design      : system_Custom_System_0_0
@@ -13,100 +13,100 @@
 `timescale 1 ps / 1 ps
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_AXI4_Stream_Reader
-   (DAC_Stream_out,
+   (Q,
     s_axis_tdata_ADC_Stream_in,
     AD_CLK_in);
-  output [13:0]DAC_Stream_out;
+  output [13:0]Q;
   input [13:0]s_axis_tdata_ADC_Stream_in;
   input AD_CLK_in;
 
   wire AD_CLK_in;
-  wire [13:0]DAC_Stream_out;
+  wire [13:0]Q;
   wire [13:0]s_axis_tdata_ADC_Stream_in;
 
   FDRE \Dout_reg[0] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[0]),
-        .Q(DAC_Stream_out[0]),
+        .Q(Q[0]),
         .R(1'b0));
   FDRE \Dout_reg[10] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[10]),
-        .Q(DAC_Stream_out[10]),
+        .Q(Q[10]),
         .R(1'b0));
   FDRE \Dout_reg[11] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[11]),
-        .Q(DAC_Stream_out[11]),
+        .Q(Q[11]),
         .R(1'b0));
   FDRE \Dout_reg[12] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[12]),
-        .Q(DAC_Stream_out[12]),
+        .Q(Q[12]),
         .R(1'b0));
   FDRE \Dout_reg[13] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[13]),
-        .Q(DAC_Stream_out[13]),
+        .Q(Q[13]),
         .R(1'b0));
   FDRE \Dout_reg[1] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[1]),
-        .Q(DAC_Stream_out[1]),
+        .Q(Q[1]),
         .R(1'b0));
   FDRE \Dout_reg[2] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[2]),
-        .Q(DAC_Stream_out[2]),
+        .Q(Q[2]),
         .R(1'b0));
   FDRE \Dout_reg[3] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[3]),
-        .Q(DAC_Stream_out[3]),
+        .Q(Q[3]),
         .R(1'b0));
   FDRE \Dout_reg[4] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[4]),
-        .Q(DAC_Stream_out[4]),
+        .Q(Q[4]),
         .R(1'b0));
   FDRE \Dout_reg[5] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[5]),
-        .Q(DAC_Stream_out[5]),
+        .Q(Q[5]),
         .R(1'b0));
   FDRE \Dout_reg[6] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[6]),
-        .Q(DAC_Stream_out[6]),
+        .Q(Q[6]),
         .R(1'b0));
   FDRE \Dout_reg[7] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[7]),
-        .Q(DAC_Stream_out[7]),
+        .Q(Q[7]),
         .R(1'b0));
   FDRE \Dout_reg[8] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[8]),
-        .Q(DAC_Stream_out[8]),
+        .Q(Q[8]),
         .R(1'b0));
   FDRE \Dout_reg[9] 
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(s_axis_tdata_ADC_Stream_in[9]),
-        .Q(DAC_Stream_out[9]),
+        .Q(Q[9]),
         .R(1'b0));
 endmodule
 
@@ -2011,7 +2011,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_System
     PLL_Guess_Freq,
     Internal_Debug_Freq,
     Integrator_Reset);
-  output [26:0]DAC_Stream_out;
+  output [25:0]DAC_Stream_out;
   output [31:0]Freq_Measured;
   output Reset_Out;
   output [13:0]Target_Signal_out;
@@ -2031,8 +2031,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_System
   wire AD_CLK_in;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire [26:0]DAC_Stream_out;
-  wire [12:0]Dout;
+  wire [25:0]DAC_Stream_out;
+  wire [13:0]Dout;
   wire [31:0]Freq_Measured;
   wire Init_State;
   wire Integrator_Reset;
@@ -2218,18 +2218,18 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_System
   assign section_out1_reg_23_sn_1 = \section_out1_reg[23] ;
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO ADC_Debug_NCO
        (.AD_CLK_in(AD_CLK_in),
+        .DAC_Stream_out(DAC_Stream_out[25:13]),
         .E(PLL_NCO_n_0),
         .Internal_Debug_Freq(Internal_Debug_Freq),
-        .Q(Dout),
         .Reset_In(Reset_In));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Dual_Multiplexer ADC_Override_Mux
        (.ADC_Override(ADC_Override),
         .D(A),
-        .DAC_Stream_out(DAC_Stream_out[26:13]),
+        .DAC_Stream_out(DAC_Stream_out[25:13]),
         .Q(Dout));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_AXI4_Stream_Reader ADC_Stream_Reader
        (.AD_CLK_in(AD_CLK_in),
-        .DAC_Stream_out(DAC_Stream_out[26:13]),
+        .Q(Dout),
         .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in));
   FDRE \Freq_Measured_reg[0] 
        (.C(AD_CLK_in),
@@ -3078,116 +3078,116 @@ endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Dual_Multiplexer
    (D,
+    DAC_Stream_out,
     Q,
-    ADC_Override,
-    DAC_Stream_out);
+    ADC_Override);
   output [13:0]D;
-  input [12:0]Q;
+  input [12:0]DAC_Stream_out;
+  input [13:0]Q;
   input ADC_Override;
-  input [13:0]DAC_Stream_out;
 
   wire ADC_Override;
   wire [13:0]D;
-  wire [13:0]DAC_Stream_out;
-  wire [12:0]Q;
+  wire [12:0]DAC_Stream_out;
+  wire [13:0]Q;
 
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[0]_i_1 
-       (.I0(Q[0]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[0]),
+       (.I0(DAC_Stream_out[0]),
+        .I1(Q[0]),
+        .I2(ADC_Override),
         .O(D[0]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[10]_i_1 
-       (.I0(Q[10]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[10]),
+       (.I0(DAC_Stream_out[10]),
+        .I1(Q[10]),
+        .I2(ADC_Override),
         .O(D[10]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[11]_i_1 
-       (.I0(Q[11]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[11]),
+       (.I0(DAC_Stream_out[11]),
+        .I1(Q[11]),
+        .I2(ADC_Override),
         .O(D[11]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[12]_i_1 
-       (.I0(Q[12]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[12]),
+       (.I0(DAC_Stream_out[12]),
+        .I1(Q[12]),
+        .I2(ADC_Override),
         .O(D[12]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[13]_i_1 
-       (.I0(Q[12]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[13]),
+       (.I0(DAC_Stream_out[12]),
+        .I1(Q[13]),
+        .I2(ADC_Override),
         .O(D[13]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[1]_i_1 
-       (.I0(Q[1]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[1]),
+       (.I0(DAC_Stream_out[1]),
+        .I1(Q[1]),
+        .I2(ADC_Override),
         .O(D[1]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[2]_i_1 
-       (.I0(Q[2]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[2]),
+       (.I0(DAC_Stream_out[2]),
+        .I1(Q[2]),
+        .I2(ADC_Override),
         .O(D[2]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[3]_i_1 
-       (.I0(Q[3]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[3]),
+       (.I0(DAC_Stream_out[3]),
+        .I1(Q[3]),
+        .I2(ADC_Override),
         .O(D[3]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[4]_i_1 
-       (.I0(Q[4]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[4]),
+       (.I0(DAC_Stream_out[4]),
+        .I1(Q[4]),
+        .I2(ADC_Override),
         .O(D[4]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[5]_i_1 
-       (.I0(Q[5]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[5]),
+       (.I0(DAC_Stream_out[5]),
+        .I1(Q[5]),
+        .I2(ADC_Override),
         .O(D[5]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[6]_i_1 
-       (.I0(Q[6]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[6]),
+       (.I0(DAC_Stream_out[6]),
+        .I1(Q[6]),
+        .I2(ADC_Override),
         .O(D[6]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[7]_i_1 
-       (.I0(Q[7]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[7]),
+       (.I0(DAC_Stream_out[7]),
+        .I1(Q[7]),
+        .I2(ADC_Override),
         .O(D[7]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[8]_i_1 
-       (.I0(Q[8]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[8]),
+       (.I0(DAC_Stream_out[8]),
+        .I1(Q[8]),
+        .I2(ADC_Override),
         .O(D[8]));
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'hAC)) 
     \Target_Signal_out[9]_i_1 
-       (.I0(Q[9]),
-        .I1(ADC_Override),
-        .I2(DAC_Stream_out[9]),
+       (.I0(DAC_Stream_out[9]),
+        .I1(Q[9]),
+        .I2(ADC_Override),
         .O(D[9]));
 endmodule
 
@@ -3788,18 +3788,19 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Mixer
 endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
-   (Q,
+   (DAC_Stream_out,
     E,
     AD_CLK_in,
     Reset_In,
     Internal_Debug_Freq);
-  output [12:0]Q;
+  output [12:0]DAC_Stream_out;
   input [0:0]E;
   input AD_CLK_in;
   input Reset_In;
   input [31:0]Internal_Debug_Freq;
 
   wire AD_CLK_in;
+  wire [12:0]DAC_Stream_out;
   wire [0:0]E;
   wire [31:0]Internal_Debug_Freq;
   wire \OffsetPhase_reg_n_0_[22] ;
@@ -3810,7 +3811,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
   wire \OffsetPhase_reg_n_0_[27] ;
   wire \OffsetPhase_reg_n_0_[28] ;
   wire \OffsetPhase_reg_n_0_[29] ;
-  wire [12:0]Q;
   wire Reset_In;
   wire [7:0]dataAddr;
   wire \dataAddr[0]_i_1_n_0 ;
@@ -4015,7 +4015,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[0]),
-        .Q(Q[0]),
+        .Q(DAC_Stream_out[0]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4023,7 +4023,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[10]),
-        .Q(Q[10]),
+        .Q(DAC_Stream_out[10]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4031,7 +4031,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[11]),
-        .Q(Q[11]),
+        .Q(DAC_Stream_out[11]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4039,7 +4039,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[12]),
-        .Q(Q[12]),
+        .Q(DAC_Stream_out[12]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4047,7 +4047,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[1]),
-        .Q(Q[1]),
+        .Q(DAC_Stream_out[1]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4055,7 +4055,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[2]),
-        .Q(Q[2]),
+        .Q(DAC_Stream_out[2]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4063,7 +4063,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[3]),
-        .Q(Q[3]),
+        .Q(DAC_Stream_out[3]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4071,7 +4071,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[4]),
-        .Q(Q[4]),
+        .Q(DAC_Stream_out[4]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4079,7 +4079,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[5]),
-        .Q(Q[5]),
+        .Q(DAC_Stream_out[5]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4087,7 +4087,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[6]),
-        .Q(Q[6]),
+        .Q(DAC_Stream_out[6]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4095,7 +4095,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[7]),
-        .Q(Q[7]),
+        .Q(DAC_Stream_out[7]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4103,7 +4103,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[8]),
-        .Q(Q[8]),
+        .Q(DAC_Stream_out[8]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -4111,7 +4111,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
        (.C(AD_CLK_in),
         .CE(1'b1),
         .D(databuffer[9]),
-        .Q(Q[9]),
+        .Q(DAC_Stream_out[9]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -12773,7 +12773,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   wire AD_CLK_in;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire [29:0]\^DAC_Stream_out ;
+  wire [28:0]\^DAC_Stream_out ;
   wire [31:0]Freq_Measured;
   wire Integrator_Reset;
   wire [31:0]Internal_Debug_Freq;
@@ -12786,7 +12786,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
 
   assign DAC_Stream_out[31] = \<const0> ;
   assign DAC_Stream_out[30] = \<const0> ;
-  assign DAC_Stream_out[29:16] = \^DAC_Stream_out [29:16];
+  assign DAC_Stream_out[29] = \^DAC_Stream_out [28];
+  assign DAC_Stream_out[28:16] = \^DAC_Stream_out [28:16];
   assign DAC_Stream_out[15] = \<const0> ;
   assign DAC_Stream_out[14] = \<const0> ;
   assign DAC_Stream_out[13] = \^DAC_Stream_out [13];
@@ -12834,7 +12835,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
         .AD_CLK_in(AD_CLK_in),
         .Control_Ki(Control_Ki),
         .Control_Kp(Control_Kp),
-        .DAC_Stream_out({\^DAC_Stream_out [29:16],\^DAC_Stream_out [13],\^DAC_Stream_out [11:0]}),
+        .DAC_Stream_out({\^DAC_Stream_out [28:16],\^DAC_Stream_out [13],\^DAC_Stream_out [11:0]}),
         .Freq_Measured(Freq_Measured),
         .Integrator_Reset(Integrator_Reset),
         .Internal_Debug_Freq(Internal_Debug_Freq),

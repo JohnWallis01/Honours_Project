@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Jun  6 21:46:16 2023
-//Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+//Date        : Wed Jun  7 14:56:49 2023
+//Host        : Valkyrie running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -725,7 +725,8 @@ module Daisy_Controller_imp_4HNF48
 endmodule
 
 module GPIO_Interface_imp_V73Q6H
-   (S_AXI_ADC_Overide_araddr,
+   (GPIO_Debug_Freq,
+    S_AXI_ADC_Overide_araddr,
     S_AXI_ADC_Overide_arready,
     S_AXI_ADC_Overide_arvalid,
     S_AXI_ADC_Overide_awaddr,
@@ -922,11 +923,9 @@ module GPIO_Interface_imp_V73Q6H
     gpio_Ki,
     gpio_Kp,
     gpio_PLL_Guess_Freq,
-    gpio_io_i,
-    gpio_io_i1,
-    gpio_io_o,
     s_axi_aclk,
     s_axi_aresetn);
+  output [31:0]GPIO_Debug_Freq;
   input [31:0]S_AXI_ADC_Overide_araddr;
   output S_AXI_ADC_Overide_arready;
   input S_AXI_ADC_Overide_arvalid;
@@ -1124,9 +1123,6 @@ module GPIO_Interface_imp_V73Q6H
   output [31:0]gpio_Ki;
   output [31:0]gpio_Kp;
   output [31:0]gpio_PLL_Guess_Freq;
-  input [31:0]gpio_io_i;
-  input [31:0]gpio_io_i1;
-  output [31:0]gpio_io_o;
   input s_axi_aclk;
   input s_axi_aresetn;
 
@@ -1152,6 +1148,7 @@ module GPIO_Interface_imp_V73Q6H
   wire [0:0]GPIO_FIFO_Read_Ready_gpio_io_o;
   wire [0:0]GPIO_FIFO_Write_Controller_gpio_io_o;
   wire [0:0]GPIO_Integrator_Reset_gpio_io_o;
+  wire [31:0]GPIO_Internal_Debug_Freq_gpio_io_o;
   wire [31:0]GPIO_Ki_gpio_io_o;
   wire [31:0]GPIO_Kp_gpio_io_o;
   wire [31:0]GPIO_PLL_GUESS_Freq_gpio_io_o;
@@ -1328,7 +1325,6 @@ module GPIO_Interface_imp_V73Q6H
   wire [3:0]S_AXI8_1_WSTRB;
   wire S_AXI8_1_WVALID;
   wire [13:0]gpio_io_i1_1;
-  wire [31:0]gpio_io_i1_2;
   wire [31:0]gpio_io_i_1;
 
   assign Conn1_ARADDR = S_AXI_FIFO_Read_araddr[31:0];
@@ -1340,6 +1336,7 @@ module GPIO_Interface_imp_V73Q6H
   assign Conn1_WDATA = S_AXI_FIFO_Read_wdata[31:0];
   assign Conn1_WSTRB = S_AXI_FIFO_Read_wstrb[3:0];
   assign Conn1_WVALID = S_AXI_FIFO_Read_wvalid;
+  assign GPIO_Debug_Freq[31:0] = GPIO_Internal_Debug_Freq_gpio_io_o;
   assign Net = s_axi_aclk;
   assign Net1 = s_axi_aresetn;
   assign PS7_M00_AXI_ARADDR = S_AXI_PLL_Guess_araddr[31:0];
@@ -1529,7 +1526,6 @@ module GPIO_Interface_imp_V73Q6H
   assign gpio_Kp[31:0] = GPIO_Kp_gpio_io_o;
   assign gpio_PLL_Guess_Freq[31:0] = GPIO_PLL_GUESS_Freq_gpio_io_o;
   assign gpio_io_i1_1 = gpio_FIFO_data[13:0];
-  assign gpio_io_i1_2 = gpio_io_i1[31:0];
   assign gpio_io_i_1 = gpio_Freq_Measured[31:0];
   system_axi_gpio_1_0 GPIO_ADC_Override
        (.gpio_io_o(GPIO_ADC_Override_gpio_io_o),
@@ -1679,7 +1675,7 @@ module GPIO_Interface_imp_V73Q6H
         .s_axi_wstrb(S_AXI10_1_WSTRB),
         .s_axi_wvalid(S_AXI10_1_WVALID));
   system_axi_gpio_0_6 GPIO_Internal_Debug_Freq
-       (.gpio_io_i(gpio_io_i1_2),
+       (.gpio_io_o(GPIO_Internal_Debug_Freq_gpio_io_o),
         .s_axi_aclk(Net),
         .s_axi_araddr(PS7_M01_AXI_ARADDR[8:0]),
         .s_axi_aresetn(Net1),
@@ -3657,7 +3653,7 @@ module m00_couplers_imp_QBGTD5
   assign m00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign m00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[7:0];
   assign m00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  system_auto_pc_4 auto_pc
+  system_auto_pc_1 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_m00_couplers_ARADDR),
@@ -5427,7 +5423,7 @@ module s00_couplers_imp_1BINDXC
   assign s00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[3:0];
   assign s00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  system_auto_pc_3 auto_pc
+  system_auto_pc_0 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_s00_couplers_ARADDR),
@@ -5616,7 +5612,7 @@ module s00_couplers_imp_T84FUG
   assign s00_couplers_to_auto_us_ARSIZE = S_AXI_arsize[2:0];
   assign s00_couplers_to_auto_us_ARVALID = S_AXI_arvalid;
   assign s00_couplers_to_auto_us_RREADY = S_AXI_rready;
-  system_auto_us_1 auto_us
+  system_auto_us_0 auto_us
        (.m_axi_araddr(auto_us_to_s00_couplers_ARADDR),
         .m_axi_arburst(auto_us_to_s00_couplers_ARBURST),
         .m_axi_arcache(auto_us_to_s00_couplers_ARCACHE),
@@ -5803,7 +5799,7 @@ module s01_couplers_imp_1JA3XYH
   assign s01_couplers_to_auto_us_WLAST = S_AXI_wlast;
   assign s01_couplers_to_auto_us_WSTRB = S_AXI_wstrb[3:0];
   assign s01_couplers_to_auto_us_WVALID = S_AXI_wvalid;
-  system_auto_us_2 auto_us
+  system_auto_us_1 auto_us
        (.m_axi_awaddr(auto_us_to_s01_couplers_AWADDR),
         .m_axi_awburst(auto_us_to_s01_couplers_AWBURST),
         .m_axi_awcache(auto_us_to_s01_couplers_AWCACHE),
@@ -5845,7 +5841,7 @@ module s01_couplers_imp_1JA3XYH
         .s_axi_wvalid(s01_couplers_to_auto_us_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=53,numReposBlks=29,numNonXlnxBlks=3,numHierBlks=24,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=53,numReposBlks=29,numNonXlnxBlks=3,numHierBlks=24,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -5936,6 +5932,7 @@ module system
   wire Custom_System_0_Reset_Out;
   wire [13:0]Custom_System_0_Target_Signal_out;
   wire [0:0]GPIO_ADC_Override_gpio_io_o;
+  wire [31:0]GPIO_Interface_gpio_io_o;
   wire [0:0]GPIO_Interface_gpio_io_o2;
   wire [0:0]GPIO_Interface_gpio_io_o4;
   wire [0:0]GPIO_Interface_gpio_io_o8;
@@ -6193,6 +6190,7 @@ module system
         .DAC_Stream_out(Custom_System_0_DAC_Stream_out),
         .Freq_Measured(Custom_System_0_Freq_Measured),
         .Integrator_Reset(GPIO_Interface_gpio_io_o8),
+        .Internal_Debug_Freq(GPIO_Interface_gpio_io_o),
         .PLL_Guess_Freq(GPIO_PLL_GUESS_Freq_gpio_io_o),
         .Reset_In(Custom_System_0_Reset_Out),
         .Reset_Out(Custom_System_0_Reset_Out),
@@ -6216,7 +6214,8 @@ module system
         .daisy_p_i(daisy_p_i_1),
         .daisy_p_o(util_ds_buf_1_OBUF_DS_P));
   GPIO_Interface_imp_V73Q6H GPIO_Interface
-       (.S_AXI_ADC_Overide_araddr(S_AXI5_1_ARADDR),
+       (.GPIO_Debug_Freq(GPIO_Interface_gpio_io_o),
+        .S_AXI_ADC_Overide_araddr(S_AXI5_1_ARADDR),
         .S_AXI_ADC_Overide_arready(S_AXI5_1_ARREADY),
         .S_AXI_ADC_Overide_arvalid(S_AXI5_1_ARVALID),
         .S_AXI_ADC_Overide_awaddr(S_AXI5_1_AWADDR),
@@ -6413,7 +6412,6 @@ module system
         .gpio_Ki(GPIO_Ki_gpio_io_o),
         .gpio_Kp(GPIO_Kp_gpio_io_o),
         .gpio_PLL_Guess_Freq(GPIO_PLL_GUESS_Freq_gpio_io_o),
-        .gpio_io_i({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .s_axi_aclk(PS7_FCLK_CLK0),
         .s_axi_aresetn(s_axi_aresetn_1));
   PS7_imp_1QJPAX8 PS7

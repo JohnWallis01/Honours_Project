@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Jun  6 12:04:42 2023
--- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+-- Date        : Wed Jun  7 14:57:48 2023
+-- Host        : Valkyrie running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_Custom_System_0_0_sim_netlist.vhdl
 -- Design      : system_Custom_System_0_0
@@ -16,7 +16,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_AXI4_Stream_Reader is
   port (
-    DAC_Stream_out : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 13 downto 0 );
     s_axis_tdata_ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
     AD_CLK_in : in STD_LOGIC
   );
@@ -29,7 +29,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(0),
-      Q => DAC_Stream_out(0),
+      Q => Q(0),
       R => '0'
     );
 \Dout_reg[10]\: unisim.vcomponents.FDRE
@@ -37,7 +37,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(10),
-      Q => DAC_Stream_out(10),
+      Q => Q(10),
       R => '0'
     );
 \Dout_reg[11]\: unisim.vcomponents.FDRE
@@ -45,7 +45,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(11),
-      Q => DAC_Stream_out(11),
+      Q => Q(11),
       R => '0'
     );
 \Dout_reg[12]\: unisim.vcomponents.FDRE
@@ -53,7 +53,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(12),
-      Q => DAC_Stream_out(12),
+      Q => Q(12),
       R => '0'
     );
 \Dout_reg[13]\: unisim.vcomponents.FDRE
@@ -61,7 +61,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(13),
-      Q => DAC_Stream_out(13),
+      Q => Q(13),
       R => '0'
     );
 \Dout_reg[1]\: unisim.vcomponents.FDRE
@@ -69,7 +69,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(1),
-      Q => DAC_Stream_out(1),
+      Q => Q(1),
       R => '0'
     );
 \Dout_reg[2]\: unisim.vcomponents.FDRE
@@ -77,7 +77,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(2),
-      Q => DAC_Stream_out(2),
+      Q => Q(2),
       R => '0'
     );
 \Dout_reg[3]\: unisim.vcomponents.FDRE
@@ -85,7 +85,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(3),
-      Q => DAC_Stream_out(3),
+      Q => Q(3),
       R => '0'
     );
 \Dout_reg[4]\: unisim.vcomponents.FDRE
@@ -93,7 +93,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(4),
-      Q => DAC_Stream_out(4),
+      Q => Q(4),
       R => '0'
     );
 \Dout_reg[5]\: unisim.vcomponents.FDRE
@@ -101,7 +101,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(5),
-      Q => DAC_Stream_out(5),
+      Q => Q(5),
       R => '0'
     );
 \Dout_reg[6]\: unisim.vcomponents.FDRE
@@ -109,7 +109,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(6),
-      Q => DAC_Stream_out(6),
+      Q => Q(6),
       R => '0'
     );
 \Dout_reg[7]\: unisim.vcomponents.FDRE
@@ -117,7 +117,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(7),
-      Q => DAC_Stream_out(7),
+      Q => Q(7),
       R => '0'
     );
 \Dout_reg[8]\: unisim.vcomponents.FDRE
@@ -125,7 +125,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(8),
-      Q => DAC_Stream_out(8),
+      Q => Q(8),
       R => '0'
     );
 \Dout_reg[9]\: unisim.vcomponents.FDRE
@@ -133,7 +133,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => s_axis_tdata_ADC_Stream_in(9),
-      Q => DAC_Stream_out(9),
+      Q => Q(9),
       R => '0'
     );
 end STRUCTURE;
@@ -2777,9 +2777,9 @@ use UNISIM.VCOMPONENTS.ALL;
 entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Dual_Multiplexer is
   port (
     D : out STD_LOGIC_VECTOR ( 13 downto 0 );
-    Q : in STD_LOGIC_VECTOR ( 12 downto 0 );
-    ADC_Override : in STD_LOGIC;
-    DAC_Stream_out : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    DAC_Stream_out : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    Q : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    ADC_Override : in STD_LOGIC
   );
 end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Dual_Multiplexer;
 
@@ -2787,142 +2787,142 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Dual_Multipl
 begin
 \Target_Signal_out[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(0),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(0),
+      I0 => DAC_Stream_out(0),
+      I1 => Q(0),
+      I2 => ADC_Override,
       O => D(0)
     );
 \Target_Signal_out[10]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(10),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(10),
+      I0 => DAC_Stream_out(10),
+      I1 => Q(10),
+      I2 => ADC_Override,
       O => D(10)
     );
 \Target_Signal_out[11]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(11),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(11),
+      I0 => DAC_Stream_out(11),
+      I1 => Q(11),
+      I2 => ADC_Override,
       O => D(11)
     );
 \Target_Signal_out[12]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(12),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(12),
+      I0 => DAC_Stream_out(12),
+      I1 => Q(12),
+      I2 => ADC_Override,
       O => D(12)
     );
 \Target_Signal_out[13]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(12),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(13),
+      I0 => DAC_Stream_out(12),
+      I1 => Q(13),
+      I2 => ADC_Override,
       O => D(13)
     );
 \Target_Signal_out[1]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(1),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(1),
+      I0 => DAC_Stream_out(1),
+      I1 => Q(1),
+      I2 => ADC_Override,
       O => D(1)
     );
 \Target_Signal_out[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(2),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(2),
+      I0 => DAC_Stream_out(2),
+      I1 => Q(2),
+      I2 => ADC_Override,
       O => D(2)
     );
 \Target_Signal_out[3]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(3),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(3),
+      I0 => DAC_Stream_out(3),
+      I1 => Q(3),
+      I2 => ADC_Override,
       O => D(3)
     );
 \Target_Signal_out[4]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(4),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(4),
+      I0 => DAC_Stream_out(4),
+      I1 => Q(4),
+      I2 => ADC_Override,
       O => D(4)
     );
 \Target_Signal_out[5]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(5),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(5),
+      I0 => DAC_Stream_out(5),
+      I1 => Q(5),
+      I2 => ADC_Override,
       O => D(5)
     );
 \Target_Signal_out[6]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(6),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(6),
+      I0 => DAC_Stream_out(6),
+      I1 => Q(6),
+      I2 => ADC_Override,
       O => D(6)
     );
 \Target_Signal_out[7]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(7),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(7),
+      I0 => DAC_Stream_out(7),
+      I1 => Q(7),
+      I2 => ADC_Override,
       O => D(7)
     );
 \Target_Signal_out[8]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(8),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(8),
+      I0 => DAC_Stream_out(8),
+      I1 => Q(8),
+      I2 => ADC_Override,
       O => D(8)
     );
 \Target_Signal_out[9]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"AC"
     )
         port map (
-      I0 => Q(9),
-      I1 => ADC_Override,
-      I2 => DAC_Stream_out(9),
+      I0 => DAC_Stream_out(9),
+      I1 => Q(9),
+      I2 => ADC_Override,
       O => D(9)
     );
 end STRUCTURE;
@@ -3763,7 +3763,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO is
   port (
-    Q : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    DAC_Stream_out : out STD_LOGIC_VECTOR ( 12 downto 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     AD_CLK_in : in STD_LOGIC;
     Reset_In : in STD_LOGIC;
@@ -4007,7 +4007,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(0),
-      Q => Q(0),
+      Q => DAC_Stream_out(0),
       R => '0'
     );
 \Dout_reg[10]\: unisim.vcomponents.FDRE
@@ -4018,7 +4018,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(10),
-      Q => Q(10),
+      Q => DAC_Stream_out(10),
       R => '0'
     );
 \Dout_reg[11]\: unisim.vcomponents.FDRE
@@ -4029,7 +4029,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(11),
-      Q => Q(11),
+      Q => DAC_Stream_out(11),
       R => '0'
     );
 \Dout_reg[12]\: unisim.vcomponents.FDRE
@@ -4040,7 +4040,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(12),
-      Q => Q(12),
+      Q => DAC_Stream_out(12),
       R => '0'
     );
 \Dout_reg[1]\: unisim.vcomponents.FDRE
@@ -4051,7 +4051,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(1),
-      Q => Q(1),
+      Q => DAC_Stream_out(1),
       R => '0'
     );
 \Dout_reg[2]\: unisim.vcomponents.FDRE
@@ -4062,7 +4062,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(2),
-      Q => Q(2),
+      Q => DAC_Stream_out(2),
       R => '0'
     );
 \Dout_reg[3]\: unisim.vcomponents.FDRE
@@ -4073,7 +4073,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(3),
-      Q => Q(3),
+      Q => DAC_Stream_out(3),
       R => '0'
     );
 \Dout_reg[4]\: unisim.vcomponents.FDRE
@@ -4084,7 +4084,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(4),
-      Q => Q(4),
+      Q => DAC_Stream_out(4),
       R => '0'
     );
 \Dout_reg[5]\: unisim.vcomponents.FDRE
@@ -4095,7 +4095,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(5),
-      Q => Q(5),
+      Q => DAC_Stream_out(5),
       R => '0'
     );
 \Dout_reg[6]\: unisim.vcomponents.FDRE
@@ -4106,7 +4106,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(6),
-      Q => Q(6),
+      Q => DAC_Stream_out(6),
       R => '0'
     );
 \Dout_reg[7]\: unisim.vcomponents.FDRE
@@ -4117,7 +4117,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(7),
-      Q => Q(7),
+      Q => DAC_Stream_out(7),
       R => '0'
     );
 \Dout_reg[8]\: unisim.vcomponents.FDRE
@@ -4128,7 +4128,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(8),
-      Q => Q(8),
+      Q => DAC_Stream_out(8),
       R => '0'
     );
 \Dout_reg[9]\: unisim.vcomponents.FDRE
@@ -4139,7 +4139,7 @@ begin
       C => AD_CLK_in,
       CE => '1',
       D => databuffer(9),
-      Q => Q(9),
+      Q => DAC_Stream_out(9),
       R => '0'
     );
 \OffsetPhase_reg[22]\: unisim.vcomponents.FDRE
@@ -16655,7 +16655,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_System is
   port (
-    DAC_Stream_out : out STD_LOGIC_VECTOR ( 26 downto 0 );
+    DAC_Stream_out : out STD_LOGIC_VECTOR ( 25 downto 0 );
     Freq_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Reset_Out : out STD_LOGIC;
     Target_Signal_out : out STD_LOGIC_VECTOR ( 13 downto 0 );
@@ -16674,8 +16674,8 @@ end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_System;
 
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_System is
   signal A : STD_LOGIC_VECTOR ( 13 downto 0 );
-  signal \^dac_stream_out\ : STD_LOGIC_VECTOR ( 26 downto 0 );
-  signal Dout : STD_LOGIC_VECTOR ( 12 downto 0 );
+  signal \^dac_stream_out\ : STD_LOGIC_VECTOR ( 25 downto 0 );
+  signal Dout : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal Init_State : STD_LOGIC;
   signal \PLL_Freq[11]_i_2_n_0\ : STD_LOGIC;
   signal \PLL_Freq[11]_i_3_n_0\ : STD_LOGIC;
@@ -16859,27 +16859,27 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_Syste
   attribute ADDER_THRESHOLD of \PLL_Freq_reg[3]_i_1\ : label is 35;
   attribute ADDER_THRESHOLD of \PLL_Freq_reg[7]_i_1\ : label is 35;
 begin
-  DAC_Stream_out(26 downto 0) <= \^dac_stream_out\(26 downto 0);
+  DAC_Stream_out(25 downto 0) <= \^dac_stream_out\(25 downto 0);
   section_out1_reg_23_sn_1 <= \section_out1_reg[23]\;
 ADC_Debug_NCO: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_NCO
      port map (
       AD_CLK_in => AD_CLK_in,
+      DAC_Stream_out(12 downto 0) => \^dac_stream_out\(25 downto 13),
       E(0) => PLL_NCO_n_0,
       Internal_Debug_Freq(31 downto 0) => Internal_Debug_Freq(31 downto 0),
-      Q(12 downto 0) => Dout(12 downto 0),
       Reset_In => Reset_In
     );
 ADC_Override_Mux: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Dual_Multiplexer
      port map (
       ADC_Override => ADC_Override,
       D(13 downto 0) => A(13 downto 0),
-      DAC_Stream_out(13 downto 0) => \^dac_stream_out\(26 downto 13),
-      Q(12 downto 0) => Dout(12 downto 0)
+      DAC_Stream_out(12 downto 0) => \^dac_stream_out\(25 downto 13),
+      Q(13 downto 0) => Dout(13 downto 0)
     );
 ADC_Stream_Reader: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_AXI4_Stream_Reader
      port map (
       AD_CLK_in => AD_CLK_in,
-      DAC_Stream_out(13 downto 0) => \^dac_stream_out\(26 downto 13),
+      Q(13 downto 0) => Dout(13 downto 0),
       s_axis_tdata_ADC_Stream_in(13 downto 0) => s_axis_tdata_ADC_Stream_in(13 downto 0)
     );
 \Freq_Measured_reg[0]\: unisim.vcomponents.FDRE
@@ -18237,7 +18237,7 @@ end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
-  signal \^dac_stream_out\ : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal \^dac_stream_out\ : STD_LOGIC_VECTOR ( 28 downto 0 );
   signal \section_out1_reg[0]_i_10_n_0\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Integrator_Reset : signal is "xilinx.com:signal:reset:1.0 Integrator_Reset RST";
@@ -18255,7 +18255,8 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
 begin
   DAC_Stream_out(31) <= \<const0>\;
   DAC_Stream_out(30) <= \<const0>\;
-  DAC_Stream_out(29 downto 16) <= \^dac_stream_out\(29 downto 16);
+  DAC_Stream_out(29) <= \^dac_stream_out\(28);
+  DAC_Stream_out(28 downto 16) <= \^dac_stream_out\(28 downto 16);
   DAC_Stream_out(15) <= \<const0>\;
   DAC_Stream_out(14) <= \<const0>\;
   DAC_Stream_out(13) <= \^dac_stream_out\(13);
@@ -18308,7 +18309,7 @@ inst: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_Custom_System
       AD_CLK_in => AD_CLK_in,
       Control_Ki(31 downto 0) => Control_Ki(31 downto 0),
       Control_Kp(31 downto 0) => Control_Kp(31 downto 0),
-      DAC_Stream_out(26 downto 13) => \^dac_stream_out\(29 downto 16),
+      DAC_Stream_out(25 downto 13) => \^dac_stream_out\(28 downto 16),
       DAC_Stream_out(12) => \^dac_stream_out\(13),
       DAC_Stream_out(11 downto 0) => \^dac_stream_out\(11 downto 0),
       Freq_Measured(31 downto 0) => Freq_Measured(31 downto 0),

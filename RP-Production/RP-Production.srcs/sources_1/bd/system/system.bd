@@ -520,7 +520,7 @@
                 "value": "125.000000"
               },
               "PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ": {
-                "value": "250.000000"
+                "value": "152.380966"
               },
               "PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ": {
                 "value": "10.000000"
@@ -607,7 +607,7 @@
                 "value": "125000000"
               },
               "PCW_CLK1_FREQ": {
-                "value": "250000000"
+                "value": "152380966"
               },
               "PCW_CLK2_FREQ": {
                 "value": "10000000"
@@ -844,7 +844,7 @@
                 "value": "IO PLL"
               },
               "PCW_FCLK1_PERIPHERAL_CLKSRC": {
-                "value": "IO PLL"
+                "value": "DDR PLL"
               },
               "PCW_FCLK2_PERIPHERAL_CLKSRC": {
                 "value": "IO PLL"
@@ -862,7 +862,7 @@
                 "value": "125"
               },
               "PCW_FPGA1_PERIPHERAL_FREQMHZ": {
-                "value": "250"
+                "value": "150"
               },
               "PCW_FPGA2_PERIPHERAL_FREQMHZ": {
                 "value": "50"
@@ -2496,8 +2496,8 @@
                 "components": {
                   "auto_pc": {
                     "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
-                    "xci_name": "system_auto_pc_3",
-                    "xci_path": "ip\\system_auto_pc_3\\system_auto_pc_3.xci",
+                    "xci_name": "system_auto_pc_0",
+                    "xci_path": "ip\\system_auto_pc_0\\system_auto_pc_0.xci",
                     "inst_hier_path": "PS7/axi_interconnect_1/s00_couplers/auto_pc",
                     "parameters": {
                       "MI_PROTOCOL": {
@@ -3930,8 +3930,8 @@
                     "components": {
                       "auto_us": {
                         "vlnv": "xilinx.com:ip:axi_dwidth_converter:2.1",
-                        "xci_name": "system_auto_us_1",
-                        "xci_path": "ip\\system_auto_us_1\\system_auto_us_1.xci",
+                        "xci_name": "system_auto_us_0",
+                        "xci_path": "ip\\system_auto_us_0\\system_auto_us_0.xci",
                         "inst_hier_path": "PS7/DMA_Engine/axi_interconnect_0/s00_couplers/auto_us",
                         "parameters": {
                           "MI_DATA_WIDTH": {
@@ -4031,8 +4031,8 @@
                     "components": {
                       "auto_us": {
                         "vlnv": "xilinx.com:ip:axi_dwidth_converter:2.1",
-                        "xci_name": "system_auto_us_2",
-                        "xci_path": "ip\\system_auto_us_2\\system_auto_us_2.xci",
+                        "xci_name": "system_auto_us_1",
+                        "xci_path": "ip\\system_auto_us_1\\system_auto_us_1.xci",
                         "inst_hier_path": "PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us",
                         "parameters": {
                           "MI_DATA_WIDTH": {
@@ -4132,8 +4132,8 @@
                     "components": {
                       "auto_pc": {
                         "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
-                        "xci_name": "system_auto_pc_4",
-                        "xci_path": "ip\\system_auto_pc_4\\system_auto_pc_4.xci",
+                        "xci_name": "system_auto_pc_1",
+                        "xci_path": "ip\\system_auto_pc_1\\system_auto_pc_1.xci",
                         "inst_hier_path": "PS7/DMA_Engine/axi_interconnect_0/m00_couplers/auto_pc",
                         "parameters": {
                           "MI_PROTOCOL": {
@@ -4888,18 +4888,8 @@
             "left": "0",
             "right": "0"
           },
-          "gpio_io_i": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "gpio_io_o": {
+          "GPIO_Debug_Freq": {
             "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "gpio_io_i1": {
-            "direction": "I",
             "left": "31",
             "right": "0"
           }
@@ -4923,6 +4913,9 @@
             "inst_hier_path": "GPIO_Interface/GPIO_Internal_Debug_Freq",
             "parameters": {
               "C_ALL_INPUTS": {
+                "value": "0"
+              },
+              "C_ALL_OUTPUTS": {
                 "value": "1"
               }
             }
@@ -5144,6 +5137,12 @@
               "gpio_Integrator_Reset"
             ]
           },
+          "GPIO_Internal_Debug_Freq_gpio_io_o": {
+            "ports": [
+              "GPIO_Internal_Debug_Freq/gpio_io_o",
+              "GPIO_Debug_Freq"
+            ]
+          },
           "GPIO_Ki_gpio_io_o": {
             "ports": [
               "GPIO_Ki/gpio_io_o",
@@ -5198,12 +5197,6 @@
             "ports": [
               "gpio_FIFO_data",
               "GPIO_FIFO/gpio_io_i"
-            ]
-          },
-          "gpio_io_i1_2": {
-            "ports": [
-              "gpio_io_i1",
-              "GPIO_Internal_Debug_Freq/gpio_io_i"
             ]
           },
           "gpio_io_i_1": {
@@ -5535,6 +5528,12 @@
           "Custom_System_0/ADC_Override"
         ]
       },
+      "GPIO_Interface_gpio_io_o": {
+        "ports": [
+          "GPIO_Interface/GPIO_Debug_Freq",
+          "Custom_System_0/Internal_Debug_Freq"
+        ]
+      },
       "GPIO_Interface_gpio_io_o2": {
         "ports": [
           "GPIO_Interface/gpio_FIFO_Clock",
@@ -5585,12 +5584,6 @@
           "PS7/FCLK_CLK0",
           "GPIO_Interface/s_axi_aclk",
           "Custom_System_0/Sys_CLK_in"
-        ]
-      },
-      "Sweep_Generator_Freq_Out": {
-        "ports": [
-          "GPIO_Interface/gpio_io_i1",
-          "Custom_System_0/Internal_Debug_Freq"
         ]
       },
       "adc_clk_n_i_1": {

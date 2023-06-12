@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.791462",
-   "Default View_TopLeft":"-365,-263",
+   "Default View_ScaleFactor":"1.44638",
+   "Default View_TopLeft":"-384,-127",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port S_AXI_Ki -pg 1 -lvl 0 -x -10 -y 1180 -defaultsOSRD
 preplace port S_AXI_Debug_Freq -pg 1 -lvl 0 -x -10 -y 60 -defaultsOSRD
@@ -28,7 +28,7 @@ preplace portBus gpio_FIFO_data -pg 1 -lvl 2 -x 330 -y 790 -defaultsOSRD -right
 preplace portBus gpio_FIFO_Read -pg 1 -lvl 2 -x 330 -y 510 -defaultsOSRD
 preplace portBus gpio_FIFO_Write -pg 1 -lvl 2 -x 330 -y 650 -defaultsOSRD
 preplace portBus gpio_Integrator_Reset -pg 1 -lvl 2 -x 330 -y 1070 -defaultsOSRD
-preplace portBus gpio_io_i -pg 1 -lvl 0 -x -10 -y 1560 -defaultsOSRD
+preplace portBus GPIO_Debug_Freq -pg 1 -lvl 2 -x 330 -y 90 -defaultsOSRD
 preplace inst GPIO_Ki -pg 1 -lvl 1 -x 170 -y 1200 -defaultsOSRD
 preplace inst GPIO_Internal_Debug_Freq -pg 1 -lvl 1 -x 170 -y 80 -defaultsOSRD
 preplace inst GPIO_FIFO -pg 1 -lvl 1 -x 170 -y 780 -defaultsOSRD
@@ -52,7 +52,7 @@ preplace netloc Net 1 0 1 10 80n
 preplace netloc Net1 1 0 1 20 100n
 preplace netloc gpio_io_i1_1 1 1 1 NJ 790
 preplace netloc gpio_io_i_1 1 1 1 NJ 930
-preplace netloc gpio_io_i_2 1 0 2 NJ 1560 310
+preplace netloc GPIO_Internal_Debug_Freq_gpio_io_o 1 1 1 N 90
 preplace netloc Conn1 1 0 1 NJ 480
 preplace netloc PS7_M00_AXI 1 0 1 NJ 1460
 preplace netloc PS7_M01_AXI 1 0 1 NJ 60
@@ -65,7 +65,7 @@ preplace netloc S_AXI4_1 1 0 1 NJ 620
 preplace netloc S_AXI7_1 1 0 1 NJ 900
 preplace netloc S_AXI8_1 1 0 1 NJ 340
 levelinfo -pg 1 -10 170 330
-pagesize -pg 1 -db -bbox -sgen -220 0 570 1580
+pagesize -pg 1 -db -bbox -sgen -210 0 550 1580
 "
 }
 0

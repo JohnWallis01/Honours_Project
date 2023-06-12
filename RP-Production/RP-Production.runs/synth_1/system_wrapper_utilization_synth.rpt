@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue Jun  6 21:48:33 2023
-| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
+| Date         : Wed Jun  7 14:58:35 2023
+| Host         : Valkyrie running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
 | Device       : xc7z010clg400-1
@@ -178,10 +178,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 | system_axi_gpio_0_6                 |    1 |
 | system_axi_gpio_0_5                 |    1 |
 | system_axi_dma_0_2                  |    1 |
-| system_auto_us_2                    |    1 |
 | system_auto_us_1                    |    1 |
-| system_auto_pc_4                    |    1 |
-| system_auto_pc_3                    |    1 |
+| system_auto_us_0                    |    1 |
+| system_auto_pc_1                    |    1 |
+| system_auto_pc_0                    |    1 |
 | system_GPIO_Kp_0                    |    1 |
 | system_GPIO_Kd_0                    |    1 |
 | system_GPIO_FIFO_Write_Controller_0 |    1 |

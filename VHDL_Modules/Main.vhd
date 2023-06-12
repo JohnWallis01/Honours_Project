@@ -343,7 +343,7 @@ end component;
   DAC_Stream_out(15 downto 14) <= "00";
 
   DAC_Stream_out(13 downto 0) <= Locked_Signal;
-  DAC_Stream_out(29 downto 16) <= ADC_Stream(13 downto 0);--Just testing FM demodulation
+  DAC_Stream_out(29 downto 16) <= ADC_Debug_NCO_Dout;--Just testing FM demodulation
 
   -- Debug_Selector_Mux: Octal_Multiplexer
   -- generic map(Data_Size => 14)

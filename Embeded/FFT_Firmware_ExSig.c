@@ -94,7 +94,7 @@ int main() {
     void *PLL_Freq_Measured = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
         PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x41230000);           
     void *Integrator_Reset = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
-        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412a0000);  
+        PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0x412a0000);
     *(uint32_t*)Integrator_Reset = 0;
 
 
@@ -181,7 +181,7 @@ int main() {
     // }
     int max_addr = 0;    
     double Max_Value = 0;
-    for (int i = 0; i<npoints; i++){
+    for (int i = 1; i<npoints; i++){
     if (pow(creal(computed_stream[i]),2) + pow(cimag(computed_stream[i]),2) > Max_Value) {
         max_addr = i;
         Max_Value = pow(creal(computed_stream[i]),2) + pow(cimag(computed_stream[i]),2);
