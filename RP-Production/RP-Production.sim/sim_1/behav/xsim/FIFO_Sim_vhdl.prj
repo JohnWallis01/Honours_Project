@@ -1,5 +1,5 @@
 # compile vhdl design source files
-vhdl xil_defaultlib  \
+vhdl2008 xil_defaultlib  \
 "../../../../../VHDL_Modules/PRBS_new.vhd" \
 
 # Do not sort compile order

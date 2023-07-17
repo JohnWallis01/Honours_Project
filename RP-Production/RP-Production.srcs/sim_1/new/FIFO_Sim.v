@@ -27,17 +27,15 @@ module FIFO_Sim(
     reg rst;
     reg clk;
     wire PRBS;
-    reg[31:0] Taps;
-    reg[7: 0] Size;
+    reg[3:0] Taps;
 
 
-        LFSR_Gen DUT(.reset(rst), .PRBS(PRBS), .clock(clk), .Taps(Taps), .Size(Size)); 
+        LFSR #(.Size(5)) DUT(.reset(rst), .PRBS(PRBS), .clock(clk), .Taps(Taps)); 
 
 
       initial 
       begin
-        Taps = 32'b1;
-        Size = 7'b1;
+        Taps = 4'b1011;
         rst = 1;
         clk = 0;
         #1; // low for 20 * timescale = 1 ns

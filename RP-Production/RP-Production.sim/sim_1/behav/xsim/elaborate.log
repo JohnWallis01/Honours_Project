@@ -13,7 +13,7 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling architecture lfsr_gen_arch of entity xil_defaultlib.LFSR_Gen [lfsr_gen_default]
+Compiling architecture lfsr_arch of entity xil_defaultlib.LFSR [\LFSR(size=5)\]
 Compiling module xil_defaultlib.FIFO_Sim
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot FIFO_Sim_behav
