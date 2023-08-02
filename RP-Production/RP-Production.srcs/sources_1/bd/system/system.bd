@@ -60,7 +60,9 @@
         "GPIO_Integrator_Reset": ""
       },
       "axis_broadcaster_0": "",
-      "Phase_Locked_Loop_0": ""
+      "Phase_Locked_Loop_0": "",
+      "axis_switch_0": "",
+      "axi_fifo_mm_s_0": ""
     },
     "interface_ports": {
       "Vp_Vn": {
@@ -1554,12 +1556,6 @@
               "PCW_S_AXI_HP0_DATA_WIDTH": {
                 "value": "64"
               },
-              "PCW_S_AXI_HP1_DATA_WIDTH": {
-                "value": "64"
-              },
-              "PCW_S_AXI_HP2_DATA_WIDTH": {
-                "value": "64"
-              },
               "PCW_S_AXI_HP3_DATA_WIDTH": {
                 "value": "64"
               },
@@ -1871,6 +1867,12 @@
               },
               "PCW_USE_S_AXI_HP0": {
                 "value": "1"
+              },
+              "PCW_USE_S_AXI_HP1": {
+                "value": "0"
+              },
+              "PCW_USE_S_AXI_HP2": {
+                "value": "0"
               },
               "PCW_WDT_PERIPHERAL_CLKSRC": {
                 "value": "CPU_1X"
@@ -4291,6 +4293,18 @@
             "direction": "I"
           }
         }
+      },
+      "axis_switch_0": {
+        "vlnv": "xilinx.com:ip:axis_switch:1.1",
+        "xci_name": "system_axis_switch_0_0",
+        "xci_path": "ip\\system_axis_switch_0_0\\system_axis_switch_0_0.xci",
+        "inst_hier_path": "axis_switch_0"
+      },
+      "axi_fifo_mm_s_0": {
+        "vlnv": "xilinx.com:ip:axi_fifo_mm_s:4.2",
+        "xci_name": "system_axi_fifo_mm_s_0_0",
+        "xci_path": "ip\\system_axi_fifo_mm_s_0_0\\system_axi_fifo_mm_s_0_0.xci",
+        "inst_hier_path": "axi_fifo_mm_s_0"
       }
     },
     "interface_nets": {

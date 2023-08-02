@@ -1,7 +1,3 @@
-/**
- * Proof of concept offloaded memcopy using AXI Direct Memory Access v7.1
- */
-
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -29,7 +25,7 @@
 
 #define fSampling 125 //in Mhz
 #define PI 3.14159265358979323846
-
+#define Samples 4096
 
 #define step_size 525000
 #define kp_value    0xFFFE0000
@@ -94,25 +90,6 @@ int dma_s2mm_sync(unsigned int* dma_virtual_address) {
     }
 }
 
-// void dma_s2mm_status(unsigned int* dma_virtual_address) {
-//     unsigned int status = dma_get(dma_virtual_address, S2MM_STATUS_REGISTER);
-//     printf("Stream to memory-mapped status (0x%08x@0x%02x):", status, S2MM_STATUS_REGISTER);
-//     if (status & 0x00000001) printf(" halted"); else printf(" running");
-//     if (status & 0x00000002) printf(" idle");
-//     if (status & 0x00000008) printf(" SGIncld");
-//     if (status & 0x00000010) printf(" DMAIntErr");
-//     if (status & 0x00000020) printf(" DMASlvErr");
-//     if (status & 0x00000040) printf(" DMADecErr");
-//     if (status & 0x00000100) printf(" SGIntErr");
-//     if (status & 0x00000200) printf(" SGSlvErr");
-//     if (status & 0x00000400) printf(" SGDecErr");
-//     if (status & 0x00001000) printf(" IOC_Irq");
-//     if (status & 0x00002000) printf(" Dly_Irq");
-//     if (status & 0x00004000) printf(" Err_Irq");
-//     printf("\n");
-// }
-
-
 int16_t convertUnsignedToSigned(uint16_t value)
 {
     int16_t signedValue = (int16_t)(value << 2);  // Shift left by 2 bits to align the sign
@@ -125,7 +102,6 @@ int16_t mempipe(char a, char b) {
     return convertUnsignedToSigned(data);
 }
 
-
 complex double * memdump(void* virtual_address, int byte_count) {
     char *p = virtual_address;
     static double complex computed_stream[TransferWindow/4];
@@ -136,10 +112,22 @@ complex double * memdump(void* virtual_address, int byte_count) {
     return computed_stream;
 } 
 
-
-
-
-
+double Max_Correlate(double* sig_tx, double* sig_rx, double* correlation, int samples) {
+    double max_correlation = 0;
+    double max_n = -1;
+    for (int n = 0; n < samples; n++) {
+        int first = 0;
+        for (int m = 0; m < samples - n; m++) {
+            *(correlation+n) = *(correlation+n)*first + *(sig_rx+m)* *(sig_tx+n+m);
+            first = 1; 
+        }
+        if (*(correlation+n) > max_correlation) {
+            max_correlation = *(correlation+n);
+            max_n = n;            
+        }
+    }
+    return max_n;
+}
 
 int main() {
 
@@ -149,6 +137,7 @@ int main() {
     unsigned int* virtual_destination_address = mmap(NULL, 65535, PROT_READ | PROT_WRITE, MAP_SHARED, dh, 0x0f000000); // Memory map destination address
     //Setup pointer that the Fourier Data will be stored in
     complex double *vec;
+    double* correlation = malloc(Samples*sizeof(double));
 
     // Register signal handler for SIGINT
     signal(SIGINT, handle_sigint);
@@ -254,6 +243,17 @@ int main() {
 	printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
     
     }
+
+    //PRBS:
+
+    //DMA the TX_signal
+    //DMA the RX_signal
+
+    //Max_Correlate
+    double Delay = Max_Correlate(signal_tx, signal_rx, correlation, Samples);
+    printf("PRBS delay of %u (Samples)\n", Delay);
+
+
 
 }
 
