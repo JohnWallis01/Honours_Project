@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 -- Date        : Mon Jun 12 13:39:56 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/system_axis_broadcaster_0_2_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top system_axis_broadcaster_0_2 -prefix
+--               system_axis_broadcaster_0_2_ system_axis_broadcaster_0_2_stub.vhdl
 -- Design      : system_axis_broadcaster_0_2
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Mon Jun 12 18:04:55 2023
+| Date             : Sun Aug  6 22:19:25 2023
 | Host             : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.934        |
+| Total On-Chip Power (W)  | 1.947        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.803        |
-| Device Static (W)        | 0.131        |
+| Dynamic (W)              | 1.815        |
+| Device Static (W)        | 0.132        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 62.7         |
-| Junction Temperature (C) | 47.3         |
+| Max Ambient (C)          | 62.6         |
+| Junction Temperature (C) | 47.4         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,23 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.028 |        9 |       --- |             --- |
-| Slice Logic              |     0.011 |     9705 |       --- |             --- |
-|   LUT as Logic           |     0.009 |     3068 |     17600 |           17.43 |
-|   Register               |    <0.001 |     4854 |     35200 |           13.79 |
-|   CARRY4                 |    <0.001 |      167 |      4400 |            3.80 |
-|   F7/F8 Muxes            |    <0.001 |       28 |     17600 |            0.16 |
-|   LUT as Shift Register  |    <0.001 |      210 |      6000 |            3.50 |
-|   Others                 |     0.000 |      555 |       --- |             --- |
-|   LUT as Distributed RAM |     0.000 |       20 |      6000 |            0.33 |
-| Signals                  |     0.014 |     7460 |       --- |             --- |
-| Block RAM                |     0.001 |        4 |        60 |            6.67 |
+| Clocks                   |     0.034 |        9 |       --- |             --- |
+| Slice Logic              |     0.014 |    14232 |       --- |             --- |
+|   LUT as Logic           |     0.012 |     4638 |     17600 |           26.35 |
+|   Register               |     0.001 |     6941 |     35200 |           19.72 |
+|   CARRY4                 |    <0.001 |      230 |      4400 |            5.23 |
+|   F7/F8 Muxes            |    <0.001 |       29 |     17600 |            0.16 |
+|   LUT as Distributed RAM |    <0.001 |       72 |      6000 |            1.20 |
+|   LUT as Shift Register  |    <0.001 |      275 |      6000 |            4.58 |
+|   Others                 |     0.000 |      704 |       --- |             --- |
+| Signals                  |     0.018 |    10646 |       --- |             --- |
+| Block RAM                |    <0.001 |        4 |        60 |            6.67 |
 | MMCM                     |     0.107 |        1 |         2 |           50.00 |
 | DSPs                     |     0.008 |        9 |        80 |           11.25 |
 | I/O                      |     0.349 |       64 |       100 |           64.00 |
 | PS7                      |     1.285 |        1 |       --- |             --- |
-| Static Power             |     0.131 |          |           |                 |
-| Total                    |     1.934 |          |           |                 |
+| Static Power             |     0.132 |          |           |                 |
+| Total                    |     1.946 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,7 +78,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.075 |       0.067 |      0.008 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.087 |       0.079 |      0.008 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.077 |       0.069 |      0.009 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.094 |       0.093 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -159,22 +159,24 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| system_wrapper              |     1.803 |
-|   system_i                  |     1.487 |
-|     DAC_Interface           |     0.111 |
+| system_wrapper              |     1.815 |
+|   system_i                  |     1.499 |
+|     DAC_Interface           |     0.110 |
 |       axis_red_pitaya_dac_1 |     0.003 |
 |       clk_wiz_0             |     0.107 |
 |     Daisy_Controller        |     0.031 |
 |       util_ds_buf_1         |     0.030 |
-|     GPIO_Interface          |     0.006 |
-|       GPIO_FreqMeasure      |     0.003 |
-|       GPIO_PLL_GUESS_Freq   |     0.001 |
-|     PS7                     |     1.316 |
-|       DMA_Engine            |     0.023 |
-|       axi_interconnect_1    |     0.006 |
-|       processing_system7_0  |     1.286 |
+|     GPIO_Interface          |     0.005 |
+|       GPIO_FreqMeasure      |     0.002 |
+|     PS7                     |     1.327 |
+|       DMA_Engine            |     0.024 |
+|       axi_interconnect_0    |     0.010 |
+|       axi_interconnect_1    |     0.005 |
+|       processing_system7_0  |     1.287 |
 |     Phase_Locked_Loop_0     |     0.023 |
 |       inst                  |     0.023 |
+|     Stream_Processor        |     0.002 |
+|       axis_switch_0         |     0.002 |
 +-----------------------------+-----------+
 
 

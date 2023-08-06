@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Mon Jun 12 13:39:56 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/system_axis_broadcaster_0_2_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_axis_broadcaster_0_2 -prefix
+//               system_axis_broadcaster_0_2_ system_axis_broadcaster_0_2_sim_netlist.v
 // Design      : system_axis_broadcaster_0_2
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -102,7 +102,7 @@ endmodule
 (* G_MASK_SS_TDEST = "64" *) (* G_MASK_SS_TID = "32" *) (* G_MASK_SS_TKEEP = "8" *) 
 (* G_MASK_SS_TLAST = "16" *) (* G_MASK_SS_TREADY = "1" *) (* G_MASK_SS_TSTRB = "4" *) 
 (* G_MASK_SS_TUSER = "128" *) (* G_TASK_SEVERITY_ERR = "2" *) (* G_TASK_SEVERITY_INFO = "0" *) 
-(* G_TASK_SEVERITY_WARNING = "1" *) (* ORIG_REF_NAME = "top_system_axis_broadcaster_0_2" *) (* P_TPAYLOAD_WIDTH = "32" *) 
+(* G_TASK_SEVERITY_WARNING = "1" *) (* P_TPAYLOAD_WIDTH = "32" *) 
 module system_axis_broadcaster_0_2_top_system_axis_broadcaster_0_2
    (aclk,
     aresetn,

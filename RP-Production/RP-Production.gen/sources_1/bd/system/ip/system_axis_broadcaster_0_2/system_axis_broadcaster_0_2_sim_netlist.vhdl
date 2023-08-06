@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 -- Date        : Mon Jun 12 13:39:56 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/system_axis_broadcaster_0_2_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axis_broadcaster_0_2 -prefix
+--               system_axis_broadcaster_0_2_ system_axis_broadcaster_0_2_sim_netlist.vhdl
 -- Design      : system_axis_broadcaster_0_2
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -94,8 +94,6 @@ entity system_axis_broadcaster_0_2_top_system_axis_broadcaster_0_2 is
   attribute G_TASK_SEVERITY_INFO of system_axis_broadcaster_0_2_top_system_axis_broadcaster_0_2 : entity is 0;
   attribute G_TASK_SEVERITY_WARNING : integer;
   attribute G_TASK_SEVERITY_WARNING of system_axis_broadcaster_0_2_top_system_axis_broadcaster_0_2 : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axis_broadcaster_0_2_top_system_axis_broadcaster_0_2 : entity is "top_system_axis_broadcaster_0_2";
   attribute P_TPAYLOAD_WIDTH : integer;
   attribute P_TPAYLOAD_WIDTH of system_axis_broadcaster_0_2_top_system_axis_broadcaster_0_2 : entity is 32;
 end system_axis_broadcaster_0_2_top_system_axis_broadcaster_0_2;

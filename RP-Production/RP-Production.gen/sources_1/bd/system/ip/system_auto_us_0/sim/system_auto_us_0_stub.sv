@@ -98,8 +98,8 @@ module system_auto_us_0 (
   output bit [3 : 0] m_axi_awqos,
   output bit_as_bool m_axi_awvalid,
   input bit_as_bool m_axi_awready,
-  output bit [63 : 0] m_axi_wdata,
-  output bit [7 : 0] m_axi_wstrb,
+  output bit [127 : 0] m_axi_wdata,
+  output bit [15 : 0] m_axi_wstrb,
   output bit_as_bool m_axi_wlast,
   output bit_as_bool m_axi_wvalid,
   input bit_as_bool m_axi_wready,
@@ -147,8 +147,8 @@ module system_auto_us_0 (s_axi_aclk,s_axi_aresetn,s_axi_awaddr,s_axi_awlen,s_axi
   output wire [3 : 0] m_axi_awqos;
   output wire m_axi_awvalid;
   input bit m_axi_awready;
-  output wire [63 : 0] m_axi_wdata;
-  output wire [7 : 0] m_axi_wstrb;
+  output wire [127 : 0] m_axi_wdata;
+  output wire [15 : 0] m_axi_wstrb;
   output wire m_axi_wlast;
   output wire m_axi_wvalid;
   input bit m_axi_wready;

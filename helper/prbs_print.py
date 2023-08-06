@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
+import numpy as np
+with open("PRBS.txt", "r") as file:
+    data = file.read()
 
-with open("../Embeded/log.txt", "r") as file:
-    datas = file.readlines()
-
-data = [int(char) for char in datas[0][0:4096]]
-plt.plot(data)
-delayed = [int(char) for char in datas[1][0:4096]]
+original = [int(char) for char in data[0:4096]]
+plt.plot(original)
+delayed = [char for char in data[4096:4096*2]]
+# print(np.argwhere(np.array(original)==1))
+# exit()
 plt.plot(delayed)
 plt.show()
 
