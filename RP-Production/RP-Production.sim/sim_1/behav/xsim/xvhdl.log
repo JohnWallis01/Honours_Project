@@ -1,0 +1,13 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Delay_Package.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Delay_Package'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/LFSR.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'LFSR'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Mixer'
+INFO: [VRFC 10-3107] analyzing entity 'Dual_Multiplexer'
+INFO: [VRFC 10-3107] analyzing entity 'Octal_Multiplexer'
+INFO: [VRFC 10-3107] analyzing entity 'inverter'
+INFO: [VRFC 10-3107] analyzing entity 'Delay'
+INFO: [VRFC 10-3107] analyzing entity 'Pair_Combiner'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/LFSR2008.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'LFSR2008'

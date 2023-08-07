@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Aug  6 20:15:55 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Mon Aug  7 13:11:38 2023
+// Host        : Valkyrie running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_switch_0_0/system_axis_switch_0_0_sim_netlist.v
 // Design      : system_axis_switch_0_0
@@ -18,10 +18,8 @@ module system_axis_switch_0_0
    (aclk,
     aresetn,
     s_axis_tvalid,
-    s_axis_tready,
     s_axis_tdata,
     m_axis_tvalid,
-    m_axis_tready,
     m_axis_tdata,
     s_axi_ctrl_aclk,
     s_axi_ctrl_aresetn,
@@ -44,11 +42,9 @@ module system_axis_switch_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLKIF CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLKIF, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, ASSOCIATED_BUSIF M00_AXIS:M01_AXIS:M02_AXIS:M03_AXIS:M04_AXIS:M05_AXIS:M06_AXIS:M07_AXIS:M08_AXIS:M09_AXIS:M10_AXIS:M11_AXIS:M12_AXIS:M13_AXIS:M14_AXIS:M15_AXIS:S00_AXIS:S01_AXIS:S02_AXIS:S03_AXIS:S04_AXIS:S05_AXIS:S06_AXIS:S07_AXIS:S08_AXIS:S09_AXIS:S10_AXIS:S11_AXIS:S12_AXIS:S13_AXIS:S14_AXIS:S15_AXIS, ASSOCIATED_RESET aresetn, INSERT_VIP 0, ASSOCIATED_CLKEN aclken" *) input aclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RSTIF RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, INSERT_VIP 0, TYPE INTERCONNECT" *) input aresetn;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TVALID [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TVALID [0:0] [1:1]" *) input [1:0]s_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TREADY [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TREADY [0:0] [1:1]" *) output [1:0]s_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 S01_AXIS TDATA [31:0] [63:32]" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input [63:0]s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 S01_AXIS TDATA [31:0] [63:32]" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input [63:0]s_axis_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TVALID" *) output [0:0]m_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY" *) input [0:0]m_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) output [31:0]m_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) output [31:0]m_axis_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S_AXI_CTRL_ACLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_CTRL_ACLK, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, ASSOCIATED_BUSIF S_AXI_CTRL, ASSOCIATED_RESET s_axi_ctrl_aresetn, INSERT_VIP 0" *) input s_axi_ctrl_aclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S_AXI_CTRL_ARESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_CTRL_ARESETN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s_axi_ctrl_aresetn;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL AWVALID" *) input s_axi_ctrl_awvalid;
@@ -71,7 +67,6 @@ module system_axis_switch_0_0
   wire \<const0> ;
   wire aclk;
   wire [31:0]m_axis_tdata;
-  wire [0:0]m_axis_tready;
   wire [0:0]m_axis_tvalid;
   wire s_axi_ctrl_aclk;
   wire [6:0]s_axi_ctrl_araddr;
@@ -90,7 +85,6 @@ module system_axis_switch_0_0
   wire s_axi_ctrl_wready;
   wire s_axi_ctrl_wvalid;
   wire [63:0]s_axis_tdata;
-  wire [1:0]s_axis_tready;
   wire [1:0]s_axis_tvalid;
   wire [1:0]NLW_inst_arb_dest_UNCONNECTED;
   wire [0:0]NLW_inst_arb_done_UNCONNECTED;
@@ -106,6 +100,7 @@ module system_axis_switch_0_0
   wire [0:0]NLW_inst_m_axis_tuser_UNCONNECTED;
   wire [1:0]NLW_inst_s_axi_ctrl_bresp_UNCONNECTED;
   wire [1:0]NLW_inst_s_axi_ctrl_rresp_UNCONNECTED;
+  wire [1:0]NLW_inst_s_axis_tready_UNCONNECTED;
   wire [1:0]NLW_inst_s_decode_err_UNCONNECTED;
 
   assign s_axi_ctrl_bresp[1] = \<const0> ;
@@ -118,7 +113,7 @@ module system_axis_switch_0_0
   (* C_ARB_ON_MAX_XFERS = "1" *) 
   (* C_ARB_ON_NUM_CYCLES = "0" *) 
   (* C_ARB_ON_TLAST = "0" *) 
-  (* C_AXIS_SIGNAL_SET = "3" *) 
+  (* C_AXIS_SIGNAL_SET = "2" *) 
   (* C_AXIS_TDATA_WIDTH = "32" *) 
   (* C_AXIS_TDEST_WIDTH = "1" *) 
   (* C_AXIS_TID_WIDTH = "1" *) 
@@ -180,7 +175,7 @@ module system_axis_switch_0_0
         .m_axis_tid(NLW_inst_m_axis_tid_UNCONNECTED[0]),
         .m_axis_tkeep(NLW_inst_m_axis_tkeep_UNCONNECTED[3:0]),
         .m_axis_tlast(NLW_inst_m_axis_tlast_UNCONNECTED[0]),
-        .m_axis_tready(m_axis_tready),
+        .m_axis_tready(1'b1),
         .m_axis_tstrb(NLW_inst_m_axis_tstrb_UNCONNECTED[3:0]),
         .m_axis_tuser(NLW_inst_m_axis_tuser_UNCONNECTED[0]),
         .m_axis_tvalid(m_axis_tvalid),
@@ -207,7 +202,7 @@ module system_axis_switch_0_0
         .s_axis_tid({1'b0,1'b0}),
         .s_axis_tkeep({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
         .s_axis_tlast({1'b1,1'b1}),
-        .s_axis_tready(s_axis_tready),
+        .s_axis_tready(NLW_inst_s_axis_tready_UNCONNECTED[1:0]),
         .s_axis_tstrb({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
         .s_axis_tuser({1'b0,1'b0}),
         .s_axis_tvalid(s_axis_tvalid),
@@ -227,7 +222,7 @@ module system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake
     aclk,
     \FSM_onehot_state_reg[4] );
   output src_rcv;
-  output [6:0]D;
+  output [4:0]D;
   output [0:0]E;
   output [0:0]\syncstages_ff_reg[3] ;
   input s_axi_ctrl_aclk;
@@ -236,7 +231,7 @@ module system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake
   input aclk;
   input [0:0]\FSM_onehot_state_reg[4] ;
 
-  wire [6:0]D;
+  wire [4:0]D;
   wire [0:0]E;
   wire [0:0]\FSM_onehot_state_reg[4] ;
   wire [14:0]Q;
@@ -245,7 +240,7 @@ module system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake
   wire src_rcv;
   wire src_send;
   wire [0:0]\syncstages_ff_reg[3] ;
-  wire [12:5]NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED;
+  wire [14:5]NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED;
 
   LUT2 #(
     .INIT(4'h8)) 
@@ -265,7 +260,7 @@ module system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake
   system_axis_switch_0_0_xpm_cdc_handshake inst_xpm_cdc_handshake
        (.dest_ack(1'b0),
         .dest_clk(aclk),
-        .dest_out({D[6:5],NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED[12:5],D[4:0]}),
+        .dest_out({NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED[14:5],D}),
         .dest_req(E),
         .src_clk(s_axi_ctrl_aclk),
         .src_in(Q),
@@ -1661,7 +1656,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axi_ctrl_write
 endmodule
 
 (* C_ARB_ALGORITHM = "0" *) (* C_ARB_ON_MAX_XFERS = "1" *) (* C_ARB_ON_NUM_CYCLES = "0" *) 
-(* C_ARB_ON_TLAST = "0" *) (* C_AXIS_SIGNAL_SET = "3" *) (* C_AXIS_TDATA_WIDTH = "32" *) 
+(* C_ARB_ON_TLAST = "0" *) (* C_AXIS_SIGNAL_SET = "2" *) (* C_AXIS_TDATA_WIDTH = "32" *) 
 (* C_AXIS_TDEST_WIDTH = "1" *) (* C_AXIS_TID_WIDTH = "1" *) (* C_AXIS_TUSER_WIDTH = "1" *) 
 (* C_COMMON_CLOCK = "0" *) (* C_DECODER_REG = "0" *) (* C_FAMILY = "zynq" *) 
 (* C_INCLUDE_ARBITER = "1" *) (* C_LOG_SI_SLOTS = "1" *) (* C_M_AXIS_BASETDEST_ARRAY = "1'b0" *) 
@@ -1783,18 +1778,17 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
   wire [14:0]\gen_static_router.ctrl_reg ;
   wire \gen_static_router.ctrl_req ;
   wire \gen_static_router.ctrl_soft_reset ;
-  wire [14:0]\gen_static_router.gen_synch.cdc_handshake_data_out ;
+  wire [4:0]\gen_static_router.gen_synch.cdc_handshake_data_out ;
   wire \gen_static_router.gen_synch.cdc_handshake_data_valid ;
   wire \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ;
   wire \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[1] ;
   wire \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[2] ;
   wire \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3] ;
-  wire \gen_static_router.gen_synch.inst_cdc_handshake_n_9 ;
+  wire \gen_static_router.gen_synch.inst_cdc_handshake_n_7 ;
   wire \gen_static_router.inst_static_router_n_2 ;
   wire \gen_static_router.s_axi_ctrl_areset ;
   wire \gen_static_router.s_axi_ctrl_areset_i_1_n_0 ;
   wire [31:0]m_axis_tdata;
-  wire [0:0]m_axis_tready;
   wire [0:0]m_axis_tvalid;
   wire mi_enable;
   wire s_axi_ctrl_aclk;
@@ -1813,10 +1807,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
   wire [31:0]s_axi_ctrl_wdata;
   wire s_axi_ctrl_wvalid;
   wire [63:0]s_axis_tdata;
-  wire [1:0]s_axis_tready;
-  wire \s_axis_tready[1]_INST_0_i_1_n_0 ;
   wire [1:0]s_axis_tvalid;
-  wire [1:0]si_enable;
 
   assign arb_dest[1] = \<const0> ;
   assign arb_dest[0] = \<const0> ;
@@ -1846,6 +1837,8 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
   assign s_axi_ctrl_rresp[1] = \<const0> ;
   assign s_axi_ctrl_rresp[0] = \<const0> ;
   assign s_axi_ctrl_wready = s_axi_ctrl_awready;
+  assign s_axis_tready[1] = \<const0> ;
+  assign s_axis_tready[0] = \<const0> ;
   assign s_decode_err[1] = \<const0> ;
   assign s_decode_err[0] = \<const0> ;
   GND GND
@@ -1857,22 +1850,6 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .CE(\gen_static_router.gen_synch.cdc_handshake_data_valid ),
         .D(\gen_static_router.gen_synch.cdc_handshake_data_out [0]),
         .Q(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gen_static_router.gen_synch.ctrl_reg_synch_reg[13] 
-       (.C(aclk),
-        .CE(\gen_static_router.gen_synch.cdc_handshake_data_valid ),
-        .D(\gen_static_router.gen_synch.cdc_handshake_data_out [13]),
-        .Q(si_enable[0]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gen_static_router.gen_synch.ctrl_reg_synch_reg[14] 
-       (.C(aclk),
-        .CE(\gen_static_router.gen_synch.cdc_handshake_data_valid ),
-        .D(\gen_static_router.gen_synch.cdc_handshake_data_out [14]),
-        .Q(si_enable[1]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1907,7 +1884,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .Q(mi_enable),
         .R(1'b0));
   system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake \gen_static_router.gen_synch.inst_cdc_handshake 
-       (.D({\gen_static_router.gen_synch.cdc_handshake_data_out [14:13],\gen_static_router.gen_synch.cdc_handshake_data_out [4:0]}),
+       (.D(\gen_static_router.gen_synch.cdc_handshake_data_out ),
         .E(\gen_static_router.gen_synch.cdc_handshake_data_valid ),
         .\FSM_onehot_state_reg[4] (\gen_static_router.inst_static_router_n_2 ),
         .Q(\gen_static_router.ctrl_reg ),
@@ -1915,12 +1892,12 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .s_axi_ctrl_aclk(s_axi_ctrl_aclk),
         .src_rcv(\gen_static_router.ctrl_ack ),
         .src_send(\gen_static_router.ctrl_req ),
-        .\syncstages_ff_reg[3] (\gen_static_router.gen_synch.inst_cdc_handshake_n_9 ));
+        .\syncstages_ff_reg[3] (\gen_static_router.gen_synch.inst_cdc_handshake_n_7 ));
   system_axis_switch_0_0_axis_infrastructure_v1_1_0_clock_synchronizer \gen_static_router.gen_synch.inst_rst_synch 
        (.aclk(aclk),
         .src_in(\gen_static_router.ctrl_soft_reset ));
   system_axis_switch_0_0_axis_switch_v1_1_27_static_router \gen_static_router.inst_static_router 
-       (.D(\gen_static_router.gen_synch.inst_cdc_handshake_n_9 ),
+       (.D(\gen_static_router.gen_synch.inst_cdc_handshake_n_7 ),
         .Q(\gen_static_router.inst_static_router_n_2 ),
         .SR(\gen_static_router.s_axi_ctrl_areset ),
         .\ctrl_reg_r_reg[14] (\gen_static_router.ctrl_reg ),
@@ -1959,7 +1936,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I3(s_axis_tdata[0]),
         .I4(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3] ),
         .O(m_axis_tdata[0]));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[10]_INST_0 
@@ -1967,7 +1944,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[10]),
         .O(m_axis_tdata[10]));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[11]_INST_0 
@@ -1975,7 +1952,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[11]),
         .O(m_axis_tdata[11]));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[12]_INST_0 
@@ -1983,7 +1960,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[12]),
         .O(m_axis_tdata[12]));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[13]_INST_0 
@@ -1991,7 +1968,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[13]),
         .O(m_axis_tdata[13]));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[14]_INST_0 
@@ -1999,7 +1976,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[14]),
         .O(m_axis_tdata[14]));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[15]_INST_0 
@@ -2007,7 +1984,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[15]),
         .O(m_axis_tdata[15]));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[16]_INST_0 
@@ -2015,7 +1992,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[16]),
         .O(m_axis_tdata[16]));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[17]_INST_0 
@@ -2023,7 +2000,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[17]),
         .O(m_axis_tdata[17]));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[18]_INST_0 
@@ -2031,7 +2008,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[18]),
         .O(m_axis_tdata[18]));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[19]_INST_0 
@@ -2049,7 +2026,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I4(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[1] ),
         .I5(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3] ),
         .O(m_axis_tdata[1]));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[20]_INST_0 
@@ -2057,7 +2034,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[20]),
         .O(m_axis_tdata[20]));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[21]_INST_0 
@@ -2065,7 +2042,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[21]),
         .O(m_axis_tdata[21]));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[22]_INST_0 
@@ -2073,7 +2050,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[22]),
         .O(m_axis_tdata[22]));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[23]_INST_0 
@@ -2081,7 +2058,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[23]),
         .O(m_axis_tdata[23]));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[24]_INST_0 
@@ -2089,7 +2066,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[24]),
         .O(m_axis_tdata[24]));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[25]_INST_0 
@@ -2097,7 +2074,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[25]),
         .O(m_axis_tdata[25]));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[26]_INST_0 
@@ -2105,7 +2082,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[26]),
         .O(m_axis_tdata[26]));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[27]_INST_0 
@@ -2113,7 +2090,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[27]),
         .O(m_axis_tdata[27]));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[28]_INST_0 
@@ -2121,7 +2098,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[28]),
         .O(m_axis_tdata[28]));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[29]_INST_0 
@@ -2137,7 +2114,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I2(s_axis_tdata[34]),
         .I3(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3] ),
         .O(m_axis_tdata[2]));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[30]_INST_0 
@@ -2145,7 +2122,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[30]),
         .O(m_axis_tdata[30]));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[31]_INST_0 
@@ -2182,7 +2159,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I4(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I5(s_axis_tdata[5]),
         .O(m_axis_tdata[5]));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[6]_INST_0 
@@ -2190,7 +2167,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[6]),
         .O(m_axis_tdata[6]));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[7]_INST_0 
@@ -2198,7 +2175,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[7]),
         .O(m_axis_tdata[7]));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[8]_INST_0 
@@ -2206,7 +2183,7 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[8]),
         .O(m_axis_tdata[8]));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \m_axis_tdata[9]_INST_0 
@@ -2214,7 +2191,6 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
         .I2(s_axis_tdata[9]),
         .O(m_axis_tdata[9]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'hE200)) 
     \m_axis_tvalid[0]_INST_0 
@@ -2223,33 +2199,6 @@ module system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
         .I2(s_axis_tvalid[1]),
         .I3(mi_enable),
         .O(m_axis_tvalid));
-  LUT6 #(
-    .INIT(64'hFFFFFFFE00000000)) 
-    \s_axis_tready[0]_INST_0 
-       (.I0(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[2] ),
-        .I1(\s_axis_tready[1]_INST_0_i_1_n_0 ),
-        .I2(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
-        .I3(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[1] ),
-        .I4(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3] ),
-        .I5(si_enable[0]),
-        .O(s_axis_tready[0]));
-  LUT6 #(
-    .INIT(64'hFFFEFFFF00000000)) 
-    \s_axis_tready[1]_INST_0 
-       (.I0(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[2] ),
-        .I1(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3] ),
-        .I2(\s_axis_tready[1]_INST_0_i_1_n_0 ),
-        .I3(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[1] ),
-        .I4(\gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0] ),
-        .I5(si_enable[1]),
-        .O(s_axis_tready[1]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
-  LUT2 #(
-    .INIT(4'hB)) 
-    \s_axis_tready[1]_INST_0_i_1 
-       (.I0(m_axis_tready),
-        .I1(mi_enable),
-        .O(\s_axis_tready[1]_INST_0_i_1_n_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "axis_switch_v1_1_27_reg_bank_16x32" *) 

@@ -80,7 +80,7 @@ system_axis_switch_0_0_sc::system_axis_switch_0_0_sc(const sc_core::sc_module_na
     model_param_props.addLong("C_S_AXI_CTRL_DATA_WIDTH", "32");
     model_param_props.addLong("C_COMMON_CLOCK", "0");
     model_param_props.addString("C_FAMILY", "zynq");
-    model_param_props.addBitString("C_AXIS_SIGNAL_SET", "00000000000000000000000000000011", 32);
+    model_param_props.addBitString("C_AXIS_SIGNAL_SET", "00000000000000000000000000000010", 32);
     model_param_props.addBitString("C_M_AXIS_CONNECTIVITY_ARRAY", "11", 2);
     model_param_props.addBitString("C_M_AXIS_BASETDEST_ARRAY", "0", 1);
     model_param_props.addBitString("C_M_AXIS_HIGHTDEST_ARRAY", "0", 1);

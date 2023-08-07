@@ -69,10 +69,8 @@ module system_axis_switch_0_0 (
   input bit_as_bool aclk,
   input bit_as_bool aresetn,
   input bit [1 : 0] s_axis_tvalid,
-  output bit [1 : 0] s_axis_tready,
   input bit [63 : 0] s_axis_tdata,
   output bit [0 : 0] m_axis_tvalid,
-  input bit [0 : 0] m_axis_tready,
   output bit [31 : 0] m_axis_tdata,
   input bit_as_bool s_axi_ctrl_aclk,
   input bit_as_bool s_axi_ctrl_aresetn,
@@ -98,16 +96,14 @@ endmodule
 
 `ifdef XCELIUM
 (* XMSC_MODULE_EXPORT *)
-module system_axis_switch_0_0 (aclk,aresetn,s_axis_tvalid,s_axis_tready,s_axis_tdata,m_axis_tvalid,m_axis_tready,m_axis_tdata,s_axi_ctrl_aclk,s_axi_ctrl_aresetn,s_axi_ctrl_awvalid,s_axi_ctrl_awready,s_axi_ctrl_awaddr,s_axi_ctrl_wvalid,s_axi_ctrl_wready,s_axi_ctrl_wdata,s_axi_ctrl_bvalid,s_axi_ctrl_bready,s_axi_ctrl_bresp,s_axi_ctrl_arvalid,s_axi_ctrl_arready,s_axi_ctrl_araddr,s_axi_ctrl_rvalid,s_axi_ctrl_rready,s_axi_ctrl_rdata,s_axi_ctrl_rresp)
+module system_axis_switch_0_0 (aclk,aresetn,s_axis_tvalid,s_axis_tdata,m_axis_tvalid,m_axis_tdata,s_axi_ctrl_aclk,s_axi_ctrl_aresetn,s_axi_ctrl_awvalid,s_axi_ctrl_awready,s_axi_ctrl_awaddr,s_axi_ctrl_wvalid,s_axi_ctrl_wready,s_axi_ctrl_wdata,s_axi_ctrl_bvalid,s_axi_ctrl_bready,s_axi_ctrl_bresp,s_axi_ctrl_arvalid,s_axi_ctrl_arready,s_axi_ctrl_araddr,s_axi_ctrl_rvalid,s_axi_ctrl_rready,s_axi_ctrl_rdata,s_axi_ctrl_rresp)
 (* integer foreign = "SystemC";
 *);
   input bit aclk;
   input bit aresetn;
   input bit [1 : 0] s_axis_tvalid;
-  output wire [1 : 0] s_axis_tready;
   input bit [63 : 0] s_axis_tdata;
   output wire [0 : 0] m_axis_tvalid;
-  input bit [0 : 0] m_axis_tready;
   output wire [31 : 0] m_axis_tdata;
   input bit s_axi_ctrl_aclk;
   input bit s_axi_ctrl_aresetn;

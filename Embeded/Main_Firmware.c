@@ -175,10 +175,12 @@ char * PRBS_DUMP(void* virtual_address, int byte_count) {
     static char PRBS_Sets[TransferWindow/2]; //the first (TransferWindow/4) is one stream and the second is the delayed/advanced stream
     int offset;
     for(offset = 0; offset < byte_count; offset = offset + 4 ) {
-        PRBS_Sets[offset/4] = (p[offset] & 0x0001);
-        PRBS_Sets[offset/4 + TransferWindow/4] = (p[offset] & 0x0001);
-   }
-   return PRBS_Sets;
+        printf("0x%x\n", p[offset]);
+        PRBS_Sets[offset/4] = (p[offset] & 0x1);
+        PRBS_Sets[offset/4 + TransferWindow/4] = (p[offset] &0x2);
+    }
+    exit(1);    
+    return PRBS_Sets;
 }  
 
 int Max_Correlate(char* sig_tx, char* sig_rx) {
@@ -220,12 +222,14 @@ int main() {
 
     //setup PRBS
     void *LFSR_Polynomial = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, 0x41250000);
+    void *LFSR_Reset = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, 0x4000000);
+    // *(uint32_t*)LFSR_Polynomial = 0x47; // This is the polynomial for an 8 bit LFSR
     
-    *(uint32_t*)LFSR_Polynomial = 0x47; // This is the polynomial for an 8 bit LFSR
-    //Pules the Reset (dual channel offset)
-    *(uint32_t*)(LFSR_Polynomial + 0x08) = 0x0; //This enables the clock
-    *(uint32_t*)(LFSR_Polynomial + 0x08) = 0x1; //This enables the clock
-    *(uint32_t*)(LFSR_Polynomial + 0x08) = 0x0; //This enables the clock
+    *(uint32_t*)LFSR_Polynomial = 0x3; // This is the polynomial for an 8 bit LFSR
+    //Pules the Reset 
+    *(uint32_t*)LFSR_Reset = 0x0; 
+    *(uint32_t*)LFSR_Reset = 0x1; 
+    *(uint32_t*)LFSR_Reset = 0x0; 
 
 
     //PLL tuning Kp = 0xFFFE0000 Ki = 0xFFFFFFC0
@@ -248,7 +252,7 @@ int main() {
     int step = 0;
     int lock_loss = 0;
 
-    
+    printf("Setup Complete\n");
     while(1)
     {
     //Switch the Stream to the FFT
@@ -348,8 +352,6 @@ int main() {
     PRBS_DATA = PRBS_DUMP(virtual_address, TransferWindow);
     char* signal_tx = PRBS_DATA;
     char* signal_rx = PRBS_DATA + TransferWindow/4;
-    VecDump(PRBS_DATA, TransferWindow/2);
-    exit(1);
     //Max_Correlate
     int Delay = Max_Correlate(signal_tx, signal_rx);
     printf("PRBS delay of %u (Samples)\n", Delay);

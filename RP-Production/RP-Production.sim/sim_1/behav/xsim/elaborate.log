@@ -13,7 +13,10 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling architecture lfsr_arch of entity xil_defaultlib.LFSR [\LFSR(size=5)\]
+Compiling architecture lfsr2008_arch of entity xil_defaultlib.LFSR2008 [\LFSR2008(size=8)\]
+Compiling architecture lfsr_arch of entity xil_defaultlib.LFSR [\LFSR(size=8)\]
+Compiling architecture delay_arch of entity xil_defaultlib.Delay [\Delay(delay_amount=4,bus_size=1...]
+Compiling architecture behavioral of entity xil_defaultlib.Delay_Package [delay_package_default]
 Compiling module xil_defaultlib.FIFO_Sim
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot FIFO_Sim_behav

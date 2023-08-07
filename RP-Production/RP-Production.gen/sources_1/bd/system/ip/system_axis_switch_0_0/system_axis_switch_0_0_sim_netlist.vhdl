@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sun Aug  6 20:15:55 2023
--- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+-- Date        : Mon Aug  7 13:11:38 2023
+-- Host        : Valkyrie running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_switch_0_0/system_axis_switch_0_0_sim_netlist.vhdl
 -- Design      : system_axis_switch_0_0
@@ -4531,7 +4531,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake is
   port (
     src_rcv : out STD_LOGIC;
-    D : out STD_LOGIC_VECTOR ( 6 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 4 downto 0 );
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     \syncstages_ff_reg[3]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_ctrl_aclk : in STD_LOGIC;
@@ -4546,7 +4546,7 @@ end system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake;
 
 architecture STRUCTURE of system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake is
   signal \^src_rcv\ : STD_LOGIC;
-  signal NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED : STD_LOGIC_VECTOR ( 12 downto 5 );
+  signal NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED : STD_LOGIC_VECTOR ( 14 downto 5 );
   attribute DEST_EXT_HSK : integer;
   attribute DEST_EXT_HSK of inst_xpm_cdc_handshake : label is 0;
   attribute DEST_SYNC_FF : integer;
@@ -4580,8 +4580,7 @@ inst_xpm_cdc_handshake: entity work.system_axis_switch_0_0_xpm_cdc_handshake
      port map (
       dest_ack => '0',
       dest_clk => aclk,
-      dest_out(14 downto 13) => D(6 downto 5),
-      dest_out(12 downto 5) => NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED(12 downto 5),
+      dest_out(14 downto 5) => NLW_inst_xpm_cdc_handshake_dest_out_UNCONNECTED(14 downto 5),
       dest_out(4 downto 0) => D(4 downto 0),
       dest_req => E(0),
       src_clk => s_axi_ctrl_aclk,
@@ -4727,7 +4726,7 @@ entity system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch is
   attribute C_ARB_ON_TLAST : integer;
   attribute C_ARB_ON_TLAST of system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch : entity is 0;
   attribute C_AXIS_SIGNAL_SET : integer;
-  attribute C_AXIS_SIGNAL_SET of system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch : entity is 3;
+  attribute C_AXIS_SIGNAL_SET of system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch : entity is 2;
   attribute C_AXIS_TDATA_WIDTH : integer;
   attribute C_AXIS_TDATA_WIDTH of system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch : entity is 32;
   attribute C_AXIS_TDEST_WIDTH : integer;
@@ -4826,49 +4825,45 @@ architecture STRUCTURE of system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
   signal \gen_static_router.ctrl_reg\ : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal \gen_static_router.ctrl_req\ : STD_LOGIC;
   signal \gen_static_router.ctrl_soft_reset\ : STD_LOGIC;
-  signal \gen_static_router.gen_synch.cdc_handshake_data_out\ : STD_LOGIC_VECTOR ( 14 downto 0 );
+  signal \gen_static_router.gen_synch.cdc_handshake_data_out\ : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal \gen_static_router.gen_synch.cdc_handshake_data_valid\ : STD_LOGIC;
   signal \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0]\ : STD_LOGIC;
   signal \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[1]\ : STD_LOGIC;
   signal \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[2]\ : STD_LOGIC;
   signal \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3]\ : STD_LOGIC;
-  signal \gen_static_router.gen_synch.inst_cdc_handshake_n_9\ : STD_LOGIC;
+  signal \gen_static_router.gen_synch.inst_cdc_handshake_n_7\ : STD_LOGIC;
   signal \gen_static_router.inst_static_router_n_2\ : STD_LOGIC;
   signal \gen_static_router.s_axi_ctrl_areset\ : STD_LOGIC;
   signal \gen_static_router.s_axi_ctrl_areset_i_1_n_0\ : STD_LOGIC;
   signal mi_enable : STD_LOGIC;
   signal \^s_axi_ctrl_awready\ : STD_LOGIC;
-  signal \s_axis_tready[1]_INST_0_i_1_n_0\ : STD_LOGIC;
-  signal si_enable : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \m_axis_tdata[10]_INST_0\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \m_axis_tdata[11]_INST_0\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \m_axis_tdata[12]_INST_0\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \m_axis_tdata[13]_INST_0\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \m_axis_tdata[14]_INST_0\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \m_axis_tdata[15]_INST_0\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \m_axis_tdata[16]_INST_0\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \m_axis_tdata[17]_INST_0\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \m_axis_tdata[18]_INST_0\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \m_axis_tdata[19]_INST_0\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \m_axis_tdata[20]_INST_0\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \m_axis_tdata[21]_INST_0\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \m_axis_tdata[22]_INST_0\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \m_axis_tdata[23]_INST_0\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \m_axis_tdata[24]_INST_0\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \m_axis_tdata[25]_INST_0\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \m_axis_tdata[26]_INST_0\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \m_axis_tdata[27]_INST_0\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \m_axis_tdata[28]_INST_0\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \m_axis_tdata[29]_INST_0\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \m_axis_tdata[30]_INST_0\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \m_axis_tdata[31]_INST_0\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \m_axis_tdata[6]_INST_0\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \m_axis_tdata[7]_INST_0\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \m_axis_tdata[8]_INST_0\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \m_axis_tdata[9]_INST_0\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \m_axis_tvalid[0]_INST_0\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \s_axis_tready[1]_INST_0_i_1\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \m_axis_tdata[10]_INST_0\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \m_axis_tdata[11]_INST_0\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \m_axis_tdata[12]_INST_0\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \m_axis_tdata[13]_INST_0\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \m_axis_tdata[14]_INST_0\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \m_axis_tdata[15]_INST_0\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \m_axis_tdata[16]_INST_0\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \m_axis_tdata[17]_INST_0\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \m_axis_tdata[18]_INST_0\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \m_axis_tdata[19]_INST_0\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \m_axis_tdata[20]_INST_0\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \m_axis_tdata[21]_INST_0\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \m_axis_tdata[22]_INST_0\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \m_axis_tdata[23]_INST_0\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \m_axis_tdata[24]_INST_0\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \m_axis_tdata[25]_INST_0\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \m_axis_tdata[26]_INST_0\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \m_axis_tdata[27]_INST_0\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \m_axis_tdata[28]_INST_0\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \m_axis_tdata[29]_INST_0\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \m_axis_tdata[30]_INST_0\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \m_axis_tdata[31]_INST_0\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \m_axis_tdata[6]_INST_0\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \m_axis_tdata[7]_INST_0\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \m_axis_tdata[8]_INST_0\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \m_axis_tdata[9]_INST_0\ : label is "soft_lutpair40";
 begin
   arb_dest(1) <= \<const0>\;
   arb_dest(0) <= \<const0>\;
@@ -4899,6 +4894,8 @@ begin
   s_axi_ctrl_rresp(1) <= \<const0>\;
   s_axi_ctrl_rresp(0) <= \<const0>\;
   s_axi_ctrl_wready <= \^s_axi_ctrl_awready\;
+  s_axis_tready(1) <= \<const0>\;
+  s_axis_tready(0) <= \<const0>\;
   s_decode_err(1) <= \<const0>\;
   s_decode_err(0) <= \<const0>\;
 GND: unisim.vcomponents.GND
@@ -4914,28 +4911,6 @@ GND: unisim.vcomponents.GND
       CE => \gen_static_router.gen_synch.cdc_handshake_data_valid\,
       D => \gen_static_router.gen_synch.cdc_handshake_data_out\(0),
       Q => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0]\,
-      R => '0'
-    );
-\gen_static_router.gen_synch.ctrl_reg_synch_reg[13]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => aclk,
-      CE => \gen_static_router.gen_synch.cdc_handshake_data_valid\,
-      D => \gen_static_router.gen_synch.cdc_handshake_data_out\(13),
-      Q => si_enable(0),
-      R => '0'
-    );
-\gen_static_router.gen_synch.ctrl_reg_synch_reg[14]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => aclk,
-      CE => \gen_static_router.gen_synch.cdc_handshake_data_valid\,
-      D => \gen_static_router.gen_synch.cdc_handshake_data_out\(14),
-      Q => si_enable(1),
       R => '0'
     );
 \gen_static_router.gen_synch.ctrl_reg_synch_reg[1]\: unisim.vcomponents.FDRE
@@ -4984,7 +4959,6 @@ GND: unisim.vcomponents.GND
     );
 \gen_static_router.gen_synch.inst_cdc_handshake\: entity work.system_axis_switch_0_0_axis_infrastructure_v1_1_0_cdc_handshake
      port map (
-      D(6 downto 5) => \gen_static_router.gen_synch.cdc_handshake_data_out\(14 downto 13),
       D(4 downto 0) => \gen_static_router.gen_synch.cdc_handshake_data_out\(4 downto 0),
       E(0) => \gen_static_router.gen_synch.cdc_handshake_data_valid\,
       \FSM_onehot_state_reg[4]\(0) => \gen_static_router.inst_static_router_n_2\,
@@ -4993,7 +4967,7 @@ GND: unisim.vcomponents.GND
       s_axi_ctrl_aclk => s_axi_ctrl_aclk,
       src_rcv => \gen_static_router.ctrl_ack\,
       src_send => \gen_static_router.ctrl_req\,
-      \syncstages_ff_reg[3]\(0) => \gen_static_router.gen_synch.inst_cdc_handshake_n_9\
+      \syncstages_ff_reg[3]\(0) => \gen_static_router.gen_synch.inst_cdc_handshake_n_7\
     );
 \gen_static_router.gen_synch.inst_rst_synch\: entity work.system_axis_switch_0_0_axis_infrastructure_v1_1_0_clock_synchronizer
      port map (
@@ -5002,7 +4976,7 @@ GND: unisim.vcomponents.GND
     );
 \gen_static_router.inst_static_router\: entity work.system_axis_switch_0_0_axis_switch_v1_1_27_static_router
      port map (
-      D(0) => \gen_static_router.gen_synch.inst_cdc_handshake_n_9\,
+      D(0) => \gen_static_router.gen_synch.inst_cdc_handshake_n_7\,
       Q(0) => \gen_static_router.inst_static_router_n_2\,
       SR(0) => \gen_static_router.s_axi_ctrl_areset\,
       \ctrl_reg_r_reg[14]\(14 downto 0) => \gen_static_router.ctrl_reg\(14 downto 0),
@@ -5385,41 +5359,6 @@ GND: unisim.vcomponents.GND
       I3 => mi_enable,
       O => m_axis_tvalid(0)
     );
-\s_axis_tready[0]_INST_0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFE00000000"
-    )
-        port map (
-      I0 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[2]\,
-      I1 => \s_axis_tready[1]_INST_0_i_1_n_0\,
-      I2 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0]\,
-      I3 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[1]\,
-      I4 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3]\,
-      I5 => si_enable(0),
-      O => s_axis_tready(0)
-    );
-\s_axis_tready[1]_INST_0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFEFFFF00000000"
-    )
-        port map (
-      I0 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[2]\,
-      I1 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[3]\,
-      I2 => \s_axis_tready[1]_INST_0_i_1_n_0\,
-      I3 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[1]\,
-      I4 => \gen_static_router.gen_synch.ctrl_reg_synch_reg_n_0_[0]\,
-      I5 => si_enable(1),
-      O => s_axis_tready(1)
-    );
-\s_axis_tready[1]_INST_0_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"B"
-    )
-        port map (
-      I0 => m_axis_tready(0),
-      I1 => mi_enable,
-      O => \s_axis_tready[1]_INST_0_i_1_n_0\
-    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -5430,10 +5369,8 @@ entity system_axis_switch_0_0 is
     aclk : in STD_LOGIC;
     aresetn : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axis_tready : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axis_tdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
-    m_axis_tready : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_ctrl_aclk : in STD_LOGIC;
     s_axi_ctrl_aresetn : in STD_LOGIC;
@@ -5480,6 +5417,7 @@ architecture STRUCTURE of system_axis_switch_0_0 is
   signal NLW_inst_m_axis_tuser_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_s_axi_ctrl_bresp_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_inst_s_axi_ctrl_rresp_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_inst_s_axis_tready_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_inst_s_decode_err_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute C_ARB_ALGORITHM : integer;
   attribute C_ARB_ALGORITHM of inst : label is 0;
@@ -5490,7 +5428,7 @@ architecture STRUCTURE of system_axis_switch_0_0 is
   attribute C_ARB_ON_TLAST : integer;
   attribute C_ARB_ON_TLAST of inst : label is 0;
   attribute C_AXIS_SIGNAL_SET : integer;
-  attribute C_AXIS_SIGNAL_SET of inst : label is 3;
+  attribute C_AXIS_SIGNAL_SET of inst : label is 2;
   attribute C_AXIS_TDATA_WIDTH : integer;
   attribute C_AXIS_TDATA_WIDTH of inst : label is 32;
   attribute C_AXIS_TDEST_WIDTH : integer;
@@ -5599,8 +5537,7 @@ architecture STRUCTURE of system_axis_switch_0_0 is
   attribute X_INTERFACE_INFO of s_axi_ctrl_wready : signal is "xilinx.com:interface:aximm:1.0 S_AXI_CTRL WREADY";
   attribute X_INTERFACE_INFO of s_axi_ctrl_wvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI_CTRL WVALID";
   attribute X_INTERFACE_INFO of m_axis_tdata : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TDATA";
-  attribute X_INTERFACE_PARAMETER of m_axis_tdata : signal is "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of m_axis_tready : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TREADY";
+  attribute X_INTERFACE_PARAMETER of m_axis_tdata : signal is "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TVALID";
   attribute X_INTERFACE_INFO of s_axi_ctrl_araddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI_CTRL ARADDR";
   attribute X_INTERFACE_INFO of s_axi_ctrl_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI_CTRL AWADDR";
@@ -5610,8 +5547,7 @@ architecture STRUCTURE of system_axis_switch_0_0 is
   attribute X_INTERFACE_PARAMETER of s_axi_ctrl_rresp : signal is "XIL_INTERFACENAME S_AXI_CTRL, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 125000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 0, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axi_ctrl_wdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI_CTRL WDATA";
   attribute X_INTERFACE_INFO of s_axis_tdata : signal is "xilinx.com:interface:axis:1.0 S00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 S01_AXIS TDATA [31:0] [63:32]";
-  attribute X_INTERFACE_PARAMETER of s_axis_tdata : signal is "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of s_axis_tready : signal is "xilinx.com:interface:axis:1.0 S00_AXIS TREADY [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TREADY [0:0] [1:1]";
+  attribute X_INTERFACE_PARAMETER of s_axis_tdata : signal is "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 S00_AXIS TVALID [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TVALID [0:0] [1:1]";
 begin
   s_axi_ctrl_bresp(1) <= \<const0>\;
@@ -5640,7 +5576,7 @@ inst: entity work.system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
       m_axis_tid(0) => NLW_inst_m_axis_tid_UNCONNECTED(0),
       m_axis_tkeep(3 downto 0) => NLW_inst_m_axis_tkeep_UNCONNECTED(3 downto 0),
       m_axis_tlast(0) => NLW_inst_m_axis_tlast_UNCONNECTED(0),
-      m_axis_tready(0) => m_axis_tready(0),
+      m_axis_tready(0) => '1',
       m_axis_tstrb(3 downto 0) => NLW_inst_m_axis_tstrb_UNCONNECTED(3 downto 0),
       m_axis_tuser(0) => NLW_inst_m_axis_tuser_UNCONNECTED(0),
       m_axis_tvalid(0) => m_axis_tvalid(0),
@@ -5669,7 +5605,7 @@ inst: entity work.system_axis_switch_0_0_axis_switch_v1_1_27_axis_switch
       s_axis_tid(1 downto 0) => B"00",
       s_axis_tkeep(7 downto 0) => B"11111111",
       s_axis_tlast(1 downto 0) => B"11",
-      s_axis_tready(1 downto 0) => s_axis_tready(1 downto 0),
+      s_axis_tready(1 downto 0) => NLW_inst_s_axis_tready_UNCONNECTED(1 downto 0),
       s_axis_tstrb(7 downto 0) => B"11111111",
       s_axis_tuser(1 downto 0) => B"00",
       s_axis_tvalid(1 downto 0) => s_axis_tvalid(1 downto 0),

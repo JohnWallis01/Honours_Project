@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Aug  6 22:14:11 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Mon Aug  7 14:17:18 2023
+// Host        : Valkyrie running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_0_6/system_axi_gpio_0_6_stub.v
 // Design      : system_axi_gpio_0_6
@@ -17,8 +17,8 @@
 module system_axi_gpio_0_6(s_axi_aclk, s_axi_aresetn, s_axi_awaddr, 
   s_axi_awvalid, s_axi_awready, s_axi_wdata, s_axi_wstrb, s_axi_wvalid, s_axi_wready, 
   s_axi_bresp, s_axi_bvalid, s_axi_bready, s_axi_araddr, s_axi_arvalid, s_axi_arready, 
-  s_axi_rdata, s_axi_rresp, s_axi_rvalid, s_axi_rready, gpio_io_o, gpio2_io_o)
-/* synthesis syn_black_box black_box_pad_pin="s_axi_aclk,s_axi_aresetn,s_axi_awaddr[8:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[8:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,gpio_io_o[6:0],gpio2_io_o[0:0]" */;
+  s_axi_rdata, s_axi_rresp, s_axi_rvalid, s_axi_rready, gpio_io_o)
+/* synthesis syn_black_box black_box_pad_pin="s_axi_aclk,s_axi_aresetn,s_axi_awaddr[8:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[8:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,gpio_io_o[2:0]" */;
   input s_axi_aclk;
   input s_axi_aresetn;
   input [8:0]s_axi_awaddr;
@@ -38,6 +38,5 @@ module system_axi_gpio_0_6(s_axi_aclk, s_axi_aresetn, s_axi_awaddr,
   output [1:0]s_axi_rresp;
   output s_axi_rvalid;
   input s_axi_rready;
-  output [6:0]gpio_io_o;
-  output [0:0]gpio2_io_o;
+  output [2:0]gpio_io_o;
 endmodule

@@ -207,3 +207,50 @@ begin
       end if;
   end process;
 end Delay_Arch ; -- Delay_Arch
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Pair_Combiner is
+  port(
+    D0: in std_logic;
+    D1: in std_logic;
+    Q: out std_logic_vector(1 downto 0)
+  );
+end Pair_Combiner;
+
+architecture Pair_Combiner_arch of Pair_Combiner is
+
+begin
+  
+  Q(0) <= D0;
+  Q(1) <= D1; 
+
+end Pair_Combiner_arch ; -- Pair_Combiner_arch
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity LFSR_Debugger is
+  port(
+    Clock: in std_logic;
+    Q: out std_logic_vector(1 downto 0)
+  );
+end LFSR_Debugger;
+
+architecture LFSR_Debugger_arch of LFSR_Debugger is
+  signal state: std_logic;
+  begin
+  process(Clock)
+  begin
+    if Rising_Edge(Clock) then
+      Q(0) <= state;
+      Q(1) <= not state;
+      state <= not state;
+    end if;
+  end process;
+end architecture; 

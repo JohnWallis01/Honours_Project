@@ -26,16 +26,17 @@ module FIFO_Sim(
 
     reg rst;
     reg clk;
-    wire PRBS;
-    reg[3:0] Taps;
+    wire PRBS_ref;
+    wire PRBS_delay;
+    reg[6:0] Taps;
 
 
-        LFSR #(.Size(5)) DUT(.reset(rst), .PRBS(PRBS), .clock(clk), .Taps(Taps)); 
+        Delay_Package #(.Size(8)) DUT(.clock(clk), .reset(rst), .taps(Taps), .PRBS_ref(PRBS_ref), .PRBS_delay(PRBS_delay)); 
 
 
       initial 
       begin
-        Taps = 4'b1011;
+        Taps = 7'h47;
         rst = 1;
         clk = 0;
         #1; // low for 20 * timescale = 1 ns

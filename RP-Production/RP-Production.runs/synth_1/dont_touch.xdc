@@ -35,6 +35,12 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar
 # IP: bd/system/ip/system_axi_interconnect_0_1/system_axi_interconnect_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_0_1 || ORIG_REF_NAME==system_axi_interconnect_0_1} -quiet] -quiet
 
+# IP: bd/system/ip/system_xbar_7/system_xbar_7.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar_7 || ORIG_REF_NAME==system_xbar_7} -quiet] -quiet
+
+# IP: bd/system/ip/system_axi_interconnect_0_2/system_axi_interconnect_0_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_0_2 || ORIG_REF_NAME==system_axi_interconnect_0_2} -quiet] -quiet
+
 # IP: bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util_ds_buf_0_0 || ORIG_REF_NAME==system_util_ds_buf_0_0} -quiet] -quiet
 
@@ -74,32 +80,26 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis
 # IP: bd/system/ip/system_axi_gpio_0_6/system_axi_gpio_0_6.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_6 || ORIG_REF_NAME==system_axi_gpio_0_6} -quiet] -quiet
 
-# IP: bd/system/ip/system_axis_constant_0_1/system_axis_constant_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_constant_0_1 || ORIG_REF_NAME==system_axis_constant_0_1} -quiet] -quiet
+# IP: bd/system/ip/system_axis_constant_0_3/system_axis_constant_0_3.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_constant_0_3 || ORIG_REF_NAME==system_axis_constant_0_3} -quiet] -quiet
 
-# IP: bd/system/ip/system_axis_constant_0_2/system_axis_constant_0_2.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_constant_0_2 || ORIG_REF_NAME==system_axis_constant_0_2} -quiet] -quiet
+# IP: bd/system/ip/system_axi_gpio_0_7/system_axi_gpio_0_7.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_7 || ORIG_REF_NAME==system_axi_gpio_0_7} -quiet] -quiet
 
-# IP: bd/system/ip/system_LFSR_0_0/system_LFSR_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_LFSR_0_0 || ORIG_REF_NAME==system_LFSR_0_0} -quiet] -quiet
+# IP: bd/system/ip/system_Delay_Package_0_0/system_Delay_Package_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Delay_Package_0_0 || ORIG_REF_NAME==system_Delay_Package_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_Delay_0_0/system_Delay_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Delay_0_0 || ORIG_REF_NAME==system_Delay_0_0} -quiet] -quiet
+# IP: bd/system/ip/system_Pair_Combiner_0_0/system_Pair_Combiner_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Pair_Combiner_0_0 || ORIG_REF_NAME==system_Pair_Combiner_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_axis_switch_0_0/system_axis_switch_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_switch_0_0 || ORIG_REF_NAME==system_axis_switch_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_Phase_Locked_Loop_0_0/system_Phase_Locked_Loop_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Phase_Locked_Loop_0_0 || ORIG_REF_NAME==system_Phase_Locked_Loop_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_xbar_7/system_xbar_7.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar_7 || ORIG_REF_NAME==system_xbar_7} -quiet] -quiet
-
-# IP: bd/system/ip/system_axi_interconnect_0_2/system_axi_interconnect_0_2.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_0_2 || ORIG_REF_NAME==system_axi_interconnect_0_2} -quiet] -quiet
-
-# IP: bd/system/ip/system_axis_combiner_0_1/system_axis_combiner_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_combiner_0_1 || ORIG_REF_NAME==system_axis_combiner_0_1} -quiet] -quiet
-
-# IP: bd/system/ip/system_axis_switch_0_0/system_axis_switch_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_switch_0_0 || ORIG_REF_NAME==system_axis_switch_0_0} -quiet] -quiet
+# IP: bd/system/ip/system_LFSR_Debugger_0_0/system_LFSR_Debugger_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_LFSR_Debugger_0_0 || ORIG_REF_NAME==system_LFSR_Debugger_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
