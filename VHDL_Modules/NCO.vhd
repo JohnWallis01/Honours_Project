@@ -17,7 +17,8 @@ entity NCO is
     clock: in std_logic := '0';
     rst: in std_logic := '0';
     Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
-    Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0') 
+    Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0');
+    Phase_Out: out std_logic_vector(Freq_Size-1 downto 0)
 
   );
 end NCO;
@@ -59,6 +60,7 @@ architecture NCO_str of NCO is
 
     BEGIN
 
+    Phase_Out <= std_logic_vector(phase);
     --this runs at compile time
     -- GENROM:
     -- FOR idx in 0 TO ROMSIZE-1 GENERATE

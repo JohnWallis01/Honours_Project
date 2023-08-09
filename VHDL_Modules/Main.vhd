@@ -4,6 +4,7 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 entity Phase_Locked_Loop is
+    generic(CHANNEL : integer := 0); --set to zero to input on ADC 1, set to 1 to input on ADC 1);
     port (
 
     ------GPIO's
@@ -17,6 +18,7 @@ entity Phase_Locked_Loop is
 
     --Measurments
     Freq_Measured: out std_logic_vector(31 downto 0);
+    Phase_Measured: out std_logic_vector(31 downto 0);
 
 
     ------ADC Control
@@ -91,7 +93,8 @@ architecture System_Architecture of Phase_Locked_Loop is
         clock: in std_logic := '0';
         rst: in std_logic := '0';
         Dout: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0'); -- DAC size
-        Quadrature_out: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0')
+        Quadrature_out: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0');
+        Phase_out: out std_logic_vector(Freq_Size-1 downto 0)
       ) ;
   end component;
 
@@ -179,8 +182,9 @@ END component;
   --   Sel => ADC_Override,
   --   Dout => Target_Signal
   -- );
-
-    Target_Signal <= ADC_Stream(13 downto 0);
+    
+    -- make this conditonal on channel
+    Target_Signal <= ADC_Stream(13 + CHANNEL*16 downto 0 + CHANNEL*16);
 
   --PLL--
   process(AD_CLK_in)
@@ -200,7 +204,8 @@ END component;
       clock => AD_CLK_in,
       rst => Reset_In,
       Dout => Locked_Signal,  
-      Quadrature_out => Quadrature_Signal
+      Quadrature_out => Quadrature_Signal,
+      Phase_out => Phase_Measured
   );
 
   

@@ -254,3 +254,81 @@ architecture LFSR_Debugger_arch of LFSR_Debugger is
     end if;
   end process;
 end architecture; 
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Subtractor is 
+      generic(size: integer:= 32);
+      port(
+        Dplus : in std_logic_vector(size-1 downto 0);
+        Dminus: in std_logic_vector(size-1 downto 0);
+        Q: out std_logic_vector(size-1 downto 0);
+        clock: in std_logic
+      );
+end Subtractor;
+
+architecture Subtractor_arch of Subtractor is
+
+  begin
+
+  process(clock)
+  begin
+    if rising_edge(clock) then
+      Q <= std_logic_vector(signed(Dplus) - signed(Dminus));
+    end if;
+  end process;
+
+end architecture;
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Reset_Latch is
+  port(
+  D_in: in std_logic;
+  Q_out: out std_logic;
+  Reset: in std_logic
+  );
+end Reset_Latch;
+
+architecture Reset_Latch_arch of Reset_Latch is
+
+begin
+
+  process(D_in, Reset)
+  begin
+
+    if Rising_Edge(D_in) then
+      Q_out <= '1';
+    end if;
+
+    if Rising_Edge(Reset) then
+      Q_out <= '1';
+    end if;
+
+    if Falling_Edge(Reset) then
+      Q_out <= '0';
+    end if;
+
+  end process;
+
+end Reset_Latch_arch; -- Reset_Latch_arch
+
+
+-- entity Integrator is
+--   generic(size: integer := 32);
+--   port(
+--     Din: in std_logic_vector(size-1 downto 0);
+--     Qout: out std_logic_vector(size-1 downto 0);
+--     Clock: in std_logic;
+--     Reset: in std_logic
+--   );
+
+-- end Integrator;

@@ -136,3 +136,43 @@ begin
     end process;
 
 end Sweep_Generator_arch ; -- Sweep_Generator_arch
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+
+--in the commissioning process this needs to only generate a stream out when Reset is low
+
+entity Test_Sequence_Gen is
+
+    port(
+    D_out: out std_logic_vector(31 downto 0);
+    Clock: in std_logic;
+    Reset: in std_logic
+    );
+
+end Test_Sequence_Gen;
+
+
+architecture Test_Sequence_Gen_arch of Test_Sequence_Gen is
+
+    signal internal_state: signed(31 downto 0); 
+
+begin
+
+
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Reset = '1' then
+                internal_state <= (others => '0');
+            else
+                internal_state <= internal_state + to_signed(1, 32);
+            end if;
+        end if;
+    end process;
+
+end Test_Sequence_Gen_arch ; -- Test_Sequence_Gen_arch
