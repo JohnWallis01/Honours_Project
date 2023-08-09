@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon Aug  7 15:27:45 2023
-//Host        : Valkyrie running 64-bit major release  (build 9200)
+//Date        : Tue Aug  8 17:39:38 2023
+//Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -1205,7 +1205,7 @@ module LFSR_imp_HWCIBX
     clock,
     s_axi_aclk,
     s_axi_aresetn);
-  output [1:0]M_AXIS_tdata;
+  output [31:0]M_AXIS_tdata;
   output [0:0]M_AXIS_tvalid;
   input [31:0]S_AXI1_araddr;
   output S_AXI1_arready;
@@ -1245,11 +1245,10 @@ module LFSR_imp_HWCIBX
   input s_axi_aclk;
   input s_axi_aresetn;
 
-  wire [1:0]Conn1_TDATA;
+  wire [31:0]Conn1_TDATA;
   wire Conn1_TVALID;
   wire Delay_Package_0_PRBS_delay;
   wire Delay_Package_0_PRBS_ref;
-  wire [1:0]LFSR_Debugger_0_Q;
   wire Net;
   wire PS7_FCLK_CLK0;
   wire [31:0]PS7_M05_AXI_ARADDR;
@@ -1269,6 +1268,7 @@ module LFSR_imp_HWCIBX
   wire PS7_M05_AXI_WREADY;
   wire [3:0]PS7_M05_AXI_WSTRB;
   wire PS7_M05_AXI_WVALID;
+  wire [1:0]Pair_Combiner_0_Q;
   wire [31:0]S_AXI1_1_ARADDR;
   wire S_AXI1_1_ARREADY;
   wire S_AXI1_1_ARVALID;
@@ -1290,7 +1290,7 @@ module LFSR_imp_HWCIBX
   wire [0:0]axi_gpio_1_gpio_io_o;
   wire s_axi_aresetn_1;
 
-  assign M_AXIS_tdata[1:0] = Conn1_TDATA;
+  assign M_AXIS_tdata[31:0] = Conn1_TDATA;
   assign M_AXIS_tvalid[0] = Conn1_TVALID;
   assign Net = clock;
   assign PS7_FCLK_CLK0 = s_axi_aclk;
@@ -1334,13 +1334,11 @@ module LFSR_imp_HWCIBX
         .PRBS_ref(Delay_Package_0_PRBS_ref),
         .clock(Net),
         .reset(axi_gpio_1_gpio_io_o),
-        .taps(axi_gpio_0_gpio_io_o));
-  system_LFSR_Debugger_0_0 LFSR_Debugger_0
-       (.Clock(Net),
-        .Q(LFSR_Debugger_0_Q));
+        .taps({1'b0,1'b0,1'b0,1'b0,axi_gpio_0_gpio_io_o}));
   system_Pair_Combiner_0_0 Pair_Combiner_0
        (.D0(Delay_Package_0_PRBS_ref),
-        .D1(Delay_Package_0_PRBS_delay));
+        .D1(Delay_Package_0_PRBS_delay),
+        .Q(Pair_Combiner_0_Q));
   system_axi_gpio_0_6 axi_gpio_0
        (.gpio_io_o(axi_gpio_0_gpio_io_o),
         .s_axi_aclk(PS7_FCLK_CLK0),
@@ -1385,7 +1383,7 @@ module LFSR_imp_HWCIBX
         .s_axi_wvalid(S_AXI1_1_WVALID));
   system_axis_constant_0_3 axis_constant_0
        (.aclk(Net),
-        .cfg_data(LFSR_Debugger_0_Q),
+        .cfg_data({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,Pair_Combiner_0_Q}),
         .m_axis_tdata(Conn1_TDATA),
         .m_axis_tvalid(Conn1_TVALID));
 endmodule
@@ -5963,7 +5961,7 @@ module s01_couplers_imp_1JA3XYH
         .s_axi_wvalid(s01_couplers_to_auto_us_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=58,numReposBlks=33,numNonXlnxBlks=4,numHierBlks=25,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=57,numReposBlks=32,numNonXlnxBlks=4,numHierBlks=25,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -6052,7 +6050,7 @@ module system
   wire [31:0]GPIO_Interface_gpio_Ki;
   wire [31:0]GPIO_Interface_gpio_Kp;
   wire [31:0]GPIO_Interface_gpio_PLL_Guess_Freq;
-  wire [1:0]LFSR_M_AXIS_TDATA;
+  wire [31:0]LFSR_M_AXIS_TDATA;
   wire [0:0]LFSR_M_AXIS_TVALID;
   wire Net;
   wire PS7_FCLK_CLK0;
@@ -6194,8 +6192,6 @@ module system
   wire S_AXI7_1_WREADY;
   wire [3:0]S_AXI7_1_WSTRB;
   wire S_AXI7_1_WVALID;
-  wire [31:0]S_AXIS_S2MM_1_TDATA;
-  wire [0:0]S_AXIS_S2MM_1_TVALID;
   wire adc_clk_n_i_1;
   wire adc_clk_p_i_1;
   wire [13:0]adc_dat_a_i_1;
@@ -6212,6 +6208,8 @@ module system
   wire axis_red_pitaya_dac_1_dac_rst;
   wire axis_red_pitaya_dac_1_dac_sel;
   wire axis_red_pitaya_dac_1_dac_wrt;
+  wire [31:0]axis_switch_0_M00_AXIS_TDATA;
+  wire [0:0]axis_switch_0_M00_AXIS_TVALID;
   wire [1:0]daisy_n_i_1;
   wire [1:0]daisy_p_i_1;
   wire [31:0]gpio_Freq_Measured_1;
@@ -6558,8 +6556,8 @@ module system
         .M06_AXI_wready(PS7_M06_AXI_WREADY),
         .M06_AXI_wstrb(PS7_M06_AXI_WSTRB),
         .M06_AXI_wvalid(PS7_M06_AXI_WVALID),
-        .S_AXIS_S2MM_tdata(S_AXIS_S2MM_1_TDATA),
-        .S_AXIS_S2MM_tvalid(S_AXIS_S2MM_1_TVALID),
+        .S_AXIS_S2MM_tdata(axis_switch_0_M00_AXIS_TDATA),
+        .S_AXIS_S2MM_tvalid(axis_switch_0_M00_AXIS_TVALID),
         .aclk(Net),
         .peripheral_aresetn(PS7_peripheral_aresetn));
   system_Phase_Locked_Loop_0_0 Phase_Locked_Loop_0
@@ -6593,8 +6591,8 @@ module system
   system_axis_switch_0_0 axis_switch_0
        (.aclk(Net),
         .aresetn(PS7_peripheral_aresetn),
-        .m_axis_tdata(S_AXIS_S2MM_1_TDATA),
-        .m_axis_tvalid(S_AXIS_S2MM_1_TVALID),
+        .m_axis_tdata(axis_switch_0_M00_AXIS_TDATA),
+        .m_axis_tvalid(axis_switch_0_M00_AXIS_TVALID),
         .s_axi_ctrl_aclk(PS7_FCLK_CLK0),
         .s_axi_ctrl_araddr(PS7_M01_AXI1_ARADDR[6:0]),
         .s_axi_ctrl_aresetn(PS7_peripheral_aresetn),
@@ -6613,7 +6611,7 @@ module system
         .s_axi_ctrl_wdata(PS7_M01_AXI1_WDATA),
         .s_axi_ctrl_wready(PS7_M01_AXI1_WREADY),
         .s_axi_ctrl_wvalid(PS7_M01_AXI1_WVALID),
-        .s_axis_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,LFSR_M_AXIS_TDATA,axis_broadcaster_0_M01_AXIS_TDATA}),
+        .s_axis_tdata({LFSR_M_AXIS_TDATA,axis_broadcaster_0_M01_AXIS_TDATA}),
         .s_axis_tvalid({LFSR_M_AXIS_TVALID,axis_broadcaster_0_M01_AXIS_TVALID}));
 endmodule
 

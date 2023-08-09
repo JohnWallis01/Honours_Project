@@ -175,11 +175,9 @@ char * PRBS_DUMP(void* virtual_address, int byte_count) {
     static char PRBS_Sets[TransferWindow/2]; //the first (TransferWindow/4) is one stream and the second is the delayed/advanced stream
     int offset;
     for(offset = 0; offset < byte_count; offset = offset + 4 ) {
-        printf("0x%x\n", p[offset]);
         PRBS_Sets[offset/4] = (p[offset] & 0x1);
-        PRBS_Sets[offset/4 + TransferWindow/4] = (p[offset] &0x2);
+        PRBS_Sets[offset/4 + TransferWindow/4] = ((p[offset] >> 1) & 0x1);
     }
-    exit(1);    
     return PRBS_Sets;
 }  
 
@@ -223,9 +221,7 @@ int main() {
     //setup PRBS
     void *LFSR_Polynomial = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, 0x41250000);
     void *LFSR_Reset = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, 0x4000000);
-    // *(uint32_t*)LFSR_Polynomial = 0x47; // This is the polynomial for an 8 bit LFSR
-    
-    *(uint32_t*)LFSR_Polynomial = 0x3; // This is the polynomial for an 8 bit LFSR
+    *(uint32_t*)LFSR_Polynomial = 0x47; // This is the polynomial for an 8 bit LFSR
     //Pules the Reset 
     *(uint32_t*)LFSR_Reset = 0x0; 
     *(uint32_t*)LFSR_Reset = 0x1; 
@@ -256,7 +252,7 @@ int main() {
     while(1)
     {
     //Switch the Stream to the FFT
-    control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x0); 
+    control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x1); 
     //commit the change
     control_set(switch_control_address, AXIS_SWITCH_CONTROL_REGISTER, 0x2);
     //Reset -DMA
@@ -333,7 +329,7 @@ int main() {
     
         
     //Switch the Stream to the PRBS
-    control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x1); 
+    control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x0); 
     //commit the change
     control_set(switch_control_address, AXIS_SWITCH_CONTROL_REGISTER, 0x2);
     //Reset -DMA
@@ -349,13 +345,14 @@ int main() {
     //wait for transfer
     dma_s2mm_sync(virtual_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
     //Process the Raw binary data
-    PRBS_DATA = PRBS_DUMP(virtual_address, TransferWindow);
+    PRBS_DATA = PRBS_DUMP(virtual_destination_address, TransferWindow);
     char* signal_tx = PRBS_DATA;
     char* signal_rx = PRBS_DATA + TransferWindow/4;
+    VecDump(PRBS_DATA, TransferWindow/2);
     //Max_Correlate
     int Delay = Max_Correlate(signal_tx, signal_rx);
     printf("PRBS delay of %u (Samples)\n", Delay);
-
+    exit(0);
     }
 
 }

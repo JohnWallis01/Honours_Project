@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Aug  7 14:45:19 2023
-// Host        : Valkyrie running 64-bit major release  (build 9200)
+// Date        : Tue Aug  8 17:38:49 2023
+// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Delay_Package_0_0/system_Delay_Package_0_0_stub.v
 // Design      : system_Delay_Package_0_0
@@ -15,10 +15,10 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "Delay_Package,Vivado 2022.2" *)
 module system_Delay_Package_0_0(clock, reset, taps, PRBS_ref, PRBS_delay)
-/* synthesis syn_black_box black_box_pad_pin="clock,reset,taps[2:0],PRBS_ref,PRBS_delay" */;
+/* synthesis syn_black_box black_box_pad_pin="clock,reset,taps[6:0],PRBS_ref,PRBS_delay" */;
   input clock;
   input reset;
-  input [2:0]taps;
+  input [6:0]taps;
   output PRBS_ref;
   output PRBS_delay;
 endmodule

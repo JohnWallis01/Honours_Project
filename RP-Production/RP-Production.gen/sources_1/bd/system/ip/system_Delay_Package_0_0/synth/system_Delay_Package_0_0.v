@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "Delay_Package,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_Delay_Package_0_0,Delay_Package,{}" *)
-(* CORE_GENERATION_INFO = "system_Delay_Package_0_0,Delay_Package,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Delay_Package,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Size=4}" *)
+(* CORE_GENERATION_INFO = "system_Delay_Package_0_0,Delay_Package,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Delay_Package,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Size=8}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_Delay_Package_0_0 (
@@ -69,12 +69,12 @@ input wire clock;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
 input wire reset;
-input wire [2 : 0] taps;
+input wire [6 : 0] taps;
 output wire PRBS_ref;
 output wire PRBS_delay;
 
   Delay_Package #(
-    .Size(4)
+    .Size(8)
   ) inst (
     .clock(clock),
     .reset(reset),

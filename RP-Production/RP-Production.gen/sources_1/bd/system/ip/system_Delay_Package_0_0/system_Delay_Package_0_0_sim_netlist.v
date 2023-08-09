@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Aug  7 14:45:19 2023
-// Host        : Valkyrie running 64-bit major release  (build 9200)
+// Date        : Tue Aug  8 17:38:49 2023
+// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Delay_Package_0_0/system_Delay_Package_0_0_sim_netlist.v
 // Design      : system_Delay_Package_0_0
@@ -23,7 +23,7 @@ module system_Delay_Package_0_0
     PRBS_delay);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clock, ASSOCIATED_RESET reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clock;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset;
-  input [2:0]taps;
+  input [6:0]taps;
   output PRBS_ref;
   output PRBS_delay;
 
@@ -31,7 +31,7 @@ module system_Delay_Package_0_0
   wire PRBS_ref;
   wire clock;
   wire reset;
-  wire [2:0]taps;
+  wire [6:0]taps;
 
   system_Delay_Package_0_0_Delay_Package inst
        (.PRBS_delay(PRBS_delay),
@@ -120,13 +120,13 @@ module system_Delay_Package_0_0_Delay_Package
   output PRBS_delay;
   input reset;
   input clock;
-  input [2:0]taps;
+  input [6:0]taps;
 
   wire PRBS_delay;
   wire PRBS_ref;
   wire clock;
   wire reset;
-  wire [2:0]taps;
+  wire [6:0]taps;
 
   system_Delay_Package_0_0_Delay Delay_Gen
        (.PRBS_delay(PRBS_delay),
@@ -149,12 +149,12 @@ module system_Delay_Package_0_0_LFSR
   output PRBS_ref;
   input clock;
   input reset;
-  input [2:0]taps;
+  input [6:0]taps;
 
   wire PRBS_ref;
   wire clock;
   wire reset;
-  wire [2:0]taps;
+  wire [6:0]taps;
 
   system_Delay_Package_0_0_LFSR2008 LFSR
        (.PRBS_ref(PRBS_ref),
@@ -172,18 +172,22 @@ module system_Delay_Package_0_0_LFSR2008
   output PRBS_ref;
   input clock;
   input reset;
-  input [2:0]taps;
+  input [6:0]taps;
 
   wire \Internal_State_reg_n_0_[0] ;
   wire PRBS_i_1_n_0;
   wire PRBS_ref;
   wire clock;
   wire p_0_in;
-  wire [3:1]p_10_out;
   wire p_1_in;
   wire p_1_in1_in;
+  wire p_1_in3_in;
+  wire p_1_in5_in;
+  wire p_1_in7_in;
+  wire p_1_in9_in;
+  wire [7:1]p_22_out;
   wire reset;
-  wire [2:0]taps;
+  wire [6:0]taps;
 
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
@@ -192,7 +196,7 @@ module system_Delay_Package_0_0_LFSR2008
        (.I0(p_0_in),
         .I1(taps[0]),
         .I2(\Internal_State_reg_n_0_[0] ),
-        .O(p_10_out[1]));
+        .O(p_22_out[1]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'h78)) 
@@ -200,14 +204,46 @@ module system_Delay_Package_0_0_LFSR2008
        (.I0(p_0_in),
         .I1(taps[1]),
         .I2(p_1_in),
-        .O(p_10_out[2]));
+        .O(p_22_out[2]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \Internal_State[3]_i_1 
        (.I0(p_0_in),
         .I1(taps[2]),
         .I2(p_1_in1_in),
-        .O(p_10_out[3]));
+        .O(p_22_out[3]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \Internal_State[4]_i_1 
+       (.I0(p_0_in),
+        .I1(taps[3]),
+        .I2(p_1_in3_in),
+        .O(p_22_out[4]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \Internal_State[5]_i_1 
+       (.I0(p_0_in),
+        .I1(taps[4]),
+        .I2(p_1_in5_in),
+        .O(p_22_out[5]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \Internal_State[6]_i_1 
+       (.I0(p_0_in),
+        .I1(taps[5]),
+        .I2(p_1_in7_in),
+        .O(p_22_out[6]));
+  LUT3 #(
+    .INIT(8'h78)) 
+    \Internal_State[7]_i_1 
+       (.I0(p_0_in),
+        .I1(taps[6]),
+        .I2(p_1_in9_in),
+        .O(p_22_out[7]));
   FDSE \Internal_State_reg[0] 
        (.C(clock),
         .CE(1'b1),
@@ -217,19 +253,43 @@ module system_Delay_Package_0_0_LFSR2008
   FDSE \Internal_State_reg[1] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_10_out[1]),
+        .D(p_22_out[1]),
         .Q(p_1_in),
         .S(reset));
   FDSE \Internal_State_reg[2] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_10_out[2]),
+        .D(p_22_out[2]),
         .Q(p_1_in1_in),
         .S(reset));
   FDSE \Internal_State_reg[3] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_10_out[3]),
+        .D(p_22_out[3]),
+        .Q(p_1_in3_in),
+        .S(reset));
+  FDSE \Internal_State_reg[4] 
+       (.C(clock),
+        .CE(1'b1),
+        .D(p_22_out[4]),
+        .Q(p_1_in5_in),
+        .S(reset));
+  FDSE \Internal_State_reg[5] 
+       (.C(clock),
+        .CE(1'b1),
+        .D(p_22_out[5]),
+        .Q(p_1_in7_in),
+        .S(reset));
+  FDSE \Internal_State_reg[6] 
+       (.C(clock),
+        .CE(1'b1),
+        .D(p_22_out[6]),
+        .Q(p_1_in9_in),
+        .S(reset));
+  FDSE \Internal_State_reg[7] 
+       (.C(clock),
+        .CE(1'b1),
+        .D(p_22_out[7]),
         .Q(p_0_in),
         .S(reset));
   LUT3 #(

@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Aug  7 14:45:19 2023
--- Host        : Valkyrie running 64-bit major release  (build 9200)
+-- Date        : Tue Aug  8 17:38:49 2023
+-- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Delay_Package_0_0/system_Delay_Package_0_0_stub.vhdl
 -- Design      : system_Delay_Package_0_0
@@ -16,7 +16,7 @@ entity system_Delay_Package_0_0 is
   Port ( 
     clock : in STD_LOGIC;
     reset : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    taps : in STD_LOGIC_VECTOR ( 6 downto 0 );
     PRBS_ref : out STD_LOGIC;
     PRBS_delay : out STD_LOGIC
   );
@@ -27,7 +27,7 @@ architecture stub of system_Delay_Package_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clock,reset,taps[2:0],PRBS_ref,PRBS_delay";
+attribute black_box_pad_pin of stub : architecture is "clock,reset,taps[6:0],PRBS_ref,PRBS_delay";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "Delay_Package,Vivado 2022.2";
 begin

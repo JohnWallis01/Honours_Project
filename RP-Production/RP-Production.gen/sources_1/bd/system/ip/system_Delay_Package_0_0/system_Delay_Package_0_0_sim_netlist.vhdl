@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Aug  7 14:45:19 2023
--- Host        : Valkyrie running 64-bit major release  (build 9200)
+-- Date        : Tue Aug  8 17:38:49 2023
+-- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Delay_Package_0_0/system_Delay_Package_0_0_sim_netlist.vhdl
 -- Design      : system_Delay_Package_0_0
@@ -106,7 +106,7 @@ entity system_Delay_Package_0_0_LFSR2008 is
     PRBS_ref : out STD_LOGIC;
     clock : in STD_LOGIC;
     reset : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 2 downto 0 )
+    taps : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_Delay_Package_0_0_LFSR2008 : entity is "LFSR2008";
@@ -117,12 +117,20 @@ architecture STRUCTURE of system_Delay_Package_0_0_LFSR2008 is
   signal PRBS_i_1_n_0 : STD_LOGIC;
   signal \^prbs_ref\ : STD_LOGIC;
   signal p_0_in : STD_LOGIC;
-  signal p_10_out : STD_LOGIC_VECTOR ( 3 downto 1 );
   signal p_1_in : STD_LOGIC;
   signal p_1_in1_in : STD_LOGIC;
+  signal p_1_in3_in : STD_LOGIC;
+  signal p_1_in5_in : STD_LOGIC;
+  signal p_1_in7_in : STD_LOGIC;
+  signal p_1_in9_in : STD_LOGIC;
+  signal p_22_out : STD_LOGIC_VECTOR ( 7 downto 1 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \Internal_State[1]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \Internal_State[2]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \Internal_State[3]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \Internal_State[4]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \Internal_State[5]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \Internal_State[6]_i_1\ : label is "soft_lutpair2";
 begin
   PRBS_ref <= \^prbs_ref\;
 \Internal_State[1]_i_1\: unisim.vcomponents.LUT3
@@ -133,7 +141,7 @@ begin
       I0 => p_0_in,
       I1 => taps(0),
       I2 => \Internal_State_reg_n_0_[0]\,
-      O => p_10_out(1)
+      O => p_22_out(1)
     );
 \Internal_State[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -143,7 +151,7 @@ begin
       I0 => p_0_in,
       I1 => taps(1),
       I2 => p_1_in,
-      O => p_10_out(2)
+      O => p_22_out(2)
     );
 \Internal_State[3]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -153,7 +161,47 @@ begin
       I0 => p_0_in,
       I1 => taps(2),
       I2 => p_1_in1_in,
-      O => p_10_out(3)
+      O => p_22_out(3)
+    );
+\Internal_State[4]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => p_0_in,
+      I1 => taps(3),
+      I2 => p_1_in3_in,
+      O => p_22_out(4)
+    );
+\Internal_State[5]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => p_0_in,
+      I1 => taps(4),
+      I2 => p_1_in5_in,
+      O => p_22_out(5)
+    );
+\Internal_State[6]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => p_0_in,
+      I1 => taps(5),
+      I2 => p_1_in7_in,
+      O => p_22_out(6)
+    );
+\Internal_State[7]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => p_0_in,
+      I1 => taps(6),
+      I2 => p_1_in9_in,
+      O => p_22_out(7)
     );
 \Internal_State_reg[0]\: unisim.vcomponents.FDSE
      port map (
@@ -167,7 +215,7 @@ begin
      port map (
       C => clock,
       CE => '1',
-      D => p_10_out(1),
+      D => p_22_out(1),
       Q => p_1_in,
       S => reset
     );
@@ -175,7 +223,7 @@ begin
      port map (
       C => clock,
       CE => '1',
-      D => p_10_out(2),
+      D => p_22_out(2),
       Q => p_1_in1_in,
       S => reset
     );
@@ -183,7 +231,39 @@ begin
      port map (
       C => clock,
       CE => '1',
-      D => p_10_out(3),
+      D => p_22_out(3),
+      Q => p_1_in3_in,
+      S => reset
+    );
+\Internal_State_reg[4]\: unisim.vcomponents.FDSE
+     port map (
+      C => clock,
+      CE => '1',
+      D => p_22_out(4),
+      Q => p_1_in5_in,
+      S => reset
+    );
+\Internal_State_reg[5]\: unisim.vcomponents.FDSE
+     port map (
+      C => clock,
+      CE => '1',
+      D => p_22_out(5),
+      Q => p_1_in7_in,
+      S => reset
+    );
+\Internal_State_reg[6]\: unisim.vcomponents.FDSE
+     port map (
+      C => clock,
+      CE => '1',
+      D => p_22_out(6),
+      Q => p_1_in9_in,
+      S => reset
+    );
+\Internal_State_reg[7]\: unisim.vcomponents.FDSE
+     port map (
+      C => clock,
+      CE => '1',
+      D => p_22_out(7),
       Q => p_0_in,
       S => reset
     );
@@ -215,7 +295,7 @@ entity system_Delay_Package_0_0_LFSR is
     PRBS_ref : out STD_LOGIC;
     clock : in STD_LOGIC;
     reset : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 2 downto 0 )
+    taps : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_Delay_Package_0_0_LFSR : entity is "LFSR";
@@ -228,7 +308,7 @@ LFSR: entity work.system_Delay_Package_0_0_LFSR2008
       PRBS_ref => PRBS_ref,
       clock => clock,
       reset => reset,
-      taps(2 downto 0) => taps(2 downto 0)
+      taps(6 downto 0) => taps(6 downto 0)
     );
 end STRUCTURE;
 library IEEE;
@@ -241,7 +321,7 @@ entity system_Delay_Package_0_0_Delay_Package is
     PRBS_delay : out STD_LOGIC;
     reset : in STD_LOGIC;
     clock : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 2 downto 0 )
+    taps : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_Delay_Package_0_0_Delay_Package : entity is "Delay_Package";
@@ -263,7 +343,7 @@ Main_LFSR: entity work.system_Delay_Package_0_0_LFSR
       PRBS_ref => \^prbs_ref\,
       clock => clock,
       reset => reset,
-      taps(2 downto 0) => taps(2 downto 0)
+      taps(6 downto 0) => taps(6 downto 0)
     );
 end STRUCTURE;
 library IEEE;
@@ -274,7 +354,7 @@ entity system_Delay_Package_0_0 is
   port (
     clock : in STD_LOGIC;
     reset : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    taps : in STD_LOGIC_VECTOR ( 6 downto 0 );
     PRBS_ref : out STD_LOGIC;
     PRBS_delay : out STD_LOGIC
   );
@@ -304,6 +384,6 @@ inst: entity work.system_Delay_Package_0_0_Delay_Package
       PRBS_ref => PRBS_ref,
       clock => clock,
       reset => reset,
-      taps(2 downto 0) => taps(2 downto 0)
+      taps(6 downto 0) => taps(6 downto 0)
     );
 end STRUCTURE;

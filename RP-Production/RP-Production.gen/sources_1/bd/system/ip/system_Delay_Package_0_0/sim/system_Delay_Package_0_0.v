@@ -68,12 +68,12 @@ input wire clock;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
 input wire reset;
-input wire [2 : 0] taps;
+input wire [6 : 0] taps;
 output wire PRBS_ref;
 output wire PRBS_delay;
 
   Delay_Package #(
-    .Size(4)
+    .Size(8)
   ) inst (
     .clock(clock),
     .reset(reset),
