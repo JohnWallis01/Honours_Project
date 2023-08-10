@@ -163,7 +163,7 @@ architecture Test_Sequence_Gen_arch of Test_Sequence_Gen is
 
 begin
 
-
+    D_out <= std_logic_vector(internal_state);
     process(Clock)
     begin
         if rising_edge(Clock) then

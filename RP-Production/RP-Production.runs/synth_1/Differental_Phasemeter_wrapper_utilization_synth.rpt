@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Wed Aug  9 16:18:51 2023
-| Host         : Valkyrie running 64-bit major release  (build 9200)
+| Date         : Thu Aug 10 22:52:29 2023
+| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Differental_Phasemeter_wrapper_utilization_synth.rpt -pb Differental_Phasemeter_wrapper_utilization_synth.pb
 | Design       : Differental_Phasemeter_wrapper
 | Device       : xc7z010clg400-1
@@ -162,8 +162,6 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-------------------------------------------------+------+
 | Differental_Phasemeter_xbar_3                   |    1 |
 | Differental_Phasemeter_xbar_0                   |    1 |
-| Differental_Phasemeter_util_ds_buf_1_0          |    1 |
-| Differental_Phasemeter_util_ds_buf_0_0          |    1 |
 | Differental_Phasemeter_processing_system7_0_0   |    1 |
 | Differental_Phasemeter_proc_sys_reset_0_0       |    1 |
 | Differental_Phasemeter_inverter_0_0             |    1 |
@@ -179,12 +177,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Differental_Phasemeter_auto_pc_1                |    1 |
 | Differental_Phasemeter_auto_pc_0                |    1 |
 | Differental_Phasemeter_Test_Sequence_Gen_0_0    |    1 |
-| Differental_Phasemeter_Subtractor_2_0           |    1 |
-| Differental_Phasemeter_Subtractor_0_1           |    1 |
-| Differental_Phasemeter_Subtractor_0_0           |    1 |
 | Differental_Phasemeter_Reset_Latch_0_0          |    1 |
 | Differental_Phasemeter_Phase_Locked_Loop_0_1    |    1 |
 | Differental_Phasemeter_Phase_Locked_Loop_0_0    |    1 |
+| Differental_Phasemeter_GPIO_Trigger_Test_0      |    1 |
 | Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0    |    1 |
 | Differental_Phasemeter_GPIO_Kp_0                |    1 |
 | Differental_Phasemeter_GPIO_Ki_0                |    1 |
@@ -192,6 +188,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Differental_Phasemeter_GPIO_Integrator_Reset_0  |    1 |
 | Differental_Phasemeter_GPIO_Integrator_Reset1_0 |    1 |
 | Differental_Phasemeter_GPIO_FreqMeasure_0       |    1 |
+| Differental_Phasemeter_GPIO_FIFO_Status_0       |    1 |
 | Differental_Phasemeter_AXI4_Stream_Writer_0_0   |    1 |
 +-------------------------------------------------+------+
 

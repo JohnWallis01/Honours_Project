@@ -284,7 +284,6 @@ architecture Subtractor_arch of Subtractor is
 end architecture;
 
 
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -293,6 +292,7 @@ use ieee.math_real.all;
 entity Reset_Latch is
   port(
   D_in: in std_logic;
+  clock: in std_logic;
   Q_out: out std_logic;
   Reset: in std_logic
   );
@@ -300,24 +300,22 @@ end Reset_Latch;
 
 architecture Reset_Latch_arch of Reset_Latch is
 
+  signal state :  std_logic := '0';
+
 begin
-
-  process(D_in, Reset)
+  Q_out <= state;
+  process(clock)
   begin
-
-    if Rising_Edge(D_in) then
-      Q_out <= '1';
+    if Rising_Edge(clock) then
+      if state = '0' and (Reset = '1' or D_in = '1') then
+        state <= '1';
+      elsif state = '1' and Reset = '0' then
+        state <= '0';
+      else
+        state <= state;
+      end if;  
     end if;
-
-    if Rising_Edge(Reset) then
-      Q_out <= '1';
-    end if;
-
-    if Falling_Edge(Reset) then
-      Q_out <= '0';
-    end if;
-
-  end process;
+ end process;
 
 end Reset_Latch_arch; -- Reset_Latch_arch
 

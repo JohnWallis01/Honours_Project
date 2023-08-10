@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Aug  9 15:27:52 2023
-// Host        : Valkyrie running 64-bit major release  (build 9200)
+// Date        : Thu Aug 10 22:51:42 2023
+// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Reset_Latch_0_0/Differental_Phasemeter_Reset_Latch_0_0_sim_netlist.v
 // Design      : Differental_Phasemeter_Reset_Latch_0_0
@@ -17,17 +17,58 @@
 (* NotValidForBitStream *)
 module Differental_Phasemeter_Reset_Latch_0_0
    (D_in,
+    clock,
     Q_out,
     Reset);
   input D_in;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clock, ASSOCIATED_RESET Reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clock;
   output Q_out;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset;
 
-  wire \<const0> ;
+  wire D_in;
+  wire Q_out;
+  wire Reset;
+  wire clock;
 
-  assign Q_out = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
+  Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch inst
+       (.D_in(D_in),
+        .Q_out(Q_out),
+        .Reset(Reset),
+        .clock(clock));
+endmodule
+
+(* ORIG_REF_NAME = "Reset_Latch" *) 
+module Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch
+   (Q_out,
+    Reset,
+    D_in,
+    clock);
+  output Q_out;
+  input Reset;
+  input D_in;
+  input clock;
+
+  wire D_in;
+  wire Q_out;
+  wire Reset;
+  wire clock;
+  wire state_i_1_n_0;
+
+  LUT3 #(
+    .INIT(8'hDC)) 
+    state_i_1
+       (.I0(Q_out),
+        .I1(Reset),
+        .I2(D_in),
+        .O(state_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    state_reg
+       (.C(clock),
+        .CE(1'b1),
+        .D(state_i_1_n_0),
+        .Q(Q_out),
+        .R(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

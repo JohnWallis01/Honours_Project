@@ -23,257 +23,47 @@
 module FIFO_Sim(
 
     );
-
-    reg rst;
-    reg clk;
-    wire PRBS_ref;
-    wire PRBS_delay;
-    reg[6:0] Taps;
-
-
-        Delay_Package #(.Size(8)) DUT(.clock(clk), .reset(rst), .taps(Taps), .PRBS_ref(PRBS_ref), .PRBS_delay(PRBS_delay)); 
-
+    reg Clock;
+    reg Reset;
+//     wire[31:0] D_out;
+    reg D_in;
+    wire Q_out;
+        // Test_Sequence_Gen DUT(.D_out(D_out), .Clock(Clock), .Reset(Reset)); 
+           Reset_Latch DUT(.D_in(D_in), .clock(Clock), .Q_out(Q_out), .Reset(Reset));
 
       initial 
       begin
-        Taps = 7'h47;
-        rst = 1;
-        clk = 0;
-        #1; // low for 20 * timescale = 1 ns
-        clk = 1;
-        #1; // low for 20 * timescale = 1 ns
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 1;
-                #1; // low for 20 * timescale = 1 ns
-                clk = 0;
-
-
-
-
-
-        #1; // low for 20 * timescale = 1 ns
-        rst = 0;
-
-        #1; // low for 20 * timescale = 1 ns
-        clk = 0; 
-        #1; // low for 20 * timescale = 1 ns
-        clk = 1;
-
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-        #1; // low for 20 * timescale = 1 ns
+        //start by reseting
+        D_in = 1;
+        Reset = 1;
         #1;
-
-
-
-        clk = 0;
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-        #1; // low for 20 * timescale = 1 ns
-
-        // Shit the bed time
-        
-        clk = 1;
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-        #1; // low for 20 * timescale = 1 ns
-        clk = 1;
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-        #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 1;
-
-                #1; // low for 20 * timescale = 1 ns
-
-        clk = 0;
-
-                #1; // low for 20 * timescale = 1 ns
-
-
+        Clock = 0;
+        #1;
+        Clock = 1;
+        #1;
+        Clock = 0;
+        #1;
+        Reset = 0;
+        Clock = 1;
+        #1;
+        Clock = 0;
+        #1;
+        Clock = 1;
+        #1;
+        Clock = 0;
+        D_in = 0;
+        #1;
+        Clock = 1;
       end
 
 
 
     always 
     begin
-        clk = 0;
+        Clock = 0;
         #1; // high for 20 * timescale = 1 ns
 
-        clk = 1;
+        Clock = 1;
         #1; // low for 20 * timescale = 1 ns
 
     end

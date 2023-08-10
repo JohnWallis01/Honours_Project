@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Aug  9 15:27:52 2023
--- Host        : Valkyrie running 64-bit major release  (build 9200)
+-- Date        : Thu Aug 10 22:51:42 2023
+-- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Reset_Latch_0_0/Differental_Phasemeter_Reset_Latch_0_0_sim_netlist.vhdl
 -- Design      : Differental_Phasemeter_Reset_Latch_0_0
@@ -14,9 +14,52 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
+entity Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch is
+  port (
+    Q_out : out STD_LOGIC;
+    Reset : in STD_LOGIC;
+    D_in : in STD_LOGIC;
+    clock : in STD_LOGIC
+  );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch : entity is "Reset_Latch";
+end Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch;
+
+architecture STRUCTURE of Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch is
+  signal \^q_out\ : STD_LOGIC;
+  signal state_i_1_n_0 : STD_LOGIC;
+begin
+  Q_out <= \^q_out\;
+state_i_1: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"DC"
+    )
+        port map (
+      I0 => \^q_out\,
+      I1 => Reset,
+      I2 => D_in,
+      O => state_i_1_n_0
+    );
+state_reg: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clock,
+      CE => '1',
+      D => state_i_1_n_0,
+      Q => \^q_out\,
+      R => '0'
+    );
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
 entity Differental_Phasemeter_Reset_Latch_0_0 is
   port (
     D_in : in STD_LOGIC;
+    clock : in STD_LOGIC;
     Q_out : out STD_LOGIC;
     Reset : in STD_LOGIC
   );
@@ -33,15 +76,18 @@ entity Differental_Phasemeter_Reset_Latch_0_0 is
 end Differental_Phasemeter_Reset_Latch_0_0;
 
 architecture STRUCTURE of Differental_Phasemeter_Reset_Latch_0_0 is
-  signal \<const0>\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 Reset RST";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of clock : signal is "xilinx.com:signal:clock:1.0 clock CLK";
+  attribute X_INTERFACE_PARAMETER of clock : signal is "XIL_INTERFACENAME clock, ASSOCIATED_RESET Reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0";
 begin
-  Q_out <= \<const0>\;
-GND: unisim.vcomponents.GND
+inst: entity work.Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch
      port map (
-      G => \<const0>\
+      D_in => D_in,
+      Q_out => Q_out,
+      Reset => Reset,
+      clock => clock
     );
 end STRUCTURE;

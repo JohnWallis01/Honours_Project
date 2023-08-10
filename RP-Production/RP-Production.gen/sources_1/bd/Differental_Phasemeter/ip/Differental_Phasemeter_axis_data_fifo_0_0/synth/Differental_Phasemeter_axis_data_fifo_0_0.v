@@ -53,7 +53,7 @@
 (* X_CORE_INFO = "axis_data_fifo_v2_0_9_top,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "Differental_Phasemeter_axis_data_fifo_0_0,axis_data_fifo_v2_0_9_top,{}" *)
 (* CORE_GENERATION_INFO = "Differental_Phasemeter_axis_data_fifo_0_0,axis_data_fifo_v2_0_9_top,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_data_fifo,x_ipVersion=2.0,x_ipCoreRevision=9,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_AXIS_TDATA_WIDTH=32,C_AXIS_TID_WIDTH=1,C_AXIS_TDEST_WIDTH=1,C_AXIS_TUSER_WIDTH=1,C_AXIS_SIGNAL_SET=0b00000000000000000000000000000011,C_FIFO_DEPTH=1024,C_FIFO_MODE=1,C_IS_ACLK_ASYNC=0,C_SYNCHRONIZER_STAGE=3,C_ACLKEN_CONV_MODE=0,C_ECC_MODE=0,C_FIFO_ME\
-MORY_TYPE=auto,C_USE_ADV_FEATURES=825241656,C_PROG_EMPTY_THRESH=5,C_PROG_FULL_THRESH=11}" *)
+MORY_TYPE=auto,C_USE_ADV_FEATURES=825765944,C_PROG_EMPTY_THRESH=5,C_PROG_FULL_THRESH=11}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module Differental_Phasemeter_axis_data_fifo_0_0 (
   s_axis_aresetn,
@@ -64,6 +64,7 @@ module Differental_Phasemeter_axis_data_fifo_0_0 (
   m_axis_tvalid,
   m_axis_tready,
   m_axis_tdata,
+  almost_empty,
   almost_full
 );
 
@@ -87,6 +88,7 @@ input wire m_axis_tready;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
 output wire [31 : 0] m_axis_tdata;
+output wire almost_empty;
 output wire almost_full;
 
   axis_data_fifo_v2_0_9_top #(
@@ -103,7 +105,7 @@ output wire almost_full;
     .C_ACLKEN_CONV_MODE(0),
     .C_ECC_MODE(0),
     .C_FIFO_MEMORY_TYPE("auto"),
-    .C_USE_ADV_FEATURES(825241656),
+    .C_USE_ADV_FEATURES(825765944),
     .C_PROG_EMPTY_THRESH(5),
     .C_PROG_FULL_THRESH(11)
   ) inst (
@@ -132,7 +134,7 @@ output wire almost_full;
     .m_axis_tuser(),
     .axis_wr_data_count(),
     .axis_rd_data_count(),
-    .almost_empty(),
+    .almost_empty(almost_empty),
     .prog_empty(),
     .almost_full(almost_full),
     .prog_full(),

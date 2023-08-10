@@ -20,12 +20,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_axis_red_pitaya_dac_1_0/Differental_Phasemeter_axis_red_pitaya_dac_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_axis_red_pitaya_dac_1_0 || ORIG_REF_NAME==Differental_Phasemeter_axis_red_pitaya_dac_1_0} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_util_ds_buf_0_0/Differental_Phasemeter_util_ds_buf_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_util_ds_buf_0_0 || ORIG_REF_NAME==Differental_Phasemeter_util_ds_buf_0_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_util_ds_buf_1_0/Differental_Phasemeter_util_ds_buf_1_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_util_ds_buf_1_0 || ORIG_REF_NAME==Differental_Phasemeter_util_ds_buf_1_0} -quiet] -quiet
-
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_axis_broadcaster_0_0/Differental_Phasemeter_axis_broadcaster_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_axis_broadcaster_0_0 || ORIG_REF_NAME==Differental_Phasemeter_axis_broadcaster_0_0} -quiet] -quiet
 
@@ -43,6 +37,12 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Integrator_Reset_0/Differental_Phasemeter_GPIO_Integrator_Reset_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset_0 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Integrator_Reset_1/Differental_Phasemeter_GPIO_Integrator_Reset_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset_1 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset_1} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Integrator_Reset1_0/Differental_Phasemeter_GPIO_Integrator_Reset1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset1_0 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset1_0} -quiet] -quiet
 
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_processing_system7_0_0/Differental_Phasemeter_processing_system7_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_processing_system7_0_0 || ORIG_REF_NAME==Differental_Phasemeter_processing_system7_0_0} -quiet] -quiet
@@ -74,17 +74,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_interconnect_0_3/Differental_Phasemeter_axi_interconnect_0_3.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_axi_interconnect_0_3 || ORIG_REF_NAME==Differental_Phasemeter_axi_interconnect_0_3} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Subtractor_0_0/Differental_Phasemeter_Subtractor_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Subtractor_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Subtractor_0_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Subtractor_0_1/Differental_Phasemeter_Subtractor_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Subtractor_0_1 || ORIG_REF_NAME==Differental_Phasemeter_Subtractor_0_1} -quiet] -quiet
-
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_axis_data_fifo_0_0/Differental_Phasemeter_axis_data_fifo_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_axis_data_fifo_0_0 || ORIG_REF_NAME==Differental_Phasemeter_axis_data_fifo_0_0} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Subtractor_2_0/Differental_Phasemeter_Subtractor_2_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Subtractor_2_0 || ORIG_REF_NAME==Differental_Phasemeter_Subtractor_2_0} -quiet] -quiet
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Test_Sequence_Gen_0_0/Differental_Phasemeter_Test_Sequence_Gen_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Test_Sequence_Gen_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Test_Sequence_Gen_0_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_AXI4_Stream_Writer_0_0/Differental_Phasemeter_AXI4_Stream_Writer_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_AXI4_Stream_Writer_0_0 || ORIG_REF_NAME==Differental_Phasemeter_AXI4_Stream_Writer_0_0} -quiet] -quiet
 
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Phase_Locked_Loop_0_0/Differental_Phasemeter_Phase_Locked_Loop_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Phase_Locked_Loop_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Phase_Locked_Loop_0_0} -quiet] -quiet
@@ -95,20 +92,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Reset_Latch_0_0/Differental_Phasemeter_Reset_Latch_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Reset_Latch_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Reset_Latch_0_0} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Integrator_Reset_1/Differental_Phasemeter_GPIO_Integrator_Reset_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset_1 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset_1} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Integrator_Reset1_0/Differental_Phasemeter_GPIO_Integrator_Reset1_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset1_0 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Integrator_Reset1_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Test_Sequence_Gen_0_0/Differental_Phasemeter_Test_Sequence_Gen_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Test_Sequence_Gen_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Test_Sequence_Gen_0_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_AXI4_Stream_Writer_0_0/Differental_Phasemeter_AXI4_Stream_Writer_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_AXI4_Stream_Writer_0_0 || ORIG_REF_NAME==Differental_Phasemeter_AXI4_Stream_Writer_0_0} -quiet] -quiet
-
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_inverter_0_0/Differental_Phasemeter_inverter_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_inverter_0_0 || ORIG_REF_NAME==Differental_Phasemeter_inverter_0_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_FIFO_Status_0/Differental_Phasemeter_GPIO_FIFO_Status_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_FIFO_Status_0 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_FIFO_Status_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Trigger_Test_0/Differental_Phasemeter_GPIO_Trigger_Test_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Trigger_Test_0 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Trigger_Test_0} -quiet] -quiet
 
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_0/Differental_Phasemeter_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_0} -quiet] -quiet

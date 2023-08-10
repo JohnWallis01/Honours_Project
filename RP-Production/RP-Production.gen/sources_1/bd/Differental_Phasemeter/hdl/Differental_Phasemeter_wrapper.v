@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Wed Aug  9 15:25:15 2023
-//Host        : Valkyrie running 64-bit major release  (build 9200)
+//Date        : Thu Aug 10 22:50:53 2023
+//Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 //Command     : generate_target Differental_Phasemeter_wrapper.bd
 //Design      : Differental_Phasemeter_wrapper
 //Purpose     : IP block netlist
@@ -45,11 +45,7 @@ module Differental_Phasemeter_wrapper
     dac_sel_o,
     dac_wrt_o,
     daisy_n_i,
-    daisy_n_i1,
-    daisy_n_o,
     daisy_p_i,
-    daisy_p_i1,
-    daisy_p_o,
     exp_n_tri_io,
     exp_p_tri_io,
     led_o);
@@ -88,11 +84,7 @@ module Differental_Phasemeter_wrapper
   output dac_sel_o;
   output dac_wrt_o;
   input [1:0]daisy_n_i;
-  input [1:0]daisy_n_i1;
-  output [1:0]daisy_n_o;
   input [1:0]daisy_p_i;
-  input [1:0]daisy_p_i1;
-  output [1:0]daisy_p_o;
   inout [7:0]exp_n_tri_io;
   inout [7:0]exp_p_tri_io;
   output [0:0]led_o;
@@ -132,11 +124,7 @@ module Differental_Phasemeter_wrapper
   wire dac_sel_o;
   wire dac_wrt_o;
   wire [1:0]daisy_n_i;
-  wire [1:0]daisy_n_i1;
-  wire [1:0]daisy_n_o;
   wire [1:0]daisy_p_i;
-  wire [1:0]daisy_p_i1;
-  wire [1:0]daisy_p_o;
   wire [7:0]exp_n_tri_io;
   wire [7:0]exp_p_tri_io;
   wire [0:0]led_o;
@@ -177,11 +165,7 @@ module Differental_Phasemeter_wrapper
         .dac_sel_o(dac_sel_o),
         .dac_wrt_o(dac_wrt_o),
         .daisy_n_i(daisy_n_i),
-        .daisy_n_i1(daisy_n_i1),
-        .daisy_n_o(daisy_n_o),
         .daisy_p_i(daisy_p_i),
-        .daisy_p_i1(daisy_p_i1),
-        .daisy_p_o(daisy_p_o),
         .exp_n_tri_io(exp_n_tri_io),
         .exp_p_tri_io(exp_p_tri_io),
         .led_o(led_o));

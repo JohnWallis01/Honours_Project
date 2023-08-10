@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x5FCE7930C7C30A88",
+      "boundary_crc": "0x517C61B950414230",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter",
       "name": "Differental_Phasemeter",
@@ -17,10 +17,6 @@
         "clk_wiz_0": "",
         "axis_red_pitaya_dac_1": ""
       },
-      "Daisy_Controller": {
-        "util_ds_buf_0": "",
-        "util_ds_buf_1": ""
-      },
       "axis_broadcaster_0": "",
       "GPIO_Interface": {
         "GPIO_Ki": "",
@@ -29,7 +25,8 @@
         "GPIO_FreqMeasure": "",
         "GPIO_Integrator_Reset": "",
         "GPIO_Trigger_Test": "",
-        "GPIO_FIFO_Status": ""
+        "GPIO_FIFO_Status_Full": "",
+        "GPIO_FIFO_Status_Empty": ""
       },
       "PS7": {
         "processing_system7_0": "",
@@ -45,7 +42,9 @@
           "m03_couplers": {},
           "m04_couplers": {},
           "m05_couplers": {},
-          "m06_couplers": {}
+          "m06_couplers": {},
+          "m07_couplers": {},
+          "m08_couplers": {}
         },
         "DMA_Engine": {
           "axi_dma_0": "",
@@ -69,14 +68,12 @@
         }
       },
       "axis_data_fifo_0": "",
-      "Test_Sequence_Gen_0": "",
       "AXI4_Stream_Writer_0": "",
+      "GPIO_Valid_Probe": "",
+      "Test_Sequence_Gen_0": "",
       "Phase_Locked_Loop_0": "",
       "Phase_Locked_Loop_1": "",
       "Reset_Latch_0": "",
-      "Subtractor_0": "",
-      "Subtractor_1": "",
-      "Subtractor_2": "",
       "inverter_0": ""
     },
     "interface_ports": {
@@ -366,54 +363,6 @@
       },
       "dac_wrt_o": {
         "direction": "O"
-      },
-      "daisy_n_i1": {
-        "direction": "I",
-        "left": "1",
-        "right": "0"
-      },
-      "daisy_n_o": {
-        "direction": "O",
-        "left": "1",
-        "right": "0",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "Differental_Phasemeter_util_ds_buf_0_0_IBUF_OUT",
-            "value_src": "ip_prop"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "ip_prop"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "ip_prop"
-          }
-        }
-      },
-      "daisy_p_i1": {
-        "direction": "I",
-        "left": "1",
-        "right": "0"
-      },
-      "daisy_p_o": {
-        "direction": "O",
-        "left": "1",
-        "right": "0",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "Differental_Phasemeter_util_ds_buf_0_0_IBUF_OUT",
-            "value_src": "ip_prop"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "ip_prop"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "ip_prop"
-          }
-        }
       }
     },
     "components": {
@@ -567,91 +516,6 @@
           }
         }
       },
-      "Daisy_Controller": {
-        "ports": {
-          "daisy_p_i": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "daisy_n_i": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "daisy_p_o": {
-            "type": "clk",
-            "direction": "O",
-            "left": "1",
-            "right": "0"
-          },
-          "daisy_n_o": {
-            "type": "clk",
-            "direction": "O",
-            "left": "1",
-            "right": "0"
-          }
-        },
-        "components": {
-          "util_ds_buf_0": {
-            "vlnv": "xilinx.com:ip:util_ds_buf:2.2",
-            "xci_name": "Differental_Phasemeter_util_ds_buf_0_0",
-            "xci_path": "ip\\Differental_Phasemeter_util_ds_buf_0_0\\Differental_Phasemeter_util_ds_buf_0_0.xci",
-            "inst_hier_path": "Daisy_Controller/util_ds_buf_0",
-            "parameters": {
-              "C_SIZE": {
-                "value": "2"
-              }
-            }
-          },
-          "util_ds_buf_1": {
-            "vlnv": "xilinx.com:ip:util_ds_buf:2.2",
-            "xci_name": "Differental_Phasemeter_util_ds_buf_1_0",
-            "xci_path": "ip\\Differental_Phasemeter_util_ds_buf_1_0\\Differental_Phasemeter_util_ds_buf_1_0.xci",
-            "inst_hier_path": "Daisy_Controller/util_ds_buf_1",
-            "parameters": {
-              "C_BUF_TYPE": {
-                "value": "OBUFDS"
-              },
-              "C_SIZE": {
-                "value": "2"
-              }
-            }
-          }
-        },
-        "nets": {
-          "daisy_n_i_1": {
-            "ports": [
-              "daisy_n_i",
-              "util_ds_buf_0/IBUF_DS_N"
-            ]
-          },
-          "daisy_p_i_1": {
-            "ports": [
-              "daisy_p_i",
-              "util_ds_buf_0/IBUF_DS_P"
-            ]
-          },
-          "util_ds_buf_0_IBUF_OUT": {
-            "ports": [
-              "util_ds_buf_0/IBUF_OUT",
-              "util_ds_buf_1/OBUF_IN"
-            ]
-          },
-          "util_ds_buf_1_OBUF_DS_N": {
-            "ports": [
-              "util_ds_buf_1/OBUF_DS_N",
-              "daisy_n_o"
-            ]
-          },
-          "util_ds_buf_1_OBUF_DS_P": {
-            "ports": [
-              "util_ds_buf_1/OBUF_DS_P",
-              "daisy_p_o"
-            ]
-          }
-        }
-      },
       "axis_broadcaster_0": {
         "vlnv": "xilinx.com:ip:axis_broadcaster:1.1",
         "xci_name": "Differental_Phasemeter_axis_broadcaster_0_0",
@@ -691,6 +555,11 @@
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "S_AXI1": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "S_AXI2": {
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
@@ -737,6 +606,11 @@
           },
           "gpio_io_o": {
             "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "gpio_io_i1": {
+            "direction": "I",
             "left": "0",
             "right": "0"
           }
@@ -814,11 +688,25 @@
               }
             }
           },
-          "GPIO_FIFO_Status": {
+          "GPIO_FIFO_Status_Full": {
             "vlnv": "xilinx.com:ip:axi_gpio:2.0",
             "xci_name": "Differental_Phasemeter_GPIO_Integrator_Reset1_0",
             "xci_path": "ip\\Differental_Phasemeter_GPIO_Integrator_Reset1_0\\Differental_Phasemeter_GPIO_Integrator_Reset1_0.xci",
-            "inst_hier_path": "GPIO_Interface/GPIO_FIFO_Status",
+            "inst_hier_path": "GPIO_Interface/GPIO_FIFO_Status_Full",
+            "parameters": {
+              "C_ALL_INPUTS": {
+                "value": "1"
+              },
+              "C_GPIO_WIDTH": {
+                "value": "1"
+              }
+            }
+          },
+          "GPIO_FIFO_Status_Empty": {
+            "vlnv": "xilinx.com:ip:axi_gpio:2.0",
+            "xci_name": "Differental_Phasemeter_GPIO_FIFO_Status_0",
+            "xci_path": "ip\\Differental_Phasemeter_GPIO_FIFO_Status_0\\Differental_Phasemeter_GPIO_FIFO_Status_0.xci",
+            "inst_hier_path": "GPIO_Interface/GPIO_FIFO_Status_Empty",
             "parameters": {
               "C_ALL_INPUTS": {
                 "value": "1"
@@ -857,7 +745,13 @@
           "S_AXI1_1": {
             "interface_ports": [
               "S_AXI1",
-              "GPIO_FIFO_Status/S_AXI"
+              "GPIO_FIFO_Status_Full/S_AXI"
+            ]
+          },
+          "S_AXI2_1": {
+            "interface_ports": [
+              "S_AXI2",
+              "GPIO_FIFO_Status_Empty/S_AXI"
             ]
           },
           "S_AXI7_1": {
@@ -913,7 +807,8 @@
               "GPIO_FreqMeasure/s_axi_aclk",
               "GPIO_Integrator_Reset/s_axi_aclk",
               "GPIO_Trigger_Test/s_axi_aclk",
-              "GPIO_FIFO_Status/s_axi_aclk"
+              "GPIO_FIFO_Status_Full/s_axi_aclk",
+              "GPIO_FIFO_Status_Empty/s_axi_aclk"
             ]
           },
           "Net1": {
@@ -925,7 +820,14 @@
               "GPIO_FreqMeasure/s_axi_aresetn",
               "GPIO_Integrator_Reset/s_axi_aresetn",
               "GPIO_Trigger_Test/s_axi_aresetn",
-              "GPIO_FIFO_Status/s_axi_aresetn"
+              "GPIO_FIFO_Status_Full/s_axi_aresetn",
+              "GPIO_FIFO_Status_Empty/s_axi_aresetn"
+            ]
+          },
+          "gpio_io_i1_1": {
+            "ports": [
+              "gpio_io_i1",
+              "GPIO_FIFO_Status_Empty/gpio_io_i"
             ]
           },
           "gpio_io_i_1": {
@@ -937,7 +839,7 @@
           "gpio_io_i_2": {
             "ports": [
               "gpio_io_i",
-              "GPIO_FIFO_Status/gpio_io_i"
+              "GPIO_FIFO_Status_Full/gpio_io_i"
             ]
           }
         }
@@ -990,6 +892,16 @@
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M06_AXI": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "M07_AXI": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "M08_AXI": {
             "mode": "Master",
             "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
@@ -2897,7 +2809,7 @@
             "xci_name": "Differental_Phasemeter_axi_interconnect_1_0",
             "parameters": {
               "NUM_MI": {
-                "value": "7"
+                "value": "9"
               },
               "NUM_SI": {
                 "value": "1"
@@ -2940,6 +2852,16 @@
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "M06_AXI": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+              },
+              "M07_AXI": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+              },
+              "M08_AXI": {
                 "mode": "Master",
                 "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
@@ -3086,6 +3008,38 @@
               "M06_ARESETN": {
                 "type": "rst",
                 "direction": "I"
+              },
+              "M07_ACLK": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "M07_AXI"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "M07_ARESETN"
+                  }
+                }
+              },
+              "M07_ARESETN": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "M08_ACLK": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "M08_AXI"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "M08_ARESETN"
+                  }
+                }
+              },
+              "M08_ARESETN": {
+                "type": "rst",
+                "direction": "I"
               }
             },
             "components": {
@@ -3096,7 +3050,7 @@
                 "inst_hier_path": "PS7/axi_interconnect_1/xbar",
                 "parameters": {
                   "NUM_MI": {
-                    "value": "7"
+                    "value": "9"
                   },
                   "NUM_SI": {
                     "value": "1"
@@ -3116,7 +3070,9 @@
                       "M03_AXI",
                       "M04_AXI",
                       "M05_AXI",
-                      "M06_AXI"
+                      "M06_AXI",
+                      "M07_AXI",
+                      "M08_AXI"
                     ]
                   }
                 }
@@ -3613,6 +3569,118 @@
                     ]
                   }
                 }
+              },
+              "m07_couplers": {
+                "interface_ports": {
+                  "M_AXI": {
+                    "mode": "Master",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  },
+                  "S_AXI": {
+                    "mode": "Slave",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  }
+                },
+                "ports": {
+                  "M_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "M_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "M_ARESETN"
+                      }
+                    }
+                  },
+                  "M_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  },
+                  "S_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "S_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "S_ARESETN"
+                      }
+                    }
+                  },
+                  "S_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  }
+                },
+                "interface_nets": {
+                  "m07_couplers_to_m07_couplers": {
+                    "interface_ports": [
+                      "S_AXI",
+                      "M_AXI"
+                    ]
+                  }
+                }
+              },
+              "m08_couplers": {
+                "interface_ports": {
+                  "M_AXI": {
+                    "mode": "Master",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  },
+                  "S_AXI": {
+                    "mode": "Slave",
+                    "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+                  }
+                },
+                "ports": {
+                  "M_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "M_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "M_ARESETN"
+                      }
+                    }
+                  },
+                  "M_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  },
+                  "S_ACLK": {
+                    "type": "clk",
+                    "direction": "I",
+                    "parameters": {
+                      "ASSOCIATED_BUSIF": {
+                        "value": "S_AXI"
+                      },
+                      "ASSOCIATED_RESET": {
+                        "value": "S_ARESETN"
+                      }
+                    }
+                  },
+                  "S_ARESETN": {
+                    "type": "rst",
+                    "direction": "I"
+                  }
+                },
+                "interface_nets": {
+                  "m08_couplers_to_m08_couplers": {
+                    "interface_ports": [
+                      "S_AXI",
+                      "M_AXI"
+                    ]
+                  }
+                }
               }
             },
             "interface_nets": {
@@ -3664,6 +3732,18 @@
                   "m06_couplers/M_AXI"
                 ]
               },
+              "m07_couplers_to_axi_interconnect_1": {
+                "interface_ports": [
+                  "M07_AXI",
+                  "m07_couplers/M_AXI"
+                ]
+              },
+              "m08_couplers_to_axi_interconnect_1": {
+                "interface_ports": [
+                  "M08_AXI",
+                  "m08_couplers/M_AXI"
+                ]
+              },
               "s00_couplers_to_xbar": {
                 "interface_ports": [
                   "s00_couplers/M_AXI",
@@ -3710,6 +3790,18 @@
                 "interface_ports": [
                   "xbar/M06_AXI",
                   "m06_couplers/S_AXI"
+                ]
+              },
+              "xbar_to_m07_couplers": {
+                "interface_ports": [
+                  "xbar/M07_AXI",
+                  "m07_couplers/S_AXI"
+                ]
+              },
+              "xbar_to_m08_couplers": {
+                "interface_ports": [
+                  "xbar/M08_AXI",
+                  "m08_couplers/S_AXI"
                 ]
               }
             },
@@ -3798,6 +3890,30 @@
                   "m06_couplers/M_ARESETN"
                 ]
               },
+              "M07_ACLK_1": {
+                "ports": [
+                  "M07_ACLK",
+                  "m07_couplers/M_ACLK"
+                ]
+              },
+              "M07_ARESETN_1": {
+                "ports": [
+                  "M07_ARESETN",
+                  "m07_couplers/M_ARESETN"
+                ]
+              },
+              "M08_ACLK_1": {
+                "ports": [
+                  "M08_ACLK",
+                  "m08_couplers/M_ACLK"
+                ]
+              },
+              "M08_ARESETN_1": {
+                "ports": [
+                  "M08_ARESETN",
+                  "m08_couplers/M_ARESETN"
+                ]
+              },
               "S00_ACLK_1": {
                 "ports": [
                   "S00_ACLK",
@@ -3821,7 +3937,9 @@
                   "m03_couplers/S_ACLK",
                   "m04_couplers/S_ACLK",
                   "m05_couplers/S_ACLK",
-                  "m06_couplers/S_ACLK"
+                  "m06_couplers/S_ACLK",
+                  "m07_couplers/S_ACLK",
+                  "m08_couplers/S_ACLK"
                 ]
               },
               "axi_interconnect_1_ARESETN_net": {
@@ -3835,7 +3953,9 @@
                   "m03_couplers/S_ARESETN",
                   "m04_couplers/S_ARESETN",
                   "m05_couplers/S_ARESETN",
-                  "m06_couplers/S_ARESETN"
+                  "m06_couplers/S_ARESETN",
+                  "m07_couplers/S_ARESETN",
+                  "m08_couplers/S_ARESETN"
                 ]
               }
             }
@@ -4850,6 +4970,12 @@
               "DMA_Engine/S_AXIS_S2MM"
             ]
           },
+          "Conn4": {
+            "interface_ports": [
+              "M08_AXI",
+              "axi_interconnect_1/M08_AXI"
+            ]
+          },
           "Conn5": {
             "interface_ports": [
               "M00_AXI",
@@ -4898,6 +5024,12 @@
               "axi_interconnect_1/M06_AXI"
             ]
           },
+          "axi_interconnect_1_M07_AXI": {
+            "interface_ports": [
+              "M07_AXI",
+              "axi_interconnect_1/M07_AXI"
+            ]
+          },
           "processing_system7_0_DDR": {
             "interface_ports": [
               "DDR",
@@ -4932,7 +5064,9 @@
               "axi_interconnect_0/M00_ARESETN",
               "axi_interconnect_0/S00_ARESETN",
               "axi_interconnect_1/M06_ARESETN",
-              "axi_interconnect_1/M05_ARESETN"
+              "axi_interconnect_1/M05_ARESETN",
+              "axi_interconnect_1/M07_ARESETN",
+              "axi_interconnect_1/M08_ARESETN"
             ]
           },
           "m_axi_s2mm_aclk_1": {
@@ -4969,7 +5103,9 @@
               "axi_interconnect_0/S00_ACLK",
               "axi_interconnect_0/M00_ACLK",
               "axi_interconnect_1/M05_ACLK",
-              "axi_interconnect_1/M06_ACLK"
+              "axi_interconnect_1/M06_ACLK",
+              "axi_interconnect_1/M07_ACLK",
+              "axi_interconnect_1/M08_ACLK"
             ]
           },
           "processing_system7_0_FCLK_RESET0_N": {
@@ -4990,7 +5126,7 @@
             "value": "1024"
           },
           "HAS_AEMPTY": {
-            "value": "0"
+            "value": "1"
           },
           "HAS_AFULL": {
             "value": "1"
@@ -5003,46 +5139,6 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "4"
-          }
-        }
-      },
-      "Test_Sequence_Gen_0": {
-        "vlnv": "xilinx.com:module_ref:Test_Sequence_Gen:1.0",
-        "xci_name": "Differental_Phasemeter_Test_Sequence_Gen_0_0",
-        "xci_path": "ip\\Differental_Phasemeter_Test_Sequence_Gen_0_0\\Differental_Phasemeter_Test_Sequence_Gen_0_0.xci",
-        "inst_hier_path": "Test_Sequence_Gen_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Test_Sequence_Gen",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "D_out": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "Clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "Reset",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "Reset": {
-            "type": "rst",
-            "direction": "I"
           }
         }
       },
@@ -5142,6 +5238,60 @@
             }
           },
           "valid": {
+            "direction": "I"
+          }
+        }
+      },
+      "GPIO_Valid_Probe": {
+        "vlnv": "xilinx.com:ip:axi_gpio:2.0",
+        "xci_name": "Differental_Phasemeter_GPIO_Trigger_Test_0",
+        "xci_path": "ip\\Differental_Phasemeter_GPIO_Trigger_Test_0\\Differental_Phasemeter_GPIO_Trigger_Test_0.xci",
+        "inst_hier_path": "GPIO_Valid_Probe",
+        "parameters": {
+          "C_ALL_INPUTS": {
+            "value": "1"
+          },
+          "C_GPIO_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "Test_Sequence_Gen_0": {
+        "vlnv": "xilinx.com:module_ref:Test_Sequence_Gen:1.0",
+        "xci_name": "Differental_Phasemeter_Test_Sequence_Gen_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_Test_Sequence_Gen_0_0\\Differental_Phasemeter_Test_Sequence_Gen_0_0.xci",
+        "inst_hier_path": "Test_Sequence_Gen_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Test_Sequence_Gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D_out": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
             "direction": "I"
           }
         }
@@ -5431,138 +5581,30 @@
           "D_in": {
             "direction": "I"
           },
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
           "Q_out": {
             "direction": "O"
           },
           "Reset": {
             "type": "rst",
             "direction": "I"
-          }
-        }
-      },
-      "Subtractor_0": {
-        "vlnv": "xilinx.com:module_ref:Subtractor:1.0",
-        "xci_name": "Differental_Phasemeter_Subtractor_0_0",
-        "xci_path": "ip\\Differental_Phasemeter_Subtractor_0_0\\Differental_Phasemeter_Subtractor_0_0.xci",
-        "inst_hier_path": "Subtractor_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Subtractor",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Dplus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Dminus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Q": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
-      "Subtractor_1": {
-        "vlnv": "xilinx.com:module_ref:Subtractor:1.0",
-        "xci_name": "Differental_Phasemeter_Subtractor_0_1",
-        "xci_path": "ip\\Differental_Phasemeter_Subtractor_0_1\\Differental_Phasemeter_Subtractor_0_1.xci",
-        "inst_hier_path": "Subtractor_1",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Subtractor",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Dplus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Dminus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Q": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
-      "Subtractor_2": {
-        "vlnv": "xilinx.com:module_ref:Subtractor:1.0",
-        "xci_name": "Differental_Phasemeter_Subtractor_2_0",
-        "xci_path": "ip\\Differental_Phasemeter_Subtractor_2_0\\Differental_Phasemeter_Subtractor_2_0.xci",
-        "inst_hier_path": "Subtractor_2",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Subtractor",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Dplus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Dminus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Q": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
           }
         }
       },
@@ -5609,6 +5651,18 @@
         "interface_ports": [
           "PS7/M05_AXI",
           "GPIO_Interface/S_AXI"
+        ]
+      },
+      "PS7_M07_AXI": {
+        "interface_ports": [
+          "PS7/M07_AXI",
+          "GPIO_Interface/S_AXI2"
+        ]
+      },
+      "PS7_M08_AXI": {
+        "interface_ports": [
+          "GPIO_Valid_Probe/S_AXI",
+          "PS7/M08_AXI"
         ]
       },
       "PS7_M10_AXI": {
@@ -5714,13 +5768,11 @@
           "DAC_Interface/aclk",
           "axis_data_fifo_0/s_axis_aclk",
           "PS7/m_axi_s2mm_aclk",
-          "Test_Sequence_Gen_0/Clock",
           "AXI4_Stream_Writer_0/aclk",
+          "Test_Sequence_Gen_0/Clock",
           "Phase_Locked_Loop_0/AD_CLK_in",
           "Phase_Locked_Loop_1/AD_CLK_in",
-          "Subtractor_0/clock",
-          "Subtractor_1/clock",
-          "Subtractor_2/clock"
+          "Reset_Latch_0/clock"
         ]
       },
       "Net1": {
@@ -5735,7 +5787,8 @@
       "PS7_FCLK_CLK1": {
         "ports": [
           "PS7/FCLK_CLK0",
-          "GPIO_Interface/s_axi_aclk"
+          "GPIO_Interface/s_axi_aclk",
+          "GPIO_Valid_Probe/s_axi_aclk"
         ]
       },
       "PS7_peripheral_aresetn1": {
@@ -5743,49 +5796,8 @@
           "PS7/peripheral_aresetn",
           "GPIO_Interface/s_axi_aresetn",
           "axis_broadcaster_0/aresetn",
-          "axis_data_fifo_0/s_axis_aresetn"
-        ]
-      },
-      "Phase_Locked_Loop_0_DAC_Stream_out": {
-        "ports": [
-          "Subtractor_1/Q",
-          "DAC_Interface/cfg_data"
-        ]
-      },
-      "Phase_Locked_Loop_0_DAC_Stream_out1": {
-        "ports": [
-          "Phase_Locked_Loop_0/DAC_Stream_out",
-          "Subtractor_1/Dplus"
-        ]
-      },
-      "Phase_Locked_Loop_0_Freq_Measured": {
-        "ports": [
-          "Phase_Locked_Loop_0/Freq_Measured",
-          "Subtractor_2/Dplus"
-        ]
-      },
-      "Phase_Locked_Loop_0_Phase_Measured": {
-        "ports": [
-          "Phase_Locked_Loop_0/Phase_Measured",
-          "Subtractor_0/Dplus"
-        ]
-      },
-      "Phase_Locked_Loop_1_DAC_Stream_out": {
-        "ports": [
-          "Phase_Locked_Loop_1/DAC_Stream_out",
-          "Subtractor_1/Dminus"
-        ]
-      },
-      "Phase_Locked_Loop_1_Freq_Measured": {
-        "ports": [
-          "Phase_Locked_Loop_1/Freq_Measured",
-          "Subtractor_2/Dminus"
-        ]
-      },
-      "Phase_Locked_Loop_1_Phase_Measured": {
-        "ports": [
-          "Phase_Locked_Loop_1/Phase_Measured",
-          "Subtractor_0/Dminus"
+          "axis_data_fifo_0/s_axis_aresetn",
+          "GPIO_Valid_Probe/s_axi_aresetn"
         ]
       },
       "Test_Sequence_Gen_0_D_out": {
@@ -5816,6 +5828,12 @@
         "ports": [
           "adc_dat_b_i",
           "axis_red_pitaya_adc_0/adc_dat_b"
+        ]
+      },
+      "axis_data_fifo_0_almost_empty": {
+        "ports": [
+          "axis_data_fifo_0/almost_empty",
+          "GPIO_Interface/gpio_io_i1"
         ]
       },
       "axis_data_fifo_0_almost_full": {
@@ -5866,45 +5884,16 @@
           "daisy_n_i"
         ]
       },
-      "daisy_n_i_2": {
-        "ports": [
-          "daisy_n_i1",
-          "Daisy_Controller/daisy_n_i"
-        ]
-      },
       "daisy_p_i_1": {
         "ports": [
           "daisy_p_i"
         ]
       },
-      "daisy_p_i_2": {
-        "ports": [
-          "daisy_p_i1",
-          "Daisy_Controller/daisy_p_i"
-        ]
-      },
-      "gpio_Freq_Measured_1": {
-        "ports": [
-          "Subtractor_2/Q",
-          "GPIO_Interface/gpio_Freq_Measured"
-        ]
-      },
       "inverter_0_D_out": {
         "ports": [
           "inverter_0/D_out",
-          "AXI4_Stream_Writer_0/valid"
-        ]
-      },
-      "util_ds_buf_1_OBUF_DS_N": {
-        "ports": [
-          "Daisy_Controller/daisy_n_o",
-          "daisy_n_o"
-        ]
-      },
-      "util_ds_buf_1_OBUF_DS_P": {
-        "ports": [
-          "Daisy_Controller/daisy_p_o",
-          "daisy_p_o"
+          "AXI4_Stream_Writer_0/valid",
+          "GPIO_Valid_Probe/gpio_io_i"
         ]
       }
     },
@@ -5913,8 +5902,13 @@
         "address_spaces": {
           "Data": {
             "segments": {
+              "SEG_GPIO_FIFO_Status_Empty_Reg": {
+                "address_block": "/GPIO_Interface/GPIO_FIFO_Status_Empty/S_AXI/Reg",
+                "offset": "0x41270000",
+                "range": "64K"
+              },
               "SEG_GPIO_FIFO_Status_Reg": {
-                "address_block": "/GPIO_Interface/GPIO_FIFO_Status/S_AXI/Reg",
+                "address_block": "/GPIO_Interface/GPIO_FIFO_Status_Full/S_AXI/Reg",
                 "offset": "0x41260000",
                 "range": "64K"
               },
@@ -5946,6 +5940,11 @@
               "SEG_GPIO_Trigger_Test_Reg": {
                 "address_block": "/GPIO_Interface/GPIO_Trigger_Test/S_AXI/Reg",
                 "offset": "0x41250000",
+                "range": "64K"
+              },
+              "SEG_GPIO_Valid_Probe_Reg": {
+                "address_block": "/GPIO_Valid_Probe/S_AXI/Reg",
+                "offset": "0x41280000",
                 "range": "64K"
               },
               "SEG_axi_dma_0_Reg": {
