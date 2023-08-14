@@ -16,8 +16,8 @@
 #define S2MM_DESTINATION_ADDRESS 0x48
 #define S2MM_LENGTH 0x58
 #define TRANSFER_WIDTH 4 //Bytes width
-#define TRANSFER_DEPTH 16384 //words depth
-
+#define TRANSFER_DEPTH 16384 //words depth -- this is very strange that is locks up the way it does
+#define PI 3.141592653589793238462643383279502884197
 
 
 #define FREQ_MEASURED_ADDR      0x41200000
@@ -28,6 +28,7 @@
 #define TEST_TRIGGER_ADDR       0x41250000
 #define FIFO_FULL_STATUS_ADDR   0x41260000
 #define FIFO_EMPTY_STATUS_ADDR  0x41270000
+#define LOGIC_PROBE_ADDR        0x41290000
 #define AXI_DMA_CONF_ADDR       0x80400000
 
 #define KP_VAULE        0xFFFE0000
@@ -60,10 +61,11 @@ void dma_s2mm_status(unsigned int* dma_virtual_address) {
     printf("\n");
 }
 
-int dma_s2mm_sync(unsigned int* dma_virtual_address, void* fifo_empty_status) {
+int dma_s2mm_sync(unsigned int* dma_virtual_address, void* fifo_empty_status, void* Valid) {
     unsigned int s2mm_status = control_get(dma_virtual_address, S2MM_STATUS_REGISTER);
     while(!(s2mm_status & 0x00000001)){
-        // dma_s2mm_status(dma_virtual_address);
+        dma_s2mm_status(dma_virtual_address);
+        printf("FIFO Empty: %x FIFO Valid%x\n", *(uint32_t*)fifo_empty_status, *(uint32_t*)Valid);
         if (*(uint32_t*)fifo_empty_status) {
             //halt the dma
             control_set(dma_virtual_address, S2MM_CONTROL_REGISTER, 4);
@@ -85,7 +87,7 @@ uint32_t * memdump(void* virtual_address, int byte_count) {
     int offset;
     for (offset = 0; offset < byte_count; offset = offset + 4) {
         computed_stream[offset/4] = mempipe(p[offset], p[offset+1], p[offset+2], p[offset+3]);
-        printf("0x%x%x%x%x\n", computed_stream[offset/4], computed_stream[offset/4 + 1], computed_stream[offset/4 + 2], computed_stream[offset/4 + 3]);
+        printf("%f\n", (double)computed_stream[offset/4]/pow(2,32)*2*3.1459);
     }
     return computed_stream;
 }
@@ -106,7 +108,9 @@ int main() {
     void *Test_Trigger      = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, TEST_TRIGGER_ADDR);
     void *FIFO_Full         = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, FIFO_FULL_STATUS_ADDR);
     void *FIFO_Empty        = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, FIFO_EMPTY_STATUS_ADDR);
-    
+
+    void*Valid              = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, LOGIC_PROBE_ADDR);
+ 
     //PULL the reset high to halt the DUT
     *(uint32_t*)Test_Trigger = 1;
 
@@ -118,7 +122,6 @@ int main() {
     *(uint32_t*)Integrator_Reset = 0;
     *(uint32_t*)Integrator_Reset = 1;
     *(uint32_t*)Integrator_Reset = 0;
-
     printf("Flushing FIFO ");
 
     //Reset -DMA
@@ -130,9 +133,8 @@ int main() {
     //Write the S2MM stream into memory (specify length of stream) 
     control_set(dma_conf_address, S2MM_LENGTH, TRANSFER_DEPTH*TRANSFER_WIDTH);
     //await DMA
-    dma_s2mm_sync(dma_conf_address, FIFO_Empty); // If this locks up make sure all memory ranges are assigned under Address Editor!
+    dma_s2mm_sync(dma_conf_address, FIFO_Empty, Valid); // If this locks up make sure all memory ranges are assigned under Address Editor!
     printf(" -- Done.\n");
-
     printf("Setup Complete: Running Test Procedure -- ");
     //Rising Edge Enables DUT
     *(uint32_t*)Test_Trigger = 0;
@@ -141,7 +143,6 @@ int main() {
     while(!*(uint32_t*)FIFO_Full) {
     }
     printf("Done.\n");
-
 
     //Perform the DMA transfer
     printf("Extracting Data --");
@@ -154,7 +155,7 @@ int main() {
     //Write the S2MM stream into memory (specify length of stream) 
     control_set(dma_conf_address, S2MM_LENGTH, TRANSFER_DEPTH*TRANSFER_WIDTH);
     //await DMA
-    dma_s2mm_sync(dma_conf_address, FIFO_Empty); // If this locks up make sure all memory ranges are assigned under Address Editor!
+    dma_s2mm_sync(dma_conf_address, FIFO_Empty, Valid); // If this locks up make sure all memory ranges are assigned under Address Editor!
     printf(" Done.\n");
     memdump(dma_dest_address, TRANSFER_DEPTH*TRANSFER_WIDTH);
 

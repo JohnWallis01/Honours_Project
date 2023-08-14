@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../../VHDL_Modules/Logic.vhd" \
-
-# Do not sort compile order
-nosort

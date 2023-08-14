@@ -1,6 +1,6 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: E:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot FIFO_Sim_behav xil_defaultlib.FIFO_Sim xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Main_Sim_behav xil_defaultlib.Main_Sim xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -13,7 +13,13 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling architecture reset_latch_arch of entity xil_defaultlib.Reset_Latch [reset_latch_default]
-Compiling module xil_defaultlib.FIFO_Sim
+Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(dac_size=14)\]
+Compiling architecture behavioral of entity xil_defaultlib.AXI4_Stream_Reader [axi4_stream_reader_default]
+Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
+Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
+Compiling architecture pid_controller_arch of entity xil_defaultlib.PID_Controller [pid_controller_default]
+Compiling architecture system_architecture of entity xil_defaultlib.Phase_Locked_Loop [phase_locked_loop_default]
+Compiling architecture behavioral of entity xil_defaultlib.Testing_Architecture [testing_architecture_default]
+Compiling module xil_defaultlib.Main_Sim
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot FIFO_Sim_behav
+Built simulation snapshot Main_Sim_behav

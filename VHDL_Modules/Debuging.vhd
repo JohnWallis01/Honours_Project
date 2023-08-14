@@ -176,3 +176,58 @@ begin
     end process;
 
 end Test_Sequence_Gen_arch ; -- Test_Sequence_Gen_arch
+
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Fake_ADC is
+    port(
+        m_axis_tdata: out std_logic_vector(31 downto 0); 
+        m_axis_tvalid: out std_logic;
+        Reset: in std_logic;
+        Clock: in std_logic
+    );
+end Fake_ADC;
+
+architecture Fake_ADC_arch of Fake_ADC  is
+    component NCO is
+        generic (
+            Freq_Size: integer := 32;
+            ROM_Size: integer := 8;
+            DAC_SIZE:integer := 16
+        );
+        port (
+          Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
+          PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
+          clock: in std_logic := '0';
+          rst: in std_logic := '0';
+          Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
+          Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0');
+          Phase_Out: out std_logic_vector(Freq_Size-1 downto 0)
+      
+        );
+    end component;
+        signal Generated_Wave: std_logic_vector(13 downto 0);
+    begin 
+    m_axis_tdata(13 downto 0) <= Generated_Wave;
+    m_axis_tdata(29 downto 16) <= Generated_Wave;
+    m_axis_tdata(15 downto 14) <= "00";
+    m_axis_tdata(31 downto 30) <= "00";
+    m_axis_tvalid <= '1'; 
+    Sig_Gen: NCO generic map(Freq_Size =>32, ROM_Size => 8, DAC_Size=> 14)
+    port map(
+        Frequency => std_logic_vector(to_unsigned(343597384, 32)),
+        PhaseOffset => (others => '0'),
+        clock => Clock,
+        rst => Reset,
+        Dout => Generated_Wave,
+        Quadrature_out => open,
+        Phase_out => open
+    );
+
+end Fake_ADC_arch ; -- Fake_DAC_arch

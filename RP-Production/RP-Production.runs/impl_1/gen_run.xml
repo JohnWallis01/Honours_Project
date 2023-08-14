@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1691732160">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1692000854">
   <File Type="ROUTE-PWR" Name="Differental_Phasemeter_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="Differental_Phasemeter_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="Differental_Phasemeter_wrapper.mmi"/>
@@ -188,6 +188,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sim_1/new/Main_Sim.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="Differental_Phasemeter_wrapper"/>
@@ -252,16 +260,10 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_axis_data_fifo_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_7"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_protocol_convert_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axis_switch_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_clk_wiz_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_axis_broadcaster_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_AXI4_Stream_Writer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Reset_Latch_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Subtractor_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_DAC_Router_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_axi_dma_0_1"/>
 </GenRun>

@@ -204,52 +204,52 @@ preplace inst axis_broadcaster_0 -pg 1 -lvl 2 -x 450 -y 1050 -defaultsOSRD
 preplace inst LFSR -pg 1 -lvl 2 -x 450 -y 840 -defaultsOSRD
 preplace inst axis_switch_0 -pg 1 -lvl 3 -x 900 -y 880 -defaultsOSRD
 preplace inst Phase_Locked_Loop_0 -pg 1 -lvl 3 -x 900 -y 610 -defaultsOSRD
-preplace netloc GPIO_Interface_gpio_Integrator_Reset 1 2 4 700 740 NJ 740 NJ 740 2000
-preplace netloc GPIO_Interface_gpio_Ki 1 2 4 670 220 NJ 220 1560J 250 2010
-preplace netloc GPIO_Interface_gpio_Kp 1 2 4 700 470 1120J 590 1590J 520 2020
-preplace netloc GPIO_Interface_gpio_PLL_Guess_Freq 1 2 4 690 230 NJ 230 1540J 260 1990
-preplace netloc Net 1 1 4 260 730 650 460 1170 600 N
-preplace netloc PS7_FCLK_CLK0 1 1 4 290 720 660 480 1100J 610 1580
+preplace netloc GPIO_Interface_gpio_Integrator_Reset 1 2 4 700 740 NJ 740 NJ 740 1990
+preplace netloc GPIO_Interface_gpio_Ki 1 2 4 670 220 NJ 220 1560J 250 2000
+preplace netloc GPIO_Interface_gpio_Kp 1 2 4 700 470 1110J 590 1590J 520 2010
+preplace netloc GPIO_Interface_gpio_PLL_Guess_Freq 1 2 4 690 230 NJ 230 1540J 260 1980
+preplace netloc Net 1 1 4 260 730 650 460 1160 600 N
+preplace netloc PS7_FCLK_CLK0 1 1 4 290 720 660 480 1090J 610 1580
 preplace netloc PS7_peripheral_aresetn 1 1 4 300 740 630 190 NJ 190 1570
 preplace netloc Phase_Locked_Loop_0_DAC_Stream_out 1 3 2 NJ 620 N
-preplace netloc Phase_Locked_Loop_0_Reset_Out 1 2 2 690 730 1110
+preplace netloc Phase_Locked_Loop_0_Reset_Out 1 2 2 690 730 1100
 preplace netloc adc_clk_n_i_1 1 0 1 0J 1030n
 preplace netloc adc_clk_p_i_1 1 0 1 0J 1000n
 preplace netloc adc_dat_a_i_1 1 0 1 NJ 1060
 preplace netloc adc_dat_b_i_1 1 0 1 0J 1080n
 preplace netloc axis_red_pitaya_adc_0_adc_csn 1 1 5 270J 1130 NJ 1130 NJ 1130 NJ 1130 NJ
-preplace netloc axis_red_pitaya_dac_1_dac_clk 1 5 1 2020J 560n
-preplace netloc axis_red_pitaya_dac_1_dac_dat 1 5 1 2020J 660n
-preplace netloc axis_red_pitaya_dac_1_dac_rst 1 5 1 2020J 590n
+preplace netloc axis_red_pitaya_dac_1_dac_clk 1 5 1 2010J 560n
+preplace netloc axis_red_pitaya_dac_1_dac_dat 1 5 1 2010J 660n
+preplace netloc axis_red_pitaya_dac_1_dac_rst 1 5 1 2010J 590n
 preplace netloc axis_red_pitaya_dac_1_dac_sel 1 5 1 NJ 620
-preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 5 1 2020J 640n
+preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 5 1 2010J 640n
 preplace netloc daisy_n_i_1 1 0 5 NJ 960 NJ 960 610J 1040 NJ 1040 NJ
 preplace netloc daisy_p_i_1 1 0 5 NJ 930 NJ 930 620J 1020 NJ 1020 NJ
-preplace netloc gpio_Freq_Measured_1 1 3 2 1110J 200 N
-preplace netloc util_ds_buf_1_OBUF_DS_N 1 5 1 2010J 1040n
+preplace netloc gpio_Freq_Measured_1 1 3 2 1100J 200 N
+preplace netloc util_ds_buf_1_OBUF_DS_N 1 5 1 2000J 1040n
 preplace netloc util_ds_buf_1_OBUF_DS_P 1 5 1 NJ 1020
 preplace netloc LFSR_M_AXIS 1 2 1 N 840
 preplace netloc PS7_M00_AXI 1 4 1 1500 80n
-preplace netloc PS7_M01_AXI1 1 2 3 680 490 1130J 560 1500
+preplace netloc PS7_M01_AXI1 1 2 3 680 490 1120J 560 1500
 preplace netloc PS7_M03_AXI 1 4 1 1490 60n
-preplace netloc PS7_M05_AXI 1 1 4 270 440 NJ 440 1160J 570 1560
-preplace netloc PS7_M06_AXI 1 1 4 280 450 NJ 450 1150J 580 1530
+preplace netloc PS7_M05_AXI 1 1 4 270 440 NJ 440 1150J 570 1560
+preplace netloc PS7_M06_AXI 1 1 4 280 450 NJ 450 1140J 580 1530
 preplace netloc PS7_M10_AXI 1 4 1 1550 140n
 preplace netloc S_AXI6_1 1 4 1 1510 100n
 preplace netloc S_AXI7_1 1 4 1 1530 120n
 preplace netloc axis_broadcaster_0_M00_AXIS 1 2 1 600 550n
 preplace netloc axis_broadcaster_0_M01_AXIS 1 2 1 640 820n
 preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 1 N 1030
-preplace netloc axis_switch_0_M00_AXIS 1 3 1 1140 390n
+preplace netloc axis_switch_0_M00_AXIS 1 3 1 1130 390n
 preplace netloc processing_system7_0_DDR 1 4 2 NJ 290 NJ
 preplace netloc processing_system7_0_FIXED_IO 1 4 2 1520J 320 NJ
 levelinfo -pg 1 -20 140 450 900 1330 1790 2040
-pagesize -pg 1 -db -bbox -sgen -190 0 2200 1230
+pagesize -pg 1 -db -bbox -sgen -180 0 2200 1230
 "
 }
 {
-   """"""""""""""""""""""""""""""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""":"4",
-   """"""""""""""""""""""""""""""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""":"3",
-   """"""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""""""""""""""""""""""""""""""""""da_ps7_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""":"1"
+   """""""""""""""""""""""""""""""""""""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""":"4",
+   """""""""""""""""""""""""""""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""":"3",
+   """""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""":"1",
+   """""""""""""""""""""""""""""""""""""""""""""""""""""""da_ps7_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""":"1"
 }

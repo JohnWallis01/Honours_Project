@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Wed Aug  9 13:52:09 2023
 // Host        : Valkyrie running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_axis_broadcaster_0_0/Differental_Phasemeter_axis_broadcaster_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_axis_broadcaster_0_0 -prefix
+//               Differental_Phasemeter_axis_broadcaster_0_0_ Differental_Phasemeter_axis_broadcaster_0_0_sim_netlist.v
 // Design      : Differental_Phasemeter_axis_broadcaster_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -102,7 +102,7 @@ endmodule
 (* G_MASK_SS_TDEST = "64" *) (* G_MASK_SS_TID = "32" *) (* G_MASK_SS_TKEEP = "8" *) 
 (* G_MASK_SS_TLAST = "16" *) (* G_MASK_SS_TREADY = "1" *) (* G_MASK_SS_TSTRB = "4" *) 
 (* G_MASK_SS_TUSER = "128" *) (* G_TASK_SEVERITY_ERR = "2" *) (* G_TASK_SEVERITY_INFO = "0" *) 
-(* G_TASK_SEVERITY_WARNING = "1" *) (* ORIG_REF_NAME = "top_Differental_Phasemeter_axis_broadcaster_0_0" *) (* P_TPAYLOAD_WIDTH = "32" *) 
+(* G_TASK_SEVERITY_WARNING = "1" *) (* P_TPAYLOAD_WIDTH = "32" *) 
 module Differental_Phasemeter_axis_broadcaster_0_0_top_Differental_Phasemeter_axis_broadcaster_0_0
    (aclk,
     aresetn,

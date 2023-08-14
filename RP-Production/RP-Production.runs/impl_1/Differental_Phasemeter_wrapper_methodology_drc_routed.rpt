@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Aug 11 13:41:12 2023
-| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
+| Date         : Mon Aug 14 16:20:24 2023
+| Host         : Valkyrie running 64-bit major release  (build 9200)
 | Command      : report_methodology -file Differental_Phasemeter_wrapper_methodology_drc_routed.rpt -pb Differental_Phasemeter_wrapper_methodology_drc_routed.pb -rpx Differental_Phasemeter_wrapper_methodology_drc_routed.rpx
 | Design       : Differental_Phasemeter_wrapper
 | Device       : xc7z010clg400-1
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 340
+             Violations found: 339
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -33,7 +33,7 @@ Table of Contents
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
 | DPIR-1    | Warning          | Asynchronous driver check                          | 280        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                       | 3          |
-| TIMING-16 | Warning          | Large setup violation                              | 5          |
+| TIMING-16 | Warning          | Large setup violation                              | 4          |
 | TIMING-18 | Warning          | Missing input or output delay                      | 44         |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten    | 4          |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -1522,27 +1522,22 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.002 ns between Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[15]_replica_2/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.050 ns between Differental_Phasemeter_i/Phase_Locked_Loop_1/inst/Loop_Filter/output_register_reg[13]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_1/inst/Loop_Controller/P_pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.004 ns between Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[15]_replica_2/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.058 ns between Differental_Phasemeter_i/Phase_Locked_Loop_1/inst/Loop_Filter/output_register_reg[13]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_1/inst/Loop_Controller/P_pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -1.020 ns between Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[15]_replica_2/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.063 ns between Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[5]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -1.094 ns between Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[15]_replica_2/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#5 Warning
-Large setup violation  
-There is a large setup violation of -1.115 ns between Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[15]_replica_2/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.084 ns between Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[5]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
