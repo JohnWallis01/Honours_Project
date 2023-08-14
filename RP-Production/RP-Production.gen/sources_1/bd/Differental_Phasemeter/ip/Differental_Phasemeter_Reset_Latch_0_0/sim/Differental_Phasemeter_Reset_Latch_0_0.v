@@ -58,6 +58,7 @@ module Differental_Phasemeter_Reset_Latch_0_0 (
   D_in,
   clock,
   Q_out,
+  nQ_out,
   Reset
 );
 
@@ -66,6 +67,7 @@ input wire D_in;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *)
 input wire clock;
 output wire Q_out;
+output wire nQ_out;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *)
 input wire Reset;
@@ -74,6 +76,7 @@ input wire Reset;
     .D_in(D_in),
     .clock(clock),
     .Q_out(Q_out),
+    .nQ_out(nQ_out),
     .Reset(Reset)
   );
 endmodule

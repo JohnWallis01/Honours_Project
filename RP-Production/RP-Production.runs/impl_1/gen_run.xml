@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1691679068">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1691732160">
   <File Type="ROUTE-PWR" Name="Differental_Phasemeter_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="Differental_Phasemeter_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="Differental_Phasemeter_wrapper.mmi"/>
@@ -81,12 +81,6 @@
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../VHDL_Modules/Debuging.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../VHDL_Modules/AXI4_Stream_Infastructure.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -134,6 +128,13 @@
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/Debuging.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -251,7 +252,6 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_inverter_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_axis_data_fifo_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_7"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_protocol_convert_0_0"/>
@@ -261,8 +261,7 @@
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_axis_broadcaster_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_AXI4_Stream_Writer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Test_Sequence_Gen_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Phase_Locked_Loop_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Reset_Latch_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Phase_Locked_Loop_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Subtractor_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_DAC_Router_0_0"/>
 </GenRun>

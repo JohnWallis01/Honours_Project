@@ -41,6 +41,7 @@
         "D_in": [ { "direction": "in" } ],
         "clock": [ { "direction": "in" } ],
         "Q_out": [ { "direction": "out" } ],
+        "nQ_out": [ { "direction": "out" } ],
         "Reset": [ { "direction": "in" } ]
       },
       "interfaces": {

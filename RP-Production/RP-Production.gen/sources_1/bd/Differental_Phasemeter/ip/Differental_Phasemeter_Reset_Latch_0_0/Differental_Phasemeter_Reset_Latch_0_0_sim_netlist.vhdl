@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Aug 10 22:51:42 2023
+-- Date        : Fri Aug 11 11:59:57 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Reset_Latch_0_0/Differental_Phasemeter_Reset_Latch_0_0_sim_netlist.vhdl
@@ -17,6 +17,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch is
   port (
     Q_out : out STD_LOGIC;
+    nQ_out : out STD_LOGIC;
     Reset : in STD_LOGIC;
     D_in : in STD_LOGIC;
     clock : in STD_LOGIC
@@ -28,8 +29,19 @@ end Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch;
 architecture STRUCTURE of Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch is
   signal \^q_out\ : STD_LOGIC;
   signal state_i_1_n_0 : STD_LOGIC;
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of nQ_out_INST_0 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of state_i_1 : label is "soft_lutpair0";
 begin
   Q_out <= \^q_out\;
+nQ_out_INST_0: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^q_out\,
+      O => nQ_out
+    );
 state_i_1: unisim.vcomponents.LUT3
     generic map(
       INIT => X"DC"
@@ -61,6 +73,7 @@ entity Differental_Phasemeter_Reset_Latch_0_0 is
     D_in : in STD_LOGIC;
     clock : in STD_LOGIC;
     Q_out : out STD_LOGIC;
+    nQ_out : out STD_LOGIC;
     Reset : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
@@ -88,6 +101,7 @@ inst: entity work.Differental_Phasemeter_Reset_Latch_0_0_Reset_Latch
       D_in => D_in,
       Q_out => Q_out,
       Reset => Reset,
-      clock => clock
+      clock => clock,
+      nQ_out => nQ_out
     );
 end STRUCTURE;

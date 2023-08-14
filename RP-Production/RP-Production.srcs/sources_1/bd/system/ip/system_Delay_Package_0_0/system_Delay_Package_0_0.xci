@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_Delay_Package_0_0",
-    "cell_name": "Delay_Package_0",
+    "cell_name": "LFSR/Delay_Package_0",
     "component_reference": "xilinx.com:module_ref:Delay_Package:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_Delay_Package_0_0",

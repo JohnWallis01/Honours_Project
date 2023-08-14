@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Aug 10 22:51:42 2023
+-- Date        : Fri Aug 11 11:59:57 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Reset_Latch_0_0/Differental_Phasemeter_Reset_Latch_0_0_stub.vhdl
@@ -17,6 +17,7 @@ entity Differental_Phasemeter_Reset_Latch_0_0 is
     D_in : in STD_LOGIC;
     clock : in STD_LOGIC;
     Q_out : out STD_LOGIC;
+    nQ_out : out STD_LOGIC;
     Reset : in STD_LOGIC
   );
 
@@ -26,7 +27,7 @@ architecture stub of Differental_Phasemeter_Reset_Latch_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "D_in,clock,Q_out,Reset";
+attribute black_box_pad_pin of stub : architecture is "D_in,clock,Q_out,nQ_out,Reset";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "Reset_Latch,Vivado 2022.2";
 begin

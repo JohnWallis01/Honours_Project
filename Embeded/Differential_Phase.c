@@ -16,7 +16,7 @@
 #define S2MM_DESTINATION_ADDRESS 0x48
 #define S2MM_LENGTH 0x58
 #define TRANSFER_WIDTH 4 //Bytes width
-#define TRANSFER_DEPTH 1024 //words depth
+#define TRANSFER_DEPTH 16384 //words depth
 
 
 
@@ -28,12 +28,11 @@
 #define TEST_TRIGGER_ADDR       0x41250000
 #define FIFO_FULL_STATUS_ADDR   0x41260000
 #define FIFO_EMPTY_STATUS_ADDR  0x41270000
-#define VALID_PROBE_ADDR       0x41280000
 #define AXI_DMA_CONF_ADDR       0x80400000
 
-#define KP_VAULE    0xFFFE0000
-#define KI_VALUE    0xFFFFFFF8
-
+#define KP_VAULE        0xFFFE0000
+#define KI_VALUE        0xFFFFFFF8
+#define F_GUESS_WORD    343597384
 //DMA Functions
 unsigned int control_get(unsigned int* dma_virtual_address, int offset) {
     return dma_virtual_address[offset>>2];
@@ -108,23 +107,17 @@ int main() {
     void *FIFO_Full         = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, FIFO_FULL_STATUS_ADDR);
     void *FIFO_Empty        = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, FIFO_EMPTY_STATUS_ADDR);
     
-    void *Valid_Probe       = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, VALID_PROBE_ADDR);
     //PULL the reset high to halt the DUT
     *(uint32_t*)Test_Trigger = 1;
-    while(*(uint32_t*)Valid_Probe){
-        printf("Valid?: %x\n", *(uint32_t*)Valid_Probe);
-        printf("Trigger?: %x\n", *(uint32_t*)Test_Trigger);
-    }
+
     //setup PLL 
     *(uint32_t*)Ki = KI_VALUE;
     *(uint32_t*)Kp = KP_VAULE;
-
+    *(uint32_t*)PLL_Guess_Freq = F_GUESS_WORD;
     //Pulse the Reset 
     *(uint32_t*)Integrator_Reset = 0;
     *(uint32_t*)Integrator_Reset = 1;
     *(uint32_t*)Integrator_Reset = 0;
-
-
 
     printf("Flushing FIFO ");
 
@@ -140,7 +133,6 @@ int main() {
     dma_s2mm_sync(dma_conf_address, FIFO_Empty); // If this locks up make sure all memory ranges are assigned under Address Editor!
     printf(" -- Done.\n");
 
-    printf("Valid?: %x\n", *(uint32_t*)Valid_Probe);
     printf("Setup Complete: Running Test Procedure -- ");
     //Rising Edge Enables DUT
     *(uint32_t*)Test_Trigger = 0;
@@ -150,7 +142,6 @@ int main() {
     }
     printf("Done.\n");
 
-    printf("Valid?: %x\n", *(uint32_t*)Valid_Probe);
 
     //Perform the DMA transfer
     printf("Extracting Data --");

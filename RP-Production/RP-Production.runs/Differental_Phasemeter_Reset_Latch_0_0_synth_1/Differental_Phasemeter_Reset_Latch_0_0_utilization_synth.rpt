@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Aug 10 22:51:42 2023
+| Date         : Fri Aug 11 11:59:57 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Differental_Phasemeter_Reset_Latch_0_0_utilization_synth.rpt -pb Differental_Phasemeter_Reset_Latch_0_0_utilization_synth.pb
 | Design       : Differental_Phasemeter_Reset_Latch_0_0
@@ -149,6 +149,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | LUT3     |    1 |                 LUT |
+| LUT1     |    1 |                 LUT |
 | FDRE     |    1 |        Flop & Latch |
 +----------+------+---------------------+
 

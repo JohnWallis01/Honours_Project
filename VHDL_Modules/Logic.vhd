@@ -112,25 +112,6 @@ entity Octal_Multiplexer is
   end architecture ; -- n
 
 
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.math_real.all;
-
-entity inverter is
-  port(
-      D_in: in std_logic;
-      D_out: out std_logic
-  );
-  end inverter;
-
-
-architecture inverter_arch of inverter is
-  begin
-    D_out <= D_in;
-  end architecture;
-
 -- library ieee;
 -- use ieee.std_logic_1164.all;
 -- use ieee.numeric_std.all;
@@ -294,6 +275,7 @@ entity Reset_Latch is
   D_in: in std_logic;
   clock: in std_logic;
   Q_out: out std_logic;
+  nQ_out: out std_logic;
   Reset: in std_logic
   );
 end Reset_Latch;
@@ -304,6 +286,7 @@ architecture Reset_Latch_arch of Reset_Latch is
 
 begin
   Q_out <= state;
+  nQ_out <= not state;
   process(clock)
   begin
     if Rising_Edge(clock) then
@@ -330,3 +313,23 @@ end Reset_Latch_arch; -- Reset_Latch_arch
 --   );
 
 -- end Integrator;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity DAC_Router is
+  port(
+  Data1: in std_logic_vector(31 downto 0 );
+  Data2: in std_logic_vector(31 downto 0 );
+  Qout: out std_logic_vector(31 downto 0)
+  );
+end DAC_Router;
+
+architecture DAC_Router_arch of DAC_Router is
+begin
+
+  Qout(15 downto 0 ) <= Data1(15 downto 0);
+  Qout(31 downto 16) <= Data2(15 downto 0);
+
+end DAC_Router_arch ; -- DAC_Router_arch
