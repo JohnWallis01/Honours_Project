@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Aug 14 11:56:32 2023
+// Date        : Wed Aug 16 14:33:05 2023
 // Host        : Valkyrie running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_Phase_Locked_Loop_0_1 -prefix
-//               Differental_Phasemeter_Phase_Locked_Loop_0_1_ Differental_Phasemeter_Phase_Locked_Loop_0_1_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Phase_Locked_Loop_0_1/Differental_Phasemeter_Phase_Locked_Loop_0_1_sim_netlist.v
 // Design      : Differental_Phasemeter_Phase_Locked_Loop_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,87 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_Phase_Locked_Loop_0_1,Phase_Locked_Loop,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Phase_Locked_Loop,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module Differental_Phasemeter_Phase_Locked_Loop_0_1
+   (PLL_Guess_Freq,
+    Control_Kp,
+    Control_Ki,
+    Freq_Measured,
+    Phase_Measured,
+    s_axis_tdata_ADC_Stream_in,
+    s_axis_tvalid_ADC_Stream_in,
+    s_axis_tready_ADC_Stream_in,
+    DAC_Stream_out,
+    AD_CLK_in,
+    Reset_In,
+    Reset_Out,
+    Integrator_Reset);
+  input [31:0]PLL_Guess_Freq;
+  input [31:0]Control_Kp;
+  input [31:0]Control_Ki;
+  output [31:0]Freq_Measured;
+  output [31:0]Phase_Measured;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *) (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *) input [31:0]s_axis_tdata_ADC_Stream_in;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *) input s_axis_tvalid_ADC_Stream_in;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_ADC_Stream_in, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output s_axis_tready_ADC_Stream_in;
+  output [31:0]DAC_Stream_out;
+  input AD_CLK_in;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset_In RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_In, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset_In;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset_Out RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_Out, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output Reset_Out;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Integrator_Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Integrator_Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Integrator_Reset;
+
+  wire \<const0> ;
+  wire \<const1> ;
+  wire AD_CLK_in;
+  wire [31:0]Control_Ki;
+  wire [31:0]Control_Kp;
+  wire [29:0]\^DAC_Stream_out ;
+  wire [31:0]Freq_Measured;
+  wire Integrator_Reset;
+  wire [31:0]PLL_Guess_Freq;
+  wire [31:0]Phase_Measured;
+  wire Reset_In;
+  wire Reset_Out;
+  wire [31:0]s_axis_tdata_ADC_Stream_in;
+  wire \section_out1_reg[0]_i_10_n_0 ;
+
+  assign DAC_Stream_out[31] = \<const0> ;
+  assign DAC_Stream_out[30] = \<const0> ;
+  assign DAC_Stream_out[29:16] = \^DAC_Stream_out [29:16];
+  assign DAC_Stream_out[15] = \<const0> ;
+  assign DAC_Stream_out[14] = \<const0> ;
+  assign DAC_Stream_out[13] = \^DAC_Stream_out [13];
+  assign DAC_Stream_out[12] = \^DAC_Stream_out [13];
+  assign DAC_Stream_out[11:0] = \^DAC_Stream_out [11:0];
+  assign s_axis_tready_ADC_Stream_in = \<const1> ;
+  GND GND
+       (.G(\<const0> ));
+  VCC VCC
+       (.P(\<const1> ));
+  Differental_Phasemeter_Phase_Locked_Loop_0_1_Phase_Locked_Loop inst
+       (.AD_CLK_in(AD_CLK_in),
+        .Control_Ki(Control_Ki),
+        .Control_Kp(Control_Kp),
+        .DAC_Stream_out({\^DAC_Stream_out [29:16],\^DAC_Stream_out [13],\^DAC_Stream_out [11:0]}),
+        .Freq_Measured(Freq_Measured),
+        .Integrator_Reset(Integrator_Reset),
+        .PLL_Guess_Freq(PLL_Guess_Freq),
+        .Phase_Measured(Phase_Measured),
+        .Reset_In(Reset_In),
+        .Reset_Out(Reset_Out),
+        .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in[29:16]),
+        .\section_out1_reg[23] (\section_out1_reg[0]_i_10_n_0 ));
+  FDCE \section_out1_reg[0]_i_10 
+       (.C(AD_CLK_in),
+        .CE(1'b1),
+        .CLR(Reset_In),
+        .D(1'b1),
+        .Q(\section_out1_reg[0]_i_10_n_0 ));
+endmodule
+
+(* ORIG_REF_NAME = "AXI4_Stream_Reader" *) 
 module Differental_Phasemeter_Phase_Locked_Loop_0_1_AXI4_Stream_Reader
    (DAC_Stream_out,
     s_axis_tdata_ADC_Stream_in,
@@ -110,6 +191,7 @@ module Differental_Phasemeter_Phase_Locked_Loop_0_1_AXI4_Stream_Reader
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "CIC32" *) 
 module Differental_Phasemeter_Phase_Locked_Loop_0_1_CIC32
    (section_out1_reg,
     Q,
@@ -1996,86 +2078,7 @@ module Differental_Phasemeter_Phase_Locked_Loop_0_1_CIC32
         .O(sub_temp_carry_i_4_n_0));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_Phase_Locked_Loop_0_1,Phase_Locked_Loop,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Phase_Locked_Loop,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module Differental_Phasemeter_Phase_Locked_Loop_0_1
-   (PLL_Guess_Freq,
-    Control_Kp,
-    Control_Ki,
-    Freq_Measured,
-    Phase_Measured,
-    s_axis_tdata_ADC_Stream_in,
-    s_axis_tvalid_ADC_Stream_in,
-    s_axis_tready_ADC_Stream_in,
-    DAC_Stream_out,
-    AD_CLK_in,
-    Reset_In,
-    Reset_Out,
-    Integrator_Reset);
-  input [31:0]PLL_Guess_Freq;
-  input [31:0]Control_Kp;
-  input [31:0]Control_Ki;
-  output [31:0]Freq_Measured;
-  output [31:0]Phase_Measured;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *) (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *) input [31:0]s_axis_tdata_ADC_Stream_in;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *) input s_axis_tvalid_ADC_Stream_in;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_ADC_Stream_in, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output s_axis_tready_ADC_Stream_in;
-  output [31:0]DAC_Stream_out;
-  input AD_CLK_in;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset_In RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_In, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset_In;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset_Out RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_Out, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output Reset_Out;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Integrator_Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Integrator_Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Integrator_Reset;
-
-  wire \<const0> ;
-  wire \<const1> ;
-  wire AD_CLK_in;
-  wire [31:0]Control_Ki;
-  wire [31:0]Control_Kp;
-  wire [29:0]\^DAC_Stream_out ;
-  wire [31:0]Freq_Measured;
-  wire Integrator_Reset;
-  wire [31:0]PLL_Guess_Freq;
-  wire [31:0]Phase_Measured;
-  wire Reset_In;
-  wire Reset_Out;
-  wire [31:0]s_axis_tdata_ADC_Stream_in;
-  wire \section_out1_reg[0]_i_10_n_0 ;
-
-  assign DAC_Stream_out[31] = \<const0> ;
-  assign DAC_Stream_out[30] = \<const0> ;
-  assign DAC_Stream_out[29:16] = \^DAC_Stream_out [29:16];
-  assign DAC_Stream_out[15] = \<const0> ;
-  assign DAC_Stream_out[14] = \<const0> ;
-  assign DAC_Stream_out[13] = \^DAC_Stream_out [13];
-  assign DAC_Stream_out[12] = \^DAC_Stream_out [13];
-  assign DAC_Stream_out[11:0] = \^DAC_Stream_out [11:0];
-  assign s_axis_tready_ADC_Stream_in = \<const1> ;
-  GND GND
-       (.G(\<const0> ));
-  VCC VCC
-       (.P(\<const1> ));
-  Differental_Phasemeter_Phase_Locked_Loop_0_1_Phase_Locked_Loop inst
-       (.AD_CLK_in(AD_CLK_in),
-        .Control_Ki(Control_Ki),
-        .Control_Kp(Control_Kp),
-        .DAC_Stream_out({\^DAC_Stream_out [29:16],\^DAC_Stream_out [13],\^DAC_Stream_out [11:0]}),
-        .Freq_Measured(Freq_Measured),
-        .Integrator_Reset(Integrator_Reset),
-        .PLL_Guess_Freq(PLL_Guess_Freq),
-        .Phase_Measured(Phase_Measured),
-        .Reset_In(Reset_In),
-        .Reset_Out(Reset_Out),
-        .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in[29:16]),
-        .\section_out1_reg[23] (\section_out1_reg[0]_i_10_n_0 ));
-  FDCE \section_out1_reg[0]_i_10 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .CLR(Reset_In),
-        .D(1'b1),
-        .Q(\section_out1_reg[0]_i_10_n_0 ));
-endmodule
-
+(* ORIG_REF_NAME = "Mixer" *) 
 module Differental_Phasemeter_Phase_Locked_Loop_0_1_Mixer
    (O,
     Dout_reg_0,
@@ -2672,6 +2675,7 @@ module Differental_Phasemeter_Phase_Locked_Loop_0_1_Mixer
         .S({\section_out1[8]_i_6_n_0 ,\section_out1[8]_i_7_n_0 ,\section_out1[8]_i_8_n_0 ,\section_out1[8]_i_9_n_0 }));
 endmodule
 
+(* ORIG_REF_NAME = "NCO" *) 
 module Differental_Phasemeter_Phase_Locked_Loop_0_1_NCO
    (Phase_Measured,
     DAC_Stream_out,
@@ -5245,6 +5249,7 @@ module Differental_Phasemeter_Phase_Locked_Loop_0_1_NCO
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "PID_Controller" *) 
 module Differental_Phasemeter_Phase_Locked_Loop_0_1_PID_Controller
    (\SignalOutput_reg[31]_0 ,
     Control_Ki,
@@ -9817,6 +9822,7 @@ module Differental_Phasemeter_Phase_Locked_Loop_0_1_PID_Controller
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "Phase_Locked_Loop" *) 
 module Differental_Phasemeter_Phase_Locked_Loop_0_1_Phase_Locked_Loop
    (Phase_Measured,
     DAC_Stream_out,

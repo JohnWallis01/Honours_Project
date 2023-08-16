@@ -77,8 +77,8 @@
         "axi_gpio_0": "",
         "axis_constant_0": "",
         "axi_gpio_1": "",
-        "Pair_Combiner_0": "",
-        "Delay_Package_0": ""
+        "Delay_Package_0": "",
+        "Pair_Combiner_0": ""
       },
       "axis_switch_0": "",
       "Phase_Locked_Loop_0": ""
@@ -5035,30 +5035,6 @@
               }
             }
           },
-          "Pair_Combiner_0": {
-            "vlnv": "xilinx.com:module_ref:Pair_Combiner:1.0",
-            "xci_name": "system_Pair_Combiner_0_0",
-            "xci_path": "ip\\system_Pair_Combiner_0_0\\system_Pair_Combiner_0_0.xci",
-            "inst_hier_path": "LFSR/Pair_Combiner_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "Pair_Combiner",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "D0": {
-                "direction": "I"
-              },
-              "D1": {
-                "direction": "I"
-              },
-              "Q": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              }
-            }
-          },
           "Delay_Package_0": {
             "vlnv": "xilinx.com:module_ref:Delay_Package:1.0",
             "xci_name": "system_Delay_Package_0_0",
@@ -5099,6 +5075,30 @@
               },
               "PRBS_delay": {
                 "direction": "O"
+              }
+            }
+          },
+          "Pair_Combiner_0": {
+            "vlnv": "xilinx.com:module_ref:Pair_Combiner:1.0",
+            "xci_name": "system_Pair_Combiner_0_0",
+            "xci_path": "ip\\system_Pair_Combiner_0_0\\system_Pair_Combiner_0_0.xci",
+            "inst_hier_path": "LFSR/Pair_Combiner_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "Pair_Combiner",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "D0": {
+                "direction": "I"
+              },
+              "D1": {
+                "direction": "I"
+              },
+              "Q": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
               }
             }
           }

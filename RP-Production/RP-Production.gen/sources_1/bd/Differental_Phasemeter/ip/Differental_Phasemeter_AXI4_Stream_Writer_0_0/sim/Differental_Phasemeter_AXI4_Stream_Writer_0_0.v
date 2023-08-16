@@ -58,15 +58,19 @@ module Differental_Phasemeter_AXI4_Stream_Writer_0_0 (
   cfg_data,
   aclk,
   valid,
+  reset,
   m_axis_tdata,
   m_axis_tvalid
 );
 
 input wire [31 : 0] cfg_data;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis, ASSOCIATED_RESET reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 input wire valid;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
+input wire reset;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *)
 output wire [31 : 0] m_axis_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -74,11 +78,14 @@ output wire [31 : 0] m_axis_tdata;
 output wire m_axis_tvalid;
 
   AXI4_Stream_Writer #(
-    .stream_size(32)
+    .stream_size(32),
+    .Div_Reg(32),
+    .Clock_Div(12500)
   ) inst (
     .cfg_data(cfg_data),
     .aclk(aclk),
     .valid(valid),
+    .reset(reset),
     .m_axis_tdata(m_axis_tdata),
     .m_axis_tvalid(m_axis_tvalid)
   );

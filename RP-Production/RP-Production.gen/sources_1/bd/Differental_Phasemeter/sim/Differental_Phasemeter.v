@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon Aug 14 16:14:05 2023
+//Date        : Wed Aug 16 14:29:40 2023
 //Host        : Valkyrie running 64-bit major release  (build 9200)
 //Command     : generate_target Differental_Phasemeter.bd
 //Design      : Differental_Phasemeter
@@ -682,7 +682,7 @@ module DMA_Engine_imp_1S5CNGA
         .s_axi_wvalid(processing_system7_0_M_AXI_GP1_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "Differental_Phasemeter,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Differental_Phasemeter,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=55,numReposBlks=31,numNonXlnxBlks=3,numHierBlks=24,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "Differental_Phasemeter.hwdef" *) 
+(* CORE_GENERATION_INFO = "Differental_Phasemeter,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Differental_Phasemeter,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=32,numNonXlnxBlks=3,numHierBlks=24,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "Differental_Phasemeter.hwdef" *) 
 module Differental_Phasemeter
    (DDR_addr,
     DDR_ba,
@@ -892,6 +892,7 @@ module Differental_Phasemeter
   wire [0:0]PS7_M10_AXI_WREADY;
   wire [3:0]PS7_M10_AXI_WSTRB;
   wire [0:0]PS7_M10_AXI_WVALID;
+  wire PS7_S_AXIS_S2MM_tready1;
   wire [0:0]PS7_peripheral_aresetn1;
   wire [31:0]Phase_Locked_Loop_0_DAC_Stream_out;
   wire [31:0]Phase_Locked_Loop_0_Phase_Measured;
@@ -961,11 +962,9 @@ module Differental_Phasemeter
   wire [0:0]axis_broadcaster_0_M00_AXIS_TVALID;
   wire [63:32]axis_broadcaster_0_M01_AXIS_TDATA;
   wire [1:1]axis_broadcaster_0_M01_AXIS_TVALID;
-  wire [31:0]axis_data_fifo_0_M_AXIS_TDATA;
-  wire axis_data_fifo_0_M_AXIS_TREADY;
-  wire axis_data_fifo_0_M_AXIS_TVALID;
   wire axis_data_fifo_0_almost_empty;
   wire axis_data_fifo_0_almost_full;
+  wire [31:0]axis_data_fifo_0_m_axis_tdata;
   wire [31:0]axis_red_pitaya_adc_0_M_AXIS_TDATA;
   wire axis_red_pitaya_adc_0_M_AXIS_TVALID;
   wire axis_red_pitaya_adc_0_adc_csn;
@@ -977,6 +976,7 @@ module Differental_Phasemeter
   wire [1:0]daisy_n_i_1;
   wire [1:0]daisy_p_i_1;
   wire [31:0]gpio_Freq_Measured_1;
+  wire not_gate_0_Q_out;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -1016,6 +1016,7 @@ module Differental_Phasemeter
         .cfg_data(Subtractor_0_Q),
         .m_axis_tdata(AXI4_Stream_Writer_0_m_axis_TDATA),
         .m_axis_tvalid(AXI4_Stream_Writer_0_m_axis_TVALID),
+        .reset(Phase_Locked_Loop_0_Reset_Out),
         .valid(Reset_Latch_0_nQ_out));
   DAC_Interface_imp_10MNJJP DAC_Interface
        (.aclk(Net),
@@ -1406,9 +1407,9 @@ module Differental_Phasemeter
         .M09_AXI_wready(PS7_M09_AXI_WREADY),
         .M09_AXI_wstrb(PS7_M09_AXI_WSTRB),
         .M09_AXI_wvalid(PS7_M09_AXI_WVALID),
-        .S_AXIS_S2MM_tdata(axis_data_fifo_0_M_AXIS_TDATA),
-        .S_AXIS_S2MM_tready(axis_data_fifo_0_M_AXIS_TREADY),
-        .S_AXIS_S2MM_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
+        .S_AXIS_S2MM_tdata1(axis_data_fifo_0_m_axis_tdata),
+        .S_AXIS_S2MM_tready1(PS7_S_AXIS_S2MM_tready1),
+        .S_AXIS_S2MM_tvalid1(not_gate_0_Q_out),
         .m_axi_s2mm_aclk(Net),
         .peripheral_aresetn(PS7_peripheral_aresetn1));
   Differental_Phasemeter_Phase_Locked_Loop_0_0 Phase_Locked_Loop_0
@@ -1457,9 +1458,8 @@ module Differental_Phasemeter
   Differental_Phasemeter_axis_data_fifo_0_0 axis_data_fifo_0
        (.almost_empty(axis_data_fifo_0_almost_empty),
         .almost_full(axis_data_fifo_0_almost_full),
-        .m_axis_tdata(axis_data_fifo_0_M_AXIS_TDATA),
-        .m_axis_tready(axis_data_fifo_0_M_AXIS_TREADY),
-        .m_axis_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
+        .m_axis_tdata(axis_data_fifo_0_m_axis_tdata),
+        .m_axis_tready(PS7_S_AXIS_S2MM_tready1),
         .s_axis_aclk(Net),
         .s_axis_aresetn(PS7_peripheral_aresetn1),
         .s_axis_tdata(AXI4_Stream_Writer_0_m_axis_TDATA),
@@ -1473,6 +1473,9 @@ module Differental_Phasemeter
         .adc_dat_b(adc_dat_b_i_1),
         .m_axis_tdata(axis_red_pitaya_adc_0_M_AXIS_TDATA),
         .m_axis_tvalid(axis_red_pitaya_adc_0_M_AXIS_TVALID));
+  Differental_Phasemeter_not_gate_0_0 not_gate_0
+       (.D_in(axis_data_fifo_0_almost_empty),
+        .Q_out(not_gate_0_Q_out));
 endmodule
 
 module Differental_Phasemeter_axi_interconnect_0_2
@@ -5598,9 +5601,9 @@ module PS7_imp_1LE2GRM
     M09_AXI_wready,
     M09_AXI_wstrb,
     M09_AXI_wvalid,
-    S_AXIS_S2MM_tdata,
-    S_AXIS_S2MM_tready,
-    S_AXIS_S2MM_tvalid,
+    S_AXIS_S2MM_tdata1,
+    S_AXIS_S2MM_tready1,
+    S_AXIS_S2MM_tvalid1,
     m_axi_s2mm_aclk,
     peripheral_aresetn);
   inout [14:0]DDR_addr;
@@ -5795,9 +5798,9 @@ module PS7_imp_1LE2GRM
   input [0:0]M09_AXI_wready;
   output [3:0]M09_AXI_wstrb;
   output [0:0]M09_AXI_wvalid;
-  input [31:0]S_AXIS_S2MM_tdata;
-  output S_AXIS_S2MM_tready;
-  input S_AXIS_S2MM_tvalid;
+  input [31:0]S_AXIS_S2MM_tdata1;
+  output S_AXIS_S2MM_tready1;
+  input S_AXIS_S2MM_tvalid1;
   input m_axi_s2mm_aclk;
   output [0:0]peripheral_aresetn;
 
@@ -5835,9 +5838,6 @@ module PS7_imp_1LE2GRM
   wire [0:0]Conn2_WREADY;
   wire [3:0]Conn2_WSTRB;
   wire [0:0]Conn2_WVALID;
-  wire [31:0]Conn3_TDATA;
-  wire Conn3_TREADY;
-  wire Conn3_TVALID;
   wire [31:0]Conn5_ARADDR;
   wire [0:0]Conn5_ARREADY;
   wire [0:0]Conn5_ARVALID;
@@ -5927,6 +5927,7 @@ module PS7_imp_1LE2GRM
   wire DMA_Engine_M00_AXI_WREADY;
   wire [7:0]DMA_Engine_M00_AXI_WSTRB;
   wire DMA_Engine_M00_AXI_WVALID;
+  wire DMA_Engine_S_AXIS_S2MM_tready;
   wire [0:0]S00_ARESETN_1;
   wire [31:0]S00_AXI_1_ARADDR;
   wire [1:0]S00_AXI_1_ARBURST;
@@ -5966,6 +5967,8 @@ module PS7_imp_1LE2GRM
   wire S00_AXI_1_WREADY;
   wire [3:0]S00_AXI_1_WSTRB;
   wire S00_AXI_1_WVALID;
+  wire [31:0]S_AXIS_S2MM_tdata_1;
+  wire S_AXIS_S2MM_tvalid_1;
   wire [31:0]axi_interconnect_0_M00_AXI_ARADDR;
   wire [1:0]axi_interconnect_0_M00_AXI_ARBURST;
   wire [3:0]axi_interconnect_0_M00_AXI_ARCACHE;
@@ -6169,8 +6172,6 @@ module PS7_imp_1LE2GRM
   assign Conn2_RRESP = M04_AXI_rresp[1:0];
   assign Conn2_RVALID = M04_AXI_rvalid[0];
   assign Conn2_WREADY = M04_AXI_wready[0];
-  assign Conn3_TDATA = S_AXIS_S2MM_tdata[31:0];
-  assign Conn3_TVALID = S_AXIS_S2MM_tvalid;
   assign Conn5_ARREADY = M00_AXI_arready[0];
   assign Conn5_AWREADY = M00_AXI_awready[0];
   assign Conn5_BRESP = M00_AXI_bresp[1:0];
@@ -6286,7 +6287,9 @@ module PS7_imp_1LE2GRM
   assign M09_AXI_wdata[31:0] = axi_interconnect_1_M09_AXI_WDATA;
   assign M09_AXI_wstrb[3:0] = axi_interconnect_1_M09_AXI_WSTRB;
   assign M09_AXI_wvalid[0] = axi_interconnect_1_M09_AXI_WVALID;
-  assign S_AXIS_S2MM_tready = Conn3_TREADY;
+  assign S_AXIS_S2MM_tdata_1 = S_AXIS_S2MM_tdata1[31:0];
+  assign S_AXIS_S2MM_tready1 = DMA_Engine_S_AXIS_S2MM_tready;
+  assign S_AXIS_S2MM_tvalid_1 = S_AXIS_S2MM_tvalid1;
   assign axi_interconnect_1_M05_AXI_ARREADY = M05_AXI_arready[0];
   assign axi_interconnect_1_M05_AXI_AWREADY = M05_AXI_awready[0];
   assign axi_interconnect_1_M05_AXI_BRESP = M05_AXI_bresp[1:0];
@@ -6371,9 +6374,9 @@ module PS7_imp_1LE2GRM
         .M00_AXI_wstrb(DMA_Engine_M00_AXI_WSTRB),
         .M00_AXI_wvalid(DMA_Engine_M00_AXI_WVALID),
         .S00_ARESETN(S00_ARESETN_1),
-        .S_AXIS_S2MM_tdata(Conn3_TDATA),
-        .S_AXIS_S2MM_tready(Conn3_TREADY),
-        .S_AXIS_S2MM_tvalid(Conn3_TVALID),
+        .S_AXIS_S2MM_tdata(S_AXIS_S2MM_tdata_1),
+        .S_AXIS_S2MM_tready(DMA_Engine_S_AXIS_S2MM_tready),
+        .S_AXIS_S2MM_tvalid(S_AXIS_S2MM_tvalid_1),
         .S_AXI_araddr(axi_interconnect_0_M00_AXI_ARADDR),
         .S_AXI_arburst(axi_interconnect_0_M00_AXI_ARBURST),
         .S_AXI_arcache(axi_interconnect_0_M00_AXI_ARCACHE),

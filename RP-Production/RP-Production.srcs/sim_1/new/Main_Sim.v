@@ -25,21 +25,27 @@ module Main_Sim(
     );
     reg Clock;
     reg Reset;
-    wire[31:0] Phase_Out;
-    wire[31:0] Reference_Phase;
-    wire[13:0] Locked_Signal;
+    reg[31:0] cfg_data;
+    reg valid;
 
-    Testing_Architecture DUT(
-        .Clock(Clock),
-        .Reset(Reset),
-        .Phase_Out(Phase_Out),
-        .Reference_Phase(Reference_Phase),
-        .Locked_Signal(Locked_Signal)
-    );
+    wire[31:0] m_axis_tdata;
+    wire m_axis_tvalid;
+
+    AXI4_Stream_Writer #(.stream_size(32), .Clock_Div(18)) 
+      DUT(
+        .cfg_data(cfg_data),
+        .aclk(Clock),
+        .valid(valid),
+        .reset(Reset),
+        .m_axis_tdata(m_axis_tdata),
+        .m_axis_tvalid(m_axis_tvalid)
+      );
 
       initial 
       begin
         Reset = 1;
+        cfg_data = 32'b0;
+        valid = 1;
         Clock = 0;
         #1;
         Clock = 1;

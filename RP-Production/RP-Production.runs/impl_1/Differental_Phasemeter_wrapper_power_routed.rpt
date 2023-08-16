@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Mon Aug 14 16:20:27 2023
+| Date             : Wed Aug 16 14:40:13 2023
 | Host             : Valkyrie running 64-bit major release  (build 9200)
 | Command          : report_power -file Differental_Phasemeter_wrapper_power_routed.rpt -pb Differental_Phasemeter_wrapper_power_summary_routed.pb -rpx Differental_Phasemeter_wrapper_power_routed.rpx
 | Design           : Differental_Phasemeter_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.100        |
+| Total On-Chip Power (W)  | 2.090        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.965        |
+| Dynamic (W)              | 1.955        |
 | Device Static (W)        | 0.135        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 60.8         |
-| Junction Temperature (C) | 49.2         |
+| Max Ambient (C)          | 60.9         |
+| Junction Temperature (C) | 49.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,22 +53,22 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.033 |        9 |       --- |             --- |
-| Slice Logic              |     0.017 |    12195 |       --- |             --- |
-|   LUT as Logic           |     0.014 |     3964 |     17600 |           22.52 |
-|   CARRY4                 |     0.002 |      283 |      4400 |            6.43 |
-|   Register               |     0.001 |     6074 |     35200 |           17.26 |
+| Slice Logic              |     0.017 |    12260 |       --- |             --- |
+|   LUT as Logic           |     0.014 |     3979 |     17600 |           22.61 |
+|   CARRY4                 |     0.002 |      291 |      4400 |            6.61 |
+|   Register               |     0.001 |     6118 |     35200 |           17.38 |
 |   F7/F8 Muxes            |    <0.001 |       56 |     17600 |            0.32 |
 |   LUT as Shift Register  |    <0.001 |      215 |      6000 |            3.58 |
 |   LUT as Distributed RAM |    <0.001 |       20 |      6000 |            0.33 |
-|   Others                 |     0.000 |      632 |       --- |             --- |
-| Signals                  |     0.022 |     9602 |       --- |             --- |
-| Block RAM                |     0.019 |       20 |        60 |           33.33 |
+|   Others                 |     0.000 |      634 |       --- |             --- |
+| Signals                  |     0.022 |     9648 |       --- |             --- |
+| Block RAM                |     0.010 |       20 |        60 |           33.33 |
 | MMCM                     |     0.107 |        1 |         2 |           50.00 |
 | DSPs                     |     0.015 |       18 |        80 |           22.50 |
 | I/O                      |     0.466 |       56 |       100 |           56.00 |
 | PS7                      |     1.285 |        1 |       --- |             --- |
 | Static Power             |     0.135 |          |           |                 |
-| Total                    |     2.100 |          |           |                 |
+| Total                    |     2.090 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,7 +78,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.121 |       0.112 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.111 |       0.102 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.075 |       0.066 |      0.009 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.137 |       0.136 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -158,27 +158,26 @@ Table of Contents
 +--------------------------------+-----------+
 | Name                           | Power (W) |
 +--------------------------------+-----------+
-| Differental_Phasemeter_wrapper |     1.965 |
-|   Differental_Phasemeter_i     |     1.503 |
+| Differental_Phasemeter_wrapper |     1.955 |
+|   Differental_Phasemeter_i     |     1.492 |
 |     DAC_Interface              |     0.112 |
 |       axis_red_pitaya_dac_1    |     0.004 |
 |       clk_wiz_0                |     0.107 |
 |     GPIO_Interface             |     0.010 |
 |       GPIO_FreqMeasureA        |     0.003 |
 |       GPIO_FreqMeasureB        |     0.003 |
-|       GPIO_Kp                  |     0.001 |
-|     PS7                        |     1.314 |
+|     PS7                        |     1.313 |
 |       DMA_Engine               |     0.020 |
-|       axi_interconnect_1       |     0.007 |
+|       axi_interconnect_1       |     0.006 |
 |       processing_system7_0     |     1.286 |
 |     Phase_Locked_Loop_0        |     0.023 |
 |       inst                     |     0.023 |
-|     Phase_Locked_Loop_1        |     0.024 |
-|       inst                     |     0.024 |
+|     Phase_Locked_Loop_1        |     0.023 |
+|       inst                     |     0.023 |
 |     Subtractor_0               |     0.001 |
 |       inst                     |     0.001 |
-|     axis_data_fifo_0           |     0.019 |
-|       inst                     |     0.019 |
+|     axis_data_fifo_0           |     0.010 |
+|       inst                     |     0.010 |
 +--------------------------------+-----------+
 
 

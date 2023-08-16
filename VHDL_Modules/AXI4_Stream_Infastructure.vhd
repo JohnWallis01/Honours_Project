@@ -54,16 +54,23 @@ begin
         end process;
 end Behavioral;
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
 
 entity AXI4_Stream_Writer is
-    generic(stream_size: integer:= 32);
+    generic(
+        stream_size: integer:= 32;
+        Div_Reg: integer:= 32;
+        Clock_Div: integer:= 262144
+        );
     port (
         cfg_data: in std_logic_vector(stream_size-1 downto 0);
         aclk: in std_logic;
         valid: in std_logic;
-
+        reset: in std_Logic;
         m_axis_tdata: out std_logic_vector(stream_size-1 downto 0);
         m_axis_tvalid: out std_logic
     );
@@ -71,10 +78,33 @@ end AXI4_Stream_Writer;
 
 
 architecture Behavioral of AXI4_Stream_Writer is
+   
     
+    signal state : unsigned(Div_Reg-1 downto 0);
+    signal divide: std_logic;
+
     begin
 
-    m_axis_tvalid <= valid;
+
+    process(aclk)
+    begin
+        if rising_edge(aclk) then
+            if reset = '1' then
+                state <= (others => '0');
+                divide <= '0';
+            else
+                state <= state + to_unsigned(1, Div_Reg);
+                if state = to_unsigned(Clock_Div - 1, Div_Reg) then
+                    divide <= '1';
+                    state <= (others => '0');
+                else
+                    divide <=  '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    m_axis_tvalid <= valid and divide;
     m_axis_tdata <= cfg_data;
 
 end Behavioral;

@@ -13,13 +13,7 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(dac_size=14)\]
-Compiling architecture behavioral of entity xil_defaultlib.AXI4_Stream_Reader [axi4_stream_reader_default]
-Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
-Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
-Compiling architecture pid_controller_arch of entity xil_defaultlib.PID_Controller [pid_controller_default]
-Compiling architecture system_architecture of entity xil_defaultlib.Phase_Locked_Loop [phase_locked_loop_default]
-Compiling architecture behavioral of entity xil_defaultlib.Testing_Architecture [testing_architecture_default]
+Compiling architecture behavioral of entity xil_defaultlib.AXI4_Stream_Writer [\AXI4_Stream_Writer(clock_div=18...]
 Compiling module xil_defaultlib.Main_Sim
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot Main_Sim_behav

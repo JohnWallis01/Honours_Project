@@ -333,3 +333,22 @@ begin
   Qout(31 downto 16) <= Data2(15 downto 0);
 
 end DAC_Router_arch ; -- DAC_Router_arch
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity not_gate is
+  port(
+    D_in: in std_logic;
+    Q_out: out std_logic
+  );
+end not_gate;
+
+
+architecture beh of not_gate is
+
+begin
+Q_out <= not D_in;
+end beh ; -- beh

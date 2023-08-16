@@ -7,6 +7,7 @@
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "reset"},
 						"TDATA": { "actual": "m_axis_tdata"},
 						"TVALID": { "actual": "m_axis_tvalid"}
 					}
@@ -368,24 +369,24 @@
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},
-						"ARADDR": { "actual": "S_AXI4_araddr[319:288]"},
+						"ARADDR": { "actual": "S_AXI4_araddr"},
 						"ARESETN": { "actual": "s_axi_aresetn"},
-						"ARREADY": { "actual": "S_AXI4_arready[9:9]"},
-						"ARVALID": { "actual": "S_AXI4_arvalid[9:9]"},
-						"AWADDR": { "actual": "S_AXI4_awaddr[319:288]"},
-						"AWREADY": { "actual": "S_AXI4_awready[9:9]"},
-						"AWVALID": { "actual": "S_AXI4_awvalid[9:9]"},
-						"BREADY": { "actual": "S_AXI4_bready[9:9]"},
-						"BRESP": { "actual": "S_AXI4_bresp[19:18]"},
-						"BVALID": { "actual": "S_AXI4_bvalid[9:9]"},
-						"RDATA": { "actual": "S_AXI4_rdata[319:288]"},
-						"RREADY": { "actual": "S_AXI4_rready[9:9]"},
-						"RRESP": { "actual": "S_AXI4_rresp[19:18]"},
-						"RVALID": { "actual": "S_AXI4_rvalid[9:9]"},
-						"WDATA": { "actual": "S_AXI4_wdata[319:288]"},
-						"WREADY": { "actual": "S_AXI4_wready[9:9]"},
-						"WSTRB": { "actual": "S_AXI4_wstrb[39:36]"},
-						"WVALID": { "actual": "S_AXI4_wvalid[9:9]"}
+						"ARREADY": { "actual": "S_AXI4_arready"},
+						"ARVALID": { "actual": "S_AXI4_arvalid"},
+						"AWADDR": { "actual": "S_AXI4_awaddr"},
+						"AWREADY": { "actual": "S_AXI4_awready"},
+						"AWVALID": { "actual": "S_AXI4_awvalid"},
+						"BREADY": { "actual": "S_AXI4_bready"},
+						"BRESP": { "actual": "S_AXI4_bresp"},
+						"BVALID": { "actual": "S_AXI4_bvalid"},
+						"RDATA": { "actual": "S_AXI4_rdata"},
+						"RREADY": { "actual": "S_AXI4_rready"},
+						"RRESP": { "actual": "S_AXI4_rresp"},
+						"RVALID": { "actual": "S_AXI4_rvalid"},
+						"WDATA": { "actual": "S_AXI4_wdata"},
+						"WREADY": { "actual": "S_AXI4_wready"},
+						"WSTRB": { "actual": "S_AXI4_wstrb"},
+						"WVALID": { "actual": "S_AXI4_wvalid"}
 					}
 				},
 				"/GPIO_Interface/S_AXI_FreqMeasured": {
@@ -1643,10 +1644,7 @@
 				"/PS7/S_AXIS_S2MM": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
-						"ACLK": { "actual": "m_axi_s2mm_aclk"},
-						"TDATA": { "actual": "S_AXIS_S2MM_tdata"},
-						"TREADY": { "actual": "S_AXIS_S2MM_tready"},
-						"TVALID": { "actual": "S_AXIS_S2MM_tvalid"}
+						"ACLK": { "actual": "m_axi_s2mm_aclk"}
 					}
 				},
 				"/PS7/axi_interconnect_0/M00_AXI": {
