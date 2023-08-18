@@ -10,7 +10,7 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source system_xbar_7.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 394.062 ; gain = 74.527
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 393.602 ; gain = 68.574
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
@@ -22,4 +22,4 @@ INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honour
 INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.cache/ip/2022.2/6/2/6267db764084765d/system_xbar_7_stub.v to C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_7_synth_1/system_xbar_7_stub.v.
 INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.cache/ip/2022.2/6/2/6267db764084765d/system_xbar_7_stub.vhdl to C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_7_synth_1/system_xbar_7_stub.vhdl.
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP system_xbar_7, cache-ID = 6267db764084765d.
-INFO: [Common 17-206] Exiting Vivado at Mon Aug  7 14:41:28 2023...
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 16 15:54:34 2023...

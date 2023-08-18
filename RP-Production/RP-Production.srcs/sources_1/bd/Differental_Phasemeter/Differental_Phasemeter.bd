@@ -5576,21 +5576,7 @@
             "right": "0"
           },
           "AD_CLK_in": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "Reset_In": {
             "type": "rst",
@@ -5714,21 +5700,7 @@
             "right": "0"
           },
           "AD_CLK_in": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "Reset_In": {
             "type": "rst",
@@ -5765,14 +5737,6 @@
               "ASSOCIATED_RESET": {
                 "value": "Reset",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
               }
             }
           },
@@ -5816,17 +5780,7 @@
           },
           "clock": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           }
         }
       }

@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.07597",
-   "Default View_TopLeft":"-576,836",
+   "Default View_TopLeft":"-610,770",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -35,7 +35,7 @@ preplace netloc PS7_M05_AXI 1 0 1 NJ 1180
 preplace netloc S_AXI10_1 1 0 1 NJ 1040
 preplace netloc S_AXI7_1 1 0 1 NJ 900
 levelinfo -pg 1 -10 170 340
-pagesize -pg 1 -db -bbox -sgen -220 0 580 1580
+pagesize -pg 1 -db -bbox -sgen -210 0 560 1580
 "
 }
 0
