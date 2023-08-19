@@ -25,27 +25,20 @@ module Main_Sim(
     );
     reg Clock;
     reg Reset;
-    reg[31:0] cfg_data;
-    reg valid;
+    reg[6:0] Taps;
+    wire[7:0] Max_Correlation;
 
-    wire[31:0] m_axis_tdata;
-    wire m_axis_tvalid;
-
-    AXI4_Stream_Writer #(.stream_size(32), .Clock_Div(18)) 
-      DUT(
-        .cfg_data(cfg_data),
-        .aclk(Clock),
-        .valid(valid),
-        .reset(Reset),
-        .m_axis_tdata(m_axis_tdata),
-        .m_axis_tvalid(m_axis_tvalid)
+    Testing_Architecture DUT(
+        .Clock(Clock),
+        .Reset(Reset),
+        .Taps(Taps),
+        .Max_Correlation(Max_Correlation)
       );
 
       initial 
       begin
         Reset = 1;
-        cfg_data = 32'b0;
-        valid = 1;
+        Taps = 7'b0111000;
         Clock = 0;
         #1;
         Clock = 1;

@@ -8,7 +8,7 @@ entity LFSR2008 is
         Size: integer := 32 -- from size of 1 up to 32
     );
     port(
-        Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb and not the taps)
+        Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb)
         clock: in std_logic;
         PRBS: out std_logic;
         reset: in std_logic

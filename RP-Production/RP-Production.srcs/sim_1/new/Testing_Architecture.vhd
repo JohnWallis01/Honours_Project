@@ -38,85 +38,60 @@ entity Testing_Architecture is
     port(
             Clock: in std_logic;
             Reset: in std_logic;
-            Phase_Out: out std_logic_vector(31 downto 0);
-            Reference_Phase: out std_logic_vector(31 downto 0);
-            Locked_Signal: out std_logic_vector(13 downto 0)
+            Taps: in std_logic_vector(6 downto 0);
+            Max_Correlation: out std_logic_vector(7 downto 0)
         );
 end Testing_Architecture;
 
 architecture Behavioral of Testing_Architecture is
 
-    component NCO is
-        generic (
-            Freq_Size: integer := 32;
-            ROM_Size: integer := 8;
-            DAC_SIZE:integer := 16
-        ); 
-        port (
-            Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
-            PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
-            clock: in std_logic := '0';
-            rst: in std_logic := '0';
-            Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
-            Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0');
-            Phase_Out: out std_logic_vector(Freq_Size-1 downto 0)
+    component Delay_Package is
+        generic(
+            Size: integer := 8; 
+            Delay_Amount : integer := 32
+            );
+        port(clock: in std_logic;
+             reset: in std_logic;
+             taps: in std_logic_vector(Size-2 downto 0);
+             PRBS_ref: out std_logic;
+             PRBS_delay: out std_logic
+             );
+    end component;
+   
+    component Correlator
+        generic( Window_Bits: integer := 12;
+        Period: integer := 4095);
+        port(
+            Clock: in std_logic;
+            Reset: in std_logic;
+            Stream1: in std_logic;
+            Stream2: in std_logic;
+            Max_Correlation: out std_logic_vector(Window_Bits-1 downto 0)
         );
     end component;
 
-    component Phase_Locked_Loop is
-        generic(CHANNEL : integer := 0); --set to zero to input on ADC 1, set to 1 to input on ADC 1);
-        port (
-            PLL_Guess_Freq: in std_logic_vector(31 downto 0);
-            Control_Kp: in std_logic_vector(31 downto 0);
-            Control_Ki: in std_logic_vector(31 downto 0);
-            Freq_Measured: out std_logic_vector(31 downto 0);
-            Phase_Measured: out std_logic_vector(31 downto 0);
-            s_axis_tdata_ADC_Stream_in: in std_logic_vector(31 downto 0);
-            s_axis_tvalid_ADC_Stream_in: in std_logic;
-            s_axis_tready_ADC_Stream_in: out std_logic;
-            DAC_Stream_out: out std_logic_vector(31 downto 0);
-            AD_CLK_in: in std_logic;
-            Reset_In: in std_logic;
-            Reset_Out: out std_logic;
-            Integrator_Reset: in std_logic
-           );
-    end component;
-
-    signal Stimulus_Sinusoid: std_logic_vector(13 downto 0);
-    signal ADC_Sim, Locked_Sinusoid: std_logic_vector(31 downto 0);
+    signal PRBS_ref, PRBS_delay: std_logic;
 
     begin
 
-    ADC_Sim(13 downto 0) <= Stimulus_Sinusoid;
-    ADC_Sim(31 downto 14 ) <= (others => '0');
-    Locked_Signal <= Locked_Sinusoid(13 downto 0);
-
-    Stimulus_NCO: NCO generic map(Freq_Size => 32, ROM_Size => 8, DAC_SIZE => 14)
+    PRBS_Gen: Delay_Package
+    generic map(Size => 8, Delay_Amount => 1)
     port map(
-        Frequency => std_logic_vector(to_unsigned(343597384, 32)),
-        PhaseOffset => (others => '0'),
         clock => Clock,
-        rst => Reset,
-        Dout => Stimulus_Sinusoid,
-        Quadrature_out => open,
-        Phase_Out => Reference_Phase
+        reset => Reset,
+        taps => Taps,
+        PRBS_ref => PRBS_ref,
+        PRBS_delay => PRBS_delay
     );
 
-    Phasemeter: Phase_Locked_Loop generic map(CHANNEL => 0)
+    Correlator_Module: Correlator
+    generic map(Window_Bits => 8, Period => 255)
     port map(
-        PLL_Guess_Freq => std_logic_vector(to_unsigned(343598384,32)), -- this is slightly off on purpose
-        Control_Kp => std_logic_vector(to_signed(-131072,32)),
-        Control_Ki => std_logic_vector(to_signed(-8,32)),
-        Freq_Measured => open,
-        Phase_Measured => Phase_out,
-        s_axis_tdata_ADC_Stream_in => ADC_Sim,
-        s_axis_tvalid_ADC_Stream_in => '1',
-        s_axis_tready_ADC_Stream_in => open,
-        DAC_Stream_out => Locked_Sinusoid,
-        AD_CLK_in => Clock,
-        Reset_In => Reset,
-        Reset_Out => open,
-        Integrator_Reset => Reset 
-    ); 
+        Clock => Clock,
+        Reset => Reset,
+        Stream1 => PRBS_delay,
+        Stream2 => PRBS_ref,
+        Max_Correlation => Max_Correlation
+    );
 
 end Behavioral;

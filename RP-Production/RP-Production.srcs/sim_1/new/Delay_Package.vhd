@@ -2,7 +2,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity Delay_Package is
-    generic(Size: integer := 8);
+    generic(
+        Size: integer := 8; 
+        Delay_Amount: integer := 32
+        );
     port(clock: in std_logic;
          reset: in std_logic;
          taps: in std_logic_vector(Size-2 downto 0);
@@ -53,7 +56,7 @@ begin
         );
 
     Delay_Gen: Delay
-        generic map(Delay_Amount => 4, Bus_Size => 1)
+        generic map(Delay_Amount => Delay_Amount, Bus_Size => 1)
         port map(
         D_In(0) => PRBS_gen,
         D_out(0) => PRBS_delay,

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Correlator.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Correlator'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Testing_Architecture.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Testing_Architecture'

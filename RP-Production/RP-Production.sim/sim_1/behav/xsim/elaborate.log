@@ -1,6 +1,6 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Main_Sim_behav xil_defaultlib.Main_Sim xil_defaultlib.glbl -log elaborate.log 
+Running: E:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Main_Sim_behav xil_defaultlib.Main_Sim xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -13,7 +13,12 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling architecture behavioral of entity xil_defaultlib.AXI4_Stream_Writer [\AXI4_Stream_Writer(clock_div=18...]
+Compiling architecture lfsr2008_arch of entity xil_defaultlib.LFSR2008 [\LFSR2008(size=8)\]
+Compiling architecture lfsr_arch of entity xil_defaultlib.LFSR [\LFSR(size=8)\]
+Compiling architecture delay_arch of entity xil_defaultlib.Delay [\Delay(delay_amount=1,bus_size=1...]
+Compiling architecture behavioral of entity xil_defaultlib.Delay_Package [\Delay_Package(delay_amount=1)\]
+Compiling architecture correlator_arch of entity xil_defaultlib.Correlator [\Correlator(window_bits=8,period...]
+Compiling architecture behavioral of entity xil_defaultlib.Testing_Architecture [testing_architecture_default]
 Compiling module xil_defaultlib.Main_Sim
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot Main_Sim_behav
