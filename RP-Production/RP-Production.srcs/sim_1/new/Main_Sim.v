@@ -25,20 +25,34 @@ module Main_Sim(
     );
     reg Clock;
     reg Reset;
-    reg[6:0] Taps;
-    wire[7:0] Max_Correlation;
+    reg[10:0] Taps;
+    wire[11:0] Max_Correlation;
+    reg[31:0] Frequency;
+    wire[13:0] Dout;  
+    wire[13:0] Qout;
+    wire[31:0] Phase;
 
-    Testing_Architecture DUT(
-        .Clock(Clock),
-        .Reset(Reset),
-        .Taps(Taps),
-        .Max_Correlation(Max_Correlation)
-      );
+    // Testing_Architecture DUT(
+    //     .Clock(Clock),
+    //     .Reset(Reset),
+    //     .Taps(Taps),
+    //     .Max_Correlation(Max_Correlation)
+    //   );
+
+    NCO #(.Freq_Size(32), .ROM_Size(8), .DAC_Size(14)) 
+    DUT(.Frequency(Frequency), .clock(Clock), .rst(Reset), .Dout(Dout), .Quadrature_out(Qout), .Phase_out(Phase));
+
+
+
+
+
 
       initial 
       begin
         Reset = 1;
-        Taps = 7'b0111000;
+        Taps = //10'b11000001000;
+               10'b00111110111;
+        Frequency = 32'd3597383;
         Clock = 0;
         #1;
         Clock = 1;

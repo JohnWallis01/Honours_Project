@@ -38,8 +38,8 @@ entity Testing_Architecture is
     port(
             Clock: in std_logic;
             Reset: in std_logic;
-            Taps: in std_logic_vector(6 downto 0);
-            Max_Correlation: out std_logic_vector(7 downto 0)
+            Taps: in std_logic_vector(10 downto 0);
+            Max_Correlation: out std_logic_vector(11 downto 0)
         );
 end Testing_Architecture;
 
@@ -75,7 +75,7 @@ architecture Behavioral of Testing_Architecture is
     begin
 
     PRBS_Gen: Delay_Package
-    generic map(Size => 8, Delay_Amount => 1)
+    generic map(Size => 12, Delay_Amount => 85)
     port map(
         clock => Clock,
         reset => Reset,
@@ -85,7 +85,7 @@ architecture Behavioral of Testing_Architecture is
     );
 
     Correlator_Module: Correlator
-    generic map(Window_Bits => 8, Period => 255)
+    generic map(Window_Bits => 12, Period => 4095)
     port map(
         Clock => Clock,
         Reset => Reset,

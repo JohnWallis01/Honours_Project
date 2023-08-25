@@ -89,11 +89,10 @@ architecture System_Architecture of Phase_Locked_Loop is
       );
       port (
         Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
-        PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
         clock: in std_logic := '0';
         rst: in std_logic := '0';
         Dout: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0'); -- DAC size
-        Quadrature_out: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0');
+        Quadrature_out: out std_logic_vector(DAC_Size-1 Downto 0);
         Phase_out: out std_logic_vector(Freq_Size-1 downto 0)
       ) ;
   end component;
@@ -163,25 +162,6 @@ END component;
     aclk => AD_CLK_in
   );
 
-  -- ADC_Debug_NCO: NCO
-  -- generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
-  -- port map(
-  --   Frequency =>Internal_Debug_Freq,
-  --   PhaseOffset => std_logic_vector(to_unsigned(0, 32)),
-  --   clock => AD_CLK_in,
-  --   rst => Reset_In,
-  --   Dout => ADC_Debug_NCO_Dout,
-  --   Quadrature_out => open
-  -- );
-
-  -- ADC_Override_Mux: Dual_Multiplexer
-  -- generic map(Data_Size => 14)
-  -- port map(
-  --   Input1 => ADC_Stream(13 downto 0),
-  --   Input2 => ADC_Debug_NCO_Dout,
-  --   Sel => ADC_Override,
-  --   Dout => Target_Signal
-  -- );
     
     -- make this conditonal on channel
     Target_Signal <= ADC_Stream(13 + CHANNEL*16 downto 0 + CHANNEL*16);
@@ -197,10 +177,9 @@ END component;
 
 
   PLL_NCO: NCO
-  generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
+  generic map(Freq_Size => 32, ROM_Size => 16, DAC_Size => 14)
   port map(
       Frequency => PLL_Freq,
-      PhaseOffset => std_logic_vector(to_unsigned(0, 32)),--Control_Input,
       clock => AD_CLK_in,
       rst => Reset_In,
       Dout => Locked_Signal,  
