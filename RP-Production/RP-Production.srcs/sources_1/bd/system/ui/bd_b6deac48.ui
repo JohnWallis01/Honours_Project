@@ -1,28 +1,29 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.615572",
-   "Default View_TopLeft":"-1342,-570",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-286,-262",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port Taps -pg 1 -lvl 0 -x -40 -y 340 -defaultsOSRD
 preplace port port-id_s_axi_aclk -pg 1 -lvl 0 -x -40 -y 270 -defaultsOSRD
 preplace port port-id_s_axi_aresetn -pg 1 -lvl 0 -x -40 -y 300 -defaultsOSRD
 preplace port port-id_clock -pg 1 -lvl 0 -x -40 -y 20 -defaultsOSRD
 preplace port port-id_reset -pg 1 -lvl 0 -x -40 -y 0 -defaultsOSRD
+preplace port port-id_PRBS_ref -pg 1 -lvl 4 -x 1340 -y 100 -defaultsOSRD
+preplace port port-id_PRBS_delay -pg 1 -lvl 4 -x 1340 -y 120 -defaultsOSRD
 preplace inst GPIO_TAPS -pg 1 -lvl 1 -x 410 -y 260 -defaultsOSRD
 preplace inst Delay_Package_0 -pg 1 -lvl 2 -x 700 -y 110 -defaultsOSRD
-preplace inst AXI4_Stream_Combiner_0 -pg 1 -lvl 3 -x 1080 -y 130 -defaultsOSRD
-preplace netloc Net 1 0 3 NJ 20 550 30 840
+preplace netloc Net 1 0 2 NJ 20 550
 preplace netloc PS7_FCLK_CLK0 1 0 1 -20 260n
 preplace netloc axi_gpio_0_gpio_io_o 1 1 1 550 130n
 preplace netloc axi_gpio_1_gpio_io_o 1 0 2 N 0 560
 preplace netloc s_axi_aresetn_1 1 0 1 0 280n
-preplace netloc Delay_Package_0_PRBS_ref 1 2 1 850 100n
-preplace netloc Delay_Package_0_PRBS_delay 1 2 1 830 120n
+preplace netloc Delay_Package_0_PRBS_ref 1 2 2 NJ 100 NJ
+preplace netloc Delay_Package_0_PRBS_delay 1 2 2 NJ 120 NJ
 preplace netloc PS7_M05_AXI 1 0 1 -10J 240n
 levelinfo -pg 1 -40 410 700 1080 1340
-pagesize -pg 1 -db -bbox -sgen -180 -190 1340 460
+pagesize -pg 1 -db -bbox -sgen -180 -190 1470 460
 "
 }
 0

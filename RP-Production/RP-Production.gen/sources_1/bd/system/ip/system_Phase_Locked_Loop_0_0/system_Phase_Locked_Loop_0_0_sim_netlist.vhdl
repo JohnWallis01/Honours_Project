@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sun Aug 27 14:52:23 2023
+-- Date        : Sun Aug 27 22:45:43 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Phase_Locked_Loop_0_0/system_Phase_Locked_Loop_0_0_sim_netlist.vhdl
@@ -10,135 +10,6 @@
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z010clg400-1
 -- --------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-library UNISIM;
-use UNISIM.VCOMPONENTS.ALL;
-entity system_Phase_Locked_Loop_0_0_AXI4_Stream_Reader is
-  port (
-    DAC_Stream_out : out STD_LOGIC_VECTOR ( 13 downto 0 );
-    s_axis_tdata_ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    AD_CLK_in : in STD_LOGIC
-  );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Phase_Locked_Loop_0_0_AXI4_Stream_Reader : entity is "AXI4_Stream_Reader";
-end system_Phase_Locked_Loop_0_0_AXI4_Stream_Reader;
-
-architecture STRUCTURE of system_Phase_Locked_Loop_0_0_AXI4_Stream_Reader is
-begin
-\Dout_reg[0]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(0),
-      Q => DAC_Stream_out(0),
-      R => '0'
-    );
-\Dout_reg[10]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(10),
-      Q => DAC_Stream_out(10),
-      R => '0'
-    );
-\Dout_reg[11]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(11),
-      Q => DAC_Stream_out(11),
-      R => '0'
-    );
-\Dout_reg[12]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(12),
-      Q => DAC_Stream_out(12),
-      R => '0'
-    );
-\Dout_reg[13]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(13),
-      Q => DAC_Stream_out(13),
-      R => '0'
-    );
-\Dout_reg[1]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(1),
-      Q => DAC_Stream_out(1),
-      R => '0'
-    );
-\Dout_reg[2]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(2),
-      Q => DAC_Stream_out(2),
-      R => '0'
-    );
-\Dout_reg[3]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(3),
-      Q => DAC_Stream_out(3),
-      R => '0'
-    );
-\Dout_reg[4]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(4),
-      Q => DAC_Stream_out(4),
-      R => '0'
-    );
-\Dout_reg[5]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(5),
-      Q => DAC_Stream_out(5),
-      R => '0'
-    );
-\Dout_reg[6]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(6),
-      Q => DAC_Stream_out(6),
-      R => '0'
-    );
-\Dout_reg[7]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(7),
-      Q => DAC_Stream_out(7),
-      R => '0'
-    );
-\Dout_reg[8]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(8),
-      Q => DAC_Stream_out(8),
-      R => '0'
-    );
-\Dout_reg[9]\: unisim.vcomponents.FDRE
-     port map (
-      C => AD_CLK_in,
-      CE => '1',
-      D => s_axis_tdata_ADC_Stream_in(9),
-      Q => DAC_Stream_out(9),
-      R => '0'
-    );
-end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
@@ -5606,7 +5477,7 @@ entity system_Phase_Locked_Loop_0_0_Mixer is
     AD_CLK_in : in STD_LOGIC;
     Reset_In : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    s_axis_tdata_ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
     section_out1_reg_23_sp_1 : in STD_LOGIC;
     section_out1_reg : in STD_LOGIC_VECTOR ( 25 downto 0 )
   );
@@ -5745,10 +5616,10 @@ begin
   section_out1_reg_23_sn_1 <= section_out1_reg_23_sp_1;
 Dout_reg: unisim.vcomponents.DSP48E1
     generic map(
-      ACASCREG => 1,
+      ACASCREG => 0,
       ADREG => 1,
       ALUMODEREG => 0,
-      AREG => 1,
+      AREG => 0,
       AUTORESET_PATDET => "NO_RESET",
       A_INPUT => "DIRECT",
       BCASCREG => 1,
@@ -5772,23 +5643,23 @@ Dout_reg: unisim.vcomponents.DSP48E1
       USE_SIMD => "ONE48"
     )
         port map (
-      A(29) => s_axis_tdata_ADC_Stream_in(13),
-      A(28) => s_axis_tdata_ADC_Stream_in(13),
-      A(27) => s_axis_tdata_ADC_Stream_in(13),
-      A(26) => s_axis_tdata_ADC_Stream_in(13),
-      A(25) => s_axis_tdata_ADC_Stream_in(13),
-      A(24) => s_axis_tdata_ADC_Stream_in(13),
-      A(23) => s_axis_tdata_ADC_Stream_in(13),
-      A(22) => s_axis_tdata_ADC_Stream_in(13),
-      A(21) => s_axis_tdata_ADC_Stream_in(13),
-      A(20) => s_axis_tdata_ADC_Stream_in(13),
-      A(19) => s_axis_tdata_ADC_Stream_in(13),
-      A(18) => s_axis_tdata_ADC_Stream_in(13),
-      A(17) => s_axis_tdata_ADC_Stream_in(13),
-      A(16) => s_axis_tdata_ADC_Stream_in(13),
-      A(15) => s_axis_tdata_ADC_Stream_in(13),
-      A(14) => s_axis_tdata_ADC_Stream_in(13),
-      A(13 downto 0) => s_axis_tdata_ADC_Stream_in(13 downto 0),
+      A(29) => ADC_Stream_in(13),
+      A(28) => ADC_Stream_in(13),
+      A(27) => ADC_Stream_in(13),
+      A(26) => ADC_Stream_in(13),
+      A(25) => ADC_Stream_in(13),
+      A(24) => ADC_Stream_in(13),
+      A(23) => ADC_Stream_in(13),
+      A(22) => ADC_Stream_in(13),
+      A(21) => ADC_Stream_in(13),
+      A(20) => ADC_Stream_in(13),
+      A(19) => ADC_Stream_in(13),
+      A(18) => ADC_Stream_in(13),
+      A(17) => ADC_Stream_in(13),
+      A(16) => ADC_Stream_in(13),
+      A(15) => ADC_Stream_in(13),
+      A(14) => ADC_Stream_in(13),
+      A(13 downto 0) => ADC_Stream_in(13 downto 0),
       ACIN(29 downto 0) => B"000000000000000000000000000000",
       ACOUT(29 downto 0) => NLW_Dout_reg_ACOUT_UNCONNECTED(29 downto 0),
       ALUMODE(3 downto 0) => B"0000",
@@ -5806,7 +5677,7 @@ Dout_reg: unisim.vcomponents.DSP48E1
       CARRYINSEL(2 downto 0) => B"000",
       CARRYOUT(3 downto 0) => NLW_Dout_reg_CARRYOUT_UNCONNECTED(3 downto 0),
       CEA1 => '0',
-      CEA2 => '1',
+      CEA2 => '0',
       CEAD => '0',
       CEALUMODE => '0',
       CEB1 => '0',
@@ -6494,7 +6365,7 @@ entity system_Phase_Locked_Loop_0_0_Mixer_0 is
     AD_CLK_in : in STD_LOGIC;
     Reset_In : in STD_LOGIC;
     B : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    s_axis_tdata_ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
     section_out1_reg_23_sp_1 : in STD_LOGIC;
     section_out1_reg : in STD_LOGIC_VECTOR ( 25 downto 0 )
   );
@@ -6603,10 +6474,10 @@ begin
   section_out1_reg_23_sn_1 <= section_out1_reg_23_sp_1;
 Dout_reg: unisim.vcomponents.DSP48E1
     generic map(
-      ACASCREG => 1,
+      ACASCREG => 0,
       ADREG => 1,
       ALUMODEREG => 0,
-      AREG => 1,
+      AREG => 0,
       AUTORESET_PATDET => "NO_RESET",
       A_INPUT => "DIRECT",
       BCASCREG => 1,
@@ -6630,23 +6501,23 @@ Dout_reg: unisim.vcomponents.DSP48E1
       USE_SIMD => "ONE48"
     )
         port map (
-      A(29) => s_axis_tdata_ADC_Stream_in(13),
-      A(28) => s_axis_tdata_ADC_Stream_in(13),
-      A(27) => s_axis_tdata_ADC_Stream_in(13),
-      A(26) => s_axis_tdata_ADC_Stream_in(13),
-      A(25) => s_axis_tdata_ADC_Stream_in(13),
-      A(24) => s_axis_tdata_ADC_Stream_in(13),
-      A(23) => s_axis_tdata_ADC_Stream_in(13),
-      A(22) => s_axis_tdata_ADC_Stream_in(13),
-      A(21) => s_axis_tdata_ADC_Stream_in(13),
-      A(20) => s_axis_tdata_ADC_Stream_in(13),
-      A(19) => s_axis_tdata_ADC_Stream_in(13),
-      A(18) => s_axis_tdata_ADC_Stream_in(13),
-      A(17) => s_axis_tdata_ADC_Stream_in(13),
-      A(16) => s_axis_tdata_ADC_Stream_in(13),
-      A(15) => s_axis_tdata_ADC_Stream_in(13),
-      A(14) => s_axis_tdata_ADC_Stream_in(13),
-      A(13 downto 0) => s_axis_tdata_ADC_Stream_in(13 downto 0),
+      A(29) => ADC_Stream_in(13),
+      A(28) => ADC_Stream_in(13),
+      A(27) => ADC_Stream_in(13),
+      A(26) => ADC_Stream_in(13),
+      A(25) => ADC_Stream_in(13),
+      A(24) => ADC_Stream_in(13),
+      A(23) => ADC_Stream_in(13),
+      A(22) => ADC_Stream_in(13),
+      A(21) => ADC_Stream_in(13),
+      A(20) => ADC_Stream_in(13),
+      A(19) => ADC_Stream_in(13),
+      A(18) => ADC_Stream_in(13),
+      A(17) => ADC_Stream_in(13),
+      A(16) => ADC_Stream_in(13),
+      A(15) => ADC_Stream_in(13),
+      A(14) => ADC_Stream_in(13),
+      A(13 downto 0) => ADC_Stream_in(13 downto 0),
       ACIN(29 downto 0) => B"000000000000000000000000000000",
       ACOUT(29 downto 0) => NLW_Dout_reg_ACOUT_UNCONNECTED(29 downto 0),
       ALUMODE(3 downto 0) => B"0000",
@@ -6664,7 +6535,7 @@ Dout_reg: unisim.vcomponents.DSP48E1
       CARRYINSEL(2 downto 0) => B"000",
       CARRYOUT(3 downto 0) => NLW_Dout_reg_CARRYOUT_UNCONNECTED(3 downto 0),
       CEA1 => '0',
-      CEA2 => '1',
+      CEA2 => '0',
       CEAD => '0',
       CEALUMODE => '0',
       CEB1 => '0',
@@ -7332,8 +7203,9 @@ architecture STRUCTURE of system_Phase_Locked_Loop_0_0_NCO is
   signal \^d\ : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal DelayPipe1 : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \DelayPipe2_reg_n_0_[0]\ : STD_LOGIC;
+  signal L : STD_LOGIC_VECTOR ( 29 downto 14 );
+  signal \OffsetPhase[31]_i_1_n_0\ : STD_LOGIC;
   signal \^phase_measured\ : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal \Quadrature_addr[0]_rep_i_1__0__0_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__0_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__10_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__11_n_0\ : STD_LOGIC;
@@ -7350,6 +7222,7 @@ architecture STRUCTURE of system_Phase_Locked_Loop_0_0_NCO is
   signal \Quadrature_addr[0]_rep_i_1__21_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__22_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__23_n_0\ : STD_LOGIC;
+  signal \Quadrature_addr[0]_rep_i_1__24_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__2_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__3_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__4_n_0\ : STD_LOGIC;
@@ -7358,7 +7231,7 @@ architecture STRUCTURE of system_Phase_Locked_Loop_0_0_NCO is
   signal \Quadrature_addr[0]_rep_i_1__7_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__8_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[0]_rep_i_1__9_n_0\ : STD_LOGIC;
-  signal \Quadrature_addr[0]_rep_i_2_n_0\ : STD_LOGIC;
+  signal \Quadrature_addr[0]_rep_i_1_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[10]_rep_i_1__0_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[10]_rep_i_1__10_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[10]_rep_i_1__11_n_0\ : STD_LOGIC;
@@ -9025,7 +8898,7 @@ architecture STRUCTURE of system_Phase_Locked_Loop_0_0_NCO is
   signal databuffer_reg_0_7_n_0 : STD_LOGIC;
   signal databuffer_reg_0_8_n_0 : STD_LOGIC;
   signal databuffer_reg_0_9_n_0 : STD_LOGIC;
-  signal p_0_in : STD_LOGIC;
+  signal p_0_in : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \phase[11]_i_2_n_0\ : STD_LOGIC;
   signal \phase[11]_i_3_n_0\ : STD_LOGIC;
   signal \phase[11]_i_4_n_0\ : STD_LOGIC;
@@ -11151,7 +11024,7 @@ begin
      port map (
       C => AD_CLK_in,
       CE => '1',
-      D => \^phase_measured\(30),
+      D => p_0_in(0),
       Q => DelayPipe1(0),
       R => Reset_In
     );
@@ -11159,7 +11032,7 @@ begin
      port map (
       C => AD_CLK_in,
       CE => '1',
-      D => \^phase_measured\(31),
+      D => p_0_in(1),
       Q => DelayPipe1(1),
       R => Reset_In
     );
@@ -11589,39 +11462,237 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(5)
     );
-\Quadrature_addr[0]_rep_i_1\: unisim.vcomponents.LUT1
+\OffsetPhase[31]_i_1\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => Reset_In,
-      O => p_0_in
+      O => \OffsetPhase[31]_i_1_n_0\
+    );
+\OffsetPhase_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(14),
+      Q => L(14),
+      R => '0'
+    );
+\OffsetPhase_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(15),
+      Q => L(15),
+      R => '0'
+    );
+\OffsetPhase_reg[16]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(16),
+      Q => L(16),
+      R => '0'
+    );
+\OffsetPhase_reg[17]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(17),
+      Q => L(17),
+      R => '0'
+    );
+\OffsetPhase_reg[18]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(18),
+      Q => L(18),
+      R => '0'
+    );
+\OffsetPhase_reg[19]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(19),
+      Q => L(19),
+      R => '0'
+    );
+\OffsetPhase_reg[20]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(20),
+      Q => L(20),
+      R => '0'
+    );
+\OffsetPhase_reg[21]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(21),
+      Q => L(21),
+      R => '0'
+    );
+\OffsetPhase_reg[22]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(22),
+      Q => L(22),
+      R => '0'
+    );
+\OffsetPhase_reg[23]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(23),
+      Q => L(23),
+      R => '0'
+    );
+\OffsetPhase_reg[24]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(24),
+      Q => L(24),
+      R => '0'
+    );
+\OffsetPhase_reg[25]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(25),
+      Q => L(25),
+      R => '0'
+    );
+\OffsetPhase_reg[26]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(26),
+      Q => L(26),
+      R => '0'
+    );
+\OffsetPhase_reg[27]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(27),
+      Q => L(27),
+      R => '0'
+    );
+\OffsetPhase_reg[28]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(28),
+      Q => L(28),
+      R => '0'
+    );
+\OffsetPhase_reg[29]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(29),
+      Q => L(29),
+      R => '0'
+    );
+\OffsetPhase_reg[30]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(30),
+      Q => p_0_in(0),
+      R => '0'
+    );
+\OffsetPhase_reg[31]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => AD_CLK_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \^phase_measured\(31),
+      Q => p_0_in(1),
+      R => '0'
+    );
+\Quadrature_addr[0]_rep_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
+      I0 => L(14),
+      I1 => p_0_in(0),
+      O => \Quadrature_addr[0]_rep_i_1_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__0\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__0_n_0\
-    );
-\Quadrature_addr[0]_rep_i_1__0__0\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
-      O => \Quadrature_addr[0]_rep_i_1__0__0_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -11629,8 +11700,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -11638,8 +11709,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -11647,8 +11718,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -11656,8 +11727,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -11665,8 +11736,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -11674,8 +11745,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -11683,8 +11754,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -11692,8 +11763,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -11701,8 +11772,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -11710,8 +11781,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -11719,8 +11790,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -11728,8 +11799,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -11737,8 +11808,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -11746,8 +11817,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -11755,17 +11826,26 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__23_n_0\
+    );
+\Quadrature_addr[0]_rep_i_1__24\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
+      I0 => L(14),
+      I1 => p_0_in(0),
+      O => \Quadrature_addr[0]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__3\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -11773,8 +11853,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -11782,8 +11862,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -11791,8 +11871,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -11800,8 +11880,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -11809,8 +11889,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[0]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -11818,26 +11898,17 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[0]_rep_i_1__9_n_0\
-    );
-\Quadrature_addr[0]_rep_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
-      O => \Quadrature_addr[0]_rep_i_2_n_0\
     );
 \Quadrature_addr[10]_rep_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -11845,8 +11916,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -11854,8 +11925,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -11863,8 +11934,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -11872,8 +11943,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -11881,8 +11952,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -11890,8 +11961,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -11899,8 +11970,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -11908,8 +11979,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -11917,8 +11988,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -11926,8 +11997,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -11935,8 +12006,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -11944,8 +12015,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -11953,8 +12024,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -11962,8 +12033,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -11971,8 +12042,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -11980,8 +12051,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -11989,8 +12060,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -11998,8 +12069,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -12007,8 +12078,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -12016,8 +12087,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -12025,8 +12096,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -12034,8 +12105,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -12043,8 +12114,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -12052,8 +12123,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[10]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -12061,8 +12132,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[10]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[11]_rep_i_1\: unisim.vcomponents.LUT2
@@ -12070,8 +12141,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -12079,8 +12150,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -12088,8 +12159,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -12097,8 +12168,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -12106,8 +12177,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -12115,8 +12186,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -12124,8 +12195,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -12133,8 +12204,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -12142,8 +12213,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -12151,8 +12222,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -12160,8 +12231,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -12169,8 +12240,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -12178,8 +12249,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -12187,8 +12258,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -12196,8 +12267,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -12205,8 +12276,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -12214,8 +12285,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -12223,8 +12294,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -12232,8 +12303,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -12241,8 +12312,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -12250,8 +12321,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -12259,8 +12330,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -12268,8 +12339,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -12277,8 +12348,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -12286,8 +12357,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[11]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -12295,8 +12366,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[11]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[12]_rep_i_1\: unisim.vcomponents.LUT2
@@ -12304,8 +12375,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -12313,8 +12384,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -12322,8 +12393,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -12331,8 +12402,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -12340,8 +12411,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -12349,8 +12420,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -12358,8 +12429,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -12367,8 +12438,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -12376,8 +12447,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -12385,8 +12456,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -12394,8 +12465,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -12403,8 +12474,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -12412,8 +12483,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -12421,8 +12492,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -12430,8 +12501,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -12439,8 +12510,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -12448,8 +12519,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -12457,8 +12528,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -12466,8 +12537,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -12475,8 +12546,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -12484,8 +12555,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -12493,8 +12564,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -12502,8 +12573,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -12511,8 +12582,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -12520,8 +12591,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[12]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -12529,8 +12600,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[12]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[13]_rep_i_1\: unisim.vcomponents.LUT2
@@ -12538,8 +12609,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -12547,8 +12618,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -12556,8 +12627,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -12565,8 +12636,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -12574,8 +12645,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -12583,8 +12654,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -12592,8 +12663,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -12601,8 +12672,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -12610,8 +12681,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -12619,8 +12690,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -12628,8 +12699,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -12637,8 +12708,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -12646,8 +12717,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -12655,8 +12726,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -12664,8 +12735,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -12673,8 +12744,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -12682,8 +12753,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -12691,8 +12762,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -12700,8 +12771,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -12709,8 +12780,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -12718,8 +12789,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -12727,8 +12798,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -12736,8 +12807,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -12745,8 +12816,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -12754,8 +12825,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[13]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -12763,8 +12834,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[13]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[14]_rep_i_1\: unisim.vcomponents.LUT2
@@ -12772,8 +12843,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -12781,8 +12852,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -12790,8 +12861,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -12799,8 +12870,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -12808,8 +12879,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -12817,8 +12888,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -12826,8 +12897,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -12835,8 +12906,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -12844,8 +12915,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -12853,8 +12924,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -12862,8 +12933,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -12871,8 +12942,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -12880,8 +12951,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -12889,8 +12960,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -12898,8 +12969,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -12907,8 +12978,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -12916,8 +12987,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -12925,8 +12996,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -12934,8 +13005,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -12943,8 +13014,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -12952,8 +13023,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -12961,8 +13032,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -12970,8 +13041,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -12979,8 +13050,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -12988,8 +13059,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[14]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -12997,8 +13068,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[14]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[15]_rep_i_1\: unisim.vcomponents.LUT2
@@ -13006,8 +13077,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -13015,8 +13086,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -13024,8 +13095,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -13033,8 +13104,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -13042,8 +13113,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -13051,8 +13122,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -13060,8 +13131,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -13069,8 +13140,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -13078,8 +13149,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -13087,8 +13158,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -13096,8 +13167,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -13105,8 +13176,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -13114,8 +13185,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -13123,8 +13194,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -13132,8 +13203,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -13141,8 +13212,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -13150,8 +13221,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -13159,8 +13230,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -13168,8 +13239,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -13177,8 +13248,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -13186,8 +13257,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -13195,8 +13266,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -13204,8 +13275,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -13213,8 +13284,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -13222,8 +13293,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[15]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -13231,8 +13302,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[15]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[1]_rep_i_1\: unisim.vcomponents.LUT2
@@ -13240,8 +13311,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -13249,8 +13320,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -13258,8 +13329,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -13267,8 +13338,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -13276,8 +13347,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -13285,8 +13356,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -13294,8 +13365,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -13303,8 +13374,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -13312,8 +13383,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -13321,8 +13392,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -13330,8 +13401,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -13339,8 +13410,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -13348,8 +13419,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -13357,8 +13428,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -13366,8 +13437,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -13375,8 +13446,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -13384,8 +13455,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -13393,8 +13464,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -13402,8 +13473,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -13411,8 +13482,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -13420,8 +13491,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -13429,8 +13500,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -13438,8 +13509,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -13447,8 +13518,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -13456,8 +13527,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[1]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -13465,8 +13536,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[1]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[2]_rep_i_1\: unisim.vcomponents.LUT2
@@ -13474,8 +13545,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -13483,8 +13554,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -13492,8 +13563,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -13501,8 +13572,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -13510,8 +13581,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -13519,8 +13590,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -13528,8 +13599,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -13537,8 +13608,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -13546,8 +13617,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -13555,8 +13626,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -13564,8 +13635,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -13573,8 +13644,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -13582,8 +13653,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -13591,8 +13662,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -13600,8 +13671,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -13609,8 +13680,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -13618,8 +13689,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -13627,8 +13698,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -13636,8 +13707,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -13645,8 +13716,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -13654,8 +13725,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -13663,8 +13734,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -13672,8 +13743,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -13681,8 +13752,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -13690,8 +13761,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[2]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -13699,8 +13770,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[2]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[3]_rep_i_1\: unisim.vcomponents.LUT2
@@ -13708,8 +13779,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -13717,8 +13788,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -13726,8 +13797,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -13735,8 +13806,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -13744,8 +13815,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -13753,8 +13824,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -13762,8 +13833,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -13771,8 +13842,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -13780,8 +13851,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -13789,8 +13860,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -13798,8 +13869,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -13807,8 +13878,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -13816,8 +13887,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -13825,8 +13896,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -13834,8 +13905,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -13843,8 +13914,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -13852,8 +13923,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -13861,8 +13932,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -13870,8 +13941,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -13879,8 +13950,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -13888,8 +13959,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -13897,8 +13968,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -13906,8 +13977,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -13915,8 +13986,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -13924,8 +13995,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[3]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -13933,8 +14004,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[3]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[4]_rep_i_1\: unisim.vcomponents.LUT2
@@ -13942,8 +14013,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -13951,8 +14022,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -13960,8 +14031,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -13969,8 +14040,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -13978,8 +14049,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -13987,8 +14058,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -13996,8 +14067,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -14005,8 +14076,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -14014,8 +14085,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -14023,8 +14094,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -14032,8 +14103,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -14041,8 +14112,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -14050,8 +14121,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -14059,8 +14130,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -14068,8 +14139,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -14077,8 +14148,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -14086,8 +14157,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -14095,8 +14166,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -14104,8 +14175,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -14113,8 +14184,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -14122,8 +14193,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -14131,8 +14202,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -14140,8 +14211,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -14149,8 +14220,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -14158,8 +14229,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[4]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -14167,8 +14238,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[4]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[5]_rep_i_1\: unisim.vcomponents.LUT2
@@ -14176,8 +14247,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -14185,8 +14256,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -14194,8 +14265,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -14203,8 +14274,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -14212,8 +14283,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -14221,8 +14292,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -14230,8 +14301,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -14239,8 +14310,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -14248,8 +14319,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -14257,8 +14328,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -14266,8 +14337,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -14275,8 +14346,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -14284,8 +14355,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -14293,8 +14364,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -14302,8 +14373,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -14311,8 +14382,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -14320,8 +14391,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -14329,8 +14400,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -14338,8 +14409,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -14347,8 +14418,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -14356,8 +14427,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -14365,8 +14436,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -14374,8 +14445,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -14383,8 +14454,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -14392,8 +14463,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[5]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -14401,8 +14472,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[5]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[6]_rep_i_1\: unisim.vcomponents.LUT2
@@ -14410,8 +14481,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -14419,8 +14490,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -14428,8 +14499,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -14437,8 +14508,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -14446,8 +14517,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -14455,8 +14526,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -14464,8 +14535,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -14473,8 +14544,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -14482,8 +14553,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -14491,8 +14562,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -14500,8 +14571,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -14509,8 +14580,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -14518,8 +14589,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -14527,8 +14598,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -14536,8 +14607,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -14545,8 +14616,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -14554,8 +14625,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -14563,8 +14634,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -14572,8 +14643,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -14581,8 +14652,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -14590,8 +14661,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -14599,8 +14670,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -14608,8 +14679,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -14617,8 +14688,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -14626,8 +14697,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[6]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -14635,8 +14706,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[6]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[7]_rep_i_1\: unisim.vcomponents.LUT2
@@ -14644,8 +14715,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -14653,8 +14724,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -14662,8 +14733,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -14671,8 +14742,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -14680,8 +14751,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -14689,8 +14760,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -14698,8 +14769,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -14707,8 +14778,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -14716,8 +14787,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -14725,8 +14796,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -14734,8 +14805,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -14743,8 +14814,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -14752,8 +14823,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -14761,8 +14832,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -14770,8 +14841,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -14779,8 +14850,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -14788,8 +14859,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -14797,8 +14868,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -14806,8 +14877,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -14815,8 +14886,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -14824,8 +14895,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -14833,8 +14904,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -14842,8 +14913,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -14851,8 +14922,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -14860,8 +14931,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[7]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -14869,8 +14940,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[7]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[8]_rep_i_1\: unisim.vcomponents.LUT2
@@ -14878,8 +14949,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -14887,8 +14958,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -14896,8 +14967,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -14905,8 +14976,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -14914,8 +14985,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -14923,8 +14994,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -14932,8 +15003,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -14941,8 +15012,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -14950,8 +15021,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -14959,8 +15030,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -14968,8 +15039,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -14977,8 +15048,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -14986,8 +15057,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -14995,8 +15066,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -15004,8 +15075,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -15013,8 +15084,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -15022,8 +15093,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -15031,8 +15102,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -15040,8 +15111,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -15049,8 +15120,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -15058,8 +15129,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -15067,8 +15138,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -15076,8 +15147,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -15085,8 +15156,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -15094,8 +15165,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[8]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -15103,8 +15174,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[8]_rep_i_1__9_n_0\
     );
 \Quadrature_addr[9]_rep_i_1\: unisim.vcomponents.LUT2
@@ -15112,8 +15183,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -15121,8 +15192,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__0_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -15130,8 +15201,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__1_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -15139,8 +15210,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__10_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -15148,8 +15219,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__11_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -15157,8 +15228,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__12_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -15166,8 +15237,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__13_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -15175,8 +15246,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__14_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -15184,8 +15255,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__15_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -15193,8 +15264,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__16_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -15202,8 +15273,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__17_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -15211,8 +15282,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__18_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -15220,8 +15291,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__19_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -15229,8 +15300,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__2_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -15238,8 +15309,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__20_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -15247,8 +15318,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__21_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -15256,8 +15327,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__22_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -15265,8 +15336,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__23_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -15274,8 +15345,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__24_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -15283,8 +15354,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__3_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -15292,8 +15363,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__4_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -15301,8 +15372,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__5_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -15310,8 +15381,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__6_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -15319,8 +15390,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__7_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -15328,8 +15399,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__8_n_0\
     );
 \Quadrature_addr[9]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -15337,8 +15408,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \Quadrature_addr[9]_rep_i_1__9_n_0\
     );
 \Quadrature_addr_reg[0]_rep\: unisim.vcomponents.FDRE
@@ -15347,8 +15418,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_2_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[0]_rep_n_0\,
       R => '0'
     );
@@ -15358,7 +15429,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[0]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__0_n_0\,
       R => '0'
@@ -15369,8 +15440,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__0__0_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__1_n_0\,
       R => '0'
     );
@@ -15380,8 +15451,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__9_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__10_n_0\,
       R => '0'
     );
@@ -15391,8 +15462,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__10_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__11_n_0\,
       R => '0'
     );
@@ -15402,8 +15473,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__11_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__12_n_0\,
       R => '0'
     );
@@ -15413,8 +15484,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__12_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__13_n_0\,
       R => '0'
     );
@@ -15424,8 +15495,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__13_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__14_n_0\,
       R => '0'
     );
@@ -15435,8 +15506,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__14_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__15_n_0\,
       R => '0'
     );
@@ -15446,8 +15517,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__15_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__16_n_0\,
       R => '0'
     );
@@ -15457,8 +15528,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__16_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__17_n_0\,
       R => '0'
     );
@@ -15468,8 +15539,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__17_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__18_n_0\,
       R => '0'
     );
@@ -15479,8 +15550,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__18_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__19_n_0\,
       R => '0'
     );
@@ -15490,8 +15561,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__1_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__2_n_0\,
       R => '0'
     );
@@ -15501,8 +15572,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__19_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__20_n_0\,
       R => '0'
     );
@@ -15512,8 +15583,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__20_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__21_n_0\,
       R => '0'
     );
@@ -15523,8 +15594,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__21_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__22_n_0\,
       R => '0'
     );
@@ -15534,8 +15605,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__22_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__23_n_0\,
       R => '0'
     );
@@ -15545,8 +15616,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__23_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__24_n_0\,
       R => '0'
     );
@@ -15556,8 +15627,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__2_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__3_n_0\,
       R => '0'
     );
@@ -15567,8 +15638,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__3_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__4_n_0\,
       R => '0'
     );
@@ -15578,8 +15649,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__4_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__5_n_0\,
       R => '0'
     );
@@ -15589,8 +15660,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__5_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__6_n_0\,
       R => '0'
     );
@@ -15600,8 +15671,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__6_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__7_n_0\,
       R => '0'
     );
@@ -15611,8 +15682,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__7_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__8_n_0\,
       R => '0'
     );
@@ -15622,8 +15693,8 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
-      D => \Quadrature_addr[0]_rep_i_1__8_n_0\,
+      CE => \OffsetPhase[31]_i_1_n_0\,
+      D => \Quadrature_addr[0]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[0]_rep__9_n_0\,
       R => '0'
     );
@@ -15633,7 +15704,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[10]_rep_n_0\,
       R => '0'
@@ -15644,7 +15715,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__0_n_0\,
       R => '0'
@@ -15655,7 +15726,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__1_n_0\,
       R => '0'
@@ -15666,7 +15737,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__10_n_0\,
       R => '0'
@@ -15677,7 +15748,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__11_n_0\,
       R => '0'
@@ -15688,7 +15759,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__12_n_0\,
       R => '0'
@@ -15699,7 +15770,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__13_n_0\,
       R => '0'
@@ -15710,7 +15781,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__14_n_0\,
       R => '0'
@@ -15721,7 +15792,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__15_n_0\,
       R => '0'
@@ -15732,7 +15803,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__16_n_0\,
       R => '0'
@@ -15743,7 +15814,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__17_n_0\,
       R => '0'
@@ -15754,7 +15825,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__18_n_0\,
       R => '0'
@@ -15765,7 +15836,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__19_n_0\,
       R => '0'
@@ -15776,7 +15847,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__2_n_0\,
       R => '0'
@@ -15787,7 +15858,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__20_n_0\,
       R => '0'
@@ -15798,7 +15869,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__21_n_0\,
       R => '0'
@@ -15809,7 +15880,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__22_n_0\,
       R => '0'
@@ -15820,7 +15891,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__23_n_0\,
       R => '0'
@@ -15831,7 +15902,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__24_n_0\,
       R => '0'
@@ -15842,7 +15913,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__3_n_0\,
       R => '0'
@@ -15853,7 +15924,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__4_n_0\,
       R => '0'
@@ -15864,7 +15935,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__5_n_0\,
       R => '0'
@@ -15875,7 +15946,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__6_n_0\,
       R => '0'
@@ -15886,7 +15957,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__7_n_0\,
       R => '0'
@@ -15897,7 +15968,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__8_n_0\,
       R => '0'
@@ -15908,7 +15979,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[10]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[10]_rep__9_n_0\,
       R => '0'
@@ -15919,7 +15990,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[11]_rep_n_0\,
       R => '0'
@@ -15930,7 +16001,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__0_n_0\,
       R => '0'
@@ -15941,7 +16012,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__1_n_0\,
       R => '0'
@@ -15952,7 +16023,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__10_n_0\,
       R => '0'
@@ -15963,7 +16034,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__11_n_0\,
       R => '0'
@@ -15974,7 +16045,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__12_n_0\,
       R => '0'
@@ -15985,7 +16056,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__13_n_0\,
       R => '0'
@@ -15996,7 +16067,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__14_n_0\,
       R => '0'
@@ -16007,7 +16078,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__15_n_0\,
       R => '0'
@@ -16018,7 +16089,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__16_n_0\,
       R => '0'
@@ -16029,7 +16100,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__17_n_0\,
       R => '0'
@@ -16040,7 +16111,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__18_n_0\,
       R => '0'
@@ -16051,7 +16122,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__19_n_0\,
       R => '0'
@@ -16062,7 +16133,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__2_n_0\,
       R => '0'
@@ -16073,7 +16144,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__20_n_0\,
       R => '0'
@@ -16084,7 +16155,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__21_n_0\,
       R => '0'
@@ -16095,7 +16166,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__22_n_0\,
       R => '0'
@@ -16106,7 +16177,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__23_n_0\,
       R => '0'
@@ -16117,7 +16188,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__24_n_0\,
       R => '0'
@@ -16128,7 +16199,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__3_n_0\,
       R => '0'
@@ -16139,7 +16210,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__4_n_0\,
       R => '0'
@@ -16150,7 +16221,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__5_n_0\,
       R => '0'
@@ -16161,7 +16232,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__6_n_0\,
       R => '0'
@@ -16172,7 +16243,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__7_n_0\,
       R => '0'
@@ -16183,7 +16254,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__8_n_0\,
       R => '0'
@@ -16194,7 +16265,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[11]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[11]_rep__9_n_0\,
       R => '0'
@@ -16205,7 +16276,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[12]_rep_n_0\,
       R => '0'
@@ -16216,7 +16287,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__0_n_0\,
       R => '0'
@@ -16227,7 +16298,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__1_n_0\,
       R => '0'
@@ -16238,7 +16309,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__10_n_0\,
       R => '0'
@@ -16249,7 +16320,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__11_n_0\,
       R => '0'
@@ -16260,7 +16331,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__12_n_0\,
       R => '0'
@@ -16271,7 +16342,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__13_n_0\,
       R => '0'
@@ -16282,7 +16353,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__14_n_0\,
       R => '0'
@@ -16293,7 +16364,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__15_n_0\,
       R => '0'
@@ -16304,7 +16375,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__16_n_0\,
       R => '0'
@@ -16315,7 +16386,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__17_n_0\,
       R => '0'
@@ -16326,7 +16397,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__18_n_0\,
       R => '0'
@@ -16337,7 +16408,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__19_n_0\,
       R => '0'
@@ -16348,7 +16419,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__2_n_0\,
       R => '0'
@@ -16359,7 +16430,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__20_n_0\,
       R => '0'
@@ -16370,7 +16441,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__21_n_0\,
       R => '0'
@@ -16381,7 +16452,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__22_n_0\,
       R => '0'
@@ -16392,7 +16463,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__23_n_0\,
       R => '0'
@@ -16403,7 +16474,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__24_n_0\,
       R => '0'
@@ -16414,7 +16485,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__3_n_0\,
       R => '0'
@@ -16425,7 +16496,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__4_n_0\,
       R => '0'
@@ -16436,7 +16507,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__5_n_0\,
       R => '0'
@@ -16447,7 +16518,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__6_n_0\,
       R => '0'
@@ -16458,7 +16529,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__7_n_0\,
       R => '0'
@@ -16469,7 +16540,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__8_n_0\,
       R => '0'
@@ -16480,7 +16551,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[12]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[12]_rep__9_n_0\,
       R => '0'
@@ -16491,7 +16562,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[13]_rep_n_0\,
       R => '0'
@@ -16502,7 +16573,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__0_n_0\,
       R => '0'
@@ -16513,7 +16584,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__1_n_0\,
       R => '0'
@@ -16524,7 +16595,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__10_n_0\,
       R => '0'
@@ -16535,7 +16606,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__11_n_0\,
       R => '0'
@@ -16546,7 +16617,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__12_n_0\,
       R => '0'
@@ -16557,7 +16628,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__13_n_0\,
       R => '0'
@@ -16568,7 +16639,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__14_n_0\,
       R => '0'
@@ -16579,7 +16650,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__15_n_0\,
       R => '0'
@@ -16590,7 +16661,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__16_n_0\,
       R => '0'
@@ -16601,7 +16672,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__17_n_0\,
       R => '0'
@@ -16612,7 +16683,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__18_n_0\,
       R => '0'
@@ -16623,7 +16694,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__19_n_0\,
       R => '0'
@@ -16634,7 +16705,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__2_n_0\,
       R => '0'
@@ -16645,7 +16716,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__20_n_0\,
       R => '0'
@@ -16656,7 +16727,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__21_n_0\,
       R => '0'
@@ -16667,7 +16738,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__22_n_0\,
       R => '0'
@@ -16678,7 +16749,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__23_n_0\,
       R => '0'
@@ -16689,7 +16760,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__24_n_0\,
       R => '0'
@@ -16700,7 +16771,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__3_n_0\,
       R => '0'
@@ -16711,7 +16782,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__4_n_0\,
       R => '0'
@@ -16722,7 +16793,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__5_n_0\,
       R => '0'
@@ -16733,7 +16804,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__6_n_0\,
       R => '0'
@@ -16744,7 +16815,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__7_n_0\,
       R => '0'
@@ -16755,7 +16826,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__8_n_0\,
       R => '0'
@@ -16766,7 +16837,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[13]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[13]_rep__9_n_0\,
       R => '0'
@@ -16777,7 +16848,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[14]_rep_n_0\,
       R => '0'
@@ -16788,7 +16859,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__0_n_0\,
       R => '0'
@@ -16799,7 +16870,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__1_n_0\,
       R => '0'
@@ -16810,7 +16881,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__10_n_0\,
       R => '0'
@@ -16821,7 +16892,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__11_n_0\,
       R => '0'
@@ -16832,7 +16903,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__12_n_0\,
       R => '0'
@@ -16843,7 +16914,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__13_n_0\,
       R => '0'
@@ -16854,7 +16925,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__14_n_0\,
       R => '0'
@@ -16865,7 +16936,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__15_n_0\,
       R => '0'
@@ -16876,7 +16947,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__16_n_0\,
       R => '0'
@@ -16887,7 +16958,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__17_n_0\,
       R => '0'
@@ -16898,7 +16969,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__18_n_0\,
       R => '0'
@@ -16909,7 +16980,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__19_n_0\,
       R => '0'
@@ -16920,7 +16991,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__2_n_0\,
       R => '0'
@@ -16931,7 +17002,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__20_n_0\,
       R => '0'
@@ -16942,7 +17013,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__21_n_0\,
       R => '0'
@@ -16953,7 +17024,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__22_n_0\,
       R => '0'
@@ -16964,7 +17035,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__23_n_0\,
       R => '0'
@@ -16975,7 +17046,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__24_n_0\,
       R => '0'
@@ -16986,7 +17057,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__3_n_0\,
       R => '0'
@@ -16997,7 +17068,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__4_n_0\,
       R => '0'
@@ -17008,7 +17079,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__5_n_0\,
       R => '0'
@@ -17019,7 +17090,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__6_n_0\,
       R => '0'
@@ -17030,7 +17101,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__7_n_0\,
       R => '0'
@@ -17041,7 +17112,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__8_n_0\,
       R => '0'
@@ -17052,7 +17123,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[14]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[14]_rep__9_n_0\,
       R => '0'
@@ -17063,7 +17134,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[15]_rep_n_0\,
       R => '0'
@@ -17074,7 +17145,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__0_n_0\,
       R => '0'
@@ -17085,7 +17156,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__1_n_0\,
       R => '0'
@@ -17096,7 +17167,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__10_n_0\,
       R => '0'
@@ -17107,7 +17178,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__11_n_0\,
       R => '0'
@@ -17118,7 +17189,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__12_n_0\,
       R => '0'
@@ -17129,7 +17200,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__13_n_0\,
       R => '0'
@@ -17140,7 +17211,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__14_n_0\,
       R => '0'
@@ -17151,7 +17222,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__15_n_0\,
       R => '0'
@@ -17162,7 +17233,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__16_n_0\,
       R => '0'
@@ -17173,7 +17244,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__17_n_0\,
       R => '0'
@@ -17184,7 +17255,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__18_n_0\,
       R => '0'
@@ -17195,7 +17266,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__19_n_0\,
       R => '0'
@@ -17206,7 +17277,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__2_n_0\,
       R => '0'
@@ -17217,7 +17288,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__20_n_0\,
       R => '0'
@@ -17228,7 +17299,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__21_n_0\,
       R => '0'
@@ -17239,7 +17310,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__22_n_0\,
       R => '0'
@@ -17250,7 +17321,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__23_n_0\,
       R => '0'
@@ -17261,7 +17332,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__24_n_0\,
       R => '0'
@@ -17272,7 +17343,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__3_n_0\,
       R => '0'
@@ -17283,7 +17354,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__4_n_0\,
       R => '0'
@@ -17294,7 +17365,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__5_n_0\,
       R => '0'
@@ -17305,7 +17376,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__6_n_0\,
       R => '0'
@@ -17316,7 +17387,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__7_n_0\,
       R => '0'
@@ -17327,7 +17398,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__8_n_0\,
       R => '0'
@@ -17338,7 +17409,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[15]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[15]_rep__9_n_0\,
       R => '0'
@@ -17349,7 +17420,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[1]_rep_n_0\,
       R => '0'
@@ -17360,7 +17431,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__0_n_0\,
       R => '0'
@@ -17371,7 +17442,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__1_n_0\,
       R => '0'
@@ -17382,7 +17453,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__10_n_0\,
       R => '0'
@@ -17393,7 +17464,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__11_n_0\,
       R => '0'
@@ -17404,7 +17475,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__12_n_0\,
       R => '0'
@@ -17415,7 +17486,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__13_n_0\,
       R => '0'
@@ -17426,7 +17497,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__14_n_0\,
       R => '0'
@@ -17437,7 +17508,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__15_n_0\,
       R => '0'
@@ -17448,7 +17519,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__16_n_0\,
       R => '0'
@@ -17459,7 +17530,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__17_n_0\,
       R => '0'
@@ -17470,7 +17541,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__18_n_0\,
       R => '0'
@@ -17481,7 +17552,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__19_n_0\,
       R => '0'
@@ -17492,7 +17563,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__2_n_0\,
       R => '0'
@@ -17503,7 +17574,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__20_n_0\,
       R => '0'
@@ -17514,7 +17585,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__21_n_0\,
       R => '0'
@@ -17525,7 +17596,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__22_n_0\,
       R => '0'
@@ -17536,7 +17607,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__23_n_0\,
       R => '0'
@@ -17547,7 +17618,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__24_n_0\,
       R => '0'
@@ -17558,7 +17629,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__3_n_0\,
       R => '0'
@@ -17569,7 +17640,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__4_n_0\,
       R => '0'
@@ -17580,7 +17651,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__5_n_0\,
       R => '0'
@@ -17591,7 +17662,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__6_n_0\,
       R => '0'
@@ -17602,7 +17673,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__7_n_0\,
       R => '0'
@@ -17613,7 +17684,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__8_n_0\,
       R => '0'
@@ -17624,7 +17695,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[1]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[1]_rep__9_n_0\,
       R => '0'
@@ -17635,7 +17706,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[2]_rep_n_0\,
       R => '0'
@@ -17646,7 +17717,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__0_n_0\,
       R => '0'
@@ -17657,7 +17728,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__1_n_0\,
       R => '0'
@@ -17668,7 +17739,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__10_n_0\,
       R => '0'
@@ -17679,7 +17750,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__11_n_0\,
       R => '0'
@@ -17690,7 +17761,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__12_n_0\,
       R => '0'
@@ -17701,7 +17772,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__13_n_0\,
       R => '0'
@@ -17712,7 +17783,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__14_n_0\,
       R => '0'
@@ -17723,7 +17794,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__15_n_0\,
       R => '0'
@@ -17734,7 +17805,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__16_n_0\,
       R => '0'
@@ -17745,7 +17816,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__17_n_0\,
       R => '0'
@@ -17756,7 +17827,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__18_n_0\,
       R => '0'
@@ -17767,7 +17838,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__19_n_0\,
       R => '0'
@@ -17778,7 +17849,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__2_n_0\,
       R => '0'
@@ -17789,7 +17860,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__20_n_0\,
       R => '0'
@@ -17800,7 +17871,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__21_n_0\,
       R => '0'
@@ -17811,7 +17882,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__22_n_0\,
       R => '0'
@@ -17822,7 +17893,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__23_n_0\,
       R => '0'
@@ -17833,7 +17904,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__24_n_0\,
       R => '0'
@@ -17844,7 +17915,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__3_n_0\,
       R => '0'
@@ -17855,7 +17926,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__4_n_0\,
       R => '0'
@@ -17866,7 +17937,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__5_n_0\,
       R => '0'
@@ -17877,7 +17948,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__6_n_0\,
       R => '0'
@@ -17888,7 +17959,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__7_n_0\,
       R => '0'
@@ -17899,7 +17970,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__8_n_0\,
       R => '0'
@@ -17910,7 +17981,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[2]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[2]_rep__9_n_0\,
       R => '0'
@@ -17921,7 +17992,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[3]_rep_n_0\,
       R => '0'
@@ -17932,7 +18003,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__0_n_0\,
       R => '0'
@@ -17943,7 +18014,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__1_n_0\,
       R => '0'
@@ -17954,7 +18025,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__10_n_0\,
       R => '0'
@@ -17965,7 +18036,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__11_n_0\,
       R => '0'
@@ -17976,7 +18047,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__12_n_0\,
       R => '0'
@@ -17987,7 +18058,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__13_n_0\,
       R => '0'
@@ -17998,7 +18069,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__14_n_0\,
       R => '0'
@@ -18009,7 +18080,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__15_n_0\,
       R => '0'
@@ -18020,7 +18091,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__16_n_0\,
       R => '0'
@@ -18031,7 +18102,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__17_n_0\,
       R => '0'
@@ -18042,7 +18113,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__18_n_0\,
       R => '0'
@@ -18053,7 +18124,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__19_n_0\,
       R => '0'
@@ -18064,7 +18135,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__2_n_0\,
       R => '0'
@@ -18075,7 +18146,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__20_n_0\,
       R => '0'
@@ -18086,7 +18157,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__21_n_0\,
       R => '0'
@@ -18097,7 +18168,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__22_n_0\,
       R => '0'
@@ -18108,7 +18179,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__23_n_0\,
       R => '0'
@@ -18119,7 +18190,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__24_n_0\,
       R => '0'
@@ -18130,7 +18201,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__3_n_0\,
       R => '0'
@@ -18141,7 +18212,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__4_n_0\,
       R => '0'
@@ -18152,7 +18223,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__5_n_0\,
       R => '0'
@@ -18163,7 +18234,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__6_n_0\,
       R => '0'
@@ -18174,7 +18245,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__7_n_0\,
       R => '0'
@@ -18185,7 +18256,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__8_n_0\,
       R => '0'
@@ -18196,7 +18267,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[3]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[3]_rep__9_n_0\,
       R => '0'
@@ -18207,7 +18278,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[4]_rep_n_0\,
       R => '0'
@@ -18218,7 +18289,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__0_n_0\,
       R => '0'
@@ -18229,7 +18300,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__1_n_0\,
       R => '0'
@@ -18240,7 +18311,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__10_n_0\,
       R => '0'
@@ -18251,7 +18322,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__11_n_0\,
       R => '0'
@@ -18262,7 +18333,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__12_n_0\,
       R => '0'
@@ -18273,7 +18344,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__13_n_0\,
       R => '0'
@@ -18284,7 +18355,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__14_n_0\,
       R => '0'
@@ -18295,7 +18366,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__15_n_0\,
       R => '0'
@@ -18306,7 +18377,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__16_n_0\,
       R => '0'
@@ -18317,7 +18388,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__17_n_0\,
       R => '0'
@@ -18328,7 +18399,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__18_n_0\,
       R => '0'
@@ -18339,7 +18410,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__19_n_0\,
       R => '0'
@@ -18350,7 +18421,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__2_n_0\,
       R => '0'
@@ -18361,7 +18432,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__20_n_0\,
       R => '0'
@@ -18372,7 +18443,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__21_n_0\,
       R => '0'
@@ -18383,7 +18454,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__22_n_0\,
       R => '0'
@@ -18394,7 +18465,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__23_n_0\,
       R => '0'
@@ -18405,7 +18476,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__24_n_0\,
       R => '0'
@@ -18416,7 +18487,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__3_n_0\,
       R => '0'
@@ -18427,7 +18498,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__4_n_0\,
       R => '0'
@@ -18438,7 +18509,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__5_n_0\,
       R => '0'
@@ -18449,7 +18520,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__6_n_0\,
       R => '0'
@@ -18460,7 +18531,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__7_n_0\,
       R => '0'
@@ -18471,7 +18542,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__8_n_0\,
       R => '0'
@@ -18482,7 +18553,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[4]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[4]_rep__9_n_0\,
       R => '0'
@@ -18493,7 +18564,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[5]_rep_n_0\,
       R => '0'
@@ -18504,7 +18575,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__0_n_0\,
       R => '0'
@@ -18515,7 +18586,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__1_n_0\,
       R => '0'
@@ -18526,7 +18597,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__10_n_0\,
       R => '0'
@@ -18537,7 +18608,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__11_n_0\,
       R => '0'
@@ -18548,7 +18619,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__12_n_0\,
       R => '0'
@@ -18559,7 +18630,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__13_n_0\,
       R => '0'
@@ -18570,7 +18641,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__14_n_0\,
       R => '0'
@@ -18581,7 +18652,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__15_n_0\,
       R => '0'
@@ -18592,7 +18663,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__16_n_0\,
       R => '0'
@@ -18603,7 +18674,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__17_n_0\,
       R => '0'
@@ -18614,7 +18685,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__18_n_0\,
       R => '0'
@@ -18625,7 +18696,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__19_n_0\,
       R => '0'
@@ -18636,7 +18707,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__2_n_0\,
       R => '0'
@@ -18647,7 +18718,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__20_n_0\,
       R => '0'
@@ -18658,7 +18729,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__21_n_0\,
       R => '0'
@@ -18669,7 +18740,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__22_n_0\,
       R => '0'
@@ -18680,7 +18751,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__23_n_0\,
       R => '0'
@@ -18691,7 +18762,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__24_n_0\,
       R => '0'
@@ -18702,7 +18773,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__3_n_0\,
       R => '0'
@@ -18713,7 +18784,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__4_n_0\,
       R => '0'
@@ -18724,7 +18795,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__5_n_0\,
       R => '0'
@@ -18735,7 +18806,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__6_n_0\,
       R => '0'
@@ -18746,7 +18817,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__7_n_0\,
       R => '0'
@@ -18757,7 +18828,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__8_n_0\,
       R => '0'
@@ -18768,7 +18839,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[5]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[5]_rep__9_n_0\,
       R => '0'
@@ -18779,7 +18850,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[6]_rep_n_0\,
       R => '0'
@@ -18790,7 +18861,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__0_n_0\,
       R => '0'
@@ -18801,7 +18872,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__1_n_0\,
       R => '0'
@@ -18812,7 +18883,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__10_n_0\,
       R => '0'
@@ -18823,7 +18894,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__11_n_0\,
       R => '0'
@@ -18834,7 +18905,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__12_n_0\,
       R => '0'
@@ -18845,7 +18916,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__13_n_0\,
       R => '0'
@@ -18856,7 +18927,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__14_n_0\,
       R => '0'
@@ -18867,7 +18938,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__15_n_0\,
       R => '0'
@@ -18878,7 +18949,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__16_n_0\,
       R => '0'
@@ -18889,7 +18960,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__17_n_0\,
       R => '0'
@@ -18900,7 +18971,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__18_n_0\,
       R => '0'
@@ -18911,7 +18982,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__19_n_0\,
       R => '0'
@@ -18922,7 +18993,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__2_n_0\,
       R => '0'
@@ -18933,7 +19004,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__20_n_0\,
       R => '0'
@@ -18944,7 +19015,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__21_n_0\,
       R => '0'
@@ -18955,7 +19026,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__22_n_0\,
       R => '0'
@@ -18966,7 +19037,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__23_n_0\,
       R => '0'
@@ -18977,7 +19048,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__24_n_0\,
       R => '0'
@@ -18988,7 +19059,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__3_n_0\,
       R => '0'
@@ -18999,7 +19070,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__4_n_0\,
       R => '0'
@@ -19010,7 +19081,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__5_n_0\,
       R => '0'
@@ -19021,7 +19092,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__6_n_0\,
       R => '0'
@@ -19032,7 +19103,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__7_n_0\,
       R => '0'
@@ -19043,7 +19114,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__8_n_0\,
       R => '0'
@@ -19054,7 +19125,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[6]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[6]_rep__9_n_0\,
       R => '0'
@@ -19065,7 +19136,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[7]_rep_n_0\,
       R => '0'
@@ -19076,7 +19147,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__0_n_0\,
       R => '0'
@@ -19087,7 +19158,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__1_n_0\,
       R => '0'
@@ -19098,7 +19169,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__10_n_0\,
       R => '0'
@@ -19109,7 +19180,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__11_n_0\,
       R => '0'
@@ -19120,7 +19191,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__12_n_0\,
       R => '0'
@@ -19131,7 +19202,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__13_n_0\,
       R => '0'
@@ -19142,7 +19213,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__14_n_0\,
       R => '0'
@@ -19153,7 +19224,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__15_n_0\,
       R => '0'
@@ -19164,7 +19235,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__16_n_0\,
       R => '0'
@@ -19175,7 +19246,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__17_n_0\,
       R => '0'
@@ -19186,7 +19257,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__18_n_0\,
       R => '0'
@@ -19197,7 +19268,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__19_n_0\,
       R => '0'
@@ -19208,7 +19279,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__2_n_0\,
       R => '0'
@@ -19219,7 +19290,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__20_n_0\,
       R => '0'
@@ -19230,7 +19301,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__21_n_0\,
       R => '0'
@@ -19241,7 +19312,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__22_n_0\,
       R => '0'
@@ -19252,7 +19323,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__23_n_0\,
       R => '0'
@@ -19263,7 +19334,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__24_n_0\,
       R => '0'
@@ -19274,7 +19345,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__3_n_0\,
       R => '0'
@@ -19285,7 +19356,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__4_n_0\,
       R => '0'
@@ -19296,7 +19367,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__5_n_0\,
       R => '0'
@@ -19307,7 +19378,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__6_n_0\,
       R => '0'
@@ -19318,7 +19389,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__7_n_0\,
       R => '0'
@@ -19329,7 +19400,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__8_n_0\,
       R => '0'
@@ -19340,7 +19411,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[7]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[7]_rep__9_n_0\,
       R => '0'
@@ -19351,7 +19422,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[8]_rep_n_0\,
       R => '0'
@@ -19362,7 +19433,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__0_n_0\,
       R => '0'
@@ -19373,7 +19444,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__1_n_0\,
       R => '0'
@@ -19384,7 +19455,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__10_n_0\,
       R => '0'
@@ -19395,7 +19466,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__11_n_0\,
       R => '0'
@@ -19406,7 +19477,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__12_n_0\,
       R => '0'
@@ -19417,7 +19488,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__13_n_0\,
       R => '0'
@@ -19428,7 +19499,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__14_n_0\,
       R => '0'
@@ -19439,7 +19510,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__15_n_0\,
       R => '0'
@@ -19450,7 +19521,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__16_n_0\,
       R => '0'
@@ -19461,7 +19532,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__17_n_0\,
       R => '0'
@@ -19472,7 +19543,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__18_n_0\,
       R => '0'
@@ -19483,7 +19554,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__19_n_0\,
       R => '0'
@@ -19494,7 +19565,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__2_n_0\,
       R => '0'
@@ -19505,7 +19576,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__20_n_0\,
       R => '0'
@@ -19516,7 +19587,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__21_n_0\,
       R => '0'
@@ -19527,7 +19598,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__22_n_0\,
       R => '0'
@@ -19538,7 +19609,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__23_n_0\,
       R => '0'
@@ -19549,7 +19620,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__24_n_0\,
       R => '0'
@@ -19560,7 +19631,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__3_n_0\,
       R => '0'
@@ -19571,7 +19642,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__4_n_0\,
       R => '0'
@@ -19582,7 +19653,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__5_n_0\,
       R => '0'
@@ -19593,7 +19664,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__6_n_0\,
       R => '0'
@@ -19604,7 +19675,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__7_n_0\,
       R => '0'
@@ -19615,7 +19686,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__8_n_0\,
       R => '0'
@@ -19626,7 +19697,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[8]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[8]_rep__9_n_0\,
       R => '0'
@@ -19637,7 +19708,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1_n_0\,
       Q => \Quadrature_addr_reg[9]_rep_n_0\,
       R => '0'
@@ -19648,7 +19719,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__0_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__0_n_0\,
       R => '0'
@@ -19659,7 +19730,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__1_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__1_n_0\,
       R => '0'
@@ -19670,7 +19741,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__10_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__10_n_0\,
       R => '0'
@@ -19681,7 +19752,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__11_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__11_n_0\,
       R => '0'
@@ -19692,7 +19763,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__12_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__12_n_0\,
       R => '0'
@@ -19703,7 +19774,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__13_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__13_n_0\,
       R => '0'
@@ -19714,7 +19785,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__14_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__14_n_0\,
       R => '0'
@@ -19725,7 +19796,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__15_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__15_n_0\,
       R => '0'
@@ -19736,7 +19807,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__16_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__16_n_0\,
       R => '0'
@@ -19747,7 +19818,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__17_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__17_n_0\,
       R => '0'
@@ -19758,7 +19829,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__18_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__18_n_0\,
       R => '0'
@@ -19769,7 +19840,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__19_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__19_n_0\,
       R => '0'
@@ -19780,7 +19851,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__2_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__2_n_0\,
       R => '0'
@@ -19791,7 +19862,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__20_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__20_n_0\,
       R => '0'
@@ -19802,7 +19873,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__21_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__21_n_0\,
       R => '0'
@@ -19813,7 +19884,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__22_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__22_n_0\,
       R => '0'
@@ -19824,7 +19895,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__23_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__23_n_0\,
       R => '0'
@@ -19835,7 +19906,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__24_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__24_n_0\,
       R => '0'
@@ -19846,7 +19917,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__3_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__3_n_0\,
       R => '0'
@@ -19857,7 +19928,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__4_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__4_n_0\,
       R => '0'
@@ -19868,7 +19939,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__5_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__5_n_0\,
       R => '0'
@@ -19879,7 +19950,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__6_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__6_n_0\,
       R => '0'
@@ -19890,7 +19961,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__7_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__7_n_0\,
       R => '0'
@@ -19901,7 +19972,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__8_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__8_n_0\,
       R => '0'
@@ -19912,7 +19983,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \Quadrature_addr[9]_rep_i_1__9_n_0\,
       Q => \Quadrature_addr_reg[9]_rep__9_n_0\,
       R => '0'
@@ -25629,8 +25700,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__0_i_1_n_0\
     );
 \dataAddr[0]_rep__10_i_1\: unisim.vcomponents.LUT2
@@ -25638,8 +25709,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__10_i_1_n_0\
     );
 \dataAddr[0]_rep__11_i_1\: unisim.vcomponents.LUT2
@@ -25647,8 +25718,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__11_i_1_n_0\
     );
 \dataAddr[0]_rep__12_i_1\: unisim.vcomponents.LUT2
@@ -25656,8 +25727,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__12_i_1_n_0\
     );
 \dataAddr[0]_rep__13_i_1\: unisim.vcomponents.LUT2
@@ -25665,8 +25736,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__13_i_1_n_0\
     );
 \dataAddr[0]_rep__14_i_1\: unisim.vcomponents.LUT2
@@ -25674,8 +25745,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__14_i_1_n_0\
     );
 \dataAddr[0]_rep__15_i_1\: unisim.vcomponents.LUT2
@@ -25683,8 +25754,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__15_i_1_n_0\
     );
 \dataAddr[0]_rep__16_i_1\: unisim.vcomponents.LUT2
@@ -25692,8 +25763,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__16_i_1_n_0\
     );
 \dataAddr[0]_rep__17_i_1\: unisim.vcomponents.LUT2
@@ -25701,8 +25772,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__17_i_1_n_0\
     );
 \dataAddr[0]_rep__18_i_1\: unisim.vcomponents.LUT2
@@ -25710,8 +25781,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__18_i_1_n_0\
     );
 \dataAddr[0]_rep__19_i_1\: unisim.vcomponents.LUT2
@@ -25719,8 +25790,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__19_i_1_n_0\
     );
 \dataAddr[0]_rep__1_i_1\: unisim.vcomponents.LUT2
@@ -25728,8 +25799,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__1_i_1_n_0\
     );
 \dataAddr[0]_rep__20_i_1\: unisim.vcomponents.LUT2
@@ -25737,8 +25808,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__20_i_1_n_0\
     );
 \dataAddr[0]_rep__21_i_1\: unisim.vcomponents.LUT2
@@ -25746,8 +25817,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__21_i_1_n_0\
     );
 \dataAddr[0]_rep__22_i_1\: unisim.vcomponents.LUT2
@@ -25755,8 +25826,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__22_i_1_n_0\
     );
 \dataAddr[0]_rep__23_i_1\: unisim.vcomponents.LUT2
@@ -25764,8 +25835,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__23_i_1_n_0\
     );
 \dataAddr[0]_rep__24_i_1\: unisim.vcomponents.LUT2
@@ -25773,8 +25844,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__24_i_1_n_0\
     );
 \dataAddr[0]_rep__2_i_1\: unisim.vcomponents.LUT2
@@ -25782,8 +25853,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__2_i_1_n_0\
     );
 \dataAddr[0]_rep__3_i_1\: unisim.vcomponents.LUT2
@@ -25791,8 +25862,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__3_i_1_n_0\
     );
 \dataAddr[0]_rep__4_i_1\: unisim.vcomponents.LUT2
@@ -25800,8 +25871,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__4_i_1_n_0\
     );
 \dataAddr[0]_rep__5_i_1\: unisim.vcomponents.LUT2
@@ -25809,8 +25880,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__5_i_1_n_0\
     );
 \dataAddr[0]_rep__6_i_1\: unisim.vcomponents.LUT2
@@ -25818,8 +25889,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__6_i_1_n_0\
     );
 \dataAddr[0]_rep__7_i_1\: unisim.vcomponents.LUT2
@@ -25827,8 +25898,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__7_i_1_n_0\
     );
 \dataAddr[0]_rep__8_i_1\: unisim.vcomponents.LUT2
@@ -25836,8 +25907,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__8_i_1_n_0\
     );
 \dataAddr[0]_rep__9_i_1\: unisim.vcomponents.LUT2
@@ -25845,8 +25916,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep__9_i_1_n_0\
     );
 \dataAddr[0]_rep_i_1\: unisim.vcomponents.LUT2
@@ -25854,8 +25925,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(14),
-      I1 => \^phase_measured\(30),
+      I0 => L(14),
+      I1 => p_0_in(0),
       O => \dataAddr[0]_rep_i_1_n_0\
     );
 \dataAddr[10]_rep_i_1\: unisim.vcomponents.LUT2
@@ -25863,8 +25934,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1_n_0\
     );
 \dataAddr[10]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -25872,8 +25943,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__0_n_0\
     );
 \dataAddr[10]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -25881,8 +25952,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__1_n_0\
     );
 \dataAddr[10]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -25890,8 +25961,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__10_n_0\
     );
 \dataAddr[10]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -25899,8 +25970,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__11_n_0\
     );
 \dataAddr[10]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -25908,8 +25979,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__12_n_0\
     );
 \dataAddr[10]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -25917,8 +25988,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__13_n_0\
     );
 \dataAddr[10]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -25926,8 +25997,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__14_n_0\
     );
 \dataAddr[10]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -25935,8 +26006,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__15_n_0\
     );
 \dataAddr[10]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -25944,8 +26015,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__16_n_0\
     );
 \dataAddr[10]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -25953,8 +26024,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__17_n_0\
     );
 \dataAddr[10]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -25962,8 +26033,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__18_n_0\
     );
 \dataAddr[10]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -25971,8 +26042,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__19_n_0\
     );
 \dataAddr[10]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -25980,8 +26051,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__2_n_0\
     );
 \dataAddr[10]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -25989,8 +26060,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__20_n_0\
     );
 \dataAddr[10]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -25998,8 +26069,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__21_n_0\
     );
 \dataAddr[10]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -26007,8 +26078,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__22_n_0\
     );
 \dataAddr[10]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -26016,8 +26087,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__23_n_0\
     );
 \dataAddr[10]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -26025,8 +26096,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__24_n_0\
     );
 \dataAddr[10]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -26034,8 +26105,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__3_n_0\
     );
 \dataAddr[10]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -26043,8 +26114,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__4_n_0\
     );
 \dataAddr[10]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -26052,8 +26123,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__5_n_0\
     );
 \dataAddr[10]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -26061,8 +26132,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__6_n_0\
     );
 \dataAddr[10]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -26070,8 +26141,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__7_n_0\
     );
 \dataAddr[10]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -26079,8 +26150,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__8_n_0\
     );
 \dataAddr[10]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -26088,8 +26159,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(24),
-      I1 => \^phase_measured\(30),
+      I0 => L(24),
+      I1 => p_0_in(0),
       O => \dataAddr[10]_rep_i_1__9_n_0\
     );
 \dataAddr[11]_rep_i_1\: unisim.vcomponents.LUT2
@@ -26097,8 +26168,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1_n_0\
     );
 \dataAddr[11]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -26106,8 +26177,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__0_n_0\
     );
 \dataAddr[11]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -26115,8 +26186,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__1_n_0\
     );
 \dataAddr[11]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -26124,8 +26195,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__10_n_0\
     );
 \dataAddr[11]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -26133,8 +26204,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__11_n_0\
     );
 \dataAddr[11]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -26142,8 +26213,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__12_n_0\
     );
 \dataAddr[11]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -26151,8 +26222,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__13_n_0\
     );
 \dataAddr[11]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -26160,8 +26231,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__14_n_0\
     );
 \dataAddr[11]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -26169,8 +26240,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__15_n_0\
     );
 \dataAddr[11]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -26178,8 +26249,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__16_n_0\
     );
 \dataAddr[11]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -26187,8 +26258,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__17_n_0\
     );
 \dataAddr[11]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -26196,8 +26267,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__18_n_0\
     );
 \dataAddr[11]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -26205,8 +26276,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__19_n_0\
     );
 \dataAddr[11]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -26214,8 +26285,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__2_n_0\
     );
 \dataAddr[11]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -26223,8 +26294,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__20_n_0\
     );
 \dataAddr[11]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -26232,8 +26303,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__21_n_0\
     );
 \dataAddr[11]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -26241,8 +26312,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__22_n_0\
     );
 \dataAddr[11]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -26250,8 +26321,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__23_n_0\
     );
 \dataAddr[11]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -26259,8 +26330,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__24_n_0\
     );
 \dataAddr[11]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -26268,8 +26339,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__3_n_0\
     );
 \dataAddr[11]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -26277,8 +26348,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__4_n_0\
     );
 \dataAddr[11]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -26286,8 +26357,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__5_n_0\
     );
 \dataAddr[11]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -26295,8 +26366,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__6_n_0\
     );
 \dataAddr[11]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -26304,8 +26375,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__7_n_0\
     );
 \dataAddr[11]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -26313,8 +26384,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__8_n_0\
     );
 \dataAddr[11]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -26322,8 +26393,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(25),
-      I1 => \^phase_measured\(30),
+      I0 => L(25),
+      I1 => p_0_in(0),
       O => \dataAddr[11]_rep_i_1__9_n_0\
     );
 \dataAddr[12]_rep_i_1\: unisim.vcomponents.LUT2
@@ -26331,8 +26402,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1_n_0\
     );
 \dataAddr[12]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -26340,8 +26411,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__0_n_0\
     );
 \dataAddr[12]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -26349,8 +26420,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__1_n_0\
     );
 \dataAddr[12]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -26358,8 +26429,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__10_n_0\
     );
 \dataAddr[12]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -26367,8 +26438,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__11_n_0\
     );
 \dataAddr[12]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -26376,8 +26447,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__12_n_0\
     );
 \dataAddr[12]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -26385,8 +26456,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__13_n_0\
     );
 \dataAddr[12]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -26394,8 +26465,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__14_n_0\
     );
 \dataAddr[12]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -26403,8 +26474,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__15_n_0\
     );
 \dataAddr[12]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -26412,8 +26483,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__16_n_0\
     );
 \dataAddr[12]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -26421,8 +26492,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__17_n_0\
     );
 \dataAddr[12]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -26430,8 +26501,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__18_n_0\
     );
 \dataAddr[12]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -26439,8 +26510,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__19_n_0\
     );
 \dataAddr[12]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -26448,8 +26519,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__2_n_0\
     );
 \dataAddr[12]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -26457,8 +26528,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__20_n_0\
     );
 \dataAddr[12]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -26466,8 +26537,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__21_n_0\
     );
 \dataAddr[12]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -26475,8 +26546,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__22_n_0\
     );
 \dataAddr[12]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -26484,8 +26555,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__23_n_0\
     );
 \dataAddr[12]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -26493,8 +26564,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__24_n_0\
     );
 \dataAddr[12]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -26502,8 +26573,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__3_n_0\
     );
 \dataAddr[12]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -26511,8 +26582,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__4_n_0\
     );
 \dataAddr[12]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -26520,8 +26591,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__5_n_0\
     );
 \dataAddr[12]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -26529,8 +26600,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__6_n_0\
     );
 \dataAddr[12]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -26538,8 +26609,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__7_n_0\
     );
 \dataAddr[12]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -26547,8 +26618,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__8_n_0\
     );
 \dataAddr[12]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -26556,8 +26627,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(26),
-      I1 => \^phase_measured\(30),
+      I0 => L(26),
+      I1 => p_0_in(0),
       O => \dataAddr[12]_rep_i_1__9_n_0\
     );
 \dataAddr[13]_rep_i_1\: unisim.vcomponents.LUT2
@@ -26565,8 +26636,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1_n_0\
     );
 \dataAddr[13]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -26574,8 +26645,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__0_n_0\
     );
 \dataAddr[13]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -26583,8 +26654,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__1_n_0\
     );
 \dataAddr[13]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -26592,8 +26663,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__10_n_0\
     );
 \dataAddr[13]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -26601,8 +26672,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__11_n_0\
     );
 \dataAddr[13]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -26610,8 +26681,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__12_n_0\
     );
 \dataAddr[13]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -26619,8 +26690,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__13_n_0\
     );
 \dataAddr[13]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -26628,8 +26699,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__14_n_0\
     );
 \dataAddr[13]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -26637,8 +26708,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__15_n_0\
     );
 \dataAddr[13]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -26646,8 +26717,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__16_n_0\
     );
 \dataAddr[13]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -26655,8 +26726,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__17_n_0\
     );
 \dataAddr[13]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -26664,8 +26735,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__18_n_0\
     );
 \dataAddr[13]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -26673,8 +26744,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__19_n_0\
     );
 \dataAddr[13]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -26682,8 +26753,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__2_n_0\
     );
 \dataAddr[13]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -26691,8 +26762,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__20_n_0\
     );
 \dataAddr[13]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -26700,8 +26771,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__21_n_0\
     );
 \dataAddr[13]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -26709,8 +26780,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__22_n_0\
     );
 \dataAddr[13]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -26718,8 +26789,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__23_n_0\
     );
 \dataAddr[13]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -26727,8 +26798,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__24_n_0\
     );
 \dataAddr[13]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -26736,8 +26807,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__3_n_0\
     );
 \dataAddr[13]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -26745,8 +26816,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__4_n_0\
     );
 \dataAddr[13]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -26754,8 +26825,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__5_n_0\
     );
 \dataAddr[13]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -26763,8 +26834,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__6_n_0\
     );
 \dataAddr[13]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -26772,8 +26843,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__7_n_0\
     );
 \dataAddr[13]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -26781,8 +26852,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__8_n_0\
     );
 \dataAddr[13]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -26790,8 +26861,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(27),
-      I1 => \^phase_measured\(30),
+      I0 => L(27),
+      I1 => p_0_in(0),
       O => \dataAddr[13]_rep_i_1__9_n_0\
     );
 \dataAddr[14]_rep_i_1\: unisim.vcomponents.LUT2
@@ -26799,8 +26870,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1_n_0\
     );
 \dataAddr[14]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -26808,8 +26879,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__0_n_0\
     );
 \dataAddr[14]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -26817,8 +26888,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__1_n_0\
     );
 \dataAddr[14]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -26826,8 +26897,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__10_n_0\
     );
 \dataAddr[14]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -26835,8 +26906,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__11_n_0\
     );
 \dataAddr[14]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -26844,8 +26915,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__12_n_0\
     );
 \dataAddr[14]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -26853,8 +26924,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__13_n_0\
     );
 \dataAddr[14]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -26862,8 +26933,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__14_n_0\
     );
 \dataAddr[14]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -26871,8 +26942,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__15_n_0\
     );
 \dataAddr[14]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -26880,8 +26951,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__16_n_0\
     );
 \dataAddr[14]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -26889,8 +26960,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__17_n_0\
     );
 \dataAddr[14]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -26898,8 +26969,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__18_n_0\
     );
 \dataAddr[14]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -26907,8 +26978,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__19_n_0\
     );
 \dataAddr[14]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -26916,8 +26987,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__2_n_0\
     );
 \dataAddr[14]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -26925,8 +26996,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__20_n_0\
     );
 \dataAddr[14]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -26934,8 +27005,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__21_n_0\
     );
 \dataAddr[14]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -26943,8 +27014,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__22_n_0\
     );
 \dataAddr[14]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -26952,8 +27023,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__23_n_0\
     );
 \dataAddr[14]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -26961,8 +27032,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__24_n_0\
     );
 \dataAddr[14]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -26970,8 +27041,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__3_n_0\
     );
 \dataAddr[14]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -26979,8 +27050,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__4_n_0\
     );
 \dataAddr[14]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -26988,8 +27059,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__5_n_0\
     );
 \dataAddr[14]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -26997,8 +27068,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__6_n_0\
     );
 \dataAddr[14]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -27006,8 +27077,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__7_n_0\
     );
 \dataAddr[14]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -27015,8 +27086,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__8_n_0\
     );
 \dataAddr[14]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -27024,8 +27095,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(28),
-      I1 => \^phase_measured\(30),
+      I0 => L(28),
+      I1 => p_0_in(0),
       O => \dataAddr[14]_rep_i_1__9_n_0\
     );
 \dataAddr[15]_rep_i_1\: unisim.vcomponents.LUT2
@@ -27033,8 +27104,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1_n_0\
     );
 \dataAddr[15]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -27042,8 +27113,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__0_n_0\
     );
 \dataAddr[15]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -27051,8 +27122,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__1_n_0\
     );
 \dataAddr[15]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -27060,8 +27131,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__10_n_0\
     );
 \dataAddr[15]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -27069,8 +27140,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__11_n_0\
     );
 \dataAddr[15]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -27078,8 +27149,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__12_n_0\
     );
 \dataAddr[15]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -27087,8 +27158,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__13_n_0\
     );
 \dataAddr[15]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -27096,8 +27167,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__14_n_0\
     );
 \dataAddr[15]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -27105,8 +27176,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__15_n_0\
     );
 \dataAddr[15]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -27114,8 +27185,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__16_n_0\
     );
 \dataAddr[15]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -27123,8 +27194,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__17_n_0\
     );
 \dataAddr[15]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -27132,8 +27203,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__18_n_0\
     );
 \dataAddr[15]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -27141,8 +27212,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__19_n_0\
     );
 \dataAddr[15]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -27150,8 +27221,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__2_n_0\
     );
 \dataAddr[15]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -27159,8 +27230,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__20_n_0\
     );
 \dataAddr[15]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -27168,8 +27239,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__21_n_0\
     );
 \dataAddr[15]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -27177,8 +27248,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__22_n_0\
     );
 \dataAddr[15]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -27186,8 +27257,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__23_n_0\
     );
 \dataAddr[15]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -27195,8 +27266,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__24_n_0\
     );
 \dataAddr[15]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -27204,8 +27275,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__3_n_0\
     );
 \dataAddr[15]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -27213,8 +27284,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__4_n_0\
     );
 \dataAddr[15]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -27222,8 +27293,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__5_n_0\
     );
 \dataAddr[15]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -27231,8 +27302,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__6_n_0\
     );
 \dataAddr[15]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -27240,8 +27311,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__7_n_0\
     );
 \dataAddr[15]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -27249,8 +27320,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__8_n_0\
     );
 \dataAddr[15]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -27258,8 +27329,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(29),
-      I1 => \^phase_measured\(30),
+      I0 => L(29),
+      I1 => p_0_in(0),
       O => \dataAddr[15]_rep_i_1__9_n_0\
     );
 \dataAddr[1]_rep_i_1\: unisim.vcomponents.LUT2
@@ -27267,8 +27338,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1_n_0\
     );
 \dataAddr[1]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -27276,8 +27347,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__0_n_0\
     );
 \dataAddr[1]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -27285,8 +27356,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__1_n_0\
     );
 \dataAddr[1]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -27294,8 +27365,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__10_n_0\
     );
 \dataAddr[1]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -27303,8 +27374,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__11_n_0\
     );
 \dataAddr[1]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -27312,8 +27383,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__12_n_0\
     );
 \dataAddr[1]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -27321,8 +27392,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__13_n_0\
     );
 \dataAddr[1]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -27330,8 +27401,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__14_n_0\
     );
 \dataAddr[1]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -27339,8 +27410,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__15_n_0\
     );
 \dataAddr[1]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -27348,8 +27419,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__16_n_0\
     );
 \dataAddr[1]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -27357,8 +27428,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__17_n_0\
     );
 \dataAddr[1]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -27366,8 +27437,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__18_n_0\
     );
 \dataAddr[1]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -27375,8 +27446,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__19_n_0\
     );
 \dataAddr[1]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -27384,8 +27455,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__2_n_0\
     );
 \dataAddr[1]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -27393,8 +27464,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__20_n_0\
     );
 \dataAddr[1]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -27402,8 +27473,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__21_n_0\
     );
 \dataAddr[1]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -27411,8 +27482,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__22_n_0\
     );
 \dataAddr[1]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -27420,8 +27491,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__23_n_0\
     );
 \dataAddr[1]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -27429,8 +27500,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__24_n_0\
     );
 \dataAddr[1]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -27438,8 +27509,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__3_n_0\
     );
 \dataAddr[1]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -27447,8 +27518,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__4_n_0\
     );
 \dataAddr[1]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -27456,8 +27527,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__5_n_0\
     );
 \dataAddr[1]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -27465,8 +27536,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__6_n_0\
     );
 \dataAddr[1]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -27474,8 +27545,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__7_n_0\
     );
 \dataAddr[1]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -27483,8 +27554,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__8_n_0\
     );
 \dataAddr[1]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -27492,8 +27563,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(15),
-      I1 => \^phase_measured\(30),
+      I0 => L(15),
+      I1 => p_0_in(0),
       O => \dataAddr[1]_rep_i_1__9_n_0\
     );
 \dataAddr[2]_rep_i_1\: unisim.vcomponents.LUT2
@@ -27501,8 +27572,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1_n_0\
     );
 \dataAddr[2]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -27510,8 +27581,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__0_n_0\
     );
 \dataAddr[2]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -27519,8 +27590,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__1_n_0\
     );
 \dataAddr[2]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -27528,8 +27599,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__10_n_0\
     );
 \dataAddr[2]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -27537,8 +27608,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__11_n_0\
     );
 \dataAddr[2]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -27546,8 +27617,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__12_n_0\
     );
 \dataAddr[2]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -27555,8 +27626,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__13_n_0\
     );
 \dataAddr[2]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -27564,8 +27635,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__14_n_0\
     );
 \dataAddr[2]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -27573,8 +27644,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__15_n_0\
     );
 \dataAddr[2]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -27582,8 +27653,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__16_n_0\
     );
 \dataAddr[2]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -27591,8 +27662,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__17_n_0\
     );
 \dataAddr[2]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -27600,8 +27671,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__18_n_0\
     );
 \dataAddr[2]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -27609,8 +27680,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__19_n_0\
     );
 \dataAddr[2]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -27618,8 +27689,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__2_n_0\
     );
 \dataAddr[2]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -27627,8 +27698,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__20_n_0\
     );
 \dataAddr[2]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -27636,8 +27707,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__21_n_0\
     );
 \dataAddr[2]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -27645,8 +27716,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__22_n_0\
     );
 \dataAddr[2]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -27654,8 +27725,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__23_n_0\
     );
 \dataAddr[2]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -27663,8 +27734,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__24_n_0\
     );
 \dataAddr[2]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -27672,8 +27743,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__3_n_0\
     );
 \dataAddr[2]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -27681,8 +27752,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__4_n_0\
     );
 \dataAddr[2]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -27690,8 +27761,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__5_n_0\
     );
 \dataAddr[2]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -27699,8 +27770,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__6_n_0\
     );
 \dataAddr[2]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -27708,8 +27779,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__7_n_0\
     );
 \dataAddr[2]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -27717,8 +27788,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__8_n_0\
     );
 \dataAddr[2]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -27726,8 +27797,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(16),
-      I1 => \^phase_measured\(30),
+      I0 => L(16),
+      I1 => p_0_in(0),
       O => \dataAddr[2]_rep_i_1__9_n_0\
     );
 \dataAddr[3]_rep_i_1\: unisim.vcomponents.LUT2
@@ -27735,8 +27806,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1_n_0\
     );
 \dataAddr[3]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -27744,8 +27815,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__0_n_0\
     );
 \dataAddr[3]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -27753,8 +27824,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__1_n_0\
     );
 \dataAddr[3]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -27762,8 +27833,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__10_n_0\
     );
 \dataAddr[3]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -27771,8 +27842,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__11_n_0\
     );
 \dataAddr[3]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -27780,8 +27851,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__12_n_0\
     );
 \dataAddr[3]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -27789,8 +27860,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__13_n_0\
     );
 \dataAddr[3]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -27798,8 +27869,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__14_n_0\
     );
 \dataAddr[3]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -27807,8 +27878,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__15_n_0\
     );
 \dataAddr[3]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -27816,8 +27887,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__16_n_0\
     );
 \dataAddr[3]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -27825,8 +27896,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__17_n_0\
     );
 \dataAddr[3]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -27834,8 +27905,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__18_n_0\
     );
 \dataAddr[3]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -27843,8 +27914,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__19_n_0\
     );
 \dataAddr[3]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -27852,8 +27923,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__2_n_0\
     );
 \dataAddr[3]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -27861,8 +27932,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__20_n_0\
     );
 \dataAddr[3]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -27870,8 +27941,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__21_n_0\
     );
 \dataAddr[3]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -27879,8 +27950,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__22_n_0\
     );
 \dataAddr[3]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -27888,8 +27959,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__23_n_0\
     );
 \dataAddr[3]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -27897,8 +27968,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__24_n_0\
     );
 \dataAddr[3]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -27906,8 +27977,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__3_n_0\
     );
 \dataAddr[3]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -27915,8 +27986,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__4_n_0\
     );
 \dataAddr[3]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -27924,8 +27995,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__5_n_0\
     );
 \dataAddr[3]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -27933,8 +28004,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__6_n_0\
     );
 \dataAddr[3]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -27942,8 +28013,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__7_n_0\
     );
 \dataAddr[3]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -27951,8 +28022,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__8_n_0\
     );
 \dataAddr[3]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -27960,8 +28031,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(17),
-      I1 => \^phase_measured\(30),
+      I0 => L(17),
+      I1 => p_0_in(0),
       O => \dataAddr[3]_rep_i_1__9_n_0\
     );
 \dataAddr[4]_rep_i_1\: unisim.vcomponents.LUT2
@@ -27969,8 +28040,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1_n_0\
     );
 \dataAddr[4]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -27978,8 +28049,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__0_n_0\
     );
 \dataAddr[4]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -27987,8 +28058,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__1_n_0\
     );
 \dataAddr[4]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -27996,8 +28067,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__10_n_0\
     );
 \dataAddr[4]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -28005,8 +28076,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__11_n_0\
     );
 \dataAddr[4]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -28014,8 +28085,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__12_n_0\
     );
 \dataAddr[4]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -28023,8 +28094,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__13_n_0\
     );
 \dataAddr[4]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -28032,8 +28103,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__14_n_0\
     );
 \dataAddr[4]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -28041,8 +28112,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__15_n_0\
     );
 \dataAddr[4]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -28050,8 +28121,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__16_n_0\
     );
 \dataAddr[4]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -28059,8 +28130,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__17_n_0\
     );
 \dataAddr[4]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -28068,8 +28139,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__18_n_0\
     );
 \dataAddr[4]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -28077,8 +28148,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__19_n_0\
     );
 \dataAddr[4]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -28086,8 +28157,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__2_n_0\
     );
 \dataAddr[4]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -28095,8 +28166,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__20_n_0\
     );
 \dataAddr[4]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -28104,8 +28175,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__21_n_0\
     );
 \dataAddr[4]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -28113,8 +28184,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__22_n_0\
     );
 \dataAddr[4]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -28122,8 +28193,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__23_n_0\
     );
 \dataAddr[4]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -28131,8 +28202,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__24_n_0\
     );
 \dataAddr[4]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -28140,8 +28211,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__3_n_0\
     );
 \dataAddr[4]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -28149,8 +28220,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__4_n_0\
     );
 \dataAddr[4]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -28158,8 +28229,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__5_n_0\
     );
 \dataAddr[4]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -28167,8 +28238,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__6_n_0\
     );
 \dataAddr[4]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -28176,8 +28247,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__7_n_0\
     );
 \dataAddr[4]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -28185,8 +28256,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__8_n_0\
     );
 \dataAddr[4]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -28194,8 +28265,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(18),
-      I1 => \^phase_measured\(30),
+      I0 => L(18),
+      I1 => p_0_in(0),
       O => \dataAddr[4]_rep_i_1__9_n_0\
     );
 \dataAddr[5]_rep_i_1\: unisim.vcomponents.LUT2
@@ -28203,8 +28274,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1_n_0\
     );
 \dataAddr[5]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -28212,8 +28283,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__0_n_0\
     );
 \dataAddr[5]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -28221,8 +28292,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__1_n_0\
     );
 \dataAddr[5]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -28230,8 +28301,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__10_n_0\
     );
 \dataAddr[5]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -28239,8 +28310,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__11_n_0\
     );
 \dataAddr[5]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -28248,8 +28319,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__12_n_0\
     );
 \dataAddr[5]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -28257,8 +28328,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__13_n_0\
     );
 \dataAddr[5]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -28266,8 +28337,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__14_n_0\
     );
 \dataAddr[5]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -28275,8 +28346,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__15_n_0\
     );
 \dataAddr[5]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -28284,8 +28355,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__16_n_0\
     );
 \dataAddr[5]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -28293,8 +28364,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__17_n_0\
     );
 \dataAddr[5]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -28302,8 +28373,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__18_n_0\
     );
 \dataAddr[5]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -28311,8 +28382,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__19_n_0\
     );
 \dataAddr[5]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -28320,8 +28391,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__2_n_0\
     );
 \dataAddr[5]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -28329,8 +28400,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__20_n_0\
     );
 \dataAddr[5]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -28338,8 +28409,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__21_n_0\
     );
 \dataAddr[5]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -28347,8 +28418,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__22_n_0\
     );
 \dataAddr[5]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -28356,8 +28427,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__23_n_0\
     );
 \dataAddr[5]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -28365,8 +28436,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__24_n_0\
     );
 \dataAddr[5]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -28374,8 +28445,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__3_n_0\
     );
 \dataAddr[5]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -28383,8 +28454,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__4_n_0\
     );
 \dataAddr[5]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -28392,8 +28463,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__5_n_0\
     );
 \dataAddr[5]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -28401,8 +28472,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__6_n_0\
     );
 \dataAddr[5]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -28410,8 +28481,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__7_n_0\
     );
 \dataAddr[5]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -28419,8 +28490,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__8_n_0\
     );
 \dataAddr[5]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -28428,8 +28499,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(19),
-      I1 => \^phase_measured\(30),
+      I0 => L(19),
+      I1 => p_0_in(0),
       O => \dataAddr[5]_rep_i_1__9_n_0\
     );
 \dataAddr[6]_rep_i_1\: unisim.vcomponents.LUT2
@@ -28437,8 +28508,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1_n_0\
     );
 \dataAddr[6]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -28446,8 +28517,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__0_n_0\
     );
 \dataAddr[6]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -28455,8 +28526,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__1_n_0\
     );
 \dataAddr[6]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -28464,8 +28535,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__10_n_0\
     );
 \dataAddr[6]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -28473,8 +28544,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__11_n_0\
     );
 \dataAddr[6]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -28482,8 +28553,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__12_n_0\
     );
 \dataAddr[6]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -28491,8 +28562,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__13_n_0\
     );
 \dataAddr[6]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -28500,8 +28571,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__14_n_0\
     );
 \dataAddr[6]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -28509,8 +28580,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__15_n_0\
     );
 \dataAddr[6]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -28518,8 +28589,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__16_n_0\
     );
 \dataAddr[6]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -28527,8 +28598,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__17_n_0\
     );
 \dataAddr[6]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -28536,8 +28607,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__18_n_0\
     );
 \dataAddr[6]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -28545,8 +28616,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__19_n_0\
     );
 \dataAddr[6]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -28554,8 +28625,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__2_n_0\
     );
 \dataAddr[6]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -28563,8 +28634,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__20_n_0\
     );
 \dataAddr[6]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -28572,8 +28643,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__21_n_0\
     );
 \dataAddr[6]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -28581,8 +28652,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__22_n_0\
     );
 \dataAddr[6]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -28590,8 +28661,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__23_n_0\
     );
 \dataAddr[6]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -28599,8 +28670,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__24_n_0\
     );
 \dataAddr[6]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -28608,8 +28679,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__3_n_0\
     );
 \dataAddr[6]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -28617,8 +28688,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__4_n_0\
     );
 \dataAddr[6]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -28626,8 +28697,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__5_n_0\
     );
 \dataAddr[6]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -28635,8 +28706,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__6_n_0\
     );
 \dataAddr[6]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -28644,8 +28715,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__7_n_0\
     );
 \dataAddr[6]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -28653,8 +28724,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__8_n_0\
     );
 \dataAddr[6]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -28662,8 +28733,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(20),
-      I1 => \^phase_measured\(30),
+      I0 => L(20),
+      I1 => p_0_in(0),
       O => \dataAddr[6]_rep_i_1__9_n_0\
     );
 \dataAddr[7]_rep_i_1\: unisim.vcomponents.LUT2
@@ -28671,8 +28742,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1_n_0\
     );
 \dataAddr[7]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -28680,8 +28751,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__0_n_0\
     );
 \dataAddr[7]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -28689,8 +28760,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__1_n_0\
     );
 \dataAddr[7]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -28698,8 +28769,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__10_n_0\
     );
 \dataAddr[7]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -28707,8 +28778,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__11_n_0\
     );
 \dataAddr[7]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -28716,8 +28787,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__12_n_0\
     );
 \dataAddr[7]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -28725,8 +28796,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__13_n_0\
     );
 \dataAddr[7]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -28734,8 +28805,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__14_n_0\
     );
 \dataAddr[7]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -28743,8 +28814,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__15_n_0\
     );
 \dataAddr[7]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -28752,8 +28823,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__16_n_0\
     );
 \dataAddr[7]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -28761,8 +28832,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__17_n_0\
     );
 \dataAddr[7]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -28770,8 +28841,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__18_n_0\
     );
 \dataAddr[7]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -28779,8 +28850,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__19_n_0\
     );
 \dataAddr[7]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -28788,8 +28859,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__2_n_0\
     );
 \dataAddr[7]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -28797,8 +28868,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__20_n_0\
     );
 \dataAddr[7]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -28806,8 +28877,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__21_n_0\
     );
 \dataAddr[7]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -28815,8 +28886,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__22_n_0\
     );
 \dataAddr[7]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -28824,8 +28895,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__23_n_0\
     );
 \dataAddr[7]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -28833,8 +28904,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__24_n_0\
     );
 \dataAddr[7]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -28842,8 +28913,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__3_n_0\
     );
 \dataAddr[7]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -28851,8 +28922,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__4_n_0\
     );
 \dataAddr[7]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -28860,8 +28931,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__5_n_0\
     );
 \dataAddr[7]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -28869,8 +28940,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__6_n_0\
     );
 \dataAddr[7]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -28878,8 +28949,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__7_n_0\
     );
 \dataAddr[7]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -28887,8 +28958,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__8_n_0\
     );
 \dataAddr[7]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -28896,8 +28967,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(21),
-      I1 => \^phase_measured\(30),
+      I0 => L(21),
+      I1 => p_0_in(0),
       O => \dataAddr[7]_rep_i_1__9_n_0\
     );
 \dataAddr[8]_rep_i_1\: unisim.vcomponents.LUT2
@@ -28905,8 +28976,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1_n_0\
     );
 \dataAddr[8]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -28914,8 +28985,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__0_n_0\
     );
 \dataAddr[8]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -28923,8 +28994,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__1_n_0\
     );
 \dataAddr[8]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -28932,8 +29003,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__10_n_0\
     );
 \dataAddr[8]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -28941,8 +29012,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__11_n_0\
     );
 \dataAddr[8]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -28950,8 +29021,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__12_n_0\
     );
 \dataAddr[8]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -28959,8 +29030,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__13_n_0\
     );
 \dataAddr[8]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -28968,8 +29039,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__14_n_0\
     );
 \dataAddr[8]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -28977,8 +29048,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__15_n_0\
     );
 \dataAddr[8]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -28986,8 +29057,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__16_n_0\
     );
 \dataAddr[8]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -28995,8 +29066,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__17_n_0\
     );
 \dataAddr[8]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -29004,8 +29075,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__18_n_0\
     );
 \dataAddr[8]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -29013,8 +29084,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__19_n_0\
     );
 \dataAddr[8]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -29022,8 +29093,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__2_n_0\
     );
 \dataAddr[8]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -29031,8 +29102,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__20_n_0\
     );
 \dataAddr[8]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -29040,8 +29111,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__21_n_0\
     );
 \dataAddr[8]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -29049,8 +29120,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__22_n_0\
     );
 \dataAddr[8]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -29058,8 +29129,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__23_n_0\
     );
 \dataAddr[8]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -29067,8 +29138,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__24_n_0\
     );
 \dataAddr[8]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -29076,8 +29147,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__3_n_0\
     );
 \dataAddr[8]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -29085,8 +29156,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__4_n_0\
     );
 \dataAddr[8]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -29094,8 +29165,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__5_n_0\
     );
 \dataAddr[8]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -29103,8 +29174,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__6_n_0\
     );
 \dataAddr[8]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -29112,8 +29183,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__7_n_0\
     );
 \dataAddr[8]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -29121,8 +29192,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__8_n_0\
     );
 \dataAddr[8]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -29130,8 +29201,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(22),
-      I1 => \^phase_measured\(30),
+      I0 => L(22),
+      I1 => p_0_in(0),
       O => \dataAddr[8]_rep_i_1__9_n_0\
     );
 \dataAddr[9]_rep_i_1\: unisim.vcomponents.LUT2
@@ -29139,8 +29210,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1_n_0\
     );
 \dataAddr[9]_rep_i_1__0\: unisim.vcomponents.LUT2
@@ -29148,8 +29219,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__0_n_0\
     );
 \dataAddr[9]_rep_i_1__1\: unisim.vcomponents.LUT2
@@ -29157,8 +29228,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__1_n_0\
     );
 \dataAddr[9]_rep_i_1__10\: unisim.vcomponents.LUT2
@@ -29166,8 +29237,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__10_n_0\
     );
 \dataAddr[9]_rep_i_1__11\: unisim.vcomponents.LUT2
@@ -29175,8 +29246,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__11_n_0\
     );
 \dataAddr[9]_rep_i_1__12\: unisim.vcomponents.LUT2
@@ -29184,8 +29255,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__12_n_0\
     );
 \dataAddr[9]_rep_i_1__13\: unisim.vcomponents.LUT2
@@ -29193,8 +29264,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__13_n_0\
     );
 \dataAddr[9]_rep_i_1__14\: unisim.vcomponents.LUT2
@@ -29202,8 +29273,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__14_n_0\
     );
 \dataAddr[9]_rep_i_1__15\: unisim.vcomponents.LUT2
@@ -29211,8 +29282,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__15_n_0\
     );
 \dataAddr[9]_rep_i_1__16\: unisim.vcomponents.LUT2
@@ -29220,8 +29291,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__16_n_0\
     );
 \dataAddr[9]_rep_i_1__17\: unisim.vcomponents.LUT2
@@ -29229,8 +29300,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__17_n_0\
     );
 \dataAddr[9]_rep_i_1__18\: unisim.vcomponents.LUT2
@@ -29238,8 +29309,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__18_n_0\
     );
 \dataAddr[9]_rep_i_1__19\: unisim.vcomponents.LUT2
@@ -29247,8 +29318,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__19_n_0\
     );
 \dataAddr[9]_rep_i_1__2\: unisim.vcomponents.LUT2
@@ -29256,8 +29327,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__2_n_0\
     );
 \dataAddr[9]_rep_i_1__20\: unisim.vcomponents.LUT2
@@ -29265,8 +29336,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__20_n_0\
     );
 \dataAddr[9]_rep_i_1__21\: unisim.vcomponents.LUT2
@@ -29274,8 +29345,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__21_n_0\
     );
 \dataAddr[9]_rep_i_1__22\: unisim.vcomponents.LUT2
@@ -29283,8 +29354,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__22_n_0\
     );
 \dataAddr[9]_rep_i_1__23\: unisim.vcomponents.LUT2
@@ -29292,8 +29363,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__23_n_0\
     );
 \dataAddr[9]_rep_i_1__24\: unisim.vcomponents.LUT2
@@ -29301,8 +29372,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__24_n_0\
     );
 \dataAddr[9]_rep_i_1__3\: unisim.vcomponents.LUT2
@@ -29310,8 +29381,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__3_n_0\
     );
 \dataAddr[9]_rep_i_1__4\: unisim.vcomponents.LUT2
@@ -29319,8 +29390,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__4_n_0\
     );
 \dataAddr[9]_rep_i_1__5\: unisim.vcomponents.LUT2
@@ -29328,8 +29399,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__5_n_0\
     );
 \dataAddr[9]_rep_i_1__6\: unisim.vcomponents.LUT2
@@ -29337,8 +29408,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__6_n_0\
     );
 \dataAddr[9]_rep_i_1__7\: unisim.vcomponents.LUT2
@@ -29346,8 +29417,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__7_n_0\
     );
 \dataAddr[9]_rep_i_1__8\: unisim.vcomponents.LUT2
@@ -29355,8 +29426,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__8_n_0\
     );
 \dataAddr[9]_rep_i_1__9\: unisim.vcomponents.LUT2
@@ -29364,8 +29435,8 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => \^phase_measured\(23),
-      I1 => \^phase_measured\(30),
+      I0 => L(23),
+      I1 => p_0_in(0),
       O => \dataAddr[9]_rep_i_1__9_n_0\
     );
 \dataAddr_reg[0]_rep\: unisim.vcomponents.FDRE
@@ -29374,7 +29445,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep_n_0\,
       R => '0'
@@ -29385,7 +29456,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__0_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__0_n_0\,
       R => '0'
@@ -29396,7 +29467,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__1_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__1_n_0\,
       R => '0'
@@ -29407,7 +29478,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__10_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__10_n_0\,
       R => '0'
@@ -29418,7 +29489,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__11_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__11_n_0\,
       R => '0'
@@ -29429,7 +29500,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__12_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__12_n_0\,
       R => '0'
@@ -29440,7 +29511,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__13_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__13_n_0\,
       R => '0'
@@ -29451,7 +29522,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__14_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__14_n_0\,
       R => '0'
@@ -29462,7 +29533,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__15_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__15_n_0\,
       R => '0'
@@ -29473,7 +29544,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__16_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__16_n_0\,
       R => '0'
@@ -29484,7 +29555,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__17_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__17_n_0\,
       R => '0'
@@ -29495,7 +29566,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__18_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__18_n_0\,
       R => '0'
@@ -29506,7 +29577,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__19_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__19_n_0\,
       R => '0'
@@ -29517,7 +29588,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__2_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__2_n_0\,
       R => '0'
@@ -29528,7 +29599,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__20_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__20_n_0\,
       R => '0'
@@ -29539,7 +29610,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__21_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__21_n_0\,
       R => '0'
@@ -29550,7 +29621,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__22_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__22_n_0\,
       R => '0'
@@ -29561,7 +29632,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__23_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__23_n_0\,
       R => '0'
@@ -29572,7 +29643,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__24_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__24_n_0\,
       R => '0'
@@ -29583,7 +29654,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__3_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__3_n_0\,
       R => '0'
@@ -29594,7 +29665,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__4_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__4_n_0\,
       R => '0'
@@ -29605,7 +29676,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__5_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__5_n_0\,
       R => '0'
@@ -29616,7 +29687,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__6_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__6_n_0\,
       R => '0'
@@ -29627,7 +29698,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__7_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__7_n_0\,
       R => '0'
@@ -29638,7 +29709,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__8_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__8_n_0\,
       R => '0'
@@ -29649,7 +29720,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[0]_rep__9_i_1_n_0\,
       Q => \dataAddr_reg[0]_rep__9_n_0\,
       R => '0'
@@ -29660,7 +29731,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1_n_0\,
       Q => \dataAddr_reg[10]_rep_n_0\,
       R => '0'
@@ -29671,7 +29742,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[10]_rep__0_n_0\,
       R => '0'
@@ -29682,7 +29753,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[10]_rep__1_n_0\,
       R => '0'
@@ -29693,7 +29764,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[10]_rep__10_n_0\,
       R => '0'
@@ -29704,7 +29775,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[10]_rep__11_n_0\,
       R => '0'
@@ -29715,7 +29786,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[10]_rep__12_n_0\,
       R => '0'
@@ -29726,7 +29797,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[10]_rep__13_n_0\,
       R => '0'
@@ -29737,7 +29808,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[10]_rep__14_n_0\,
       R => '0'
@@ -29748,7 +29819,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[10]_rep__15_n_0\,
       R => '0'
@@ -29759,7 +29830,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[10]_rep__16_n_0\,
       R => '0'
@@ -29770,7 +29841,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[10]_rep__17_n_0\,
       R => '0'
@@ -29781,7 +29852,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[10]_rep__18_n_0\,
       R => '0'
@@ -29792,7 +29863,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[10]_rep__19_n_0\,
       R => '0'
@@ -29803,7 +29874,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[10]_rep__2_n_0\,
       R => '0'
@@ -29814,7 +29885,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[10]_rep__20_n_0\,
       R => '0'
@@ -29825,7 +29896,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[10]_rep__21_n_0\,
       R => '0'
@@ -29836,7 +29907,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[10]_rep__22_n_0\,
       R => '0'
@@ -29847,7 +29918,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[10]_rep__23_n_0\,
       R => '0'
@@ -29858,7 +29929,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[10]_rep__24_n_0\,
       R => '0'
@@ -29869,7 +29940,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[10]_rep__3_n_0\,
       R => '0'
@@ -29880,7 +29951,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[10]_rep__4_n_0\,
       R => '0'
@@ -29891,7 +29962,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[10]_rep__5_n_0\,
       R => '0'
@@ -29902,7 +29973,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[10]_rep__6_n_0\,
       R => '0'
@@ -29913,7 +29984,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[10]_rep__7_n_0\,
       R => '0'
@@ -29924,7 +29995,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[10]_rep__8_n_0\,
       R => '0'
@@ -29935,7 +30006,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[10]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[10]_rep__9_n_0\,
       R => '0'
@@ -29946,7 +30017,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1_n_0\,
       Q => \dataAddr_reg[11]_rep_n_0\,
       R => '0'
@@ -29957,7 +30028,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[11]_rep__0_n_0\,
       R => '0'
@@ -29968,7 +30039,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[11]_rep__1_n_0\,
       R => '0'
@@ -29979,7 +30050,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[11]_rep__10_n_0\,
       R => '0'
@@ -29990,7 +30061,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[11]_rep__11_n_0\,
       R => '0'
@@ -30001,7 +30072,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[11]_rep__12_n_0\,
       R => '0'
@@ -30012,7 +30083,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[11]_rep__13_n_0\,
       R => '0'
@@ -30023,7 +30094,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[11]_rep__14_n_0\,
       R => '0'
@@ -30034,7 +30105,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[11]_rep__15_n_0\,
       R => '0'
@@ -30045,7 +30116,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[11]_rep__16_n_0\,
       R => '0'
@@ -30056,7 +30127,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[11]_rep__17_n_0\,
       R => '0'
@@ -30067,7 +30138,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[11]_rep__18_n_0\,
       R => '0'
@@ -30078,7 +30149,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[11]_rep__19_n_0\,
       R => '0'
@@ -30089,7 +30160,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[11]_rep__2_n_0\,
       R => '0'
@@ -30100,7 +30171,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[11]_rep__20_n_0\,
       R => '0'
@@ -30111,7 +30182,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[11]_rep__21_n_0\,
       R => '0'
@@ -30122,7 +30193,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[11]_rep__22_n_0\,
       R => '0'
@@ -30133,7 +30204,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[11]_rep__23_n_0\,
       R => '0'
@@ -30144,7 +30215,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[11]_rep__24_n_0\,
       R => '0'
@@ -30155,7 +30226,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[11]_rep__3_n_0\,
       R => '0'
@@ -30166,7 +30237,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[11]_rep__4_n_0\,
       R => '0'
@@ -30177,7 +30248,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[11]_rep__5_n_0\,
       R => '0'
@@ -30188,7 +30259,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[11]_rep__6_n_0\,
       R => '0'
@@ -30199,7 +30270,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[11]_rep__7_n_0\,
       R => '0'
@@ -30210,7 +30281,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[11]_rep__8_n_0\,
       R => '0'
@@ -30221,7 +30292,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[11]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[11]_rep__9_n_0\,
       R => '0'
@@ -30232,7 +30303,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1_n_0\,
       Q => \dataAddr_reg[12]_rep_n_0\,
       R => '0'
@@ -30243,7 +30314,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[12]_rep__0_n_0\,
       R => '0'
@@ -30254,7 +30325,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[12]_rep__1_n_0\,
       R => '0'
@@ -30265,7 +30336,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[12]_rep__10_n_0\,
       R => '0'
@@ -30276,7 +30347,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[12]_rep__11_n_0\,
       R => '0'
@@ -30287,7 +30358,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[12]_rep__12_n_0\,
       R => '0'
@@ -30298,7 +30369,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[12]_rep__13_n_0\,
       R => '0'
@@ -30309,7 +30380,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[12]_rep__14_n_0\,
       R => '0'
@@ -30320,7 +30391,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[12]_rep__15_n_0\,
       R => '0'
@@ -30331,7 +30402,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[12]_rep__16_n_0\,
       R => '0'
@@ -30342,7 +30413,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[12]_rep__17_n_0\,
       R => '0'
@@ -30353,7 +30424,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[12]_rep__18_n_0\,
       R => '0'
@@ -30364,7 +30435,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[12]_rep__19_n_0\,
       R => '0'
@@ -30375,7 +30446,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[12]_rep__2_n_0\,
       R => '0'
@@ -30386,7 +30457,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[12]_rep__20_n_0\,
       R => '0'
@@ -30397,7 +30468,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[12]_rep__21_n_0\,
       R => '0'
@@ -30408,7 +30479,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[12]_rep__22_n_0\,
       R => '0'
@@ -30419,7 +30490,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[12]_rep__23_n_0\,
       R => '0'
@@ -30430,7 +30501,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[12]_rep__24_n_0\,
       R => '0'
@@ -30441,7 +30512,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[12]_rep__3_n_0\,
       R => '0'
@@ -30452,7 +30523,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[12]_rep__4_n_0\,
       R => '0'
@@ -30463,7 +30534,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[12]_rep__5_n_0\,
       R => '0'
@@ -30474,7 +30545,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[12]_rep__6_n_0\,
       R => '0'
@@ -30485,7 +30556,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[12]_rep__7_n_0\,
       R => '0'
@@ -30496,7 +30567,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[12]_rep__8_n_0\,
       R => '0'
@@ -30507,7 +30578,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[12]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[12]_rep__9_n_0\,
       R => '0'
@@ -30518,7 +30589,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1_n_0\,
       Q => \dataAddr_reg[13]_rep_n_0\,
       R => '0'
@@ -30529,7 +30600,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[13]_rep__0_n_0\,
       R => '0'
@@ -30540,7 +30611,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[13]_rep__1_n_0\,
       R => '0'
@@ -30551,7 +30622,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[13]_rep__10_n_0\,
       R => '0'
@@ -30562,7 +30633,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[13]_rep__11_n_0\,
       R => '0'
@@ -30573,7 +30644,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[13]_rep__12_n_0\,
       R => '0'
@@ -30584,7 +30655,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[13]_rep__13_n_0\,
       R => '0'
@@ -30595,7 +30666,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[13]_rep__14_n_0\,
       R => '0'
@@ -30606,7 +30677,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[13]_rep__15_n_0\,
       R => '0'
@@ -30617,7 +30688,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[13]_rep__16_n_0\,
       R => '0'
@@ -30628,7 +30699,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[13]_rep__17_n_0\,
       R => '0'
@@ -30639,7 +30710,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[13]_rep__18_n_0\,
       R => '0'
@@ -30650,7 +30721,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[13]_rep__19_n_0\,
       R => '0'
@@ -30661,7 +30732,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[13]_rep__2_n_0\,
       R => '0'
@@ -30672,7 +30743,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[13]_rep__20_n_0\,
       R => '0'
@@ -30683,7 +30754,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[13]_rep__21_n_0\,
       R => '0'
@@ -30694,7 +30765,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[13]_rep__22_n_0\,
       R => '0'
@@ -30705,7 +30776,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[13]_rep__23_n_0\,
       R => '0'
@@ -30716,7 +30787,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[13]_rep__24_n_0\,
       R => '0'
@@ -30727,7 +30798,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[13]_rep__3_n_0\,
       R => '0'
@@ -30738,7 +30809,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[13]_rep__4_n_0\,
       R => '0'
@@ -30749,7 +30820,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[13]_rep__5_n_0\,
       R => '0'
@@ -30760,7 +30831,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[13]_rep__6_n_0\,
       R => '0'
@@ -30771,7 +30842,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[13]_rep__7_n_0\,
       R => '0'
@@ -30782,7 +30853,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[13]_rep__8_n_0\,
       R => '0'
@@ -30793,7 +30864,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[13]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[13]_rep__9_n_0\,
       R => '0'
@@ -30804,7 +30875,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1_n_0\,
       Q => \dataAddr_reg[14]_rep_n_0\,
       R => '0'
@@ -30815,7 +30886,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[14]_rep__0_n_0\,
       R => '0'
@@ -30826,7 +30897,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[14]_rep__1_n_0\,
       R => '0'
@@ -30837,7 +30908,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[14]_rep__10_n_0\,
       R => '0'
@@ -30848,7 +30919,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[14]_rep__11_n_0\,
       R => '0'
@@ -30859,7 +30930,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[14]_rep__12_n_0\,
       R => '0'
@@ -30870,7 +30941,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[14]_rep__13_n_0\,
       R => '0'
@@ -30881,7 +30952,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[14]_rep__14_n_0\,
       R => '0'
@@ -30892,7 +30963,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[14]_rep__15_n_0\,
       R => '0'
@@ -30903,7 +30974,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[14]_rep__16_n_0\,
       R => '0'
@@ -30914,7 +30985,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[14]_rep__17_n_0\,
       R => '0'
@@ -30925,7 +30996,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[14]_rep__18_n_0\,
       R => '0'
@@ -30936,7 +31007,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[14]_rep__19_n_0\,
       R => '0'
@@ -30947,7 +31018,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[14]_rep__2_n_0\,
       R => '0'
@@ -30958,7 +31029,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[14]_rep__20_n_0\,
       R => '0'
@@ -30969,7 +31040,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[14]_rep__21_n_0\,
       R => '0'
@@ -30980,7 +31051,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[14]_rep__22_n_0\,
       R => '0'
@@ -30991,7 +31062,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[14]_rep__23_n_0\,
       R => '0'
@@ -31002,7 +31073,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[14]_rep__24_n_0\,
       R => '0'
@@ -31013,7 +31084,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[14]_rep__3_n_0\,
       R => '0'
@@ -31024,7 +31095,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[14]_rep__4_n_0\,
       R => '0'
@@ -31035,7 +31106,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[14]_rep__5_n_0\,
       R => '0'
@@ -31046,7 +31117,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[14]_rep__6_n_0\,
       R => '0'
@@ -31057,7 +31128,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[14]_rep__7_n_0\,
       R => '0'
@@ -31068,7 +31139,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[14]_rep__8_n_0\,
       R => '0'
@@ -31079,7 +31150,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[14]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[14]_rep__9_n_0\,
       R => '0'
@@ -31090,7 +31161,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1_n_0\,
       Q => \dataAddr_reg[15]_rep_n_0\,
       R => '0'
@@ -31101,7 +31172,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[15]_rep__0_n_0\,
       R => '0'
@@ -31112,7 +31183,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[15]_rep__1_n_0\,
       R => '0'
@@ -31123,7 +31194,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[15]_rep__10_n_0\,
       R => '0'
@@ -31134,7 +31205,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[15]_rep__11_n_0\,
       R => '0'
@@ -31145,7 +31216,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[15]_rep__12_n_0\,
       R => '0'
@@ -31156,7 +31227,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[15]_rep__13_n_0\,
       R => '0'
@@ -31167,7 +31238,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[15]_rep__14_n_0\,
       R => '0'
@@ -31178,7 +31249,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[15]_rep__15_n_0\,
       R => '0'
@@ -31189,7 +31260,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[15]_rep__16_n_0\,
       R => '0'
@@ -31200,7 +31271,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[15]_rep__17_n_0\,
       R => '0'
@@ -31211,7 +31282,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[15]_rep__18_n_0\,
       R => '0'
@@ -31222,7 +31293,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[15]_rep__19_n_0\,
       R => '0'
@@ -31233,7 +31304,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[15]_rep__2_n_0\,
       R => '0'
@@ -31244,7 +31315,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[15]_rep__20_n_0\,
       R => '0'
@@ -31255,7 +31326,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[15]_rep__21_n_0\,
       R => '0'
@@ -31266,7 +31337,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[15]_rep__22_n_0\,
       R => '0'
@@ -31277,7 +31348,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[15]_rep__23_n_0\,
       R => '0'
@@ -31288,7 +31359,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[15]_rep__24_n_0\,
       R => '0'
@@ -31299,7 +31370,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[15]_rep__3_n_0\,
       R => '0'
@@ -31310,7 +31381,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[15]_rep__4_n_0\,
       R => '0'
@@ -31321,7 +31392,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[15]_rep__5_n_0\,
       R => '0'
@@ -31332,7 +31403,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[15]_rep__6_n_0\,
       R => '0'
@@ -31343,7 +31414,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[15]_rep__7_n_0\,
       R => '0'
@@ -31354,7 +31425,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[15]_rep__8_n_0\,
       R => '0'
@@ -31365,7 +31436,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[15]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[15]_rep__9_n_0\,
       R => '0'
@@ -31376,7 +31447,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1_n_0\,
       Q => \dataAddr_reg[1]_rep_n_0\,
       R => '0'
@@ -31387,7 +31458,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[1]_rep__0_n_0\,
       R => '0'
@@ -31398,7 +31469,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[1]_rep__1_n_0\,
       R => '0'
@@ -31409,7 +31480,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[1]_rep__10_n_0\,
       R => '0'
@@ -31420,7 +31491,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[1]_rep__11_n_0\,
       R => '0'
@@ -31431,7 +31502,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[1]_rep__12_n_0\,
       R => '0'
@@ -31442,7 +31513,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[1]_rep__13_n_0\,
       R => '0'
@@ -31453,7 +31524,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[1]_rep__14_n_0\,
       R => '0'
@@ -31464,7 +31535,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[1]_rep__15_n_0\,
       R => '0'
@@ -31475,7 +31546,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[1]_rep__16_n_0\,
       R => '0'
@@ -31486,7 +31557,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[1]_rep__17_n_0\,
       R => '0'
@@ -31497,7 +31568,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[1]_rep__18_n_0\,
       R => '0'
@@ -31508,7 +31579,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[1]_rep__19_n_0\,
       R => '0'
@@ -31519,7 +31590,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[1]_rep__2_n_0\,
       R => '0'
@@ -31530,7 +31601,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[1]_rep__20_n_0\,
       R => '0'
@@ -31541,7 +31612,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[1]_rep__21_n_0\,
       R => '0'
@@ -31552,7 +31623,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[1]_rep__22_n_0\,
       R => '0'
@@ -31563,7 +31634,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[1]_rep__23_n_0\,
       R => '0'
@@ -31574,7 +31645,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[1]_rep__24_n_0\,
       R => '0'
@@ -31585,7 +31656,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[1]_rep__3_n_0\,
       R => '0'
@@ -31596,7 +31667,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[1]_rep__4_n_0\,
       R => '0'
@@ -31607,7 +31678,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[1]_rep__5_n_0\,
       R => '0'
@@ -31618,7 +31689,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[1]_rep__6_n_0\,
       R => '0'
@@ -31629,7 +31700,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[1]_rep__7_n_0\,
       R => '0'
@@ -31640,7 +31711,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[1]_rep__8_n_0\,
       R => '0'
@@ -31651,7 +31722,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[1]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[1]_rep__9_n_0\,
       R => '0'
@@ -31662,7 +31733,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1_n_0\,
       Q => \dataAddr_reg[2]_rep_n_0\,
       R => '0'
@@ -31673,7 +31744,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[2]_rep__0_n_0\,
       R => '0'
@@ -31684,7 +31755,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[2]_rep__1_n_0\,
       R => '0'
@@ -31695,7 +31766,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[2]_rep__10_n_0\,
       R => '0'
@@ -31706,7 +31777,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[2]_rep__11_n_0\,
       R => '0'
@@ -31717,7 +31788,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[2]_rep__12_n_0\,
       R => '0'
@@ -31728,7 +31799,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[2]_rep__13_n_0\,
       R => '0'
@@ -31739,7 +31810,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[2]_rep__14_n_0\,
       R => '0'
@@ -31750,7 +31821,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[2]_rep__15_n_0\,
       R => '0'
@@ -31761,7 +31832,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[2]_rep__16_n_0\,
       R => '0'
@@ -31772,7 +31843,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[2]_rep__17_n_0\,
       R => '0'
@@ -31783,7 +31854,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[2]_rep__18_n_0\,
       R => '0'
@@ -31794,7 +31865,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[2]_rep__19_n_0\,
       R => '0'
@@ -31805,7 +31876,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[2]_rep__2_n_0\,
       R => '0'
@@ -31816,7 +31887,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[2]_rep__20_n_0\,
       R => '0'
@@ -31827,7 +31898,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[2]_rep__21_n_0\,
       R => '0'
@@ -31838,7 +31909,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[2]_rep__22_n_0\,
       R => '0'
@@ -31849,7 +31920,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[2]_rep__23_n_0\,
       R => '0'
@@ -31860,7 +31931,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[2]_rep__24_n_0\,
       R => '0'
@@ -31871,7 +31942,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[2]_rep__3_n_0\,
       R => '0'
@@ -31882,7 +31953,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[2]_rep__4_n_0\,
       R => '0'
@@ -31893,7 +31964,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[2]_rep__5_n_0\,
       R => '0'
@@ -31904,7 +31975,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[2]_rep__6_n_0\,
       R => '0'
@@ -31915,7 +31986,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[2]_rep__7_n_0\,
       R => '0'
@@ -31926,7 +31997,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[2]_rep__8_n_0\,
       R => '0'
@@ -31937,7 +32008,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[2]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[2]_rep__9_n_0\,
       R => '0'
@@ -31948,7 +32019,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1_n_0\,
       Q => \dataAddr_reg[3]_rep_n_0\,
       R => '0'
@@ -31959,7 +32030,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[3]_rep__0_n_0\,
       R => '0'
@@ -31970,7 +32041,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[3]_rep__1_n_0\,
       R => '0'
@@ -31981,7 +32052,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[3]_rep__10_n_0\,
       R => '0'
@@ -31992,7 +32063,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[3]_rep__11_n_0\,
       R => '0'
@@ -32003,7 +32074,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[3]_rep__12_n_0\,
       R => '0'
@@ -32014,7 +32085,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[3]_rep__13_n_0\,
       R => '0'
@@ -32025,7 +32096,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[3]_rep__14_n_0\,
       R => '0'
@@ -32036,7 +32107,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[3]_rep__15_n_0\,
       R => '0'
@@ -32047,7 +32118,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[3]_rep__16_n_0\,
       R => '0'
@@ -32058,7 +32129,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[3]_rep__17_n_0\,
       R => '0'
@@ -32069,7 +32140,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[3]_rep__18_n_0\,
       R => '0'
@@ -32080,7 +32151,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[3]_rep__19_n_0\,
       R => '0'
@@ -32091,7 +32162,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[3]_rep__2_n_0\,
       R => '0'
@@ -32102,7 +32173,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[3]_rep__20_n_0\,
       R => '0'
@@ -32113,7 +32184,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[3]_rep__21_n_0\,
       R => '0'
@@ -32124,7 +32195,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[3]_rep__22_n_0\,
       R => '0'
@@ -32135,7 +32206,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[3]_rep__23_n_0\,
       R => '0'
@@ -32146,7 +32217,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[3]_rep__24_n_0\,
       R => '0'
@@ -32157,7 +32228,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[3]_rep__3_n_0\,
       R => '0'
@@ -32168,7 +32239,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[3]_rep__4_n_0\,
       R => '0'
@@ -32179,7 +32250,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[3]_rep__5_n_0\,
       R => '0'
@@ -32190,7 +32261,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[3]_rep__6_n_0\,
       R => '0'
@@ -32201,7 +32272,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[3]_rep__7_n_0\,
       R => '0'
@@ -32212,7 +32283,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[3]_rep__8_n_0\,
       R => '0'
@@ -32223,7 +32294,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[3]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[3]_rep__9_n_0\,
       R => '0'
@@ -32234,7 +32305,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1_n_0\,
       Q => \dataAddr_reg[4]_rep_n_0\,
       R => '0'
@@ -32245,7 +32316,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[4]_rep__0_n_0\,
       R => '0'
@@ -32256,7 +32327,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[4]_rep__1_n_0\,
       R => '0'
@@ -32267,7 +32338,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[4]_rep__10_n_0\,
       R => '0'
@@ -32278,7 +32349,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[4]_rep__11_n_0\,
       R => '0'
@@ -32289,7 +32360,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[4]_rep__12_n_0\,
       R => '0'
@@ -32300,7 +32371,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[4]_rep__13_n_0\,
       R => '0'
@@ -32311,7 +32382,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[4]_rep__14_n_0\,
       R => '0'
@@ -32322,7 +32393,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[4]_rep__15_n_0\,
       R => '0'
@@ -32333,7 +32404,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[4]_rep__16_n_0\,
       R => '0'
@@ -32344,7 +32415,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[4]_rep__17_n_0\,
       R => '0'
@@ -32355,7 +32426,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[4]_rep__18_n_0\,
       R => '0'
@@ -32366,7 +32437,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[4]_rep__19_n_0\,
       R => '0'
@@ -32377,7 +32448,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[4]_rep__2_n_0\,
       R => '0'
@@ -32388,7 +32459,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[4]_rep__20_n_0\,
       R => '0'
@@ -32399,7 +32470,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[4]_rep__21_n_0\,
       R => '0'
@@ -32410,7 +32481,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[4]_rep__22_n_0\,
       R => '0'
@@ -32421,7 +32492,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[4]_rep__23_n_0\,
       R => '0'
@@ -32432,7 +32503,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[4]_rep__24_n_0\,
       R => '0'
@@ -32443,7 +32514,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[4]_rep__3_n_0\,
       R => '0'
@@ -32454,7 +32525,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[4]_rep__4_n_0\,
       R => '0'
@@ -32465,7 +32536,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[4]_rep__5_n_0\,
       R => '0'
@@ -32476,7 +32547,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[4]_rep__6_n_0\,
       R => '0'
@@ -32487,7 +32558,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[4]_rep__7_n_0\,
       R => '0'
@@ -32498,7 +32569,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[4]_rep__8_n_0\,
       R => '0'
@@ -32509,7 +32580,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[4]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[4]_rep__9_n_0\,
       R => '0'
@@ -32520,7 +32591,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1_n_0\,
       Q => \dataAddr_reg[5]_rep_n_0\,
       R => '0'
@@ -32531,7 +32602,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[5]_rep__0_n_0\,
       R => '0'
@@ -32542,7 +32613,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[5]_rep__1_n_0\,
       R => '0'
@@ -32553,7 +32624,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[5]_rep__10_n_0\,
       R => '0'
@@ -32564,7 +32635,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[5]_rep__11_n_0\,
       R => '0'
@@ -32575,7 +32646,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[5]_rep__12_n_0\,
       R => '0'
@@ -32586,7 +32657,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[5]_rep__13_n_0\,
       R => '0'
@@ -32597,7 +32668,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[5]_rep__14_n_0\,
       R => '0'
@@ -32608,7 +32679,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[5]_rep__15_n_0\,
       R => '0'
@@ -32619,7 +32690,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[5]_rep__16_n_0\,
       R => '0'
@@ -32630,7 +32701,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[5]_rep__17_n_0\,
       R => '0'
@@ -32641,7 +32712,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[5]_rep__18_n_0\,
       R => '0'
@@ -32652,7 +32723,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[5]_rep__19_n_0\,
       R => '0'
@@ -32663,7 +32734,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[5]_rep__2_n_0\,
       R => '0'
@@ -32674,7 +32745,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[5]_rep__20_n_0\,
       R => '0'
@@ -32685,7 +32756,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[5]_rep__21_n_0\,
       R => '0'
@@ -32696,7 +32767,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[5]_rep__22_n_0\,
       R => '0'
@@ -32707,7 +32778,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[5]_rep__23_n_0\,
       R => '0'
@@ -32718,7 +32789,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[5]_rep__24_n_0\,
       R => '0'
@@ -32729,7 +32800,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[5]_rep__3_n_0\,
       R => '0'
@@ -32740,7 +32811,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[5]_rep__4_n_0\,
       R => '0'
@@ -32751,7 +32822,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[5]_rep__5_n_0\,
       R => '0'
@@ -32762,7 +32833,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[5]_rep__6_n_0\,
       R => '0'
@@ -32773,7 +32844,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[5]_rep__7_n_0\,
       R => '0'
@@ -32784,7 +32855,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[5]_rep__8_n_0\,
       R => '0'
@@ -32795,7 +32866,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[5]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[5]_rep__9_n_0\,
       R => '0'
@@ -32806,7 +32877,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1_n_0\,
       Q => \dataAddr_reg[6]_rep_n_0\,
       R => '0'
@@ -32817,7 +32888,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[6]_rep__0_n_0\,
       R => '0'
@@ -32828,7 +32899,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[6]_rep__1_n_0\,
       R => '0'
@@ -32839,7 +32910,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[6]_rep__10_n_0\,
       R => '0'
@@ -32850,7 +32921,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[6]_rep__11_n_0\,
       R => '0'
@@ -32861,7 +32932,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[6]_rep__12_n_0\,
       R => '0'
@@ -32872,7 +32943,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[6]_rep__13_n_0\,
       R => '0'
@@ -32883,7 +32954,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[6]_rep__14_n_0\,
       R => '0'
@@ -32894,7 +32965,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[6]_rep__15_n_0\,
       R => '0'
@@ -32905,7 +32976,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[6]_rep__16_n_0\,
       R => '0'
@@ -32916,7 +32987,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[6]_rep__17_n_0\,
       R => '0'
@@ -32927,7 +32998,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[6]_rep__18_n_0\,
       R => '0'
@@ -32938,7 +33009,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[6]_rep__19_n_0\,
       R => '0'
@@ -32949,7 +33020,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[6]_rep__2_n_0\,
       R => '0'
@@ -32960,7 +33031,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[6]_rep__20_n_0\,
       R => '0'
@@ -32971,7 +33042,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[6]_rep__21_n_0\,
       R => '0'
@@ -32982,7 +33053,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[6]_rep__22_n_0\,
       R => '0'
@@ -32993,7 +33064,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[6]_rep__23_n_0\,
       R => '0'
@@ -33004,7 +33075,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[6]_rep__24_n_0\,
       R => '0'
@@ -33015,7 +33086,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[6]_rep__3_n_0\,
       R => '0'
@@ -33026,7 +33097,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[6]_rep__4_n_0\,
       R => '0'
@@ -33037,7 +33108,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[6]_rep__5_n_0\,
       R => '0'
@@ -33048,7 +33119,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[6]_rep__6_n_0\,
       R => '0'
@@ -33059,7 +33130,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[6]_rep__7_n_0\,
       R => '0'
@@ -33070,7 +33141,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[6]_rep__8_n_0\,
       R => '0'
@@ -33081,7 +33152,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[6]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[6]_rep__9_n_0\,
       R => '0'
@@ -33092,7 +33163,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1_n_0\,
       Q => \dataAddr_reg[7]_rep_n_0\,
       R => '0'
@@ -33103,7 +33174,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[7]_rep__0_n_0\,
       R => '0'
@@ -33114,7 +33185,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[7]_rep__1_n_0\,
       R => '0'
@@ -33125,7 +33196,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[7]_rep__10_n_0\,
       R => '0'
@@ -33136,7 +33207,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[7]_rep__11_n_0\,
       R => '0'
@@ -33147,7 +33218,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[7]_rep__12_n_0\,
       R => '0'
@@ -33158,7 +33229,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[7]_rep__13_n_0\,
       R => '0'
@@ -33169,7 +33240,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[7]_rep__14_n_0\,
       R => '0'
@@ -33180,7 +33251,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[7]_rep__15_n_0\,
       R => '0'
@@ -33191,7 +33262,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[7]_rep__16_n_0\,
       R => '0'
@@ -33202,7 +33273,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[7]_rep__17_n_0\,
       R => '0'
@@ -33213,7 +33284,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[7]_rep__18_n_0\,
       R => '0'
@@ -33224,7 +33295,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[7]_rep__19_n_0\,
       R => '0'
@@ -33235,7 +33306,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[7]_rep__2_n_0\,
       R => '0'
@@ -33246,7 +33317,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[7]_rep__20_n_0\,
       R => '0'
@@ -33257,7 +33328,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[7]_rep__21_n_0\,
       R => '0'
@@ -33268,7 +33339,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[7]_rep__22_n_0\,
       R => '0'
@@ -33279,7 +33350,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[7]_rep__23_n_0\,
       R => '0'
@@ -33290,7 +33361,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[7]_rep__24_n_0\,
       R => '0'
@@ -33301,7 +33372,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[7]_rep__3_n_0\,
       R => '0'
@@ -33312,7 +33383,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[7]_rep__4_n_0\,
       R => '0'
@@ -33323,7 +33394,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[7]_rep__5_n_0\,
       R => '0'
@@ -33334,7 +33405,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[7]_rep__6_n_0\,
       R => '0'
@@ -33345,7 +33416,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[7]_rep__7_n_0\,
       R => '0'
@@ -33356,7 +33427,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[7]_rep__8_n_0\,
       R => '0'
@@ -33367,7 +33438,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[7]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[7]_rep__9_n_0\,
       R => '0'
@@ -33378,7 +33449,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1_n_0\,
       Q => \dataAddr_reg[8]_rep_n_0\,
       R => '0'
@@ -33389,7 +33460,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[8]_rep__0_n_0\,
       R => '0'
@@ -33400,7 +33471,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[8]_rep__1_n_0\,
       R => '0'
@@ -33411,7 +33482,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[8]_rep__10_n_0\,
       R => '0'
@@ -33422,7 +33493,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[8]_rep__11_n_0\,
       R => '0'
@@ -33433,7 +33504,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[8]_rep__12_n_0\,
       R => '0'
@@ -33444,7 +33515,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[8]_rep__13_n_0\,
       R => '0'
@@ -33455,7 +33526,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[8]_rep__14_n_0\,
       R => '0'
@@ -33466,7 +33537,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[8]_rep__15_n_0\,
       R => '0'
@@ -33477,7 +33548,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[8]_rep__16_n_0\,
       R => '0'
@@ -33488,7 +33559,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[8]_rep__17_n_0\,
       R => '0'
@@ -33499,7 +33570,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[8]_rep__18_n_0\,
       R => '0'
@@ -33510,7 +33581,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[8]_rep__19_n_0\,
       R => '0'
@@ -33521,7 +33592,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[8]_rep__2_n_0\,
       R => '0'
@@ -33532,7 +33603,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[8]_rep__20_n_0\,
       R => '0'
@@ -33543,7 +33614,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[8]_rep__21_n_0\,
       R => '0'
@@ -33554,7 +33625,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[8]_rep__22_n_0\,
       R => '0'
@@ -33565,7 +33636,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[8]_rep__23_n_0\,
       R => '0'
@@ -33576,7 +33647,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[8]_rep__24_n_0\,
       R => '0'
@@ -33587,7 +33658,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[8]_rep__3_n_0\,
       R => '0'
@@ -33598,7 +33669,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[8]_rep__4_n_0\,
       R => '0'
@@ -33609,7 +33680,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[8]_rep__5_n_0\,
       R => '0'
@@ -33620,7 +33691,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[8]_rep__6_n_0\,
       R => '0'
@@ -33631,7 +33702,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[8]_rep__7_n_0\,
       R => '0'
@@ -33642,7 +33713,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[8]_rep__8_n_0\,
       R => '0'
@@ -33653,7 +33724,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[8]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[8]_rep__9_n_0\,
       R => '0'
@@ -33664,7 +33735,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1_n_0\,
       Q => \dataAddr_reg[9]_rep_n_0\,
       R => '0'
@@ -33675,7 +33746,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__0_n_0\,
       Q => \dataAddr_reg[9]_rep__0_n_0\,
       R => '0'
@@ -33686,7 +33757,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__1_n_0\,
       Q => \dataAddr_reg[9]_rep__1_n_0\,
       R => '0'
@@ -33697,7 +33768,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__10_n_0\,
       Q => \dataAddr_reg[9]_rep__10_n_0\,
       R => '0'
@@ -33708,7 +33779,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__11_n_0\,
       Q => \dataAddr_reg[9]_rep__11_n_0\,
       R => '0'
@@ -33719,7 +33790,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__12_n_0\,
       Q => \dataAddr_reg[9]_rep__12_n_0\,
       R => '0'
@@ -33730,7 +33801,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__13_n_0\,
       Q => \dataAddr_reg[9]_rep__13_n_0\,
       R => '0'
@@ -33741,7 +33812,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__14_n_0\,
       Q => \dataAddr_reg[9]_rep__14_n_0\,
       R => '0'
@@ -33752,7 +33823,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__15_n_0\,
       Q => \dataAddr_reg[9]_rep__15_n_0\,
       R => '0'
@@ -33763,7 +33834,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__16_n_0\,
       Q => \dataAddr_reg[9]_rep__16_n_0\,
       R => '0'
@@ -33774,7 +33845,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__17_n_0\,
       Q => \dataAddr_reg[9]_rep__17_n_0\,
       R => '0'
@@ -33785,7 +33856,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__18_n_0\,
       Q => \dataAddr_reg[9]_rep__18_n_0\,
       R => '0'
@@ -33796,7 +33867,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__19_n_0\,
       Q => \dataAddr_reg[9]_rep__19_n_0\,
       R => '0'
@@ -33807,7 +33878,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__2_n_0\,
       Q => \dataAddr_reg[9]_rep__2_n_0\,
       R => '0'
@@ -33818,7 +33889,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__20_n_0\,
       Q => \dataAddr_reg[9]_rep__20_n_0\,
       R => '0'
@@ -33829,7 +33900,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__21_n_0\,
       Q => \dataAddr_reg[9]_rep__21_n_0\,
       R => '0'
@@ -33840,7 +33911,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__22_n_0\,
       Q => \dataAddr_reg[9]_rep__22_n_0\,
       R => '0'
@@ -33851,7 +33922,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__23_n_0\,
       Q => \dataAddr_reg[9]_rep__23_n_0\,
       R => '0'
@@ -33862,7 +33933,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__24_n_0\,
       Q => \dataAddr_reg[9]_rep__24_n_0\,
       R => '0'
@@ -33873,7 +33944,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__3_n_0\,
       Q => \dataAddr_reg[9]_rep__3_n_0\,
       R => '0'
@@ -33884,7 +33955,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__4_n_0\,
       Q => \dataAddr_reg[9]_rep__4_n_0\,
       R => '0'
@@ -33895,7 +33966,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__5_n_0\,
       Q => \dataAddr_reg[9]_rep__5_n_0\,
       R => '0'
@@ -33906,7 +33977,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__6_n_0\,
       Q => \dataAddr_reg[9]_rep__6_n_0\,
       R => '0'
@@ -33917,7 +33988,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__7_n_0\,
       Q => \dataAddr_reg[9]_rep__7_n_0\,
       R => '0'
@@ -33928,7 +33999,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__8_n_0\,
       Q => \dataAddr_reg[9]_rep__8_n_0\,
       R => '0'
@@ -33939,7 +34010,7 @@ Quadrature_buffer_reg_1_9: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => AD_CLK_in,
-      CE => p_0_in,
+      CE => \OffsetPhase[31]_i_1_n_0\,
       D => \dataAddr[9]_rep_i_1__9_n_0\,
       Q => \dataAddr_reg[9]_rep__9_n_0\,
       R => '0'
@@ -47457,14 +47528,14 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_Phase_Locked_Loop_0_0_Phase_Locked_Loop is
   port (
     Phase_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    DAC_Stream_out : out STD_LOGIC_VECTOR ( 27 downto 0 );
+    DAC_Stream_out : out STD_LOGIC_VECTOR ( 13 downto 0 );
     Lock_Strength : out STD_LOGIC_VECTOR ( 25 downto 0 );
     Freq_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Reset_Out : out STD_LOGIC;
     \section_out1_reg[23]\ : in STD_LOGIC;
-    Reset_In : in STD_LOGIC;
     AD_CLK_in : in STD_LOGIC;
-    s_axis_tdata_ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    Reset_In : in STD_LOGIC;
+    ADC_Stream_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
     Control_Ki : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Control_Kp : in STD_LOGIC_VECTOR ( 31 downto 0 );
     PLL_Guess_Freq : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -47475,6 +47546,7 @@ entity system_Phase_Locked_Loop_0_0_Phase_Locked_Loop is
 end system_Phase_Locked_Loop_0_0_Phase_Locked_Loop;
 
 architecture STRUCTURE of system_Phase_Locked_Loop_0_0_Phase_Locked_Loop is
+  signal DelayPipe2 : STD_LOGIC_VECTOR ( 1 to 1 );
   signal Init_State : STD_LOGIC;
   signal Lock_Mixer_n_0 : STD_LOGIC;
   signal Lock_Mixer_n_1 : STD_LOGIC;
@@ -47684,7 +47756,6 @@ architecture STRUCTURE of system_Phase_Locked_Loop_0_0_Phase_Locked_Loop is
   signal Quadrature_Mixer_n_9 : STD_LOGIC;
   signal SignalOutput : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal output_register : STD_LOGIC_VECTOR ( 25 downto 0 );
-  signal p_0_in : STD_LOGIC;
   signal section_out1_reg : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal section_out1_reg_0 : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal section_out1_reg_23_sn_1 : STD_LOGIC;
@@ -47700,12 +47771,6 @@ architecture STRUCTURE of system_Phase_Locked_Loop_0_0_Phase_Locked_Loop is
   attribute ADDER_THRESHOLD of \PLL_Freq_reg[7]_i_1\ : label is 35;
 begin
   section_out1_reg_23_sn_1 <= \section_out1_reg[23]\;
-ADC_Stream_Reader: entity work.system_Phase_Locked_Loop_0_0_AXI4_Stream_Reader
-     port map (
-      AD_CLK_in => AD_CLK_in,
-      DAC_Stream_out(13 downto 0) => DAC_Stream_out(27 downto 14),
-      s_axis_tdata_ADC_Stream_in(13 downto 0) => s_axis_tdata_ADC_Stream_in(13 downto 0)
-    );
 \Freq_Measured_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => AD_CLK_in,
@@ -47975,8 +48040,9 @@ Init_State_reg: unisim.vcomponents.FDRE
     );
 Lock_Mixer: entity work.system_Phase_Locked_Loop_0_0_Mixer
      port map (
+      ADC_Stream_in(13 downto 0) => ADC_Stream_in(13 downto 0),
       AD_CLK_in => AD_CLK_in,
-      D(13) => p_0_in,
+      D(13) => DelayPipe2(1),
       D(12) => PLL_NCO_n_33,
       D(11) => PLL_NCO_n_34,
       D(10) => PLL_NCO_n_35,
@@ -48017,7 +48083,6 @@ Lock_Mixer: entity work.system_Phase_Locked_Loop_0_0_Mixer
       O(1) => Lock_Mixer_n_2,
       O(0) => Lock_Mixer_n_3,
       Reset_In => Reset_In,
-      s_axis_tdata_ADC_Stream_in(13 downto 0) => s_axis_tdata_ADC_Stream_in(13 downto 0),
       section_out1_reg(25 downto 0) => section_out1_reg_0(25 downto 0),
       section_out1_reg_23_sp_1 => section_out1_reg_23_sn_1
     );
@@ -48866,7 +48931,7 @@ PLL_NCO: entity work.system_Phase_Locked_Loop_0_0_NCO
       B(2) => PLL_NCO_n_71,
       B(1) => PLL_NCO_n_72,
       B(0) => PLL_NCO_n_73,
-      D(13) => p_0_in,
+      D(13) => DelayPipe2(1),
       D(12) => PLL_NCO_n_33,
       D(11) => PLL_NCO_n_34,
       D(10) => PLL_NCO_n_35,
@@ -48918,6 +48983,7 @@ PLL_NCO: entity work.system_Phase_Locked_Loop_0_0_NCO
     );
 Quadrature_Mixer: entity work.system_Phase_Locked_Loop_0_0_Mixer_0
      port map (
+      ADC_Stream_in(13 downto 0) => ADC_Stream_in(13 downto 0),
       AD_CLK_in => AD_CLK_in,
       B(13) => PLL_NCO_n_60,
       B(12) => PLL_NCO_n_61,
@@ -48960,7 +49026,6 @@ Quadrature_Mixer: entity work.system_Phase_Locked_Loop_0_0_Mixer_0
       O(1) => Quadrature_Mixer_n_2,
       O(0) => Quadrature_Mixer_n_3,
       Reset_In => Reset_In,
-      s_axis_tdata_ADC_Stream_in(13 downto 0) => s_axis_tdata_ADC_Stream_in(13 downto 0),
       section_out1_reg(25 downto 0) => section_out1_reg(25 downto 0),
       section_out1_reg_23_sp_1 => section_out1_reg_23_sn_1
     );
@@ -49018,9 +49083,7 @@ entity system_Phase_Locked_Loop_0_0 is
     Freq_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Phase_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Lock_Strength : out STD_LOGIC_VECTOR ( 25 downto 0 );
-    s_axis_tdata_ADC_Stream_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axis_tvalid_ADC_Stream_in : in STD_LOGIC;
-    s_axis_tready_ADC_Stream_in : out STD_LOGIC;
+    ADC_Stream_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     DAC_Stream_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
     AD_CLK_in : in STD_LOGIC;
     Reset_In : in STD_LOGIC;
@@ -49041,8 +49104,8 @@ end system_Phase_Locked_Loop_0_0;
 
 architecture STRUCTURE of system_Phase_Locked_Loop_0_0 is
   signal \<const0>\ : STD_LOGIC;
-  signal \<const1>\ : STD_LOGIC;
-  signal \^dac_stream_out\ : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal \^adc_stream_in\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \^dac_stream_out\ : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal \section_out1_reg[0]_i_10_n_0\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Integrator_Reset : signal is "xilinx.com:signal:reset:1.0 Integrator_Reset RST";
@@ -49052,33 +49115,24 @@ architecture STRUCTURE of system_Phase_Locked_Loop_0_0 is
   attribute X_INTERFACE_PARAMETER of Reset_In : signal is "XIL_INTERFACENAME Reset_In, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of Reset_Out : signal is "xilinx.com:signal:reset:1.0 Reset_Out RST";
   attribute X_INTERFACE_PARAMETER of Reset_Out : signal is "XIL_INTERFACENAME Reset_Out, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of s_axis_tready_ADC_Stream_in : signal is "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TREADY";
-  attribute X_INTERFACE_PARAMETER of s_axis_tready_ADC_Stream_in : signal is "XIL_INTERFACENAME s_axis_ADC_Stream_in, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of s_axis_tvalid_ADC_Stream_in : signal is "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID";
-  attribute X_INTERFACE_INFO of s_axis_tdata_ADC_Stream_in : signal is "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA";
-  attribute X_INTERFACE_PARAMETER of s_axis_tdata_ADC_Stream_in : signal is "FREQ_HZ 125000000";
 begin
   DAC_Stream_out(31) <= \<const0>\;
   DAC_Stream_out(30) <= \<const0>\;
-  DAC_Stream_out(29 downto 16) <= \^dac_stream_out\(29 downto 16);
+  DAC_Stream_out(29 downto 16) <= \^adc_stream_in\(13 downto 0);
   DAC_Stream_out(15) <= \<const0>\;
   DAC_Stream_out(14) <= \<const0>\;
   DAC_Stream_out(13 downto 0) <= \^dac_stream_out\(13 downto 0);
-  s_axis_tready_ADC_Stream_in <= \<const1>\;
+  \^adc_stream_in\(13 downto 0) <= ADC_Stream_in(13 downto 0);
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
     );
-VCC: unisim.vcomponents.VCC
-     port map (
-      P => \<const1>\
-    );
 inst: entity work.system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
      port map (
+      ADC_Stream_in(13 downto 0) => \^adc_stream_in\(13 downto 0),
       AD_CLK_in => AD_CLK_in,
       Control_Ki(31 downto 0) => Control_Ki(31 downto 0),
       Control_Kp(31 downto 0) => Control_Kp(31 downto 0),
-      DAC_Stream_out(27 downto 14) => \^dac_stream_out\(29 downto 16),
       DAC_Stream_out(13 downto 0) => \^dac_stream_out\(13 downto 0),
       Freq_Measured(31 downto 0) => Freq_Measured(31 downto 0),
       Integrator_Reset => Integrator_Reset,
@@ -49087,7 +49141,6 @@ inst: entity work.system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
       Phase_Measured(31 downto 0) => Phase_Measured(31 downto 0),
       Reset_In => Reset_In,
       Reset_Out => Reset_Out,
-      s_axis_tdata_ADC_Stream_in(13 downto 0) => s_axis_tdata_ADC_Stream_in(13 downto 0),
       \section_out1_reg[23]\ => \section_out1_reg[0]_i_10_n_0\
     );
 \section_out1_reg[0]_i_10\: unisim.vcomponents.FDCE

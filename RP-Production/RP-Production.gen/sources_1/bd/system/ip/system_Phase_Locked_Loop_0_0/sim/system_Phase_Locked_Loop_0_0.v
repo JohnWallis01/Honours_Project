@@ -61,9 +61,7 @@ module system_Phase_Locked_Loop_0_0 (
   Freq_Measured,
   Phase_Measured,
   Lock_Strength,
-  s_axis_tdata_ADC_Stream_in,
-  s_axis_tvalid_ADC_Stream_in,
-  s_axis_tready_ADC_Stream_in,
+  ADC_Stream_in,
   DAC_Stream_out,
   AD_CLK_in,
   Reset_In,
@@ -77,13 +75,7 @@ input wire [31 : 0] Control_Ki;
 output wire [31 : 0] Freq_Measured;
 output wire [31 : 0] Phase_Measured;
 output wire [25 : 0] Lock_Strength;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *)
-input wire [31 : 0] s_axis_tdata_ADC_Stream_in;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *)
-input wire s_axis_tvalid_ADC_Stream_in;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_ADC_Stream_in, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TREADY" *)
-output wire s_axis_tready_ADC_Stream_in;
+input wire [31 : 0] ADC_Stream_in;
 output wire [31 : 0] DAC_Stream_out;
 input wire AD_CLK_in;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_In, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -105,9 +97,7 @@ input wire Integrator_Reset;
     .Freq_Measured(Freq_Measured),
     .Phase_Measured(Phase_Measured),
     .Lock_Strength(Lock_Strength),
-    .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in),
-    .s_axis_tvalid_ADC_Stream_in(s_axis_tvalid_ADC_Stream_in),
-    .s_axis_tready_ADC_Stream_in(s_axis_tready_ADC_Stream_in),
+    .ADC_Stream_in(ADC_Stream_in),
     .DAC_Stream_out(DAC_Stream_out),
     .AD_CLK_in(AD_CLK_in),
     .Reset_In(Reset_In),

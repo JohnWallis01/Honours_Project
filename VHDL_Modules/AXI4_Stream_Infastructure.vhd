@@ -104,7 +104,7 @@ architecture Behavioral of AXI4_Stream_Writer is
         end if;
     end process;
 
-    m_axis_tvalid <= valid and divide;
+    m_axis_tvalid <= '1';
     m_axis_tdata <= cfg_data;
 
 end Behavioral;
@@ -144,3 +144,60 @@ architecture Behavioral of AXI4_Stream_CombinerWriter is
     end process;
 
 end Behavioral;
+
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+
+entity DMA_Interconnect is
+    port (
+
+        PRBS_TX: in std_logic;
+        PRBS_RX: in std_logic;
+
+        --axis input for DAC
+        s_axis_tdata: in std_logic_vector(31 downto 0);
+        s_axis_tvalid: in std_logic;
+
+        --ADC Data_out
+        ADC_Data: out std_logic_vector(31 downto 0);
+
+        --axis mode
+        Mode: in std_logic;
+
+        --axis output to FIFO 
+        m_axis_tdata: out std_logic_vector(31 downto 0);
+        m_axis_tvalid: out std_logic;
+    
+        --axis clock
+        aclk: in std_logic
+    );
+end DMA_Interconnect;
+
+architecture DMA_Interconnect_arch of DMA_Interconnect is
+
+begin
+
+    process(aclk)
+    begin
+        if rising_edge(aclk) then
+            ADC_Data <= s_axis_tdata;
+        end if;
+    end process;
+
+    process(aclk)
+    begin
+        if rising_edge(aclk) then
+            if Mode = '0' then
+                m_axis_tdata <= s_axis_tdata;
+                m_axis_tvalid <= s_axis_tvalid;
+            end if;
+        end if;
+    end process;
+
+end DMA_Interconnect_arch ; -- DMA_Interconnect_arch

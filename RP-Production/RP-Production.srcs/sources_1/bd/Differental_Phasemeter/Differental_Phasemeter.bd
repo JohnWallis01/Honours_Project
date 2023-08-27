@@ -5535,67 +5535,6 @@
           "ref_name": "Phase_Locked_Loop",
           "boundary_crc": "0x0"
         },
-        "interface_ports": {
-          "s_axis_ADC_Stream_in": {
-            "mode": "Slave",
-            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "constant"
-              },
-              "TDATA_NUM_BYTES": {
-                "value": "4",
-                "value_src": "constant"
-              },
-              "TDEST_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TID_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TUSER_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TREADY": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TSTRB": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TKEEP": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TLAST": {
-                "value": "0",
-                "value_src": "constant"
-              }
-            },
-            "port_maps": {
-              "TDATA": {
-                "physical_name": "s_axis_tdata_ADC_Stream_in",
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "TVALID": {
-                "physical_name": "s_axis_tvalid_ADC_Stream_in",
-                "direction": "I"
-              },
-              "TREADY": {
-                "physical_name": "s_axis_tready_ADC_Stream_in",
-                "direction": "O"
-              }
-            }
-          }
-        },
         "ports": {
           "PLL_Guess_Freq": {
             "direction": "I",
@@ -5625,6 +5564,11 @@
           "Lock_Strength": {
             "direction": "O",
             "left": "25",
+            "right": "0"
+          },
+          "ADC_Stream_in": {
+            "direction": "I",
+            "left": "31",
             "right": "0"
           },
           "DAC_Stream_out": {
@@ -5664,67 +5608,6 @@
           "ref_name": "Phase_Locked_Loop",
           "boundary_crc": "0x0"
         },
-        "interface_ports": {
-          "s_axis_ADC_Stream_in": {
-            "mode": "Slave",
-            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "constant"
-              },
-              "TDATA_NUM_BYTES": {
-                "value": "4",
-                "value_src": "constant"
-              },
-              "TDEST_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TID_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TUSER_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TREADY": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TSTRB": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TKEEP": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TLAST": {
-                "value": "0",
-                "value_src": "constant"
-              }
-            },
-            "port_maps": {
-              "TDATA": {
-                "physical_name": "s_axis_tdata_ADC_Stream_in",
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "TVALID": {
-                "physical_name": "s_axis_tvalid_ADC_Stream_in",
-                "direction": "I"
-              },
-              "TREADY": {
-                "physical_name": "s_axis_tready_ADC_Stream_in",
-                "direction": "O"
-              }
-            }
-          }
-        },
         "ports": {
           "PLL_Guess_Freq": {
             "direction": "I",
@@ -5754,6 +5637,11 @@
           "Lock_Strength": {
             "direction": "O",
             "left": "25",
+            "right": "0"
+          },
+          "ADC_Stream_in": {
+            "direction": "I",
+            "left": "31",
             "right": "0"
           },
           "DAC_Stream_out": {
@@ -5844,18 +5732,6 @@
         "interface_ports": [
           "GPIO_Interface/S_AXI_FreqMeasured",
           "PS7/M02_AXI"
-        ]
-      },
-      "axis_broadcaster_0_M00_AXIS": {
-        "interface_ports": [
-          "axis_broadcaster_0/M00_AXIS",
-          "Phase_Locked_Loop_0/s_axis_ADC_Stream_in"
-        ]
-      },
-      "axis_broadcaster_0_M01_AXIS": {
-        "interface_ports": [
-          "axis_broadcaster_0/M01_AXIS",
-          "Phase_Locked_Loop_1/s_axis_ADC_Stream_in"
         ]
       },
       "axis_data_fifo_0_M_AXIS": {

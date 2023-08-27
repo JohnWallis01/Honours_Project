@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-603,768",
+   "Default View_ScaleFactor":"0.999997",
+   "Default View_TopLeft":"-407,467",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port S_AXI_Ki -pg 1 -lvl 0 -x -10 -y 1180 -defaultsOSRD
 preplace port S_AXI_Kp -pg 1 -lvl 0 -x -10 -y 1320 -defaultsOSRD
@@ -11,36 +11,46 @@ preplace port S_AXI_PLL_Guess -pg 1 -lvl 0 -x -10 -y 1460 -defaultsOSRD
 preplace port S_AXI_FreqMeasured -pg 1 -lvl 0 -x -10 -y 900 -defaultsOSRD
 preplace port S_AXI_Integrator_Reset -pg 1 -lvl 0 -x -10 -y 1040 -defaultsOSRD
 preplace port S_AXI -pg 1 -lvl 0 -x -10 -y 840 -defaultsOSRD
+preplace port S_AXI1 -pg 1 -lvl 0 -x -10 -y 880 -defaultsOSRD
+preplace port S_AXI2 -pg 1 -lvl 0 -x -10 -y 570 -defaultsOSRD
 preplace port port-id_s_axi_aclk -pg 1 -lvl 0 -x -10 -y 1070 -defaultsOSRD
 preplace port port-id_s_axi_aresetn -pg 1 -lvl 0 -x -10 -y 1210 -defaultsOSRD
-preplace portBus gpio_Ki -pg 1 -lvl 3 -x 640 -y 1210 -defaultsOSRD
-preplace portBus gpio_Kp -pg 1 -lvl 3 -x 640 -y 1350 -defaultsOSRD
-preplace portBus gpio_PLL_Guess_Freq -pg 1 -lvl 3 -x 640 -y 1490 -defaultsOSRD
-preplace portBus gpio_Freq_Measured -pg 1 -lvl 3 -x 640 -y 930 -defaultsOSRD -right
-preplace portBus gpio_Integrator_Reset -pg 1 -lvl 3 -x 640 -y 1070 -defaultsOSRD
+preplace portBus gpio_Ki -pg 1 -lvl 2 -x 380 -y 1210 -defaultsOSRD
+preplace portBus gpio_Kp -pg 1 -lvl 2 -x 380 -y 1350 -defaultsOSRD
+preplace portBus gpio_PLL_Guess_Freq -pg 1 -lvl 2 -x 380 -y 1490 -defaultsOSRD
+preplace portBus gpio_Freq_Measured -pg 1 -lvl 2 -x 380 -y 930 -defaultsOSRD -right
+preplace portBus gpio_Integrator_Reset -pg 1 -lvl 2 -x 380 -y 1070 -defaultsOSRD
 preplace portBus gpio_io_i -pg 1 -lvl 0 -x -10 -y 860 -defaultsOSRD
-preplace inst GPIO_Ki -pg 1 -lvl 1 -x 170 -y 1200 -defaultsOSRD
-preplace inst GPIO_Kp -pg 1 -lvl 1 -x 170 -y 1340 -defaultsOSRD
-preplace inst GPIO_PLL_GUESS_Freq -pg 1 -lvl 1 -x 170 -y 1480 -defaultsOSRD
-preplace inst GPIO_FreqMeasure -pg 1 -lvl 1 -x 170 -y 920 -defaultsOSRD
-preplace inst GPIO_Integrator_Reset -pg 1 -lvl 1 -x 170 -y 1060 -defaultsOSRD
-preplace inst Locking_Strength -pg 1 -lvl 2 -x 470 -y 1420 -defaultsOSRD
-preplace netloc GPIO_Integrator_Reset_gpio_io_o 1 1 2 NJ 1070 N
-preplace netloc GPIO_Ki_gpio_io_o 1 1 2 NJ 1210 N
-preplace netloc GPIO_Kp_gpio_io_o 1 1 2 320J 1340 620
-preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 1 2 310J 1500 620
-preplace netloc Net 1 0 2 10 1560 320
-preplace netloc Net1 1 0 2 20 1570 330
-preplace netloc gpio_io_i_1 1 1 2 NJ 930 N
-preplace netloc gpio_io_i_2 1 0 3 10J 830 NJ 830 610
-preplace netloc PS7_M00_AXI 1 0 1 NJ 1460
-preplace netloc PS7_M04_AXI 1 0 1 NJ 1320
-preplace netloc PS7_M05_AXI 1 0 1 NJ 1180
-preplace netloc S_AXI10_1 1 0 1 NJ 1040
-preplace netloc S_AXI7_1 1 0 1 NJ 900
-preplace netloc S_AXI_1 1 0 2 NJ 840 330J
-levelinfo -pg 1 -10 170 470 640
-pagesize -pg 1 -db -bbox -sgen -220 0 880 1580
+preplace portBus gpio_io_o -pg 1 -lvl 2 -x 380 -y 880 -defaultsOSRD
+preplace portBus gpio_io_o1 -pg 1 -lvl 2 -x 380 -y 600 -defaultsOSRD
+preplace inst GPIO_Ki -pg 1 -lvl 1 -x 210 -y 1290 -defaultsOSRD
+preplace inst GPIO_Kp -pg 1 -lvl 1 -x 210 -y 1430 -defaultsOSRD
+preplace inst GPIO_PLL_GUESS_Freq -pg 1 -lvl 1 -x 210 -y 1570 -defaultsOSRD
+preplace inst GPIO_FreqMeasure -pg 1 -lvl 1 -x 210 -y 1010 -defaultsOSRD
+preplace inst GPIO_Integrator_Reset -pg 1 -lvl 1 -x 210 -y 1150 -defaultsOSRD
+preplace inst Locking_Strength -pg 1 -lvl 1 -x 210 -y 730 -defaultsOSRD
+preplace inst DMA_Mode -pg 1 -lvl 1 -x 210 -y 870 -defaultsOSRD
+preplace inst GPIO_TAPS -pg 1 -lvl 1 -x 210 -y 590 -defaultsOSRD
+preplace netloc GPIO_Integrator_Reset_gpio_io_o 1 1 1 360J 1070n
+preplace netloc GPIO_Ki_gpio_io_o 1 1 1 360J 1210n
+preplace netloc GPIO_Kp_gpio_io_o 1 1 1 360J 1350n
+preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 1 1 360J 1490n
+preplace netloc Net 1 0 1 40 590n
+preplace netloc Net1 1 0 1 50 610n
+preplace netloc gpio_io_i_1 1 1 1 360J 930n
+preplace netloc gpio_io_i_2 1 0 2 20J 1650 350J
+preplace netloc DMA_Mode_gpio_io_o 1 1 1 N 880
+preplace netloc GPIO_TAPS_gpio_io_o 1 1 1 N 600
+preplace netloc PS7_M00_AXI 1 0 1 10J 1460n
+preplace netloc PS7_M04_AXI 1 0 1 10J 1320n
+preplace netloc PS7_M05_AXI 1 0 1 30J 1180n
+preplace netloc S_AXI10_1 1 0 1 60J 1040n
+preplace netloc S_AXI7_1 1 0 1 60J 900n
+preplace netloc S_AXI_1 1 0 1 20J 710n
+preplace netloc Conn1 1 0 1 60 850n
+preplace netloc Conn2 1 0 1 N 570
+levelinfo -pg 1 -10 210 380
+pagesize -pg 1 -db -bbox -sgen -220 0 620 1660
 "
 }
 0

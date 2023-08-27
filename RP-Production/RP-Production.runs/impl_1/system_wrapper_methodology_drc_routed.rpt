@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Sun Aug 27 16:54:02 2023
+| Date         : Sun Aug 27 23:01:59 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 202
+             Violations found: 199
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -33,9 +33,7 @@ Table of Contents
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
 | DPIR-1    | Warning          | Asynchronous driver check                          | 140        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                       | 7          |
-| TIMING-16 | Warning          | Large setup violation                              | 2          |
 | TIMING-18 | Warning          | Missing input or output delay                      | 44         |
-| ULMTCS-1  | Warning          | Control Sets use limits recommend reduction        | 1          |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten    | 4          |
 +-----------+------------------+----------------------------------------------------+------------+
 
@@ -901,16 +899,6 @@ system_i/PS7/DMA_Engine/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axi4_ax
  (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
-TIMING-16#1 Warning
-Large setup violation  
-There is a large setup violation of -1.025 ns between system_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[0]_replica_2/C (clocked by adc_clk) and system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#2 Warning
-Large setup violation  
-There is a large setup violation of -1.033 ns between system_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[0]_replica_2/C (clocked by adc_clk) and system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
 TIMING-18#1 Warning
 Missing input or output delay  
 An input delay is missing on adc_dat_a_i[0] relative to clock(s) adc_clk
@@ -1129,11 +1117,6 @@ Related violations: <none>
 TIMING-18#44 Warning
 Missing input or output delay  
 An output delay is missing on dac_sel_o relative to clock(s) adc_clk
-Related violations: <none>
-
-ULMTCS-1#1 Warning
-Control Sets use limits recommend reduction  
-This design uses 372 control sets (vs. available limit of 4400, determined by 1 control set per CLB). This exceeds the control set use guideline of 7.5 percent. This is at a level where reduction is RECOMMENDED (see UG949). Use report_control_sets to get more details.
 Related violations: <none>
 
 XDCC-5#1 Warning

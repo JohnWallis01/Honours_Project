@@ -31,8 +31,8 @@ architecture NCO_str of NCO is
     TYPE SINTAB IS ARRAY(0 TO ROMSIZE-1) OF STD_LOGIC_VECTOR (DAC_Size-2 DOWNTO 0);
     signal phase: signed(Freq_Size-1 downto 0) := (others => '0');
     signal OffsetPhase: signed(Freq_Size-1 downto 0) := (others => '0');
-    alias sigbits is OffsetPhase(Freq_Size-1 downto Freq_Size-2);
-    alias subbits is OffsetPhase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
+    alias sigbits is Offsetphase(Freq_Size-1 downto Freq_Size-2);
+    alias subbits is Offsetphase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
     signal databuffer: std_logic_vector(DAC_Size-2 downto 0) := (others => '0');
     signal dataAddr: signed(ROM_Size-1 downto 0) := (others => '0');
     signal Quadrature_buffer: std_logic_vector(DAC_Size-2 downto 0) := (others => '0');
@@ -79,7 +79,8 @@ architecture NCO_str of NCO is
         if (rst='1') then
           phase <= (others =>'0');
         else
-        phase <= phase +  signed(Frequency);
+        phase <= phase + signed(Frequency);
+        OffsetPhase <= phase + signed(PhaseOffset);
         case sigbits is
           when "00" =>
             dataAddr <= (subbits);

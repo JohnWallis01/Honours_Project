@@ -22,10 +22,7 @@ entity Phase_Locked_Loop is
     Lock_Strength: out std_logic_vector(25 downto 0);
 
     ------ADC Control
-    s_axis_tdata_ADC_Stream_in: in std_logic_vector(31 downto 0);
-    s_axis_tvalid_ADC_Stream_in: in std_logic;
-    s_axis_tready_ADC_Stream_in: out std_logic;
-
+    ADC_Stream_in: in std_logic_vector(31 downto 0);
     ------DAC control   
     DAC_Stream_out: out std_logic_vector(31 downto 0);
     
@@ -52,8 +49,8 @@ end entity;
 architecture System_Architecture of Phase_Locked_Loop is
 
   
-  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER of s_axis_tdata_ADC_Stream_in: SIGNAL is "FREQ_HZ 125000000";
+  -- ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  -- ATTRIBUTE X_INTERFACE_PARAMETER of s_axis_tdata_ADC_Stream_in: SIGNAL is "FREQ_HZ 125000000";
 
   Component Mixer is
       generic(
@@ -67,19 +64,6 @@ architecture System_Architecture of Phase_Locked_Loop is
           Reset: in std_logic
       ) ;
   end Component;
-
-  component AXI4_Stream_Reader is
-        generic(
-            stream_size: integer := 32
-        );
-        port ( 
-            s_axis_tdata : in std_logic_vector (stream_size-1 downto 0);
-            Dout : out std_logic_vector (stream_size-1 downto 0);
-            s_axis_tvalid : in std_logic;
-            s_axis_tready : out std_logic := '1';
-            aclk : in std_logic
-                      );
-  end component;
 
   component NCO is
       generic (
@@ -125,7 +109,7 @@ architecture System_Architecture of Phase_Locked_Loop is
 END component;
 
     --production signals
-  signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
+  signal PLL_Freq, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
   signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal: std_logic_vector(13 downto 0);
   signal Quadrature_Mixer_Output, Lock_Mixer_Output: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
@@ -151,21 +135,9 @@ END component;
     end if;
   end process;
 
-  --ADC interface/Override--
-
-  ADC_Stream_Reader: AXI4_Stream_Reader 
-  generic map(stream_size => 32) 
-  port map (
-    s_axis_tdata=>s_axis_tdata_ADC_Stream_in,
-    Dout => ADC_Stream,
-    s_axis_tvalid => s_axis_tvalid_ADC_Stream_in,
-    s_axis_tready => s_axis_tready_ADC_Stream_in,
-    aclk => AD_CLK_in
-  );
-
     
     -- make this conditonal on channel
-    Target_Signal <= ADC_Stream(13 + CHANNEL*16 downto 0 + CHANNEL*16);
+    Target_Signal <= ADC_Stream_in(13 + CHANNEL*16 downto 0 + CHANNEL*16);
 
   --PLL--
   process(AD_CLK_in)

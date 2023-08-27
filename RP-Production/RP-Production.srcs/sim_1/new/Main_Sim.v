@@ -28,6 +28,7 @@ module Main_Sim(
     reg[10:0] Taps;
     wire[11:0] Max_Correlation;
     reg[31:0] Frequency;
+    reg[31:0] PO;
     wire[13:0] Dout;  
     wire[13:0] Qout;
     wire[31:0] Phase;
@@ -40,7 +41,7 @@ module Main_Sim(
     //   );
 
     NCO #(.Freq_Size(32), .ROM_Size(8), .DAC_Size(14)) 
-    DUT(.Frequency(Frequency), .clock(Clock), .rst(Reset), .Dout(Dout), .Quadrature_out(Qout), .Phase_out(Phase));
+    DUT(.Frequency(Frequency), .PhaseOffset(PO), .clock(Clock), .rst(Reset), .Dout(Dout), .Quadrature_out(Qout), .Phase_out(Phase));
 
 
 
@@ -53,6 +54,7 @@ module Main_Sim(
         Taps = //10'b11000001000;
                10'b00111110111;
         Frequency = 32'd3597383;
+        PO = 32'0;
         Clock = 0;
         #1;
         Clock = 1;

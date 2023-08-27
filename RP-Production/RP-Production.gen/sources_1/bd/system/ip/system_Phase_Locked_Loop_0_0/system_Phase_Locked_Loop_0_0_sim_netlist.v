@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Aug 27 14:52:23 2023
+// Date        : Sun Aug 27 22:45:43 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Phase_Locked_Loop_0_0/system_Phase_Locked_Loop_0_0_sim_netlist.v
@@ -22,9 +22,7 @@ module system_Phase_Locked_Loop_0_0
     Freq_Measured,
     Phase_Measured,
     Lock_Strength,
-    s_axis_tdata_ADC_Stream_in,
-    s_axis_tvalid_ADC_Stream_in,
-    s_axis_tready_ADC_Stream_in,
+    ADC_Stream_in,
     DAC_Stream_out,
     AD_CLK_in,
     Reset_In,
@@ -36,9 +34,7 @@ module system_Phase_Locked_Loop_0_0
   output [31:0]Freq_Measured;
   output [31:0]Phase_Measured;
   output [25:0]Lock_Strength;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *) (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *) input [31:0]s_axis_tdata_ADC_Stream_in;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *) input s_axis_tvalid_ADC_Stream_in;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_ADC_Stream_in, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) output s_axis_tready_ADC_Stream_in;
+  input [31:0]ADC_Stream_in;
   output [31:0]DAC_Stream_out;
   input AD_CLK_in;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset_In RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_In, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset_In;
@@ -46,11 +42,11 @@ module system_Phase_Locked_Loop_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Integrator_Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Integrator_Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Integrator_Reset;
 
   wire \<const0> ;
-  wire \<const1> ;
+  wire [31:0]ADC_Stream_in;
   wire AD_CLK_in;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire [29:0]\^DAC_Stream_out ;
+  wire [13:0]\^DAC_Stream_out ;
   wire [31:0]Freq_Measured;
   wire Integrator_Reset;
   wire [25:0]Lock_Strength;
@@ -58,25 +54,22 @@ module system_Phase_Locked_Loop_0_0
   wire [31:0]Phase_Measured;
   wire Reset_In;
   wire Reset_Out;
-  wire [31:0]s_axis_tdata_ADC_Stream_in;
   wire \section_out1_reg[0]_i_10_n_0 ;
 
   assign DAC_Stream_out[31] = \<const0> ;
   assign DAC_Stream_out[30] = \<const0> ;
-  assign DAC_Stream_out[29:16] = \^DAC_Stream_out [29:16];
+  assign DAC_Stream_out[29:16] = ADC_Stream_in[13:0];
   assign DAC_Stream_out[15] = \<const0> ;
   assign DAC_Stream_out[14] = \<const0> ;
   assign DAC_Stream_out[13:0] = \^DAC_Stream_out [13:0];
-  assign s_axis_tready_ADC_Stream_in = \<const1> ;
   GND GND
        (.G(\<const0> ));
-  VCC VCC
-       (.P(\<const1> ));
   system_Phase_Locked_Loop_0_0_Phase_Locked_Loop inst
-       (.AD_CLK_in(AD_CLK_in),
+       (.ADC_Stream_in(ADC_Stream_in[13:0]),
+        .AD_CLK_in(AD_CLK_in),
         .Control_Ki(Control_Ki),
         .Control_Kp(Control_Kp),
-        .DAC_Stream_out({\^DAC_Stream_out [29:16],\^DAC_Stream_out [13:0]}),
+        .DAC_Stream_out(\^DAC_Stream_out ),
         .Freq_Measured(Freq_Measured),
         .Integrator_Reset(Integrator_Reset),
         .Lock_Strength(Lock_Strength),
@@ -84,7 +77,6 @@ module system_Phase_Locked_Loop_0_0
         .Phase_Measured(Phase_Measured),
         .Reset_In(Reset_In),
         .Reset_Out(Reset_Out),
-        .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in[13:0]),
         .\section_out1_reg[23] (\section_out1_reg[0]_i_10_n_0 ));
   FDCE \section_out1_reg[0]_i_10 
        (.C(AD_CLK_in),
@@ -92,105 +84,6 @@ module system_Phase_Locked_Loop_0_0
         .CLR(Reset_In),
         .D(1'b1),
         .Q(\section_out1_reg[0]_i_10_n_0 ));
-endmodule
-
-(* ORIG_REF_NAME = "AXI4_Stream_Reader" *) 
-module system_Phase_Locked_Loop_0_0_AXI4_Stream_Reader
-   (DAC_Stream_out,
-    s_axis_tdata_ADC_Stream_in,
-    AD_CLK_in);
-  output [13:0]DAC_Stream_out;
-  input [13:0]s_axis_tdata_ADC_Stream_in;
-  input AD_CLK_in;
-
-  wire AD_CLK_in;
-  wire [13:0]DAC_Stream_out;
-  wire [13:0]s_axis_tdata_ADC_Stream_in;
-
-  FDRE \Dout_reg[0] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[0]),
-        .Q(DAC_Stream_out[0]),
-        .R(1'b0));
-  FDRE \Dout_reg[10] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[10]),
-        .Q(DAC_Stream_out[10]),
-        .R(1'b0));
-  FDRE \Dout_reg[11] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[11]),
-        .Q(DAC_Stream_out[11]),
-        .R(1'b0));
-  FDRE \Dout_reg[12] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[12]),
-        .Q(DAC_Stream_out[12]),
-        .R(1'b0));
-  FDRE \Dout_reg[13] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[13]),
-        .Q(DAC_Stream_out[13]),
-        .R(1'b0));
-  FDRE \Dout_reg[1] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[1]),
-        .Q(DAC_Stream_out[1]),
-        .R(1'b0));
-  FDRE \Dout_reg[2] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[2]),
-        .Q(DAC_Stream_out[2]),
-        .R(1'b0));
-  FDRE \Dout_reg[3] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[3]),
-        .Q(DAC_Stream_out[3]),
-        .R(1'b0));
-  FDRE \Dout_reg[4] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[4]),
-        .Q(DAC_Stream_out[4]),
-        .R(1'b0));
-  FDRE \Dout_reg[5] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[5]),
-        .Q(DAC_Stream_out[5]),
-        .R(1'b0));
-  FDRE \Dout_reg[6] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[6]),
-        .Q(DAC_Stream_out[6]),
-        .R(1'b0));
-  FDRE \Dout_reg[7] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[7]),
-        .Q(DAC_Stream_out[7]),
-        .R(1'b0));
-  FDRE \Dout_reg[8] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[8]),
-        .Q(DAC_Stream_out[8]),
-        .R(1'b0));
-  FDRE \Dout_reg[9] 
-       (.C(AD_CLK_in),
-        .CE(1'b1),
-        .D(s_axis_tdata_ADC_Stream_in[9]),
-        .Q(DAC_Stream_out[9]),
-        .R(1'b0));
 endmodule
 
 (* ORIG_REF_NAME = "CIC32" *) 
@@ -4104,7 +3997,7 @@ module system_Phase_Locked_Loop_0_0_Mixer
     AD_CLK_in,
     Reset_In,
     D,
-    s_axis_tdata_ADC_Stream_in,
+    ADC_Stream_in,
     section_out1_reg_23_sp_1,
     section_out1_reg);
   output [3:0]O;
@@ -4117,10 +4010,11 @@ module system_Phase_Locked_Loop_0_0_Mixer
   input AD_CLK_in;
   input Reset_In;
   input [13:0]D;
-  input [13:0]s_axis_tdata_ADC_Stream_in;
+  input [13:0]ADC_Stream_in;
   input section_out1_reg_23_sp_1;
   input [25:0]section_out1_reg;
 
+  wire [13:0]ADC_Stream_in;
   wire AD_CLK_in;
   wire [13:0]D;
   wire [3:0]Dout_reg_0;
@@ -4159,7 +4053,6 @@ module system_Phase_Locked_Loop_0_0_Mixer
   wire Dout_reg_n_99;
   wire [3:0]O;
   wire Reset_In;
-  wire [13:0]s_axis_tdata_ADC_Stream_in;
   wire \section_out1[0]_i_2__0_n_0 ;
   wire \section_out1[0]_i_3__0_n_0 ;
   wire \section_out1[0]_i_4__0_n_0 ;
@@ -4254,10 +4147,10 @@ module system_Phase_Locked_Loop_0_0_Mixer
 
   assign section_out1_reg_23_sn_1 = section_out1_reg_23_sp_1;
   DSP48E1 #(
-    .ACASCREG(1),
+    .ACASCREG(0),
     .ADREG(1),
     .ALUMODEREG(0),
-    .AREG(1),
+    .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
     .A_INPUT("DIRECT"),
     .BCASCREG(1),
@@ -4280,7 +4173,7 @@ module system_Phase_Locked_Loop_0_0_Mixer
     .USE_PATTERN_DETECT("NO_PATDET"),
     .USE_SIMD("ONE48")) 
     Dout_reg
-       (.A({s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in}),
+       (.A({ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in}),
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .ACOUT(NLW_Dout_reg_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
@@ -4294,7 +4187,7 @@ module system_Phase_Locked_Loop_0_0_Mixer
         .CARRYINSEL({1'b0,1'b0,1'b0}),
         .CARRYOUT(NLW_Dout_reg_CARRYOUT_UNCONNECTED[3:0]),
         .CEA1(1'b0),
-        .CEA2(1'b1),
+        .CEA2(1'b0),
         .CEAD(1'b0),
         .CEALUMODE(1'b0),
         .CEB1(1'b0),
@@ -4731,7 +4624,7 @@ module system_Phase_Locked_Loop_0_0_Mixer_0
     AD_CLK_in,
     Reset_In,
     B,
-    s_axis_tdata_ADC_Stream_in,
+    ADC_Stream_in,
     section_out1_reg_23_sp_1,
     section_out1_reg);
   output [3:0]O;
@@ -4744,10 +4637,11 @@ module system_Phase_Locked_Loop_0_0_Mixer_0
   input AD_CLK_in;
   input Reset_In;
   input [13:0]B;
-  input [13:0]s_axis_tdata_ADC_Stream_in;
+  input [13:0]ADC_Stream_in;
   input section_out1_reg_23_sp_1;
   input [25:0]section_out1_reg;
 
+  wire [13:0]ADC_Stream_in;
   wire AD_CLK_in;
   wire [13:0]B;
   wire [3:0]Dout_reg_0;
@@ -4772,7 +4666,6 @@ module system_Phase_Locked_Loop_0_0_Mixer_0
   wire Reset_In;
   wire [15:0]filter_in;
   wire [15:0]in;
-  wire [13:0]s_axis_tdata_ADC_Stream_in;
   wire \section_out1[0]_i_6_n_0 ;
   wire \section_out1[0]_i_7_n_0 ;
   wire \section_out1[0]_i_8_n_0 ;
@@ -4851,10 +4744,10 @@ module system_Phase_Locked_Loop_0_0_Mixer_0
 
   assign section_out1_reg_23_sn_1 = section_out1_reg_23_sp_1;
   DSP48E1 #(
-    .ACASCREG(1),
+    .ACASCREG(0),
     .ADREG(1),
     .ALUMODEREG(0),
-    .AREG(1),
+    .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
     .A_INPUT("DIRECT"),
     .BCASCREG(1),
@@ -4877,7 +4770,7 @@ module system_Phase_Locked_Loop_0_0_Mixer_0
     .USE_PATTERN_DETECT("NO_PATDET"),
     .USE_SIMD("ONE48")) 
     Dout_reg
-       (.A({s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in[13],s_axis_tdata_ADC_Stream_in}),
+       (.A({ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in[13],ADC_Stream_in}),
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .ACOUT(NLW_Dout_reg_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
@@ -4891,7 +4784,7 @@ module system_Phase_Locked_Loop_0_0_Mixer_0
         .CARRYINSEL({1'b0,1'b0,1'b0}),
         .CARRYOUT(NLW_Dout_reg_CARRYOUT_UNCONNECTED[3:0]),
         .CEA1(1'b0),
-        .CEA2(1'b1),
+        .CEA2(1'b0),
         .CEAD(1'b0),
         .CEALUMODE(1'b0),
         .CEB1(1'b0),
@@ -5339,9 +5232,10 @@ module system_Phase_Locked_Loop_0_0_NCO
   wire [13:0]DAC_Stream_out;
   wire [1:0]DelayPipe1;
   wire \DelayPipe2_reg_n_0_[0] ;
+  wire [29:14]L;
+  wire \OffsetPhase[31]_i_1_n_0 ;
   wire [31:0]Phase_Measured;
   wire [31:0]Q;
-  wire \Quadrature_addr[0]_rep_i_1__0__0_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__0_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__10_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__11_n_0 ;
@@ -5358,6 +5252,7 @@ module system_Phase_Locked_Loop_0_0_NCO
   wire \Quadrature_addr[0]_rep_i_1__21_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__22_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__23_n_0 ;
+  wire \Quadrature_addr[0]_rep_i_1__24_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__2_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__3_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__4_n_0 ;
@@ -5366,7 +5261,7 @@ module system_Phase_Locked_Loop_0_0_NCO
   wire \Quadrature_addr[0]_rep_i_1__7_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__8_n_0 ;
   wire \Quadrature_addr[0]_rep_i_1__9_n_0 ;
-  wire \Quadrature_addr[0]_rep_i_2_n_0 ;
+  wire \Quadrature_addr[0]_rep_i_1_n_0 ;
   wire \Quadrature_addr[10]_rep_i_1__0_n_0 ;
   wire \Quadrature_addr[10]_rep_i_1__10_n_0 ;
   wire \Quadrature_addr[10]_rep_i_1__11_n_0 ;
@@ -7034,7 +6929,7 @@ module system_Phase_Locked_Loop_0_0_NCO
   wire databuffer_reg_0_7_n_0;
   wire databuffer_reg_0_8_n_0;
   wire databuffer_reg_0_9_n_0;
-  wire p_0_in;
+  wire [1:0]p_0_in;
   wire \phase[11]_i_2_n_0 ;
   wire \phase[11]_i_3_n_0 ;
   wire \phase[11]_i_4_n_0 ;
@@ -7785,13 +7680,13 @@ module system_Phase_Locked_Loop_0_0_NCO
   FDRE \DelayPipe1_reg[0] 
        (.C(AD_CLK_in),
         .CE(1'b1),
-        .D(Phase_Measured[30]),
+        .D(p_0_in[0]),
         .Q(DelayPipe1[0]),
         .R(Reset_In));
   FDRE \DelayPipe1_reg[1] 
        (.C(AD_CLK_in),
         .CE(1'b1),
-        .D(Phase_Measured[31]),
+        .D(p_0_in[1]),
         .Q(DelayPipe1[1]),
         .R(Reset_In));
   FDRE \DelayPipe2_reg[0] 
@@ -8095,2512 +7990,2656 @@ module system_Phase_Locked_Loop_0_0_NCO
         .O(B[5]));
   LUT1 #(
     .INIT(2'h1)) 
-    \Quadrature_addr[0]_rep_i_1 
+    \OffsetPhase[31]_i_1 
        (.I0(Reset_In),
-        .O(p_0_in));
+        .O(\OffsetPhase[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[14] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[14]),
+        .Q(L[14]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[15] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[15]),
+        .Q(L[15]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[16] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[16]),
+        .Q(L[16]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[17] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[17]),
+        .Q(L[17]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[18] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[18]),
+        .Q(L[18]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[19] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[19]),
+        .Q(L[19]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[20] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[20]),
+        .Q(L[20]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[21] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[21]),
+        .Q(L[21]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[22] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[22]),
+        .Q(L[22]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[23] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[23]),
+        .Q(L[23]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[24] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[24]),
+        .Q(L[24]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[25] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[25]),
+        .Q(L[25]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[26] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[26]),
+        .Q(L[26]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[27] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[27]),
+        .Q(L[27]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[28] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[28]),
+        .Q(L[28]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[29] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[29]),
+        .Q(L[29]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[30] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[30]),
+        .Q(p_0_in[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \OffsetPhase_reg[31] 
+       (.C(AD_CLK_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(Phase_Measured[31]),
+        .Q(p_0_in[1]),
+        .R(1'b0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    \Quadrature_addr[0]_rep_i_1 
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
+        .O(\Quadrature_addr[0]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__0 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[0]_rep_i_1__0__0 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
-        .O(\Quadrature_addr[0]_rep_i_1__0__0_n_0 ));
-  LUT2 #(
-    .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__10 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__11 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__12 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__13 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__14 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__15 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__16 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__17 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__18 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__19 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__2 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__20 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__21 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__22 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__23 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
+    \Quadrature_addr[0]_rep_i_1__24 
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
+        .O(\Quadrature_addr[0]_rep_i_1__24_n_0 ));
+  LUT2 #(
+    .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__3 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__4 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__5 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__6 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__7 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__8 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[0]_rep_i_1__9 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[0]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[0]_rep_i_2 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
-        .O(\Quadrature_addr[0]_rep_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__0 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__1 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__10 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__11 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__12 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__13 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__14 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__15 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__16 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__17 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__18 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__19 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__2 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__20 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__21 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__22 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__23 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__24 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__3 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__4 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__5 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__6 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__7 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__8 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[10]_rep_i_1__9 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[10]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__0 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__1 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__10 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__11 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__12 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__13 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__14 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__15 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__16 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__17 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__18 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__19 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__2 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__20 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__21 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__22 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__23 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__24 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__3 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__4 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__5 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__6 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__7 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__8 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[11]_rep_i_1__9 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[11]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__0 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__1 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__10 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__11 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__12 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__13 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__14 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__15 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__16 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__17 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__18 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__19 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__2 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__20 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__21 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__22 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__23 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__24 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__3 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__4 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__5 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__6 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__7 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__8 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[12]_rep_i_1__9 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[12]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__0 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__1 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__10 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__11 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__12 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__13 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__14 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__15 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__16 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__17 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__18 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__19 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__2 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__20 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__21 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__22 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__23 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__24 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__3 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__4 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__5 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__6 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__7 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__8 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[13]_rep_i_1__9 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[13]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__0 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__1 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__10 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__11 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__12 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__13 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__14 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__15 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__16 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__17 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__18 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__19 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__2 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__20 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__21 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__22 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__23 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__24 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__3 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__4 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__5 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__6 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__7 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__8 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[14]_rep_i_1__9 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[14]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__0 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__1 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__10 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__11 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__12 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__13 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__14 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__15 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__16 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__17 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__18 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__19 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__2 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__20 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__21 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__22 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__23 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__24 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__3 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__4 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__5 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__6 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__7 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__8 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[15]_rep_i_1__9 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[15]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__0 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__1 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__10 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__11 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__12 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__13 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__14 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__15 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__16 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__17 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__18 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__19 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__2 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__20 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__21 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__22 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__23 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__24 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__3 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__4 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__5 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__6 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__7 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__8 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[1]_rep_i_1__9 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[1]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__0 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__1 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__10 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__11 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__12 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__13 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__14 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__15 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__16 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__17 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__18 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__19 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__2 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__20 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__21 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__22 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__23 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__24 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__3 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__4 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__5 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__6 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__7 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__8 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[2]_rep_i_1__9 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[2]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__0 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__1 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__10 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__11 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__12 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__13 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__14 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__15 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__16 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__17 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__18 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__19 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__2 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__20 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__21 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__22 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__23 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__24 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__3 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__4 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__5 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__6 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__7 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__8 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[3]_rep_i_1__9 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[3]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__0 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__1 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__10 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__11 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__12 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__13 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__14 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__15 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__16 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__17 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__18 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__19 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__2 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__20 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__21 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__22 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__23 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__24 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__3 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__4 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__5 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__6 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__7 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__8 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[4]_rep_i_1__9 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[4]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__0 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__1 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__10 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__11 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__12 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__13 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__14 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__15 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__16 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__17 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__18 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__19 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__2 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__20 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__21 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__22 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__23 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__24 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__3 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__4 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__5 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__6 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__7 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__8 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[5]_rep_i_1__9 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[5]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__0 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__1 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__10 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__11 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__12 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__13 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__14 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__15 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__16 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__17 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__18 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__19 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__2 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__20 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__21 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__22 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__23 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__24 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__3 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__4 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__5 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__6 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__7 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__8 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[6]_rep_i_1__9 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[6]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__0 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__1 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__10 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__11 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__12 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__13 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__14 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__15 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__16 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__17 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__18 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__19 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__2 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__20 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__21 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__22 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__23 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__24 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__3 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__4 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__5 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__6 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__7 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__8 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[7]_rep_i_1__9 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[7]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__0 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__1 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__10 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__11 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__12 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__13 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__14 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__15 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__16 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__17 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__18 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__19 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__2 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__20 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__21 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__22 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__23 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__24 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__3 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__4 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__5 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__6 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__7 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__8 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[8]_rep_i_1__9 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[8]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__0 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__1 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__10 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__11 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__12 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__13 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__14 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__15 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__16 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__17 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__18 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__19 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__2 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__20 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__21 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__22 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__23 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__24 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__3 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__4 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__5 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__6 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__7 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__8 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
     \Quadrature_addr[9]_rep_i_1__9 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\Quadrature_addr[9]_rep_i_1__9_n_0 ));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
   FDRE #(
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_2_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10608,7 +10647,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[0]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__0_n_0 ),
         .R(1'b0));
@@ -10617,8 +10656,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__0__0_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__1_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10626,8 +10665,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__9_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__10_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10635,8 +10674,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__10_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__11_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10644,8 +10683,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__11_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__12_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10653,8 +10692,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__12_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__13_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10662,8 +10701,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__13_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__14_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10671,8 +10710,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__14_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__15_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10680,8 +10719,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__15_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__16_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10689,8 +10728,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__16_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__17_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10698,8 +10737,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__17_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__18_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10707,8 +10746,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__18_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__19_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10716,8 +10755,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__1_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__2_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10725,8 +10764,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__19_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__20_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10734,8 +10773,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__20_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__21_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10743,8 +10782,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__21_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__22_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10752,8 +10791,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__22_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__23_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10761,8 +10800,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__23_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__24_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10770,8 +10809,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__2_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__3_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10779,8 +10818,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__3_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__4_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10788,8 +10827,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__4_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__5_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10797,8 +10836,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__5_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__6_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10806,8 +10845,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__6_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__7_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10815,8 +10854,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__7_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__8_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[0]" *) 
@@ -10824,8 +10863,8 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
-        .D(\Quadrature_addr[0]_rep_i_1__8_n_0 ),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
+        .D(\Quadrature_addr[0]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[0]_rep__9_n_0 ),
         .R(1'b0));
   (* ORIG_CELL_NAME = "Quadrature_addr_reg[10]" *) 
@@ -10833,7 +10872,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep_n_0 ),
         .R(1'b0));
@@ -10842,7 +10881,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__0_n_0 ),
         .R(1'b0));
@@ -10851,7 +10890,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__1_n_0 ),
         .R(1'b0));
@@ -10860,7 +10899,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__10_n_0 ),
         .R(1'b0));
@@ -10869,7 +10908,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__11_n_0 ),
         .R(1'b0));
@@ -10878,7 +10917,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__12_n_0 ),
         .R(1'b0));
@@ -10887,7 +10926,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__13_n_0 ),
         .R(1'b0));
@@ -10896,7 +10935,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__14_n_0 ),
         .R(1'b0));
@@ -10905,7 +10944,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__15_n_0 ),
         .R(1'b0));
@@ -10914,7 +10953,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__16_n_0 ),
         .R(1'b0));
@@ -10923,7 +10962,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__17_n_0 ),
         .R(1'b0));
@@ -10932,7 +10971,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__18_n_0 ),
         .R(1'b0));
@@ -10941,7 +10980,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__19_n_0 ),
         .R(1'b0));
@@ -10950,7 +10989,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__2_n_0 ),
         .R(1'b0));
@@ -10959,7 +10998,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__20_n_0 ),
         .R(1'b0));
@@ -10968,7 +11007,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__21_n_0 ),
         .R(1'b0));
@@ -10977,7 +11016,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__22_n_0 ),
         .R(1'b0));
@@ -10986,7 +11025,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__23_n_0 ),
         .R(1'b0));
@@ -10995,7 +11034,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__24_n_0 ),
         .R(1'b0));
@@ -11004,7 +11043,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__3_n_0 ),
         .R(1'b0));
@@ -11013,7 +11052,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__4_n_0 ),
         .R(1'b0));
@@ -11022,7 +11061,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__5_n_0 ),
         .R(1'b0));
@@ -11031,7 +11070,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__6_n_0 ),
         .R(1'b0));
@@ -11040,7 +11079,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__7_n_0 ),
         .R(1'b0));
@@ -11049,7 +11088,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__8_n_0 ),
         .R(1'b0));
@@ -11058,7 +11097,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[10]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[10]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[10]_rep__9_n_0 ),
         .R(1'b0));
@@ -11067,7 +11106,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep_n_0 ),
         .R(1'b0));
@@ -11076,7 +11115,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__0_n_0 ),
         .R(1'b0));
@@ -11085,7 +11124,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__1_n_0 ),
         .R(1'b0));
@@ -11094,7 +11133,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__10_n_0 ),
         .R(1'b0));
@@ -11103,7 +11142,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__11_n_0 ),
         .R(1'b0));
@@ -11112,7 +11151,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__12_n_0 ),
         .R(1'b0));
@@ -11121,7 +11160,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__13_n_0 ),
         .R(1'b0));
@@ -11130,7 +11169,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__14_n_0 ),
         .R(1'b0));
@@ -11139,7 +11178,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__15_n_0 ),
         .R(1'b0));
@@ -11148,7 +11187,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__16_n_0 ),
         .R(1'b0));
@@ -11157,7 +11196,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__17_n_0 ),
         .R(1'b0));
@@ -11166,7 +11205,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__18_n_0 ),
         .R(1'b0));
@@ -11175,7 +11214,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__19_n_0 ),
         .R(1'b0));
@@ -11184,7 +11223,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__2_n_0 ),
         .R(1'b0));
@@ -11193,7 +11232,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__20_n_0 ),
         .R(1'b0));
@@ -11202,7 +11241,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__21_n_0 ),
         .R(1'b0));
@@ -11211,7 +11250,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__22_n_0 ),
         .R(1'b0));
@@ -11220,7 +11259,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__23_n_0 ),
         .R(1'b0));
@@ -11229,7 +11268,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__24_n_0 ),
         .R(1'b0));
@@ -11238,7 +11277,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__3_n_0 ),
         .R(1'b0));
@@ -11247,7 +11286,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__4_n_0 ),
         .R(1'b0));
@@ -11256,7 +11295,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__5_n_0 ),
         .R(1'b0));
@@ -11265,7 +11304,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__6_n_0 ),
         .R(1'b0));
@@ -11274,7 +11313,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__7_n_0 ),
         .R(1'b0));
@@ -11283,7 +11322,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__8_n_0 ),
         .R(1'b0));
@@ -11292,7 +11331,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[11]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[11]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[11]_rep__9_n_0 ),
         .R(1'b0));
@@ -11301,7 +11340,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep_n_0 ),
         .R(1'b0));
@@ -11310,7 +11349,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__0_n_0 ),
         .R(1'b0));
@@ -11319,7 +11358,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__1_n_0 ),
         .R(1'b0));
@@ -11328,7 +11367,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__10_n_0 ),
         .R(1'b0));
@@ -11337,7 +11376,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__11_n_0 ),
         .R(1'b0));
@@ -11346,7 +11385,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__12_n_0 ),
         .R(1'b0));
@@ -11355,7 +11394,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__13_n_0 ),
         .R(1'b0));
@@ -11364,7 +11403,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__14_n_0 ),
         .R(1'b0));
@@ -11373,7 +11412,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__15_n_0 ),
         .R(1'b0));
@@ -11382,7 +11421,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__16_n_0 ),
         .R(1'b0));
@@ -11391,7 +11430,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__17_n_0 ),
         .R(1'b0));
@@ -11400,7 +11439,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__18_n_0 ),
         .R(1'b0));
@@ -11409,7 +11448,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__19_n_0 ),
         .R(1'b0));
@@ -11418,7 +11457,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__2_n_0 ),
         .R(1'b0));
@@ -11427,7 +11466,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__20_n_0 ),
         .R(1'b0));
@@ -11436,7 +11475,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__21_n_0 ),
         .R(1'b0));
@@ -11445,7 +11484,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__22_n_0 ),
         .R(1'b0));
@@ -11454,7 +11493,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__23_n_0 ),
         .R(1'b0));
@@ -11463,7 +11502,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__24_n_0 ),
         .R(1'b0));
@@ -11472,7 +11511,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__3_n_0 ),
         .R(1'b0));
@@ -11481,7 +11520,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__4_n_0 ),
         .R(1'b0));
@@ -11490,7 +11529,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__5_n_0 ),
         .R(1'b0));
@@ -11499,7 +11538,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__6_n_0 ),
         .R(1'b0));
@@ -11508,7 +11547,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__7_n_0 ),
         .R(1'b0));
@@ -11517,7 +11556,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__8_n_0 ),
         .R(1'b0));
@@ -11526,7 +11565,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[12]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[12]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[12]_rep__9_n_0 ),
         .R(1'b0));
@@ -11535,7 +11574,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep_n_0 ),
         .R(1'b0));
@@ -11544,7 +11583,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__0_n_0 ),
         .R(1'b0));
@@ -11553,7 +11592,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__1_n_0 ),
         .R(1'b0));
@@ -11562,7 +11601,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__10_n_0 ),
         .R(1'b0));
@@ -11571,7 +11610,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__11_n_0 ),
         .R(1'b0));
@@ -11580,7 +11619,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__12_n_0 ),
         .R(1'b0));
@@ -11589,7 +11628,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__13_n_0 ),
         .R(1'b0));
@@ -11598,7 +11637,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__14_n_0 ),
         .R(1'b0));
@@ -11607,7 +11646,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__15_n_0 ),
         .R(1'b0));
@@ -11616,7 +11655,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__16_n_0 ),
         .R(1'b0));
@@ -11625,7 +11664,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__17_n_0 ),
         .R(1'b0));
@@ -11634,7 +11673,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__18_n_0 ),
         .R(1'b0));
@@ -11643,7 +11682,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__19_n_0 ),
         .R(1'b0));
@@ -11652,7 +11691,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__2_n_0 ),
         .R(1'b0));
@@ -11661,7 +11700,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__20_n_0 ),
         .R(1'b0));
@@ -11670,7 +11709,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__21_n_0 ),
         .R(1'b0));
@@ -11679,7 +11718,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__22_n_0 ),
         .R(1'b0));
@@ -11688,7 +11727,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__23_n_0 ),
         .R(1'b0));
@@ -11697,7 +11736,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__24_n_0 ),
         .R(1'b0));
@@ -11706,7 +11745,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__3_n_0 ),
         .R(1'b0));
@@ -11715,7 +11754,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__4_n_0 ),
         .R(1'b0));
@@ -11724,7 +11763,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__5_n_0 ),
         .R(1'b0));
@@ -11733,7 +11772,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__6_n_0 ),
         .R(1'b0));
@@ -11742,7 +11781,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__7_n_0 ),
         .R(1'b0));
@@ -11751,7 +11790,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__8_n_0 ),
         .R(1'b0));
@@ -11760,7 +11799,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[13]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[13]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[13]_rep__9_n_0 ),
         .R(1'b0));
@@ -11769,7 +11808,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep_n_0 ),
         .R(1'b0));
@@ -11778,7 +11817,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__0_n_0 ),
         .R(1'b0));
@@ -11787,7 +11826,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__1_n_0 ),
         .R(1'b0));
@@ -11796,7 +11835,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__10_n_0 ),
         .R(1'b0));
@@ -11805,7 +11844,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__11_n_0 ),
         .R(1'b0));
@@ -11814,7 +11853,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__12_n_0 ),
         .R(1'b0));
@@ -11823,7 +11862,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__13_n_0 ),
         .R(1'b0));
@@ -11832,7 +11871,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__14_n_0 ),
         .R(1'b0));
@@ -11841,7 +11880,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__15_n_0 ),
         .R(1'b0));
@@ -11850,7 +11889,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__16_n_0 ),
         .R(1'b0));
@@ -11859,7 +11898,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__17_n_0 ),
         .R(1'b0));
@@ -11868,7 +11907,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__18_n_0 ),
         .R(1'b0));
@@ -11877,7 +11916,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__19_n_0 ),
         .R(1'b0));
@@ -11886,7 +11925,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__2_n_0 ),
         .R(1'b0));
@@ -11895,7 +11934,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__20_n_0 ),
         .R(1'b0));
@@ -11904,7 +11943,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__21_n_0 ),
         .R(1'b0));
@@ -11913,7 +11952,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__22_n_0 ),
         .R(1'b0));
@@ -11922,7 +11961,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__23_n_0 ),
         .R(1'b0));
@@ -11931,7 +11970,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__24_n_0 ),
         .R(1'b0));
@@ -11940,7 +11979,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__3_n_0 ),
         .R(1'b0));
@@ -11949,7 +11988,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__4_n_0 ),
         .R(1'b0));
@@ -11958,7 +11997,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__5_n_0 ),
         .R(1'b0));
@@ -11967,7 +12006,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__6_n_0 ),
         .R(1'b0));
@@ -11976,7 +12015,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__7_n_0 ),
         .R(1'b0));
@@ -11985,7 +12024,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__8_n_0 ),
         .R(1'b0));
@@ -11994,7 +12033,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[14]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[14]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[14]_rep__9_n_0 ),
         .R(1'b0));
@@ -12003,7 +12042,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep_n_0 ),
         .R(1'b0));
@@ -12012,7 +12051,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__0_n_0 ),
         .R(1'b0));
@@ -12021,7 +12060,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__1_n_0 ),
         .R(1'b0));
@@ -12030,7 +12069,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__10_n_0 ),
         .R(1'b0));
@@ -12039,7 +12078,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__11_n_0 ),
         .R(1'b0));
@@ -12048,7 +12087,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__12_n_0 ),
         .R(1'b0));
@@ -12057,7 +12096,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__13_n_0 ),
         .R(1'b0));
@@ -12066,7 +12105,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__14_n_0 ),
         .R(1'b0));
@@ -12075,7 +12114,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__15_n_0 ),
         .R(1'b0));
@@ -12084,7 +12123,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__16_n_0 ),
         .R(1'b0));
@@ -12093,7 +12132,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__17_n_0 ),
         .R(1'b0));
@@ -12102,7 +12141,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__18_n_0 ),
         .R(1'b0));
@@ -12111,7 +12150,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__19_n_0 ),
         .R(1'b0));
@@ -12120,7 +12159,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__2_n_0 ),
         .R(1'b0));
@@ -12129,7 +12168,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__20_n_0 ),
         .R(1'b0));
@@ -12138,7 +12177,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__21_n_0 ),
         .R(1'b0));
@@ -12147,7 +12186,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__22_n_0 ),
         .R(1'b0));
@@ -12156,7 +12195,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__23_n_0 ),
         .R(1'b0));
@@ -12165,7 +12204,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__24_n_0 ),
         .R(1'b0));
@@ -12174,7 +12213,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__3_n_0 ),
         .R(1'b0));
@@ -12183,7 +12222,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__4_n_0 ),
         .R(1'b0));
@@ -12192,7 +12231,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__5_n_0 ),
         .R(1'b0));
@@ -12201,7 +12240,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__6_n_0 ),
         .R(1'b0));
@@ -12210,7 +12249,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__7_n_0 ),
         .R(1'b0));
@@ -12219,7 +12258,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__8_n_0 ),
         .R(1'b0));
@@ -12228,7 +12267,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[15]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[15]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[15]_rep__9_n_0 ),
         .R(1'b0));
@@ -12237,7 +12276,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep_n_0 ),
         .R(1'b0));
@@ -12246,7 +12285,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__0_n_0 ),
         .R(1'b0));
@@ -12255,7 +12294,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__1_n_0 ),
         .R(1'b0));
@@ -12264,7 +12303,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__10_n_0 ),
         .R(1'b0));
@@ -12273,7 +12312,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__11_n_0 ),
         .R(1'b0));
@@ -12282,7 +12321,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__12_n_0 ),
         .R(1'b0));
@@ -12291,7 +12330,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__13_n_0 ),
         .R(1'b0));
@@ -12300,7 +12339,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__14_n_0 ),
         .R(1'b0));
@@ -12309,7 +12348,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__15_n_0 ),
         .R(1'b0));
@@ -12318,7 +12357,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__16_n_0 ),
         .R(1'b0));
@@ -12327,7 +12366,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__17_n_0 ),
         .R(1'b0));
@@ -12336,7 +12375,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__18_n_0 ),
         .R(1'b0));
@@ -12345,7 +12384,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__19_n_0 ),
         .R(1'b0));
@@ -12354,7 +12393,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__2_n_0 ),
         .R(1'b0));
@@ -12363,7 +12402,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__20_n_0 ),
         .R(1'b0));
@@ -12372,7 +12411,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__21_n_0 ),
         .R(1'b0));
@@ -12381,7 +12420,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__22_n_0 ),
         .R(1'b0));
@@ -12390,7 +12429,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__23_n_0 ),
         .R(1'b0));
@@ -12399,7 +12438,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__24_n_0 ),
         .R(1'b0));
@@ -12408,7 +12447,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__3_n_0 ),
         .R(1'b0));
@@ -12417,7 +12456,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__4_n_0 ),
         .R(1'b0));
@@ -12426,7 +12465,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__5_n_0 ),
         .R(1'b0));
@@ -12435,7 +12474,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__6_n_0 ),
         .R(1'b0));
@@ -12444,7 +12483,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__7_n_0 ),
         .R(1'b0));
@@ -12453,7 +12492,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__8_n_0 ),
         .R(1'b0));
@@ -12462,7 +12501,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[1]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[1]_rep__9_n_0 ),
         .R(1'b0));
@@ -12471,7 +12510,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep_n_0 ),
         .R(1'b0));
@@ -12480,7 +12519,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__0_n_0 ),
         .R(1'b0));
@@ -12489,7 +12528,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__1_n_0 ),
         .R(1'b0));
@@ -12498,7 +12537,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__10_n_0 ),
         .R(1'b0));
@@ -12507,7 +12546,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__11_n_0 ),
         .R(1'b0));
@@ -12516,7 +12555,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__12_n_0 ),
         .R(1'b0));
@@ -12525,7 +12564,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__13_n_0 ),
         .R(1'b0));
@@ -12534,7 +12573,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__14_n_0 ),
         .R(1'b0));
@@ -12543,7 +12582,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__15_n_0 ),
         .R(1'b0));
@@ -12552,7 +12591,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__16_n_0 ),
         .R(1'b0));
@@ -12561,7 +12600,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__17_n_0 ),
         .R(1'b0));
@@ -12570,7 +12609,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__18_n_0 ),
         .R(1'b0));
@@ -12579,7 +12618,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__19_n_0 ),
         .R(1'b0));
@@ -12588,7 +12627,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__2_n_0 ),
         .R(1'b0));
@@ -12597,7 +12636,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__20_n_0 ),
         .R(1'b0));
@@ -12606,7 +12645,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__21_n_0 ),
         .R(1'b0));
@@ -12615,7 +12654,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__22_n_0 ),
         .R(1'b0));
@@ -12624,7 +12663,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__23_n_0 ),
         .R(1'b0));
@@ -12633,7 +12672,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__24_n_0 ),
         .R(1'b0));
@@ -12642,7 +12681,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__3_n_0 ),
         .R(1'b0));
@@ -12651,7 +12690,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__4_n_0 ),
         .R(1'b0));
@@ -12660,7 +12699,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__5_n_0 ),
         .R(1'b0));
@@ -12669,7 +12708,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__6_n_0 ),
         .R(1'b0));
@@ -12678,7 +12717,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__7_n_0 ),
         .R(1'b0));
@@ -12687,7 +12726,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__8_n_0 ),
         .R(1'b0));
@@ -12696,7 +12735,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[2]_rep__9_n_0 ),
         .R(1'b0));
@@ -12705,7 +12744,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep_n_0 ),
         .R(1'b0));
@@ -12714,7 +12753,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__0_n_0 ),
         .R(1'b0));
@@ -12723,7 +12762,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__1_n_0 ),
         .R(1'b0));
@@ -12732,7 +12771,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__10_n_0 ),
         .R(1'b0));
@@ -12741,7 +12780,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__11_n_0 ),
         .R(1'b0));
@@ -12750,7 +12789,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__12_n_0 ),
         .R(1'b0));
@@ -12759,7 +12798,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__13_n_0 ),
         .R(1'b0));
@@ -12768,7 +12807,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__14_n_0 ),
         .R(1'b0));
@@ -12777,7 +12816,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__15_n_0 ),
         .R(1'b0));
@@ -12786,7 +12825,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__16_n_0 ),
         .R(1'b0));
@@ -12795,7 +12834,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__17_n_0 ),
         .R(1'b0));
@@ -12804,7 +12843,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__18_n_0 ),
         .R(1'b0));
@@ -12813,7 +12852,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__19_n_0 ),
         .R(1'b0));
@@ -12822,7 +12861,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__2_n_0 ),
         .R(1'b0));
@@ -12831,7 +12870,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__20_n_0 ),
         .R(1'b0));
@@ -12840,7 +12879,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__21_n_0 ),
         .R(1'b0));
@@ -12849,7 +12888,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__22_n_0 ),
         .R(1'b0));
@@ -12858,7 +12897,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__23_n_0 ),
         .R(1'b0));
@@ -12867,7 +12906,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__24_n_0 ),
         .R(1'b0));
@@ -12876,7 +12915,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__3_n_0 ),
         .R(1'b0));
@@ -12885,7 +12924,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__4_n_0 ),
         .R(1'b0));
@@ -12894,7 +12933,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__5_n_0 ),
         .R(1'b0));
@@ -12903,7 +12942,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__6_n_0 ),
         .R(1'b0));
@@ -12912,7 +12951,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__7_n_0 ),
         .R(1'b0));
@@ -12921,7 +12960,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__8_n_0 ),
         .R(1'b0));
@@ -12930,7 +12969,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[3]_rep__9_n_0 ),
         .R(1'b0));
@@ -12939,7 +12978,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep_n_0 ),
         .R(1'b0));
@@ -12948,7 +12987,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__0_n_0 ),
         .R(1'b0));
@@ -12957,7 +12996,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__1_n_0 ),
         .R(1'b0));
@@ -12966,7 +13005,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__10_n_0 ),
         .R(1'b0));
@@ -12975,7 +13014,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__11_n_0 ),
         .R(1'b0));
@@ -12984,7 +13023,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__12_n_0 ),
         .R(1'b0));
@@ -12993,7 +13032,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__13_n_0 ),
         .R(1'b0));
@@ -13002,7 +13041,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__14_n_0 ),
         .R(1'b0));
@@ -13011,7 +13050,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__15_n_0 ),
         .R(1'b0));
@@ -13020,7 +13059,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__16_n_0 ),
         .R(1'b0));
@@ -13029,7 +13068,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__17_n_0 ),
         .R(1'b0));
@@ -13038,7 +13077,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__18_n_0 ),
         .R(1'b0));
@@ -13047,7 +13086,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__19_n_0 ),
         .R(1'b0));
@@ -13056,7 +13095,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__2_n_0 ),
         .R(1'b0));
@@ -13065,7 +13104,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__20_n_0 ),
         .R(1'b0));
@@ -13074,7 +13113,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__21_n_0 ),
         .R(1'b0));
@@ -13083,7 +13122,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__22_n_0 ),
         .R(1'b0));
@@ -13092,7 +13131,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__23_n_0 ),
         .R(1'b0));
@@ -13101,7 +13140,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__24_n_0 ),
         .R(1'b0));
@@ -13110,7 +13149,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__3_n_0 ),
         .R(1'b0));
@@ -13119,7 +13158,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__4_n_0 ),
         .R(1'b0));
@@ -13128,7 +13167,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__5_n_0 ),
         .R(1'b0));
@@ -13137,7 +13176,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__6_n_0 ),
         .R(1'b0));
@@ -13146,7 +13185,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__7_n_0 ),
         .R(1'b0));
@@ -13155,7 +13194,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__8_n_0 ),
         .R(1'b0));
@@ -13164,7 +13203,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[4]_rep__9_n_0 ),
         .R(1'b0));
@@ -13173,7 +13212,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep_n_0 ),
         .R(1'b0));
@@ -13182,7 +13221,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__0_n_0 ),
         .R(1'b0));
@@ -13191,7 +13230,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__1_n_0 ),
         .R(1'b0));
@@ -13200,7 +13239,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__10_n_0 ),
         .R(1'b0));
@@ -13209,7 +13248,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__11_n_0 ),
         .R(1'b0));
@@ -13218,7 +13257,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__12_n_0 ),
         .R(1'b0));
@@ -13227,7 +13266,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__13_n_0 ),
         .R(1'b0));
@@ -13236,7 +13275,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__14_n_0 ),
         .R(1'b0));
@@ -13245,7 +13284,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__15_n_0 ),
         .R(1'b0));
@@ -13254,7 +13293,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__16_n_0 ),
         .R(1'b0));
@@ -13263,7 +13302,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__17_n_0 ),
         .R(1'b0));
@@ -13272,7 +13311,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__18_n_0 ),
         .R(1'b0));
@@ -13281,7 +13320,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__19_n_0 ),
         .R(1'b0));
@@ -13290,7 +13329,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__2_n_0 ),
         .R(1'b0));
@@ -13299,7 +13338,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__20_n_0 ),
         .R(1'b0));
@@ -13308,7 +13347,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__21_n_0 ),
         .R(1'b0));
@@ -13317,7 +13356,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__22_n_0 ),
         .R(1'b0));
@@ -13326,7 +13365,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__23_n_0 ),
         .R(1'b0));
@@ -13335,7 +13374,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__24_n_0 ),
         .R(1'b0));
@@ -13344,7 +13383,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__3_n_0 ),
         .R(1'b0));
@@ -13353,7 +13392,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__4_n_0 ),
         .R(1'b0));
@@ -13362,7 +13401,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__5_n_0 ),
         .R(1'b0));
@@ -13371,7 +13410,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__6_n_0 ),
         .R(1'b0));
@@ -13380,7 +13419,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__7_n_0 ),
         .R(1'b0));
@@ -13389,7 +13428,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__8_n_0 ),
         .R(1'b0));
@@ -13398,7 +13437,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[5]_rep__9_n_0 ),
         .R(1'b0));
@@ -13407,7 +13446,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep_n_0 ),
         .R(1'b0));
@@ -13416,7 +13455,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__0_n_0 ),
         .R(1'b0));
@@ -13425,7 +13464,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__1_n_0 ),
         .R(1'b0));
@@ -13434,7 +13473,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__10_n_0 ),
         .R(1'b0));
@@ -13443,7 +13482,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__11_n_0 ),
         .R(1'b0));
@@ -13452,7 +13491,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__12_n_0 ),
         .R(1'b0));
@@ -13461,7 +13500,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__13_n_0 ),
         .R(1'b0));
@@ -13470,7 +13509,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__14_n_0 ),
         .R(1'b0));
@@ -13479,7 +13518,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__15_n_0 ),
         .R(1'b0));
@@ -13488,7 +13527,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__16_n_0 ),
         .R(1'b0));
@@ -13497,7 +13536,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__17_n_0 ),
         .R(1'b0));
@@ -13506,7 +13545,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__18_n_0 ),
         .R(1'b0));
@@ -13515,7 +13554,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__19_n_0 ),
         .R(1'b0));
@@ -13524,7 +13563,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__2_n_0 ),
         .R(1'b0));
@@ -13533,7 +13572,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__20_n_0 ),
         .R(1'b0));
@@ -13542,7 +13581,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__21_n_0 ),
         .R(1'b0));
@@ -13551,7 +13590,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__22_n_0 ),
         .R(1'b0));
@@ -13560,7 +13599,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__23_n_0 ),
         .R(1'b0));
@@ -13569,7 +13608,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__24_n_0 ),
         .R(1'b0));
@@ -13578,7 +13617,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__3_n_0 ),
         .R(1'b0));
@@ -13587,7 +13626,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__4_n_0 ),
         .R(1'b0));
@@ -13596,7 +13635,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__5_n_0 ),
         .R(1'b0));
@@ -13605,7 +13644,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__6_n_0 ),
         .R(1'b0));
@@ -13614,7 +13653,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__7_n_0 ),
         .R(1'b0));
@@ -13623,7 +13662,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__8_n_0 ),
         .R(1'b0));
@@ -13632,7 +13671,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[6]_rep__9_n_0 ),
         .R(1'b0));
@@ -13641,7 +13680,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep_n_0 ),
         .R(1'b0));
@@ -13650,7 +13689,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__0_n_0 ),
         .R(1'b0));
@@ -13659,7 +13698,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__1_n_0 ),
         .R(1'b0));
@@ -13668,7 +13707,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__10_n_0 ),
         .R(1'b0));
@@ -13677,7 +13716,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__11_n_0 ),
         .R(1'b0));
@@ -13686,7 +13725,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__12_n_0 ),
         .R(1'b0));
@@ -13695,7 +13734,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__13_n_0 ),
         .R(1'b0));
@@ -13704,7 +13743,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__14_n_0 ),
         .R(1'b0));
@@ -13713,7 +13752,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__15_n_0 ),
         .R(1'b0));
@@ -13722,7 +13761,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__16_n_0 ),
         .R(1'b0));
@@ -13731,7 +13770,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__17_n_0 ),
         .R(1'b0));
@@ -13740,7 +13779,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__18_n_0 ),
         .R(1'b0));
@@ -13749,7 +13788,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__19_n_0 ),
         .R(1'b0));
@@ -13758,7 +13797,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__2_n_0 ),
         .R(1'b0));
@@ -13767,7 +13806,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__20_n_0 ),
         .R(1'b0));
@@ -13776,7 +13815,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__21_n_0 ),
         .R(1'b0));
@@ -13785,7 +13824,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__22_n_0 ),
         .R(1'b0));
@@ -13794,7 +13833,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__23_n_0 ),
         .R(1'b0));
@@ -13803,7 +13842,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__24_n_0 ),
         .R(1'b0));
@@ -13812,7 +13851,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__3_n_0 ),
         .R(1'b0));
@@ -13821,7 +13860,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__4_n_0 ),
         .R(1'b0));
@@ -13830,7 +13869,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__5_n_0 ),
         .R(1'b0));
@@ -13839,7 +13878,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__6_n_0 ),
         .R(1'b0));
@@ -13848,7 +13887,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__7_n_0 ),
         .R(1'b0));
@@ -13857,7 +13896,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__8_n_0 ),
         .R(1'b0));
@@ -13866,7 +13905,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[7]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[7]_rep__9_n_0 ),
         .R(1'b0));
@@ -13875,7 +13914,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep_n_0 ),
         .R(1'b0));
@@ -13884,7 +13923,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__0_n_0 ),
         .R(1'b0));
@@ -13893,7 +13932,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__1_n_0 ),
         .R(1'b0));
@@ -13902,7 +13941,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__10_n_0 ),
         .R(1'b0));
@@ -13911,7 +13950,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__11_n_0 ),
         .R(1'b0));
@@ -13920,7 +13959,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__12_n_0 ),
         .R(1'b0));
@@ -13929,7 +13968,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__13_n_0 ),
         .R(1'b0));
@@ -13938,7 +13977,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__14_n_0 ),
         .R(1'b0));
@@ -13947,7 +13986,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__15_n_0 ),
         .R(1'b0));
@@ -13956,7 +13995,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__16_n_0 ),
         .R(1'b0));
@@ -13965,7 +14004,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__17_n_0 ),
         .R(1'b0));
@@ -13974,7 +14013,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__18_n_0 ),
         .R(1'b0));
@@ -13983,7 +14022,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__19_n_0 ),
         .R(1'b0));
@@ -13992,7 +14031,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__2_n_0 ),
         .R(1'b0));
@@ -14001,7 +14040,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__20_n_0 ),
         .R(1'b0));
@@ -14010,7 +14049,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__21_n_0 ),
         .R(1'b0));
@@ -14019,7 +14058,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__22_n_0 ),
         .R(1'b0));
@@ -14028,7 +14067,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__23_n_0 ),
         .R(1'b0));
@@ -14037,7 +14076,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__24_n_0 ),
         .R(1'b0));
@@ -14046,7 +14085,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__3_n_0 ),
         .R(1'b0));
@@ -14055,7 +14094,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__4_n_0 ),
         .R(1'b0));
@@ -14064,7 +14103,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__5_n_0 ),
         .R(1'b0));
@@ -14073,7 +14112,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__6_n_0 ),
         .R(1'b0));
@@ -14082,7 +14121,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__7_n_0 ),
         .R(1'b0));
@@ -14091,7 +14130,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__8_n_0 ),
         .R(1'b0));
@@ -14100,7 +14139,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[8]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[8]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[8]_rep__9_n_0 ),
         .R(1'b0));
@@ -14109,7 +14148,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep_n_0 ),
         .R(1'b0));
@@ -14118,7 +14157,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__0_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__0_n_0 ),
         .R(1'b0));
@@ -14127,7 +14166,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__1_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__1_n_0 ),
         .R(1'b0));
@@ -14136,7 +14175,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__10_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__10_n_0 ),
         .R(1'b0));
@@ -14145,7 +14184,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__11_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__11_n_0 ),
         .R(1'b0));
@@ -14154,7 +14193,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__12_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__12_n_0 ),
         .R(1'b0));
@@ -14163,7 +14202,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__13_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__13_n_0 ),
         .R(1'b0));
@@ -14172,7 +14211,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__14_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__14_n_0 ),
         .R(1'b0));
@@ -14181,7 +14220,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__15_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__15_n_0 ),
         .R(1'b0));
@@ -14190,7 +14229,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__16_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__16_n_0 ),
         .R(1'b0));
@@ -14199,7 +14238,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__17_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__17_n_0 ),
         .R(1'b0));
@@ -14208,7 +14247,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__18_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__18_n_0 ),
         .R(1'b0));
@@ -14217,7 +14256,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__19_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__19_n_0 ),
         .R(1'b0));
@@ -14226,7 +14265,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__2_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__2_n_0 ),
         .R(1'b0));
@@ -14235,7 +14274,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__20_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__20_n_0 ),
         .R(1'b0));
@@ -14244,7 +14283,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__21_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__21_n_0 ),
         .R(1'b0));
@@ -14253,7 +14292,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__22_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__22_n_0 ),
         .R(1'b0));
@@ -14262,7 +14301,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__23_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__23_n_0 ),
         .R(1'b0));
@@ -14271,7 +14310,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__24_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__24_n_0 ),
         .R(1'b0));
@@ -14280,7 +14319,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__3_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__3_n_0 ),
         .R(1'b0));
@@ -14289,7 +14328,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__4_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__4_n_0 ),
         .R(1'b0));
@@ -14298,7 +14337,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__5_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__5_n_0 ),
         .R(1'b0));
@@ -14307,7 +14346,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__6_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__6_n_0 ),
         .R(1'b0));
@@ -14316,7 +14355,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__7_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__7_n_0 ),
         .R(1'b0));
@@ -14325,7 +14364,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__8_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__8_n_0 ),
         .R(1'b0));
@@ -14334,7 +14373,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[9]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\Quadrature_addr[9]_rep_i_1__9_n_0 ),
         .Q(\Quadrature_addr_reg[9]_rep__9_n_0 ),
         .R(1'b0));
@@ -19801,2505 +19840,2505 @@ module system_Phase_Locked_Loop_0_0_NCO
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__0_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__0_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__10_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__10_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__11_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__11_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__12_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__12_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__13_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__13_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__14_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__14_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__15_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__15_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__16_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__16_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__17_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__17_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__18_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__18_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__19_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__19_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__1_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__1_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__20_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__20_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__21_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__21_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__22_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__22_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__23_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__23_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__24_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__24_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__2_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__2_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__3_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__3_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__4_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__4_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__5_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__5_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__6_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__6_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__7_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__7_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__8_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__8_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep__9_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep__9_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[0]_rep_i_1 
-       (.I0(Phase_Measured[14]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[14]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[0]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__0 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__1 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__10 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__11 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__12 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__13 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__14 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__15 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__16 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__17 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__18 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__19 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__2 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__20 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__21 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__22 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__23 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__24 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__3 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__4 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__5 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__6 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__7 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__8 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[10]_rep_i_1__9 
-       (.I0(Phase_Measured[24]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[24]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[10]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__0 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__1 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__10 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__11 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__12 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__13 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__14 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__15 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__16 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__17 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__18 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__19 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__2 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__20 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__21 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__22 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__23 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__24 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__3 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__4 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__5 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__6 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__7 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__8 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[11]_rep_i_1__9 
-       (.I0(Phase_Measured[25]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[25]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[11]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__0 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__1 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__10 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__11 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__12 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__13 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__14 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__15 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__16 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__17 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__18 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__19 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__2 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__20 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__21 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__22 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__23 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__24 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__3 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__4 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__5 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__6 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__7 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__8 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[12]_rep_i_1__9 
-       (.I0(Phase_Measured[26]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[26]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[12]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__0 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__1 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__10 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__11 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__12 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__13 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__14 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__15 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__16 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__17 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__18 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__19 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__2 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__20 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__21 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__22 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__23 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__24 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__3 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__4 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__5 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__6 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__7 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__8 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[13]_rep_i_1__9 
-       (.I0(Phase_Measured[27]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[27]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[13]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__0 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__1 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__10 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__11 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__12 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__13 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__14 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__15 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__16 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__17 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__18 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__19 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__2 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__20 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__21 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__22 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__23 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__24 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__3 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__4 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__5 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__6 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__7 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__8 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[14]_rep_i_1__9 
-       (.I0(Phase_Measured[28]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[14]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__0 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__1 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__10 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__11 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__12 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__13 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__14 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__15 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__16 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__17 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__18 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__19 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__2 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__20 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__21 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__22 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__23 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__24 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__3 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__4 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__5 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__6 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__7 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__8 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[15]_rep_i_1__9 
-       (.I0(Phase_Measured[29]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[15]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__0 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__1 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__10 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__11 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__12 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__13 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__14 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__15 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__16 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__17 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__18 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__19 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__2 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__20 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__21 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__22 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__23 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__24 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__3 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__4 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__5 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__6 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__7 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__8 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[1]_rep_i_1__9 
-       (.I0(Phase_Measured[15]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[15]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[1]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__0 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__1 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__10 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__11 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__12 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__13 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__14 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__15 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__16 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__17 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__18 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__19 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__2 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__20 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__21 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__22 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__23 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__24 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__3 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__4 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__5 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__6 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__7 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__8 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[2]_rep_i_1__9 
-       (.I0(Phase_Measured[16]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[16]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[2]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__0 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__1 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__10 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__11 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__12 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__13 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__14 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__15 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__16 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__17 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__18 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__19 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__2 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__20 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__21 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__22 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__23 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__24 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__3 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__4 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__5 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__6 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__7 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__8 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[3]_rep_i_1__9 
-       (.I0(Phase_Measured[17]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[17]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[3]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__0 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__1 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__10 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__11 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__12 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__13 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__14 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__15 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__16 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__17 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__18 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__19 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__2 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__20 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__21 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__22 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__23 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__24 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__3 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__4 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__5 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__6 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__7 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__8 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[4]_rep_i_1__9 
-       (.I0(Phase_Measured[18]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[18]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[4]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__0 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__1 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__10 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__11 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__12 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__13 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__14 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__15 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__16 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__17 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__18 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__19 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__2 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__20 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__21 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__22 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__23 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__24 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__3 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__4 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__5 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__6 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__7 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__8 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[5]_rep_i_1__9 
-       (.I0(Phase_Measured[19]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[19]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[5]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__0 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__1 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__10 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__11 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__12 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__13 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__14 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__15 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__16 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__17 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__18 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__19 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__2 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__20 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__21 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__22 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__23 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__24 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__3 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__4 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__5 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__6 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__7 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__8 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[6]_rep_i_1__9 
-       (.I0(Phase_Measured[20]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[20]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[6]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__0 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__1 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__10 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__11 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__12 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__13 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__14 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__15 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__16 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__17 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__18 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__19 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__2 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__20 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__21 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__22 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__23 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__24 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__3 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__4 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__5 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__6 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__7 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__8 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[7]_rep_i_1__9 
-       (.I0(Phase_Measured[21]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[21]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[7]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__0 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__1 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__10 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__11 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__12 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__13 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__14 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__15 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__16 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__17 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__18 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__19 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__2 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__20 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__21 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__22 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__23 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__24 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__3 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__4 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__5 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__6 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__7 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__8 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[8]_rep_i_1__9 
-       (.I0(Phase_Measured[22]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[22]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[8]_rep_i_1__9_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__0 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__0_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__1 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__1_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__10 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__10_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__11 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__11_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__12 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__12_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__13 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__13_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__14 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__14_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__15 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__15_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__16 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__16_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__17 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__17_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__18 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__18_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__19 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__19_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__2 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__2_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__20 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__20_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__21 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__21_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__22 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__22_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__23 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__23_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__24 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__24_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__3 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__3_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__4 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__5 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__5_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__6 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__7 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__7_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__8 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__8_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \dataAddr[9]_rep_i_1__9 
-       (.I0(Phase_Measured[23]),
-        .I1(Phase_Measured[30]),
+       (.I0(L[23]),
+        .I1(p_0_in[0]),
         .O(\dataAddr[9]_rep_i_1__9_n_0 ));
   (* ORIG_CELL_NAME = "dataAddr_reg[0]" *) 
   FDRE #(
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep_n_0 ),
         .R(1'b0));
@@ -22308,7 +22347,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__0_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__0_n_0 ),
         .R(1'b0));
@@ -22317,7 +22356,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__1_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__1_n_0 ),
         .R(1'b0));
@@ -22326,7 +22365,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__10_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__10_n_0 ),
         .R(1'b0));
@@ -22335,7 +22374,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__11_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__11_n_0 ),
         .R(1'b0));
@@ -22344,7 +22383,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__12_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__12_n_0 ),
         .R(1'b0));
@@ -22353,7 +22392,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__13_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__13_n_0 ),
         .R(1'b0));
@@ -22362,7 +22401,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__14_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__14_n_0 ),
         .R(1'b0));
@@ -22371,7 +22410,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__15_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__15_n_0 ),
         .R(1'b0));
@@ -22380,7 +22419,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__16_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__16_n_0 ),
         .R(1'b0));
@@ -22389,7 +22428,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__17_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__17_n_0 ),
         .R(1'b0));
@@ -22398,7 +22437,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__18_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__18_n_0 ),
         .R(1'b0));
@@ -22407,7 +22446,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__19_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__19_n_0 ),
         .R(1'b0));
@@ -22416,7 +22455,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__2_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__2_n_0 ),
         .R(1'b0));
@@ -22425,7 +22464,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__20_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__20_n_0 ),
         .R(1'b0));
@@ -22434,7 +22473,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__21_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__21_n_0 ),
         .R(1'b0));
@@ -22443,7 +22482,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__22_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__22_n_0 ),
         .R(1'b0));
@@ -22452,7 +22491,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__23_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__23_n_0 ),
         .R(1'b0));
@@ -22461,7 +22500,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__24_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__24_n_0 ),
         .R(1'b0));
@@ -22470,7 +22509,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__3_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__3_n_0 ),
         .R(1'b0));
@@ -22479,7 +22518,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__4_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__4_n_0 ),
         .R(1'b0));
@@ -22488,7 +22527,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__5_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__5_n_0 ),
         .R(1'b0));
@@ -22497,7 +22536,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__6_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__6_n_0 ),
         .R(1'b0));
@@ -22506,7 +22545,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__7_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__7_n_0 ),
         .R(1'b0));
@@ -22515,7 +22554,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__8_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__8_n_0 ),
         .R(1'b0));
@@ -22524,7 +22563,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[0]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[0]_rep__9_i_1_n_0 ),
         .Q(\dataAddr_reg[0]_rep__9_n_0 ),
         .R(1'b0));
@@ -22533,7 +22572,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[10]_rep_n_0 ),
         .R(1'b0));
@@ -22542,7 +22581,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[10]_rep__0_n_0 ),
         .R(1'b0));
@@ -22551,7 +22590,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[10]_rep__1_n_0 ),
         .R(1'b0));
@@ -22560,7 +22599,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[10]_rep__10_n_0 ),
         .R(1'b0));
@@ -22569,7 +22608,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[10]_rep__11_n_0 ),
         .R(1'b0));
@@ -22578,7 +22617,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[10]_rep__12_n_0 ),
         .R(1'b0));
@@ -22587,7 +22626,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[10]_rep__13_n_0 ),
         .R(1'b0));
@@ -22596,7 +22635,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[10]_rep__14_n_0 ),
         .R(1'b0));
@@ -22605,7 +22644,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[10]_rep__15_n_0 ),
         .R(1'b0));
@@ -22614,7 +22653,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[10]_rep__16_n_0 ),
         .R(1'b0));
@@ -22623,7 +22662,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[10]_rep__17_n_0 ),
         .R(1'b0));
@@ -22632,7 +22671,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[10]_rep__18_n_0 ),
         .R(1'b0));
@@ -22641,7 +22680,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[10]_rep__19_n_0 ),
         .R(1'b0));
@@ -22650,7 +22689,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[10]_rep__2_n_0 ),
         .R(1'b0));
@@ -22659,7 +22698,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[10]_rep__20_n_0 ),
         .R(1'b0));
@@ -22668,7 +22707,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[10]_rep__21_n_0 ),
         .R(1'b0));
@@ -22677,7 +22716,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[10]_rep__22_n_0 ),
         .R(1'b0));
@@ -22686,7 +22725,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[10]_rep__23_n_0 ),
         .R(1'b0));
@@ -22695,7 +22734,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[10]_rep__24_n_0 ),
         .R(1'b0));
@@ -22704,7 +22743,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[10]_rep__3_n_0 ),
         .R(1'b0));
@@ -22713,7 +22752,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[10]_rep__4_n_0 ),
         .R(1'b0));
@@ -22722,7 +22761,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[10]_rep__5_n_0 ),
         .R(1'b0));
@@ -22731,7 +22770,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[10]_rep__6_n_0 ),
         .R(1'b0));
@@ -22740,7 +22779,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[10]_rep__7_n_0 ),
         .R(1'b0));
@@ -22749,7 +22788,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[10]_rep__8_n_0 ),
         .R(1'b0));
@@ -22758,7 +22797,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[10]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[10]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[10]_rep__9_n_0 ),
         .R(1'b0));
@@ -22767,7 +22806,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[11]_rep_n_0 ),
         .R(1'b0));
@@ -22776,7 +22815,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[11]_rep__0_n_0 ),
         .R(1'b0));
@@ -22785,7 +22824,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[11]_rep__1_n_0 ),
         .R(1'b0));
@@ -22794,7 +22833,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[11]_rep__10_n_0 ),
         .R(1'b0));
@@ -22803,7 +22842,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[11]_rep__11_n_0 ),
         .R(1'b0));
@@ -22812,7 +22851,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[11]_rep__12_n_0 ),
         .R(1'b0));
@@ -22821,7 +22860,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[11]_rep__13_n_0 ),
         .R(1'b0));
@@ -22830,7 +22869,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[11]_rep__14_n_0 ),
         .R(1'b0));
@@ -22839,7 +22878,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[11]_rep__15_n_0 ),
         .R(1'b0));
@@ -22848,7 +22887,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[11]_rep__16_n_0 ),
         .R(1'b0));
@@ -22857,7 +22896,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[11]_rep__17_n_0 ),
         .R(1'b0));
@@ -22866,7 +22905,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[11]_rep__18_n_0 ),
         .R(1'b0));
@@ -22875,7 +22914,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[11]_rep__19_n_0 ),
         .R(1'b0));
@@ -22884,7 +22923,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[11]_rep__2_n_0 ),
         .R(1'b0));
@@ -22893,7 +22932,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[11]_rep__20_n_0 ),
         .R(1'b0));
@@ -22902,7 +22941,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[11]_rep__21_n_0 ),
         .R(1'b0));
@@ -22911,7 +22950,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[11]_rep__22_n_0 ),
         .R(1'b0));
@@ -22920,7 +22959,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[11]_rep__23_n_0 ),
         .R(1'b0));
@@ -22929,7 +22968,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[11]_rep__24_n_0 ),
         .R(1'b0));
@@ -22938,7 +22977,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[11]_rep__3_n_0 ),
         .R(1'b0));
@@ -22947,7 +22986,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[11]_rep__4_n_0 ),
         .R(1'b0));
@@ -22956,7 +22995,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[11]_rep__5_n_0 ),
         .R(1'b0));
@@ -22965,7 +23004,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[11]_rep__6_n_0 ),
         .R(1'b0));
@@ -22974,7 +23013,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[11]_rep__7_n_0 ),
         .R(1'b0));
@@ -22983,7 +23022,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[11]_rep__8_n_0 ),
         .R(1'b0));
@@ -22992,7 +23031,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[11]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[11]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[11]_rep__9_n_0 ),
         .R(1'b0));
@@ -23001,7 +23040,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[12]_rep_n_0 ),
         .R(1'b0));
@@ -23010,7 +23049,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[12]_rep__0_n_0 ),
         .R(1'b0));
@@ -23019,7 +23058,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[12]_rep__1_n_0 ),
         .R(1'b0));
@@ -23028,7 +23067,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[12]_rep__10_n_0 ),
         .R(1'b0));
@@ -23037,7 +23076,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[12]_rep__11_n_0 ),
         .R(1'b0));
@@ -23046,7 +23085,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[12]_rep__12_n_0 ),
         .R(1'b0));
@@ -23055,7 +23094,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[12]_rep__13_n_0 ),
         .R(1'b0));
@@ -23064,7 +23103,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[12]_rep__14_n_0 ),
         .R(1'b0));
@@ -23073,7 +23112,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[12]_rep__15_n_0 ),
         .R(1'b0));
@@ -23082,7 +23121,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[12]_rep__16_n_0 ),
         .R(1'b0));
@@ -23091,7 +23130,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[12]_rep__17_n_0 ),
         .R(1'b0));
@@ -23100,7 +23139,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[12]_rep__18_n_0 ),
         .R(1'b0));
@@ -23109,7 +23148,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[12]_rep__19_n_0 ),
         .R(1'b0));
@@ -23118,7 +23157,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[12]_rep__2_n_0 ),
         .R(1'b0));
@@ -23127,7 +23166,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[12]_rep__20_n_0 ),
         .R(1'b0));
@@ -23136,7 +23175,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[12]_rep__21_n_0 ),
         .R(1'b0));
@@ -23145,7 +23184,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[12]_rep__22_n_0 ),
         .R(1'b0));
@@ -23154,7 +23193,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[12]_rep__23_n_0 ),
         .R(1'b0));
@@ -23163,7 +23202,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[12]_rep__24_n_0 ),
         .R(1'b0));
@@ -23172,7 +23211,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[12]_rep__3_n_0 ),
         .R(1'b0));
@@ -23181,7 +23220,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[12]_rep__4_n_0 ),
         .R(1'b0));
@@ -23190,7 +23229,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[12]_rep__5_n_0 ),
         .R(1'b0));
@@ -23199,7 +23238,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[12]_rep__6_n_0 ),
         .R(1'b0));
@@ -23208,7 +23247,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[12]_rep__7_n_0 ),
         .R(1'b0));
@@ -23217,7 +23256,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[12]_rep__8_n_0 ),
         .R(1'b0));
@@ -23226,7 +23265,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[12]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[12]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[12]_rep__9_n_0 ),
         .R(1'b0));
@@ -23235,7 +23274,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[13]_rep_n_0 ),
         .R(1'b0));
@@ -23244,7 +23283,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[13]_rep__0_n_0 ),
         .R(1'b0));
@@ -23253,7 +23292,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[13]_rep__1_n_0 ),
         .R(1'b0));
@@ -23262,7 +23301,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[13]_rep__10_n_0 ),
         .R(1'b0));
@@ -23271,7 +23310,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[13]_rep__11_n_0 ),
         .R(1'b0));
@@ -23280,7 +23319,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[13]_rep__12_n_0 ),
         .R(1'b0));
@@ -23289,7 +23328,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[13]_rep__13_n_0 ),
         .R(1'b0));
@@ -23298,7 +23337,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[13]_rep__14_n_0 ),
         .R(1'b0));
@@ -23307,7 +23346,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[13]_rep__15_n_0 ),
         .R(1'b0));
@@ -23316,7 +23355,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[13]_rep__16_n_0 ),
         .R(1'b0));
@@ -23325,7 +23364,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[13]_rep__17_n_0 ),
         .R(1'b0));
@@ -23334,7 +23373,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[13]_rep__18_n_0 ),
         .R(1'b0));
@@ -23343,7 +23382,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[13]_rep__19_n_0 ),
         .R(1'b0));
@@ -23352,7 +23391,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[13]_rep__2_n_0 ),
         .R(1'b0));
@@ -23361,7 +23400,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[13]_rep__20_n_0 ),
         .R(1'b0));
@@ -23370,7 +23409,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[13]_rep__21_n_0 ),
         .R(1'b0));
@@ -23379,7 +23418,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[13]_rep__22_n_0 ),
         .R(1'b0));
@@ -23388,7 +23427,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[13]_rep__23_n_0 ),
         .R(1'b0));
@@ -23397,7 +23436,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[13]_rep__24_n_0 ),
         .R(1'b0));
@@ -23406,7 +23445,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[13]_rep__3_n_0 ),
         .R(1'b0));
@@ -23415,7 +23454,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[13]_rep__4_n_0 ),
         .R(1'b0));
@@ -23424,7 +23463,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[13]_rep__5_n_0 ),
         .R(1'b0));
@@ -23433,7 +23472,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[13]_rep__6_n_0 ),
         .R(1'b0));
@@ -23442,7 +23481,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[13]_rep__7_n_0 ),
         .R(1'b0));
@@ -23451,7 +23490,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[13]_rep__8_n_0 ),
         .R(1'b0));
@@ -23460,7 +23499,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[13]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[13]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[13]_rep__9_n_0 ),
         .R(1'b0));
@@ -23469,7 +23508,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[14]_rep_n_0 ),
         .R(1'b0));
@@ -23478,7 +23517,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[14]_rep__0_n_0 ),
         .R(1'b0));
@@ -23487,7 +23526,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[14]_rep__1_n_0 ),
         .R(1'b0));
@@ -23496,7 +23535,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[14]_rep__10_n_0 ),
         .R(1'b0));
@@ -23505,7 +23544,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[14]_rep__11_n_0 ),
         .R(1'b0));
@@ -23514,7 +23553,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[14]_rep__12_n_0 ),
         .R(1'b0));
@@ -23523,7 +23562,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[14]_rep__13_n_0 ),
         .R(1'b0));
@@ -23532,7 +23571,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[14]_rep__14_n_0 ),
         .R(1'b0));
@@ -23541,7 +23580,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[14]_rep__15_n_0 ),
         .R(1'b0));
@@ -23550,7 +23589,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[14]_rep__16_n_0 ),
         .R(1'b0));
@@ -23559,7 +23598,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[14]_rep__17_n_0 ),
         .R(1'b0));
@@ -23568,7 +23607,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[14]_rep__18_n_0 ),
         .R(1'b0));
@@ -23577,7 +23616,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[14]_rep__19_n_0 ),
         .R(1'b0));
@@ -23586,7 +23625,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[14]_rep__2_n_0 ),
         .R(1'b0));
@@ -23595,7 +23634,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[14]_rep__20_n_0 ),
         .R(1'b0));
@@ -23604,7 +23643,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[14]_rep__21_n_0 ),
         .R(1'b0));
@@ -23613,7 +23652,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[14]_rep__22_n_0 ),
         .R(1'b0));
@@ -23622,7 +23661,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[14]_rep__23_n_0 ),
         .R(1'b0));
@@ -23631,7 +23670,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[14]_rep__24_n_0 ),
         .R(1'b0));
@@ -23640,7 +23679,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[14]_rep__3_n_0 ),
         .R(1'b0));
@@ -23649,7 +23688,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[14]_rep__4_n_0 ),
         .R(1'b0));
@@ -23658,7 +23697,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[14]_rep__5_n_0 ),
         .R(1'b0));
@@ -23667,7 +23706,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[14]_rep__6_n_0 ),
         .R(1'b0));
@@ -23676,7 +23715,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[14]_rep__7_n_0 ),
         .R(1'b0));
@@ -23685,7 +23724,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[14]_rep__8_n_0 ),
         .R(1'b0));
@@ -23694,7 +23733,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[14]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[14]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[14]_rep__9_n_0 ),
         .R(1'b0));
@@ -23703,7 +23742,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[15]_rep_n_0 ),
         .R(1'b0));
@@ -23712,7 +23751,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[15]_rep__0_n_0 ),
         .R(1'b0));
@@ -23721,7 +23760,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[15]_rep__1_n_0 ),
         .R(1'b0));
@@ -23730,7 +23769,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[15]_rep__10_n_0 ),
         .R(1'b0));
@@ -23739,7 +23778,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[15]_rep__11_n_0 ),
         .R(1'b0));
@@ -23748,7 +23787,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[15]_rep__12_n_0 ),
         .R(1'b0));
@@ -23757,7 +23796,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[15]_rep__13_n_0 ),
         .R(1'b0));
@@ -23766,7 +23805,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[15]_rep__14_n_0 ),
         .R(1'b0));
@@ -23775,7 +23814,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[15]_rep__15_n_0 ),
         .R(1'b0));
@@ -23784,7 +23823,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[15]_rep__16_n_0 ),
         .R(1'b0));
@@ -23793,7 +23832,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[15]_rep__17_n_0 ),
         .R(1'b0));
@@ -23802,7 +23841,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[15]_rep__18_n_0 ),
         .R(1'b0));
@@ -23811,7 +23850,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[15]_rep__19_n_0 ),
         .R(1'b0));
@@ -23820,7 +23859,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[15]_rep__2_n_0 ),
         .R(1'b0));
@@ -23829,7 +23868,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[15]_rep__20_n_0 ),
         .R(1'b0));
@@ -23838,7 +23877,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[15]_rep__21_n_0 ),
         .R(1'b0));
@@ -23847,7 +23886,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[15]_rep__22_n_0 ),
         .R(1'b0));
@@ -23856,7 +23895,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[15]_rep__23_n_0 ),
         .R(1'b0));
@@ -23865,7 +23904,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[15]_rep__24_n_0 ),
         .R(1'b0));
@@ -23874,7 +23913,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[15]_rep__3_n_0 ),
         .R(1'b0));
@@ -23883,7 +23922,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[15]_rep__4_n_0 ),
         .R(1'b0));
@@ -23892,7 +23931,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[15]_rep__5_n_0 ),
         .R(1'b0));
@@ -23901,7 +23940,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[15]_rep__6_n_0 ),
         .R(1'b0));
@@ -23910,7 +23949,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[15]_rep__7_n_0 ),
         .R(1'b0));
@@ -23919,7 +23958,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[15]_rep__8_n_0 ),
         .R(1'b0));
@@ -23928,7 +23967,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[15]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[15]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[15]_rep__9_n_0 ),
         .R(1'b0));
@@ -23937,7 +23976,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[1]_rep_n_0 ),
         .R(1'b0));
@@ -23946,7 +23985,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[1]_rep__0_n_0 ),
         .R(1'b0));
@@ -23955,7 +23994,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[1]_rep__1_n_0 ),
         .R(1'b0));
@@ -23964,7 +24003,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[1]_rep__10_n_0 ),
         .R(1'b0));
@@ -23973,7 +24012,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[1]_rep__11_n_0 ),
         .R(1'b0));
@@ -23982,7 +24021,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[1]_rep__12_n_0 ),
         .R(1'b0));
@@ -23991,7 +24030,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[1]_rep__13_n_0 ),
         .R(1'b0));
@@ -24000,7 +24039,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[1]_rep__14_n_0 ),
         .R(1'b0));
@@ -24009,7 +24048,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[1]_rep__15_n_0 ),
         .R(1'b0));
@@ -24018,7 +24057,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[1]_rep__16_n_0 ),
         .R(1'b0));
@@ -24027,7 +24066,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[1]_rep__17_n_0 ),
         .R(1'b0));
@@ -24036,7 +24075,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[1]_rep__18_n_0 ),
         .R(1'b0));
@@ -24045,7 +24084,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[1]_rep__19_n_0 ),
         .R(1'b0));
@@ -24054,7 +24093,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[1]_rep__2_n_0 ),
         .R(1'b0));
@@ -24063,7 +24102,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[1]_rep__20_n_0 ),
         .R(1'b0));
@@ -24072,7 +24111,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[1]_rep__21_n_0 ),
         .R(1'b0));
@@ -24081,7 +24120,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[1]_rep__22_n_0 ),
         .R(1'b0));
@@ -24090,7 +24129,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[1]_rep__23_n_0 ),
         .R(1'b0));
@@ -24099,7 +24138,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[1]_rep__24_n_0 ),
         .R(1'b0));
@@ -24108,7 +24147,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[1]_rep__3_n_0 ),
         .R(1'b0));
@@ -24117,7 +24156,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[1]_rep__4_n_0 ),
         .R(1'b0));
@@ -24126,7 +24165,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[1]_rep__5_n_0 ),
         .R(1'b0));
@@ -24135,7 +24174,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[1]_rep__6_n_0 ),
         .R(1'b0));
@@ -24144,7 +24183,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[1]_rep__7_n_0 ),
         .R(1'b0));
@@ -24153,7 +24192,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[1]_rep__8_n_0 ),
         .R(1'b0));
@@ -24162,7 +24201,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[1]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[1]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[1]_rep__9_n_0 ),
         .R(1'b0));
@@ -24171,7 +24210,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[2]_rep_n_0 ),
         .R(1'b0));
@@ -24180,7 +24219,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[2]_rep__0_n_0 ),
         .R(1'b0));
@@ -24189,7 +24228,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[2]_rep__1_n_0 ),
         .R(1'b0));
@@ -24198,7 +24237,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[2]_rep__10_n_0 ),
         .R(1'b0));
@@ -24207,7 +24246,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[2]_rep__11_n_0 ),
         .R(1'b0));
@@ -24216,7 +24255,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[2]_rep__12_n_0 ),
         .R(1'b0));
@@ -24225,7 +24264,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[2]_rep__13_n_0 ),
         .R(1'b0));
@@ -24234,7 +24273,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[2]_rep__14_n_0 ),
         .R(1'b0));
@@ -24243,7 +24282,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[2]_rep__15_n_0 ),
         .R(1'b0));
@@ -24252,7 +24291,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[2]_rep__16_n_0 ),
         .R(1'b0));
@@ -24261,7 +24300,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[2]_rep__17_n_0 ),
         .R(1'b0));
@@ -24270,7 +24309,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[2]_rep__18_n_0 ),
         .R(1'b0));
@@ -24279,7 +24318,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[2]_rep__19_n_0 ),
         .R(1'b0));
@@ -24288,7 +24327,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[2]_rep__2_n_0 ),
         .R(1'b0));
@@ -24297,7 +24336,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[2]_rep__20_n_0 ),
         .R(1'b0));
@@ -24306,7 +24345,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[2]_rep__21_n_0 ),
         .R(1'b0));
@@ -24315,7 +24354,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[2]_rep__22_n_0 ),
         .R(1'b0));
@@ -24324,7 +24363,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[2]_rep__23_n_0 ),
         .R(1'b0));
@@ -24333,7 +24372,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[2]_rep__24_n_0 ),
         .R(1'b0));
@@ -24342,7 +24381,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[2]_rep__3_n_0 ),
         .R(1'b0));
@@ -24351,7 +24390,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[2]_rep__4_n_0 ),
         .R(1'b0));
@@ -24360,7 +24399,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[2]_rep__5_n_0 ),
         .R(1'b0));
@@ -24369,7 +24408,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[2]_rep__6_n_0 ),
         .R(1'b0));
@@ -24378,7 +24417,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[2]_rep__7_n_0 ),
         .R(1'b0));
@@ -24387,7 +24426,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[2]_rep__8_n_0 ),
         .R(1'b0));
@@ -24396,7 +24435,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[2]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[2]_rep__9_n_0 ),
         .R(1'b0));
@@ -24405,7 +24444,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[3]_rep_n_0 ),
         .R(1'b0));
@@ -24414,7 +24453,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[3]_rep__0_n_0 ),
         .R(1'b0));
@@ -24423,7 +24462,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[3]_rep__1_n_0 ),
         .R(1'b0));
@@ -24432,7 +24471,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[3]_rep__10_n_0 ),
         .R(1'b0));
@@ -24441,7 +24480,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[3]_rep__11_n_0 ),
         .R(1'b0));
@@ -24450,7 +24489,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[3]_rep__12_n_0 ),
         .R(1'b0));
@@ -24459,7 +24498,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[3]_rep__13_n_0 ),
         .R(1'b0));
@@ -24468,7 +24507,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[3]_rep__14_n_0 ),
         .R(1'b0));
@@ -24477,7 +24516,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[3]_rep__15_n_0 ),
         .R(1'b0));
@@ -24486,7 +24525,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[3]_rep__16_n_0 ),
         .R(1'b0));
@@ -24495,7 +24534,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[3]_rep__17_n_0 ),
         .R(1'b0));
@@ -24504,7 +24543,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[3]_rep__18_n_0 ),
         .R(1'b0));
@@ -24513,7 +24552,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[3]_rep__19_n_0 ),
         .R(1'b0));
@@ -24522,7 +24561,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[3]_rep__2_n_0 ),
         .R(1'b0));
@@ -24531,7 +24570,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[3]_rep__20_n_0 ),
         .R(1'b0));
@@ -24540,7 +24579,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[3]_rep__21_n_0 ),
         .R(1'b0));
@@ -24549,7 +24588,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[3]_rep__22_n_0 ),
         .R(1'b0));
@@ -24558,7 +24597,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[3]_rep__23_n_0 ),
         .R(1'b0));
@@ -24567,7 +24606,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[3]_rep__24_n_0 ),
         .R(1'b0));
@@ -24576,7 +24615,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[3]_rep__3_n_0 ),
         .R(1'b0));
@@ -24585,7 +24624,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[3]_rep__4_n_0 ),
         .R(1'b0));
@@ -24594,7 +24633,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[3]_rep__5_n_0 ),
         .R(1'b0));
@@ -24603,7 +24642,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[3]_rep__6_n_0 ),
         .R(1'b0));
@@ -24612,7 +24651,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[3]_rep__7_n_0 ),
         .R(1'b0));
@@ -24621,7 +24660,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[3]_rep__8_n_0 ),
         .R(1'b0));
@@ -24630,7 +24669,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[3]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[3]_rep__9_n_0 ),
         .R(1'b0));
@@ -24639,7 +24678,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[4]_rep_n_0 ),
         .R(1'b0));
@@ -24648,7 +24687,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[4]_rep__0_n_0 ),
         .R(1'b0));
@@ -24657,7 +24696,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[4]_rep__1_n_0 ),
         .R(1'b0));
@@ -24666,7 +24705,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[4]_rep__10_n_0 ),
         .R(1'b0));
@@ -24675,7 +24714,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[4]_rep__11_n_0 ),
         .R(1'b0));
@@ -24684,7 +24723,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[4]_rep__12_n_0 ),
         .R(1'b0));
@@ -24693,7 +24732,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[4]_rep__13_n_0 ),
         .R(1'b0));
@@ -24702,7 +24741,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[4]_rep__14_n_0 ),
         .R(1'b0));
@@ -24711,7 +24750,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[4]_rep__15_n_0 ),
         .R(1'b0));
@@ -24720,7 +24759,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[4]_rep__16_n_0 ),
         .R(1'b0));
@@ -24729,7 +24768,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[4]_rep__17_n_0 ),
         .R(1'b0));
@@ -24738,7 +24777,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[4]_rep__18_n_0 ),
         .R(1'b0));
@@ -24747,7 +24786,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[4]_rep__19_n_0 ),
         .R(1'b0));
@@ -24756,7 +24795,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[4]_rep__2_n_0 ),
         .R(1'b0));
@@ -24765,7 +24804,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[4]_rep__20_n_0 ),
         .R(1'b0));
@@ -24774,7 +24813,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[4]_rep__21_n_0 ),
         .R(1'b0));
@@ -24783,7 +24822,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[4]_rep__22_n_0 ),
         .R(1'b0));
@@ -24792,7 +24831,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[4]_rep__23_n_0 ),
         .R(1'b0));
@@ -24801,7 +24840,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[4]_rep__24_n_0 ),
         .R(1'b0));
@@ -24810,7 +24849,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[4]_rep__3_n_0 ),
         .R(1'b0));
@@ -24819,7 +24858,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[4]_rep__4_n_0 ),
         .R(1'b0));
@@ -24828,7 +24867,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[4]_rep__5_n_0 ),
         .R(1'b0));
@@ -24837,7 +24876,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[4]_rep__6_n_0 ),
         .R(1'b0));
@@ -24846,7 +24885,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[4]_rep__7_n_0 ),
         .R(1'b0));
@@ -24855,7 +24894,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[4]_rep__8_n_0 ),
         .R(1'b0));
@@ -24864,7 +24903,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[4]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[4]_rep__9_n_0 ),
         .R(1'b0));
@@ -24873,7 +24912,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[5]_rep_n_0 ),
         .R(1'b0));
@@ -24882,7 +24921,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[5]_rep__0_n_0 ),
         .R(1'b0));
@@ -24891,7 +24930,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[5]_rep__1_n_0 ),
         .R(1'b0));
@@ -24900,7 +24939,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[5]_rep__10_n_0 ),
         .R(1'b0));
@@ -24909,7 +24948,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[5]_rep__11_n_0 ),
         .R(1'b0));
@@ -24918,7 +24957,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[5]_rep__12_n_0 ),
         .R(1'b0));
@@ -24927,7 +24966,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[5]_rep__13_n_0 ),
         .R(1'b0));
@@ -24936,7 +24975,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[5]_rep__14_n_0 ),
         .R(1'b0));
@@ -24945,7 +24984,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[5]_rep__15_n_0 ),
         .R(1'b0));
@@ -24954,7 +24993,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[5]_rep__16_n_0 ),
         .R(1'b0));
@@ -24963,7 +25002,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[5]_rep__17_n_0 ),
         .R(1'b0));
@@ -24972,7 +25011,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[5]_rep__18_n_0 ),
         .R(1'b0));
@@ -24981,7 +25020,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[5]_rep__19_n_0 ),
         .R(1'b0));
@@ -24990,7 +25029,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[5]_rep__2_n_0 ),
         .R(1'b0));
@@ -24999,7 +25038,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[5]_rep__20_n_0 ),
         .R(1'b0));
@@ -25008,7 +25047,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[5]_rep__21_n_0 ),
         .R(1'b0));
@@ -25017,7 +25056,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[5]_rep__22_n_0 ),
         .R(1'b0));
@@ -25026,7 +25065,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[5]_rep__23_n_0 ),
         .R(1'b0));
@@ -25035,7 +25074,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[5]_rep__24_n_0 ),
         .R(1'b0));
@@ -25044,7 +25083,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[5]_rep__3_n_0 ),
         .R(1'b0));
@@ -25053,7 +25092,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[5]_rep__4_n_0 ),
         .R(1'b0));
@@ -25062,7 +25101,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[5]_rep__5_n_0 ),
         .R(1'b0));
@@ -25071,7 +25110,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[5]_rep__6_n_0 ),
         .R(1'b0));
@@ -25080,7 +25119,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[5]_rep__7_n_0 ),
         .R(1'b0));
@@ -25089,7 +25128,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[5]_rep__8_n_0 ),
         .R(1'b0));
@@ -25098,7 +25137,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[5]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[5]_rep__9_n_0 ),
         .R(1'b0));
@@ -25107,7 +25146,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[6]_rep_n_0 ),
         .R(1'b0));
@@ -25116,7 +25155,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[6]_rep__0_n_0 ),
         .R(1'b0));
@@ -25125,7 +25164,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[6]_rep__1_n_0 ),
         .R(1'b0));
@@ -25134,7 +25173,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[6]_rep__10_n_0 ),
         .R(1'b0));
@@ -25143,7 +25182,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[6]_rep__11_n_0 ),
         .R(1'b0));
@@ -25152,7 +25191,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[6]_rep__12_n_0 ),
         .R(1'b0));
@@ -25161,7 +25200,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[6]_rep__13_n_0 ),
         .R(1'b0));
@@ -25170,7 +25209,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[6]_rep__14_n_0 ),
         .R(1'b0));
@@ -25179,7 +25218,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[6]_rep__15_n_0 ),
         .R(1'b0));
@@ -25188,7 +25227,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[6]_rep__16_n_0 ),
         .R(1'b0));
@@ -25197,7 +25236,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[6]_rep__17_n_0 ),
         .R(1'b0));
@@ -25206,7 +25245,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[6]_rep__18_n_0 ),
         .R(1'b0));
@@ -25215,7 +25254,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[6]_rep__19_n_0 ),
         .R(1'b0));
@@ -25224,7 +25263,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[6]_rep__2_n_0 ),
         .R(1'b0));
@@ -25233,7 +25272,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[6]_rep__20_n_0 ),
         .R(1'b0));
@@ -25242,7 +25281,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[6]_rep__21_n_0 ),
         .R(1'b0));
@@ -25251,7 +25290,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[6]_rep__22_n_0 ),
         .R(1'b0));
@@ -25260,7 +25299,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[6]_rep__23_n_0 ),
         .R(1'b0));
@@ -25269,7 +25308,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[6]_rep__24_n_0 ),
         .R(1'b0));
@@ -25278,7 +25317,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[6]_rep__3_n_0 ),
         .R(1'b0));
@@ -25287,7 +25326,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[6]_rep__4_n_0 ),
         .R(1'b0));
@@ -25296,7 +25335,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[6]_rep__5_n_0 ),
         .R(1'b0));
@@ -25305,7 +25344,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[6]_rep__6_n_0 ),
         .R(1'b0));
@@ -25314,7 +25353,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[6]_rep__7_n_0 ),
         .R(1'b0));
@@ -25323,7 +25362,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[6]_rep__8_n_0 ),
         .R(1'b0));
@@ -25332,7 +25371,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[6]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[6]_rep__9_n_0 ),
         .R(1'b0));
@@ -25341,7 +25380,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[7]_rep_n_0 ),
         .R(1'b0));
@@ -25350,7 +25389,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[7]_rep__0_n_0 ),
         .R(1'b0));
@@ -25359,7 +25398,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[7]_rep__1_n_0 ),
         .R(1'b0));
@@ -25368,7 +25407,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[7]_rep__10_n_0 ),
         .R(1'b0));
@@ -25377,7 +25416,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[7]_rep__11_n_0 ),
         .R(1'b0));
@@ -25386,7 +25425,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[7]_rep__12_n_0 ),
         .R(1'b0));
@@ -25395,7 +25434,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[7]_rep__13_n_0 ),
         .R(1'b0));
@@ -25404,7 +25443,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[7]_rep__14_n_0 ),
         .R(1'b0));
@@ -25413,7 +25452,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[7]_rep__15_n_0 ),
         .R(1'b0));
@@ -25422,7 +25461,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[7]_rep__16_n_0 ),
         .R(1'b0));
@@ -25431,7 +25470,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[7]_rep__17_n_0 ),
         .R(1'b0));
@@ -25440,7 +25479,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[7]_rep__18_n_0 ),
         .R(1'b0));
@@ -25449,7 +25488,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[7]_rep__19_n_0 ),
         .R(1'b0));
@@ -25458,7 +25497,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[7]_rep__2_n_0 ),
         .R(1'b0));
@@ -25467,7 +25506,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[7]_rep__20_n_0 ),
         .R(1'b0));
@@ -25476,7 +25515,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[7]_rep__21_n_0 ),
         .R(1'b0));
@@ -25485,7 +25524,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[7]_rep__22_n_0 ),
         .R(1'b0));
@@ -25494,7 +25533,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[7]_rep__23_n_0 ),
         .R(1'b0));
@@ -25503,7 +25542,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[7]_rep__24_n_0 ),
         .R(1'b0));
@@ -25512,7 +25551,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[7]_rep__3_n_0 ),
         .R(1'b0));
@@ -25521,7 +25560,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[7]_rep__4_n_0 ),
         .R(1'b0));
@@ -25530,7 +25569,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[7]_rep__5_n_0 ),
         .R(1'b0));
@@ -25539,7 +25578,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[7]_rep__6_n_0 ),
         .R(1'b0));
@@ -25548,7 +25587,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[7]_rep__7_n_0 ),
         .R(1'b0));
@@ -25557,7 +25596,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[7]_rep__8_n_0 ),
         .R(1'b0));
@@ -25566,7 +25605,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[7]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[7]_rep__9_n_0 ),
         .R(1'b0));
@@ -25575,7 +25614,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[8]_rep_n_0 ),
         .R(1'b0));
@@ -25584,7 +25623,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[8]_rep__0_n_0 ),
         .R(1'b0));
@@ -25593,7 +25632,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[8]_rep__1_n_0 ),
         .R(1'b0));
@@ -25602,7 +25641,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[8]_rep__10_n_0 ),
         .R(1'b0));
@@ -25611,7 +25650,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[8]_rep__11_n_0 ),
         .R(1'b0));
@@ -25620,7 +25659,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[8]_rep__12_n_0 ),
         .R(1'b0));
@@ -25629,7 +25668,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[8]_rep__13_n_0 ),
         .R(1'b0));
@@ -25638,7 +25677,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[8]_rep__14_n_0 ),
         .R(1'b0));
@@ -25647,7 +25686,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[8]_rep__15_n_0 ),
         .R(1'b0));
@@ -25656,7 +25695,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[8]_rep__16_n_0 ),
         .R(1'b0));
@@ -25665,7 +25704,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[8]_rep__17_n_0 ),
         .R(1'b0));
@@ -25674,7 +25713,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[8]_rep__18_n_0 ),
         .R(1'b0));
@@ -25683,7 +25722,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[8]_rep__19_n_0 ),
         .R(1'b0));
@@ -25692,7 +25731,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[8]_rep__2_n_0 ),
         .R(1'b0));
@@ -25701,7 +25740,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[8]_rep__20_n_0 ),
         .R(1'b0));
@@ -25710,7 +25749,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[8]_rep__21_n_0 ),
         .R(1'b0));
@@ -25719,7 +25758,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[8]_rep__22_n_0 ),
         .R(1'b0));
@@ -25728,7 +25767,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[8]_rep__23_n_0 ),
         .R(1'b0));
@@ -25737,7 +25776,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[8]_rep__24_n_0 ),
         .R(1'b0));
@@ -25746,7 +25785,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[8]_rep__3_n_0 ),
         .R(1'b0));
@@ -25755,7 +25794,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[8]_rep__4_n_0 ),
         .R(1'b0));
@@ -25764,7 +25803,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[8]_rep__5_n_0 ),
         .R(1'b0));
@@ -25773,7 +25812,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[8]_rep__6_n_0 ),
         .R(1'b0));
@@ -25782,7 +25821,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[8]_rep__7_n_0 ),
         .R(1'b0));
@@ -25791,7 +25830,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[8]_rep__8_n_0 ),
         .R(1'b0));
@@ -25800,7 +25839,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[8]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[8]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[8]_rep__9_n_0 ),
         .R(1'b0));
@@ -25809,7 +25848,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1_n_0 ),
         .Q(\dataAddr_reg[9]_rep_n_0 ),
         .R(1'b0));
@@ -25818,7 +25857,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__0 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__0_n_0 ),
         .Q(\dataAddr_reg[9]_rep__0_n_0 ),
         .R(1'b0));
@@ -25827,7 +25866,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__1 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__1_n_0 ),
         .Q(\dataAddr_reg[9]_rep__1_n_0 ),
         .R(1'b0));
@@ -25836,7 +25875,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__10 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__10_n_0 ),
         .Q(\dataAddr_reg[9]_rep__10_n_0 ),
         .R(1'b0));
@@ -25845,7 +25884,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__11 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__11_n_0 ),
         .Q(\dataAddr_reg[9]_rep__11_n_0 ),
         .R(1'b0));
@@ -25854,7 +25893,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__12 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__12_n_0 ),
         .Q(\dataAddr_reg[9]_rep__12_n_0 ),
         .R(1'b0));
@@ -25863,7 +25902,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__13 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__13_n_0 ),
         .Q(\dataAddr_reg[9]_rep__13_n_0 ),
         .R(1'b0));
@@ -25872,7 +25911,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__14 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__14_n_0 ),
         .Q(\dataAddr_reg[9]_rep__14_n_0 ),
         .R(1'b0));
@@ -25881,7 +25920,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__15 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__15_n_0 ),
         .Q(\dataAddr_reg[9]_rep__15_n_0 ),
         .R(1'b0));
@@ -25890,7 +25929,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__16 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__16_n_0 ),
         .Q(\dataAddr_reg[9]_rep__16_n_0 ),
         .R(1'b0));
@@ -25899,7 +25938,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__17 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__17_n_0 ),
         .Q(\dataAddr_reg[9]_rep__17_n_0 ),
         .R(1'b0));
@@ -25908,7 +25947,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__18 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__18_n_0 ),
         .Q(\dataAddr_reg[9]_rep__18_n_0 ),
         .R(1'b0));
@@ -25917,7 +25956,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__19 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__19_n_0 ),
         .Q(\dataAddr_reg[9]_rep__19_n_0 ),
         .R(1'b0));
@@ -25926,7 +25965,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__2 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__2_n_0 ),
         .Q(\dataAddr_reg[9]_rep__2_n_0 ),
         .R(1'b0));
@@ -25935,7 +25974,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__20 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__20_n_0 ),
         .Q(\dataAddr_reg[9]_rep__20_n_0 ),
         .R(1'b0));
@@ -25944,7 +25983,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__21 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__21_n_0 ),
         .Q(\dataAddr_reg[9]_rep__21_n_0 ),
         .R(1'b0));
@@ -25953,7 +25992,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__22 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__22_n_0 ),
         .Q(\dataAddr_reg[9]_rep__22_n_0 ),
         .R(1'b0));
@@ -25962,7 +26001,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__23 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__23_n_0 ),
         .Q(\dataAddr_reg[9]_rep__23_n_0 ),
         .R(1'b0));
@@ -25971,7 +26010,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__24 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__24_n_0 ),
         .Q(\dataAddr_reg[9]_rep__24_n_0 ),
         .R(1'b0));
@@ -25980,7 +26019,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__3 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__3_n_0 ),
         .Q(\dataAddr_reg[9]_rep__3_n_0 ),
         .R(1'b0));
@@ -25989,7 +26028,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__4 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__4_n_0 ),
         .Q(\dataAddr_reg[9]_rep__4_n_0 ),
         .R(1'b0));
@@ -25998,7 +26037,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__5 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__5_n_0 ),
         .Q(\dataAddr_reg[9]_rep__5_n_0 ),
         .R(1'b0));
@@ -26007,7 +26046,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__6 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__6_n_0 ),
         .Q(\dataAddr_reg[9]_rep__6_n_0 ),
         .R(1'b0));
@@ -26016,7 +26055,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__7 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__7_n_0 ),
         .Q(\dataAddr_reg[9]_rep__7_n_0 ),
         .R(1'b0));
@@ -26025,7 +26064,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__8 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__8_n_0 ),
         .Q(\dataAddr_reg[9]_rep__8_n_0 ),
         .R(1'b0));
@@ -26034,7 +26073,7 @@ module system_Phase_Locked_Loop_0_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[9]_rep__9 
        (.C(AD_CLK_in),
-        .CE(p_0_in),
+        .CE(\OffsetPhase[31]_i_1_n_0 ),
         .D(\dataAddr[9]_rep_i_1__9_n_0 ),
         .Q(\dataAddr_reg[9]_rep__9_n_0 ),
         .R(1'b0));
@@ -36593,31 +36632,33 @@ module system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
     Freq_Measured,
     Reset_Out,
     \section_out1_reg[23] ,
-    Reset_In,
     AD_CLK_in,
-    s_axis_tdata_ADC_Stream_in,
+    Reset_In,
+    ADC_Stream_in,
     Control_Ki,
     Control_Kp,
     PLL_Guess_Freq,
     Integrator_Reset);
   output [31:0]Phase_Measured;
-  output [27:0]DAC_Stream_out;
+  output [13:0]DAC_Stream_out;
   output [25:0]Lock_Strength;
   output [31:0]Freq_Measured;
   output Reset_Out;
   input \section_out1_reg[23] ;
-  input Reset_In;
   input AD_CLK_in;
-  input [13:0]s_axis_tdata_ADC_Stream_in;
+  input Reset_In;
+  input [13:0]ADC_Stream_in;
   input [31:0]Control_Ki;
   input [31:0]Control_Kp;
   input [31:0]PLL_Guess_Freq;
   input Integrator_Reset;
 
+  wire [13:0]ADC_Stream_in;
   wire AD_CLK_in;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire [27:0]DAC_Stream_out;
+  wire [13:0]DAC_Stream_out;
+  wire [1:1]DelayPipe2;
   wire [31:0]Freq_Measured;
   wire Init_State;
   wire Integrator_Reset;
@@ -36834,18 +36875,12 @@ module system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
   wire Reset_Out;
   wire [31:0]SignalOutput;
   wire [25:0]output_register;
-  wire p_0_in;
-  wire [13:0]s_axis_tdata_ADC_Stream_in;
   wire [25:0]section_out1_reg;
   wire [25:0]section_out1_reg_0;
   wire section_out1_reg_23_sn_1;
   wire [3:3]\NLW_PLL_Freq_reg[31]_i_1_CO_UNCONNECTED ;
 
   assign section_out1_reg_23_sn_1 = \section_out1_reg[23] ;
-  system_Phase_Locked_Loop_0_0_AXI4_Stream_Reader ADC_Stream_Reader
-       (.AD_CLK_in(AD_CLK_in),
-        .DAC_Stream_out(DAC_Stream_out[27:14]),
-        .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in));
   FDRE \Freq_Measured_reg[0] 
        (.C(AD_CLK_in),
         .CE(1'b1),
@@ -37047,8 +37082,9 @@ module system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
         .Q(Init_State),
         .R(1'b0));
   system_Phase_Locked_Loop_0_0_Mixer Lock_Mixer
-       (.AD_CLK_in(AD_CLK_in),
-        .D({p_0_in,PLL_NCO_n_33,PLL_NCO_n_34,PLL_NCO_n_35,PLL_NCO_n_36,PLL_NCO_n_37,PLL_NCO_n_38,PLL_NCO_n_39,PLL_NCO_n_40,PLL_NCO_n_41,PLL_NCO_n_42,PLL_NCO_n_43,PLL_NCO_n_44,PLL_NCO_n_45}),
+       (.ADC_Stream_in(ADC_Stream_in),
+        .AD_CLK_in(AD_CLK_in),
+        .D({DelayPipe2,PLL_NCO_n_33,PLL_NCO_n_34,PLL_NCO_n_35,PLL_NCO_n_36,PLL_NCO_n_37,PLL_NCO_n_38,PLL_NCO_n_39,PLL_NCO_n_40,PLL_NCO_n_41,PLL_NCO_n_42,PLL_NCO_n_43,PLL_NCO_n_44,PLL_NCO_n_45}),
         .Dout_reg_0({Lock_Mixer_n_4,Lock_Mixer_n_5,Lock_Mixer_n_6,Lock_Mixer_n_7}),
         .Dout_reg_1({Lock_Mixer_n_8,Lock_Mixer_n_9,Lock_Mixer_n_10,Lock_Mixer_n_11}),
         .Dout_reg_2({Lock_Mixer_n_12,Lock_Mixer_n_13,Lock_Mixer_n_14,Lock_Mixer_n_15}),
@@ -37057,7 +37093,6 @@ module system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
         .Dout_reg_5({Lock_Mixer_n_24,Lock_Mixer_n_25}),
         .O({Lock_Mixer_n_0,Lock_Mixer_n_1,Lock_Mixer_n_2,Lock_Mixer_n_3}),
         .Reset_In(Reset_In),
-        .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in),
         .section_out1_reg(section_out1_reg_0),
         .section_out1_reg_23_sp_1(section_out1_reg_23_sn_1));
   system_Phase_Locked_Loop_0_0_PID_Controller Loop_Controller
@@ -37595,13 +37630,14 @@ module system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
   system_Phase_Locked_Loop_0_0_NCO PLL_NCO
        (.AD_CLK_in(AD_CLK_in),
         .B({PLL_NCO_n_60,PLL_NCO_n_61,PLL_NCO_n_62,PLL_NCO_n_63,PLL_NCO_n_64,PLL_NCO_n_65,PLL_NCO_n_66,PLL_NCO_n_67,PLL_NCO_n_68,PLL_NCO_n_69,PLL_NCO_n_70,PLL_NCO_n_71,PLL_NCO_n_72,PLL_NCO_n_73}),
-        .D({p_0_in,PLL_NCO_n_33,PLL_NCO_n_34,PLL_NCO_n_35,PLL_NCO_n_36,PLL_NCO_n_37,PLL_NCO_n_38,PLL_NCO_n_39,PLL_NCO_n_40,PLL_NCO_n_41,PLL_NCO_n_42,PLL_NCO_n_43,PLL_NCO_n_44,PLL_NCO_n_45}),
-        .DAC_Stream_out(DAC_Stream_out[13:0]),
+        .D({DelayPipe2,PLL_NCO_n_33,PLL_NCO_n_34,PLL_NCO_n_35,PLL_NCO_n_36,PLL_NCO_n_37,PLL_NCO_n_38,PLL_NCO_n_39,PLL_NCO_n_40,PLL_NCO_n_41,PLL_NCO_n_42,PLL_NCO_n_43,PLL_NCO_n_44,PLL_NCO_n_45}),
+        .DAC_Stream_out(DAC_Stream_out),
         .Phase_Measured(Phase_Measured),
         .Q({\PLL_Freq_reg_n_0_[31] ,\PLL_Freq_reg_n_0_[30] ,\PLL_Freq_reg_n_0_[29] ,\PLL_Freq_reg_n_0_[28] ,\PLL_Freq_reg_n_0_[27] ,\PLL_Freq_reg_n_0_[26] ,\PLL_Freq_reg_n_0_[25] ,\PLL_Freq_reg_n_0_[24] ,\PLL_Freq_reg_n_0_[23] ,\PLL_Freq_reg_n_0_[22] ,\PLL_Freq_reg_n_0_[21] ,\PLL_Freq_reg_n_0_[20] ,\PLL_Freq_reg_n_0_[19] ,\PLL_Freq_reg_n_0_[18] ,\PLL_Freq_reg_n_0_[17] ,\PLL_Freq_reg_n_0_[16] ,\PLL_Freq_reg_n_0_[15] ,\PLL_Freq_reg_n_0_[14] ,\PLL_Freq_reg_n_0_[13] ,\PLL_Freq_reg_n_0_[12] ,\PLL_Freq_reg_n_0_[11] ,\PLL_Freq_reg_n_0_[10] ,\PLL_Freq_reg_n_0_[9] ,\PLL_Freq_reg_n_0_[8] ,\PLL_Freq_reg_n_0_[7] ,\PLL_Freq_reg_n_0_[6] ,\PLL_Freq_reg_n_0_[5] ,\PLL_Freq_reg_n_0_[4] ,\PLL_Freq_reg_n_0_[3] ,\PLL_Freq_reg_n_0_[2] ,\PLL_Freq_reg_n_0_[1] ,\PLL_Freq_reg_n_0_[0] }),
         .Reset_In(Reset_In));
   system_Phase_Locked_Loop_0_0_Mixer_0 Quadrature_Mixer
-       (.AD_CLK_in(AD_CLK_in),
+       (.ADC_Stream_in(ADC_Stream_in),
+        .AD_CLK_in(AD_CLK_in),
         .B({PLL_NCO_n_60,PLL_NCO_n_61,PLL_NCO_n_62,PLL_NCO_n_63,PLL_NCO_n_64,PLL_NCO_n_65,PLL_NCO_n_66,PLL_NCO_n_67,PLL_NCO_n_68,PLL_NCO_n_69,PLL_NCO_n_70,PLL_NCO_n_71,PLL_NCO_n_72,PLL_NCO_n_73}),
         .Dout_reg_0({Quadrature_Mixer_n_4,Quadrature_Mixer_n_5,Quadrature_Mixer_n_6,Quadrature_Mixer_n_7}),
         .Dout_reg_1({Quadrature_Mixer_n_8,Quadrature_Mixer_n_9,Quadrature_Mixer_n_10,Quadrature_Mixer_n_11}),
@@ -37611,7 +37647,6 @@ module system_Phase_Locked_Loop_0_0_Phase_Locked_Loop
         .Dout_reg_5({Quadrature_Mixer_n_24,Quadrature_Mixer_n_25}),
         .O({Quadrature_Mixer_n_0,Quadrature_Mixer_n_1,Quadrature_Mixer_n_2,Quadrature_Mixer_n_3}),
         .Reset_In(Reset_In),
-        .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in),
         .section_out1_reg(section_out1_reg),
         .section_out1_reg_23_sp_1(section_out1_reg_23_sn_1));
   FDRE Reset_Out_reg

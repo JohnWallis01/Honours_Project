@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
@@ -103,7 +104,6 @@ set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_dma_0_2/system_axi_dma_0_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_protocol_convert_0_0/system_axi_protocol_convert_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_xbar_5/system_xbar_5_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_xbar_6/system_xbar_6_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_board.xdc]
@@ -129,11 +129,12 @@ set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_PLL_GUESS_Freq_0/system_GPIO_PLL_GUESS_Freq_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_PLL_GUESS_Freq_0/system_GPIO_PLL_GUESS_Freq_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_GPIO_PLL_GUESS_Freq_0/system_GPIO_PLL_GUESS_Freq_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/system_axis_broadcaster_0_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_0_6/system_axi_gpio_0_6_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_0_6/system_axi_gpio_0_6_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_gpio_0_6/system_axi_gpio_0_6.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axis_switch_0_0/system_axis_switch_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Locking_Strength_0/system_Locking_Strength_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Locking_Strength_0/system_Locking_Strength_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Locking_Strength_0/system_Locking_Strength_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
 set_property used_in_synthesis false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_us_0/system_auto_us_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_us_0/system_auto_us_0_clocks.xdc]
@@ -142,8 +143,6 @@ set_property used_in_synthesis false [get_files -all c:/Users/John/Desktop/Honou
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_ds_0/system_auto_ds_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_ds_0/system_auto_ds_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_pc_3/system_auto_pc_3_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_auto_pc_2/system_auto_pc_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/system_ooc.xdc]
 
 OPTRACE "Adding files" END { }

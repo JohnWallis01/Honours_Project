@@ -22,6 +22,11 @@
 #define AXIS_SWITCH_MUX_REGISTER 0x40
 
 #define PLL_SUPERVISOR_ADDR 0x41260000
+#define DMA_Interconnect_mode_addr 0x41270000
+
+
+
+
 
 #define fSampling 125 //in Mhz
 #define PI 3.14159265358979323846
@@ -224,9 +229,9 @@ int main() {
     
     
     void *PLL_Supervisor = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_SUPERVISOR_ADDR);
-   
-   
-   
+    void *DMA_Interconnect_Mode = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, DMA_Interconnect_mode_addr);
+
+    *(uint32_t*)DMA_Interconnect_Mode = 0;
     *(uint32_t*)LFSR_Polynomial = 0x47; // This is the polynomial for an 8 bit LFSR
     //Pules the Reset 
     *(uint32_t*)LFSR_Reset = 0x0; 
