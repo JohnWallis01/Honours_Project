@@ -195,3 +195,67 @@ architecture Correlator_arch of Correlator is
     end process;
 
 end Correlator_arch ; -- Correlator_arch
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+
+entity light_correlator is
+    generic(
+        Window_Bits: integer := 12;
+        Period: integer := 4095
+    );
+    port (
+    Clock: in std_logic;
+    Reset: in std_logic;
+    Stream1: in std_logic;
+    Stream2: in std_logic;
+    XNOR_OUT: out std_logic_vector(2**Window_Bits-1 downto 0);
+    Delay_Count: out std_logic_vector(Window_Bits-1 downto 0)
+    );
+end light_correlator;
+
+architecture light_correlator_arch of light_correlator is
+
+    signal State: std_logic;
+    signal Sample_MemoryA, Sample_MemoryB, Correlation: std_logic_vector(Period-1 downto 0);
+    signal Counter: unsigned(Window_Bits-1 downto 0);
+    
+begin 
+
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Reset = '1' then
+                Sample_MemoryA <= (others => '0');
+                Sample_MemoryB <= (others => '0');
+                State <= '0';
+                Counter <= (others => '0');
+                Correlation <= (others => '0');
+            else
+                if State <= '0' then
+                    --in data aquistion mode
+                    Sample_MemoryA(to_integer(Counter)) <= Stream1;
+                    Sample_MemoryB(to_integer(Counter)) <= Stream2;
+                else
+                    --in correlating mode
+                    Correlation <= (Sample_MemoryA xnor Sample_MemoryB);
+                    Concat := Sample_MemoryB & Sample_MemoryB;
+                    Sample_MemoryB <= Concat(2*Period-2  downto Period-1);
+                    XNOR_OUT <= Correlation;
+                    Delay_Count <= std_logic_vector(Counter - to_unsigned(15, Window_Bits)); --need some kind of wrapping logic
+                end if;
+                Counter <= Counter + to_unsigned(1, Window_Bits);
+                if Counter = to_unsigned(Period-1, Window_Bits) then
+                    --switch state when done
+                    Counter <= (others => '0');
+                    State <= not State;
+                end if;
+            end if;
+        end if;
+    end process;
+
+end light_correlator_arch;

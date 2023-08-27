@@ -21,8 +21,7 @@
 #define AXIS_SWITCH_CONTROL_REGISTER 0x00
 #define AXIS_SWITCH_MUX_REGISTER 0x40
 
-
-
+#define PLL_SUPERVISOR_ADDR 0x41260000
 
 #define fSampling 125 //in Mhz
 #define PI 3.14159265358979323846
@@ -221,6 +220,13 @@ int main() {
     //setup PRBS
     void *LFSR_Polynomial = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, 0x41250000);
     void *LFSR_Reset = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, 0x4000000);
+    
+    
+    
+    void *PLL_Supervisor = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_SUPERVISOR_ADDR);
+   
+   
+   
     *(uint32_t*)LFSR_Polynomial = 0x47; // This is the polynomial for an 8 bit LFSR
     //Pules the Reset 
     *(uint32_t*)LFSR_Reset = 0x0; 
@@ -251,6 +257,11 @@ int main() {
     printf("Setup Complete\n");
     while(1)
     {
+    //Measure the locking
+
+    int LockStrength = *(int*)PLL_Supervisor;
+    printf("Lock Strength: %i \n", LockStrength);
+
     //Switch the Stream to the FFT
     control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x1); 
     //commit the change
@@ -302,14 +313,9 @@ int main() {
     uint f_tuning = f_measured/(fSampling)*pow(2,32);
 
     //Logic to decide when to override the PLL.
-    if (((int)f_tuning-(int)Freq_Measurment > step_size) || ((int)f_tuning-(int)Freq_Measurment < -step_size) )
-    {
-        lock_loss++;
-        printf("Lock Slipping: %d\n", lock_loss);
-        printf("Frequency Error %d\n", f_tuning-Freq_Measurment);
-        // After sustained slipping reset the PLL
-        if (lock_loss == 10) {
-            *(uint32_t*)Integrator_Reset = 1;
+
+    if(LockStrength < 65000000) {
+           *(uint32_t*)Integrator_Reset = 1;
             *(uint32_t*)PLL_Guess_Freq = f_tuning;
             usleep(1);
             *(uint32_t*)Integrator_Reset = 0;
@@ -317,42 +323,59 @@ int main() {
             printf("FFT Measured Tuning: %d\n" , f_tuning);
             printf("PLL Measured Tuning: %d\n", Freq_Measurment);
             lock_loss = 0;
-        }
+  
     }
-    else if (lock_loss > 0)
-    {
-        lock_loss--;
-        printf("Lock Stablizing: %d\n", lock_loss);
-    }
+
+    // if (((int)f_tuning-(int)Freq_Measurment > step_size) || ((int)f_tuning-(int)Freq_Measurment < -step_size) )
+    // {
+    //     lock_loss++;
+    //     printf("Lock Slipping: %d\n", lock_loss);
+    //     printf("Frequency Error %d\n", f_tuning-Freq_Measurment);
+    //     // After sustained slipping reset the PLL
+    //     if (lock_loss == 10) {
+    //         *(uint32_t*)Integrator_Reset = 1;
+    //         *(uint32_t*)PLL_Guess_Freq = f_tuning;
+    //         usleep(1);
+    //         *(uint32_t*)Integrator_Reset = 0;
+    //         printf("Relocking:\n");
+    //         printf("FFT Measured Tuning: %d\n" , f_tuning);
+    //         printf("PLL Measured Tuning: %d\n", Freq_Measurment);
+    //         lock_loss = 0;
+    //     }
+    // }
+    // else if (lock_loss > 0)
+    // {
+    //     lock_loss--;
+    //     printf("Lock Stablizing: %d\n", lock_loss);
+    // }
     
 	printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
     
         
-    //Switch the Stream to the PRBS
-    control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x0); 
-    //commit the change
-    control_set(switch_control_address, AXIS_SWITCH_CONTROL_REGISTER, 0x2);
-    //Reset -DMA
-    control_set(virtual_address, S2MM_CONTROL_REGISTER, 4);
-    //Set Destination
-    control_set(virtual_address, S2MM_DESTINATION_ADDRESS, 0x0f000000); // Write destination address (note that this somehow matters)
-    //wait for the stream-swithch to activate
-    switch_sync(switch_control_address);
-   //Start S2MM mode (rev up the bugatti)
-    control_set(virtual_address, S2MM_CONTROL_REGISTER, 0xf001);
-    //Write the S2MM stream into memory (specify length of stream) 
-    control_set(virtual_address, S2MM_LENGTH, TransferWindow);
-    //wait for transfer
-    dma_s2mm_sync(virtual_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
-    //Process the Raw binary data
-    PRBS_DATA = PRBS_DUMP(virtual_destination_address, TransferWindow);
-    char* signal_tx = PRBS_DATA;
-    char* signal_rx = PRBS_DATA + TransferWindow/4;
-    VecDump(PRBS_DATA, TransferWindow/2);
-    //Max_Correlate
-    int Delay = Max_Correlate(signal_tx, signal_rx);
-    printf("PRBS delay of %u (Samples)\n", Delay);
-    exit(0);
+//     //Switch the Stream to the PRBS
+//     control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x0); 
+//     //commit the change
+//     control_set(switch_control_address, AXIS_SWITCH_CONTROL_REGISTER, 0x2);
+//     //Reset -DMA
+//     control_set(virtual_address, S2MM_CONTROL_REGISTER, 4);
+//     //Set Destination
+//     control_set(virtual_address, S2MM_DESTINATION_ADDRESS, 0x0f000000); // Write destination address (note that this somehow matters)
+//     //wait for the stream-swithch to activate
+//     switch_sync(switch_control_address);
+//    //Start S2MM mode (rev up the bugatti)
+//     control_set(virtual_address, S2MM_CONTROL_REGISTER, 0xf001);
+//     //Write the S2MM stream into memory (specify length of stream) 
+//     control_set(virtual_address, S2MM_LENGTH, TransferWindow);
+//     //wait for transfer
+//     dma_s2mm_sync(virtual_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
+//     //Process the Raw binary data
+//     PRBS_DATA = PRBS_DUMP(virtual_destination_address, TransferWindow);
+//     char* signal_tx = PRBS_DATA;
+//     char* signal_rx = PRBS_DATA + TransferWindow/4;
+//     VecDump(PRBS_DATA, TransferWindow/2);
+//     //Max_Correlate
+//     int Delay = Max_Correlate(signal_tx, signal_rx);
+//     printf("PRBS delay of %u (Samples)\n", Delay);
     }
 
 }

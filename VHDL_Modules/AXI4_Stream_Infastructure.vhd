@@ -109,6 +109,38 @@ architecture Behavioral of AXI4_Stream_Writer is
 
 end Behavioral;
 
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
 
 
+entity AXI4_Stream_CombinerWriter is
+    generic(
+        stream_size: integer:= 32
+        );
+    port (
+        cfg_data1: in std_logic_vector(stream_size-1 downto 0);
+        cfg_data2: in std_logic_vector(stream_size-1 downto 0);
+        aclk: in std_logic;
+        m_axis_tdata: out std_logic_vector(2*stream_size-1 downto 0);
+        m_axis_tvalid: out std_logic
+    );
+end AXI4_Stream_CombinerWriter;
 
+
+architecture Behavioral of AXI4_Stream_CombinerWriter is
+   
+    begin
+
+    m_axis_tvalid <= '1';
+
+    process(aclk)
+    begin
+        if rising_edge(aclk) then
+             m_axis_tdata(stream_size-1 downto 0) <= cfg_data1;
+             m_axis_tdata(2*stream_size-1 downto stream_size) <= cfg_data2;
+        end if;
+    end process;
+
+end Behavioral;

@@ -19,7 +19,7 @@ entity Phase_Locked_Loop is
     --Measurments
     Freq_Measured: out std_logic_vector(31 downto 0);
     Phase_Measured: out std_logic_vector(31 downto 0);
-
+    Lock_Strength: out std_logic_vector(25 downto 0);
 
     ------ADC Control
     s_axis_tdata_ADC_Stream_in: in std_logic_vector(31 downto 0);
@@ -89,6 +89,7 @@ architecture System_Architecture of Phase_Locked_Loop is
       );
       port (
         Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
+        PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0);
         clock: in std_logic := '0';
         rst: in std_logic := '0';
         Dout: out std_logic_vector(DAC_Size-1 Downto 0) := (others =>'0'); -- DAC size
@@ -126,7 +127,7 @@ END component;
     --production signals
   signal ADC_Stream, PLL_Freq, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
   signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal: std_logic_vector(13 downto 0);
-  signal Quadrature_Mixer_Output: std_logic_vector(27 downto 0);
+  signal Quadrature_Mixer_Output, Lock_Mixer_Output: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
   
   signal Init_State: std_logic := '1';
@@ -180,6 +181,7 @@ END component;
   generic map(Freq_Size => 32, ROM_Size => 16, DAC_Size => 14)
   port map(
       Frequency => PLL_Freq,
+      PhaseOffset => (others => '0'),
       clock => AD_CLK_in,
       rst => Reset_In,
       Dout => Locked_Signal,  
@@ -187,7 +189,6 @@ END component;
       Phase_out => Phase_Measured
   );
 
-  
   Quadrature_Mixer: Mixer
   generic map(MixerSize => 14)
   port map(
@@ -220,6 +221,30 @@ END component;
     clock => AD_CLK_in,
     Reset => (Reset_In or Integrator_Reset)
   );
+
+  --Locking Supervisor
+
+  Lock_Mixer: Mixer
+  generic map(MixerSize => 14)
+  port map(
+    Q1 => Target_Signal,
+    Q2 => Locked_Signal,
+    Dout => Lock_Mixer_Output,
+    clk => AD_CLK_in,
+    Reset => Reset_In
+  );
+
+  Supervisor_Filter: CIC32
+  port map(
+    clk  => AD_CLK_in,
+    clk_enable => '1',
+    reset => Reset_In,
+    filter_in => Lock_Mixer_Output(27 downto 12),
+    filter_out => Lock_Strength,
+    ce_out => open
+  );
+
+
 
   --DAC Controller--
 

@@ -13,6 +13,7 @@ entity NCO is
   ) ;
   port (
     Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
+    PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0);
     clock: in std_logic := '0';
     rst: in std_logic := '0';
     Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
@@ -29,8 +30,9 @@ architecture NCO_str of NCO is
 
     TYPE SINTAB IS ARRAY(0 TO ROMSIZE-1) OF STD_LOGIC_VECTOR (DAC_Size-2 DOWNTO 0);
     signal phase: signed(Freq_Size-1 downto 0) := (others => '0');
-    alias sigbits is phase(Freq_Size-1 downto Freq_Size-2);
-    alias subbits is phase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
+    signal OffsetPhase: signed(Freq_Size-1 downto 0) := (others => '0');
+    alias sigbits is OffsetPhase(Freq_Size-1 downto Freq_Size-2);
+    alias subbits is OffsetPhase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
     signal databuffer: std_logic_vector(DAC_Size-2 downto 0) := (others => '0');
     signal dataAddr: signed(ROM_Size-1 downto 0) := (others => '0');
     signal Quadrature_buffer: std_logic_vector(DAC_Size-2 downto 0) := (others => '0');

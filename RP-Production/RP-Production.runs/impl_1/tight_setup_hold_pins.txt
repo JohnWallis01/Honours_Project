@@ -1,55 +1,8 @@
-+====================+===================+========================================================================+
-| Launch Setup Clock | Launch Hold Clock | Pin                                                                    |
-+====================+===================+========================================================================+
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[30]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[31]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[28]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[26]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[27]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[24]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[31]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[30]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[28]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[22]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[23]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[16]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[17]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[20]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[27]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[26]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[18]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[24]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[19]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[14]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[12]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[13]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[15]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[23]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[22]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[16]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[17]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[20]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[10]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[8]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[9]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[11]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[19]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[14]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[12]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[13]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[15]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[6]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[4]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[5]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[7]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[10]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[8]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[9]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[11]/D |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[6]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[4]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[5]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[7]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[2]/D  |
-| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[3]/D  |
-+--------------------+-------------------+------------------------------------------------------------------------+
++====================+===================+===================================================================================================================================================================================================================================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                                                                                                                                                                                                                                               |
++====================+===================+===================================================================================================================================================================================================================================================================+
+| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[28]/D                                                                                                                                                                                            |
+| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[24]/D                                                                                                                                                                                            |
+| adc_clk            | clk_fpga_0        | system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[20]/D                                                                                                                                                                                            |
+| clk_fpga_0         | clk_fpga_0        | system_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[2].USE_ALWAYS_PACKER.BYTE_LANE[0].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[67]/R |
++--------------------+-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

@@ -60,6 +60,7 @@ module system_Phase_Locked_Loop_0_0 (
   Control_Ki,
   Freq_Measured,
   Phase_Measured,
+  Lock_Strength,
   s_axis_tdata_ADC_Stream_in,
   s_axis_tvalid_ADC_Stream_in,
   s_axis_tready_ADC_Stream_in,
@@ -75,6 +76,7 @@ input wire [31 : 0] Control_Kp;
 input wire [31 : 0] Control_Ki;
 output wire [31 : 0] Freq_Measured;
 output wire [31 : 0] Phase_Measured;
+output wire [25 : 0] Lock_Strength;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TDATA" *)
 input wire [31 : 0] s_axis_tdata_ADC_Stream_in;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_ADC_Stream_in TVALID" *)
@@ -102,6 +104,7 @@ input wire Integrator_Reset;
     .Control_Ki(Control_Ki),
     .Freq_Measured(Freq_Measured),
     .Phase_Measured(Phase_Measured),
+    .Lock_Strength(Lock_Strength),
     .s_axis_tdata_ADC_Stream_in(s_axis_tdata_ADC_Stream_in),
     .s_axis_tvalid_ADC_Stream_in(s_axis_tvalid_ADC_Stream_in),
     .s_axis_tready_ADC_Stream_in(s_axis_tready_ADC_Stream_in),

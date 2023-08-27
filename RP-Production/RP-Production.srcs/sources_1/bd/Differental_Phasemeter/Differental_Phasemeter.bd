@@ -70,10 +70,10 @@
         }
       },
       "axis_data_fifo_0": "",
-      "AXI4_Stream_Writer_0": "",
       "DAC_Router_0": "",
       "Reset_Latch_0": "",
       "Subtractor_0": "",
+      "AXI4_Stream_Writer_0": "",
       "Phase_Locked_Loop_0": "",
       "Phase_Locked_Loop_1": ""
     },
@@ -5332,119 +5332,6 @@
           }
         }
       },
-      "AXI4_Stream_Writer_0": {
-        "vlnv": "xilinx.com:module_ref:AXI4_Stream_Writer:1.0",
-        "xci_name": "Differental_Phasemeter_AXI4_Stream_Writer_0_0",
-        "xci_path": "ip\\Differental_Phasemeter_AXI4_Stream_Writer_0_0\\Differental_Phasemeter_AXI4_Stream_Writer_0_0.xci",
-        "inst_hier_path": "AXI4_Stream_Writer_0",
-        "parameters": {
-          "Clock_Div": {
-            "value": "12500"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "AXI4_Stream_Writer",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "m_axis": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-            "parameters": {
-              "TDATA_NUM_BYTES": {
-                "value": "4",
-                "value_src": "auto"
-              },
-              "TDEST_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TID_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TUSER_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TREADY": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TSTRB": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TKEEP": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TLAST": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            },
-            "port_maps": {
-              "TDATA": {
-                "physical_name": "m_axis_tdata",
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              },
-              "TVALID": {
-                "physical_name": "m_axis_tvalid",
-                "direction": "O"
-              }
-            }
-          }
-        },
-        "ports": {
-          "cfg_data": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "aclk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_BUSIF": {
-                "value": "m_axis",
-                "value_src": "constant"
-              },
-              "ASSOCIATED_RESET": {
-                "value": "reset",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "valid": {
-            "direction": "I"
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I"
-          }
-        }
-      },
       "DAC_Router_0": {
         "vlnv": "xilinx.com:module_ref:DAC_Router:1.0",
         "xci_name": "Differental_Phasemeter_DAC_Router_0_0",
@@ -5537,6 +5424,103 @@
           },
           "clock": {
             "type": "clk",
+            "direction": "I"
+          }
+        }
+      },
+      "AXI4_Stream_Writer_0": {
+        "vlnv": "xilinx.com:module_ref:AXI4_Stream_Writer:1.0",
+        "xci_name": "Differental_Phasemeter_AXI4_Stream_Writer_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_AXI4_Stream_Writer_0_0\\Differental_Phasemeter_AXI4_Stream_Writer_0_0.xci",
+        "inst_hier_path": "AXI4_Stream_Writer_0",
+        "parameters": {
+          "Clock_Div": {
+            "value": "12500"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "AXI4_Stream_Writer",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "m_axis": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "TDATA_NUM_BYTES": {
+                "value": "4",
+                "value_src": "auto"
+              },
+              "TDEST_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TID_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TREADY": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TKEEP": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TLAST": {
+                "value": "0",
+                "value_src": "constant"
+              }
+            },
+            "port_maps": {
+              "TDATA": {
+                "physical_name": "m_axis_tdata",
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "TVALID": {
+                "physical_name": "m_axis_tvalid",
+                "direction": "O"
+              }
+            }
+          }
+        },
+        "ports": {
+          "cfg_data": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "aclk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_BUSIF": {
+                "value": "m_axis",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "valid": {
+            "direction": "I"
+          },
+          "reset": {
+            "type": "rst",
             "direction": "I"
           }
         }
@@ -5636,6 +5620,11 @@
           "Phase_Measured": {
             "direction": "O",
             "left": "31",
+            "right": "0"
+          },
+          "Lock_Strength": {
+            "direction": "O",
+            "left": "25",
             "right": "0"
           },
           "DAC_Stream_out": {
@@ -5760,6 +5749,11 @@
           "Phase_Measured": {
             "direction": "O",
             "left": "31",
+            "right": "0"
+          },
+          "Lock_Strength": {
+            "direction": "O",
+            "left": "25",
             "right": "0"
           },
           "DAC_Stream_out": {
@@ -5937,9 +5931,9 @@
           "DAC_Interface/aclk",
           "axis_data_fifo_0/s_axis_aclk",
           "PS7/m_axi_s2mm_aclk",
-          "AXI4_Stream_Writer_0/aclk",
           "Reset_Latch_0/clock",
           "Subtractor_0/clock",
+          "AXI4_Stream_Writer_0/aclk",
           "Phase_Locked_Loop_0/AD_CLK_in",
           "Phase_Locked_Loop_1/AD_CLK_in"
         ]
