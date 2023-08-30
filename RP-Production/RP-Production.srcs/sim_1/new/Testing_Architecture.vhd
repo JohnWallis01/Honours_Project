@@ -39,7 +39,10 @@ entity Testing_Architecture is
             Clock: in std_logic;
             Reset: in std_logic;
             Taps: in std_logic_vector(10 downto 0);
-            Max_Correlation: out std_logic_vector(11 downto 0)
+            tdata: out std_logic_vector(31 downto 0);
+            tready: in std_logic;
+            tvalid: out std_logic;
+            Mode: in std_logic
         );
 end Testing_Architecture;
 
@@ -58,16 +61,31 @@ architecture Behavioral of Testing_Architecture is
              );
     end component;
    
-    component Correlator
-        generic( Window_Bits: integer := 12;
-        Period: integer := 4095);
-        port(
-            Clock: in std_logic;
-            Reset: in std_logic;
-            Stream1: in std_logic;
-            Stream2: in std_logic;
-            Max_Correlation: out std_logic_vector(Window_Bits-1 downto 0)
-        );
+    component DMA_Interconnect
+        port (
+
+        PRBS_TX: in std_logic;
+        PRBS_RX: in std_logic;
+
+        --axis input for DAC
+        s_axis_tdata: in std_logic_vector(31 downto 0);
+        s_axis_tvalid: in std_logic;
+
+        --ADC Data_out
+        ADC_Data: out std_logic_vector(31 downto 0);
+
+        --axis mode
+        Mode: in std_logic;
+
+        --axis output to FIFO 
+        m_axis_tdata: out std_logic_vector(31 downto 0);
+        m_axis_tvalid: out std_logic;
+        m_axis_tready: in std_logic;
+
+        --axis clock
+        aclk: in std_logic;
+        reset: in std_logic
+    );
     end component;
 
     signal PRBS_ref, PRBS_delay: std_logic;
@@ -83,15 +101,18 @@ architecture Behavioral of Testing_Architecture is
         PRBS_ref => PRBS_ref,
         PRBS_delay => PRBS_delay
     );
-
-    Correlator_Module: Correlator
-    generic map(Window_Bits => 12, Period => 4095)
+    DMA_Controller: DMA_Interconnect
     port map(
-        Clock => Clock,
-        Reset => Reset,
-        Stream1 => PRBS_delay,
-        Stream2 => PRBS_ref,
-        Max_Correlation => Max_Correlation
+        PRBS_TX => PRBS_ref,
+        PRBS_RX => PRBS_delay,
+        s_axis_tdata => (others => '0'),
+        s_axis_tvalid => '0',
+        Mode => Mode,
+        m_axis_tdata => tdata,
+        m_axis_tvalid => tvalid,
+        m_axis_tready => tready,
+        aclk => Clock,
+        reset => Reset
     );
 
 end Behavioral;

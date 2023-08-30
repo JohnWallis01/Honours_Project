@@ -1,0 +1,6 @@
+Time resolution is 1 ps
+ERROR: Index 4111 out of bound 4095 downto 0
+Time: 8707 ns  Iteration: 0  Process: /Main_Sim/DUT/DMA_Controller/line__197
+  File: C:/Users/John/Desktop/Honours_Project/VHDL_Modules/AXI4_Stream_Infastructure.vhd
+
+HDL Line: C:/Users/John/Desktop/Honours_Project/VHDL_Modules/AXI4_Stream_Infastructure.vhd:216

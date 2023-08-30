@@ -58,7 +58,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="453"/>
+    <Option Name="WTXSimLaunchSim" Val="468"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -151,26 +151,20 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0.xci">
-          <Proxy FileSetName="system_DMA_Interconnect_0_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_2/system_xbar_2.xci">
+          <Proxy FileSetName="system_xbar_2"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Phase_Locked_Loop_0_0/system_Phase_Locked_Loop_0_0.xci">
-          <Proxy FileSetName="system_Phase_Locked_Loop_0_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
+          <Proxy FileSetName="system_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_gpio_0_6/system_axi_gpio_0_6.xci">
+          <Proxy FileSetName="system_axi_gpio_0_6"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Delay_Package_0_0/system_Delay_Package_0_0.xci">
           <Proxy FileSetName="system_Delay_Package_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_GPIO_PLL_GUESS_Freq_0/system_GPIO_PLL_GUESS_Freq_0.xci">
           <Proxy FileSetName="system_GPIO_PLL_GUESS_Freq_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_gpio_0_6/system_axi_gpio_0_6.xci">
-          <Proxy FileSetName="system_axi_gpio_0_6"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_2/system_xbar_2.xci">
-          <Proxy FileSetName="system_xbar_2"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
-          <Proxy FileSetName="system_processing_system7_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/system_wrapper.v">
@@ -196,14 +190,14 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_processing_system7_0_0/Differental_Phasemeter_processing_system7_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_xbar_0/Differental_Phasemeter_xbar_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_xbar_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_axi_dma_0_1/Differental_Phasemeter_axi_dma_0_1.xci">
           <Proxy FileSetName="Differental_Phasemeter_axi_dma_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_processing_system7_0_0/Differental_Phasemeter_processing_system7_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_processing_system7_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/Differental_Phasemeter/hdl/Differental_Phasemeter_wrapper.v">
@@ -263,7 +257,6 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/new/Testing_Architecture.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -396,22 +389,6 @@
         <Define Name="TOOL_VIVADO"/>
       </Config>
     </FileSet>
-    <FileSet Name="system_DMA_Interconnect_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_DMA_Interconnect_0_0" RelGenDir="$PGENDIR/system_DMA_Interconnect_0_0">
-      <Config>
-        <Option Name="TopModule" Val="system_DMA_Interconnect_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="system_Phase_Locked_Loop_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_Phase_Locked_Loop_0_0" RelGenDir="$PGENDIR/system_Phase_Locked_Loop_0_0">
-      <Config>
-        <Option Name="TopModule" Val="system_Phase_Locked_Loop_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -437,11 +414,11 @@
         <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design">
           <Option Id="ResourceSharing">2</Option>
-          <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="Directive">7</Option>
+          <Option Id="IncrementalMode">3</Option>
+          <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="NoCombineLuts">1</Option>
           <Option Id="FsmExtraction">1</Option>
-          <Option Id="IncrementalMode">3</Option>
           <Option Id="ShregMinSize">5</Option>
         </Step>
       </Strategy>
@@ -533,28 +510,6 @@
     <Run Id="system_GPIO_PLL_GUESS_Freq_0_synth_1" Type="Ft3:Synth" SrcSet="system_GPIO_PLL_GUESS_Freq_0" Part="xc7z010clg400-1" ConstrsSet="system_GPIO_PLL_GUESS_Freq_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_GPIO_PLL_GUESS_Freq_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_GPIO_PLL_GUESS_Freq_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_GPIO_PLL_GUESS_Freq_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_DMA_Interconnect_0_0_synth_1" Type="Ft3:Synth" SrcSet="system_DMA_Interconnect_0_0" Part="xc7z010clg400-1" ConstrsSet="system_DMA_Interconnect_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_DMA_Interconnect_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_DMA_Interconnect_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_DMA_Interconnect_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_Phase_Locked_Loop_0_0_synth_1" Type="Ft3:Synth" SrcSet="system_Phase_Locked_Loop_0_0" Part="xc7z010clg400-1" ConstrsSet="system_Phase_Locked_Loop_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_Phase_Locked_Loop_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_Phase_Locked_Loop_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_Phase_Locked_Loop_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -725,42 +680,6 @@
     <Run Id="system_GPIO_PLL_GUESS_Freq_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="system_GPIO_PLL_GUESS_Freq_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_GPIO_PLL_GUESS_Freq_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_GPIO_PLL_GUESS_Freq_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_GPIO_PLL_GUESS_Freq_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_DMA_Interconnect_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="system_DMA_Interconnect_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_DMA_Interconnect_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_DMA_Interconnect_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_DMA_Interconnect_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_Phase_Locked_Loop_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="system_Phase_Locked_Loop_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_Phase_Locked_Loop_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_Phase_Locked_Loop_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_Phase_Locked_Loop_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

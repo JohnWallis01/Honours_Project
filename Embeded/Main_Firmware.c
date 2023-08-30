@@ -17,10 +17,6 @@
 #define S2MM_LENGTH 0x58
 #define TransferWindow 16384
 
-
-#define AXIS_SWITCH_CONTROL_REGISTER 0x00
-#define AXIS_SWITCH_MUX_REGISTER 0x40
-
 #define PLL_SUPERVISOR_ADDR 0x41260000
 #define DMA_Interconnect_mode_addr 0x41270000
 
@@ -41,12 +37,10 @@ void handle_sigint(int sig) {
     exit(0);
 }
 
-
 int VecDump(char *vec, int Size) {
 
-
     FILE* file;
-    const char* filename = "complex_array.txt"; // Change the filename as needed
+    const char* filename = "PRBS_Data.txt"; // Change the filename as needed
 
     // Open the file in write mode
     file = fopen(filename, "w");
@@ -64,11 +58,6 @@ int VecDump(char *vec, int Size) {
     fclose(file);
     return 1;
 }
-
-
-
-
-
 
 void FFT(double complex *vector, int n)
 {
@@ -105,14 +94,9 @@ void FFT(double complex *vector, int n)
 
 }
 
-
 unsigned int control_set(unsigned int* dma_virtual_address, int offset, unsigned int value) {
     dma_virtual_address[offset>>2] = value;
 }
-
-
-
-
 
 unsigned int control_get(unsigned int* dma_virtual_address, int offset) {
     return dma_virtual_address[offset>>2];
@@ -144,14 +128,6 @@ int dma_s2mm_sync(unsigned int* dma_virtual_address) {
     }
 }
 
-void switch_sync(unsigned int* switch_address) {
-    unsigned int switch_status = control_get(switch_address, AXIS_SWITCH_CONTROL_REGISTER);
-    while((switch_status & 0x2)) {
-        printf("Status %x\n", switch_status);
-        switch_status = control_get(switch_address, AXIS_SWITCH_CONTROL_REGISTER); 
-    }
-}
-
 int16_t convertUnsignedToSigned(uint16_t value)
 {
     int16_t signedValue = (int16_t)(value << 2);  // Shift left by 2 bits to align the sign
@@ -176,13 +152,19 @@ complex double * memdump(void* virtual_address, int byte_count) {
 
 char * PRBS_DUMP(void* virtual_address, int byte_count) {
     char* p = virtual_address;
-    static char PRBS_Sets[TransferWindow/2]; //the first (TransferWindow/4) is one stream and the second is the delayed/advanced stream
+    static char PRBS_Data[1024]; 
     int offset;
-    for(offset = 0; offset < byte_count; offset = offset + 4 ) {
-        PRBS_Sets[offset/4] = (p[offset] & 0x1);
-        PRBS_Sets[offset/4 + TransferWindow/4] = ((p[offset] >> 1) & 0x1);
+    printf("Sequence TX:\n");
+    for(offset = 0; offset < byte_count; offset = offset + 4) {
+        printf("%x%x", p[offset], p[offset +1]);
     }
-    return PRBS_Sets;
+    printf("\n");
+    printf("Seuqence RX:\n");
+    for(offset = 0; offset < byte_count; offset = offset + 4) {
+        printf("%x%x", p[offset+2], p[offset +3]);
+    }
+    printf("\n");
+    return PRBS_Data;
 }  
 
 int Max_Correlate(char* sig_tx, char* sig_rx) {
@@ -209,7 +191,6 @@ int main() {
     int dh = open("/dev/mem", O_RDWR | O_SYNC); // Open /dev/mem which represents the whole physical memory
     unsigned int* virtual_address = mmap(NULL, 65535, PROT_READ | PROT_WRITE, MAP_SHARED, dh, 0x80400000); // Memory map AXI Lite register block
     unsigned int* virtual_destination_address = mmap(NULL, 65535, PROT_READ | PROT_WRITE, MAP_SHARED, dh, 0x0f000000); // Memory map destination addrese
-    unsigned int* switch_control_address = mmap(NULL ,65536, PROT_READ | PROT_WRITE, MAP_SHARED, dh, 0x83C00000); //Maping the switch between PRBS and FFT
     //Setup pointer that the Fourier Data will be stored in
     complex double *vec;
     char* PRBS_DATA; // both sets glued together
@@ -262,21 +243,12 @@ int main() {
     printf("Setup Complete\n");
     while(1)
     {
-    //Measure the locking
 
-    int LockStrength = *(int*)PLL_Supervisor;
-    printf("Lock Strength: %i \n", LockStrength);
-
-    //Switch the Stream to the FFT
-    control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x1); 
-    //commit the change
-    control_set(switch_control_address, AXIS_SWITCH_CONTROL_REGISTER, 0x2);
+    *(uint32_t*)DMA_Interconnect_Mode = 0;
     //Reset -DMA
     control_set(virtual_address, S2MM_CONTROL_REGISTER, 4);
     //Set Destination
     control_set(virtual_address, S2MM_DESTINATION_ADDRESS, 0x0f000000); // Write destination address (note that this somehow matters)
-    //wait for the stream-swithch to activate
-    switch_sync(switch_control_address);
    //Start S2MM mode (rev up the bugatti)
     control_set(virtual_address, S2MM_CONTROL_REGISTER, 0xf001);
     //Write the S2MM stream into memory (specify length of stream) 
@@ -318,7 +290,8 @@ int main() {
     uint f_tuning = f_measured/(fSampling)*pow(2,32);
 
     //Logic to decide when to override the PLL.
-
+    int LockStrength = *(int*)PLL_Supervisor;
+    printf("Lock Strength: %i \n", LockStrength);
     if(LockStrength < 65000000) {
            *(uint32_t*)Integrator_Reset = 1;
             *(uint32_t*)PLL_Guess_Freq = f_tuning;
@@ -331,56 +304,24 @@ int main() {
   
     }
 
-    // if (((int)f_tuning-(int)Freq_Measurment > step_size) || ((int)f_tuning-(int)Freq_Measurment < -step_size) )
-    // {
-    //     lock_loss++;
-    //     printf("Lock Slipping: %d\n", lock_loss);
-    //     printf("Frequency Error %d\n", f_tuning-Freq_Measurment);
-    //     // After sustained slipping reset the PLL
-    //     if (lock_loss == 10) {
-    //         *(uint32_t*)Integrator_Reset = 1;
-    //         *(uint32_t*)PLL_Guess_Freq = f_tuning;
-    //         usleep(1);
-    //         *(uint32_t*)Integrator_Reset = 0;
-    //         printf("Relocking:\n");
-    //         printf("FFT Measured Tuning: %d\n" , f_tuning);
-    //         printf("PLL Measured Tuning: %d\n", Freq_Measurment);
-    //         lock_loss = 0;
-    //     }
-    // }
-    // else if (lock_loss > 0)
-    // {
-    //     lock_loss--;
-    //     printf("Lock Stablizing: %d\n", lock_loss);
-    // }
-    
 	printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
-    
-        
-//     //Switch the Stream to the PRBS
-//     control_set(switch_control_address, AXIS_SWITCH_MUX_REGISTER, 0x0); 
-//     //commit the change
-//     control_set(switch_control_address, AXIS_SWITCH_CONTROL_REGISTER, 0x2);
-//     //Reset -DMA
-//     control_set(virtual_address, S2MM_CONTROL_REGISTER, 4);
-//     //Set Destination
-//     control_set(virtual_address, S2MM_DESTINATION_ADDRESS, 0x0f000000); // Write destination address (note that this somehow matters)
-//     //wait for the stream-swithch to activate
-//     switch_sync(switch_control_address);
-//    //Start S2MM mode (rev up the bugatti)
-//     control_set(virtual_address, S2MM_CONTROL_REGISTER, 0xf001);
-//     //Write the S2MM stream into memory (specify length of stream) 
-//     control_set(virtual_address, S2MM_LENGTH, TransferWindow);
-//     //wait for transfer
-//     dma_s2mm_sync(virtual_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
-//     //Process the Raw binary data
-//     PRBS_DATA = PRBS_DUMP(virtual_destination_address, TransferWindow);
-//     char* signal_tx = PRBS_DATA;
-//     char* signal_rx = PRBS_DATA + TransferWindow/4;
-//     VecDump(PRBS_DATA, TransferWindow/2);
-//     //Max_Correlate
-//     int Delay = Max_Correlate(signal_tx, signal_rx);
-//     printf("PRBS delay of %u (Samples)\n", Delay);
+
+    //Now Extract the PRBS data
+    *(uint32_t*)DMA_Interconnect_Mode = 1; 
+    //Reset -DMA
+    control_set(virtual_address, S2MM_CONTROL_REGISTER, 4);
+    //Set Destination
+    control_set(virtual_address, S2MM_DESTINATION_ADDRESS, 0x0f000000); // Write destination address (note that this somehow matters)
+   //Start S2MM mode (rev up the bugatti)
+    control_set(virtual_address, S2MM_CONTROL_REGISTER, 0xf001);
+    //Write the S2MM stream into memory (specify length of stream) 
+    control_set(virtual_address, S2MM_LENGTH, 1024);
+    dma_s2mm_sync(virtual_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
+    //Process the Raw binary data
+    PRBS_DATA = PRBS_DUMP(virtual_destination_address , 1024); 
+
+
+
     }
 
 }

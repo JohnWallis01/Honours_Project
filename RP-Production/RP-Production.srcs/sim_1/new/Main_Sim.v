@@ -26,13 +26,10 @@ module Main_Sim(
     reg Clock;
     reg Reset;
     reg[10:0] Taps;
-    wire[11:0] Max_Correlation;
-    reg[31:0] Frequency;
-    reg[31:0] PO;
-    wire[13:0] Dout;  
-    wire[13:0] Qout;
-    wire[31:0] Phase;
-
+    reg tready;
+    reg mode;
+    wire[31:0] tdata;
+    wire tvalid;
     // Testing_Architecture DUT(
     //     .Clock(Clock),
     //     .Reset(Reset),
@@ -40,27 +37,32 @@ module Main_Sim(
     //     .Max_Correlation(Max_Correlation)
     //   );
 
-    NCO #(.Freq_Size(32), .ROM_Size(8), .DAC_Size(14)) 
-    DUT(.Frequency(Frequency), .PhaseOffset(PO), .clock(Clock), .rst(Reset), .Dout(Dout), .Quadrature_out(Qout), .Phase_out(Phase));
-
-
-
-
-
-
+    // NCO #(.Freq_Size(32), .ROM_Size(8), .DAC_Size(14)) 
+    // DUT(.Frequency(Frequency), .PhaseOffset(PO), .clock(Clock), .rst(Reset), .Dout(Dout), .Quadrature_out(Qout), .Phase_out(Phase));
+    Testing_Architecture DUT(.Clock(Clock), .Reset(Reset), .Taps(Taps), .tdata(tdata), .tready(tready), .tvalid(tvalid), .Mode(mode));
+    integer k = 0;
       initial 
       begin
         Reset = 1;
         Taps = //10'b11000001000;
                10'b00111110111;
-        Frequency = 32'd3597383;
-        PO = 32'd0;
+        mode = 0;
         Clock = 0;
         #1;
         Clock = 1;
         #1;
         Reset = 0;
         Clock = 0;
+
+        for(k = 0; k<4096; k=k+1)
+        begin
+          Clock = 0;
+          #1;
+          Clock = 1;
+          #1;
+        end
+        mode = 1;
+        tready =1;
       end
 
     always 

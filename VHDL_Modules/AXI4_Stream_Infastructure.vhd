@@ -184,7 +184,7 @@ end DMA_Interconnect;
 architecture DMA_Interconnect_arch of DMA_Interconnect is
 
 signal PRBS_TX_Memory, PRBS_RX_Memory: std_logic_vector(4095 downto 0);
-signal Counter: unsigned(7 downto 0); --the Memory is sent over in packets of 16 bits each
+signal Counter: unsigned(12 downto 0); --the Memory is sent over in packets of 16 bits each
 begin
 
     process(aclk)
@@ -213,8 +213,8 @@ begin
                         PRBS_RX_Memory(i) <= PRBS_RX_Memory(i-1);
                     end loop;
                 else
-                    m_axis_tdata(15 downto 0)  <= PRBS_TX_Memory <=(15 + to_integer(Counter) downto 0  + to_integer(Counter));
-                    m_axis_tdata(31 downto 16) <= PRBS_TX_Memory <=(31 + to_integer(Counter) downto 16 + to_integer(Counter));
+                    m_axis_tdata(15 downto 0)  <= PRBS_TX_Memory(15 + to_integer(Counter) downto 0 + to_integer(Counter));
+                    m_axis_tdata(31 downto 16) <= PRBS_RX_Memory(15 + to_integer(Counter) downto 0 + to_integer(Counter));
                     m_axis_tvalid <= '1';
                     if m_axis_tready = '1' then
                         Counter <= Counter + to_unsigned(16, 8);
