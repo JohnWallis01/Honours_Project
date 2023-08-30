@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "system_Phase_Locked_Loop_0_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true
@@ -95,7 +94,6 @@ set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/John/Desktop/Honours_Project/VHDL_Modules/AXI4_Stream_Infastructure.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Main.vhd
 }

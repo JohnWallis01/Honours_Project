@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_Locking_Strength_0",
-    "cell_name": "DMA_Mode",
+    "cell_name": "GPIO_Interface/DMA_Mode",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "29",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_Locking_Strength_0",

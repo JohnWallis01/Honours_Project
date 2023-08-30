@@ -54,7 +54,7 @@ module Main_Sim(
         Taps = //10'b11000001000;
                10'b00111110111;
         Frequency = 32'd3597383;
-        PO = 32'0;
+        PO = 32'd0;
         Clock = 0;
         #1;
         Clock = 1;

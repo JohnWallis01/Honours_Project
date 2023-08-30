@@ -173,29 +173,53 @@ entity DMA_Interconnect is
         --axis output to FIFO 
         m_axis_tdata: out std_logic_vector(31 downto 0);
         m_axis_tvalid: out std_logic;
+        m_axis_tready: in std_logic;
     
         --axis clock
-        aclk: in std_logic
+        aclk: in std_logic;
+        reset: in std_logic
     );
 end DMA_Interconnect;
 
 architecture DMA_Interconnect_arch of DMA_Interconnect is
 
+signal PRBS_TX_Memory, PRBS_RX_Memory: std_logic_vector(4095 downto 0);
+signal Counter: unsigned(7 downto 0); --the Memory is sent over in packets of 16 bits each
 begin
 
     process(aclk)
     begin
         if rising_edge(aclk) then
-            ADC_Data <= s_axis_tdata;
+            ADC_Data <= s_axis_tdata; --this should use the valid signal
         end if;
     end process;
 
     process(aclk)
     begin
         if rising_edge(aclk) then
-            if Mode = '0' then
-                m_axis_tdata <= s_axis_tdata;
-                m_axis_tvalid <= s_axis_tvalid;
+            if reset = '1' then
+                PRBS_TX_Memory <= (others =>'0');
+                PRBS_RX_Memory <= (others =>'0');
+                Counter <= (others=>'0');
+            else
+                if Mode = '0' then
+                    m_axis_tdata <= s_axis_tdata;
+                    m_axis_tvalid <= s_axis_tvalid;
+                    PRBS_TX_Memory(0) <= PRBS_TX;
+                    PRBS_RX_Memory(0) <= PRBS_RX;
+                    Counter <= (others => '0');
+                    for i in 1 to 4095 loop
+                        PRBS_TX_Memory(i) <= PRBS_TX_Memory(i-1);
+                        PRBS_RX_Memory(i) <= PRBS_RX_Memory(i-1);
+                    end loop;
+                else
+                    m_axis_tdata(15 downto 0)  <= PRBS_TX_Memory <=(15 + to_integer(Counter) downto 0  + to_integer(Counter));
+                    m_axis_tdata(31 downto 16) <= PRBS_TX_Memory <=(31 + to_integer(Counter) downto 16 + to_integer(Counter));
+                    m_axis_tvalid <= '1';
+                    if m_axis_tready = '1' then
+                        Counter <= Counter + to_unsigned(16, 8);
+                    end if;
+                end if;
             end if;
         end if;
     end process;
