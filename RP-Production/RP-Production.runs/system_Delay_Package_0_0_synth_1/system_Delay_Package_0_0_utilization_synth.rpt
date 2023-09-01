@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue Aug 22 19:21:03 2023
+| Date         : Fri Sep  1 17:05:54 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_Delay_Package_0_0_utilization_synth.rpt -pb system_Delay_Package_0_0_utilization_synth.pb
 | Design       : system_Delay_Package_0_0
@@ -34,8 +34,8 @@ Table of Contents
 | Slice LUTs*             |    8 |     0 |          0 |     17600 |  0.05 |
 |   LUT as Logic          |    8 |     0 |          0 |     17600 |  0.05 |
 |   LUT as Memory         |    0 |     0 |          0 |      6000 |  0.00 |
-| Slice Registers         |   46 |     0 |          0 |     35200 |  0.13 |
-|   Register as Flip Flop |   46 |     0 |          0 |     35200 |  0.13 |
+| Slice Registers         |   69 |     0 |          0 |     35200 |  0.20 |
+|   Register as Flip Flop |   69 |     0 |          0 |     35200 |  0.20 |
 |   Register as Latch     |    0 |     0 |          0 |     35200 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |      8800 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |      4400 |  0.00 |
@@ -59,7 +59,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 12    |          Yes |         Set |            - |
-| 34    |          Yes |       Reset |            - |
+| 57    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -148,7 +148,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   34 |        Flop & Latch |
+| FDRE     |   57 |        Flop & Latch |
 | LUT3     |   13 |                 LUT |
 | FDSE     |   12 |        Flop & Latch |
 +----------+------+---------------------+

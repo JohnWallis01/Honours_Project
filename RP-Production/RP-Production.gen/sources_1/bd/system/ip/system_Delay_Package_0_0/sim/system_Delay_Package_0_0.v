@@ -74,7 +74,7 @@ output wire PRBS_delay;
 
   Delay_Package #(
     .Size(12),
-    .Delay_Amount(32)
+    .Delay_Amount(55)
   ) inst (
     .clock(clock),
     .reset(reset),

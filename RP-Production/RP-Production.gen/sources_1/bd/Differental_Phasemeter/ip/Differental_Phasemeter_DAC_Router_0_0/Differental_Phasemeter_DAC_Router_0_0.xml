@@ -7,11 +7,11 @@
   <spirit:model>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>Data1</spirit:name>
+        <spirit:name>In1</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:left spirit:format="long">13</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -23,11 +23,11 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>Data2</spirit:name>
+        <spirit:name>In2</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:left spirit:format="long">13</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -39,7 +39,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>Qout</spirit:name>
+        <spirit:name>DAC_Out</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>

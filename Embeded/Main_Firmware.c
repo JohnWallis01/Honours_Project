@@ -19,9 +19,9 @@
 
 #define PLL_SUPERVISOR_ADDR 0x41260000
 #define DMA_Interconnect_mode_addr 0x41270000
+#define PRBS_Memory_Status_addr 0x41280000
 
-
-
+#define Mod_Debug_Addr 0x40000000
 
 
 #define fSampling 125 //in Mhz
@@ -152,18 +152,26 @@ complex double * memdump(void* virtual_address, int byte_count) {
 
 char * PRBS_DUMP(void* virtual_address, int byte_count) {
     char* p = virtual_address;
-    static char PRBS_Data[1024]; 
+    static char PRBS_Data[4096*2]; 
     int offset;
-    printf("Sequence TX:\n");
     for(offset = 0; offset < byte_count; offset = offset + 4) {
-        printf("%x%x", p[offset], p[offset +1]);
+        short temp = p[offset] | (p[offset + 1] << 8);
+        // printf("Temp %04x\n", temp);
+        for (int i = 0; i < 16; i++){
+            int index = offset*4 + i;
+            PRBS_Data[index] = (temp >> i) & 0x0001;
+            // printf("PRBS Data @ index(0x%x) = :%x\n", index, PRBS_Data[index]);
+        }
     }
-    printf("\n");
-    printf("Seuqence RX:\n");
     for(offset = 0; offset < byte_count; offset = offset + 4) {
-        printf("%x%x", p[offset+2], p[offset +3]);
+        short temp = p[offset + 2] | (p[offset + 3] << 8);
+        // printf("Temp %04x\n", temp);
+        for (int i = 0; i < 16; i++){
+            int index = 4096 + offset*4 + i;
+            PRBS_Data[index] = (temp >> i) & 0x0001;
+            // printf("PRBS Data @ index(0x%x) = :%x\n", index, PRBS_Data[index]);
+        }
     }
-    printf("\n");
     return PRBS_Data;
 }  
 
@@ -211,6 +219,8 @@ int main() {
     
     void *PLL_Supervisor = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_SUPERVISOR_ADDR);
     void *DMA_Interconnect_Mode = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, DMA_Interconnect_mode_addr);
+    // void *PRBS_Memory_Status = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, PRBS_Memory_Status_addr);
+    // void *Mod_Debug = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, Mod_Debug_Addr);
 
     *(uint32_t*)DMA_Interconnect_Mode = 0;
     *(uint32_t*)LFSR_Polynomial = 0x47; // This is the polynomial for an 8 bit LFSR
@@ -218,7 +228,7 @@ int main() {
     *(uint32_t*)LFSR_Reset = 0x0; 
     *(uint32_t*)LFSR_Reset = 0x1; 
     *(uint32_t*)LFSR_Reset = 0x0; 
-
+    // *(uint32_t*)Mod_Debug = 0; 
 
     //PLL tuning Kp = 0xFFFE0000 Ki = 0xFFFFFFC0
     void *Kp = mmap(NULL, sysconf(_SC_PAGESIZE), /* map the memory */
@@ -243,6 +253,7 @@ int main() {
     printf("Setup Complete\n");
     while(1)
     {
+
 
     *(uint32_t*)DMA_Interconnect_Mode = 0;
     //Reset -DMA
@@ -293,7 +304,7 @@ int main() {
     int LockStrength = *(int*)PLL_Supervisor;
     printf("Lock Strength: %i \n", LockStrength);
     if(LockStrength < 65000000) {
-           *(uint32_t*)Integrator_Reset = 1;
+            *(uint32_t*)Integrator_Reset = 1;
             *(uint32_t*)PLL_Guess_Freq = f_tuning;
             usleep(1);
             *(uint32_t*)Integrator_Reset = 0;
@@ -306,6 +317,9 @@ int main() {
 
 	printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
 
+    // while(!*(uint32_t*)PRBS_Memory_Status) {
+
+    // }
     //Now Extract the PRBS data
     *(uint32_t*)DMA_Interconnect_Mode = 1; 
     //Reset -DMA
@@ -319,11 +333,25 @@ int main() {
     dma_s2mm_sync(virtual_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
     //Process the Raw binary data
     PRBS_DATA = PRBS_DUMP(virtual_destination_address , 1024); 
+    int Max_n = Max_Correlate(PRBS_DATA, &(PRBS_DATA[4096]));
+
+    // printf("Data TX:\n");
+    // for (int i = 0; i < 4096; i++)
+    // {
+    //     printf("%i", PRBS_DATA[i]);
+    // }
+    // printf("\n");
+    // printf("Data RX:\n");
+    // for (int i = 0; i < 4096; i++)
+    // {
+    //     printf("%i", PRBS_DATA[i + 4096]);
+    // }
+    // printf("\n"); 
 
 
+    printf("PRBS Delay, %i\n", Max_n);
 
     }
-
 }
 
 

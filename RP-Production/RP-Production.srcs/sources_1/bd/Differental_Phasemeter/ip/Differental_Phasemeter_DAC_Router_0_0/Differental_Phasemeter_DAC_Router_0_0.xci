@@ -38,9 +38,9 @@
     },
     "boundary": {
       "ports": {
-        "Data1": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "Data2": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "Qout": [ { "direction": "out", "size_left": "31", "size_right": "0" } ]
+        "In1": [ { "direction": "in", "size_left": "13", "size_right": "0" } ],
+        "In2": [ { "direction": "in", "size_left": "13", "size_right": "0" } ],
+        "DAC_Out": [ { "direction": "out", "size_left": "31", "size_right": "0" } ]
       }
     }
   }

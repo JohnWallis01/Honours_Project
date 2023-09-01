@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.801079",
-   "Default View_TopLeft":"374,-30",
+   "Default View_ScaleFactor":"0.493122",
+   "Default View_TopLeft":"-233,-434",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -36,43 +36,43 @@ preplace inst axis_broadcaster_0 -pg 1 -lvl 2 -x 360 -y 560 -defaultsOSRD
 preplace inst GPIO_Interface -pg 1 -lvl 9 -x 3102 -y 260 -defaultsOSRD
 preplace inst PS7 -pg 1 -lvl 8 -x 2510 -y 174 -defaultsOSRD
 preplace inst axis_data_fifo_0 -pg 1 -lvl 7 -x 1960 -y 500 -defaultsOSRD
-preplace inst DAC_Router_0 -pg 1 -lvl 8 -x 2510 -y 694 -defaultsOSRD
 preplace inst Reset_Latch_0 -pg 1 -lvl 5 -x 1380 -y 780 -defaultsOSRD
 preplace inst Subtractor_0 -pg 1 -lvl 5 -x 1380 -y 490 -defaultsOSRD
 preplace inst Phase_Locked_Loop_0 -pg 1 -lvl 4 -x 980 -y 710 -defaultsOSRD
 preplace inst Phase_Locked_Loop_1 -pg 1 -lvl 4 -x 980 -y 460 -defaultsOSRD
+preplace inst DAC_Router_0 -pg 1 -lvl 8 -x 2510 -y 694 -defaultsOSRD
 preplace inst AXI4_Stream_Writer_0 -pg 1 -lvl 6 -x 1660 -y 500 -defaultsOSRD
-preplace netloc DAC_Router_0_Qout 1 8 1 2760 690n
-preplace netloc GPIO_Interface_gpio_Integrator_Reset1 1 3 7 570 290 NJ 290 NJ 290 NJ 290 2160J 500 NJ 500 3320
-preplace netloc GPIO_Interface_gpio_Ki1 1 3 7 580 300 NJ 300 NJ 300 1790J 580 NJ 580 NJ 580 3350
-preplace netloc GPIO_Interface_gpio_Kp1 1 3 7 590 320 NJ 320 NJ 320 NJ 320 2150J 480 NJ 480 3340
-preplace netloc GPIO_Interface_gpio_PLL_Guess_Freq 1 3 7 600 330 NJ 330 NJ 330 NJ 330 2180J 374 2770J 490 3330
-preplace netloc GPIO_Interface_gpio_io_o 1 4 6 1240 354 NJ 354 NJ 354 2140J 384 2760J 470 3310
-preplace netloc Net 1 1 8 200 480 N 480 560 590 1210 570 1510 590 1810 590 2170 624 2750J
+preplace netloc DAC_Router_0_Qout 1 8 1 N 690
+preplace netloc GPIO_Interface_gpio_Integrator_Reset1 1 3 7 570 320 NJ 320 NJ 320 NJ 320 2110J 500 NJ 500 3320
+preplace netloc GPIO_Interface_gpio_Ki1 1 3 7 590 330 NJ 330 NJ 330 1790J 580 NJ 580 NJ 580 3350
+preplace netloc GPIO_Interface_gpio_Kp1 1 3 7 580 290 NJ 290 NJ 290 NJ 290 2150J 470 2770J 480 3340
+preplace netloc GPIO_Interface_gpio_PLL_Guess_Freq 1 3 7 600 340 NJ 340 NJ 340 NJ 340 2100J 480 2760J 490 3330
+preplace netloc GPIO_Interface_gpio_io_o 1 4 6 1220 360 NJ 360 NJ 360 2130J 390 2780J 470 3310
+preplace netloc Net 1 1 8 200 480 N 480 560 590 1200 570 1510 590 1800 590 2140 624 2750J
 preplace netloc PS7_FCLK_CLK1 1 8 1 2710 274n
-preplace netloc PS7_peripheral_aresetn1 1 1 8 210 310 NJ 310 N 310 1170J 364 NJ 364 1810 364 NJ 364 2700
-preplace netloc Phase_Locked_Loop_0_DAC_Stream_out 1 4 4 1230 684 NJ 684 NJ 684 NJ
-preplace netloc Phase_Locked_Loop_0_Phase_Measured 1 4 1 1200 490n
-preplace netloc Phase_Locked_Loop_0_Reset_Out 1 3 3 610 830 1220 580 1530
-preplace netloc Phase_Locked_Loop_1_DAC_Stream_out 1 4 4 1170J 380 NJ 380 NJ 380 2100
-preplace netloc Phase_Locked_Loop_1_Freq_Measured 1 4 5 1180J 390 NJ 390 NJ 390 2120J 394 2740
-preplace netloc Phase_Locked_Loop_1_Phase_Measured 1 4 1 1200 440n
-preplace netloc Phase_Locked_Loop_1_Reset_Out 1 3 2 610 580 1180
+preplace netloc PS7_peripheral_aresetn1 1 1 8 210 300 NJ 300 N 300 1180J 370 NJ 370 1810 370 NJ 370 2700
+preplace netloc Phase_Locked_Loop_0_DAC_Stream_out 1 4 1 N 730
+preplace netloc Phase_Locked_Loop_0_Phase_Measured 1 4 1 1190 490n
+preplace netloc Phase_Locked_Loop_0_Reset_Out 1 3 3 610 830 1210 580 1530
+preplace netloc Phase_Locked_Loop_1_DAC_Stream_out 1 4 1 NJ 480
+preplace netloc Phase_Locked_Loop_1_Freq_Measured 1 4 5 1190J 400 NJ 400 NJ 400 NJ 400 N
+preplace netloc Phase_Locked_Loop_1_Phase_Measured 1 4 1 1190 440n
+preplace netloc Phase_Locked_Loop_1_Reset_Out 1 3 2 610 580 1170
 preplace netloc Reset_Latch_0_nQ_out 1 5 1 1520 510n
 preplace netloc Subtractor_0_Q 1 5 1 1500 470n
 preplace netloc adc_clk_n_i_1 1 0 1 -50J 540n
 preplace netloc adc_clk_p_i_1 1 0 1 -50J 510n
 preplace netloc adc_dat_a_i_1 1 0 1 NJ 570
 preplace netloc adc_dat_b_i_1 1 0 1 -50J 590n
-preplace netloc axis_data_fifo_0_almost_empty 1 7 2 2140J 490 2810
-preplace netloc axis_data_fifo_0_almost_full 1 4 5 1250 400 NJ 400 NJ 400 2090 404 2720
-preplace netloc axis_red_pitaya_adc_0_adc_csn 1 1 9 190J 470 NJ 470 560 340 NJ 340 NJ 340 NJ 340 2130J 550 NJ 550 3370J
+preplace netloc axis_data_fifo_0_almost_empty 1 7 2 2090J 490 2740
+preplace netloc axis_data_fifo_0_almost_full 1 4 5 1230 410 NJ 410 NJ 410 2130 410 2800
+preplace netloc axis_red_pitaya_adc_0_adc_csn 1 1 9 190J 470 NJ 470 560 310 NJ 310 NJ 310 NJ 310 2120J 550 NJ 550 3370J
 preplace netloc axis_red_pitaya_dac_1_dac_clk 1 9 1 3340J 630n
 preplace netloc axis_red_pitaya_dac_1_dac_dat 1 9 1 3340J 730n
 preplace netloc axis_red_pitaya_dac_1_dac_rst 1 9 1 3340J 660n
 preplace netloc axis_red_pitaya_dac_1_dac_sel 1 9 1 NJ 690
 preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 9 1 3340J 710n
-preplace netloc gpio_Freq_Measured_1 1 4 5 1190J 410 NJ 410 1800J 414 NJ 414 2790
+preplace netloc gpio_Freq_Measured_1 1 4 5 1180J 380 NJ 380 NJ 380 NJ 380 2720
 preplace netloc AXI4_Stream_Writer_0_m_axis 1 6 1 1800 480n
 preplace netloc PS7_M00_AXI 1 8 1 2800 94n
 preplace netloc PS7_M03_AXI 1 8 1 2810 74n
@@ -84,7 +84,7 @@ preplace netloc PS7_M10_AXI 1 8 1 2770 154n
 preplace netloc S_AXI1_1 1 8 1 2750 194n
 preplace netloc S_AXI6_1 1 8 1 2790 114n
 preplace netloc S_AXI7_1 1 8 1 2780 134n
-preplace netloc axis_data_fifo_0_M_AXIS 1 7 1 2110 154n
+preplace netloc axis_data_fifo_0_M_AXIS 1 7 1 2090 154n
 preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 1 N 540
 preplace netloc processing_system7_0_DDR 1 8 2 2800J 30 3370J
 preplace netloc processing_system7_0_FIXED_IO 1 8 2 2810J 40 3360J

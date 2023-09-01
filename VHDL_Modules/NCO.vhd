@@ -12,7 +12,7 @@ entity NCO is
   DAC_SIZE:integer := 16
   ) ;
   port (
-    Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
+    Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); 
     PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0);
     clock: in std_logic := '0';
     rst: in std_logic := '0';

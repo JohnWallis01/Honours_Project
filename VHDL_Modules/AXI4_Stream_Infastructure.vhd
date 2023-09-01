@@ -169,7 +169,7 @@ entity DMA_Interconnect is
 
         --axis mode
         Mode: in std_logic;
-
+        -- Full: out std_logic;
         --axis output to FIFO 
         m_axis_tdata: out std_logic_vector(31 downto 0);
         m_axis_tvalid: out std_logic;
@@ -177,11 +177,72 @@ entity DMA_Interconnect is
     
         --axis clock
         aclk: in std_logic;
+        -- PRBS_clk: in std_logic;
         reset: in std_logic
     );
 end DMA_Interconnect;
 
 architecture DMA_Interconnect_arch of DMA_Interconnect is
+
+-- signal PRBS_TX_Memory, PRBS_RX_Memory: std_logic_vector(4095 downto 0);
+-- signal Counter, Sample_Counter: unsigned(12 downto 0); --the Memory is sent over in packets of 16 bits each
+-- begin
+
+--     process(aclk)
+--     begin
+--         if rising_edge(aclk) then
+--             ADC_Data <= s_axis_tdata; --this should use the valid signal
+--         end if;
+--     end process;
+
+--     process(aclk, PRBS_clk)
+--     begin
+
+--         if rising_edge(PRBS_clk) then
+--             if Mode = '0' then
+--                 if Sample_Counter < 4096 then
+--                     Sample_Counter <= Sample_Counter + to_unsigned(1, 13);
+--                     PRBS_TX_Memory(0) <= PRBS_TX;
+--                     PRBS_RX_Memory(0) <= PRBS_RX;
+--                     for i in 1 to 4095 loop
+--                         PRBS_TX_Memory(i) <= PRBS_TX_Memory(i-1);
+--                         PRBS_RX_Memory(i) <= PRBS_RX_Memory(i-1);
+--                     end loop;
+--                     Full <= '0';
+--                 else
+--                     Full <= '1';
+--                 end if; 
+--             else
+--                 Sample_Counter <= (others => '0');
+--             end if;
+--         end if;
+
+--         if rising_edge(aclk) then
+--             if reset = '1' then
+--                 PRBS_TX_Memory <= (others =>'0');
+--                 PRBS_RX_Memory <= (others =>'0');
+--                 Counter <= (others=>'0');
+--                 Sample_Counter <= (others => '0');
+--                 Full <= '0';
+--             else
+--                 if Mode = '0' then
+--                     m_axis_tdata <= s_axis_tdata;
+--                     m_axis_tvalid <= s_axis_tvalid;
+--                     Counter <= (others => '0');
+--                 else
+--                     m_axis_tdata(15 downto 0)  <= PRBS_TX_Memory(15 + to_integer(Counter) downto 0 + to_integer(Counter));
+--                     m_axis_tdata(31 downto 16) <= PRBS_RX_Memory(15 + to_integer(Counter) downto 0 + to_integer(Counter));
+--                     m_axis_tvalid <= '1';
+--                     if m_axis_tready = '1' then
+--                         Counter <= Counter + to_unsigned(16, 13);
+--                     if Counter = to_unsigned(4080, 13) then
+--                         Counter <= (others => '0');
+--                     end if;
+--                     end if;
+--                 end if;
+--             end if;
+--         end if;
+--     end process;
 
 signal PRBS_TX_Memory, PRBS_RX_Memory: std_logic_vector(4095 downto 0);
 signal Counter: unsigned(12 downto 0); --the Memory is sent over in packets of 16 bits each
@@ -215,13 +276,19 @@ begin
                 else
                     m_axis_tdata(15 downto 0)  <= PRBS_TX_Memory(15 + to_integer(Counter) downto 0 + to_integer(Counter));
                     m_axis_tdata(31 downto 16) <= PRBS_RX_Memory(15 + to_integer(Counter) downto 0 + to_integer(Counter));
+                    -- m_axis_tdata(31 downto 19) <= std_logic_vector(Counter);
+                    -- m_axis_tdata(18 downto 16) <= "000";
                     m_axis_tvalid <= '1';
                     if m_axis_tready = '1' then
                         Counter <= Counter + to_unsigned(16, 8);
+                    end if;
+                    if Counter = to_unsigned(4080, 13) then
+                        Counter <= (others => '0');
                     end if;
                 end if;
             end if;
         end if;
     end process;
+
 
 end DMA_Interconnect_arch ; -- DMA_Interconnect_arch

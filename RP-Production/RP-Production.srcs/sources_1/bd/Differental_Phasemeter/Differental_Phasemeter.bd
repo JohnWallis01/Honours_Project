@@ -70,11 +70,11 @@
         }
       },
       "axis_data_fifo_0": "",
-      "DAC_Router_0": "",
       "Reset_Latch_0": "",
       "Subtractor_0": "",
       "Phase_Locked_Loop_0": "",
       "Phase_Locked_Loop_1": "",
+      "DAC_Router_0": "",
       "AXI4_Stream_Writer_0": ""
     },
     "interface_ports": {
@@ -5332,34 +5332,6 @@
           }
         }
       },
-      "DAC_Router_0": {
-        "vlnv": "xilinx.com:module_ref:DAC_Router:1.0",
-        "xci_name": "Differental_Phasemeter_DAC_Router_0_0",
-        "xci_path": "ip\\Differental_Phasemeter_DAC_Router_0_0\\Differental_Phasemeter_DAC_Router_0_0.xci",
-        "inst_hier_path": "DAC_Router_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "DAC_Router",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Data1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Data2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Qout": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          }
-        }
-      },
       "Reset_Latch_0": {
         "vlnv": "xilinx.com:module_ref:Reset_Latch:1.0",
         "xci_name": "Differental_Phasemeter_Reset_Latch_0_0",
@@ -5569,6 +5541,34 @@
           }
         }
       },
+      "DAC_Router_0": {
+        "vlnv": "xilinx.com:module_ref:DAC_Router:1.0",
+        "xci_name": "Differental_Phasemeter_DAC_Router_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_DAC_Router_0_0\\Differental_Phasemeter_DAC_Router_0_0.xci",
+        "inst_hier_path": "DAC_Router_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "DAC_Router",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "In1": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "In2": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "DAC_Out": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
       "AXI4_Stream_Writer_0": {
         "vlnv": "xilinx.com:module_ref:AXI4_Stream_Writer:1.0",
         "xci_name": "Differental_Phasemeter_AXI4_Stream_Writer_0_0",
@@ -5762,7 +5762,6 @@
     "nets": {
       "DAC_Router_0_Qout": {
         "ports": [
-          "DAC_Router_0/Qout",
           "DAC_Interface/cfg_data"
         ]
       },
@@ -5830,8 +5829,7 @@
       },
       "Phase_Locked_Loop_0_DAC_Stream_out": {
         "ports": [
-          "Phase_Locked_Loop_0/DAC_Stream_out",
-          "DAC_Router_0/Data1"
+          "Phase_Locked_Loop_0/DAC_Stream_out"
         ]
       },
       "Phase_Locked_Loop_0_Phase_Measured": {
@@ -5849,8 +5847,7 @@
       },
       "Phase_Locked_Loop_1_DAC_Stream_out": {
         "ports": [
-          "Phase_Locked_Loop_1/DAC_Stream_out",
-          "DAC_Router_0/Data2"
+          "Phase_Locked_Loop_1/DAC_Stream_out"
         ]
       },
       "Phase_Locked_Loop_1_Freq_Measured": {

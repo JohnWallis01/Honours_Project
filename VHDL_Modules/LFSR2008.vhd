@@ -20,13 +20,13 @@ architecture LFSR2008_Arch of LFSR2008 is
     signal Internal_State: std_logic_vector(Size-1 downto 0);
     begin
 
-    process(clock)
+    process(clock, reset)
         begin
+
         if rising_edge(clock) then
             if reset = '1' then
                 Internal_State <= (others => '1');
             else
-                
                 Internal_State(0) <= Internal_State(Size-1);
                 PRBS <= Internal_State(Size-1);
                 for i in 0 to Size-2 loop
