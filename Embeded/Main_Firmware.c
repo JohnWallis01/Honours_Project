@@ -219,7 +219,7 @@ int main() {
     
     void *PLL_Supervisor = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_SUPERVISOR_ADDR);
     void *DMA_Interconnect_Mode = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, DMA_Interconnect_mode_addr);
-    // void *PRBS_Memory_Status = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, PRBS_Memory_Status_addr);
+    void *PRBS_Memory_Status = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, PRBS_Memory_Status_addr);
     // void *Mod_Debug = mmap(NULL, sysconf(_SC_PAGESIZE) , PROT_READ|PROT_WRITE, MAP_SHARED, dh, Mod_Debug_Addr);
 
     *(uint32_t*)DMA_Interconnect_Mode = 0;
@@ -316,10 +316,11 @@ int main() {
     }
 
 	printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
-
-    // while(!*(uint32_t*)PRBS_Memory_Status) {
-
-    // }
+    printf("Waiting for PRBS Samples: ");
+    while(!*(uint32_t*)PRBS_Memory_Status) {
+    printf("-");
+    }
+    printf(" Done.\n");
     //Now Extract the PRBS data
     *(uint32_t*)DMA_Interconnect_Mode = 1; 
     //Reset -DMA
@@ -335,18 +336,18 @@ int main() {
     PRBS_DATA = PRBS_DUMP(virtual_destination_address , 1024); 
     int Max_n = Max_Correlate(PRBS_DATA, &(PRBS_DATA[4096]));
 
-    // printf("Data TX:\n");
-    // for (int i = 0; i < 4096; i++)
-    // {
-    //     printf("%i", PRBS_DATA[i]);
-    // }
-    // printf("\n");
-    // printf("Data RX:\n");
-    // for (int i = 0; i < 4096; i++)
-    // {
-    //     printf("%i", PRBS_DATA[i + 4096]);
-    // }
-    // printf("\n"); 
+    printf("Data TX:\n");
+    for (int i = 0; i < 4096; i++)
+    {
+        printf("%i", PRBS_DATA[i]);
+    }
+    printf("\n");
+    printf("Data RX:\n");
+    for (int i = 0; i < 4096; i++)
+    {
+        printf("%i", PRBS_DATA[i + 4096]);
+    }
+    printf("\n"); 
 
 
     printf("PRBS Delay, %i\n", Max_n);

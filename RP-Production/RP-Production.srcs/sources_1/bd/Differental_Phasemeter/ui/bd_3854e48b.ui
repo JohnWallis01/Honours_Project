@@ -1,55 +1,55 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.41474",
-   "Default View_TopLeft":"1366,414",
+   "Default View_ScaleFactor":"0.973368",
+   "Default View_TopLeft":"-198,-54",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 5 -x 1480 -y 70 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 5 -x 1480 -y 100 -defaultsOSRD
-preplace port M03_AXI -pg 1 -lvl 5 -x 1480 -y 350 -defaultsOSRD
-preplace port M00_AXI -pg 1 -lvl 5 -x 1480 -y 260 -defaultsOSRD
-preplace port M01_AXI -pg 1 -lvl 5 -x 1480 -y 290 -defaultsOSRD
-preplace port M02_AXI -pg 1 -lvl 5 -x 1480 -y 320 -defaultsOSRD
-preplace port M04_AXI -pg 1 -lvl 5 -x 1480 -y 380 -defaultsOSRD
-preplace port S_AXIS_S2MM -pg 1 -lvl 0 -x -10 -y 630 -defaultsOSRD
-preplace port M05_AXI -pg 1 -lvl 5 -x 1480 -y 410 -defaultsOSRD
-preplace port M06_AXI -pg 1 -lvl 5 -x 1480 -y 440 -defaultsOSRD
-preplace port M07_AXI -pg 1 -lvl 5 -x 1480 -y 470 -defaultsOSRD
-preplace port M08_AXI -pg 1 -lvl 5 -x 1480 -y 500 -defaultsOSRD
-preplace port M09_AXI -pg 1 -lvl 5 -x 1480 -y 530 -defaultsOSRD
-preplace port port-id_FCLK_CLK0 -pg 1 -lvl 5 -x 1480 -y 660 -defaultsOSRD
-preplace port port-id_m_axi_s2mm_aclk -pg 1 -lvl 0 -x -10 -y 670 -defaultsOSRD
-preplace portBus peripheral_aresetn -pg 1 -lvl 5 -x 1480 -y 690 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 3 -x 870 -y 190 -defaultsOSRD
-preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -x 870 -y 490 -defaultsOSRD
-preplace inst axi_interconnect_1 -pg 1 -lvl 4 -x 1280 -y 380 -defaultsOSRD
-preplace inst DMA_Engine -pg 1 -lvl 2 -x 480 -y 660 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 5 -x 1520 -y 70 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 5 -x 1520 -y 100 -defaultsOSRD
+preplace port M03_AXI -pg 1 -lvl 5 -x 1520 -y 350 -defaultsOSRD
+preplace port M00_AXI -pg 1 -lvl 5 -x 1520 -y 260 -defaultsOSRD
+preplace port M01_AXI -pg 1 -lvl 5 -x 1520 -y 290 -defaultsOSRD
+preplace port M02_AXI -pg 1 -lvl 5 -x 1520 -y 320 -defaultsOSRD
+preplace port M04_AXI -pg 1 -lvl 5 -x 1520 -y 380 -defaultsOSRD
+preplace port M05_AXI -pg 1 -lvl 5 -x 1520 -y 410 -defaultsOSRD
+preplace port M06_AXI -pg 1 -lvl 5 -x 1520 -y 440 -defaultsOSRD
+preplace port M07_AXI -pg 1 -lvl 5 -x 1520 -y 470 -defaultsOSRD
+preplace port M08_AXI -pg 1 -lvl 5 -x 1520 -y 500 -defaultsOSRD
+preplace port M09_AXI -pg 1 -lvl 5 -x 1520 -y 530 -defaultsOSRD
+preplace port S_AXIS_S2MM -pg 1 -lvl 0 -x -30 -y 650 -defaultsOSRD
+preplace port port-id_FCLK_CLK0 -pg 1 -lvl 5 -x 1520 -y 660 -defaultsOSRD
+preplace port port-id_m_axi_s2mm_aclk -pg 1 -lvl 0 -x -30 -y 670 -defaultsOSRD
+preplace portBus peripheral_aresetn -pg 1 -lvl 5 -x 1520 -y 690 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 3 -x 880 -y 190 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -x 880 -y 490 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 4 -x 1310 -y 380 -defaultsOSRD
+preplace inst DMA_Engine -pg 1 -lvl 2 -x 490 -y 660 -defaultsOSRD
 preplace inst axi_interconnect_0 -pg 1 -lvl 1 -x 180 -y 510 -defaultsOSRD
-preplace netloc S00_ARESETN_1 1 0 5 30 680 330 770 620J 750 1140 690 NJ
-preplace netloc m_axi_s2mm_aclk_1 1 0 3 NJ 670 320 230 N
-preplace netloc proc_sys_reset_0_interconnect_aresetn 1 0 4 40 640 350 550 620J 590 1120
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 20 650 330 450 620 380 1130 680 1440J
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 2 630 390 1100
+preplace netloc S00_ARESETN_1 1 0 5 10 680 330 770 630J 750 1160 690 NJ
+preplace netloc m_axi_s2mm_aclk_1 1 0 3 NJ 670 330 230 N
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 0 4 20 630 340 550 630J 590 1140
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 0 640 360 450 630 380 1150 680 1480J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 2 640 390 1120
 preplace netloc Conn1 1 4 1 NJ 350
-preplace netloc Conn2 1 4 1 1450J 370n
-preplace netloc Conn3 1 0 2 NJ 630 NJ
-preplace netloc Conn5 1 4 1 1450J 260n
-preplace netloc Conn6 1 4 1 1460J 290n
-preplace netloc Conn7 1 4 1 1460J 320n
-preplace netloc DMA_Engine_M00_AXI 1 2 1 610 170n
-preplace netloc S00_AXI_1 1 0 4 10 760 NJ 760 NJ 760 1110
-preplace netloc axi_interconnect_0_M00_AXI 1 1 1 340 510n
-preplace netloc axi_interconnect_1_M05_AXI 1 4 1 1460J 390n
-preplace netloc axi_interconnect_1_M06_AXI 1 4 1 1450J 410n
-preplace netloc axi_interconnect_1_M07_AXI 1 4 1 1440J 430n
-preplace netloc axi_interconnect_1_M08_AXI 1 4 1 1430J 450n
-preplace netloc processing_system7_0_DDR 1 3 2 1100J 70 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 3 2 1130J 80 1450J
-preplace netloc processing_system7_0_M_AXI_GP0 1 3 1 1100 140n
-preplace netloc axi_interconnect_1_M09_AXI 1 4 1 1420 470n
-levelinfo -pg 1 -10 180 480 870 1280 1480
-pagesize -pg 1 -db -bbox -sgen -170 0 1680 800
+preplace netloc Conn2 1 4 1 1490J 370n
+preplace netloc Conn3 1 0 2 NJ 650 350J
+preplace netloc Conn5 1 4 1 1490J 260n
+preplace netloc Conn6 1 4 1 1500J 290n
+preplace netloc Conn7 1 4 1 1500J 320n
+preplace netloc DMA_Engine_M00_AXI 1 2 1 620 170n
+preplace netloc S00_AXI_1 1 0 4 -10 760 NJ 760 NJ 760 1130
+preplace netloc axi_interconnect_0_M00_AXI 1 1 1 350 510n
+preplace netloc axi_interconnect_1_M05_AXI 1 4 1 1500J 390n
+preplace netloc axi_interconnect_1_M06_AXI 1 4 1 1490J 410n
+preplace netloc axi_interconnect_1_M07_AXI 1 4 1 1480J 430n
+preplace netloc axi_interconnect_1_M08_AXI 1 4 1 1470J 450n
+preplace netloc axi_interconnect_1_M09_AXI 1 4 1 1460 470n
+preplace netloc processing_system7_0_DDR 1 3 2 1120J 70 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 3 2 1150J 80 1490J
+preplace netloc processing_system7_0_M_AXI_GP0 1 3 1 1120 140n
+levelinfo -pg 1 -30 180 490 880 1310 1520
+pagesize -pg 1 -db -bbox -sgen -200 0 1720 800
 "
 }
 0

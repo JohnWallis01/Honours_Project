@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Fri Sep  1 17:05:54 2023
+-- Date        : Fri Sep  1 19:34:52 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Delay_Package_0_0/system_Delay_Package_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_Delay_Package_0_0 -prefix
+--               system_Delay_Package_0_0_ system_Delay_Package_0_0_sim_netlist.vhdl
 -- Design      : system_Delay_Package_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -18,11 +18,8 @@ entity system_Delay_Package_0_0_Delay is
   port (
     PRBS_delay : out STD_LOGIC;
     reset : in STD_LOGIC;
-    PRBS_ref : in STD_LOGIC;
     clock : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Package_0_0_Delay : entity is "Delay";
 end system_Delay_Package_0_0_Delay;
 
 architecture STRUCTURE of system_Delay_Package_0_0_Delay is
@@ -87,12 +84,12 @@ begin
   PRBS_delay <= \^prbs_delay\;
 \D_Out[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E2"
+      INIT => X"B8"
     )
         port map (
-      I0 => \Delay_Registers_reg[54]\,
+      I0 => \^prbs_delay\,
       I1 => reset,
-      I2 => \^prbs_delay\,
+      I2 => \Delay_Registers_reg[54]\,
       O => \D_Out[0]_i_1_n_0\
     );
 \D_Out_reg[0]\: unisim.vcomponents.FDRE
@@ -110,7 +107,7 @@ begin
         port map (
       C => clock,
       CE => '1',
-      D => PRBS_ref,
+      D => '1',
       Q => \Delay_Registers_reg[0]\,
       R => reset
     );
@@ -713,329 +710,21 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity system_Delay_Package_0_0_LFSR2008 is
-  port (
-    PRBS_ref : out STD_LOGIC;
-    clock : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 10 downto 0 )
-  );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Package_0_0_LFSR2008 : entity is "LFSR2008";
-end system_Delay_Package_0_0_LFSR2008;
-
-architecture STRUCTURE of system_Delay_Package_0_0_LFSR2008 is
-  signal \Internal_State_reg_n_0_[0]\ : STD_LOGIC;
-  signal PRBS_i_1_n_0 : STD_LOGIC;
-  signal \^prbs_ref\ : STD_LOGIC;
-  signal p_0_in : STD_LOGIC;
-  signal p_1_in : STD_LOGIC;
-  signal p_1_in11_in : STD_LOGIC;
-  signal p_1_in13_in : STD_LOGIC;
-  signal p_1_in15_in : STD_LOGIC;
-  signal p_1_in17_in : STD_LOGIC;
-  signal p_1_in1_in : STD_LOGIC;
-  signal p_1_in3_in : STD_LOGIC;
-  signal p_1_in5_in : STD_LOGIC;
-  signal p_1_in7_in : STD_LOGIC;
-  signal p_1_in9_in : STD_LOGIC;
-  signal p_34_out : STD_LOGIC_VECTOR ( 11 downto 1 );
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \Internal_State[10]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \Internal_State[1]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \Internal_State[2]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \Internal_State[3]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \Internal_State[4]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \Internal_State[5]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \Internal_State[6]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \Internal_State[7]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \Internal_State[8]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \Internal_State[9]_i_1\ : label is "soft_lutpair4";
-begin
-  PRBS_ref <= \^prbs_ref\;
-\Internal_State[10]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(9),
-      I2 => p_1_in15_in,
-      O => p_34_out(10)
-    );
-\Internal_State[11]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(10),
-      I2 => p_1_in17_in,
-      O => p_34_out(11)
-    );
-\Internal_State[1]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(0),
-      I2 => \Internal_State_reg_n_0_[0]\,
-      O => p_34_out(1)
-    );
-\Internal_State[2]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(1),
-      I2 => p_1_in,
-      O => p_34_out(2)
-    );
-\Internal_State[3]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(2),
-      I2 => p_1_in1_in,
-      O => p_34_out(3)
-    );
-\Internal_State[4]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(3),
-      I2 => p_1_in3_in,
-      O => p_34_out(4)
-    );
-\Internal_State[5]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(4),
-      I2 => p_1_in5_in,
-      O => p_34_out(5)
-    );
-\Internal_State[6]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(5),
-      I2 => p_1_in7_in,
-      O => p_34_out(6)
-    );
-\Internal_State[7]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(6),
-      I2 => p_1_in9_in,
-      O => p_34_out(7)
-    );
-\Internal_State[8]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(7),
-      I2 => p_1_in11_in,
-      O => p_34_out(8)
-    );
-\Internal_State[9]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => taps(8),
-      I2 => p_1_in13_in,
-      O => p_34_out(9)
-    );
-\Internal_State_reg[0]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_0_in,
-      Q => \Internal_State_reg_n_0_[0]\,
-      S => reset
-    );
-\Internal_State_reg[10]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(10),
-      Q => p_1_in17_in,
-      S => reset
-    );
-\Internal_State_reg[11]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(11),
-      Q => p_0_in,
-      S => reset
-    );
-\Internal_State_reg[1]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(1),
-      Q => p_1_in,
-      S => reset
-    );
-\Internal_State_reg[2]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(2),
-      Q => p_1_in1_in,
-      S => reset
-    );
-\Internal_State_reg[3]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(3),
-      Q => p_1_in3_in,
-      S => reset
-    );
-\Internal_State_reg[4]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(4),
-      Q => p_1_in5_in,
-      S => reset
-    );
-\Internal_State_reg[5]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(5),
-      Q => p_1_in7_in,
-      S => reset
-    );
-\Internal_State_reg[6]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(6),
-      Q => p_1_in9_in,
-      S => reset
-    );
-\Internal_State_reg[7]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(7),
-      Q => p_1_in11_in,
-      S => reset
-    );
-\Internal_State_reg[8]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(8),
-      Q => p_1_in13_in,
-      S => reset
-    );
-\Internal_State_reg[9]\: unisim.vcomponents.FDSE
-     port map (
-      C => clock,
-      CE => '1',
-      D => p_34_out(9),
-      Q => p_1_in15_in,
-      S => reset
-    );
-PRBS_i_1: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"E2"
-    )
-        port map (
-      I0 => p_0_in,
-      I1 => reset,
-      I2 => \^prbs_ref\,
-      O => PRBS_i_1_n_0
-    );
-PRBS_reg: unisim.vcomponents.FDRE
-     port map (
-      C => clock,
-      CE => '1',
-      D => PRBS_i_1_n_0,
-      Q => \^prbs_ref\,
-      R => '0'
-    );
-end STRUCTURE;
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-library UNISIM;
-use UNISIM.VCOMPONENTS.ALL;
-entity system_Delay_Package_0_0_LFSR is
-  port (
-    PRBS_ref : out STD_LOGIC;
-    clock : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 10 downto 0 )
-  );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Package_0_0_LFSR : entity is "LFSR";
-end system_Delay_Package_0_0_LFSR;
-
-architecture STRUCTURE of system_Delay_Package_0_0_LFSR is
-begin
-LFSR: entity work.system_Delay_Package_0_0_LFSR2008
-     port map (
-      PRBS_ref => PRBS_ref,
-      clock => clock,
-      reset => reset,
-      taps(10 downto 0) => taps(10 downto 0)
-    );
-end STRUCTURE;
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-library UNISIM;
-use UNISIM.VCOMPONENTS.ALL;
 entity system_Delay_Package_0_0_Delay_Package is
   port (
-    PRBS_ref : out STD_LOGIC;
     PRBS_delay : out STD_LOGIC;
     reset : in STD_LOGIC;
-    clock : in STD_LOGIC;
-    taps : in STD_LOGIC_VECTOR ( 10 downto 0 )
+    clock : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Package_0_0_Delay_Package : entity is "Delay_Package";
 end system_Delay_Package_0_0_Delay_Package;
 
 architecture STRUCTURE of system_Delay_Package_0_0_Delay_Package is
-  signal \^prbs_ref\ : STD_LOGIC;
 begin
-  PRBS_ref <= \^prbs_ref\;
 Delay_Gen: entity work.system_Delay_Package_0_0_Delay
      port map (
       PRBS_delay => PRBS_delay,
-      PRBS_ref => \^prbs_ref\,
       clock => clock,
       reset => reset
-    );
-Main_LFSR: entity work.system_Delay_Package_0_0_LFSR
-     port map (
-      PRBS_ref => \^prbs_ref\,
-      clock => clock,
-      reset => reset,
-      taps(10 downto 0) => taps(10 downto 0)
     );
 end STRUCTURE;
 library IEEE;
@@ -1063,6 +752,7 @@ entity system_Delay_Package_0_0 is
 end system_Delay_Package_0_0;
 
 architecture STRUCTURE of system_Delay_Package_0_0 is
+  signal \<const1>\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clock : signal is "xilinx.com:signal:clock:1.0 clock CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -1070,12 +760,15 @@ architecture STRUCTURE of system_Delay_Package_0_0 is
   attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
   attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
 begin
+  PRBS_ref <= \<const1>\;
+VCC: unisim.vcomponents.VCC
+     port map (
+      P => \<const1>\
+    );
 inst: entity work.system_Delay_Package_0_0_Delay_Package
      port map (
       PRBS_delay => PRBS_delay,
-      PRBS_ref => PRBS_ref,
       clock => clock,
-      reset => reset,
-      taps(10 downto 0) => taps(10 downto 0)
+      reset => reset
     );
 end STRUCTURE;

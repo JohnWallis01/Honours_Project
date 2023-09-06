@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.05278",
-   "Default View_TopLeft":"-458,-111",
+   "Default View_ScaleFactor":"0.648062",
+   "Default View_TopLeft":"-824,-29",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -25,7 +25,7 @@ preplace portBus gpio_Integrator_Reset -pg 1 -lvl 2 -x 600 -y 1070 -defaultsOSRD
 preplace portBus gpio_io_i -pg 1 -lvl 0 -x -10 -y 860 -defaultsOSRD
 preplace portBus gpio_io_o -pg 1 -lvl 2 -x 600 -y 880 -defaultsOSRD
 preplace portBus gpio_io_o1 -pg 1 -lvl 2 -x 600 -y 600 -defaultsOSRD
-preplace portBus gpio_io_i1 -pg 1 -lvl 0 -x -10 -y 390 -defaultsOSRD
+preplace portBus Full -pg 1 -lvl 0 -x -10 -y 390 -defaultsOSRD
 preplace portBus gpio_io_o2 -pg 1 -lvl 2 -x 600 -y 180 -defaultsOSRD
 preplace inst GPIO_Ki -pg 1 -lvl 1 -x 210 -y 1310 -defaultsOSRD
 preplace inst GPIO_Kp -pg 1 -lvl 1 -x 210 -y 1450 -defaultsOSRD
@@ -38,6 +38,7 @@ preplace inst GPIO_TAPS -pg 1 -lvl 1 -x 210 -y 610 -defaultsOSRD
 preplace inst GPIO_PRBS_Memory -pg 1 -lvl 1 -x 210 -y 470 -defaultsOSRD
 preplace inst GPIO_Debug -pg 1 -lvl 1 -x 210 -y 170 -defaultsOSRD
 preplace netloc DMA_Mode_gpio_io_o 1 1 1 360 880n
+preplace netloc GPIO_Debug_gpio_io_o 1 1 1 N 180
 preplace netloc GPIO_Integrator_Reset_gpio_io_o 1 1 1 360J 1070n
 preplace netloc GPIO_Ki_gpio_io_o 1 1 1 360J 1210n
 preplace netloc GPIO_Kp_gpio_io_o 1 1 1 360J 1350n
@@ -45,20 +46,19 @@ preplace netloc GPIO_PLL_GUESS_Freq_gpio_io_o 1 1 1 360J 1490n
 preplace netloc GPIO_TAPS_gpio_io_o 1 1 1 350 600n
 preplace netloc Net 1 0 1 40 170n
 preplace netloc Net1 1 0 1 50 190n
+preplace netloc gpio_io_i1_1 1 0 2 NJ 390 350
 preplace netloc gpio_io_i_1 1 1 1 360J 930n
 preplace netloc gpio_io_i_2 1 0 2 20J 1670 350J
-preplace netloc gpio_io_i1_1 1 0 2 NJ 390 350
-preplace netloc GPIO_Debug_gpio_io_o 1 1 1 N 180
 preplace netloc Conn1 1 0 1 60 870n
 preplace netloc Conn2 1 0 1 60 570n
 preplace netloc PS7_M00_AXI 1 0 1 10J 1460n
 preplace netloc PS7_M04_AXI 1 0 1 10J 1320n
 preplace netloc PS7_M05_AXI 1 0 1 30J 1180n
 preplace netloc S_AXI10_1 1 0 1 30J 1040n
-preplace netloc S_AXI7_1 1 0 1 60J 900n
-preplace netloc S_AXI_1 1 0 1 20J 730n
 preplace netloc S_AXI3_1 1 0 1 N 450
 preplace netloc S_AXI4_1 1 0 1 N 150
+preplace netloc S_AXI7_1 1 0 1 60J 900n
+preplace netloc S_AXI_1 1 0 1 20J 730n
 levelinfo -pg 1 -10 210 600
 pagesize -pg 1 -db -bbox -sgen -220 0 840 1680
 "

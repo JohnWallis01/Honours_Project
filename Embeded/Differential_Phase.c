@@ -140,9 +140,9 @@ int main() {
     *(uint32_t*)Test_Trigger = 0;
 
     //Wait for FIFO STATUS to show fifo is full.
-    while(!*(uint32_t*)FIFO_Full) {
-    }
-    printf("Done.\n");
+    // while(!*(uint32_t*)FIFO_Full) {
+    // }
+    // printf("Done.\n");
 
     //Perform the DMA transfer
     printf("Extracting Data --");

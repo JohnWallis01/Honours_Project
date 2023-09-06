@@ -10,7 +10,10 @@ entity PSK is
     Reset: in std_logic;
     PSKout: out std_logic_vector(13 downto 0);
     REFout: out std_logic_vector(13 downto 0);
-    Modulation: in std_logic
+    Modulation: in std_logic;
+    PSK_m_axis_tdata: out std_logic_vector(31 downto 0);
+    PSK_m_axis_tvalid: out std_logic
+
     );
 end PSK;
 
@@ -29,39 +32,34 @@ architecture PSK_arch of PSK is
           Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
           Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0');
           Phase_Out: out std_logic_vector(Freq_Size-1 downto 0)
-      
         );
     end component;
 
-        signal Mod_Phase: std_logic_vector(31 downto 0);
+        signal Osc_Data: std_logic_vector(13 downto 0);
 begin
+
+    PSK_s_axis_tdata(31 downto 14) <= (others => '0');
+    PSK_s_axis_tvalid <= '1'; --this needs to be kinda considered
 
     process(Clock)
     begin
         if rising_edge(Clock) then
+            REFout <= Osc_Data;
             if(Reset = '1') then
                 Mod_Phase <= (others => '0');
             else
-                if Modulation = '1' then 
-                    Mod_Phase(31) <= '1';  
+                if Modulation = '1' then
+                    PSKout <= std_logic_vector(-unsigned(Osc_Data));
+                    PSK_s_axis_tdata(13 downto 0) <= std_logic_vector(-unsigned(Osc_Data));
                 else
-                    Mod_Phase <= (others => '0');
+                    PSKout <= std_logic_vector(unsigned(Osc_Data));
+                    PSK_s_axis_tdata(13 downto 0) <= std_logic_vector(unsigned(Osc_Data));
                 end if;
             end if;
         end if;
     end process;
 
-    PSK_OSC: NCO
-    generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
-    port map(
-        Frequency => Frequency,
-        PhaseOffset => Mod_Phase,
-        clock => Clock,
-        rst => Reset,
-        Dout => PSKout,
-        Quadrature_out => open,
-        Phase_Out => open
-    );
+
     REF_OSC: NCO
     generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
     port map(
@@ -69,7 +67,7 @@ begin
         PhaseOffset => (others => '0'),
         clock => Clock,
         rst => Reset,
-        Dout => REFout,
+        Dout => Osc_Data,
         Quadrature_out => open,
         Phase_Out => open
     );
