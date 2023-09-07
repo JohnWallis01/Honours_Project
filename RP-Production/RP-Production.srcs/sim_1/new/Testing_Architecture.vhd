@@ -38,7 +38,7 @@ entity Testing_Architecture is
     port(
             Clock: in std_logic;
             Reset: in std_logic;
-            Taps: in std_logic_vector(10 downto 0);
+            Taps: in std_logic_vector(6 downto 0);
             PSKREF: out std_logic_vector(13 downto 0);
             PSKMOD: out std_logic_vector(13 downto 0);
             Mode: in std_logic;
@@ -84,40 +84,12 @@ architecture Behavioral of Testing_Architecture is
       end component;
 
 
-      component DMA_Interconnect is
-        port (
-    
-            PRBS_TX: in std_logic;
-            PRBS_RX: in std_logic;
-    
-            --axis input for DAC
-            s_axis_tdata: in std_logic_vector(31 downto 0);
-            s_axis_tvalid: in std_logic;
-    
-            --ADC Data_out
-            ADC_Data: out std_logic_vector(31 downto 0);
-    
-            --axis mode
-            Mode: in std_logic;
-            -- Full: out std_logic;
-            --axis output to FIFO 
-            m_axis_tdata: out std_logic_vector(31 downto 0);
-            m_axis_tvalid: out std_logic;
-            m_axis_tready: in std_logic;
-        
-            --axis clock
-            aclk: in std_logic;
-            -- PRBS_clk: in std_logic;
-            reset: in std_logic
-        );
-    end component;
-
     signal PRBS_ref, PRBS_delay, Slow_Clock: std_logic;
 
     begin
 
     PRBS_Gen: Delay_Package
-    generic map(Size => 12, Delay_Amount => 5)
+    generic map(Size => 8, Delay_Amount => 5)
     port map(
         clock => Clock,
         reset => Reset,
@@ -125,24 +97,6 @@ architecture Behavioral of Testing_Architecture is
         PRBS_ref => PRBS_ref,
         PRBS_delay => PRBS_delay
     );
-
-    DMA_Controller: DMA_Interconnect
-    port map(
-        PRBS_TX => PRBS_ref,
-        PRBS_RX => PRBS_delay,
-        s_axis_tdata => (others => '0'),
-        s_axis_tvalid => '0',
-        ADC_Data => open,
-        Mode => Mode,
-        -- Full => Full,
-        m_axis_tdata => tdata,
-        m_axis_tvalid => tvalid,
-        m_axis_tready => tready,
-        aclk => Clock,
-        -- PRBS_clk => Slow_Clock,
-        reset => Reset
-    );
-
 
     PSK_Gen: PSK
     port map(

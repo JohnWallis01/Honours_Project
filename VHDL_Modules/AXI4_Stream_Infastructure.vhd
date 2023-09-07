@@ -171,16 +171,13 @@ entity DMA_Interconnect is
         --ADC Data_out
         ADC_Data: out std_logic_vector(31 downto 0);
 
-        --axis mode
-        Mode: in std_logic;
         --axis output to DMA 
         m_axis_tdata: out std_logic_vector(31 downto 0);
         m_axis_tvalid: out std_logic;
         m_axis_tready: in std_logic;
-    
+        
         --axis clock
-        aclk: in std_logic;
-        reset: in std_logic
+        aclk: in std_logic
     );
 end DMA_Interconnect;
 
@@ -196,22 +193,11 @@ begin
     end process;
 
     process(aclk)
-    
     begin
-
-     
-
         if rising_edge(aclk) then
-            if reset = '1' then
-            else
-                if Mode = '0' then
-                    m_axis_tdata  <= ADC_s_axis_tdata;
-                    m_axis_tvalid <= ADC_s_axis_tvalid;
-                else
-                    m_axis_tdata  <= PRBS_s_axis_tdata;
-                    m_axis_tvalid <= PRBS_s_axis_tvalid;
-                end if;
-            end if;
+            m_axis_tvalid <= ADC_s_axis_tvalid;
+            m_axis_tdata(15 downto 0)  <= ADC_s_axis_tdata(15 downto 0);
+            m_axis_tdata(31 downto 16) <= PRBS_s_axis_tdata(15 downto 0); 
         end if;
     end process;
 

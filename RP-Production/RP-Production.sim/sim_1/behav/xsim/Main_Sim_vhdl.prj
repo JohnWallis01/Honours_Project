@@ -1,19 +1,14 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
-"../../../../../VHDL_Modules/AXI4_Stream_Infastructure.vhd" \
-
-vhdl2008 xil_defaultlib  \
-"../../../../../VHDL_Modules/Debuging.vhd" \
-
-vhdl xil_defaultlib  \
-"../../../../RP-Production.srcs/sim_1/new/Delay_Package.vhd" \
+"../../../../../VHDL_Modules/Delay_Package.vhd" \
 "../../../../../VHDL_Modules/LFSR.vhd" \
 "../../../../../VHDL_Modules/Logic.vhd" \
+"../../../../../VHDL_Modules/NCO.vhd" \
+"../../../../../VHDL_Modules/PSK.vhd" \
 "../../../../RP-Production.srcs/sim_1/new/Testing_Architecture.vhd" \
 
 vhdl2008 xil_defaultlib  \
 "../../../../../VHDL_Modules/LFSR2008.vhd" \
-"../../../../../VHDL_Modules/NCO.vhd" \
 
 # Do not sort compile order
 nosort

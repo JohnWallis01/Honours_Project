@@ -187,17 +187,17 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity not_gate is
+entity interface is
   port(
     D_in: in std_logic;
-    Q_out: out std_logic
+    Q_out: out std_logic_vector(31 downto 0)
   );
-end not_gate;
+end interface;
 
+architecture beh of interface is
 
-architecture beh of not_gate is
-
-begin
-Q_out <= not D_in;
-end beh ; -- beh
-
+  begin
+  Q_out(0) <= D_in;
+  Q_out(31 downto 1) <= (others => '0');
+  end beh ; -- beh
+  

@@ -25,7 +25,7 @@ module Main_Sim(
     );
     reg Clock;
     reg Reset;
-    reg[10:0] Taps;
+    reg[6:0] Taps;
     wire[13:0] PSKREF;
     wire[13:0] PSKMOD;
     wire[31:0] tdata;
@@ -48,8 +48,7 @@ module Main_Sim(
       initial 
       begin
         Reset = 0;
-        Taps = //10'b11000001000;
-               10'b00111110111;
+        Taps = 8'b10111000;
         Mode = 0;
         tready = 1;
         #1;
