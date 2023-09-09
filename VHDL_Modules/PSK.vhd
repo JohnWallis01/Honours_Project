@@ -41,7 +41,17 @@ begin
 
     PSK_m_axis_tdata(31 downto 14) <= (others => '0');
     PSK_m_axis_tvalid <= '1'; --this needs to be kinda considered
-    PSK_m_axis_tdata(13 downto 0) <= Osc_Data;
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Modulation = '1' then
+                PSK_m_axis_tdata(13 downto 0) <= std_logic_vector(unsigned(not Osc_Data) + to_unsigned(1, 14));
+            else
+                PSK_m_axis_tdata(13 downto 0) <= Osc_Data;
+            end if;
+        end if;
+    end process;
+    -- PSK_m_axis_tdata(13 downto 0) <= Osc_Data;
     Mod_Data(31) <= Modulation;
     Mod_Data(30 downto 0) <= (others =>'0');
     
@@ -49,7 +59,7 @@ begin
     generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
     port map(
         Frequency => Frequency,
-        PhaseOffset => Mod_Data, 
+        PhaseOffset => (others => '0'), 
         clock => Clock,
         rst => Reset,
         Dout => Osc_Data,

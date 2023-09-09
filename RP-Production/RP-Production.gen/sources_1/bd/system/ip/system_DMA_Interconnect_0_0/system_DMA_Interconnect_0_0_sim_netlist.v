@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Sep  7 11:23:27 2023
+// Date        : Fri Sep  8 10:15:15 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0_sim_netlist.v
@@ -35,50 +35,44 @@ module system_DMA_Interconnect_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_tready;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:PRBS_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input aclk;
 
+  wire \<const1> ;
   wire [31:16]\^ADC_Data ;
   wire [31:0]ADC_s_axis_tdata;
-  wire ADC_s_axis_tvalid;
   wire [31:0]PRBS_s_axis_tdata;
   wire aclk;
   wire [31:0]m_axis_tdata;
-  wire m_axis_tvalid;
 
   assign ADC_Data[31:16] = \^ADC_Data [31:16];
   assign ADC_Data[15:0] = m_axis_tdata[15:0];
+  assign m_axis_tvalid = \<const1> ;
+  VCC VCC
+       (.P(\<const1> ));
   system_DMA_Interconnect_0_0_DMA_Interconnect inst
        (.ADC_Data({\^ADC_Data ,m_axis_tdata[15:0]}),
         .ADC_s_axis_tdata(ADC_s_axis_tdata),
-        .ADC_s_axis_tvalid(ADC_s_axis_tvalid),
         .PRBS_s_axis_tdata(PRBS_s_axis_tdata[15:0]),
         .aclk(aclk),
-        .m_axis_tdata(m_axis_tdata[31:16]),
-        .m_axis_tvalid(m_axis_tvalid));
+        .m_axis_tdata(m_axis_tdata[31:16]));
 endmodule
 
 (* ORIG_REF_NAME = "DMA_Interconnect" *) 
 module system_DMA_Interconnect_0_0_DMA_Interconnect
    (ADC_Data,
     m_axis_tdata,
-    m_axis_tvalid,
     ADC_s_axis_tdata,
     aclk,
-    PRBS_s_axis_tdata,
-    ADC_s_axis_tvalid);
+    PRBS_s_axis_tdata);
   output [31:0]ADC_Data;
   output [15:0]m_axis_tdata;
-  output m_axis_tvalid;
   input [31:0]ADC_s_axis_tdata;
   input aclk;
   input [15:0]PRBS_s_axis_tdata;
-  input ADC_s_axis_tvalid;
 
   wire [31:0]ADC_Data;
   wire [31:0]ADC_s_axis_tdata;
-  wire ADC_s_axis_tvalid;
   wire [15:0]PRBS_s_axis_tdata;
   wire aclk;
   wire [15:0]m_axis_tdata;
-  wire m_axis_tvalid;
 
   FDRE \ADC_Data_reg[0] 
        (.C(aclk),
@@ -367,12 +361,6 @@ module system_DMA_Interconnect_0_0_DMA_Interconnect
         .CE(1'b1),
         .D(PRBS_s_axis_tdata[15]),
         .Q(m_axis_tdata[15]),
-        .R(1'b0));
-  FDRE m_axis_tvalid_reg
-       (.C(aclk),
-        .CE(1'b1),
-        .D(ADC_s_axis_tvalid),
-        .Q(m_axis_tvalid),
         .R(1'b0));
 endmodule
 `ifndef GLBL

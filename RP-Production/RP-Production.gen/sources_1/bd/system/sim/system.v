@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Sep  7 21:01:00 2023
+//Date        : Sat Sep  9 23:14:06 2023
 //Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -941,7 +941,7 @@ module GPIO_Interface_imp_V73Q6H
   output [31:0]gpio_Kp;
   output [31:0]gpio_PLL_Guess_Freq;
   input [25:0]gpio_io_Locking_Strength;
-  output [8:0]gpio_io_TAPS;
+  output [6:0]gpio_io_TAPS;
   input s_axi_aclk;
   input s_axi_aresetn;
 
@@ -966,7 +966,7 @@ module GPIO_Interface_imp_V73Q6H
   wire [31:0]GPIO_Ki_gpio_io_o;
   wire [31:0]GPIO_Kp_gpio_io_o;
   wire [31:0]GPIO_PLL_GUESS_Freq_gpio_io_o;
-  wire [8:0]GPIO_TAPS_gpio_io_o;
+  wire [6:0]GPIO_TAPS_gpio_io_o;
   wire Net;
   wire Net1;
   wire [31:0]PS7_M00_AXI_ARADDR;
@@ -1199,7 +1199,7 @@ module GPIO_Interface_imp_V73Q6H
   assign gpio_Ki[31:0] = GPIO_Ki_gpio_io_o;
   assign gpio_Kp[31:0] = GPIO_Kp_gpio_io_o;
   assign gpio_PLL_Guess_Freq[31:0] = GPIO_PLL_GUESS_Freq_gpio_io_o;
-  assign gpio_io_TAPS[8:0] = GPIO_TAPS_gpio_io_o;
+  assign gpio_io_TAPS[6:0] = GPIO_TAPS_gpio_io_o;
   assign gpio_io_i_1 = gpio_Freq_Measured[31:0];
   assign gpio_io_i_2 = gpio_io_Locking_Strength[25:0];
   system_GPIO_Kd_0 GPIO_FreqMeasure
@@ -5147,7 +5147,7 @@ module s01_couplers_imp_1JA3XYH
         .s_axi_wvalid(s01_couplers_to_auto_us_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=55,numReposBlks=33,numNonXlnxBlks=3,numHierBlks=22,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=52,numReposBlks=30,numNonXlnxBlks=3,numHierBlks=22,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -5232,17 +5232,18 @@ module system
   inout [7:0]exp_p_tri_io;
   output [0:0]led_o;
 
+  wire Clock_Divider_0_DivClock_Out;
   wire [31:0]DMA_Interconnect_0_ADC_Data;
   wire [31:0]DMA_Interconnect_0_m_axis_TDATA;
   wire DMA_Interconnect_0_m_axis_TREADY;
   wire DMA_Interconnect_0_m_axis_TVALID;
-  wire Delay_Package_0_PRBS_delay;
-  wire Delay_Package_0_PRBS_ref;
+  wire [0:0]Delay_0_D_Out;
   wire [0:0]GPIO_Interface_gpio_Integrator_Reset;
   wire [31:0]GPIO_Interface_gpio_Ki;
   wire [31:0]GPIO_Interface_gpio_Kp;
   wire [31:0]GPIO_Interface_gpio_PLL_Guess_Freq;
-  wire [8:0]GPIO_Interface_gpio_io_o1;
+  wire [6:0]GPIO_Interface_gpio_io_o1;
+  wire LFSR_0_PRBS;
   wire Net;
   wire PS7_FCLK_CLK0;
   wire [31:0]PS7_M00_AXI_ARADDR;
@@ -5333,6 +5334,8 @@ module system
   wire [0:0]PS7_peripheral_aresetn;
   wire [31:0]PSK_1_PSK_m_axis_TDATA;
   wire PSK_1_PSK_m_axis_TVALID;
+  wire [31:0]PSK_Local_PSK_m_axis_TDATA;
+  wire PSK_Local_PSK_m_axis_TVALID;
   wire [31:0]Phase_Locked_Loop_0_DAC_Stream_out;
   wire [25:0]Phase_Locked_Loop_0_Lock_Strength;
   wire Phase_Locked_Loop_0_Reset_Out;
@@ -5383,7 +5386,6 @@ module system
   wire [1:0]daisy_n_i_1;
   wire [1:0]daisy_p_i_1;
   wire [31:0]gpio_Freq_Measured_1;
-  wire [31:0]interface_0_Q_out;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -5407,7 +5409,6 @@ module system
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
   wire [1:0]util_ds_buf_1_OBUF_DS_N;
   wire [1:0]util_ds_buf_1_OBUF_DS_P;
-  wire [31:0]xlconstant_0_dout;
 
   assign adc_clk_n_i_1 = adc_clk_n_i;
   assign adc_clk_p_i_1 = adc_clk_p_i;
@@ -5425,6 +5426,7 @@ module system
   assign daisy_p_o[1:0] = util_ds_buf_1_OBUF_DS_P;
   system_Clock_Divider_0_0 Clock_Divider_0
        (.DivClock_In(Net),
+        .DivClock_Out(Clock_Divider_0_DivClock_Out),
         .Reset(Phase_Locked_Loop_0_Reset_Out));
   DAC_Interface_imp_DA799F DAC_Interface
        (.aclk(Net),
@@ -5439,8 +5441,8 @@ module system
        (.ADC_Data(DMA_Interconnect_0_ADC_Data),
         .ADC_s_axis_tdata(PSK_1_PSK_m_axis_TDATA),
         .ADC_s_axis_tvalid(PSK_1_PSK_m_axis_TVALID),
-        .PRBS_s_axis_tdata(interface_0_Q_out),
-        .PRBS_s_axis_tvalid(1'b0),
+        .PRBS_s_axis_tdata(PSK_Local_PSK_m_axis_TDATA),
+        .PRBS_s_axis_tvalid(PSK_Local_PSK_m_axis_TVALID),
         .aclk(Net),
         .m_axis_tdata(DMA_Interconnect_0_m_axis_TDATA),
         .m_axis_tready(DMA_Interconnect_0_m_axis_TREADY),
@@ -5450,12 +5452,11 @@ module system
         .daisy_n_o(util_ds_buf_1_OBUF_DS_N),
         .daisy_p_i(daisy_p_i_1),
         .daisy_p_o(util_ds_buf_1_OBUF_DS_P));
-  system_Delay_Package_0_0 Delay_Package_0
-       (.PRBS_delay(Delay_Package_0_PRBS_delay),
-        .PRBS_ref(Delay_Package_0_PRBS_ref),
-        .clock(Net),
-        .reset(Phase_Locked_Loop_0_Reset_Out),
-        .taps(GPIO_Interface_gpio_io_o1));
+  system_Delay_0_0 Delay_0
+       (.Clock(Clock_Divider_0_DivClock_Out),
+        .D_In(LFSR_0_PRBS),
+        .D_Out(Delay_0_D_Out),
+        .Reset(Phase_Locked_Loop_0_Reset_Out));
   GPIO_Interface_imp_V73Q6H GPIO_Interface
        (.S_AXI2_Taps_araddr(PS7_M05_AXI_ARADDR),
         .S_AXI2_Taps_arready(PS7_M05_AXI_ARREADY),
@@ -5585,6 +5586,11 @@ module system
         .gpio_io_TAPS(GPIO_Interface_gpio_io_o1),
         .s_axi_aclk(PS7_FCLK_CLK0),
         .s_axi_aresetn(PS7_peripheral_aresetn));
+  system_LFSR_0_0 LFSR_0
+       (.PRBS(LFSR_0_PRBS),
+        .Taps(GPIO_Interface_gpio_io_o1),
+        .clock(Clock_Divider_0_DivClock_Out),
+        .reset(Phase_Locked_Loop_0_Reset_Out));
   PS7_imp_1QJPAX8 PS7
        (.DDR_addr(DDR_addr[14:0]),
         .DDR_ba(DDR_ba[2:0]),
@@ -5734,15 +5740,17 @@ module system
         .peripheral_aresetn(PS7_peripheral_aresetn));
   system_PSK_0_1 PSK_Debug
        (.Clock(Net),
-        .Frequency(xlconstant_0_dout),
-        .Modulation(Delay_Package_0_PRBS_delay),
+        .Frequency(GPIO_Interface_gpio_PLL_Guess_Freq),
+        .Modulation(Delay_0_D_Out),
         .PSK_m_axis_tdata(PSK_1_PSK_m_axis_TDATA),
         .PSK_m_axis_tvalid(PSK_1_PSK_m_axis_TVALID),
         .Reset(Phase_Locked_Loop_0_Reset_Out));
   system_PSK_0_0 PSK_Local
        (.Clock(Net),
-        .Frequency(xlconstant_0_dout),
-        .Modulation(Delay_Package_0_PRBS_ref),
+        .Frequency(GPIO_Interface_gpio_PLL_Guess_Freq),
+        .Modulation(LFSR_0_PRBS),
+        .PSK_m_axis_tdata(PSK_Local_PSK_m_axis_TDATA),
+        .PSK_m_axis_tvalid(PSK_Local_PSK_m_axis_TVALID),
         .Reset(Phase_Locked_Loop_0_Reset_Out));
   system_Phase_Locked_Loop_0_0 Phase_Locked_Loop_0
        (.ADC_Stream_in(DMA_Interconnect_0_ADC_Data),
@@ -5763,15 +5771,6 @@ module system
         .adc_csn(axis_red_pitaya_adc_0_adc_csn),
         .adc_dat_a(adc_dat_a_i_1),
         .adc_dat_b(adc_dat_b_i_1));
-  system_interface_0_0 interface_0
-       (.D_in(Delay_Package_0_PRBS_ref),
-        .Q_out(interface_0_Q_out));
-  system_xlconstant_0_0 xlconstant_0
-       (.dout(xlconstant_0_dout));
-  system_xlconstant_0_1 xlconstant_1
-       ();
-  system_xlconstant_0_2 xlconstant_2
-       ();
 endmodule
 
 module system_axi_interconnect_0_1

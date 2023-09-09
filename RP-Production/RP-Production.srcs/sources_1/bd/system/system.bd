@@ -7,7 +7,8 @@
       "name": "system",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "PS7": {
@@ -67,16 +68,13 @@
         "Locking_Strength": "",
         "GPIO_TAPS": ""
       },
-      "Phase_Locked_Loop_0": "",
-      "DMA_Interconnect_0": "",
       "Clock_Divider_0": "",
-      "xlconstant_0": "",
-      "xlconstant_1": "",
-      "xlconstant_2": "",
+      "DMA_Interconnect_0": "",
+      "Phase_Locked_Loop_0": "",
+      "LFSR_0": "",
       "PSK_Local": "",
       "PSK_Debug": "",
-      "Delay_Package_0": "",
-      "interface_0": ""
+      "Delay_0": ""
     },
     "interface_ports": {
       "Vp_Vn": {
@@ -300,10 +298,30 @@
         "right": "0"
       },
       "dac_clk_o": {
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "system_axis_red_pitaya_dac_1_0_dac_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default_prop"
+          }
+        }
       },
       "dac_rst_o": {
-        "direction": "O"
+        "direction": "O",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default_prop"
+          }
+        }
       },
       "dac_sel_o": {
         "direction": "O"
@@ -329,12 +347,40 @@
       "daisy_p_o": {
         "direction": "O",
         "left": "1",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "system_util_ds_buf_0_0_IBUF_OUT",
+            "value_src": "ip_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "ip_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          }
+        }
       },
       "daisy_n_o": {
         "direction": "O",
         "left": "1",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "system_util_ds_buf_0_0_IBUF_OUT",
+            "value_src": "ip_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "ip_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          }
+        }
       },
       "daisy_p_i": {
         "direction": "I",
@@ -4508,7 +4554,7 @@
           },
           "gpio_io_TAPS": {
             "direction": "O",
-            "left": "8",
+            "left": "6",
             "right": "0"
           }
         },
@@ -4716,58 +4762,23 @@
           }
         }
       },
-      "Phase_Locked_Loop_0": {
-        "vlnv": "xilinx.com:module_ref:Phase_Locked_Loop:1.0",
-        "xci_name": "system_Phase_Locked_Loop_0_0",
-        "xci_path": "ip\\system_Phase_Locked_Loop_0_0\\system_Phase_Locked_Loop_0_0.xci",
-        "inst_hier_path": "Phase_Locked_Loop_0",
+      "Clock_Divider_0": {
+        "vlnv": "xilinx.com:module_ref:Clock_Divider:1.0",
+        "xci_name": "system_Clock_Divider_0_0",
+        "xci_path": "ip\\system_Clock_Divider_0_0\\system_Clock_Divider_0_0.xci",
+        "inst_hier_path": "Clock_Divider_0",
+        "parameters": {
+          "Div_Rate": {
+            "value": "3"
+          }
+        },
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "Phase_Locked_Loop",
+          "ref_name": "Clock_Divider",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "PLL_Guess_Freq": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Control_Kp": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Control_Ki": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Freq_Measured": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "Phase_Measured": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "Lock_Strength": {
-            "direction": "O",
-            "left": "25",
-            "right": "0"
-          },
-          "ADC_Stream_in": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "DAC_Stream_out": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "AD_CLK_in": {
+          "DivClock_In": {
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
@@ -4784,15 +4795,10 @@
               }
             }
           },
-          "Reset_In": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "Reset_Out": {
-            "type": "rst",
+          "DivClock_Out": {
             "direction": "O"
           },
-          "Integrator_Reset": {
+          "Reset": {
             "type": "rst",
             "direction": "I"
           }
@@ -5017,23 +5023,58 @@
           }
         }
       },
-      "Clock_Divider_0": {
-        "vlnv": "xilinx.com:module_ref:Clock_Divider:1.0",
-        "xci_name": "system_Clock_Divider_0_0",
-        "xci_path": "ip\\system_Clock_Divider_0_0\\system_Clock_Divider_0_0.xci",
-        "inst_hier_path": "Clock_Divider_0",
-        "parameters": {
-          "Div_Rate": {
-            "value": "12"
-          }
-        },
+      "Phase_Locked_Loop_0": {
+        "vlnv": "xilinx.com:module_ref:Phase_Locked_Loop:1.0",
+        "xci_name": "system_Phase_Locked_Loop_0_0",
+        "xci_path": "ip\\system_Phase_Locked_Loop_0_0\\system_Phase_Locked_Loop_0_0.xci",
+        "inst_hier_path": "Phase_Locked_Loop_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "Clock_Divider",
+          "ref_name": "Phase_Locked_Loop",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "DivClock_In": {
+          "PLL_Guess_Freq": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_Kp": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_Ki": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Freq_Measured": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Phase_Measured": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Lock_Strength": {
+            "direction": "O",
+            "left": "25",
+            "right": "0"
+          },
+          "ADC_Stream_in": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "DAC_Stream_out": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "AD_CLK_in": {
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
@@ -5050,54 +5091,62 @@
               }
             }
           },
-          "DivClock_Out": {
+          "Reset_In": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Reset_Out": {
+            "type": "rst",
             "direction": "O"
           },
-          "Reset": {
+          "Integrator_Reset": {
             "type": "rst",
             "direction": "I"
           }
         }
       },
-      "xlconstant_0": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "system_xlconstant_0_0",
-        "xci_path": "ip\\system_xlconstant_0_0\\system_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_0",
+      "LFSR_0": {
+        "vlnv": "xilinx.com:module_ref:LFSR:1.0",
+        "xci_name": "system_LFSR_0_0",
+        "xci_path": "ip\\system_LFSR_0_0\\system_LFSR_0_0.xci",
+        "inst_hier_path": "LFSR_0",
         "parameters": {
-          "CONST_VAL": {
-            "value": "343597384"
-          },
-          "CONST_WIDTH": {
-            "value": "32"
+          "Size": {
+            "value": "8"
           }
-        }
-      },
-      "xlconstant_1": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "system_xlconstant_0_1",
-        "xci_path": "ip\\system_xlconstant_0_1\\system_xlconstant_0_1.xci",
-        "inst_hier_path": "xlconstant_1",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "0"
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "LFSR",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Taps": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
           },
-          "CONST_WIDTH": {
-            "value": "1"
-          }
-        }
-      },
-      "xlconstant_2": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "system_xlconstant_0_2",
-        "xci_path": "ip\\system_xlconstant_0_2\\system_xlconstant_0_2.xci",
-        "inst_hier_path": "xlconstant_2",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "1"
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
           },
-          "CONST_WIDTH": {
-            "value": "1"
+          "PRBS": {
+            "direction": "O"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "State": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
           }
         }
       },
@@ -5337,78 +5386,48 @@
           }
         }
       },
-      "Delay_Package_0": {
-        "vlnv": "xilinx.com:module_ref:Delay_Package:1.0",
-        "xci_name": "system_Delay_Package_0_0",
-        "xci_path": "ip\\system_Delay_Package_0_0\\system_Delay_Package_0_0.xci",
-        "inst_hier_path": "Delay_Package_0",
+      "Delay_0": {
+        "vlnv": "xilinx.com:module_ref:Delay:1.0",
+        "xci_name": "system_Delay_0_0",
+        "xci_path": "ip\\system_Delay_0_0\\system_Delay_0_0.xci",
+        "inst_hier_path": "Delay_0",
         "parameters": {
+          "Bus_Size": {
+            "value": "1"
+          },
           "Delay_Amount": {
             "value": "20"
-          },
-          "Size": {
-            "value": "8"
           }
         },
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "Delay_Package",
+          "ref_name": "Delay",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clock": {
+          "D_In": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "D_Out": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "Clock": {
             "type": "clk",
             "direction": "I",
             "parameters": {
               "ASSOCIATED_RESET": {
-                "value": "reset",
+                "value": "Reset",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "system_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
               }
             }
           },
-          "reset": {
+          "Reset": {
             "type": "rst",
             "direction": "I"
-          },
-          "taps": {
-            "direction": "I",
-            "left": "6",
-            "right": "0"
-          },
-          "PRBS_ref": {
-            "direction": "O"
-          },
-          "PRBS_delay": {
-            "direction": "O"
-          }
-        }
-      },
-      "interface_0": {
-        "vlnv": "xilinx.com:module_ref:interface:1.0",
-        "xci_name": "system_interface_0_0",
-        "xci_path": "ip\\system_interface_0_0\\system_interface_0_0.xci",
-        "inst_hier_path": "interface_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "interface",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "D_in": {
-            "direction": "I"
-          },
-          "Q_out": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
           }
         }
       }
@@ -5456,6 +5475,12 @@
           "DMA_Interconnect_0/ADC_s_axis"
         ]
       },
+      "PSK_Local_PSK_m_axis": {
+        "interface_ports": [
+          "PSK_Local/PSK_m_axis",
+          "DMA_Interconnect_0/PRBS_s_axis"
+        ]
+      },
       "S_AXI6_1": {
         "interface_ports": [
           "GPIO_Interface/S_AXI_PLL_Guess",
@@ -5482,23 +5507,23 @@
       }
     },
     "nets": {
+      "Clock_Divider_0_DivClock_Out": {
+        "ports": [
+          "Clock_Divider_0/DivClock_Out",
+          "LFSR_0/clock",
+          "Delay_0/Clock"
+        ]
+      },
       "DMA_Interconnect_0_ADC_Data": {
         "ports": [
           "DMA_Interconnect_0/ADC_Data",
           "Phase_Locked_Loop_0/ADC_Stream_in"
         ]
       },
-      "Delay_Package_0_PRBS_delay": {
+      "Delay_0_D_Out": {
         "ports": [
-          "Delay_Package_0/PRBS_delay",
+          "Delay_0/D_Out",
           "PSK_Debug/Modulation"
-        ]
-      },
-      "Delay_Package_0_PRBS_ref": {
-        "ports": [
-          "Delay_Package_0/PRBS_ref",
-          "PSK_Local/Modulation",
-          "interface_0/D_in"
         ]
       },
       "GPIO_Interface_gpio_Integrator_Reset": {
@@ -5522,13 +5547,22 @@
       "GPIO_Interface_gpio_PLL_Guess_Freq": {
         "ports": [
           "GPIO_Interface/gpio_PLL_Guess_Freq",
-          "Phase_Locked_Loop_0/PLL_Guess_Freq"
+          "Phase_Locked_Loop_0/PLL_Guess_Freq",
+          "PSK_Local/Frequency",
+          "PSK_Debug/Frequency"
         ]
       },
       "GPIO_Interface_gpio_io_o1": {
         "ports": [
           "GPIO_Interface/gpio_io_TAPS",
-          "Delay_Package_0/taps"
+          "LFSR_0/Taps"
+        ]
+      },
+      "LFSR_0_PRBS": {
+        "ports": [
+          "LFSR_0/PRBS",
+          "PSK_Local/Modulation",
+          "Delay_0/D_In"
         ]
       },
       "Net": {
@@ -5536,12 +5570,11 @@
           "axis_red_pitaya_adc_0/adc_clk",
           "DAC_Interface/aclk",
           "PS7/aclk",
-          "Phase_Locked_Loop_0/AD_CLK_in",
-          "DMA_Interconnect_0/aclk",
           "Clock_Divider_0/DivClock_In",
+          "DMA_Interconnect_0/aclk",
+          "Phase_Locked_Loop_0/AD_CLK_in",
           "PSK_Local/Clock",
-          "PSK_Debug/Clock",
-          "Delay_Package_0/clock"
+          "PSK_Debug/Clock"
         ]
       },
       "PS7_FCLK_CLK0": {
@@ -5571,11 +5604,12 @@
       "Phase_Locked_Loop_0_Reset_Out": {
         "ports": [
           "Phase_Locked_Loop_0/Reset_Out",
-          "Phase_Locked_Loop_0/Reset_In",
           "Clock_Divider_0/Reset",
+          "Phase_Locked_Loop_0/Reset_In",
+          "LFSR_0/reset",
           "PSK_Local/Reset",
           "PSK_Debug/Reset",
-          "Delay_Package_0/reset"
+          "Delay_0/Reset"
         ]
       },
       "adc_clk_n_i_1": {
@@ -5656,12 +5690,6 @@
           "GPIO_Interface/gpio_Freq_Measured"
         ]
       },
-      "interface_0_Q_out": {
-        "ports": [
-          "interface_0/Q_out",
-          "DMA_Interconnect_0/PRBS_s_axis_tdata"
-        ]
-      },
       "util_ds_buf_1_OBUF_DS_N": {
         "ports": [
           "Daisy_Controller/daisy_n_o",
@@ -5672,13 +5700,6 @@
         "ports": [
           "Daisy_Controller/daisy_p_o",
           "daisy_p_o"
-        ]
-      },
-      "xlconstant_0_dout": {
-        "ports": [
-          "xlconstant_0/dout",
-          "PSK_Local/Frequency",
-          "PSK_Debug/Frequency"
         ]
       }
     },

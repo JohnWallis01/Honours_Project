@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Sep  7 17:36:37 2023
+-- Date        : Sat Sep  9 16:44:41 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top system_PSK_0_0 -prefix
---               system_PSK_0_0_ system_PSK_0_1_sim_netlist.vhdl
--- Design      : system_PSK_0_1
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PSK_0_0/system_PSK_0_0_sim_netlist.vhdl
+-- Design      : system_PSK_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z010clg400-1
@@ -16,12 +16,19 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity system_PSK_0_0_NCO is
   port (
-    PSK_m_axis_tdata : out STD_LOGIC_VECTOR ( 13 downto 0 );
-    Clock : in STD_LOGIC;
+    PSK_m_axis_tdata0 : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 13 downto 0 );
     Reset : in STD_LOGIC;
-    Frequency : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    Modulation : in STD_LOGIC
+    Clock : in STD_LOGIC;
+    \PSK_m_axis_tdata_reg[4]\ : in STD_LOGIC;
+    S : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PSK_m_axis_tdata_reg[8]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PSK_m_axis_tdata_reg[12]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PSK_m_axis_tdata_reg[13]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Frequency : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_PSK_0_0_NCO : entity is "NCO";
 end system_PSK_0_0_NCO;
 
 architecture STRUCTURE of system_PSK_0_0_NCO is
@@ -42,6 +49,18 @@ architecture STRUCTURE of system_PSK_0_0_NCO is
   signal \Dout[9]_i_1_n_0\ : STD_LOGIC;
   signal L : STD_LOGIC_VECTOR ( 29 downto 22 );
   signal \OffsetPhase[31]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[12]_i_2_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[12]_i_2_n_1\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[12]_i_2_n_2\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[12]_i_2_n_3\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[4]_i_2_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[4]_i_2_n_1\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[4]_i_2_n_2\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[4]_i_2_n_3\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[8]_i_2_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[8]_i_2_n_1\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[8]_i_2_n_2\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata_reg[8]_i_2_n_3\ : STD_LOGIC;
   signal dataAddr : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \dataAddr[0]_i_1_n_0\ : STD_LOGIC;
   signal \dataAddr[1]_i_1_n_0\ : STD_LOGIC;
@@ -53,7 +72,6 @@ architecture STRUCTURE of system_PSK_0_0_NCO is
   signal \dataAddr[7]_i_1_n_0\ : STD_LOGIC;
   signal \^databuffer_reg\ : STD_LOGIC_VECTOR ( 12 downto 0 );
   signal p_0_in : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal p_1_in : STD_LOGIC_VECTOR ( 31 to 31 );
   signal \phase[0]_i_2_n_0\ : STD_LOGIC;
   signal \phase[0]_i_3_n_0\ : STD_LOGIC;
   signal \phase[0]_i_4_n_0\ : STD_LOGIC;
@@ -86,7 +104,7 @@ architecture STRUCTURE of system_PSK_0_0_NCO is
   signal \phase[8]_i_3_n_0\ : STD_LOGIC;
   signal \phase[8]_i_4_n_0\ : STD_LOGIC;
   signal \phase[8]_i_5_n_0\ : STD_LOGIC;
-  signal phase_reg : STD_LOGIC_VECTOR ( 30 downto 22 );
+  signal phase_reg : STD_LOGIC_VECTOR ( 31 downto 22 );
   signal \phase_reg[0]_i_1_n_0\ : STD_LOGIC;
   signal \phase_reg[0]_i_1_n_1\ : STD_LOGIC;
   signal \phase_reg[0]_i_1_n_2\ : STD_LOGIC;
@@ -150,7 +168,6 @@ architecture STRUCTURE of system_PSK_0_0_NCO is
   signal \phase_reg[8]_i_1_n_5\ : STD_LOGIC;
   signal \phase_reg[8]_i_1_n_6\ : STD_LOGIC;
   signal \phase_reg[8]_i_1_n_7\ : STD_LOGIC;
-  signal \phase_reg__0\ : STD_LOGIC_VECTOR ( 31 to 31 );
   signal \phase_reg_n_0_[0]\ : STD_LOGIC;
   signal \phase_reg_n_0_[10]\ : STD_LOGIC;
   signal \phase_reg_n_0_[11]\ : STD_LOGIC;
@@ -173,24 +190,31 @@ architecture STRUCTURE of system_PSK_0_0_NCO is
   signal \phase_reg_n_0_[7]\ : STD_LOGIC;
   signal \phase_reg_n_0_[8]\ : STD_LOGIC;
   signal \phase_reg_n_0_[9]\ : STD_LOGIC;
+  signal \NLW_PSK_m_axis_tdata_reg[13]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_PSK_m_axis_tdata_reg[13]_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
   signal NLW_databuffer_reg_DOADO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 13 );
   signal NLW_databuffer_reg_DOBDO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_databuffer_reg_DOPADOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_databuffer_reg_DOPBDOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \NLW_phase_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \Dout[10]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \Dout[11]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \Dout[12]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \Dout[1]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \Dout[2]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \Dout[3]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \Dout[4]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \Dout[5]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \Dout[0]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \Dout[10]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \Dout[11]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \Dout[1]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \Dout[2]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \Dout[3]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \Dout[4]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \Dout[5]_i_1\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \Dout[6]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \Dout[7]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \Dout[8]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \Dout[9]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \Dout[7]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \Dout[8]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \Dout[9]_i_1\ : label is "soft_lutpair8";
+  attribute ADDER_THRESHOLD : integer;
+  attribute ADDER_THRESHOLD of \PSK_m_axis_tdata_reg[12]_i_2\ : label is 35;
+  attribute ADDER_THRESHOLD of \PSK_m_axis_tdata_reg[13]_i_2\ : label is 35;
+  attribute ADDER_THRESHOLD of \PSK_m_axis_tdata_reg[4]_i_2\ : label is 35;
+  attribute ADDER_THRESHOLD of \PSK_m_axis_tdata_reg[8]_i_2\ : label is 35;
   attribute SOFT_HLUTNM of \dataAddr[0]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \dataAddr[1]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \dataAddr[2]_i_1\ : label is "soft_lutpair2";
@@ -219,7 +243,6 @@ architecture STRUCTURE of system_PSK_0_0_NCO is
   attribute ram_slice_begin of databuffer_reg : label is 0;
   attribute ram_slice_end : integer;
   attribute ram_slice_end of databuffer_reg : label is 12;
-  attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \phase_reg[0]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \phase_reg[12]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \phase_reg[16]_i_1\ : label is 11;
@@ -370,7 +393,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[0]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(0),
+      Q => Q(0),
       R => '0'
     );
 \Dout_reg[10]\: unisim.vcomponents.FDRE
@@ -381,7 +404,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[10]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(10),
+      Q => Q(10),
       R => '0'
     );
 \Dout_reg[11]\: unisim.vcomponents.FDRE
@@ -392,7 +415,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[11]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(11),
+      Q => Q(11),
       R => '0'
     );
 \Dout_reg[12]\: unisim.vcomponents.FDRE
@@ -403,7 +426,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[12]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(12),
+      Q => Q(12),
       R => '0'
     );
 \Dout_reg[13]\: unisim.vcomponents.FDRE
@@ -414,7 +437,7 @@ begin
       C => Clock,
       CE => '1',
       D => DelayPipe2(1),
-      Q => PSK_m_axis_tdata(13),
+      Q => Q(13),
       R => '0'
     );
 \Dout_reg[1]\: unisim.vcomponents.FDRE
@@ -425,7 +448,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[1]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(1),
+      Q => Q(1),
       R => '0'
     );
 \Dout_reg[2]\: unisim.vcomponents.FDRE
@@ -436,7 +459,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[2]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(2),
+      Q => Q(2),
       R => '0'
     );
 \Dout_reg[3]\: unisim.vcomponents.FDRE
@@ -447,7 +470,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[3]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(3),
+      Q => Q(3),
       R => '0'
     );
 \Dout_reg[4]\: unisim.vcomponents.FDRE
@@ -458,7 +481,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[4]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(4),
+      Q => Q(4),
       R => '0'
     );
 \Dout_reg[5]\: unisim.vcomponents.FDRE
@@ -469,7 +492,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[5]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(5),
+      Q => Q(5),
       R => '0'
     );
 \Dout_reg[6]\: unisim.vcomponents.FDRE
@@ -480,7 +503,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[6]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(6),
+      Q => Q(6),
       R => '0'
     );
 \Dout_reg[7]\: unisim.vcomponents.FDRE
@@ -491,7 +514,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[7]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(7),
+      Q => Q(7),
       R => '0'
     );
 \Dout_reg[8]\: unisim.vcomponents.FDRE
@@ -502,7 +525,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[8]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(8),
+      Q => Q(8),
       R => '0'
     );
 \Dout_reg[9]\: unisim.vcomponents.FDRE
@@ -513,7 +536,7 @@ begin
       C => Clock,
       CE => '1',
       D => \Dout[9]_i_1_n_0\,
-      Q => PSK_m_axis_tdata(9),
+      Q => Q(9),
       R => '0'
     );
 \OffsetPhase[31]_i_1\: unisim.vcomponents.LUT1
@@ -523,15 +546,6 @@ begin
         port map (
       I0 => Reset,
       O => \OffsetPhase[31]_i_1_n_0\
-    );
-\OffsetPhase[31]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => \phase_reg__0\(31),
-      I1 => Modulation,
-      O => p_1_in(31)
     );
 \OffsetPhase_reg[22]\: unisim.vcomponents.FDRE
     generic map(
@@ -639,9 +653,56 @@ begin
         port map (
       C => Clock,
       CE => \OffsetPhase[31]_i_1_n_0\,
-      D => p_1_in(31),
+      D => phase_reg(31),
       Q => p_0_in(1),
       R => '0'
+    );
+\PSK_m_axis_tdata_reg[12]_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PSK_m_axis_tdata_reg[8]_i_2_n_0\,
+      CO(3) => \PSK_m_axis_tdata_reg[12]_i_2_n_0\,
+      CO(2) => \PSK_m_axis_tdata_reg[12]_i_2_n_1\,
+      CO(1) => \PSK_m_axis_tdata_reg[12]_i_2_n_2\,
+      CO(0) => \PSK_m_axis_tdata_reg[12]_i_2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => PSK_m_axis_tdata0(11 downto 8),
+      S(3 downto 0) => \PSK_m_axis_tdata_reg[12]\(3 downto 0)
+    );
+\PSK_m_axis_tdata_reg[13]_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PSK_m_axis_tdata_reg[12]_i_2_n_0\,
+      CO(3 downto 0) => \NLW_PSK_m_axis_tdata_reg[13]_i_2_CO_UNCONNECTED\(3 downto 0),
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 1) => \NLW_PSK_m_axis_tdata_reg[13]_i_2_O_UNCONNECTED\(3 downto 1),
+      O(0) => PSK_m_axis_tdata0(12),
+      S(3 downto 1) => B"000",
+      S(0) => \PSK_m_axis_tdata_reg[13]\(0)
+    );
+\PSK_m_axis_tdata_reg[4]_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \PSK_m_axis_tdata_reg[4]_i_2_n_0\,
+      CO(2) => \PSK_m_axis_tdata_reg[4]_i_2_n_1\,
+      CO(1) => \PSK_m_axis_tdata_reg[4]_i_2_n_2\,
+      CO(0) => \PSK_m_axis_tdata_reg[4]_i_2_n_3\,
+      CYINIT => \PSK_m_axis_tdata_reg[4]\,
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => PSK_m_axis_tdata0(3 downto 0),
+      S(3 downto 0) => S(3 downto 0)
+    );
+\PSK_m_axis_tdata_reg[8]_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PSK_m_axis_tdata_reg[4]_i_2_n_0\,
+      CO(3) => \PSK_m_axis_tdata_reg[8]_i_2_n_0\,
+      CO(2) => \PSK_m_axis_tdata_reg[8]_i_2_n_1\,
+      CO(1) => \PSK_m_axis_tdata_reg[8]_i_2_n_2\,
+      CO(0) => \PSK_m_axis_tdata_reg[8]_i_2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => PSK_m_axis_tdata0(7 downto 4),
+      S(3 downto 0) => \PSK_m_axis_tdata_reg[8]\(3 downto 0)
     );
 \dataAddr[0]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -1109,7 +1170,7 @@ databuffer_reg: unisim.vcomponents.RAMB18E1
     )
         port map (
       I0 => Frequency(31),
-      I1 => \phase_reg__0\(31),
+      I1 => phase_reg(31),
       O => \phase[28]_i_2_n_0\
     );
 \phase[28]_i_3\: unisim.vcomponents.LUT2
@@ -1592,7 +1653,7 @@ databuffer_reg: unisim.vcomponents.RAMB18E1
       C => Clock,
       CE => '1',
       D => \phase_reg[28]_i_1_n_4\,
-      Q => \phase_reg__0\(31),
+      Q => phase_reg(31),
       R => Reset
     );
 \phase_reg[3]\: unisim.vcomponents.FDRE
@@ -1721,17 +1782,429 @@ entity system_PSK_0_0_PSK is
     Frequency : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Modulation : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_PSK_0_0_PSK : entity is "PSK";
 end system_PSK_0_0_PSK;
 
 architecture STRUCTURE of system_PSK_0_0_PSK is
+  signal Dout : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal PSK_m_axis_tdata0 : STD_LOGIC_VECTOR ( 13 downto 1 );
+  signal \PSK_m_axis_tdata[10]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[11]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[12]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[12]_i_3_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[12]_i_4_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[12]_i_5_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[12]_i_6_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[13]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[13]_i_3_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[1]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[2]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[3]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[4]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[4]_i_3_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[4]_i_4_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[4]_i_5_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[4]_i_6_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[4]_i_7_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[5]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[6]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[7]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[8]_i_1_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[8]_i_3_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[8]_i_4_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[8]_i_5_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[8]_i_6_n_0\ : STD_LOGIC;
+  signal \PSK_m_axis_tdata[9]_i_1_n_0\ : STD_LOGIC;
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[10]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[11]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[12]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[1]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[2]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[3]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[4]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[5]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[6]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[7]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[8]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \PSK_m_axis_tdata[9]_i_1\ : label is "soft_lutpair14";
 begin
+\PSK_m_axis_tdata[10]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(10),
+      I1 => Dout(10),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[10]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[11]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(11),
+      I1 => Dout(11),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[11]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[12]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(12),
+      I1 => Dout(12),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[12]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[12]_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(12),
+      O => \PSK_m_axis_tdata[12]_i_3_n_0\
+    );
+\PSK_m_axis_tdata[12]_i_4\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(11),
+      O => \PSK_m_axis_tdata[12]_i_4_n_0\
+    );
+\PSK_m_axis_tdata[12]_i_5\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(10),
+      O => \PSK_m_axis_tdata[12]_i_5_n_0\
+    );
+\PSK_m_axis_tdata[12]_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(9),
+      O => \PSK_m_axis_tdata[12]_i_6_n_0\
+    );
+\PSK_m_axis_tdata[13]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(13),
+      I1 => Dout(13),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[13]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[13]_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(13),
+      O => \PSK_m_axis_tdata[13]_i_3_n_0\
+    );
+\PSK_m_axis_tdata[1]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(1),
+      I1 => Dout(1),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[1]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[2]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(2),
+      I1 => Dout(2),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[2]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[3]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(3),
+      I1 => Dout(3),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[3]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[4]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(4),
+      I1 => Dout(4),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[4]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[4]_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(0),
+      O => \PSK_m_axis_tdata[4]_i_3_n_0\
+    );
+\PSK_m_axis_tdata[4]_i_4\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(4),
+      O => \PSK_m_axis_tdata[4]_i_4_n_0\
+    );
+\PSK_m_axis_tdata[4]_i_5\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(3),
+      O => \PSK_m_axis_tdata[4]_i_5_n_0\
+    );
+\PSK_m_axis_tdata[4]_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(2),
+      O => \PSK_m_axis_tdata[4]_i_6_n_0\
+    );
+\PSK_m_axis_tdata[4]_i_7\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(1),
+      O => \PSK_m_axis_tdata[4]_i_7_n_0\
+    );
+\PSK_m_axis_tdata[5]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(5),
+      I1 => Dout(5),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[5]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[6]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(6),
+      I1 => Dout(6),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[6]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[7]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(7),
+      I1 => Dout(7),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[7]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[8]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(8),
+      I1 => Dout(8),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[8]_i_1_n_0\
+    );
+\PSK_m_axis_tdata[8]_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(8),
+      O => \PSK_m_axis_tdata[8]_i_3_n_0\
+    );
+\PSK_m_axis_tdata[8]_i_4\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(7),
+      O => \PSK_m_axis_tdata[8]_i_4_n_0\
+    );
+\PSK_m_axis_tdata[8]_i_5\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(6),
+      O => \PSK_m_axis_tdata[8]_i_5_n_0\
+    );
+\PSK_m_axis_tdata[8]_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Dout(5),
+      O => \PSK_m_axis_tdata[8]_i_6_n_0\
+    );
+\PSK_m_axis_tdata[9]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"AC"
+    )
+        port map (
+      I0 => PSK_m_axis_tdata0(9),
+      I1 => Dout(9),
+      I2 => Modulation,
+      O => \PSK_m_axis_tdata[9]_i_1_n_0\
+    );
+\PSK_m_axis_tdata_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => Dout(0),
+      Q => PSK_m_axis_tdata(0),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[10]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(10),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[11]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(11),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[12]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(12),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[13]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(13),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[1]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(1),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[2]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(2),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[3]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(3),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[4]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(4),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[5]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(5),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[6]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(6),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[7]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(7),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[8]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(8),
+      R => '0'
+    );
+\PSK_m_axis_tdata_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \PSK_m_axis_tdata[9]_i_1_n_0\,
+      Q => PSK_m_axis_tdata(9),
+      R => '0'
+    );
 REF_OSC: entity work.system_PSK_0_0_NCO
      port map (
       Clock => Clock,
       Frequency(31 downto 0) => Frequency(31 downto 0),
-      Modulation => Modulation,
-      PSK_m_axis_tdata(13 downto 0) => PSK_m_axis_tdata(13 downto 0),
-      Reset => Reset
+      PSK_m_axis_tdata0(12 downto 0) => PSK_m_axis_tdata0(13 downto 1),
+      \PSK_m_axis_tdata_reg[12]\(3) => \PSK_m_axis_tdata[12]_i_3_n_0\,
+      \PSK_m_axis_tdata_reg[12]\(2) => \PSK_m_axis_tdata[12]_i_4_n_0\,
+      \PSK_m_axis_tdata_reg[12]\(1) => \PSK_m_axis_tdata[12]_i_5_n_0\,
+      \PSK_m_axis_tdata_reg[12]\(0) => \PSK_m_axis_tdata[12]_i_6_n_0\,
+      \PSK_m_axis_tdata_reg[13]\(0) => \PSK_m_axis_tdata[13]_i_3_n_0\,
+      \PSK_m_axis_tdata_reg[4]\ => \PSK_m_axis_tdata[4]_i_3_n_0\,
+      \PSK_m_axis_tdata_reg[8]\(3) => \PSK_m_axis_tdata[8]_i_3_n_0\,
+      \PSK_m_axis_tdata_reg[8]\(2) => \PSK_m_axis_tdata[8]_i_4_n_0\,
+      \PSK_m_axis_tdata_reg[8]\(1) => \PSK_m_axis_tdata[8]_i_5_n_0\,
+      \PSK_m_axis_tdata_reg[8]\(0) => \PSK_m_axis_tdata[8]_i_6_n_0\,
+      Q(13 downto 0) => Dout(13 downto 0),
+      Reset => Reset,
+      S(3) => \PSK_m_axis_tdata[4]_i_4_n_0\,
+      S(2) => \PSK_m_axis_tdata[4]_i_5_n_0\,
+      S(1) => \PSK_m_axis_tdata[4]_i_6_n_0\,
+      S(0) => \PSK_m_axis_tdata[4]_i_7_n_0\
     );
 end STRUCTURE;
 library IEEE;
@@ -1752,7 +2225,7 @@ entity system_PSK_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of system_PSK_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of system_PSK_0_0 : entity is "system_PSK_0_1,PSK,{}";
+  attribute CHECK_LICENSE_TYPE of system_PSK_0_0 : entity is "system_PSK_0_0,PSK,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of system_PSK_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;

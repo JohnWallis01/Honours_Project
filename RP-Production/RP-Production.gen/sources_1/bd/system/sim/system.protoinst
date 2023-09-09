@@ -28,6 +28,14 @@
 						"TVALID": { "actual": "ADC_s_axis_tvalid"}
 					}
 				},
+				"/DMA_Interconnect_0/PRBS_s_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "PRBS_s_axis_tdata"},
+						"TVALID": { "actual": "PRBS_s_axis_tvalid"}
+					}
+				},
 				"/DMA_Interconnect_0/m_axis": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
@@ -2718,6 +2726,15 @@
 					}
 				},
 				"/PSK_Debug/PSK_m_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "Clock"},
+						"ARESETN": { "actual": "Reset"},
+						"TDATA": { "actual": "PSK_m_axis_tdata"},
+						"TVALID": { "actual": "PSK_m_axis_tvalid"}
+					}
+				},
+				"/PSK_Local/PSK_m_axis": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "Clock"},

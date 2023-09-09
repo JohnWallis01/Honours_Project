@@ -10,7 +10,8 @@ entity Delay_Package is
          reset: in std_logic;
          taps: in std_logic_vector(Size-2 downto 0);
          PRBS_ref: out std_logic;
-         PRBS_delay: out std_logic
+         PRBS_delay: out std_logic;
+         State: out std_logic_vector(Size-1 downto 0)
          );
 end Delay_Package;
 
@@ -25,7 +26,8 @@ architecture Behavioral of Delay_Package is
         Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb and not the taps)
         clock: in std_logic;
         PRBS: out std_logic;
-        reset: in std_logic
+        reset: in std_logic;
+        State: out std_logic_vector(Size -1 downto 0)
     );
     end component;
 --Delay
@@ -52,7 +54,8 @@ begin
         Taps => taps,
         clock => clock,
         PRBS => PRBS_gen,
-        reset => reset
+        reset => reset,
+        State => State
         );
 
     Delay_Gen: Delay

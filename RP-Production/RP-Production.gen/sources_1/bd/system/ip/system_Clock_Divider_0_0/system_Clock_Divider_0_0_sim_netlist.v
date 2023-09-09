@@ -1,181 +1,16 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Sep  7 11:42:54 2023
+// Date        : Sat Sep  9 23:14:54 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top system_Clock_Divider_0_0 -prefix
-//               system_Clock_Divider_0_0_ system_Clock_Divider_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Clock_Divider_0_0/system_Clock_Divider_0_0_sim_netlist.v
 // Design      : system_Clock_Divider_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z010clg400-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
-
-module system_Clock_Divider_0_0_Clock_Divider
-   (DivClock_Out,
-    Reset,
-    DivClock_In);
-  output DivClock_Out;
-  input Reset;
-  input DivClock_In;
-
-  wire \Counter[0]_i_2_n_0 ;
-  wire \Counter_reg[0]_i_1_n_0 ;
-  wire \Counter_reg[0]_i_1_n_1 ;
-  wire \Counter_reg[0]_i_1_n_2 ;
-  wire \Counter_reg[0]_i_1_n_3 ;
-  wire \Counter_reg[0]_i_1_n_4 ;
-  wire \Counter_reg[0]_i_1_n_5 ;
-  wire \Counter_reg[0]_i_1_n_6 ;
-  wire \Counter_reg[0]_i_1_n_7 ;
-  wire \Counter_reg[12]_i_1_n_7 ;
-  wire \Counter_reg[4]_i_1_n_0 ;
-  wire \Counter_reg[4]_i_1_n_1 ;
-  wire \Counter_reg[4]_i_1_n_2 ;
-  wire \Counter_reg[4]_i_1_n_3 ;
-  wire \Counter_reg[4]_i_1_n_4 ;
-  wire \Counter_reg[4]_i_1_n_5 ;
-  wire \Counter_reg[4]_i_1_n_6 ;
-  wire \Counter_reg[4]_i_1_n_7 ;
-  wire \Counter_reg[8]_i_1_n_0 ;
-  wire \Counter_reg[8]_i_1_n_1 ;
-  wire \Counter_reg[8]_i_1_n_2 ;
-  wire \Counter_reg[8]_i_1_n_3 ;
-  wire \Counter_reg[8]_i_1_n_4 ;
-  wire \Counter_reg[8]_i_1_n_5 ;
-  wire \Counter_reg[8]_i_1_n_6 ;
-  wire \Counter_reg[8]_i_1_n_7 ;
-  wire \Counter_reg_n_0_[0] ;
-  wire \Counter_reg_n_0_[10] ;
-  wire \Counter_reg_n_0_[11] ;
-  wire \Counter_reg_n_0_[1] ;
-  wire \Counter_reg_n_0_[2] ;
-  wire \Counter_reg_n_0_[3] ;
-  wire \Counter_reg_n_0_[4] ;
-  wire \Counter_reg_n_0_[5] ;
-  wire \Counter_reg_n_0_[6] ;
-  wire \Counter_reg_n_0_[7] ;
-  wire \Counter_reg_n_0_[8] ;
-  wire \Counter_reg_n_0_[9] ;
-  wire DivClock_In;
-  wire DivClock_Out;
-  wire Reset;
-  wire [3:0]\NLW_Counter_reg[12]_i_1_CO_UNCONNECTED ;
-  wire [3:1]\NLW_Counter_reg[12]_i_1_O_UNCONNECTED ;
-
-  LUT1 #(
-    .INIT(2'h1)) 
-    \Counter[0]_i_2 
-       (.I0(\Counter_reg_n_0_[0] ),
-        .O(\Counter[0]_i_2_n_0 ));
-  FDRE \Counter_reg[0] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[0]_i_1_n_7 ),
-        .Q(\Counter_reg_n_0_[0] ),
-        .R(Reset));
-  CARRY4 \Counter_reg[0]_i_1 
-       (.CI(1'b0),
-        .CO({\Counter_reg[0]_i_1_n_0 ,\Counter_reg[0]_i_1_n_1 ,\Counter_reg[0]_i_1_n_2 ,\Counter_reg[0]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\Counter_reg[0]_i_1_n_4 ,\Counter_reg[0]_i_1_n_5 ,\Counter_reg[0]_i_1_n_6 ,\Counter_reg[0]_i_1_n_7 }),
-        .S({\Counter_reg_n_0_[3] ,\Counter_reg_n_0_[2] ,\Counter_reg_n_0_[1] ,\Counter[0]_i_2_n_0 }));
-  FDRE \Counter_reg[10] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[8]_i_1_n_5 ),
-        .Q(\Counter_reg_n_0_[10] ),
-        .R(Reset));
-  FDRE \Counter_reg[11] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[8]_i_1_n_4 ),
-        .Q(\Counter_reg_n_0_[11] ),
-        .R(Reset));
-  FDRE \Counter_reg[12] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[12]_i_1_n_7 ),
-        .Q(DivClock_Out),
-        .R(Reset));
-  CARRY4 \Counter_reg[12]_i_1 
-       (.CI(\Counter_reg[8]_i_1_n_0 ),
-        .CO(\NLW_Counter_reg[12]_i_1_CO_UNCONNECTED [3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_Counter_reg[12]_i_1_O_UNCONNECTED [3:1],\Counter_reg[12]_i_1_n_7 }),
-        .S({1'b0,1'b0,1'b0,DivClock_Out}));
-  FDRE \Counter_reg[1] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[0]_i_1_n_6 ),
-        .Q(\Counter_reg_n_0_[1] ),
-        .R(Reset));
-  FDRE \Counter_reg[2] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[0]_i_1_n_5 ),
-        .Q(\Counter_reg_n_0_[2] ),
-        .R(Reset));
-  FDRE \Counter_reg[3] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[0]_i_1_n_4 ),
-        .Q(\Counter_reg_n_0_[3] ),
-        .R(Reset));
-  FDRE \Counter_reg[4] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[4]_i_1_n_7 ),
-        .Q(\Counter_reg_n_0_[4] ),
-        .R(Reset));
-  CARRY4 \Counter_reg[4]_i_1 
-       (.CI(\Counter_reg[0]_i_1_n_0 ),
-        .CO({\Counter_reg[4]_i_1_n_0 ,\Counter_reg[4]_i_1_n_1 ,\Counter_reg[4]_i_1_n_2 ,\Counter_reg[4]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\Counter_reg[4]_i_1_n_4 ,\Counter_reg[4]_i_1_n_5 ,\Counter_reg[4]_i_1_n_6 ,\Counter_reg[4]_i_1_n_7 }),
-        .S({\Counter_reg_n_0_[7] ,\Counter_reg_n_0_[6] ,\Counter_reg_n_0_[5] ,\Counter_reg_n_0_[4] }));
-  FDRE \Counter_reg[5] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[4]_i_1_n_6 ),
-        .Q(\Counter_reg_n_0_[5] ),
-        .R(Reset));
-  FDRE \Counter_reg[6] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[4]_i_1_n_5 ),
-        .Q(\Counter_reg_n_0_[6] ),
-        .R(Reset));
-  FDRE \Counter_reg[7] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[4]_i_1_n_4 ),
-        .Q(\Counter_reg_n_0_[7] ),
-        .R(Reset));
-  FDRE \Counter_reg[8] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[8]_i_1_n_7 ),
-        .Q(\Counter_reg_n_0_[8] ),
-        .R(Reset));
-  CARRY4 \Counter_reg[8]_i_1 
-       (.CI(\Counter_reg[4]_i_1_n_0 ),
-        .CO({\Counter_reg[8]_i_1_n_0 ,\Counter_reg[8]_i_1_n_1 ,\Counter_reg[8]_i_1_n_2 ,\Counter_reg[8]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\Counter_reg[8]_i_1_n_4 ,\Counter_reg[8]_i_1_n_5 ,\Counter_reg[8]_i_1_n_6 ,\Counter_reg[8]_i_1_n_7 }),
-        .S({\Counter_reg_n_0_[11] ,\Counter_reg_n_0_[10] ,\Counter_reg_n_0_[9] ,\Counter_reg_n_0_[8] }));
-  FDRE \Counter_reg[9] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[8]_i_1_n_6 ),
-        .Q(\Counter_reg_n_0_[9] ),
-        .R(Reset));
-endmodule
 
 (* CHECK_LICENSE_TYPE = "system_Clock_Divider_0_0,Clock_Divider,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "Clock_Divider,Vivado 2022.2" *) 
@@ -196,6 +31,69 @@ module system_Clock_Divider_0_0
        (.DivClock_In(DivClock_In),
         .DivClock_Out(DivClock_Out),
         .Reset(Reset));
+endmodule
+
+(* ORIG_REF_NAME = "Clock_Divider" *) 
+module system_Clock_Divider_0_0_Clock_Divider
+   (DivClock_Out,
+    Reset,
+    DivClock_In);
+  output DivClock_Out;
+  input Reset;
+  input DivClock_In;
+
+  wire \Counter[3]_i_2_n_0 ;
+  wire \Counter_reg[3]_i_1_n_1 ;
+  wire \Counter_reg[3]_i_1_n_2 ;
+  wire \Counter_reg[3]_i_1_n_3 ;
+  wire \Counter_reg[3]_i_1_n_4 ;
+  wire \Counter_reg[3]_i_1_n_5 ;
+  wire \Counter_reg[3]_i_1_n_6 ;
+  wire \Counter_reg[3]_i_1_n_7 ;
+  wire \Counter_reg_n_0_[0] ;
+  wire \Counter_reg_n_0_[1] ;
+  wire \Counter_reg_n_0_[2] ;
+  wire DivClock_In;
+  wire DivClock_Out;
+  wire Reset;
+  wire [3:3]\NLW_Counter_reg[3]_i_1_CO_UNCONNECTED ;
+
+  LUT1 #(
+    .INIT(2'h1)) 
+    \Counter[3]_i_2 
+       (.I0(\Counter_reg_n_0_[0] ),
+        .O(\Counter[3]_i_2_n_0 ));
+  FDRE \Counter_reg[0] 
+       (.C(DivClock_In),
+        .CE(1'b1),
+        .D(\Counter_reg[3]_i_1_n_7 ),
+        .Q(\Counter_reg_n_0_[0] ),
+        .R(Reset));
+  FDRE \Counter_reg[1] 
+       (.C(DivClock_In),
+        .CE(1'b1),
+        .D(\Counter_reg[3]_i_1_n_6 ),
+        .Q(\Counter_reg_n_0_[1] ),
+        .R(Reset));
+  FDRE \Counter_reg[2] 
+       (.C(DivClock_In),
+        .CE(1'b1),
+        .D(\Counter_reg[3]_i_1_n_5 ),
+        .Q(\Counter_reg_n_0_[2] ),
+        .R(Reset));
+  FDRE \Counter_reg[3] 
+       (.C(DivClock_In),
+        .CE(1'b1),
+        .D(\Counter_reg[3]_i_1_n_4 ),
+        .Q(DivClock_Out),
+        .R(Reset));
+  CARRY4 \Counter_reg[3]_i_1 
+       (.CI(1'b0),
+        .CO({\NLW_Counter_reg[3]_i_1_CO_UNCONNECTED [3],\Counter_reg[3]_i_1_n_1 ,\Counter_reg[3]_i_1_n_2 ,\Counter_reg[3]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b1}),
+        .O({\Counter_reg[3]_i_1_n_4 ,\Counter_reg[3]_i_1_n_5 ,\Counter_reg[3]_i_1_n_6 ,\Counter_reg[3]_i_1_n_7 }),
+        .S({DivClock_Out,\Counter_reg_n_0_[2] ,\Counter_reg_n_0_[1] ,\Counter[3]_i_2_n_0 }));
 endmodule
 `ifndef GLBL
 `define GLBL

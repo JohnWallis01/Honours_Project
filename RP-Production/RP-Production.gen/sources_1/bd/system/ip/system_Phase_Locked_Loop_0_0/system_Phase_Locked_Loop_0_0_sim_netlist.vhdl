@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Sep  6 09:49:08 2023
+-- Date        : Fri Sep  8 15:20:17 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top system_Phase_Locked_Loop_0_0 -prefix
---               system_Phase_Locked_Loop_0_0_ Differental_Phasemeter_Phase_Locked_Loop_0_0_sim_netlist.vhdl
--- Design      : Differental_Phasemeter_Phase_Locked_Loop_0_0
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Phase_Locked_Loop_0_0/system_Phase_Locked_Loop_0_0_sim_netlist.vhdl
+-- Design      : system_Phase_Locked_Loop_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z010clg400-1
@@ -28,6 +28,8 @@ entity system_Phase_Locked_Loop_0_0_CIC32 is
     \section_out1_reg[23]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \section_out1_reg[25]_0\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_Phase_Locked_Loop_0_0_CIC32 : entity is "CIC32";
 end system_Phase_Locked_Loop_0_0_CIC32;
 
 architecture STRUCTURE of system_Phase_Locked_Loop_0_0_CIC32 is
@@ -5479,6 +5481,8 @@ entity system_Phase_Locked_Loop_0_0_Mixer is
     section_out1_reg_23_sp_1 : in STD_LOGIC;
     section_out1_reg : in STD_LOGIC_VECTOR ( 25 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_Phase_Locked_Loop_0_0_Mixer : entity is "Mixer";
 end system_Phase_Locked_Loop_0_0_Mixer;
 
 architecture STRUCTURE of system_Phase_Locked_Loop_0_0_Mixer is
@@ -7191,6 +7195,8 @@ entity system_Phase_Locked_Loop_0_0_NCO is
     Reset_In : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_Phase_Locked_Loop_0_0_NCO : entity is "NCO";
 end system_Phase_Locked_Loop_0_0_NCO;
 
 architecture STRUCTURE of system_Phase_Locked_Loop_0_0_NCO is
@@ -9173,6 +9179,8 @@ entity system_Phase_Locked_Loop_0_0_PID_Controller is
     Reset_In : in STD_LOGIC;
     AD_CLK_in : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_Phase_Locked_Loop_0_0_PID_Controller : entity is "PID_Controller";
 end system_Phase_Locked_Loop_0_0_PID_Controller;
 
 architecture STRUCTURE of system_Phase_Locked_Loop_0_0_PID_Controller is
@@ -16190,6 +16198,8 @@ entity system_Phase_Locked_Loop_0_0_Phase_Locked_Loop is
     PLL_Guess_Freq : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Integrator_Reset : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_Phase_Locked_Loop_0_0_Phase_Locked_Loop : entity is "Phase_Locked_Loop";
 end system_Phase_Locked_Loop_0_0_Phase_Locked_Loop;
 
 architecture STRUCTURE of system_Phase_Locked_Loop_0_0_Phase_Locked_Loop is
@@ -17740,7 +17750,7 @@ entity system_Phase_Locked_Loop_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of system_Phase_Locked_Loop_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of system_Phase_Locked_Loop_0_0 : entity is "Differental_Phasemeter_Phase_Locked_Loop_0_0,Phase_Locked_Loop,{}";
+  attribute CHECK_LICENSE_TYPE of system_Phase_Locked_Loop_0_0 : entity is "system_Phase_Locked_Loop_0_0,Phase_Locked_Loop,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of system_Phase_Locked_Loop_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;

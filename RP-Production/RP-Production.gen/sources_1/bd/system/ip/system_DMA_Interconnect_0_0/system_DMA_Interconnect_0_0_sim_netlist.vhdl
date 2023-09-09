@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Sep  7 11:23:27 2023
+-- Date        : Fri Sep  8 10:15:15 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0_sim_netlist.vhdl
@@ -18,11 +18,9 @@ entity system_DMA_Interconnect_0_0_DMA_Interconnect is
   port (
     ADC_Data : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    m_axis_tvalid : out STD_LOGIC;
     ADC_s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     aclk : in STD_LOGIC;
-    PRBS_s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    ADC_s_axis_tvalid : in STD_LOGIC
+    PRBS_s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_DMA_Interconnect_0_0_DMA_Interconnect : entity is "DMA_Interconnect";
@@ -414,14 +412,6 @@ begin
       Q => m_axis_tdata(15),
       R => '0'
     );
-m_axis_tvalid_reg: unisim.vcomponents.FDRE
-     port map (
-      C => aclk,
-      CE => '1',
-      D => ADC_s_axis_tvalid,
-      Q => m_axis_tvalid,
-      R => '0'
-    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -452,6 +442,7 @@ entity system_DMA_Interconnect_0_0 is
 end system_DMA_Interconnect_0_0;
 
 architecture STRUCTURE of system_DMA_Interconnect_0_0 is
+  signal \<const1>\ : STD_LOGIC;
   signal \^adc_data\ : STD_LOGIC_VECTOR ( 31 downto 16 );
   signal \^m_axis_tdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute X_INTERFACE_INFO : string;
@@ -472,15 +463,18 @@ begin
   ADC_Data(31 downto 16) <= \^adc_data\(31 downto 16);
   ADC_Data(15 downto 0) <= \^m_axis_tdata\(15 downto 0);
   m_axis_tdata(31 downto 0) <= \^m_axis_tdata\(31 downto 0);
+  m_axis_tvalid <= \<const1>\;
+VCC: unisim.vcomponents.VCC
+     port map (
+      P => \<const1>\
+    );
 inst: entity work.system_DMA_Interconnect_0_0_DMA_Interconnect
      port map (
       ADC_Data(31 downto 16) => \^adc_data\(31 downto 16),
       ADC_Data(15 downto 0) => \^m_axis_tdata\(15 downto 0),
       ADC_s_axis_tdata(31 downto 0) => ADC_s_axis_tdata(31 downto 0),
-      ADC_s_axis_tvalid => ADC_s_axis_tvalid,
       PRBS_s_axis_tdata(15 downto 0) => PRBS_s_axis_tdata(15 downto 0),
       aclk => aclk,
-      m_axis_tdata(15 downto 0) => \^m_axis_tdata\(31 downto 16),
-      m_axis_tvalid => m_axis_tvalid
+      m_axis_tdata(15 downto 0) => \^m_axis_tdata\(31 downto 16)
     );
 end STRUCTURE;

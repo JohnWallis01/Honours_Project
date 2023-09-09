@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Thu Sep  7 21:06:30 2023
+| Date             : Sat Sep  9 23:19:28 2023
 | Host             : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.086        |
+| Total On-Chip Power (W)  | 2.097        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.952        |
+| Dynamic (W)              | 1.962        |
 | Device Static (W)        | 0.135        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 60.9         |
-| Junction Temperature (C) | 49.1         |
+| Max Ambient (C)          | 60.8         |
+| Junction Temperature (C) | 49.2         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,21 +53,22 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.031 |        9 |       --- |             --- |
-| Slice Logic              |     0.010 |    12059 |       --- |             --- |
-|   LUT as Logic           |     0.008 |     3802 |     17600 |           21.60 |
-|   CARRY4                 |     0.001 |      222 |      4400 |            5.05 |
-|   Register               |     0.001 |     5988 |     35200 |           17.01 |
+| Slice Logic              |     0.012 |    12405 |       --- |             --- |
+|   LUT as Logic           |     0.010 |     3942 |     17600 |           22.40 |
+|   CARRY4                 |     0.001 |      239 |      4400 |            5.43 |
+|   Register               |     0.001 |     6154 |     35200 |           17.48 |
+|   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   LUT as Distributed RAM |    <0.001 |       72 |      6000 |            1.20 |
 |   LUT as Shift Register  |    <0.001 |      214 |      6000 |            3.57 |
-|   Others                 |     0.000 |      607 |       --- |             --- |
-| Signals                  |     0.015 |     9061 |       --- |             --- |
-| Block RAM                |     0.005 |        5 |        60 |            8.33 |
+|   Others                 |     0.000 |      613 |       --- |             --- |
+| Signals                  |     0.017 |     9268 |       --- |             --- |
+| Block RAM                |     0.006 |      5.5 |        60 |            9.17 |
 | MMCM                     |     0.107 |        1 |         2 |           50.00 |
 | DSPs                     |     0.008 |       10 |        80 |           12.50 |
-| I/O                      |     0.490 |       36 |       100 |           36.00 |
+| I/O                      |     0.496 |       36 |       100 |           36.00 |
 | PS7                      |     1.285 |        1 |       --- |             --- |
 | Static Power             |     0.135 |          |           |                 |
-| Total                    |     2.086 |          |           |                 |
+| Total                    |     2.097 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,9 +78,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.084 |       0.075 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.089 |       0.080 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.080 |       0.071 |      0.009 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.135 |       0.134 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.137 |       0.136 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.013 |       0.012 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -158,24 +159,28 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| system_wrapper              |     1.952 |
-|   system_i                  |     1.495 |
+| system_wrapper              |     1.962 |
+|   system_i                  |     1.500 |
 |     DAC_Interface           |     0.112 |
 |       axis_red_pitaya_dac_1 |     0.005 |
 |       clk_wiz_0             |     0.107 |
+|     DMA_Interconnect_0      |     0.001 |
+|       inst                  |     0.001 |
 |     Daisy_Controller        |     0.031 |
 |       util_ds_buf_1         |     0.030 |
-|     GPIO_Interface          |     0.008 |
+|     GPIO_Interface          |     0.007 |
 |       GPIO_FreqMeasure      |     0.003 |
-|       Locking_Strength      |     0.002 |
+|       Locking_Strength      |     0.001 |
 |     PS7                     |     1.316 |
-|       DMA_Engine            |     0.022 |
+|       DMA_Engine            |     0.023 |
 |       axi_interconnect_1    |     0.007 |
 |       processing_system7_0  |     1.286 |
-|     PSK_Debug               |     0.002 |
-|       inst                  |     0.002 |
-|     Phase_Locked_Loop_0     |     0.025 |
-|       inst                  |     0.025 |
+|     PSK_Debug               |     0.003 |
+|       inst                  |     0.003 |
+|     PSK_Local               |     0.003 |
+|       inst                  |     0.003 |
+|     Phase_Locked_Loop_0     |     0.026 |
+|       inst                  |     0.026 |
 +-----------------------------+-----------+
 
 

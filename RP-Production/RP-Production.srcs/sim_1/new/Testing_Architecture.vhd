@@ -84,7 +84,7 @@ architecture Behavioral of Testing_Architecture is
       end component;
 
 
-    signal PRBS_ref, PRBS_delay, Slow_Clock: std_logic;
+    signal PRBS_ref, PRBS_delay, Slow_Clock, ch: std_logic;
 
     begin
 

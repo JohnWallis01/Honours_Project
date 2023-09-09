@@ -1,20 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Delay_Package.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Delay_Package'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/LFSR.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'LFSR'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Mixer'
-INFO: [VRFC 10-3107] analyzing entity 'Delay'
-INFO: [VRFC 10-3107] analyzing entity 'Pair_Combiner'
-INFO: [VRFC 10-3107] analyzing entity 'LFSR_Debugger'
-INFO: [VRFC 10-3107] analyzing entity 'Subtractor'
-INFO: [VRFC 10-3107] analyzing entity 'Reset_Latch'
-INFO: [VRFC 10-3107] analyzing entity 'interface'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'NCO'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/PSK.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'PSK'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Testing_Architecture.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Testing_Architecture'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/LFSR2008.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'LFSR2008'

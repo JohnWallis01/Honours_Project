@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Sep  7 21:06:28 2023
+| Date         : Sat Sep  9 23:19:26 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
@@ -23,13 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 173
+             Violations found: 203
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
 | TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 1          |
 | TIMING-6  | Critical Warning | No common primary clock between related clocks     | 1          |
 | TIMING-7  | Critical Warning | No common node between related clocks              | 1          |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell                        | 30         |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
 | DPIR-1    | Warning          | Asynchronous driver check                          | 140        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                       | 7          |
@@ -53,6 +54,156 @@ Related violations: <none>
 TIMING-7#1 Critical Warning
 No common node between related clocks  
 The clocks clk_fpga_0 and adc_clk are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_fpga_0] -to [get_clocks adc_clk]
+Related violations: <none>
+
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/D_Out_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[0][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[10][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[11][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[12][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[13][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[14][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[15][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[16][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#10 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[17][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[18][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[19][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[1][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[2][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[3][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#16 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[4][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#17 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[5][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#18 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[6][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#19 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[7][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#20 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[8][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#21 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Delay_0/inst/Delay_Registers_reg[9][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#22 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#23 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#24 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#25 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#26 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#27 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#28 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#29 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#30 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/LFSR_0/inst/LFSR/PRBS_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-27#1 Critical Warning
@@ -902,12 +1053,12 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.031 ns between system_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[16]_replica/C (clocked by adc_clk) and system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.011 ns between system_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[2]_replica/C (clocked by adc_clk) and system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.052 ns between system_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[16]_replica/C (clocked by adc_clk) and system_i/Phase_Locked_Loop_0/inst/Loop_Controller/P_pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.019 ns between system_i/Phase_Locked_Loop_0/inst/Loop_Filter/output_register_reg[2]_replica/C (clocked by adc_clk) and system_i/Phase_Locked_Loop_0/inst/Loop_Controller/I_pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

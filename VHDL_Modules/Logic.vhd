@@ -200,4 +200,31 @@ architecture beh of interface is
   Q_out(0) <= D_in;
   Q_out(31 downto 1) <= (others => '0');
   end beh ; -- beh
+ 
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Test_Pattern is
+  port(
+    Q_out: out std_logic;
+    clk: in std_logic;
+    reset: in std_logic
+  );
+end Test_Pattern;
+
+architecture beh of Test_Pattern is
+
+  signal state: std_logic;
+  begin
+
+    process(clk)
+      begin
+        if rising_edge(clk) then
+          Q_out <= state;
+          state <= not state;
+        end if;
+    end process;
+  end beh ; -- beh
   

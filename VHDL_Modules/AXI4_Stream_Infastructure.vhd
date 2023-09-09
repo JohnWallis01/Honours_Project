@@ -195,7 +195,7 @@ begin
     process(aclk)
     begin
         if rising_edge(aclk) then
-            m_axis_tvalid <= ADC_s_axis_tvalid;
+            m_axis_tvalid <= '1';
             m_axis_tdata(15 downto 0)  <= ADC_s_axis_tdata(15 downto 0);
             m_axis_tdata(31 downto 16) <= PRBS_s_axis_tdata(15 downto 0); 
         end if;
