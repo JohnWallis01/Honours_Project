@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Sat Sep  9 23:15:36 2023
+| Date         : Mon Sep 11 09:13:45 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
@@ -179,9 +179,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 | system_auto_pc_1                    |    1 |
 | system_auto_pc_0                    |    1 |
 | system_auto_ds_0                    |    1 |
-| system_Phase_Locked_Loop_0_0        |    1 |
+| system_Squared_Phase_Locked_0_0     |    1 |
 | system_PSK_0_1                      |    1 |
 | system_PSK_0_0                      |    1 |
+| system_Locking_Strength_0           |    1 |
 | system_LFSR_0_0                     |    1 |
 | system_GPIO_PLL_GUESS_Freq_0        |    1 |
 | system_GPIO_Kp_0                    |    1 |

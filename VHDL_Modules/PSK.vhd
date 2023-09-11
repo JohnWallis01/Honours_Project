@@ -46,8 +46,13 @@ begin
         if rising_edge(Clock) then
             if Modulation = '1' then
                 PSK_m_axis_tdata(13 downto 0) <= std_logic_vector(unsigned(not Osc_Data) + to_unsigned(1, 14));
+                PSKout <= std_logic_vector(unsigned(not Osc_Data) + to_unsigned(1, 14));
+                REFout <= Osc_Data;
             else
                 PSK_m_axis_tdata(13 downto 0) <= Osc_Data;
+                REFout <= Osc_Data;
+                PSKout <= Osc_Data;
+
             end if;
         end if;
     end process;

@@ -71,6 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "system_PSK_0_1_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/mref

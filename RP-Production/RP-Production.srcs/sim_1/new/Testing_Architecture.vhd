@@ -51,61 +51,75 @@ end Testing_Architecture;
 
 architecture Behavioral of Testing_Architecture is
 
-    component Delay_Package is
-        generic(
-            Size: integer := 8; 
-            Delay_Amount : integer := 32
-            );
-        port(clock: in std_logic;
-             reset: in std_logic;
-             taps: in std_logic_vector(Size-2 downto 0);
-             PRBS_ref: out std_logic;
-             PRBS_delay: out std_logic
-             );
+    component HighPassFilter IS
+    PORT( clk                             :   IN    std_logic; 
+          clk_enable                      :   IN    std_logic; 
+          reset                           :   IN    std_logic; 
+          filter_in                       :   IN    std_logic_vector(27 DOWNTO 0); -- sfix28
+          filter_out                      :   OUT   std_logic_vector(55 DOWNTO 0)  -- sfix56_En27
+          );
     end component;
-   
+
     component PSK is
         port(
-        Frequency: in std_logic_vector(31 downto 0);
-        Clock: in std_logic;
-        Reset: in std_logic;
-        PSKout: out std_logic_vector(13 downto 0);
-        REFout: out std_logic_vector(13 downto 0);
-        Modulation: in std_logic
+            Frequency: in std_logic_vector(31 downto 0); --- Frequency is in fact 4 times this word
+            Clock: in std_logic;
+            Reset: in std_logic;
+            PSKout: out std_logic_vector(13 downto 0);
+            REFout: out std_logic_vector(13 downto 0);
+            Modulation: in std_logic;
+            PSK_m_axis_tdata: out std_logic_vector(31 downto 0);
+            PSK_m_axis_tvalid: out std_logic
         );
     end component;
 
-    component Clock_Divider64 is
-        port( 
-          DivClock_In: in std_logic;
-          DivClock_Out: out std_logic;
+    component Mixer is
+        generic(
+            MixerSize: integer := 16
+        );
+        port (
+          Q1: in std_logic_vector(MixerSize-1 downto 0) := (others =>'0'); -- need to specifiy the sizes
+          Q2: in std_logic_vector(MixerSize-1 downto 0) := (others =>'0');
+          Dout: out std_logic_vector((2*MixerSize)-1 downto 0) := (others =>'0');
+          clk: in std_logic;
           Reset: in std_logic
-          );
+        ) ;
       end component;
 
-
-    signal PRBS_ref, PRBS_delay, Slow_Clock, ch: std_logic;
-
+    signal NCO_Data: std_logic_vector(13 downto 0);
+    signal Squared_Data: std_logic_vector(27 downto 0);
+    signal Freq_Doubled: std_logic_vector(55 downto 0);
     begin
 
-    PRBS_Gen: Delay_Package
-    generic map(Size => 8, Delay_Amount => 5)
-    port map(
-        clock => Clock,
-        reset => Reset,
-        taps => Taps,
-        PRBS_ref => PRBS_ref,
-        PRBS_delay => PRBS_delay
-    );
-
+    PSKMOD <= NCO_Data;
     PSK_Gen: PSK
     port map(
         Frequency => std_logic_vector(to_unsigned(343597384, 32)),
         Clock => Clock,
         Reset => Reset,
-        PSKout => PSKMOD,
+        PSKout => NCO_Data,
         REFout => PSKREF,
-        Modulation => PRBS_ref
-        ); 
+        Modulation => '0',
+        PSK_m_axis_tdata => open,
+        PSK_m_axis_tvalid => open 
+        );
+    Squarer: Mixer
+    generic map(MixerSize => 14)
+    port map(
+        Q1 => NCO_Data,
+        Q2 => NCO_Data,
+        Dout => Squared_Data,
+        clk => Clock,
+        Reset => Reset
+    );
+
+    Filter: HighPassFilter
+    port map(
+        clk => Clock,
+        clk_enable => '1',
+        reset => Reset,
+        filter_in => Squared_Data,
+        filter_out => Freq_Doubled
+    );
 
 end Behavioral;

@@ -17,7 +17,7 @@
 #define S2MM_DESTINATION_ADDRESS 0x48
 #define S2MM_LENGTH 0x58
 #define TransferWindow 16384
-#define PRBS_DIV 16
+#define PRBS_DIV 64
 //GPIO REGISTERS
 #define FREQ_MEASURED_ADDR          0x41200000
 #define PLL_GUESS_FREQ_ADDR         0x41210000
@@ -257,7 +257,7 @@ int main() {
     *(uint32_t*)Integrator_Reset = 1;
     *(uint32_t*)Integrator_Reset = 0;
     //DEBUG:
-    *(uint32_t*)PLL_Guess_Freq = 343597348;
+    *(uint32_t*)PLL_Guess_Freq = 0;
 
     printf("Setup Complete\n");
     while(1)
@@ -292,18 +292,18 @@ int main() {
         //Compute the integer Tuning Word 
         uint f_tuning = f_measured/(fSampling)*pow(2,32);
 
-        // //Logic to decide when to override the PLL.
-        // int LockStrength = *(int*)PLL_Supervisor;
-        // printf("Lock Strength: %i \n", LockStrength);
-        // if(LockStrength < PLL_Lock_Threshold) {
-        //         *(uint32_t*)Integrator_Reset = 1;
-        //         *(uint32_t*)PLL_Guess_Freq = f_tuning;
-        //         usleep(1);
-        //         *(uint32_t*)Integrator_Reset = 0;
-        //         printf("Relocking:\n");
-        //         printf("FFT Measured Tuning: %d\n" , f_tuning);
-        //         printf("PLL Measured Tuning: %d\n", Freq_Measurment);
-        // }
+        //Logic to decide when to override the PLL.
+        int LockStrength = *(int*)PLL_Supervisor;
+        printf("Lock Strength: %i \n", LockStrength);
+        if(LockStrength < PLL_Lock_Threshold) {
+                *(uint32_t*)Integrator_Reset = 1;
+                *(uint32_t*)PLL_Guess_Freq = f_tuning;
+                usleep(1);
+                *(uint32_t*)Integrator_Reset = 0;
+                printf("Relocking:\n");
+                printf("FFT Measured Tuning: %d\n" , f_tuning);
+                printf("PLL Measured Tuning: %d\n", Freq_Measurment);
+        }
 
         printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
     }

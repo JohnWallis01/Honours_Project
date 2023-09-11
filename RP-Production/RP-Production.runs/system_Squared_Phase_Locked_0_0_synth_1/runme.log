@@ -1,0 +1,1035 @@
+
+*** Running vivado
+    with args -log system_Squared_Phase_Locked_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_Squared_Phase_Locked_0_0.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source system_Squared_Phase_Locked_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_Squared_Phase_Locked_0_0
+Command: synth_design -top system_Squared_Phase_Locked_0_0 -part xc7z010clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 14968
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1215.469 ; gain = 407.719
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-9112] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:219]
+WARNING: [Synth 8-9112] actual for formal port 'reset' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:225]
+INFO: [Synth 8-6157] synthesizing module 'system_Squared_Phase_Locked_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Squared_Phase_Locked_0_0/synth/system_Squared_Phase_Locked_0_0.v:53]
+INFO: [Synth 8-638] synthesizing module 'Squared_Phase_Locked_Loop' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:49]
+	Parameter MixerSize bound to: 14 - type: integer 
+INFO: [Synth 8-3491] module 'Mixer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:6' bound to instance 'Input_Mixer' of component 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:162]
+INFO: [Synth 8-638] synthesizing module 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Mixer' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:19]
+INFO: [Synth 8-3491] module 'HighPassFilter' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/HighPassFIR_Filter.vhd:61' bound to instance 'InputFilter' of component 'HighPassFilter' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:171]
+INFO: [Synth 8-638] synthesizing module 'HighPassFilter' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/HighPassFIR_Filter.vhd:75]
+INFO: [Synth 8-256] done synthesizing module 'HighPassFilter' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/HighPassFIR_Filter.vhd:75]
+	Parameter Freq_Size bound to: 32 - type: integer 
+	Parameter ROM_Size bound to: 8 - type: integer 
+	Parameter DAC_SIZE bound to: 14 - type: integer 
+INFO: [Synth 8-3491] module 'NCO' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:8' bound to instance 'PLL_NCO' of component 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:183]
+INFO: [Synth 8-638] synthesizing module 'NCO' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'NCO' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd:26]
+	Parameter MixerSize bound to: 14 - type: integer 
+INFO: [Synth 8-3491] module 'Mixer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:6' bound to instance 'Quadrature_Mixer' of component 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:195]
+INFO: [Synth 8-3491] module 'CIC32' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd:46' bound to instance 'Loop_Filter' of component 'CIC32' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:205]
+INFO: [Synth 8-638] synthesizing module 'CIC32' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'CIC32' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd:61]
+	Parameter Data_Size bound to: 32 - type: integer 
+	Parameter Inital bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'PID_Controller' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd:6' bound to instance 'Loop_Controller' of component 'PID_Controller' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:216]
+INFO: [Synth 8-638] synthesizing module 'PID_Controller' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'PID_Controller' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd:21]
+	Parameter MixerSize bound to: 14 - type: integer 
+INFO: [Synth 8-3491] module 'Mixer' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd:6' bound to instance 'Lock_Mixer' of component 'Mixer' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:230]
+INFO: [Synth 8-3491] module 'CIC32' declared at 'C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd:46' bound to instance 'Supervisor_Filter' of component 'CIC32' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:240]
+INFO: [Synth 8-256] done synthesizing module 'Squared_Phase_Locked_Loop' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:49]
+INFO: [Synth 8-6155] done synthesizing module 'system_Squared_Phase_Locked_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Squared_Phase_Locked_0_0/synth/system_Squared_Phase_Locked_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element Count_reg was removed.  [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/FrequencyDoubledPLL.vhd:142]
+WARNING: [Synth 8-7129] Port ADC_Stream_in[31] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[30] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[29] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[28] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[27] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[26] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[25] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[24] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[23] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[22] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[21] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[20] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[19] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[18] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[17] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[16] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[15] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[14] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1322.879 ; gain = 515.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1322.879 ; gain = 515.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1322.879 ; gain = 515.129
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 1322.879 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1430.809 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1430.816 ; gain = 0.008
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element sumpipe1_17_reg was removed.  [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/HighPassFIR_Filter.vhd:437]
+WARNING: [Synth 8-6040] Register Quadrature_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+WARNING: [Synth 8-6040] Register dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 1     
+	   3 Input   64 Bit       Adders := 1     
+	   2 Input   56 Bit       Adders := 32    
+	   2 Input   55 Bit       Adders := 1     
+	   2 Input   48 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 2     
+	   3 Input   32 Bit       Adders := 1     
+	   3 Input   26 Bit       Adders := 4     
+	   2 Input    5 Bit       Adders := 2     
++---Registers : 
+	               64 Bit    Registers := 6     
+	               56 Bit    Registers := 33    
+	               55 Bit    Registers := 1     
+	               48 Bit    Registers := 5     
+	               32 Bit    Registers := 5     
+	               28 Bit    Registers := 33    
+	               26 Bit    Registers := 8     
+	               24 Bit    Registers := 2     
+	               18 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	               14 Bit    Registers := 2     
+	               13 Bit    Registers := 2     
+	               11 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Multipliers : 
+	              32x32  Multipliers := 3     
++---ROMs : 
+	                    ROMs := 2     
++---Muxes : 
+	   4 Input   14 Bit        Muxes := 2     
+	   4 Input    8 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP mul_temp_32, operation Mode is: A*B.
+DSP Report: operator mul_temp_32 is absorbed into DSP mul_temp_32.
+DSP Report: Generating DSP mul_temp_32, operation Mode is: A*B.
+DSP Report: operator mul_temp_32 is absorbed into DSP mul_temp_32.
+DSP Report: Generating DSP mul_temp_31, operation Mode is: (A:0x3ff44a2e)*B.
+DSP Report: operator mul_temp_31 is absorbed into DSP mul_temp_31.
+DSP Report: operator mul_temp_31 is absorbed into DSP mul_temp_31.
+DSP Report: Generating DSP mul_temp_31, operation Mode is: (PCIN>>17)+(A:0x3ff44a2e)*B.
+DSP Report: operator mul_temp_31 is absorbed into DSP mul_temp_31.
+DSP Report: operator mul_temp_31 is absorbed into DSP mul_temp_31.
+DSP Report: Generating DSP mul_temp_30, operation Mode is: (A:0x3ff35389)*B.
+DSP Report: operator mul_temp_30 is absorbed into DSP mul_temp_30.
+DSP Report: operator mul_temp_30 is absorbed into DSP mul_temp_30.
+DSP Report: Generating DSP mul_temp_30, operation Mode is: (PCIN>>17)+(A:0x3ff35389)*B.
+DSP Report: operator mul_temp_30 is absorbed into DSP mul_temp_30.
+DSP Report: operator mul_temp_30 is absorbed into DSP mul_temp_30.
+DSP Report: Generating DSP mul_temp_29, operation Mode is: (A:0x3ff261bd)*B.
+DSP Report: operator mul_temp_29 is absorbed into DSP mul_temp_29.
+DSP Report: operator mul_temp_29 is absorbed into DSP mul_temp_29.
+DSP Report: Generating DSP mul_temp_29, operation Mode is: (PCIN>>17)+(A:0x3ff261bd)*B.
+DSP Report: operator mul_temp_29 is absorbed into DSP mul_temp_29.
+DSP Report: operator mul_temp_29 is absorbed into DSP mul_temp_29.
+DSP Report: Generating DSP mul_temp_28, operation Mode is: (A:0x3ff176ff)*B.
+DSP Report: operator mul_temp_28 is absorbed into DSP mul_temp_28.
+DSP Report: operator mul_temp_28 is absorbed into DSP mul_temp_28.
+DSP Report: Generating DSP mul_temp_28, operation Mode is: (PCIN>>17)+(A:0x3ff176ff)*B.
+DSP Report: operator mul_temp_28 is absorbed into DSP mul_temp_28.
+DSP Report: operator mul_temp_28 is absorbed into DSP mul_temp_28.
+DSP Report: Generating DSP mul_temp_27, operation Mode is: (A:0x3ff0957e)*B.
+DSP Report: operator mul_temp_27 is absorbed into DSP mul_temp_27.
+DSP Report: operator mul_temp_27 is absorbed into DSP mul_temp_27.
+DSP Report: Generating DSP mul_temp_27, operation Mode is: (PCIN>>17)+(A:0x3ff0957e)*B.
+DSP Report: operator mul_temp_27 is absorbed into DSP mul_temp_27.
+DSP Report: operator mul_temp_27 is absorbed into DSP mul_temp_27.
+DSP Report: Generating DSP mul_temp_26, operation Mode is: (A:0x3fefbf59)*B.
+DSP Report: operator mul_temp_26 is absorbed into DSP mul_temp_26.
+DSP Report: operator mul_temp_26 is absorbed into DSP mul_temp_26.
+DSP Report: Generating DSP mul_temp_26, operation Mode is: (PCIN>>17)+(A:0x3fefbf59)*B.
+DSP Report: operator mul_temp_26 is absorbed into DSP mul_temp_26.
+DSP Report: operator mul_temp_26 is absorbed into DSP mul_temp_26.
+DSP Report: Generating DSP mul_temp_25, operation Mode is: (A:0x3feef6a0)*B.
+DSP Report: operator mul_temp_25 is absorbed into DSP mul_temp_25.
+DSP Report: operator mul_temp_25 is absorbed into DSP mul_temp_25.
+DSP Report: Generating DSP mul_temp_25, operation Mode is: (PCIN>>17)+(A:0x3feef6a0)*B.
+DSP Report: operator mul_temp_25 is absorbed into DSP mul_temp_25.
+DSP Report: operator mul_temp_25 is absorbed into DSP mul_temp_25.
+DSP Report: Generating DSP mul_temp_24, operation Mode is: (A:0x3fee3d43)*B.
+DSP Report: operator mul_temp_24 is absorbed into DSP mul_temp_24.
+DSP Report: operator mul_temp_24 is absorbed into DSP mul_temp_24.
+DSP Report: Generating DSP mul_temp_24, operation Mode is: (PCIN>>17)+(A:0x3fee3d43)*B.
+DSP Report: operator mul_temp_24 is absorbed into DSP mul_temp_24.
+DSP Report: operator mul_temp_24 is absorbed into DSP mul_temp_24.
+DSP Report: Generating DSP mul_temp_23, operation Mode is: (A:0x3fed9514)*B.
+DSP Report: operator mul_temp_23 is absorbed into DSP mul_temp_23.
+DSP Report: operator mul_temp_23 is absorbed into DSP mul_temp_23.
+DSP Report: Generating DSP mul_temp_23, operation Mode is: (PCIN>>17)+(A:0x3fed9514)*B.
+DSP Report: operator mul_temp_23 is absorbed into DSP mul_temp_23.
+DSP Report: operator mul_temp_23 is absorbed into DSP mul_temp_23.
+DSP Report: Generating DSP mul_temp_22, operation Mode is: (A:0x3fecffbd)*B.
+DSP Report: operator mul_temp_22 is absorbed into DSP mul_temp_22.
+DSP Report: operator mul_temp_22 is absorbed into DSP mul_temp_22.
+DSP Report: Generating DSP mul_temp_22, operation Mode is: (PCIN>>17)+(A:0x3fecffbd)*B.
+DSP Report: operator mul_temp_22 is absorbed into DSP mul_temp_22.
+DSP Report: operator mul_temp_22 is absorbed into DSP mul_temp_22.
+DSP Report: Generating DSP mul_temp_21, operation Mode is: (A:0x3fec7ebb)*B.
+DSP Report: operator mul_temp_21 is absorbed into DSP mul_temp_21.
+DSP Report: operator mul_temp_21 is absorbed into DSP mul_temp_21.
+DSP Report: Generating DSP mul_temp_21, operation Mode is: (PCIN>>17)+(A:0x3fec7ebb)*B.
+DSP Report: operator mul_temp_21 is absorbed into DSP mul_temp_21.
+DSP Report: operator mul_temp_21 is absorbed into DSP mul_temp_21.
+DSP Report: Generating DSP mul_temp_20, operation Mode is: (A:0x3fec135a)*B.
+DSP Report: operator mul_temp_20 is absorbed into DSP mul_temp_20.
+DSP Report: operator mul_temp_20 is absorbed into DSP mul_temp_20.
+DSP Report: Generating DSP mul_temp_20, operation Mode is: (PCIN>>17)+(A:0x3fec135a)*B.
+DSP Report: operator mul_temp_20 is absorbed into DSP mul_temp_20.
+DSP Report: operator mul_temp_20 is absorbed into DSP mul_temp_20.
+DSP Report: Generating DSP mul_temp_19, operation Mode is: (A:0x3febbeaf)*B.
+DSP Report: operator mul_temp_19 is absorbed into DSP mul_temp_19.
+DSP Report: operator mul_temp_19 is absorbed into DSP mul_temp_19.
+DSP Report: Generating DSP mul_temp_19, operation Mode is: (PCIN>>17)+(A:0x3febbeaf)*B.
+DSP Report: operator mul_temp_19 is absorbed into DSP mul_temp_19.
+DSP Report: operator mul_temp_19 is absorbed into DSP mul_temp_19.
+DSP Report: Generating DSP mul_temp_18, operation Mode is: (A:0x3feb8195)*B.
+DSP Report: operator mul_temp_18 is absorbed into DSP mul_temp_18.
+DSP Report: operator mul_temp_18 is absorbed into DSP mul_temp_18.
+DSP Report: Generating DSP mul_temp_18, operation Mode is: (PCIN>>17)+(A:0x3feb8195)*B.
+DSP Report: operator mul_temp_18 is absorbed into DSP mul_temp_18.
+DSP Report: operator mul_temp_18 is absorbed into DSP mul_temp_18.
+DSP Report: Generating DSP mul_temp_17, operation Mode is: (A:0x3feb5cac)*B.
+DSP Report: operator mul_temp_17 is absorbed into DSP mul_temp_17.
+DSP Report: operator mul_temp_17 is absorbed into DSP mul_temp_17.
+DSP Report: Generating DSP mul_temp_17, operation Mode is: (PCIN>>17)+(A:0x3feb5cac)*B.
+DSP Report: operator mul_temp_17 is absorbed into DSP mul_temp_17.
+DSP Report: operator mul_temp_17 is absorbed into DSP mul_temp_17.
+DSP Report: Generating DSP mul_temp_16, operation Mode is: (A:0x15053)*B.
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: Generating DSP mul_temp_16, operation Mode is: (PCIN>>17)+A*(B:0x3f5).
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: Generating DSP mul_temp_16, operation Mode is: A*(B:0x15053).
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: Generating DSP mul_temp_16, operation Mode is: (PCIN>>17)+A*(B:0x3f5).
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: operator mul_temp_16 is absorbed into DSP mul_temp_16.
+DSP Report: Generating DSP mul_temp_15, operation Mode is: (A:0x3feb5cac)*B.
+DSP Report: operator mul_temp_15 is absorbed into DSP mul_temp_15.
+DSP Report: operator mul_temp_15 is absorbed into DSP mul_temp_15.
+DSP Report: Generating DSP mul_temp_15, operation Mode is: (PCIN>>17)+(A:0x3feb5cac)*B.
+DSP Report: operator mul_temp_15 is absorbed into DSP mul_temp_15.
+DSP Report: operator mul_temp_15 is absorbed into DSP mul_temp_15.
+DSP Report: Generating DSP mul_temp_14, operation Mode is: (A:0x3feb8195)*B.
+DSP Report: operator mul_temp_14 is absorbed into DSP mul_temp_14.
+DSP Report: operator mul_temp_14 is absorbed into DSP mul_temp_14.
+DSP Report: Generating DSP mul_temp_14, operation Mode is: (PCIN>>17)+(A:0x3feb8195)*B.
+DSP Report: operator mul_temp_14 is absorbed into DSP mul_temp_14.
+DSP Report: operator mul_temp_14 is absorbed into DSP mul_temp_14.
+DSP Report: Generating DSP mul_temp_13, operation Mode is: (A:0x3febbeaf)*B.
+DSP Report: operator mul_temp_13 is absorbed into DSP mul_temp_13.
+DSP Report: operator mul_temp_13 is absorbed into DSP mul_temp_13.
+DSP Report: Generating DSP mul_temp_13, operation Mode is: (PCIN>>17)+(A:0x3febbeaf)*B.
+DSP Report: operator mul_temp_13 is absorbed into DSP mul_temp_13.
+DSP Report: operator mul_temp_13 is absorbed into DSP mul_temp_13.
+DSP Report: Generating DSP mul_temp_12, operation Mode is: (A:0x3fec135a)*B.
+DSP Report: operator mul_temp_12 is absorbed into DSP mul_temp_12.
+DSP Report: operator mul_temp_12 is absorbed into DSP mul_temp_12.
+DSP Report: Generating DSP mul_temp_12, operation Mode is: (PCIN>>17)+(A:0x3fec135a)*B.
+DSP Report: operator mul_temp_12 is absorbed into DSP mul_temp_12.
+DSP Report: operator mul_temp_12 is absorbed into DSP mul_temp_12.
+DSP Report: Generating DSP mul_temp_11, operation Mode is: (A:0x3fec7ebb)*B.
+DSP Report: operator mul_temp_11 is absorbed into DSP mul_temp_11.
+DSP Report: operator mul_temp_11 is absorbed into DSP mul_temp_11.
+DSP Report: Generating DSP mul_temp_11, operation Mode is: (PCIN>>17)+(A:0x3fec7ebb)*B.
+DSP Report: operator mul_temp_11 is absorbed into DSP mul_temp_11.
+DSP Report: operator mul_temp_11 is absorbed into DSP mul_temp_11.
+DSP Report: Generating DSP mul_temp_10, operation Mode is: (A:0x3fecffbd)*B.
+DSP Report: operator mul_temp_10 is absorbed into DSP mul_temp_10.
+DSP Report: operator mul_temp_10 is absorbed into DSP mul_temp_10.
+DSP Report: Generating DSP mul_temp_10, operation Mode is: (PCIN>>17)+(A:0x3fecffbd)*B.
+DSP Report: operator mul_temp_10 is absorbed into DSP mul_temp_10.
+DSP Report: operator mul_temp_10 is absorbed into DSP mul_temp_10.
+DSP Report: Generating DSP mul_temp_9, operation Mode is: (A:0x3fed9514)*B.
+DSP Report: operator mul_temp_9 is absorbed into DSP mul_temp_9.
+DSP Report: operator mul_temp_9 is absorbed into DSP mul_temp_9.
+DSP Report: Generating DSP mul_temp_9, operation Mode is: (PCIN>>17)+(A:0x3fed9514)*B.
+DSP Report: operator mul_temp_9 is absorbed into DSP mul_temp_9.
+DSP Report: operator mul_temp_9 is absorbed into DSP mul_temp_9.
+DSP Report: Generating DSP mul_temp_8, operation Mode is: (A:0x3fee3d43)*B.
+DSP Report: operator mul_temp_8 is absorbed into DSP mul_temp_8.
+DSP Report: operator mul_temp_8 is absorbed into DSP mul_temp_8.
+DSP Report: Generating DSP mul_temp_8, operation Mode is: (PCIN>>17)+(A:0x3fee3d43)*B.
+DSP Report: operator mul_temp_8 is absorbed into DSP mul_temp_8.
+DSP Report: operator mul_temp_8 is absorbed into DSP mul_temp_8.
+DSP Report: Generating DSP mul_temp_7, operation Mode is: (A:0x3feef6a0)*B.
+DSP Report: operator mul_temp_7 is absorbed into DSP mul_temp_7.
+DSP Report: operator mul_temp_7 is absorbed into DSP mul_temp_7.
+DSP Report: Generating DSP mul_temp_7, operation Mode is: (PCIN>>17)+(A:0x3feef6a0)*B.
+DSP Report: operator mul_temp_7 is absorbed into DSP mul_temp_7.
+DSP Report: operator mul_temp_7 is absorbed into DSP mul_temp_7.
+DSP Report: Generating DSP mul_temp_6, operation Mode is: (A:0x3fefbf59)*B.
+DSP Report: operator mul_temp_6 is absorbed into DSP mul_temp_6.
+DSP Report: operator mul_temp_6 is absorbed into DSP mul_temp_6.
+DSP Report: Generating DSP mul_temp_6, operation Mode is: (PCIN>>17)+(A:0x3fefbf59)*B.
+DSP Report: operator mul_temp_6 is absorbed into DSP mul_temp_6.
+DSP Report: operator mul_temp_6 is absorbed into DSP mul_temp_6.
+DSP Report: Generating DSP mul_temp_5, operation Mode is: (A:0x3ff0957e)*B.
+DSP Report: operator mul_temp_5 is absorbed into DSP mul_temp_5.
+DSP Report: operator mul_temp_5 is absorbed into DSP mul_temp_5.
+DSP Report: Generating DSP mul_temp_5, operation Mode is: (PCIN>>17)+(A:0x3ff0957e)*B.
+DSP Report: operator mul_temp_5 is absorbed into DSP mul_temp_5.
+DSP Report: operator mul_temp_5 is absorbed into DSP mul_temp_5.
+DSP Report: Generating DSP mul_temp_4, operation Mode is: (A:0x3ff176ff)*B.
+DSP Report: operator mul_temp_4 is absorbed into DSP mul_temp_4.
+DSP Report: operator mul_temp_4 is absorbed into DSP mul_temp_4.
+DSP Report: Generating DSP mul_temp_4, operation Mode is: (PCIN>>17)+(A:0x3ff176ff)*B.
+DSP Report: operator mul_temp_4 is absorbed into DSP mul_temp_4.
+DSP Report: operator mul_temp_4 is absorbed into DSP mul_temp_4.
+DSP Report: Generating DSP mul_temp_3, operation Mode is: (A:0x3ff261bd)*B.
+DSP Report: operator mul_temp_3 is absorbed into DSP mul_temp_3.
+DSP Report: operator mul_temp_3 is absorbed into DSP mul_temp_3.
+DSP Report: Generating DSP mul_temp_3, operation Mode is: (PCIN>>17)+(A:0x3ff261bd)*B.
+DSP Report: operator mul_temp_3 is absorbed into DSP mul_temp_3.
+DSP Report: operator mul_temp_3 is absorbed into DSP mul_temp_3.
+DSP Report: Generating DSP mul_temp_2, operation Mode is: (A:0x3ff35389)*B.
+DSP Report: operator mul_temp_2 is absorbed into DSP mul_temp_2.
+DSP Report: operator mul_temp_2 is absorbed into DSP mul_temp_2.
+DSP Report: Generating DSP mul_temp_2, operation Mode is: (PCIN>>17)+(A:0x3ff35389)*B.
+DSP Report: operator mul_temp_2 is absorbed into DSP mul_temp_2.
+DSP Report: operator mul_temp_2 is absorbed into DSP mul_temp_2.
+DSP Report: Generating DSP mul_temp_1, operation Mode is: (A:0x3ff44a2e)*B.
+DSP Report: operator mul_temp_1 is absorbed into DSP mul_temp_1.
+DSP Report: operator mul_temp_1 is absorbed into DSP mul_temp_1.
+DSP Report: Generating DSP mul_temp_1, operation Mode is: (PCIN>>17)+(A:0x3ff44a2e)*B.
+DSP Report: operator mul_temp_1 is absorbed into DSP mul_temp_1.
+DSP Report: operator mul_temp_1 is absorbed into DSP mul_temp_1.
+DSP Report: Generating DSP mul_temp, operation Mode is: (A:0x3fbf81a5)*B.
+DSP Report: operator mul_temp is absorbed into DSP mul_temp.
+DSP Report: operator mul_temp is absorbed into DSP mul_temp.
+DSP Report: Generating DSP mul_temp, operation Mode is: (PCIN>>17)+(A:0x3fbf81a5)*B.
+DSP Report: operator mul_temp is absorbed into DSP mul_temp.
+DSP Report: operator mul_temp is absorbed into DSP mul_temp.
+WARNING: [Synth 8-6040] Register dataAddr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+WARNING: [Synth 8-6040] Register Quadrature_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+DSP Report: Generating DSP ARG, operation Mode is: A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP ARG, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP Input_Mixer/Dout_reg, operation Mode is: (A*B)'.
+DSP Report: register Input_Mixer/Dout_reg is absorbed into DSP Input_Mixer/Dout_reg.
+DSP Report: operator Input_Mixer/Dout0 is absorbed into DSP Input_Mixer/Dout_reg.
+DSP Report: Generating DSP Quadrature_Mixer/Dout_reg, operation Mode is: (A*B)'.
+DSP Report: register Quadrature_Mixer/Dout_reg is absorbed into DSP Quadrature_Mixer/Dout_reg.
+DSP Report: operator Quadrature_Mixer/Dout0 is absorbed into DSP Quadrature_Mixer/Dout_reg.
+DSP Report: Generating DSP Lock_Mixer/Dout_reg, operation Mode is: (A*B)'.
+DSP Report: register Lock_Mixer/Dout_reg is absorbed into DSP Lock_Mixer/Dout_reg.
+DSP Report: operator Lock_Mixer/Dout0 is absorbed into DSP Lock_Mixer/Dout_reg.
+WARNING: [Synth 8-7129] Port ADC_Stream_in[31] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[30] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[29] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[28] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[27] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[26] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[25] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[24] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[23] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[22] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[21] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[20] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[19] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[18] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[17] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[16] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[15] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADC_Stream_in[14] in module Squared_Phase_Locked_Loop is either unconnected or has no load
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[47]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[46]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[45]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[44]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[43]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[42]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[41]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[40]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[39]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[38]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[37]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[36]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[35]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[34]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[33]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[32]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[31]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[30]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[29]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[28]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[27]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[26]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[25]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[24]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[23]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[22]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[21]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[20]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[19]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[18]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[17]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[47]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[46]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[45]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[44]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[43]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[42]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[41]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[40]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[39]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[38]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[37]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[36]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe4_3_reg[35]__0) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/InputFilter/sumpipe1_17_reg[22]) is unused and will be removed from module system_Squared_Phase_Locked_0_0.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 83, Available = 80. Use report_utilization command for details.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_32, operation Mode is (post resource management): A*B.
+DSP Report: operator inst/InputFilter/mul_temp_32 is absorbed into DSP inst/InputFilter/mul_temp_32.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_32, operation Mode is (post resource management): A*B.
+DSP Report: operator inst/InputFilter/mul_temp_32 is absorbed into DSP inst/InputFilter/mul_temp_32.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_31, operation Mode is (post resource management): (A:0x3ff44a2e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_31 is absorbed into DSP inst/InputFilter/mul_temp_31.
+DSP Report: operator inst/InputFilter/mul_temp_31 is absorbed into DSP inst/InputFilter/mul_temp_31.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_31, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff44a2e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_31 is absorbed into DSP inst/InputFilter/mul_temp_31.
+DSP Report: operator inst/InputFilter/mul_temp_31 is absorbed into DSP inst/InputFilter/mul_temp_31.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_30, operation Mode is (post resource management): (A:0x3ff35389)*B.
+DSP Report: operator inst/InputFilter/mul_temp_30 is absorbed into DSP inst/InputFilter/mul_temp_30.
+DSP Report: operator inst/InputFilter/mul_temp_30 is absorbed into DSP inst/InputFilter/mul_temp_30.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_30, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff35389)*B.
+DSP Report: operator inst/InputFilter/mul_temp_30 is absorbed into DSP inst/InputFilter/mul_temp_30.
+DSP Report: operator inst/InputFilter/mul_temp_30 is absorbed into DSP inst/InputFilter/mul_temp_30.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_29, operation Mode is (post resource management): (A:0x3ff261bd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_29 is absorbed into DSP inst/InputFilter/mul_temp_29.
+DSP Report: operator inst/InputFilter/mul_temp_29 is absorbed into DSP inst/InputFilter/mul_temp_29.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_29, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff261bd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_29 is absorbed into DSP inst/InputFilter/mul_temp_29.
+DSP Report: operator inst/InputFilter/mul_temp_29 is absorbed into DSP inst/InputFilter/mul_temp_29.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_28, operation Mode is (post resource management): (A:0x3ff176ff)*B.
+DSP Report: operator inst/InputFilter/mul_temp_28 is absorbed into DSP inst/InputFilter/mul_temp_28.
+DSP Report: operator inst/InputFilter/mul_temp_28 is absorbed into DSP inst/InputFilter/mul_temp_28.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_28, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff176ff)*B.
+DSP Report: operator inst/InputFilter/mul_temp_28 is absorbed into DSP inst/InputFilter/mul_temp_28.
+DSP Report: operator inst/InputFilter/mul_temp_28 is absorbed into DSP inst/InputFilter/mul_temp_28.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_27, operation Mode is (post resource management): (A:0x3ff0957e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_27 is absorbed into DSP inst/InputFilter/mul_temp_27.
+DSP Report: operator inst/InputFilter/mul_temp_27 is absorbed into DSP inst/InputFilter/mul_temp_27.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_27, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff0957e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_27 is absorbed into DSP inst/InputFilter/mul_temp_27.
+DSP Report: operator inst/InputFilter/mul_temp_27 is absorbed into DSP inst/InputFilter/mul_temp_27.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_26, operation Mode is (post resource management): (A:0x3fefbf59)*B.
+DSP Report: operator inst/InputFilter/mul_temp_26 is absorbed into DSP inst/InputFilter/mul_temp_26.
+DSP Report: operator inst/InputFilter/mul_temp_26 is absorbed into DSP inst/InputFilter/mul_temp_26.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_26, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fefbf59)*B.
+DSP Report: operator inst/InputFilter/mul_temp_26 is absorbed into DSP inst/InputFilter/mul_temp_26.
+DSP Report: operator inst/InputFilter/mul_temp_26 is absorbed into DSP inst/InputFilter/mul_temp_26.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_25, operation Mode is (post resource management): (A:0x3feef6a0)*B.
+DSP Report: operator inst/InputFilter/mul_temp_25 is absorbed into DSP inst/InputFilter/mul_temp_25.
+DSP Report: operator inst/InputFilter/mul_temp_25 is absorbed into DSP inst/InputFilter/mul_temp_25.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_25, operation Mode is (post resource management): (PCIN>>17)+(A:0x3feef6a0)*B.
+DSP Report: operator inst/InputFilter/mul_temp_25 is absorbed into DSP inst/InputFilter/mul_temp_25.
+DSP Report: operator inst/InputFilter/mul_temp_25 is absorbed into DSP inst/InputFilter/mul_temp_25.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_24, operation Mode is (post resource management): (A:0x3fee3d43)*B.
+DSP Report: operator inst/InputFilter/mul_temp_24 is absorbed into DSP inst/InputFilter/mul_temp_24.
+DSP Report: operator inst/InputFilter/mul_temp_24 is absorbed into DSP inst/InputFilter/mul_temp_24.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_24, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fee3d43)*B.
+DSP Report: operator inst/InputFilter/mul_temp_24 is absorbed into DSP inst/InputFilter/mul_temp_24.
+DSP Report: operator inst/InputFilter/mul_temp_24 is absorbed into DSP inst/InputFilter/mul_temp_24.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_23, operation Mode is (post resource management): (A:0x3fed9514)*B.
+DSP Report: operator inst/InputFilter/mul_temp_23 is absorbed into DSP inst/InputFilter/mul_temp_23.
+DSP Report: operator inst/InputFilter/mul_temp_23 is absorbed into DSP inst/InputFilter/mul_temp_23.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_23, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fed9514)*B.
+DSP Report: operator inst/InputFilter/mul_temp_23 is absorbed into DSP inst/InputFilter/mul_temp_23.
+DSP Report: operator inst/InputFilter/mul_temp_23 is absorbed into DSP inst/InputFilter/mul_temp_23.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_22, operation Mode is (post resource management): (A:0x3fecffbd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_22 is absorbed into DSP inst/InputFilter/mul_temp_22.
+DSP Report: operator inst/InputFilter/mul_temp_22 is absorbed into DSP inst/InputFilter/mul_temp_22.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_22, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fecffbd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_22 is absorbed into DSP inst/InputFilter/mul_temp_22.
+DSP Report: operator inst/InputFilter/mul_temp_22 is absorbed into DSP inst/InputFilter/mul_temp_22.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_21, operation Mode is (post resource management): (A:0x3fec7ebb)*B.
+DSP Report: operator inst/InputFilter/mul_temp_21 is absorbed into DSP inst/InputFilter/mul_temp_21.
+DSP Report: operator inst/InputFilter/mul_temp_21 is absorbed into DSP inst/InputFilter/mul_temp_21.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_21, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fec7ebb)*B.
+DSP Report: operator inst/InputFilter/mul_temp_21 is absorbed into DSP inst/InputFilter/mul_temp_21.
+DSP Report: operator inst/InputFilter/mul_temp_21 is absorbed into DSP inst/InputFilter/mul_temp_21.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_20, operation Mode is (post resource management): (A:0x3fec135a)*B.
+DSP Report: operator inst/InputFilter/mul_temp_20 is absorbed into DSP inst/InputFilter/mul_temp_20.
+DSP Report: operator inst/InputFilter/mul_temp_20 is absorbed into DSP inst/InputFilter/mul_temp_20.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_20, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fec135a)*B.
+DSP Report: operator inst/InputFilter/mul_temp_20 is absorbed into DSP inst/InputFilter/mul_temp_20.
+DSP Report: operator inst/InputFilter/mul_temp_20 is absorbed into DSP inst/InputFilter/mul_temp_20.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_19, operation Mode is (post resource management): (A:0x3febbeaf)*B.
+DSP Report: operator inst/InputFilter/mul_temp_19 is absorbed into DSP inst/InputFilter/mul_temp_19.
+DSP Report: operator inst/InputFilter/mul_temp_19 is absorbed into DSP inst/InputFilter/mul_temp_19.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_19, operation Mode is (post resource management): (PCIN>>17)+(A:0x3febbeaf)*B.
+DSP Report: operator inst/InputFilter/mul_temp_19 is absorbed into DSP inst/InputFilter/mul_temp_19.
+DSP Report: operator inst/InputFilter/mul_temp_19 is absorbed into DSP inst/InputFilter/mul_temp_19.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_18, operation Mode is (post resource management): (A:0x3feb8195)*B.
+DSP Report: operator inst/InputFilter/mul_temp_18 is absorbed into DSP inst/InputFilter/mul_temp_18.
+DSP Report: operator inst/InputFilter/mul_temp_18 is absorbed into DSP inst/InputFilter/mul_temp_18.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_18, operation Mode is (post resource management): (PCIN>>17)+(A:0x3feb8195)*B.
+DSP Report: operator inst/InputFilter/mul_temp_18 is absorbed into DSP inst/InputFilter/mul_temp_18.
+DSP Report: operator inst/InputFilter/mul_temp_18 is absorbed into DSP inst/InputFilter/mul_temp_18.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_17, operation Mode is (post resource management): (A:0x3feb5cac)*B.
+DSP Report: operator inst/InputFilter/mul_temp_17 is absorbed into DSP inst/InputFilter/mul_temp_17.
+DSP Report: operator inst/InputFilter/mul_temp_17 is absorbed into DSP inst/InputFilter/mul_temp_17.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_17, operation Mode is (post resource management): (PCIN>>17)+(A:0x3feb5cac)*B.
+DSP Report: operator inst/InputFilter/mul_temp_17 is absorbed into DSP inst/InputFilter/mul_temp_17.
+DSP Report: operator inst/InputFilter/mul_temp_17 is absorbed into DSP inst/InputFilter/mul_temp_17.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_16, operation Mode is (post resource management): A*(B:0x15053).
+DSP Report: operator inst/InputFilter/mul_temp_16 is absorbed into DSP inst/InputFilter/mul_temp_16.
+DSP Report: operator inst/InputFilter/mul_temp_16 is absorbed into DSP inst/InputFilter/mul_temp_16.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_16, operation Mode is (post resource management): (PCIN>>17)+A*(B:0x3f5).
+DSP Report: operator inst/InputFilter/mul_temp_16 is absorbed into DSP inst/InputFilter/mul_temp_16.
+DSP Report: operator inst/InputFilter/mul_temp_16 is absorbed into DSP inst/InputFilter/mul_temp_16.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_15, operation Mode is (post resource management): (A:0x3feb5cac)*B.
+DSP Report: operator inst/InputFilter/mul_temp_15 is absorbed into DSP inst/InputFilter/mul_temp_15.
+DSP Report: operator inst/InputFilter/mul_temp_15 is absorbed into DSP inst/InputFilter/mul_temp_15.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_15, operation Mode is (post resource management): (PCIN>>17)+(A:0x3feb5cac)*B.
+DSP Report: operator inst/InputFilter/mul_temp_15 is absorbed into DSP inst/InputFilter/mul_temp_15.
+DSP Report: operator inst/InputFilter/mul_temp_15 is absorbed into DSP inst/InputFilter/mul_temp_15.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_14, operation Mode is (post resource management): (A:0x3feb8195)*B.
+DSP Report: operator inst/InputFilter/mul_temp_14 is absorbed into DSP inst/InputFilter/mul_temp_14.
+DSP Report: operator inst/InputFilter/mul_temp_14 is absorbed into DSP inst/InputFilter/mul_temp_14.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_14, operation Mode is (post resource management): (PCIN>>17)+(A:0x3feb8195)*B.
+DSP Report: operator inst/InputFilter/mul_temp_14 is absorbed into DSP inst/InputFilter/mul_temp_14.
+DSP Report: operator inst/InputFilter/mul_temp_14 is absorbed into DSP inst/InputFilter/mul_temp_14.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_13, operation Mode is (post resource management): (A:0x3febbeaf)*B.
+DSP Report: operator inst/InputFilter/mul_temp_13 is absorbed into DSP inst/InputFilter/mul_temp_13.
+DSP Report: operator inst/InputFilter/mul_temp_13 is absorbed into DSP inst/InputFilter/mul_temp_13.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_13, operation Mode is (post resource management): (PCIN>>17)+(A:0x3febbeaf)*B.
+DSP Report: operator inst/InputFilter/mul_temp_13 is absorbed into DSP inst/InputFilter/mul_temp_13.
+DSP Report: operator inst/InputFilter/mul_temp_13 is absorbed into DSP inst/InputFilter/mul_temp_13.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_12, operation Mode is (post resource management): (A:0x3fec135a)*B.
+DSP Report: operator inst/InputFilter/mul_temp_12 is absorbed into DSP inst/InputFilter/mul_temp_12.
+DSP Report: operator inst/InputFilter/mul_temp_12 is absorbed into DSP inst/InputFilter/mul_temp_12.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_12, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fec135a)*B.
+DSP Report: operator inst/InputFilter/mul_temp_12 is absorbed into DSP inst/InputFilter/mul_temp_12.
+DSP Report: operator inst/InputFilter/mul_temp_12 is absorbed into DSP inst/InputFilter/mul_temp_12.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_11, operation Mode is (post resource management): (A:0x3fec7ebb)*B.
+DSP Report: operator inst/InputFilter/mul_temp_11 is absorbed into DSP inst/InputFilter/mul_temp_11.
+DSP Report: operator inst/InputFilter/mul_temp_11 is absorbed into DSP inst/InputFilter/mul_temp_11.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_11, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fec7ebb)*B.
+DSP Report: operator inst/InputFilter/mul_temp_11 is absorbed into DSP inst/InputFilter/mul_temp_11.
+DSP Report: operator inst/InputFilter/mul_temp_11 is absorbed into DSP inst/InputFilter/mul_temp_11.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_10, operation Mode is (post resource management): (A:0x3fecffbd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_10 is absorbed into DSP inst/InputFilter/mul_temp_10.
+DSP Report: operator inst/InputFilter/mul_temp_10 is absorbed into DSP inst/InputFilter/mul_temp_10.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_10, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fecffbd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_10 is absorbed into DSP inst/InputFilter/mul_temp_10.
+DSP Report: operator inst/InputFilter/mul_temp_10 is absorbed into DSP inst/InputFilter/mul_temp_10.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_9, operation Mode is (post resource management): (A:0x3fed9514)*B.
+DSP Report: operator inst/InputFilter/mul_temp_9 is absorbed into DSP inst/InputFilter/mul_temp_9.
+DSP Report: operator inst/InputFilter/mul_temp_9 is absorbed into DSP inst/InputFilter/mul_temp_9.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_9, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fed9514)*B.
+DSP Report: operator inst/InputFilter/mul_temp_9 is absorbed into DSP inst/InputFilter/mul_temp_9.
+DSP Report: operator inst/InputFilter/mul_temp_9 is absorbed into DSP inst/InputFilter/mul_temp_9.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_8, operation Mode is (post resource management): (A:0x3fee3d43)*B.
+DSP Report: operator inst/InputFilter/mul_temp_8 is absorbed into DSP inst/InputFilter/mul_temp_8.
+DSP Report: operator inst/InputFilter/mul_temp_8 is absorbed into DSP inst/InputFilter/mul_temp_8.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_8, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fee3d43)*B.
+DSP Report: operator inst/InputFilter/mul_temp_8 is absorbed into DSP inst/InputFilter/mul_temp_8.
+DSP Report: operator inst/InputFilter/mul_temp_8 is absorbed into DSP inst/InputFilter/mul_temp_8.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_7, operation Mode is (post resource management): (A:0x3feef6a0)*B.
+DSP Report: operator inst/InputFilter/mul_temp_7 is absorbed into DSP inst/InputFilter/mul_temp_7.
+DSP Report: operator inst/InputFilter/mul_temp_7 is absorbed into DSP inst/InputFilter/mul_temp_7.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_7, operation Mode is (post resource management): (PCIN>>17)+(A:0x3feef6a0)*B.
+DSP Report: operator inst/InputFilter/mul_temp_7 is absorbed into DSP inst/InputFilter/mul_temp_7.
+DSP Report: operator inst/InputFilter/mul_temp_7 is absorbed into DSP inst/InputFilter/mul_temp_7.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_6, operation Mode is (post resource management): (A:0x3fefbf59)*B.
+DSP Report: operator inst/InputFilter/mul_temp_6 is absorbed into DSP inst/InputFilter/mul_temp_6.
+DSP Report: operator inst/InputFilter/mul_temp_6 is absorbed into DSP inst/InputFilter/mul_temp_6.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_6, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fefbf59)*B.
+DSP Report: operator inst/InputFilter/mul_temp_6 is absorbed into DSP inst/InputFilter/mul_temp_6.
+DSP Report: operator inst/InputFilter/mul_temp_6 is absorbed into DSP inst/InputFilter/mul_temp_6.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_5, operation Mode is (post resource management): (A:0x3ff0957e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_5 is absorbed into DSP inst/InputFilter/mul_temp_5.
+DSP Report: operator inst/InputFilter/mul_temp_5 is absorbed into DSP inst/InputFilter/mul_temp_5.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_5, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff0957e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_5 is absorbed into DSP inst/InputFilter/mul_temp_5.
+DSP Report: operator inst/InputFilter/mul_temp_5 is absorbed into DSP inst/InputFilter/mul_temp_5.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_4, operation Mode is (post resource management): (A:0x3ff176ff)*B.
+DSP Report: operator inst/InputFilter/mul_temp_4 is absorbed into DSP inst/InputFilter/mul_temp_4.
+DSP Report: operator inst/InputFilter/mul_temp_4 is absorbed into DSP inst/InputFilter/mul_temp_4.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_4, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff176ff)*B.
+DSP Report: operator inst/InputFilter/mul_temp_4 is absorbed into DSP inst/InputFilter/mul_temp_4.
+DSP Report: operator inst/InputFilter/mul_temp_4 is absorbed into DSP inst/InputFilter/mul_temp_4.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_3, operation Mode is (post resource management): (A:0x3ff261bd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_3 is absorbed into DSP inst/InputFilter/mul_temp_3.
+DSP Report: operator inst/InputFilter/mul_temp_3 is absorbed into DSP inst/InputFilter/mul_temp_3.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_3, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff261bd)*B.
+DSP Report: operator inst/InputFilter/mul_temp_3 is absorbed into DSP inst/InputFilter/mul_temp_3.
+DSP Report: operator inst/InputFilter/mul_temp_3 is absorbed into DSP inst/InputFilter/mul_temp_3.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_2, operation Mode is (post resource management): (A:0x3ff35389)*B.
+DSP Report: operator inst/InputFilter/mul_temp_2 is absorbed into DSP inst/InputFilter/mul_temp_2.
+DSP Report: operator inst/InputFilter/mul_temp_2 is absorbed into DSP inst/InputFilter/mul_temp_2.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_2, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff35389)*B.
+DSP Report: operator inst/InputFilter/mul_temp_2 is absorbed into DSP inst/InputFilter/mul_temp_2.
+DSP Report: operator inst/InputFilter/mul_temp_2 is absorbed into DSP inst/InputFilter/mul_temp_2.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_1, operation Mode is (post resource management): (A:0x3ff44a2e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_1 is absorbed into DSP inst/InputFilter/mul_temp_1.
+DSP Report: operator inst/InputFilter/mul_temp_1 is absorbed into DSP inst/InputFilter/mul_temp_1.
+DSP Report: Generating DSP inst/InputFilter/mul_temp_1, operation Mode is (post resource management): (PCIN>>17)+(A:0x3ff44a2e)*B.
+DSP Report: operator inst/InputFilter/mul_temp_1 is absorbed into DSP inst/InputFilter/mul_temp_1.
+DSP Report: operator inst/InputFilter/mul_temp_1 is absorbed into DSP inst/InputFilter/mul_temp_1.
+DSP Report: Generating DSP inst/InputFilter/mul_temp, operation Mode is (post resource management): (A:0x3fbf81a5)*B.
+DSP Report: operator inst/InputFilter/mul_temp is absorbed into DSP inst/InputFilter/mul_temp.
+DSP Report: operator inst/InputFilter/mul_temp is absorbed into DSP inst/InputFilter/mul_temp.
+DSP Report: Generating DSP inst/InputFilter/mul_temp, operation Mode is (post resource management): (PCIN>>17)+(A:0x3fbf81a5)*B.
+DSP Report: operator inst/InputFilter/mul_temp is absorbed into DSP inst/InputFilter/mul_temp.
+DSP Report: operator inst/InputFilter/mul_temp is absorbed into DSP inst/InputFilter/mul_temp.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Loop_Controller/ARG, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: operator inst/Loop_Controller/ARG is absorbed into DSP inst/Loop_Controller/ARG.
+DSP Report: Generating DSP inst/Input_Mixer/Dout_reg, operation Mode is (post resource management): (A*B)'.
+DSP Report: register inst/Input_Mixer/Dout_reg is absorbed into DSP inst/Input_Mixer/Dout_reg.
+DSP Report: operator inst/Input_Mixer/Dout0 is absorbed into DSP inst/Input_Mixer/Dout_reg.
+DSP Report: Generating DSP inst/Lock_Mixer/Dout_reg, operation Mode is (post resource management): (A*B)'.
+DSP Report: register inst/Lock_Mixer/Dout_reg is absorbed into DSP inst/Lock_Mixer/Dout_reg.
+DSP Report: operator inst/Lock_Mixer/Dout0 is absorbed into DSP inst/Lock_Mixer/Dout_reg.
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+-----------------------+---------------+----------------+
+|Module Name | RTL Object            | Depth x Width | Implemented As | 
++------------+-----------------------+---------------+----------------+
+|NCO         | databuffer_reg        | 256x13        | Block RAM      | 
+|NCO         | Quadrature_buffer_reg | 256x13        | Block RAM      | 
++------------+-----------------------+---------------+----------------+
+
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++---------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name    | DSP Mapping                 | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++---------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|HighPassFilter | A*B                         | 24     | 18     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | A*B                         | 24     | 11     | -      | -      | 35     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff44a2e)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff44a2e)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff35389)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff35389)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff261bd)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff261bd)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff176ff)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff176ff)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff0957e)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff0957e)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fefbf59)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fefbf59)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3feef6a0)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3feef6a0)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fee3d43)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fee3d43)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fed9514)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fed9514)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fecffbd)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fecffbd)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fec7ebb)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fec7ebb)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fec135a)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fec135a)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3febbeaf)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3febbeaf)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3feb8195)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3feb8195)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3feb5cac)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3feb5cac)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x15053)*B               | 18     | 11     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+A*(B:0x3f5)      | 11     | 11     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | A*(B:0x15053)               | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+A*(B:0x3f5)      | 18     | 11     | -      | -      | 38     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3feb5cac)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3feb5cac)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3feb8195)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3feb8195)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3febbeaf)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3febbeaf)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fec135a)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fec135a)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fec7ebb)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fec7ebb)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fecffbd)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fecffbd)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fed9514)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fed9514)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fee3d43)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fee3d43)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3feef6a0)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3feef6a0)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fefbf59)*B            | 22     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fefbf59)*B | 22     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff0957e)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff0957e)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff176ff)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff176ff)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff261bd)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff261bd)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff35389)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff35389)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3ff44a2e)*B            | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3ff44a2e)*B | 21     | 11     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (A:0x3fbf81a5)*B            | 24     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter | (PCIN>>17)+(A:0x3fbf81a5)*B | 24     | 11     | -      | -      | 35     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | A*B                         | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | (PCIN>>17)+A*B              | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | A*B                         | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | (PCIN>>17)+A*B              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | A*B                         | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | (PCIN>>17)+A*B              | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | A*B                         | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | (PCIN>>17)+A*B              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | A*B                         | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | (PCIN>>17)+A*B              | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | A*B                         | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PID_Controller | (PCIN>>17)+A*B              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Mixer          | (A*B)'                      | 14     | 14     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|Mixer          | (A*B)'                      | 14     | 14     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|Mixer          | (A*B)'                      | 14     | 14     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 0    | 
++---------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/PLL_NCO/databuffer_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/PLL_NCO/databuffer_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1430.816 ; gain = 623.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++--------------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                     | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|HighPassFilter                  | (A*B)'       | 30     | 17     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|HighPassFilter                  | (A*B)'       | 30     | 18     | -      | -      | 35     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 17     | 10     | -      | -      | 38     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | A*B          | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HighPassFilter                  | PCIN>>17+A*B | 0      | 18     | -      | -      | 35     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Mixer                           | ((A*B)')'    | 30     | 18     | -      | -      | 28     | 0    | 0    | -    | -    | -     | 1    | 1    | 
+|Mixer                           | ((A*B')')'   | 30     | 18     | -      | -      | 28     | 0    | 1    | -    | -    | -     | 1    | 1    | 
+|system_Squared_Phase_Locked_0_0 | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Squared_Phase_Locked_0_0 | PCIN>>17+A*B | 30     | 18     | -      | -      | 14     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Squared_Phase_Locked_0_0 | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Squared_Phase_Locked_0_0 | PCIN>>17+A*B | 0      | 18     | -      | -      | 31     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Squared_Phase_Locked_0_0 | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Squared_Phase_Locked_0_0 | PCIN>>17+A*B | 30     | 18     | -      | -      | 14     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Squared_Phase_Locked_0_0 | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_Squared_Phase_Locked_0_0 | PCIN>>17+A*B | 0      | 18     | -      | -      | 31     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++--------------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |   694|
+|2     |DSP48E1  |    76|
+|6     |LUT1     |    39|
+|7     |LUT2     |  2372|
+|8     |LUT3     |   191|
+|9     |LUT4     |   146|
+|10    |LUT5     |    38|
+|11    |LUT6     |   125|
+|12    |RAMB18E1 |     1|
+|13    |FDCE     |  3074|
+|14    |FDRE     |   396|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 25 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:27 . Memory (MB): peak = 1434.938 ; gain = 519.250
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1434.938 ; gain = 627.188
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.084 . Memory (MB): peak = 1446.953 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 771 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1451.656 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 57c1d6c1
+INFO: [Common 17-83] Releasing license: Synthesis
+90 Infos, 46 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1451.656 ; gain = 1021.699
+INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Squared_Phase_Locked_0_0_synth_1/system_Squared_Phase_Locked_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_Squared_Phase_Locked_0_0, cache-ID = 09e5f85e6714cba8
+INFO: [Coretcl 2-1174] Renamed 9 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Squared_Phase_Locked_0_0_synth_1/system_Squared_Phase_Locked_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file system_Squared_Phase_Locked_0_0_utilization_synth.rpt -pb system_Squared_Phase_Locked_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 11 09:13:04 2023...

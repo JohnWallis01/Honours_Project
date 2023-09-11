@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sat Sep  9 16:44:41 2023
+// Date        : Sun Sep 10 21:10:46 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PSK_0_0/system_PSK_0_0_sim_netlist.v
@@ -39,6 +39,7 @@ module system_PSK_0_0
   wire [31:0]Frequency;
   wire Modulation;
   wire [13:0]\^PSK_m_axis_tdata ;
+  wire [13:0]REFout;
   wire Reset;
 
   assign PSK_m_axis_tdata[31] = \<const0> ;
@@ -61,34 +62,7 @@ module system_PSK_0_0
   assign PSK_m_axis_tdata[14] = \<const0> ;
   assign PSK_m_axis_tdata[13:0] = \^PSK_m_axis_tdata [13:0];
   assign PSK_m_axis_tvalid = \<const1> ;
-  assign PSKout[13] = \<const0> ;
-  assign PSKout[12] = \<const0> ;
-  assign PSKout[11] = \<const0> ;
-  assign PSKout[10] = \<const0> ;
-  assign PSKout[9] = \<const0> ;
-  assign PSKout[8] = \<const0> ;
-  assign PSKout[7] = \<const0> ;
-  assign PSKout[6] = \<const0> ;
-  assign PSKout[5] = \<const0> ;
-  assign PSKout[4] = \<const0> ;
-  assign PSKout[3] = \<const0> ;
-  assign PSKout[2] = \<const0> ;
-  assign PSKout[1] = \<const0> ;
-  assign PSKout[0] = \<const0> ;
-  assign REFout[13] = \<const0> ;
-  assign REFout[12] = \<const0> ;
-  assign REFout[11] = \<const0> ;
-  assign REFout[10] = \<const0> ;
-  assign REFout[9] = \<const0> ;
-  assign REFout[8] = \<const0> ;
-  assign REFout[7] = \<const0> ;
-  assign REFout[6] = \<const0> ;
-  assign REFout[5] = \<const0> ;
-  assign REFout[4] = \<const0> ;
-  assign REFout[3] = \<const0> ;
-  assign REFout[2] = \<const0> ;
-  assign REFout[1] = \<const0> ;
-  assign REFout[0] = \<const0> ;
+  assign PSKout[13:0] = \^PSK_m_axis_tdata [13:0];
   GND GND
        (.G(\<const0> ));
   VCC VCC
@@ -98,6 +72,7 @@ module system_PSK_0_0
         .Frequency(Frequency),
         .Modulation(Modulation),
         .PSK_m_axis_tdata(\^PSK_m_axis_tdata ),
+        .REFout(REFout),
         .Reset(Reset));
 endmodule
 
@@ -107,21 +82,21 @@ module system_PSK_0_0_NCO
     Q,
     Reset,
     Clock,
-    \PSK_m_axis_tdata_reg[4] ,
+    \PSKout_reg[4] ,
     S,
-    \PSK_m_axis_tdata_reg[8] ,
-    \PSK_m_axis_tdata_reg[12] ,
-    \PSK_m_axis_tdata_reg[13] ,
+    \PSKout_reg[8] ,
+    \PSKout_reg[12] ,
+    \PSKout_reg[13] ,
     Frequency);
   output [12:0]PSK_m_axis_tdata0;
   output [13:0]Q;
   input Reset;
   input Clock;
-  input \PSK_m_axis_tdata_reg[4] ;
+  input \PSKout_reg[4] ;
   input [3:0]S;
-  input [3:0]\PSK_m_axis_tdata_reg[8] ;
-  input [3:0]\PSK_m_axis_tdata_reg[12] ;
-  input [0:0]\PSK_m_axis_tdata_reg[13] ;
+  input [3:0]\PSKout_reg[8] ;
+  input [3:0]\PSKout_reg[12] ;
+  input [0:0]\PSKout_reg[13] ;
   input [31:0]Frequency;
 
   wire Clock;
@@ -144,22 +119,22 @@ module system_PSK_0_0_NCO
   wire [29:22]L;
   wire \OffsetPhase[31]_i_1_n_0 ;
   wire [12:0]PSK_m_axis_tdata0;
-  wire [3:0]\PSK_m_axis_tdata_reg[12] ;
-  wire \PSK_m_axis_tdata_reg[12]_i_2_n_0 ;
-  wire \PSK_m_axis_tdata_reg[12]_i_2_n_1 ;
-  wire \PSK_m_axis_tdata_reg[12]_i_2_n_2 ;
-  wire \PSK_m_axis_tdata_reg[12]_i_2_n_3 ;
-  wire [0:0]\PSK_m_axis_tdata_reg[13] ;
-  wire \PSK_m_axis_tdata_reg[4] ;
-  wire \PSK_m_axis_tdata_reg[4]_i_2_n_0 ;
-  wire \PSK_m_axis_tdata_reg[4]_i_2_n_1 ;
-  wire \PSK_m_axis_tdata_reg[4]_i_2_n_2 ;
-  wire \PSK_m_axis_tdata_reg[4]_i_2_n_3 ;
-  wire [3:0]\PSK_m_axis_tdata_reg[8] ;
-  wire \PSK_m_axis_tdata_reg[8]_i_2_n_0 ;
-  wire \PSK_m_axis_tdata_reg[8]_i_2_n_1 ;
-  wire \PSK_m_axis_tdata_reg[8]_i_2_n_2 ;
-  wire \PSK_m_axis_tdata_reg[8]_i_2_n_3 ;
+  wire [3:0]\PSKout_reg[12] ;
+  wire \PSKout_reg[12]_i_2_n_0 ;
+  wire \PSKout_reg[12]_i_2_n_1 ;
+  wire \PSKout_reg[12]_i_2_n_2 ;
+  wire \PSKout_reg[12]_i_2_n_3 ;
+  wire [0:0]\PSKout_reg[13] ;
+  wire \PSKout_reg[4] ;
+  wire \PSKout_reg[4]_i_2_n_0 ;
+  wire \PSKout_reg[4]_i_2_n_1 ;
+  wire \PSKout_reg[4]_i_2_n_2 ;
+  wire \PSKout_reg[4]_i_2_n_3 ;
+  wire [3:0]\PSKout_reg[8] ;
+  wire \PSKout_reg[8]_i_2_n_0 ;
+  wire \PSKout_reg[8]_i_2_n_1 ;
+  wire \PSKout_reg[8]_i_2_n_2 ;
+  wire \PSKout_reg[8]_i_2_n_3 ;
   wire [13:0]Q;
   wire Reset;
   wire [3:0]S;
@@ -292,8 +267,8 @@ module system_PSK_0_0_NCO
   wire \phase_reg_n_0_[7] ;
   wire \phase_reg_n_0_[8] ;
   wire \phase_reg_n_0_[9] ;
-  wire [3:0]\NLW_PSK_m_axis_tdata_reg[13]_i_2_CO_UNCONNECTED ;
-  wire [3:1]\NLW_PSK_m_axis_tdata_reg[13]_i_2_O_UNCONNECTED ;
+  wire [3:0]\NLW_PSKout_reg[13]_i_2_CO_UNCONNECTED ;
+  wire [3:1]\NLW_PSKout_reg[13]_i_2_O_UNCONNECTED ;
   wire [15:13]NLW_databuffer_reg_DOADO_UNCONNECTED;
   wire [15:0]NLW_databuffer_reg_DOBDO_UNCONNECTED;
   wire [1:0]NLW_databuffer_reg_DOPADOP_UNCONNECTED;
@@ -600,37 +575,37 @@ module system_PSK_0_0_NCO
         .Q(p_0_in[1]),
         .R(1'b0));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PSK_m_axis_tdata_reg[12]_i_2 
-       (.CI(\PSK_m_axis_tdata_reg[8]_i_2_n_0 ),
-        .CO({\PSK_m_axis_tdata_reg[12]_i_2_n_0 ,\PSK_m_axis_tdata_reg[12]_i_2_n_1 ,\PSK_m_axis_tdata_reg[12]_i_2_n_2 ,\PSK_m_axis_tdata_reg[12]_i_2_n_3 }),
+  CARRY4 \PSKout_reg[12]_i_2 
+       (.CI(\PSKout_reg[8]_i_2_n_0 ),
+        .CO({\PSKout_reg[12]_i_2_n_0 ,\PSKout_reg[12]_i_2_n_1 ,\PSKout_reg[12]_i_2_n_2 ,\PSKout_reg[12]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(PSK_m_axis_tdata0[11:8]),
-        .S(\PSK_m_axis_tdata_reg[12] ));
+        .S(\PSKout_reg[12] ));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PSK_m_axis_tdata_reg[13]_i_2 
-       (.CI(\PSK_m_axis_tdata_reg[12]_i_2_n_0 ),
-        .CO(\NLW_PSK_m_axis_tdata_reg[13]_i_2_CO_UNCONNECTED [3:0]),
+  CARRY4 \PSKout_reg[13]_i_2 
+       (.CI(\PSKout_reg[12]_i_2_n_0 ),
+        .CO(\NLW_PSKout_reg[13]_i_2_CO_UNCONNECTED [3:0]),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_PSK_m_axis_tdata_reg[13]_i_2_O_UNCONNECTED [3:1],PSK_m_axis_tdata0[12]}),
-        .S({1'b0,1'b0,1'b0,\PSK_m_axis_tdata_reg[13] }));
+        .O({\NLW_PSKout_reg[13]_i_2_O_UNCONNECTED [3:1],PSK_m_axis_tdata0[12]}),
+        .S({1'b0,1'b0,1'b0,\PSKout_reg[13] }));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PSK_m_axis_tdata_reg[4]_i_2 
+  CARRY4 \PSKout_reg[4]_i_2 
        (.CI(1'b0),
-        .CO({\PSK_m_axis_tdata_reg[4]_i_2_n_0 ,\PSK_m_axis_tdata_reg[4]_i_2_n_1 ,\PSK_m_axis_tdata_reg[4]_i_2_n_2 ,\PSK_m_axis_tdata_reg[4]_i_2_n_3 }),
-        .CYINIT(\PSK_m_axis_tdata_reg[4] ),
+        .CO({\PSKout_reg[4]_i_2_n_0 ,\PSKout_reg[4]_i_2_n_1 ,\PSKout_reg[4]_i_2_n_2 ,\PSKout_reg[4]_i_2_n_3 }),
+        .CYINIT(\PSKout_reg[4] ),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(PSK_m_axis_tdata0[3:0]),
         .S(S));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PSK_m_axis_tdata_reg[8]_i_2 
-       (.CI(\PSK_m_axis_tdata_reg[4]_i_2_n_0 ),
-        .CO({\PSK_m_axis_tdata_reg[8]_i_2_n_0 ,\PSK_m_axis_tdata_reg[8]_i_2_n_1 ,\PSK_m_axis_tdata_reg[8]_i_2_n_2 ,\PSK_m_axis_tdata_reg[8]_i_2_n_3 }),
+  CARRY4 \PSKout_reg[8]_i_2 
+       (.CI(\PSKout_reg[4]_i_2_n_0 ),
+        .CO({\PSKout_reg[8]_i_2_n_0 ,\PSKout_reg[8]_i_2_n_1 ,\PSKout_reg[8]_i_2_n_2 ,\PSKout_reg[8]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(PSK_m_axis_tdata0[7:4]),
-        .S(\PSK_m_axis_tdata_reg[8] ));
+        .S(\PSKout_reg[8] ));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h6)) 
@@ -1391,11 +1366,13 @@ endmodule
 
 (* ORIG_REF_NAME = "PSK" *) 
 module system_PSK_0_0_PSK
-   (PSK_m_axis_tdata,
+   (REFout,
+    PSK_m_axis_tdata,
     Clock,
     Reset,
     Frequency,
     Modulation);
+  output [13:0]REFout;
   output [13:0]PSK_m_axis_tdata;
   input Clock;
   input Reset;
@@ -1408,303 +1385,388 @@ module system_PSK_0_0_PSK
   wire Modulation;
   wire [13:0]PSK_m_axis_tdata;
   wire [13:1]PSK_m_axis_tdata0;
-  wire \PSK_m_axis_tdata[10]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[11]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[12]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[12]_i_3_n_0 ;
-  wire \PSK_m_axis_tdata[12]_i_4_n_0 ;
-  wire \PSK_m_axis_tdata[12]_i_5_n_0 ;
-  wire \PSK_m_axis_tdata[12]_i_6_n_0 ;
-  wire \PSK_m_axis_tdata[13]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[13]_i_3_n_0 ;
-  wire \PSK_m_axis_tdata[1]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[2]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[3]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[4]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[4]_i_3_n_0 ;
-  wire \PSK_m_axis_tdata[4]_i_4_n_0 ;
-  wire \PSK_m_axis_tdata[4]_i_5_n_0 ;
-  wire \PSK_m_axis_tdata[4]_i_6_n_0 ;
-  wire \PSK_m_axis_tdata[4]_i_7_n_0 ;
-  wire \PSK_m_axis_tdata[5]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[6]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[7]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[8]_i_1_n_0 ;
-  wire \PSK_m_axis_tdata[8]_i_3_n_0 ;
-  wire \PSK_m_axis_tdata[8]_i_4_n_0 ;
-  wire \PSK_m_axis_tdata[8]_i_5_n_0 ;
-  wire \PSK_m_axis_tdata[8]_i_6_n_0 ;
-  wire \PSK_m_axis_tdata[9]_i_1_n_0 ;
+  wire \PSKout[10]_i_1_n_0 ;
+  wire \PSKout[11]_i_1_n_0 ;
+  wire \PSKout[12]_i_1_n_0 ;
+  wire \PSKout[12]_i_3_n_0 ;
+  wire \PSKout[12]_i_4_n_0 ;
+  wire \PSKout[12]_i_5_n_0 ;
+  wire \PSKout[12]_i_6_n_0 ;
+  wire \PSKout[13]_i_1_n_0 ;
+  wire \PSKout[13]_i_3_n_0 ;
+  wire \PSKout[1]_i_1_n_0 ;
+  wire \PSKout[2]_i_1_n_0 ;
+  wire \PSKout[3]_i_1_n_0 ;
+  wire \PSKout[4]_i_1_n_0 ;
+  wire \PSKout[4]_i_3_n_0 ;
+  wire \PSKout[4]_i_4_n_0 ;
+  wire \PSKout[4]_i_5_n_0 ;
+  wire \PSKout[4]_i_6_n_0 ;
+  wire \PSKout[4]_i_7_n_0 ;
+  wire \PSKout[5]_i_1_n_0 ;
+  wire \PSKout[6]_i_1_n_0 ;
+  wire \PSKout[7]_i_1_n_0 ;
+  wire \PSKout[8]_i_1_n_0 ;
+  wire \PSKout[8]_i_3_n_0 ;
+  wire \PSKout[8]_i_4_n_0 ;
+  wire \PSKout[8]_i_5_n_0 ;
+  wire \PSKout[8]_i_6_n_0 ;
+  wire \PSKout[9]_i_1_n_0 ;
+  wire [13:0]REFout;
   wire Reset;
 
   (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[10]_i_1 
+    \PSKout[10]_i_1 
        (.I0(PSK_m_axis_tdata0[10]),
         .I1(Dout[10]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[10]_i_1_n_0 ));
+        .O(\PSKout[10]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[11]_i_1 
+    \PSKout[11]_i_1 
        (.I0(PSK_m_axis_tdata0[11]),
         .I1(Dout[11]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[11]_i_1_n_0 ));
+        .O(\PSKout[11]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[12]_i_1 
+    \PSKout[12]_i_1 
        (.I0(PSK_m_axis_tdata0[12]),
         .I1(Dout[12]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[12]_i_1_n_0 ));
+        .O(\PSKout[12]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[12]_i_3 
+    \PSKout[12]_i_3 
        (.I0(Dout[12]),
-        .O(\PSK_m_axis_tdata[12]_i_3_n_0 ));
+        .O(\PSKout[12]_i_3_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[12]_i_4 
+    \PSKout[12]_i_4 
        (.I0(Dout[11]),
-        .O(\PSK_m_axis_tdata[12]_i_4_n_0 ));
+        .O(\PSKout[12]_i_4_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[12]_i_5 
+    \PSKout[12]_i_5 
        (.I0(Dout[10]),
-        .O(\PSK_m_axis_tdata[12]_i_5_n_0 ));
+        .O(\PSKout[12]_i_5_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[12]_i_6 
+    \PSKout[12]_i_6 
        (.I0(Dout[9]),
-        .O(\PSK_m_axis_tdata[12]_i_6_n_0 ));
+        .O(\PSKout[12]_i_6_n_0 ));
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[13]_i_1 
+    \PSKout[13]_i_1 
        (.I0(PSK_m_axis_tdata0[13]),
         .I1(Dout[13]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[13]_i_1_n_0 ));
+        .O(\PSKout[13]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[13]_i_3 
+    \PSKout[13]_i_3 
        (.I0(Dout[13]),
-        .O(\PSK_m_axis_tdata[13]_i_3_n_0 ));
+        .O(\PSKout[13]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[1]_i_1 
+    \PSKout[1]_i_1 
        (.I0(PSK_m_axis_tdata0[1]),
         .I1(Dout[1]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[1]_i_1_n_0 ));
+        .O(\PSKout[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[2]_i_1 
+    \PSKout[2]_i_1 
        (.I0(PSK_m_axis_tdata0[2]),
         .I1(Dout[2]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[2]_i_1_n_0 ));
+        .O(\PSKout[2]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[3]_i_1 
+    \PSKout[3]_i_1 
        (.I0(PSK_m_axis_tdata0[3]),
         .I1(Dout[3]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[3]_i_1_n_0 ));
+        .O(\PSKout[3]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[4]_i_1 
+    \PSKout[4]_i_1 
        (.I0(PSK_m_axis_tdata0[4]),
         .I1(Dout[4]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[4]_i_1_n_0 ));
+        .O(\PSKout[4]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[4]_i_3 
+    \PSKout[4]_i_3 
        (.I0(Dout[0]),
-        .O(\PSK_m_axis_tdata[4]_i_3_n_0 ));
+        .O(\PSKout[4]_i_3_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[4]_i_4 
+    \PSKout[4]_i_4 
        (.I0(Dout[4]),
-        .O(\PSK_m_axis_tdata[4]_i_4_n_0 ));
+        .O(\PSKout[4]_i_4_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[4]_i_5 
+    \PSKout[4]_i_5 
        (.I0(Dout[3]),
-        .O(\PSK_m_axis_tdata[4]_i_5_n_0 ));
+        .O(\PSKout[4]_i_5_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[4]_i_6 
+    \PSKout[4]_i_6 
        (.I0(Dout[2]),
-        .O(\PSK_m_axis_tdata[4]_i_6_n_0 ));
+        .O(\PSKout[4]_i_6_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[4]_i_7 
+    \PSKout[4]_i_7 
        (.I0(Dout[1]),
-        .O(\PSK_m_axis_tdata[4]_i_7_n_0 ));
+        .O(\PSKout[4]_i_7_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[5]_i_1 
+    \PSKout[5]_i_1 
        (.I0(PSK_m_axis_tdata0[5]),
         .I1(Dout[5]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[5]_i_1_n_0 ));
+        .O(\PSKout[5]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[6]_i_1 
+    \PSKout[6]_i_1 
        (.I0(PSK_m_axis_tdata0[6]),
         .I1(Dout[6]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[6]_i_1_n_0 ));
+        .O(\PSKout[6]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[7]_i_1 
+    \PSKout[7]_i_1 
        (.I0(PSK_m_axis_tdata0[7]),
         .I1(Dout[7]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[7]_i_1_n_0 ));
+        .O(\PSKout[7]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[8]_i_1 
+    \PSKout[8]_i_1 
        (.I0(PSK_m_axis_tdata0[8]),
         .I1(Dout[8]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[8]_i_1_n_0 ));
+        .O(\PSKout[8]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[8]_i_3 
+    \PSKout[8]_i_3 
        (.I0(Dout[8]),
-        .O(\PSK_m_axis_tdata[8]_i_3_n_0 ));
+        .O(\PSKout[8]_i_3_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[8]_i_4 
+    \PSKout[8]_i_4 
        (.I0(Dout[7]),
-        .O(\PSK_m_axis_tdata[8]_i_4_n_0 ));
+        .O(\PSKout[8]_i_4_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[8]_i_5 
+    \PSKout[8]_i_5 
        (.I0(Dout[6]),
-        .O(\PSK_m_axis_tdata[8]_i_5_n_0 ));
+        .O(\PSKout[8]_i_5_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \PSK_m_axis_tdata[8]_i_6 
+    \PSKout[8]_i_6 
        (.I0(Dout[5]),
-        .O(\PSK_m_axis_tdata[8]_i_6_n_0 ));
+        .O(\PSKout[8]_i_6_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hAC)) 
-    \PSK_m_axis_tdata[9]_i_1 
+    \PSKout[9]_i_1 
        (.I0(PSK_m_axis_tdata0[9]),
         .I1(Dout[9]),
         .I2(Modulation),
-        .O(\PSK_m_axis_tdata[9]_i_1_n_0 ));
-  FDRE \PSK_m_axis_tdata_reg[0] 
+        .O(\PSKout[9]_i_1_n_0 ));
+  FDRE \PSKout_reg[0] 
        (.C(Clock),
         .CE(1'b1),
         .D(Dout[0]),
         .Q(PSK_m_axis_tdata[0]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[10] 
+  FDRE \PSKout_reg[10] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[10]_i_1_n_0 ),
+        .D(\PSKout[10]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[10]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[11] 
+  FDRE \PSKout_reg[11] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[11]_i_1_n_0 ),
+        .D(\PSKout[11]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[11]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[12] 
+  FDRE \PSKout_reg[12] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[12]_i_1_n_0 ),
+        .D(\PSKout[12]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[12]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[13] 
+  FDRE \PSKout_reg[13] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[13]_i_1_n_0 ),
+        .D(\PSKout[13]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[13]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[1] 
+  FDRE \PSKout_reg[1] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[1]_i_1_n_0 ),
+        .D(\PSKout[1]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[1]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[2] 
+  FDRE \PSKout_reg[2] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[2]_i_1_n_0 ),
+        .D(\PSKout[2]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[2]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[3] 
+  FDRE \PSKout_reg[3] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[3]_i_1_n_0 ),
+        .D(\PSKout[3]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[3]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[4] 
+  FDRE \PSKout_reg[4] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[4]_i_1_n_0 ),
+        .D(\PSKout[4]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[4]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[5] 
+  FDRE \PSKout_reg[5] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[5]_i_1_n_0 ),
+        .D(\PSKout[5]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[5]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[6] 
+  FDRE \PSKout_reg[6] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[6]_i_1_n_0 ),
+        .D(\PSKout[6]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[6]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[7] 
+  FDRE \PSKout_reg[7] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[7]_i_1_n_0 ),
+        .D(\PSKout[7]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[7]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[8] 
+  FDRE \PSKout_reg[8] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[8]_i_1_n_0 ),
+        .D(\PSKout[8]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[8]),
         .R(1'b0));
-  FDRE \PSK_m_axis_tdata_reg[9] 
+  FDRE \PSKout_reg[9] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PSK_m_axis_tdata[9]_i_1_n_0 ),
+        .D(\PSKout[9]_i_1_n_0 ),
         .Q(PSK_m_axis_tdata[9]),
         .R(1'b0));
   system_PSK_0_0_NCO REF_OSC
        (.Clock(Clock),
         .Frequency(Frequency),
         .PSK_m_axis_tdata0(PSK_m_axis_tdata0),
-        .\PSK_m_axis_tdata_reg[12] ({\PSK_m_axis_tdata[12]_i_3_n_0 ,\PSK_m_axis_tdata[12]_i_4_n_0 ,\PSK_m_axis_tdata[12]_i_5_n_0 ,\PSK_m_axis_tdata[12]_i_6_n_0 }),
-        .\PSK_m_axis_tdata_reg[13] (\PSK_m_axis_tdata[13]_i_3_n_0 ),
-        .\PSK_m_axis_tdata_reg[4] (\PSK_m_axis_tdata[4]_i_3_n_0 ),
-        .\PSK_m_axis_tdata_reg[8] ({\PSK_m_axis_tdata[8]_i_3_n_0 ,\PSK_m_axis_tdata[8]_i_4_n_0 ,\PSK_m_axis_tdata[8]_i_5_n_0 ,\PSK_m_axis_tdata[8]_i_6_n_0 }),
+        .\PSKout_reg[12] ({\PSKout[12]_i_3_n_0 ,\PSKout[12]_i_4_n_0 ,\PSKout[12]_i_5_n_0 ,\PSKout[12]_i_6_n_0 }),
+        .\PSKout_reg[13] (\PSKout[13]_i_3_n_0 ),
+        .\PSKout_reg[4] (\PSKout[4]_i_3_n_0 ),
+        .\PSKout_reg[8] ({\PSKout[8]_i_3_n_0 ,\PSKout[8]_i_4_n_0 ,\PSKout[8]_i_5_n_0 ,\PSKout[8]_i_6_n_0 }),
         .Q(Dout),
         .Reset(Reset),
-        .S({\PSK_m_axis_tdata[4]_i_4_n_0 ,\PSK_m_axis_tdata[4]_i_5_n_0 ,\PSK_m_axis_tdata[4]_i_6_n_0 ,\PSK_m_axis_tdata[4]_i_7_n_0 }));
+        .S({\PSKout[4]_i_4_n_0 ,\PSKout[4]_i_5_n_0 ,\PSKout[4]_i_6_n_0 ,\PSKout[4]_i_7_n_0 }));
+  FDRE \REFout_reg[0] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[0]),
+        .Q(REFout[0]),
+        .R(1'b0));
+  FDRE \REFout_reg[10] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[10]),
+        .Q(REFout[10]),
+        .R(1'b0));
+  FDRE \REFout_reg[11] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[11]),
+        .Q(REFout[11]),
+        .R(1'b0));
+  FDRE \REFout_reg[12] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[12]),
+        .Q(REFout[12]),
+        .R(1'b0));
+  FDRE \REFout_reg[13] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[13]),
+        .Q(REFout[13]),
+        .R(1'b0));
+  FDRE \REFout_reg[1] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[1]),
+        .Q(REFout[1]),
+        .R(1'b0));
+  FDRE \REFout_reg[2] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[2]),
+        .Q(REFout[2]),
+        .R(1'b0));
+  FDRE \REFout_reg[3] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[3]),
+        .Q(REFout[3]),
+        .R(1'b0));
+  FDRE \REFout_reg[4] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[4]),
+        .Q(REFout[4]),
+        .R(1'b0));
+  FDRE \REFout_reg[5] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[5]),
+        .Q(REFout[5]),
+        .R(1'b0));
+  FDRE \REFout_reg[6] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[6]),
+        .Q(REFout[6]),
+        .R(1'b0));
+  FDRE \REFout_reg[7] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[7]),
+        .Q(REFout[7]),
+        .R(1'b0));
+  FDRE \REFout_reg[8] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[8]),
+        .Q(REFout[8]),
+        .R(1'b0));
+  FDRE \REFout_reg[9] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Dout[9]),
+        .Q(REFout[9]),
+        .R(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

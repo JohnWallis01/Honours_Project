@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "Clock_Divider,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_Clock_Divider_0_0,Clock_Divider,{}" *)
-(* CORE_GENERATION_INFO = "system_Clock_Divider_0_0,Clock_Divider,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Clock_Divider,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Div_Rate=3}" *)
+(* CORE_GENERATION_INFO = "system_Clock_Divider_0_0,Clock_Divider,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Clock_Divider,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Div_Rate=5}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_Clock_Divider_0_0 (
@@ -68,7 +68,7 @@ output wire DivClock_Out;
 input wire Reset;
 
   Clock_Divider #(
-    .Div_Rate(3)
+    .Div_Rate(5)
   ) inst (
     .DivClock_In(DivClock_In),
     .DivClock_Out(DivClock_Out),

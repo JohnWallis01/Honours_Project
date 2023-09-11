@@ -8,7 +8,9 @@ Measured = [int(element) for element in data[2:4097]]
 Ref = [int(element) for element in data[4099:4099+4095]]
 Measured = np.array(Measured)
 Ref = np.array(Ref)
-
+plt.plot(Ref)
+plt.plot(Measured)
+plt.show()
 
 delay = 1024+32
 refPRBS = (abs(Measured) / Measured)
