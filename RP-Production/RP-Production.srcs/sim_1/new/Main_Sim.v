@@ -53,7 +53,7 @@ module Main_Sim(
         tready = 1;
         #1;
         Reset = 1;
-        #1;
+        #10;
         Reset = 0;
         #1;
         k = 0;

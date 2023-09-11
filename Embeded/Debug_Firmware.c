@@ -145,7 +145,7 @@ int16_t convertUnsignedToSigned(uint16_t value)
 {
     int16_t signedValue = (int16_t)(value << 2);  // Shift left by 2 bits to align the sign
     signedValue >>= 2;  // Shift right by 2 bits to restore the sign
-    printf("%i\n",signedValue);
+    // printf("%i\n",signedValue);
     return signedValue;
 }
 
@@ -247,7 +247,7 @@ int main() {
     void *Ki = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_KI_ADDR);  
     void *Integrator_Reset = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_Integrator_Reset_ADDR);
     void *Debug_Freq = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Debug_Frequency_ADDR);
-    *(uint32_t*)Debug_Freq = (int)(10.0/125.0*pow(2,32));
+    *(uint32_t*)Debug_Freq = (int)(20.0/125.0*pow(2,32));
 
 
     *(uint32_t*)LFSR_Polynomial = TAPS_Polynomial; // This is the polynomial for an 8 bit LFSR

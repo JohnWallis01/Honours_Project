@@ -119,8 +119,8 @@ component HighPassFilter IS
 END component;
 
     --production signals
-  signal PLL_Freq, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
-  signal Target_Signal, Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal: std_logic_vector(13 downto 0);
+  signal PLL_Freq, PLL_FreqHalve, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
+  signal Target_Signal, Target_Signal_Doubled_Scaled , Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal, Second_Harmonoic_Locked: std_logic_vector(13 downto 0);
   signal Quadrature_Mixer_Output, Lock_Mixer_Output, Target_Signal_Squared: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
   signal Target_Signal_Doubled: std_logic_vector(55 downto 0);
@@ -131,7 +131,7 @@ END component;
   
   begin
 
-
+    Target_Signal_Doubled_Scaled <= Target_Signal_Doubled(51 downto 51-13);
   ---Init/Reset Process  
   process(AD_CLK_in)
   begin
@@ -154,8 +154,9 @@ END component;
   process(AD_CLK_in)
   begin
     if rising_edge(AD_CLK_in) then
-      PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) + signed(Control_Input));
-      Freq_Measured <= PLL_Freq;
+      PLL_Freq <= std_logic_vector( (signed(PLL_Guess_Freq) + signed(Control_Input)) ); --divide by 2 by shifting
+      PLL_FreqHalve <= PLL_Freq(31) & PLL_Freq(31 downto 1);
+      Freq_Measured <= PLL_FreqHalve;
     end if;
   end process;
 
@@ -177,8 +178,17 @@ END component;
       filter_out => Target_Signal_Doubled
   );
 
-
-
+  PLL_NCO_Havled: NCO
+  generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
+  port map(
+      Frequency => PLL_FreqHalve,
+      PhaseOffset => (others => '0'),
+      clock => AD_CLK_in,
+      rst => Reset_In,
+      Dout => Second_Harmonoic_Locked,  
+      Quadrature_out => open,
+      Phase_out => Phase_Measured
+  );
 
   PLL_NCO: NCO
   generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
@@ -189,13 +199,13 @@ END component;
       rst => Reset_In,
       Dout => Locked_Signal,  
       Quadrature_out => Quadrature_Signal,
-      Phase_out => Phase_Measured
+      Phase_out => open
   );
 
   Quadrature_Mixer: Mixer
   generic map(MixerSize => 14)
   port map(
-    Q1 => Target_Signal_Doubled(55 downto 55-13),
+    Q1 => Target_Signal_Doubled_Scaled,
     Q2 => Quadrature_Signal,
     Dout => Quadrature_Mixer_Output,
     clk => AD_CLK_in,
@@ -230,7 +240,7 @@ END component;
   Lock_Mixer: Mixer
   generic map(MixerSize => 14)
   port map(
-    Q1 => Target_Signal_Doubled(55 downto 55-13),
+    Q1 => Target_Signal_Doubled_Scaled,
     Q2 => Locked_Signal,
     Dout => Lock_Mixer_Output,
     clk => AD_CLK_in,
@@ -254,7 +264,7 @@ END component;
   DAC_Stream_out(31 downto 30) <= "00";
   DAC_Stream_out(15 downto 14) <= "00";
 
-  DAC_Stream_out(13 downto 0) <= Locked_Signal;
+  DAC_Stream_out(13 downto 0) <= Second_Harmonoic_Locked;
   DAC_Stream_out(29 downto 16) <= Target_Signal;
 
 end architecture;

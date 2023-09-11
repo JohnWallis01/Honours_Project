@@ -86,6 +86,52 @@ architecture Behavioral of Testing_Architecture is
         ) ;
       end component;
 
+      component Squared_Phase_Locked_Loop is
+        generic(CHANNEL : integer := 0); --set to zero to input on ADC 1, set to 1 to input on ADC 1);
+        port (
+    
+        ------GPIO's
+        PLL_Guess_Freq: in std_logic_vector(31 downto 0);
+    
+        -- Debug_Signal_Select: in std_logic_vector(2 downto 0);
+    
+        --PLL Conrols
+        Control_Kp: in std_logic_vector(31 downto 0);
+        Control_Ki: in std_logic_vector(31 downto 0);
+    
+        --Measurments
+        Freq_Measured: out std_logic_vector(31 downto 0);
+        Phase_Measured: out std_logic_vector(31 downto 0);
+        Lock_Strength: out std_logic_vector(25 downto 0);
+    
+        ------ADC Control
+        ADC_Stream_in: in std_logic_vector(31 downto 0);
+        ------DAC control   
+        DAC_Stream_out: out std_logic_vector(31 downto 0);
+        
+    
+        ---General
+        AD_CLK_in: in std_logic;
+        Reset_In: in std_logic;
+        Reset_Out: out std_logic;
+        Integrator_Reset: in std_logic
+    
+        --Debug
+        -- Debug_Signal: out std_logic_vector(13 downto 0);
+        -- Timer_Value: out std_logic_vector(31 downto 0);
+        -- Timer_Enable: in std_logic;
+    
+        );
+    
+    
+    
+    
+    end component;
+
+
+
+
+
     signal NCO_Data: std_logic_vector(13 downto 0);
     signal Squared_Data: std_logic_vector(27 downto 0);
     signal Freq_Doubled: std_logic_vector(55 downto 0);
@@ -103,23 +149,22 @@ architecture Behavioral of Testing_Architecture is
         PSK_m_axis_tdata => open,
         PSK_m_axis_tvalid => open 
         );
-    Squarer: Mixer
-    generic map(MixerSize => 14)
+    PLL: Squared_Phase_Locked_Loop
+    generic map (channel => 0)
     port map(
-        Q1 => NCO_Data,
-        Q2 => NCO_Data,
-        Dout => Squared_Data,
-        clk => Clock,
-        Reset => Reset
-    );
-
-    Filter: HighPassFilter
-    port map(
-        clk => Clock,
-        clk_enable => '1',
-        reset => Reset,
-        filter_in => Squared_Data,
-        filter_out => Freq_Doubled
+        PLL_Guess_Freq =>   std_logic_vector(to_unsigned(2*343597384, 32)),
+        Control_Kp =>       std_logic_vector(to_signed(-196607, 32)),
+        Control_Ki =>       std_logic_vector(to_signed(-7, 32)),
+        Freq_Measured => open,
+        Phase_Measured => open,
+        Lock_Strength => open,
+        ADC_Stream_In(13 downto 0) => NCO_Data,
+        ADC_Stream_In(31 downto 14 ) => (others => '0'),
+        DAC_Stream_out => open,
+        AD_CLK_in => Clock,
+        Reset_In => Reset,
+        Reset_Out => open,
+        Integrator_Reset => '0'
     );
 
 end Behavioral;

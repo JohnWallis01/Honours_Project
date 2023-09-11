@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Main_Sim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Main_Sim" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.173000 us"></ZoomStartTime>
+      <ZoomEndTime time="198.573001 us"></ZoomEndTime>
+      <Cursor1Time time="39.373000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="455"></NameColumnWidth>
+      <ValueColumnWidth column_width="224"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/Main_Sim/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Freq_Measured" type="array">
+      <obj_property name="ElementShortName">Freq_Measured[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Freq_Measured[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Phase_Measured" type="array">
+      <obj_property name="ElementShortName">Phase_Measured[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Phase_Measured[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Lock_Strength" type="array">
+      <obj_property name="ElementShortName">Lock_Strength[25:0]</obj_property>
+      <obj_property name="ObjectShortName">Lock_Strength[25:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/PLL_Freq" type="array">
+      <obj_property name="ElementShortName">PLL_Freq[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PLL_Freq[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Control_Input" type="array">
+      <obj_property name="ElementShortName">Control_Input[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Control_Input[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Target_Signal" type="array">
+      <obj_property name="ElementShortName">Target_Signal[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Target_Signal[13:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Locked_Signal" type="array">
+      <obj_property name="ElementShortName">Locked_Signal[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Locked_Signal[13:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Quadrature_Signal" type="array">
+      <obj_property name="ElementShortName">Quadrature_Signal[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Quadrature_Signal[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Quadrature_Mixer_Output" type="array">
+      <obj_property name="ElementShortName">Quadrature_Mixer_Output[27:0]</obj_property>
+      <obj_property name="ObjectShortName">Quadrature_Mixer_Output[27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Lock_Mixer_Output" type="array">
+      <obj_property name="ElementShortName">Lock_Mixer_Output[27:0]</obj_property>
+      <obj_property name="ObjectShortName">Lock_Mixer_Output[27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Target_Signal_Squared" type="array">
+      <obj_property name="ElementShortName">Target_Signal_Squared[27:0]</obj_property>
+      <obj_property name="ObjectShortName">Target_Signal_Squared[27:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Error_Signal" type="array">
+      <obj_property name="ElementShortName">Error_Signal[25:0]</obj_property>
+      <obj_property name="ObjectShortName">Error_Signal[25:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Target_Signal_Doubled" type="array">
+      <obj_property name="ElementShortName">Target_Signal_Doubled[55:0]</obj_property>
+      <obj_property name="ObjectShortName">Target_Signal_Doubled[55:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-7.98237e+14</obj_property>
+      <obj_property name="AnalogYRRangeMax">2.34855e+15</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/CHANNEL" type="other">
+      <obj_property name="ElementShortName">CHANNEL</obj_property>
+      <obj_property name="ObjectShortName">CHANNEL</obj_property>
+   </wvobject>
+</wave_config>

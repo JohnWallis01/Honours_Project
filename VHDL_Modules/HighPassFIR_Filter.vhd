@@ -114,71 +114,71 @@ ARCHITECTURE rtl OF HighPassFilter IS
   -- Signals
   SIGNAL delay_pipeline                   : delay_pipeline_type(0 TO 32); -- sfix28
   SIGNAL product33                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp                         : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul                         : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product32                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_1                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_1                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product31                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_2                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_2                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product30                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_3                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_3                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product29                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_4                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_4                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product28                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_5                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_5                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product27                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_6                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_6                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product26                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_7                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_7                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product25                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_8                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_8                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product24                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_9                       : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_9                       : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product23                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_10                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_10                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product22                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_11                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_11                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product21                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_12                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_12                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product20                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_13                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_13                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product19                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_14                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_14                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product18                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_15                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_15                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product17                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_16                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_16                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product16                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_17                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_17                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product15                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_18                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_18                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product14                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_19                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_19                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product13                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_20                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_20                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product12                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_21                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_21                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product11                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_22                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_22                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product10                        : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_23                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_23                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product9                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_24                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_24                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product8                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_25                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_25                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product7                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_26                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_26                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product6                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_27                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_27                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product5                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_28                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_28                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product4                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_29                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_29                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product3                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_30                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_30                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product2                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_31                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_31                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL product1                         : signed(54 DOWNTO 0); -- sfix55_En27
-  SIGNAL mul_temp_32                      : signed(55 DOWNTO 0); -- sfix56_En27
+  SIGNAL mul_32                      : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL sum_final                        : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL sum1_1                           : signed(55 DOWNTO 0); -- sfix56_En27
   SIGNAL sumpipe1_1                       : signed(55 DOWNTO 0); -- sfix56_En27
@@ -284,136 +284,228 @@ BEGIN
     END IF; 
   END PROCESS Delay_Pipeline_process;
 
-  mul_temp <= delay_pipeline(32) * coeff33;
-  product33 <= mul_temp(54 DOWNTO 0);
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if reset = '1' then
+        mul <= (others => '0');
+        mul_1 <= (others => '0');
+        mul_2 <= (others => '0');
+        mul_3 <= (others => '0');
+        mul_4 <= (others => '0');
+        mul_5 <= (others => '0');
+        mul_6 <= (others => '0');
+        mul_7 <= (others => '0');
+        mul_8 <= (others => '0');
+        mul_9 <= (others => '0');
+        mul_10 <= (others => '0');
+        mul_11 <= (others => '0');
+        mul_12 <= (others => '0');
+        mul_13 <= (others => '0');
+        mul_14 <= (others => '0');
+        mul_15 <= (others => '0');
+        mul_16 <= (others => '0');
+        mul_17 <= (others => '0');
+        mul_18 <= (others => '0');
+        mul_19 <= (others => '0');
+        mul_20 <= (others => '0');
+        mul_21 <= (others => '0');
+        mul_22 <= (others => '0');
+        mul_23 <= (others => '0');
+        mul_24 <= (others => '0');
+        mul_25 <= (others => '0');
+        mul_26 <= (others => '0');
+        mul_27 <= (others => '0');
+        mul_28 <= (others => '0');
+        mul_29 <= (others => '0');
+        mul_30 <= (others => '0');
+        mul_31 <= (others => '0');
+        mul_32 <= (others => '0');
 
-  mul_temp_1 <= delay_pipeline(31) * coeff32;
-  product32 <= mul_temp_1(54 DOWNTO 0);
+        product1 <= (others => '0');
+        product2 <= (others => '0');
+        product3 <= (others => '0');
+        product4 <= (others => '0');
+        product5 <= (others => '0');
+        product6 <= (others => '0');
+        product7 <= (others => '0');
+        product8 <= (others => '0');
+        product9 <= (others => '0');
+        product10 <= (others => '0');
+        product11 <= (others => '0');
+        product12 <= (others => '0');
+        product13 <= (others => '0');
+        product14 <= (others => '0');
+        product15 <= (others => '0');
+        product16 <= (others => '0');
+        product17 <= (others => '0');
+        product18 <= (others => '0');
+        product19 <= (others => '0');
+        product20 <= (others => '0');
+        product21 <= (others => '0');
+        product22 <= (others => '0');
+        product23 <= (others => '0');
+        product24 <= (others => '0');
+        product25 <= (others => '0');
+        product26 <= (others => '0');
+        product27 <= (others => '0');
+        product28 <= (others => '0');
+        product29 <= (others => '0');
+        product30 <= (others => '0');
+        product31 <= (others => '0');
+        product32 <= (others => '0');
+        product33 <= (others => '0');
 
-  mul_temp_2 <= delay_pipeline(30) * coeff31;
-  product31 <= mul_temp_2(54 DOWNTO 0);
+        sum1_1 <= (others => '0');
+        sum1_2 <= (others => '0');
+        sum1_3 <= (others => '0');
+        sum1_4 <= (others => '0');
+        sum1_5 <= (others => '0');
+        sum1_6 <= (others => '0');
+        sum1_7 <= (others => '0');
+        sum1_8 <= (others => '0');
+        sum1_9 <= (others => '0');
+        sum1_10 <= (others => '0');
+        sum1_11 <= (others => '0');
+        sum1_12 <= (others => '0');
+        sum1_13 <= (others => '0');
+        sum1_14 <= (others => '0');
+        sum1_15 <= (others => '0');
+        sum1_16 <= (others => '0');
+      else
+        mul <= delay_pipeline(32) * coeff33;
+        product33 <= mul(54 DOWNTO 0);
 
-  mul_temp_3 <= delay_pipeline(29) * coeff30;
-  product30 <= mul_temp_3(54 DOWNTO 0);
+        mul_1 <= delay_pipeline(31) * coeff32;
+        product32 <= mul_1(54 DOWNTO 0);
 
-  mul_temp_4 <= delay_pipeline(28) * coeff29;
-  product29 <= mul_temp_4(54 DOWNTO 0);
+        mul_2 <= delay_pipeline(30) * coeff31;
+        product31 <= mul_2(54 DOWNTO 0);
 
-  mul_temp_5 <= delay_pipeline(27) * coeff28;
-  product28 <= mul_temp_5(54 DOWNTO 0);
+        mul_3 <= delay_pipeline(29) * coeff30;
+        product30 <= mul_3(54 DOWNTO 0);
 
-  mul_temp_6 <= delay_pipeline(26) * coeff27;
-  product27 <= mul_temp_6(54 DOWNTO 0);
+        mul_4 <= delay_pipeline(28) * coeff29;
+        product29 <= mul_4(54 DOWNTO 0);
 
-  mul_temp_7 <= delay_pipeline(25) * coeff26;
-  product26 <= mul_temp_7(54 DOWNTO 0);
+        mul_5 <= delay_pipeline(27) * coeff28;
+        product28 <= mul_5(54 DOWNTO 0);
 
-  mul_temp_8 <= delay_pipeline(24) * coeff25;
-  product25 <= mul_temp_8(54 DOWNTO 0);
+        mul_6 <= delay_pipeline(26) * coeff27;
+        product27 <= mul_6(54 DOWNTO 0);
 
-  mul_temp_9 <= delay_pipeline(23) * coeff24;
-  product24 <= mul_temp_9(54 DOWNTO 0);
+        mul_7 <= delay_pipeline(25) * coeff26;
+        product26 <= mul_7(54 DOWNTO 0);
 
-  mul_temp_10 <= delay_pipeline(22) * coeff23;
-  product23 <= mul_temp_10(54 DOWNTO 0);
+        mul_8 <= delay_pipeline(24) * coeff25;
+        product25 <= mul_8(54 DOWNTO 0);
 
-  mul_temp_11 <= delay_pipeline(21) * coeff22;
-  product22 <= mul_temp_11(54 DOWNTO 0);
+        mul_9 <= delay_pipeline(23) * coeff24;
+        product24 <= mul_9(54 DOWNTO 0);
 
-  mul_temp_12 <= delay_pipeline(20) * coeff21;
-  product21 <= mul_temp_12(54 DOWNTO 0);
+        mul_10 <= delay_pipeline(22) * coeff23;
+        product23 <= mul_10(54 DOWNTO 0);
 
-  mul_temp_13 <= delay_pipeline(19) * coeff20;
-  product20 <= mul_temp_13(54 DOWNTO 0);
+        mul_11 <= delay_pipeline(21) * coeff22;
+        product22 <= mul_11(54 DOWNTO 0);
 
-  mul_temp_14 <= delay_pipeline(18) * coeff19;
-  product19 <= mul_temp_14(54 DOWNTO 0);
+        mul_12 <= delay_pipeline(20) * coeff21;
+        product21 <= mul_12(54 DOWNTO 0);
 
-  mul_temp_15 <= delay_pipeline(17) * coeff18;
-  product18 <= mul_temp_15(54 DOWNTO 0);
+        mul_13 <= delay_pipeline(19) * coeff20;
+        product20 <= mul_13(54 DOWNTO 0);
 
-  mul_temp_16 <= delay_pipeline(16) * coeff17;
-  product17 <= mul_temp_16(54 DOWNTO 0);
+        mul_14 <= delay_pipeline(18) * coeff19;
+        product19 <= mul_14(54 DOWNTO 0);
 
-  mul_temp_17 <= delay_pipeline(15) * coeff16;
-  product16 <= mul_temp_17(54 DOWNTO 0);
+        mul_15 <= delay_pipeline(17) * coeff18;
+        product18 <= mul_15(54 DOWNTO 0);
 
-  mul_temp_18 <= delay_pipeline(14) * coeff15;
-  product15 <= mul_temp_18(54 DOWNTO 0);
+        mul_16 <= delay_pipeline(16) * coeff17;
+        product17 <= mul_16(54 DOWNTO 0);
 
-  mul_temp_19 <= delay_pipeline(13) * coeff14;
-  product14 <= mul_temp_19(54 DOWNTO 0);
+        mul_17 <= delay_pipeline(15) * coeff16;
+        product16 <= mul_17(54 DOWNTO 0);
 
-  mul_temp_20 <= delay_pipeline(12) * coeff13;
-  product13 <= mul_temp_20(54 DOWNTO 0);
+        mul_18 <= delay_pipeline(14) * coeff15;
+        product15 <= mul_18(54 DOWNTO 0);
 
-  mul_temp_21 <= delay_pipeline(11) * coeff12;
-  product12 <= mul_temp_21(54 DOWNTO 0);
+        mul_19 <= delay_pipeline(13) * coeff14;
+        product14 <= mul_19(54 DOWNTO 0);
 
-  mul_temp_22 <= delay_pipeline(10) * coeff11;
-  product11 <= mul_temp_22(54 DOWNTO 0);
+        mul_20 <= delay_pipeline(12) * coeff13;
+        product13 <= mul_20(54 DOWNTO 0);
 
-  mul_temp_23 <= delay_pipeline(9) * coeff10;
-  product10 <= mul_temp_23(54 DOWNTO 0);
+        mul_21 <= delay_pipeline(11) * coeff12;
+        product12 <= mul_21(54 DOWNTO 0);
 
-  mul_temp_24 <= delay_pipeline(8) * coeff9;
-  product9 <= mul_temp_24(54 DOWNTO 0);
+        mul_22 <= delay_pipeline(10) * coeff11;
+        product11 <= mul_22(54 DOWNTO 0);
 
-  mul_temp_25 <= delay_pipeline(7) * coeff8;
-  product8 <= mul_temp_25(54 DOWNTO 0);
+        mul_23 <= delay_pipeline(9) * coeff10;
+        product10 <= mul_23(54 DOWNTO 0);
 
-  mul_temp_26 <= delay_pipeline(6) * coeff7;
-  product7 <= mul_temp_26(54 DOWNTO 0);
+        mul_24 <= delay_pipeline(8) * coeff9;
+        product9 <= mul_24(54 DOWNTO 0);
 
-  mul_temp_27 <= delay_pipeline(5) * coeff6;
-  product6 <= mul_temp_27(54 DOWNTO 0);
+        mul_25 <= delay_pipeline(7) * coeff8;
+        product8 <= mul_25(54 DOWNTO 0);
 
-  mul_temp_28 <= delay_pipeline(4) * coeff5;
-  product5 <= mul_temp_28(54 DOWNTO 0);
+        mul_26 <= delay_pipeline(6) * coeff7;
+        product7 <= mul_26(54 DOWNTO 0);
 
-  mul_temp_29 <= delay_pipeline(3) * coeff4;
-  product4 <= mul_temp_29(54 DOWNTO 0);
+        mul_27 <= delay_pipeline(5) * coeff6;
+        product6 <= mul_27(54 DOWNTO 0);
 
-  mul_temp_30 <= delay_pipeline(2) * coeff3;
-  product3 <= mul_temp_30(54 DOWNTO 0);
+        mul_28 <= delay_pipeline(4) * coeff5;
+        product5 <= mul_28(54 DOWNTO 0);
 
-  mul_temp_31 <= delay_pipeline(1) * coeff2;
-  product2 <= mul_temp_31(54 DOWNTO 0);
+        mul_29 <= delay_pipeline(3) * coeff4;
+        product4 <= mul_29(54 DOWNTO 0);
 
-  mul_temp_32 <= delay_pipeline(0) * coeff1;
-  product1 <= mul_temp_32(54 DOWNTO 0);
+        mul_30 <= delay_pipeline(2) * coeff3;
+        product3 <= mul_30(54 DOWNTO 0);
 
-  sum1_1 <= resize(product33, 56) + resize(product32, 56);
+        mul_31 <= delay_pipeline(1) * coeff2;
+        product2 <= mul_31(54 DOWNTO 0);
 
-  sum1_2 <= resize(product31, 56) + resize(product30, 56);
+        mul_32 <= delay_pipeline(0) * coeff1;
+        product1 <= mul_32(54 DOWNTO 0);
 
-  sum1_3 <= resize(product29, 56) + resize(product28, 56);
+        sum1_1 <= resize(product33, 56) + resize(product32, 56);
 
-  sum1_4 <= resize(product27, 56) + resize(product26, 56);
+        sum1_2 <= resize(product31, 56) + resize(product30, 56);
 
-  sum1_5 <= resize(product25, 56) + resize(product24, 56);
+        sum1_3 <= resize(product29, 56) + resize(product28, 56);
 
-  sum1_6 <= resize(product23, 56) + resize(product22, 56);
+        sum1_4 <= resize(product27, 56) + resize(product26, 56);
 
-  sum1_7 <= resize(product21, 56) + resize(product20, 56);
+        sum1_5 <= resize(product25, 56) + resize(product24, 56);
 
-  sum1_8 <= resize(product19, 56) + resize(product18, 56);
+        sum1_6 <= resize(product23, 56) + resize(product22, 56);
 
-  sum1_9 <= resize(product17, 56) + resize(product16, 56);
+        sum1_7 <= resize(product21, 56) + resize(product20, 56);
 
-  sum1_10 <= resize(product15, 56) + resize(product14, 56);
+        sum1_8 <= resize(product19, 56) + resize(product18, 56);
 
-  sum1_11 <= resize(product13, 56) + resize(product12, 56);
+        sum1_9 <= resize(product17, 56) + resize(product16, 56);
 
-  sum1_12 <= resize(product11, 56) + resize(product10, 56);
+        sum1_10 <= resize(product15, 56) + resize(product14, 56);
 
-  sum1_13 <= resize(product9, 56) + resize(product8, 56);
+        sum1_11 <= resize(product13, 56) + resize(product12, 56);
 
-  sum1_14 <= resize(product7, 56) + resize(product6, 56);
+        sum1_12 <= resize(product11, 56) + resize(product10, 56);
 
-  sum1_15 <= resize(product5, 56) + resize(product4, 56);
+        sum1_13 <= resize(product9, 56) + resize(product8, 56);
 
-  sum1_16 <= resize(product3, 56) + resize(product2, 56);
+        sum1_14 <= resize(product7, 56) + resize(product6, 56);
+
+        sum1_15 <= resize(product5, 56) + resize(product4, 56);
+
+        sum1_16 <= resize(product3, 56) + resize(product2, 56);
+      end if;
+    end if;
+  end process;
 
   temp_process1 : PROCESS (clk, reset)
   BEGIN
@@ -457,30 +549,56 @@ BEGIN
       END IF;
     END IF; 
   END PROCESS temp_process1;
+    
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if reset = '1' then
+        sum2_1 <= (others => '0');
+        sum2_2 <= (others => '0');
+        sum2_3 <= (others => '0');
+        sum2_4 <= (others => '0');
+        sum2_5 <= (others => '0');
+        sum2_6 <= (others => '0');
+        sum2_7 <= (others => '0');
+        sum2_8 <= (others => '0');
 
-  add_temp <= resize(sumpipe1_1, 57) + resize(sumpipe1_2, 57);
-  sum2_1 <= add_temp(55 DOWNTO 0);
+        add_temp <= (others => '0');
+        add_temp_1 <= (others => '0');
+        add_temp_2 <= (others => '0');
+        add_temp_3 <= (others => '0');
+        add_temp_4 <= (others => '0');
+        add_temp_5 <= (others => '0');
+        add_temp_6 <= (others => '0');
+        add_temp_7 <= (others => '0');
 
-  add_temp_1 <= resize(sumpipe1_3, 57) + resize(sumpipe1_4, 57);
-  sum2_2 <= add_temp_1(55 DOWNTO 0);
+      else
+        add_temp <= resize(sumpipe1_1, 57) + resize(sumpipe1_2, 57);
+        sum2_1 <= add_temp(55 DOWNTO 0);
 
-  add_temp_2 <= resize(sumpipe1_5, 57) + resize(sumpipe1_6, 57);
-  sum2_3 <= add_temp_2(55 DOWNTO 0);
+        add_temp_1 <= resize(sumpipe1_3, 57) + resize(sumpipe1_4, 57);
+        sum2_2 <= add_temp_1(55 DOWNTO 0);
 
-  add_temp_3 <= resize(sumpipe1_7, 57) + resize(sumpipe1_8, 57);
-  sum2_4 <= add_temp_3(55 DOWNTO 0);
+        add_temp_2 <= resize(sumpipe1_5, 57) + resize(sumpipe1_6, 57);
+        sum2_3 <= add_temp_2(55 DOWNTO 0);
 
-  add_temp_4 <= resize(sumpipe1_9, 57) + resize(sumpipe1_10, 57);
-  sum2_5 <= add_temp_4(55 DOWNTO 0);
+        add_temp_3 <= resize(sumpipe1_7, 57) + resize(sumpipe1_8, 57);
+        sum2_4 <= add_temp_3(55 DOWNTO 0);
 
-  add_temp_5 <= resize(sumpipe1_11, 57) + resize(sumpipe1_12, 57);
-  sum2_6 <= add_temp_5(55 DOWNTO 0);
+        add_temp_4 <= resize(sumpipe1_9, 57) + resize(sumpipe1_10, 57);
+        sum2_5 <= add_temp_4(55 DOWNTO 0);
 
-  add_temp_6 <= resize(sumpipe1_13, 57) + resize(sumpipe1_14, 57);
-  sum2_7 <= add_temp_6(55 DOWNTO 0);
+        add_temp_5 <= resize(sumpipe1_11, 57) + resize(sumpipe1_12, 57);
+        sum2_6 <= add_temp_5(55 DOWNTO 0);
 
-  add_temp_7 <= resize(sumpipe1_15, 57) + resize(sumpipe1_16, 57);
-  sum2_8 <= add_temp_7(55 DOWNTO 0);
+        add_temp_6 <= resize(sumpipe1_13, 57) + resize(sumpipe1_14, 57);
+        sum2_7 <= add_temp_6(55 DOWNTO 0);
+
+        add_temp_7 <= resize(sumpipe1_15, 57) + resize(sumpipe1_16, 57);
+        sum2_8 <= add_temp_7(55 DOWNTO 0);
+      end if;
+    end if;
+  end process;
 
   temp_process2 : PROCESS (clk, reset)
   BEGIN
@@ -509,17 +627,34 @@ BEGIN
     END IF; 
   END PROCESS temp_process2;
 
-  add_temp_8 <= resize(sumpipe2_1, 57) + resize(sumpipe2_2, 57);
-  sum3_1 <= add_temp_8(55 DOWNTO 0);
+  process(clk)
+  begin 
+      if rising_edge(clk) then
+        if reset = '1' then
+          add_temp_8 <= (others => '0');
+          add_temp_9 <= (others => '0');
+          add_temp_10 <= (others => '0');
+          add_temp_11 <= (others => '0');
+          sum3_1 <= (others => '0');
+          sum3_2 <= (others => '0');
+          sum3_3 <= (others => '0');
+          sum3_4 <= (others => '0');
 
-  add_temp_9 <= resize(sumpipe2_3, 57) + resize(sumpipe2_4, 57);
-  sum3_2 <= add_temp_9(55 DOWNTO 0);
-
-  add_temp_10 <= resize(sumpipe2_5, 57) + resize(sumpipe2_6, 57);
-  sum3_3 <= add_temp_10(55 DOWNTO 0);
-
-  add_temp_11 <= resize(sumpipe2_7, 57) + resize(sumpipe2_8, 57);
-  sum3_4 <= add_temp_11(55 DOWNTO 0);
+        else
+          add_temp_8 <= resize(sumpipe2_1, 57) + resize(sumpipe2_2, 57);
+          sum3_1 <= add_temp_8(55 DOWNTO 0);
+        
+          add_temp_9 <= resize(sumpipe2_3, 57) + resize(sumpipe2_4, 57);
+          sum3_2 <= add_temp_9(55 DOWNTO 0);
+        
+          add_temp_10 <= resize(sumpipe2_5, 57) + resize(sumpipe2_6, 57);
+          sum3_3 <= add_temp_10(55 DOWNTO 0);
+        
+          add_temp_11 <= resize(sumpipe2_7, 57) + resize(sumpipe2_8, 57);
+          sum3_4 <= add_temp_11(55 DOWNTO 0);
+        end if;
+      end if;
+    end process;
 
   temp_process3 : PROCESS (clk, reset)
   BEGIN
@@ -540,11 +675,25 @@ BEGIN
     END IF; 
   END PROCESS temp_process3;
 
-  add_temp_12 <= resize(sumpipe3_1, 57) + resize(sumpipe3_2, 57);
-  sum4_1 <= add_temp_12(55 DOWNTO 0);
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if reset = '1' then
+        add_temp_12 <= (others => '0');
+        add_temp_13 <= (others => '0');
+        sum4_1 <= (others => '0');
+        sum4_2 <= (others => '0');
 
-  add_temp_13 <= resize(sumpipe3_3, 57) + resize(sumpipe3_4, 57);
-  sum4_2 <= add_temp_13(55 DOWNTO 0);
+      else
+        add_temp_12 <= resize(sumpipe3_1, 57) + resize(sumpipe3_2, 57);
+        sum4_1 <= add_temp_12(55 DOWNTO 0);
+      
+        add_temp_13 <= resize(sumpipe3_3, 57) + resize(sumpipe3_4, 57);
+        sum4_2 <= add_temp_13(55 DOWNTO 0);
+      end if;
+    end if;
+  end process;
+
 
   temp_process4 : PROCESS (clk, reset)
   BEGIN
@@ -560,9 +709,18 @@ BEGIN
       END IF;
     END IF; 
   END PROCESS temp_process4;
-
-  add_temp_14 <= resize(sumpipe4_1, 57) + resize(sumpipe4_2, 57);
-  sum5_1 <= add_temp_14(55 DOWNTO 0);
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if reset = '1' then
+        add_temp_14 <= (others => '0');
+        sum5_1 <= (others => '0');
+      else
+        add_temp_14 <= resize(sumpipe4_1, 57) + resize(sumpipe4_2, 57);
+        sum5_1 <= add_temp_14(55 DOWNTO 0);
+      end if;
+    end if;
+  end process;
 
   temp_process5 : PROCESS (clk, reset)
   BEGIN
@@ -577,9 +735,18 @@ BEGIN
     END IF; 
   END PROCESS temp_process5;
 
-  add_temp_15 <= resize(sumpipe5_1, 57) + resize(sumpipe5_2, 57);
-  sum6_1 <= add_temp_15(55 DOWNTO 0);
-
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if reset = '1' then
+        add_temp_15 <= (others => '0');
+        sum6_1  <= (others => '0');
+      else
+        add_temp_15 <= resize(sumpipe5_1, 57) + resize(sumpipe5_2, 57);
+        sum6_1 <= add_temp_15(55 DOWNTO 0);
+      end if;
+    end if;
+  end process;
   temp_process6 : PROCESS (clk, reset)
   BEGIN
     IF reset = '1' THEN
@@ -591,9 +758,20 @@ BEGIN
     END IF; 
   END PROCESS temp_process6;
 
-  sum_final <= sumpipe6_1;
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if reset = '1' then
+          sum_final           <= (others => '0');
+          output_typeconvert  <= (others => '0');
+        else
 
-  output_typeconvert <= sum_final;
+          sum_final <= sumpipe6_1;
+
+          output_typeconvert <= sum_final;
+        end if;
+      end if;
+  end process;
 
   Output_Register_process : PROCESS (clk, reset)
   BEGIN
