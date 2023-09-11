@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1694407692" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1694427173" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="system_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="system_wrapper_reports.tcl"/>
@@ -53,7 +53,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VHDL_Modules/HighPassFIR_Filter.vhd">
+    <File Path="$PPRDIR/../VHDL_Modules/LiteHPFilter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -92,6 +92,13 @@
         <Attr Name="ImportTime" Val="1678780743"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/HighPassFIR_Filter.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -172,13 +179,13 @@
   <Strategy Version="1" Minor="2">
     <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design">
+      <Option Id="Directive">7</Option>
       <Option Id="IncrementalMode">3</Option>
-      <Option Id="NoCombineLuts">1</Option>
       <Option Id="ResourceSharing">2</Option>
-      <Option Id="FsmExtraction">1</Option>
+      <Option Id="NoCombineLuts">1</Option>
       <Option Id="ShregMinSize">5</Option>
       <Option Id="KeepEquivalentRegisters">1</Option>
-      <Option Id="Directive">7</Option>
+      <Option Id="FsmExtraction">1</Option>
     </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>

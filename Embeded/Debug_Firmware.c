@@ -158,7 +158,7 @@ complex double * ADC_memdump(void* virtual_address, int byte_count) {
     char *p = virtual_address;
     static double complex computed_stream[TransferWindow/4];
     int offset;
-    printf("Measured Signal: \n");
+    // printf("Measured Signal: \n");
     for (offset = 0; offset < byte_count; offset = offset + 4) {
         computed_stream[offset/4] = (double)mempipe(p[offset], p[offset+1]);
     }
@@ -169,7 +169,7 @@ complex double * REF_memdump(void* virtual_address, int byte_count) {
     char *p = virtual_address;
     static double complex computed_stream[TransferWindow/4];
     int offset;
-    printf("Local Ref Signal: \n");
+    // printf("Local Ref Signal: \n");
     for (offset = 0; offset < byte_count; offset = offset + 4) {
         computed_stream[offset/4] = (double)mempipe(p[offset+2], p[offset+3]);
     }
@@ -247,7 +247,7 @@ int main() {
     void *Ki = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_KI_ADDR);  
     void *Integrator_Reset = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PLL_Integrator_Reset_ADDR);
     void *Debug_Freq = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Debug_Frequency_ADDR);
-    *(uint32_t*)Debug_Freq = (int)(20.0/125.0*pow(2,32));
+    *(uint32_t*)Debug_Freq = (int)(10.0/125.0*pow(2,32));
 
 
     *(uint32_t*)LFSR_Polynomial = TAPS_Polynomial; // This is the polynomial for an 8 bit LFSR
@@ -279,8 +279,8 @@ int main() {
         ADC_Data = ADC_memdump(virtual_destination_address, TransferWindow);
         REF_Data = REF_memdump(virtual_destination_address, TransferWindow);
         // exit(1);
-        int Max_n = Delay_Match(REF_Data, ADC_Data);
-        printf("Estimated Delay: %u\n", (Max_n/PRBS_DIV)-1);
+        // int Max_n = Delay_Match(REF_Data, ADC_Data);
+        // printf("Estimated Delay: %u\n", (Max_n/PRBS_DIV)-1);
         //Compute the Fourier Transform and store in ADC_Datas
         FFT(ADC_Data, TransferWindow/4);
         //Find the bin with the highest energy

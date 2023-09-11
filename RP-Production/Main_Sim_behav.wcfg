@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.173000 us"></ZoomStartTime>
-      <ZoomEndTime time="198.573001 us"></ZoomEndTime>
-      <Cursor1Time time="39.373000 us"></Cursor1Time>
+      <ZoomStartTime time="99,629.166 ns"></ZoomStartTime>
+      <ZoomEndTime time="100,017.167 ns"></ZoomEndTime>
+      <Cursor1Time time="100,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="455"></NameColumnWidth>
-      <ValueColumnWidth column_width="224"></ValueColumnWidth>
+      <ValueColumnWidth column_width="220"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="17" />
    <wvobject fp_name="/Main_Sim/Clock" type="logic">
       <obj_property name="ElementShortName">Clock</obj_property>
       <obj_property name="ObjectShortName">Clock</obj_property>
@@ -57,6 +57,19 @@
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-11243</obj_property>
+      <obj_property name="AnalogYRRangeMax">-3218</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Main_Sim/DUT/PLL/Second_Harmonoic_Locked" type="array">
+      <obj_property name="ElementShortName">Second_Harmonoic_Locked[13:0]</obj_property>
+      <obj_property name="ObjectShortName">Second_Harmonoic_Locked[13:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-12423.9</obj_property>
+      <obj_property name="AnalogYRRangeMax">3917.15</obj_property>
    </wvobject>
    <wvobject fp_name="/Main_Sim/DUT/PLL/Locked_Signal" type="array">
       <obj_property name="ElementShortName">Locked_Signal[13:0]</obj_property>
@@ -92,8 +105,8 @@
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
    <wvobject fp_name="/Main_Sim/DUT/PLL/Target_Signal_Doubled" type="array">
-      <obj_property name="ElementShortName">Target_Signal_Doubled[55:0]</obj_property>
-      <obj_property name="ObjectShortName">Target_Signal_Doubled[55:0]</obj_property>
+      <obj_property name="ElementShortName">Target_Signal_Doubled[29:0]</obj_property>
+      <obj_property name="ObjectShortName">Target_Signal_Doubled[29:0]</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>

@@ -58,7 +58,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="762"/>
+    <Option Name="WTXSimLaunchSim" Val="794"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -131,7 +131,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../VHDL_Modules/HighPassFIR_Filter.vhd">
+      <File Path="$PPRDIR/../VHDL_Modules/LiteHPFilter.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -163,14 +163,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
-          <Proxy FileSetName="system_processing_system7_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_5/system_xbar_5.xci">
           <Proxy FileSetName="system_xbar_5"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_PSK_0_0/system_PSK_0_0.xci">
-          <Proxy FileSetName="system_PSK_0_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
+          <Proxy FileSetName="system_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0.xci">
+          <Proxy FileSetName="system_DMA_Interconnect_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Clock_Divider_0_0/system_Clock_Divider_0_0.xci">
+          <Proxy FileSetName="system_Clock_Divider_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_PSK_0_1/system_PSK_0_1.xci">
           <Proxy FileSetName="system_PSK_0_1"/>
@@ -178,14 +181,11 @@
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_LFSR_0_0/system_LFSR_0_0.xci">
           <Proxy FileSetName="system_LFSR_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Clock_Divider_0_0/system_Clock_Divider_0_0.xci">
-          <Proxy FileSetName="system_Clock_Divider_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0.xci">
-          <Proxy FileSetName="system_DMA_Interconnect_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Delay_0_0/system_Delay_0_0.xci">
           <Proxy FileSetName="system_Delay_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_PSK_0_0/system_PSK_0_0.xci">
+          <Proxy FileSetName="system_PSK_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Squared_Phase_Locked_0_0/system_Squared_Phase_Locked_0_0.xci">
           <Proxy FileSetName="system_Squared_Phase_Locked_0_0"/>
@@ -197,6 +197,13 @@
           <Attr Name="ImportTime" Val="1678780743"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../VHDL_Modules/HighPassFIR_Filter.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -221,11 +228,11 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_axi_dma_0_1/Differental_Phasemeter_axi_dma_0_1.xci">
-          <Proxy FileSetName="Differental_Phasemeter_axi_dma_0_1"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_processing_system7_0_0/Differental_Phasemeter_processing_system7_0_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_axi_dma_0_1/Differental_Phasemeter_axi_dma_0_1.xci">
+          <Proxy FileSetName="Differental_Phasemeter_axi_dma_0_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/Differental_Phasemeter/hdl/Differental_Phasemeter_wrapper.v">
@@ -268,12 +275,6 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../VHDL_Modules/HighPassFIR_Filter.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sim_1/new/Testing_Architecture.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -284,6 +285,13 @@
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../VHDL_Modules/HighPassFIR_Filter.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -299,6 +307,7 @@
         <Option Name="PamSignalDriverFile" Val="xil_bypass_driver"/>
         <Option Name="PamPseudoTop" Val="pseudo_tb"/>
         <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="Incremental" Val="0"/>
         <Option Name="xsim.simulate.runtime" Val="100us"/>
         <Option Name="NLNetlistMode" Val="funcsim"/>
       </Config>
@@ -431,12 +440,12 @@
         <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design">
           <Option Id="ResourceSharing">2</Option>
-          <Option Id="NoCombineLuts">1</Option>
           <Option Id="IncrementalMode">3</Option>
-          <Option Id="KeepEquivalentRegisters">1</Option>
-          <Option Id="ShregMinSize">5</Option>
-          <Option Id="FsmExtraction">1</Option>
           <Option Id="Directive">7</Option>
+          <Option Id="ShregMinSize">5</Option>
+          <Option Id="NoCombineLuts">1</Option>
+          <Option Id="KeepEquivalentRegisters">1</Option>
+          <Option Id="FsmExtraction">1</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>

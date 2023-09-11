@@ -1,7 +1,7 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../../VHDL_Modules/FrequencyDoubledPLL.vhd" \
-"../../../../../VHDL_Modules/HighPassFIR_Filter.vhd" \
+"../../../../../VHDL_Modules/LiteHPFilter.vhd" \
 "../../../../../VHDL_Modules/Logic.vhd" \
 "../../../../../VHDL_Modules/NCO.vhd" \
 "../../../../../VHDL_Modules/PSK.vhd" \

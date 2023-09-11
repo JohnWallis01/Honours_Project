@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "system_Squared_Phase_Locked_0_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true

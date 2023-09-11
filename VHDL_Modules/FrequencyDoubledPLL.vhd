@@ -108,12 +108,12 @@ architecture System_Architecture of Squared_Phase_Locked_Loop is
         );
 END component;
 
-component HighPassFilter IS
+component LiteHPFilter IS
    PORT( clk                             :   IN    std_logic; 
          clk_enable                      :   IN    std_logic; 
          reset                           :   IN    std_logic; 
-         filter_in                       :   IN    std_logic_vector(27 DOWNTO 0); -- sfix28
-         filter_out                      :   OUT   std_logic_vector(55 DOWNTO 0)  -- sfix56_En27
+         filter_in                       :   IN    std_logic_vector(13 DOWNTO 0); -- sfix28
+         filter_out                      :   OUT   std_logic_vector(29 DOWNTO 0)  -- sfix56_En27
          );
 
 END component;
@@ -123,7 +123,7 @@ END component;
   signal Target_Signal, Target_Signal_Doubled_Scaled , Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal, Second_Harmonoic_Locked: std_logic_vector(13 downto 0);
   signal Quadrature_Mixer_Output, Lock_Mixer_Output, Target_Signal_Squared: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
-  signal Target_Signal_Doubled: std_logic_vector(55 downto 0);
+  signal Target_Signal_Doubled: std_logic_vector(29 downto 0);
 
   signal Init_State: std_logic := '1';
   signal Debug_State: std_logic;
@@ -131,7 +131,7 @@ END component;
   
   begin
 
-    Target_Signal_Doubled_Scaled <= Target_Signal_Doubled(51 downto 51-13);
+    Target_Signal_Doubled_Scaled <= Target_Signal_Doubled(29 downto 29-13);
   ---Init/Reset Process  
   process(AD_CLK_in)
   begin
@@ -169,12 +169,12 @@ END component;
   clk => AD_CLK_in,
   Reset => Reset_In
   );
-  InputFilter: HighPassFilter
+  Input_Filter: LiteHPFilter
   port map(
       clk => AD_CLK_in,
       clk_enable => '1',
       reset => Reset_In,
-      filter_in => Target_Signal_Squared,
+      filter_in => Target_Signal_Squared(27 downto 27-13),
       filter_out => Target_Signal_Doubled
   );
 
