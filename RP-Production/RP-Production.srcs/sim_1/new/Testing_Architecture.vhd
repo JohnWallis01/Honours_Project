@@ -51,26 +51,6 @@ end Testing_Architecture;
 
 architecture Behavioral of Testing_Architecture is
 
-    component HighPassFilter IS
-    PORT( clk                             :   IN    std_logic; 
-          clk_enable                      :   IN    std_logic; 
-          reset                           :   IN    std_logic; 
-          filter_in                       :   IN    std_logic_vector(27 DOWNTO 0); -- sfix28
-          filter_out                      :   OUT   std_logic_vector(55 DOWNTO 0)  -- sfix56_En27
-          );
-    end component;
-
-    component PSK_Demodulator is
-        port(
-            Clock: in std_logic;
-            Reset: in std_logic;
-            Modulated_Signal: in std_logic_vector(13 downto 0);
-            Reference_Signal: in std_logic_vector(13 downto 0);
-            Threshold: in std_logic_vector(27 downto 0); --value 7986224~8 000 000
-            Demodulated_Signal: out std_logic
-            );
-    end component;
-
     component PSK is
         port(
             Frequency: in std_logic_vector(31 downto 0); --- Frequency is in fact 4 times this word
@@ -83,59 +63,6 @@ architecture Behavioral of Testing_Architecture is
             PSK_m_axis_tvalid: out std_logic
         );
     end component;
-
-    component Mixer is
-        generic(
-            MixerSize: integer := 16
-        );
-        port (
-          Q1: in std_logic_vector(MixerSize-1 downto 0) := (others =>'0'); -- need to specifiy the sizes
-          Q2: in std_logic_vector(MixerSize-1 downto 0) := (others =>'0');
-          Dout: out std_logic_vector((2*MixerSize)-1 downto 0) := (others =>'0');
-          clk: in std_logic;
-          Reset: in std_logic
-        ) ;
-      end component;
-
-      component Squared_Phase_Locked_Loop is
-        generic(CHANNEL : integer := 0); --set to zero to input on ADC 1, set to 1 to input on ADC 1);
-        port (
-    
-        ------GPIO's
-        PLL_Guess_Freq: in std_logic_vector(31 downto 0);
-    
-        -- Debug_Signal_Select: in std_logic_vector(2 downto 0);
-    
-        --PLL Conrols
-        Control_Kp: in std_logic_vector(31 downto 0);
-        Control_Ki: in std_logic_vector(31 downto 0);
-    
-        --Measurments
-        Freq_Measured: out std_logic_vector(31 downto 0);
-        Phase_Measured: out std_logic_vector(31 downto 0);
-        Lock_Strength: out std_logic_vector(25 downto 0);
-    
-        ------ADC Control
-        ADC_Stream_in: in std_logic_vector(31 downto 0);
-        ------DAC control   
-        DAC_Stream_out: out std_logic_vector(31 downto 0);
-        Locked_Carrier: out std_logic_vector(13 downto 0);    
-    
-        ---General
-        AD_CLK_in: in std_logic;
-        Reset_In: in std_logic;
-        Reset_Out: out std_logic;
-        Integrator_Reset: in std_logic
-    
-        --Debug
-        -- Debug_Signal: out std_logic_vector(13 downto 0);
-        -- Timer_Value: out std_logic_vector(31 downto 0);
-        -- Timer_Enable: in std_logic;
-    
-        );
-    
-    end component;
-
 
     component LFSR is
         generic (
@@ -157,7 +84,33 @@ architecture Behavioral of Testing_Architecture is
             DivClock_Out: out std_logic;
             Reset: in std_logic
             );
-        end component;
+    end component;
+
+    component Costa_Demodulator is
+        port (
+        --Signal Input
+        Input_Signal: in std_logic_vector(13 downto 0);
+        --PLL Control
+        PLL_Guess_Freq: in std_logic_vector(31 downto 0);
+        Control_Kp: in std_logic_vector(31 downto 0);
+        Control_Ki: in std_logic_vector(31 downto 0);
+        Integrator_Reset: in std_logic;
+        Threshold: in std_logic_vector(25 downto 0);
+        --Measurments
+        Freq_Measured: out std_logic_vector(31 downto 0);
+        Phase_Measured: out std_logic_vector(31 downto 0);
+        Lock_Strength: out std_logic_vector(25 downto 0);
+        Message: out std_logic;
+        
+        Locked_Carrier: out std_logic_vector(13 downto 0);     
+
+        ---General
+        Clock: in std_logic;
+        Reset: in std_logic
+
+        );
+    end component;
+
 
     signal PRBS_Value, Slow_Clock: std_logic;
     signal NCO_Data, Locked_Signal: std_logic_vector(13 downto 0);
@@ -167,7 +120,6 @@ architecture Behavioral of Testing_Architecture is
     begin
 
     PSKMOD <= NCO_Data;
-
 
     clkdiv: Clock_Divider
     generic map(Div_Rate => 5)
@@ -200,33 +152,22 @@ architecture Behavioral of Testing_Architecture is
         PSK_m_axis_tvalid => open 
         );
 
-    PLL: Squared_Phase_Locked_Loop
-    generic map (channel => 0)
+    Demodulator: Costa_Demodulator
     port map(
-        PLL_Guess_Freq =>   std_logic_vector(to_unsigned(2*343597384, 32)),
-        Control_Kp =>       std_logic_vector(to_signed(-196607, 32)),
-        Control_Ki =>       std_logic_vector(to_signed(-7, 32)),
+        Input_Signal => NCO_Data,
+        PLL_Guess_Freq =>   std_logic_vector(to_unsigned(343697384, 32)),
+        Control_Kp =>       std_logic_vector(to_signed(-1000000, 32)),
+        Control_Ki =>       std_logic_vector(to_signed(-1000, 32)),
+        Integrator_Reset => '0',
+        Threshold => std_logic_vector(to_signed(1000000, 26)),
         Freq_Measured => open,
         Phase_Measured => open,
         Lock_Strength => open,
-        ADC_Stream_In(13 downto 0) => NCO_Data,
-        ADC_Stream_In(31 downto 14 ) => (others => '0'),
-        DAC_Stream_out => open,
+        Message => open,
         Locked_Carrier => Locked_Signal,
-        AD_CLK_in => Clock,
-        Reset_In => Reset,
-        Reset_Out => open,
-        Integrator_Reset => '0'
-    );
-    
-    Demodulator: PSK_Demodulator
-    port map(
         Clock => Clock,
-        Reset => Reset,
-        Modulated_Signal => NCO_Data,
-        Reference_Signal => Locked_Signal,
-        Threshold => std_logic_vector(to_signed(8000000, 28)),
-        Demodulated_Signal => Open
+        Reset => Reset
     );
+
 
 end Behavioral;

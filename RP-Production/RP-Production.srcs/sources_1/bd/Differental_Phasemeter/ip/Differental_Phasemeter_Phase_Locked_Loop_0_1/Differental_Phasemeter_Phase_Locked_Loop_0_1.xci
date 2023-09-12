@@ -50,6 +50,7 @@
         "Lock_Strength": [ { "direction": "out", "size_left": "25", "size_right": "0" } ],
         "ADC_Stream_in": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "DAC_Stream_out": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
+        "Locked_Carrier": [ { "direction": "out", "size_left": "13", "size_right": "0" } ],
         "AD_CLK_in": [ { "direction": "in" } ],
         "Reset_In": [ { "direction": "in" } ],
         "Reset_Out": [ { "direction": "out" } ],

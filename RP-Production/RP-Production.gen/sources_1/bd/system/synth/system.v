@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Sep 12 09:09:00 2023
+//Date        : Tue Sep 12 13:33:46 2023
 //Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -10,16 +10,18 @@
 `timescale 1 ps / 1 ps
 
 module DAC_Interface_imp_DA799F
-   (aclk,
-    cfg_data,
+   (Input_C1,
+    Input_C2,
+    aclk,
     dac_clk_o,
     dac_dat_o,
     dac_rst_o,
     dac_sel_o,
     dac_wrt_o,
     reset);
+  input [13:0]Input_C1;
+  input [13:0]Input_C2;
   input aclk;
-  input [31:0]cfg_data;
   output dac_clk_o;
   output [13:0]dac_dat_o;
   output dac_rst_o;
@@ -27,8 +29,10 @@ module DAC_Interface_imp_DA799F
   output dac_wrt_o;
   input reset;
 
-  wire [31:0]Custom_System_0_DAC_Stream_out;
   wire Custom_System_0_Reset;
+  wire [31:0]DAC_Interface_0_DAC_Data;
+  wire [13:0]Input_C1_1;
+  wire [13:0]Input_C2_1;
   wire Net;
   wire [31:0]axis_constant_0_M_AXIS_TDATA;
   wire axis_constant_0_M_AXIS_TVALID;
@@ -40,17 +44,22 @@ module DAC_Interface_imp_DA799F
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_locked;
 
-  assign Custom_System_0_DAC_Stream_out = cfg_data[31:0];
   assign Custom_System_0_Reset = reset;
+  assign Input_C1_1 = Input_C1[13:0];
+  assign Input_C2_1 = Input_C2[13:0];
   assign Net = aclk;
   assign dac_clk_o = axis_red_pitaya_dac_1_dac_clk;
   assign dac_dat_o[13:0] = axis_red_pitaya_dac_1_dac_dat;
   assign dac_rst_o = axis_red_pitaya_dac_1_dac_rst;
   assign dac_sel_o = axis_red_pitaya_dac_1_dac_sel;
   assign dac_wrt_o = axis_red_pitaya_dac_1_dac_wrt;
+  system_DAC_Interface_0_0 DAC_Interface_0
+       (.DAC_Data(DAC_Interface_0_DAC_Data),
+        .Input_C1(Input_C1_1),
+        .Input_C2(Input_C2_1));
   system_axis_constant_0_0 axis_constant_0
        (.aclk(Net),
-        .cfg_data(Custom_System_0_DAC_Stream_out),
+        .cfg_data(DAC_Interface_0_DAC_Data),
         .m_axis_tdata(axis_constant_0_M_AXIS_TDATA),
         .m_axis_tvalid(axis_constant_0_M_AXIS_TVALID));
   system_axis_red_pitaya_dac_1_0 axis_red_pitaya_dac_1
@@ -1628,6 +1637,51 @@ module GPIO_Interface_imp_V73Q6H
         .s_axi_wready(S_AXI_1_WREADY),
         .s_axi_wstrb(S_AXI_1_WSTRB),
         .s_axi_wvalid(S_AXI_1_WVALID));
+endmodule
+
+module PRBS_imp_16TRDUF
+   (D_In,
+    D_Out,
+    Delay_Select,
+    DivClock_In,
+    Reset,
+    Taps);
+  output [0:0]D_In;
+  output [0:0]D_Out;
+  input [6:0]Delay_Select;
+  input DivClock_In;
+  input Reset;
+  input [31:0]Taps;
+
+  wire Clock_Divider_0_DivClock_Out;
+  wire [31:0]GPIO_Interface_gpio_io_o1;
+  wire [6:0]GPIO_Interface_gpio_io_o3;
+  wire LFSR_0_PRBS;
+  wire Net;
+  wire Squared_Phase_Locked_0_Reset_Out;
+  wire [0:0]Variable_Delay_0_D_Out;
+
+  assign D_In[0] = LFSR_0_PRBS;
+  assign D_Out[0] = Variable_Delay_0_D_Out;
+  assign GPIO_Interface_gpio_io_o1 = Taps[31:0];
+  assign GPIO_Interface_gpio_io_o3 = Delay_Select[6:0];
+  assign Net = DivClock_In;
+  assign Squared_Phase_Locked_0_Reset_Out = Reset;
+  system_Clock_Divider_0_0 Clock_Divider_0
+       (.DivClock_In(Net),
+        .DivClock_Out(Clock_Divider_0_DivClock_Out),
+        .Reset(Squared_Phase_Locked_0_Reset_Out));
+  system_LFSR_0_0 LFSR_0
+       (.PRBS(LFSR_0_PRBS),
+        .Taps(GPIO_Interface_gpio_io_o1[5:0]),
+        .clock(Clock_Divider_0_DivClock_Out),
+        .reset(Squared_Phase_Locked_0_Reset_Out));
+  system_Variable_Delay_0_0 Variable_Delay_0
+       (.Clock(Clock_Divider_0_DivClock_Out),
+        .D_In(LFSR_0_PRBS),
+        .D_Out(Variable_Delay_0_D_Out),
+        .Delay_Select(GPIO_Interface_gpio_io_o3),
+        .Reset(Squared_Phase_Locked_0_Reset_Out));
 endmodule
 
 module PS7_imp_1QJPAX8
@@ -6083,7 +6137,7 @@ module s01_couplers_imp_1JA3XYH
         .s_axi_wvalid(s01_couplers_to_auto_us_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=58,numReposBlks=33,numNonXlnxBlks=3,numHierBlks=25,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=60,numReposBlks=34,numNonXlnxBlks=3,numHierBlks=26,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=3,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_ps7_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -6168,9 +6222,10 @@ module system
   inout [7:0]exp_p_tri_io;
   output [0:0]led_o;
 
-  wire Clock_Divider_0_DivClock_Out;
+  wire [31:0]Costa_Demodulator_0_Freq_Measured;
+  wire [13:0]Costa_Demodulator_0_Locked_Carrier;
+  wire Costa_Demodulator_0_Message;
   wire [13:0]DMA_Interconnect_0_ADC_C1;
-  wire [31:0]DMA_Interconnect_0_ADC_Data;
   wire [31:0]DMA_Interconnect_0_m_axis_TDATA;
   wire DMA_Interconnect_0_m_axis_TREADY;
   wire DMA_Interconnect_0_m_axis_TVALID;
@@ -6182,7 +6237,7 @@ module system
   wire [31:0]GPIO_Interface_gpio_io_o1;
   wire [27:0]GPIO_Interface_gpio_io_o2;
   wire [6:0]GPIO_Interface_gpio_io_o3;
-  wire LFSR_0_PRBS;
+  wire [0:0]LFSR_0_PRBS;
   wire Net;
   wire PS7_FCLK_CLK0;
   wire [31:0]PS7_M00_AXI_ARADDR;
@@ -6324,8 +6379,6 @@ module system
   wire [0:0]PS7_peripheral_aresetn;
   wire [31:0]PSK_1_PSK_m_axis_TDATA;
   wire PSK_1_PSK_m_axis_TVALID;
-  wire [13:0]PSK_Demodulator_0_Debug;
-  wire PSK_Demodulator_0_Demodulated_Signal;
   wire [31:0]S_AXI6_1_ARADDR;
   wire S_AXI6_1_ARREADY;
   wire S_AXI6_1_ARVALID;
@@ -6360,9 +6413,6 @@ module system
   wire S_AXI7_1_WREADY;
   wire [3:0]S_AXI7_1_WSTRB;
   wire S_AXI7_1_WVALID;
-  wire [31:0]Squared_Phase_Locked_0_DAC_Stream_out;
-  wire [25:0]Squared_Phase_Locked_0_Lock_Strength;
-  wire [13:0]Squared_Phase_Locked_0_Locked_Carrier;
   wire Squared_Phase_Locked_0_Reset_Out;
   wire [0:0]Variable_Delay_0_D_Out;
   wire adc_clk_n_i_1;
@@ -6377,7 +6427,7 @@ module system
   wire axis_red_pitaya_dac_1_dac_wrt;
   wire [1:0]daisy_n_i_1;
   wire [1:0]daisy_p_i_1;
-  wire [31:0]gpio_Freq_Measured_1;
+  wire [25:0]gpio_io_Locking_Strength_1;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -6416,13 +6466,23 @@ module system
   assign daisy_n_o[1:0] = util_ds_buf_1_OBUF_DS_N;
   assign daisy_p_i_1 = daisy_p_i[1:0];
   assign daisy_p_o[1:0] = util_ds_buf_1_OBUF_DS_P;
-  system_Clock_Divider_0_0 Clock_Divider_0
-       (.DivClock_In(Net),
-        .DivClock_Out(Clock_Divider_0_DivClock_Out),
-        .Reset(Squared_Phase_Locked_0_Reset_Out));
+  system_Costa_Demodulator_0_0 Costa_Demodulator_0
+       (.Clock(Net),
+        .Control_Ki(GPIO_Interface_gpio_Ki),
+        .Control_Kp(GPIO_Interface_gpio_Kp),
+        .Freq_Measured(Costa_Demodulator_0_Freq_Measured),
+        .Input_Signal(DMA_Interconnect_0_ADC_C1),
+        .Integrator_Reset(GPIO_Interface_gpio_Integrator_Reset),
+        .Lock_Strength(gpio_io_Locking_Strength_1),
+        .Locked_Carrier(Costa_Demodulator_0_Locked_Carrier),
+        .Message(Costa_Demodulator_0_Message),
+        .PLL_Guess_Freq(GPIO_Interface_gpio_PLL_Guess_Freq),
+        .Reset(Squared_Phase_Locked_0_Reset_Out),
+        .Threshold(GPIO_Interface_gpio_io_o2[25:0]));
   DAC_Interface_imp_DA799F DAC_Interface
-       (.aclk(Net),
-        .cfg_data(Squared_Phase_Locked_0_DAC_Stream_out),
+       (.Input_C1(Costa_Demodulator_0_Locked_Carrier),
+        .Input_C2(DMA_Interconnect_0_ADC_C1),
+        .aclk(Net),
         .dac_clk_o(axis_red_pitaya_dac_1_dac_clk),
         .dac_dat_o(axis_red_pitaya_dac_1_dac_dat),
         .dac_rst_o(axis_red_pitaya_dac_1_dac_rst),
@@ -6431,11 +6491,10 @@ module system
         .reset(1'b0));
   system_DMA_Interconnect_0_0 DMA_Interconnect_0
        (.ADC_C1(DMA_Interconnect_0_ADC_C1),
-        .ADC_Data(DMA_Interconnect_0_ADC_Data),
         .ADC_s_axis_tdata(PSK_1_PSK_m_axis_TDATA),
         .ADC_s_axis_tvalid(PSK_1_PSK_m_axis_TVALID),
-        .Debug(PSK_Demodulator_0_Debug),
-        .Demodulated_PRBS(PSK_Demodulator_0_Demodulated_Signal),
+        .Debug({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .Demodulated_PRBS(Costa_Demodulator_0_Message),
         .Reference_PRBS(LFSR_0_PRBS),
         .aclk(Net),
         .m_axis_tdata(DMA_Interconnect_0_m_axis_TDATA),
@@ -6617,23 +6676,25 @@ module system
         .S_AXI_wready(PS7_M08_AXI_WREADY),
         .S_AXI_wstrb(PS7_M08_AXI_WSTRB),
         .S_AXI_wvalid(PS7_M08_AXI_WVALID),
-        .gpio_Freq_Measured(gpio_Freq_Measured_1),
+        .gpio_Freq_Measured(Costa_Demodulator_0_Freq_Measured),
         .gpio_Integrator_Reset(GPIO_Interface_gpio_Integrator_Reset),
         .gpio_Ki(GPIO_Interface_gpio_Ki),
         .gpio_Kp(GPIO_Interface_gpio_Kp),
         .gpio_PLL_Guess_Freq(GPIO_Interface_gpio_PLL_Guess_Freq),
-        .gpio_io_Locking_Strength(Squared_Phase_Locked_0_Lock_Strength),
+        .gpio_io_Locking_Strength(gpio_io_Locking_Strength_1),
         .gpio_io_TAPS(GPIO_Interface_gpio_io_o1),
         .gpio_io_o(GPIO_Interface_gpio_io_o),
         .gpio_io_o1(GPIO_Interface_gpio_io_o2),
         .gpio_io_o2(GPIO_Interface_gpio_io_o3),
         .s_axi_aclk(PS7_FCLK_CLK0),
         .s_axi_aresetn(PS7_peripheral_aresetn));
-  system_LFSR_0_0 LFSR_0
-       (.PRBS(LFSR_0_PRBS),
-        .Taps(GPIO_Interface_gpio_io_o1[5:0]),
-        .clock(Clock_Divider_0_DivClock_Out),
-        .reset(Squared_Phase_Locked_0_Reset_Out));
+  PRBS_imp_16TRDUF PRBS
+       (.D_In(LFSR_0_PRBS),
+        .D_Out(Variable_Delay_0_D_Out),
+        .Delay_Select(GPIO_Interface_gpio_io_o3),
+        .DivClock_In(Net),
+        .Reset(Squared_Phase_Locked_0_Reset_Out),
+        .Taps(GPIO_Interface_gpio_io_o1));
   PS7_imp_1QJPAX8 PS7
        (.DDR_addr(DDR_addr[14:0]),
         .DDR_ba(DDR_ba[2:0]),
@@ -6839,32 +6900,8 @@ module system
         .PSK_m_axis_tdata(PSK_1_PSK_m_axis_TDATA),
         .PSK_m_axis_tvalid(PSK_1_PSK_m_axis_TVALID),
         .Reset(Squared_Phase_Locked_0_Reset_Out));
-  system_PSK_Demodulator_0_0 PSK_Demodulator_0
+  system_Reset_Gen_0_0 Reset_Gen_0
        (.Clock(Net),
-        .Debug(PSK_Demodulator_0_Debug),
-        .Demodulated_Signal(PSK_Demodulator_0_Demodulated_Signal),
-        .Modulated_Signal(DMA_Interconnect_0_ADC_C1),
-        .Reference_Signal(Squared_Phase_Locked_0_Locked_Carrier),
-        .Reset(Squared_Phase_Locked_0_Reset_Out),
-        .Threshold(GPIO_Interface_gpio_io_o2));
-  system_Squared_Phase_Locked_0_0 Squared_Phase_Locked_0
-       (.ADC_Stream_in(DMA_Interconnect_0_ADC_Data),
-        .AD_CLK_in(Net),
-        .Control_Ki(GPIO_Interface_gpio_Ki),
-        .Control_Kp(GPIO_Interface_gpio_Kp),
-        .DAC_Stream_out(Squared_Phase_Locked_0_DAC_Stream_out),
-        .Freq_Measured(gpio_Freq_Measured_1),
-        .Integrator_Reset(GPIO_Interface_gpio_Integrator_Reset),
-        .Lock_Strength(Squared_Phase_Locked_0_Lock_Strength),
-        .Locked_Carrier(Squared_Phase_Locked_0_Locked_Carrier),
-        .PLL_Guess_Freq(GPIO_Interface_gpio_PLL_Guess_Freq),
-        .Reset_In(Squared_Phase_Locked_0_Reset_Out),
-        .Reset_Out(Squared_Phase_Locked_0_Reset_Out));
-  system_Variable_Delay_0_0 Variable_Delay_0
-       (.Clock(Clock_Divider_0_DivClock_Out),
-        .D_In(LFSR_0_PRBS),
-        .D_Out(Variable_Delay_0_D_Out),
-        .Delay_Select(GPIO_Interface_gpio_io_o3),
         .Reset(Squared_Phase_Locked_0_Reset_Out));
   system_axis_red_pitaya_adc_0_0 axis_red_pitaya_adc_0
        (.adc_clk(Net),

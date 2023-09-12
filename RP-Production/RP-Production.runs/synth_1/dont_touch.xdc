@@ -98,14 +98,17 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Cloc
 # IP: bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_DMA_Interconnect_0_0 || ORIG_REF_NAME==system_DMA_Interconnect_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_PSK_Demodulator_0_0/system_PSK_Demodulator_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_Demodulator_0_0 || ORIG_REF_NAME==system_PSK_Demodulator_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_Squared_Phase_Locked_0_0/system_Squared_Phase_Locked_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Squared_Phase_Locked_0_0 || ORIG_REF_NAME==system_Squared_Phase_Locked_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_Variable_Delay_0_0/system_Variable_Delay_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Variable_Delay_0_0 || ORIG_REF_NAME==system_Variable_Delay_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Costa_Demodulator_0_0 || ORIG_REF_NAME==system_Costa_Demodulator_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_DAC_Interface_0_0/system_DAC_Interface_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_DAC_Interface_0_0 || ORIG_REF_NAME==system_DAC_Interface_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Reset_Gen_0_0/system_Reset_Gen_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Reset_Gen_0_0 || ORIG_REF_NAME==system_Reset_Gen_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet

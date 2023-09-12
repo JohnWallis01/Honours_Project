@@ -1,10 +1,10 @@
 BitStreamName = "system_wrapper.bit"
-FirmwareName = "Debug_Firmware.c"
+FirmwareName = "Costa_Demod_Firmware.c"
 RemoteDeviceName = "rp-f07056.local"
 TargetFolder = "John"
-TargetBitStreamName = "Ranging.bit"
-TargetFirmwareName = "Debug_Firmware.c"
-BinaryName = "Debug.o"
+TargetBitStreamName = "Costa.bit"
+TargetFirmwareName = "Costa_Demod_Firmware.c"
+BinaryName = "Costa.o"
 
 import paramiko
 import os

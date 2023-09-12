@@ -179,3 +179,61 @@ begin
       end if;
   end process;
 end Delay_Arch ; -- Delay_Arch
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity DAC_Interface is
+  port(
+  Input_C1: in std_logic_vector(13 downto 0);
+  Input_C2: in std_logic_vector(13 downto 0);
+  DAC_Data: out std_logic_vector(31 downto 0)
+  );
+end DAC_Interface;
+
+architecture DAC_interface_arch of DAC_Interface is
+
+begin
+
+  DAC_Data(13 downto 0)   <= Input_C1;
+  DAC_Data(15 downto 14)  <= "00";
+  DAC_Data(29 downto 16)  <= Input_C2;
+  DAC_Data(31 downto 30)  <= "00";
+
+end DAC_interface_arch ; -- DAC_interface_arc
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Reset_Gen is
+  port (  Clock: in std_logic;
+          Reset: out std_logic
+  );
+end Reset_Gen;
+
+architecture arch of Reset_Gen is
+
+  signal Init_State: std_logic := '1';
+
+begin
+
+  ---Init/Reset Process  
+  process(Clock)
+  begin
+    if Rising_Edge(Clock) then
+      if Init_State = '1' then
+        Reset <= '1';
+        Init_State <= '0';
+      else
+        Reset <= '0';
+      end if;
+    end if;
+  end process;
+
+end arch ; -- arch

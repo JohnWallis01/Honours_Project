@@ -25,7 +25,7 @@ entity Phase_Locked_Loop is
     ADC_Stream_in: in std_logic_vector(31 downto 0);
     ------DAC control   
     DAC_Stream_out: out std_logic_vector(31 downto 0);
-    
+    Locked_Carrier: out std_logic_vector(13 downto 0);     
 
     ---General
     AD_CLK_in: in std_logic;
@@ -225,5 +225,6 @@ END component;
 
   DAC_Stream_out(13 downto 0) <= Locked_Signal;
   DAC_Stream_out(29 downto 16) <= Target_Signal;
+  Locked_Carrier <= Locked_Signal;
 
 end architecture;

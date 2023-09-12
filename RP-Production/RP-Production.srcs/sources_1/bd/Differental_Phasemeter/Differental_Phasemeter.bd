@@ -5426,6 +5426,11 @@
             "left": "31",
             "right": "0"
           },
+          "Locked_Carrier": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
           "AD_CLK_in": {
             "direction": "I"
           },
@@ -5497,6 +5502,11 @@
           "DAC_Stream_out": {
             "direction": "O",
             "left": "31",
+            "right": "0"
+          },
+          "Locked_Carrier": {
+            "direction": "O",
+            "left": "13",
             "right": "0"
           },
           "AD_CLK_in": {
