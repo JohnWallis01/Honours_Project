@@ -61,16 +61,10 @@ void dma_s2mm_status(unsigned int* dma_virtual_address) {
     printf("\n");
 }
 
-int dma_s2mm_sync(unsigned int* dma_virtual_address, void* fifo_empty_status, void* Valid) {
+int dma_s2mm_sync(unsigned int* dma_virtual_address) {
     unsigned int s2mm_status = control_get(dma_virtual_address, S2MM_STATUS_REGISTER);
     while(!(s2mm_status & 0x00000001)){
         dma_s2mm_status(dma_virtual_address);
-        printf("FIFO Empty: %x FIFO Valid%x\n", *(uint32_t*)fifo_empty_status, *(uint32_t*)Valid);
-        if (*(uint32_t*)fifo_empty_status) {
-            //halt the dma
-            control_set(dma_virtual_address, S2MM_CONTROL_REGISTER, 4);
-            printf("Halting DMA\n");
-        }
         s2mm_status = control_get(dma_virtual_address, S2MM_STATUS_REGISTER);
     }
 }
@@ -106,8 +100,6 @@ int main() {
     void *Integrator_Reset  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, INTEGRATOR_RESET_ADDR);
 
     void *Test_Trigger      = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, TEST_TRIGGER_ADDR);
-    void *FIFO_Full         = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, FIFO_FULL_STATUS_ADDR);
-    void *FIFO_Empty        = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, FIFO_EMPTY_STATUS_ADDR);
 
     void*Valid              = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, LOGIC_PROBE_ADDR);
  
@@ -133,7 +125,7 @@ int main() {
     //Write the S2MM stream into memory (specify length of stream) 
     control_set(dma_conf_address, S2MM_LENGTH, TRANSFER_DEPTH*TRANSFER_WIDTH);
     //await DMA
-    dma_s2mm_sync(dma_conf_address, FIFO_Empty, Valid); // If this locks up make sure all memory ranges are assigned under Address Editor!
+    dma_s2mm_sync(dma_conf_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
     printf(" -- Done.\n");
     printf("Setup Complete: Running Test Procedure -- ");
     //Rising Edge Enables DUT
@@ -155,7 +147,7 @@ int main() {
     //Write the S2MM stream into memory (specify length of stream) 
     control_set(dma_conf_address, S2MM_LENGTH, TRANSFER_DEPTH*TRANSFER_WIDTH);
     //await DMA
-    dma_s2mm_sync(dma_conf_address, FIFO_Empty, Valid); // If this locks up make sure all memory ranges are assigned under Address Editor!
+    dma_s2mm_sync(dma_conf_address); // If this locks up make sure all memory ranges are assigned under Address Editor!
     printf(" Done.\n");
     memdump(dma_dest_address, TRANSFER_DEPTH*TRANSFER_WIDTH);
 

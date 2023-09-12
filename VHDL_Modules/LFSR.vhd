@@ -11,7 +11,8 @@ entity LFSR is
         Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb and not the taps)
         clock: in std_logic;
         PRBS: out std_logic;
-        reset: in std_logic
+        reset: in std_logic;
+        State: out std_logic_vector(Size -1 downto 0)
     );
 end LFSR;
 
@@ -26,7 +27,8 @@ architecture LFSR_Arch of LFSR is
         Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb and not the taps)
         clock: in std_logic;
         PRBS: out std_logic;
-        reset: in std_logic
+        reset: in std_logic;
+        State: out std_logic_vector(Size-1 downto 0)
     );
     end component;
 
@@ -38,7 +40,8 @@ architecture LFSR_Arch of LFSR is
         Taps => Taps,
         clock => clock,
         PRBS => PRBS,
-        reset => reset
+        reset => reset,
+        State => State
     );
 
 end architecture;

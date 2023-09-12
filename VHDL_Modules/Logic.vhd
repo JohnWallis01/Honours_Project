@@ -75,53 +75,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity Pair_Combiner is
-  port(
-    D0: in std_logic;
-    D1: in std_logic;
-    Q: out std_logic_vector(1 downto 0)
-  );
-end Pair_Combiner;
-
-architecture Pair_Combiner_arch of Pair_Combiner is
-
-begin
-  
-  Q(0) <= D0;
-  Q(1) <= D1; 
-
-end Pair_Combiner_arch ; -- Pair_Combiner_arch
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.math_real.all;
-
-entity LFSR_Debugger is
-  port(
-    Clock: in std_logic;
-    Q: out std_logic_vector(1 downto 0)
-  );
-end LFSR_Debugger;
-
-architecture LFSR_Debugger_arch of LFSR_Debugger is
-  signal state: std_logic;
-  begin
-  process(Clock)
-  begin
-    if Rising_Edge(Clock) then
-      Q(0) <= state;
-      Q(1) <= not state;
-      state <= not state;
-    end if;
-  end process;
-end architecture; 
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.math_real.all;
-
 entity Subtractor is 
       generic(size: integer:= 32);
       port(
@@ -182,22 +135,105 @@ begin
 
 end Reset_Latch_arch; -- Reset_Latch_arch
 
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity not_gate is
+entity Variable_Delay is
+  generic(
+    Delay_Select_Bits: integer := 7;
+    Bus_Size: integer := 8
+    );
   port(
-    D_in: in std_logic;
-    Q_out: out std_logic
+    D_In: in std_logic_vector(Bus_Size-1 downto 0);
+    D_Out: out std_logic_vector(Bus_Size-1 downto 0);
+    Delay_Select: in std_logic_vector(Delay_Select_Bits-1 downto 0);
+    Clock: in std_logic;
+    Reset: in std_logic
   );
-end not_gate;
+end Variable_Delay;
 
+architecture Delay_Arch of Variable_Delay is
 
-architecture beh of not_gate is
+  constant Delay_Amount: integer := (2**Delay_Select_Bits);
+
+  type Delay_Pipeline is array(0 to Delay_Amount-1) of std_logic_vector(Bus_Size-1 downto 0);  
+  signal Delay_Registers: Delay_Pipeline := (others => (others =>'0'));
 
 begin
-Q_out <= not D_in;
-end beh ; -- beh
+  process(Clock)
+    begin
+      if Rising_Edge(Clock) then 
+        if Reset = '1' then
+          Delay_Registers <= (others => (others => '0'));
+        else
+          Delay_Registers(0) <= D_In;
+          for i in 1 to Delay_Amount-1 loop
+            Delay_Registers(i) <= Delay_Registers(i-1);
+          end loop;
+          D_Out <= Delay_Registers(to_integer(unsigned(Delay_Select)));
+        end if;
+      end if;
+  end process;
+end Delay_Arch ; -- Delay_Arch
 
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity DAC_Interface is
+  port(
+  Input_C1: in std_logic_vector(13 downto 0);
+  Input_C2: in std_logic_vector(13 downto 0);
+  DAC_Data: out std_logic_vector(31 downto 0)
+  );
+end DAC_Interface;
+
+architecture DAC_interface_arch of DAC_Interface is
+
+begin
+
+  DAC_Data(13 downto 0)   <= Input_C1;
+  DAC_Data(15 downto 14)  <= "00";
+  DAC_Data(29 downto 16)  <= Input_C2;
+  DAC_Data(31 downto 30)  <= "00";
+
+end DAC_interface_arch ; -- DAC_interface_arc
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Reset_Gen is
+  port (  Clock: in std_logic;
+          Reset: out std_logic
+  );
+end Reset_Gen;
+
+architecture arch of Reset_Gen is
+
+  signal Init_State: std_logic := '1';
+
+begin
+
+  ---Init/Reset Process  
+  process(Clock)
+  begin
+    if Rising_Edge(Clock) then
+      if Init_State = '1' then
+        Reset <= '1';
+        Init_State <= '0';
+      else
+        Reset <= '0';
+      end if;
+    end if;
+  end process;
+
+end arch ; -- arch

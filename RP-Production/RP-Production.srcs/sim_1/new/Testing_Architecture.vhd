@@ -38,7 +38,7 @@ entity Testing_Architecture is
     port(
             Clock: in std_logic;
             Reset: in std_logic;
-            Taps: in std_logic_vector(10 downto 0);
+            Taps: in std_logic_vector(6 downto 0);
             PSKREF: out std_logic_vector(13 downto 0);
             PSKMOD: out std_logic_vector(13 downto 0);
             Mode: in std_logic;
@@ -51,107 +51,123 @@ end Testing_Architecture;
 
 architecture Behavioral of Testing_Architecture is
 
-    component Delay_Package is
-        generic(
-            Size: integer := 8; 
-            Delay_Amount : integer := 32
-            );
-        port(clock: in std_logic;
-             reset: in std_logic;
-             taps: in std_logic_vector(Size-2 downto 0);
-             PRBS_ref: out std_logic;
-             PRBS_delay: out std_logic
-             );
-    end component;
-   
     component PSK is
         port(
-        Frequency: in std_logic_vector(31 downto 0);
-        Clock: in std_logic;
-        Reset: in std_logic;
-        PSKout: out std_logic_vector(13 downto 0);
-        REFout: out std_logic_vector(13 downto 0);
-        Modulation: in std_logic
+            Frequency: in std_logic_vector(31 downto 0); --- Frequency is in fact 4 times this word
+            Clock: in std_logic;
+            Reset: in std_logic;
+            PSKout: out std_logic_vector(13 downto 0);
+            REFout: out std_logic_vector(13 downto 0);
+            Modulation: in std_logic;
+            PSK_m_axis_tdata: out std_logic_vector(31 downto 0);
+            PSK_m_axis_tvalid: out std_logic
         );
     end component;
 
-    component Clock_Divider64 is
-        port( 
-          DivClock_In: in std_logic;
-          DivClock_Out: out std_logic;
-          Reset: in std_logic
-          );
-      end component;
+    component LFSR is
+        generic (
+            Size: integer := 32 -- from size of 1 up to 32
+        );
+        port(
+            Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb and not the taps)
+            clock: in std_logic;
+            PRBS: out std_logic;
+            reset: in std_logic;
+            State: out std_logic_vector(Size -1 downto 0)
+        );
+    end component;
+    
+    component Clock_Divider is
+        generic(Div_Rate: integer := 6);
+          port( 
+            DivClock_In: in std_logic;
+            DivClock_Out: out std_logic;
+            Reset: in std_logic
+            );
+    end component;
 
-
-      component DMA_Interconnect is
+    component Costa_Demodulator is
         port (
-    
-            PRBS_TX: in std_logic;
-            PRBS_RX: in std_logic;
-    
-            --axis input for DAC
-            s_axis_tdata: in std_logic_vector(31 downto 0);
-            s_axis_tvalid: in std_logic;
-    
-            --ADC Data_out
-            ADC_Data: out std_logic_vector(31 downto 0);
-    
-            --axis mode
-            Mode: in std_logic;
-            -- Full: out std_logic;
-            --axis output to FIFO 
-            m_axis_tdata: out std_logic_vector(31 downto 0);
-            m_axis_tvalid: out std_logic;
-            m_axis_tready: in std_logic;
+        --Signal Input
+        Input_Signal: in std_logic_vector(13 downto 0);
+        --PLL Control
+        PLL_Guess_Freq: in std_logic_vector(31 downto 0);
+        Control_Kp: in std_logic_vector(31 downto 0);
+        Control_Ki: in std_logic_vector(31 downto 0);
+        Integrator_Reset: in std_logic;
+        Threshold: in std_logic_vector(25 downto 0);
+        --Measurments
+        Freq_Measured: out std_logic_vector(31 downto 0);
+        Phase_Measured: out std_logic_vector(31 downto 0);
+        Lock_Strength: out std_logic_vector(25 downto 0);
+        Message: out std_logic;
         
-            --axis clock
-            aclk: in std_logic;
-            -- PRBS_clk: in std_logic;
-            reset: in std_logic
+        Locked_Carrier: out std_logic_vector(13 downto 0);     
+
+        ---General
+        Clock: in std_logic;
+        Reset: in std_logic
+
         );
     end component;
 
-    signal PRBS_ref, PRBS_delay, Slow_Clock: std_logic;
+
+    signal PRBS_Value, Slow_Clock: std_logic;
+    signal NCO_Data, Locked_Signal: std_logic_vector(13 downto 0);
+    signal Squared_Data: std_logic_vector(27 downto 0);
+    signal Freq_Doubled: std_logic_vector(55 downto 0);
 
     begin
 
-    PRBS_Gen: Delay_Package
-    generic map(Size => 12, Delay_Amount => 5)
+    PSKMOD <= NCO_Data;
+
+    clkdiv: Clock_Divider
+    generic map(Div_Rate => 5)
     port map(
-        clock => Clock,
-        reset => Reset,
-        taps => Taps,
-        PRBS_ref => PRBS_ref,
-        PRBS_delay => PRBS_delay
+        DivClock_In => Clock,
+        DivClock_Out => Slow_Clock,
+        Reset => Reset
     );
 
-    DMA_Controller: DMA_Interconnect
-    port map(
-        PRBS_TX => PRBS_ref,
-        PRBS_RX => PRBS_delay,
-        s_axis_tdata => (others => '0'),
-        s_axis_tvalid => '0',
-        ADC_Data => open,
-        Mode => Mode,
-        -- Full => Full,
-        m_axis_tdata => tdata,
-        m_axis_tvalid => tvalid,
-        m_axis_tready => tready,
-        aclk => Clock,
-        -- PRBS_clk => Slow_Clock,
-        reset => Reset
-    );
 
+    PRBS: LFSR
+    generic map(Size => 8)
+    port map(
+        Taps => "0111000", --0xB8
+        clock => Slow_Clock,
+        PRBS => PRBS_Value,
+        reset => Reset, 
+        State => open
+    );
 
     PSK_Gen: PSK
     port map(
         Frequency => std_logic_vector(to_unsigned(343597384, 32)),
         Clock => Clock,
         Reset => Reset,
-        PSKout => PSKMOD,
+        PSKout => NCO_Data,
         REFout => PSKREF,
-        Modulation => PRBS_ref
-        ); 
+        Modulation => PRBS_Value,
+        PSK_m_axis_tdata => open,
+        PSK_m_axis_tvalid => open 
+        );
+
+    Demodulator: Costa_Demodulator
+    port map(
+        Input_Signal => NCO_Data,
+        PLL_Guess_Freq =>   std_logic_vector(to_unsigned(343697384, 32)),
+        Control_Kp =>       std_logic_vector(to_signed(-1000000, 32)),
+        Control_Ki =>       std_logic_vector(to_signed(-1000, 32)),
+        Integrator_Reset => '0',
+        Threshold => std_logic_vector(to_signed(1000000, 26)),
+        Freq_Measured => open,
+        Phase_Measured => open,
+        Lock_Strength => open,
+        Message => open,
+        Locked_Carrier => Locked_Signal,
+        Clock => Clock,
+        Reset => Reset
+    );
+
 
 end Behavioral;

@@ -20,26 +20,24 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
+				"/DMA_Interconnect_0/ADC_s_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "ADC_s_axis_tdata"},
+						"TVALID": { "actual": "ADC_s_axis_tvalid"}
+					}
+				},
 				"/DMA_Interconnect_0/m_axis": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "reset"},
 						"TDATA": { "actual": "m_axis_tdata"},
 						"TREADY": { "actual": "m_axis_tready"},
 						"TVALID": { "actual": "m_axis_tvalid"}
 					}
 				},
-				"/DMA_Interconnect_0/s_axis": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "reset"},
-						"TDATA": { "actual": "s_axis_tdata"},
-						"TVALID": { "actual": "s_axis_tvalid"}
-					}
-				},
-				"/GPIO_Interface/DMA_Mode/S_AXI": {
+				"/GPIO_Interface/Delay_Amount/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},
@@ -63,7 +61,7 @@
 						"WVALID": { "actual": "s_axi_wvalid"}
 					}
 				},
-				"/GPIO_Interface/GPIO_Debug/S_AXI": {
+				"/GPIO_Interface/Demodulator_Threshold/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},
@@ -207,7 +205,7 @@
 						"WVALID": { "actual": "s_axi_wvalid"}
 					}
 				},
-				"/GPIO_Interface/GPIO_PRBS_Memory/S_AXI": {
+				"/GPIO_Interface/GPIO_TAPS/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},
@@ -231,7 +229,7 @@
 						"WVALID": { "actual": "s_axi_wvalid"}
 					}
 				},
-				"/GPIO_Interface/GPIO_TAPS/S_AXI": {
+				"/GPIO_Interface/Internal_Debug_Freq/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},
@@ -327,76 +325,28 @@
 						"WVALID": { "actual": "S_AXI1_wvalid"}
 					}
 				},
-				"/GPIO_Interface/S_AXI2": {
+				"/GPIO_Interface/S_AXI2_Taps": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},
-						"ARADDR": { "actual": "S_AXI2_araddr"},
+						"ARADDR": { "actual": "S_AXI2_Taps_araddr"},
 						"ARESETN": { "actual": "s_axi_aresetn"},
-						"ARREADY": { "actual": "S_AXI2_arready"},
-						"ARVALID": { "actual": "S_AXI2_arvalid"},
-						"AWADDR": { "actual": "S_AXI2_awaddr"},
-						"AWREADY": { "actual": "S_AXI2_awready"},
-						"AWVALID": { "actual": "S_AXI2_awvalid"},
-						"BREADY": { "actual": "S_AXI2_bready"},
-						"BRESP": { "actual": "S_AXI2_bresp"},
-						"BVALID": { "actual": "S_AXI2_bvalid"},
-						"RDATA": { "actual": "S_AXI2_rdata"},
-						"RREADY": { "actual": "S_AXI2_rready"},
-						"RRESP": { "actual": "S_AXI2_rresp"},
-						"RVALID": { "actual": "S_AXI2_rvalid"},
-						"WDATA": { "actual": "S_AXI2_wdata"},
-						"WREADY": { "actual": "S_AXI2_wready"},
-						"WSTRB": { "actual": "S_AXI2_wstrb"},
-						"WVALID": { "actual": "S_AXI2_wvalid"}
-					}
-				},
-				"/GPIO_Interface/S_AXI3": {
-					"interface": "xilinx.com:interface:aximm:1.0",
-					"ports": {
-						"ACLK": { "actual": "s_axi_aclk"},
-						"ARADDR": { "actual": "S_AXI3_araddr"},
-						"ARESETN": { "actual": "s_axi_aresetn"},
-						"ARREADY": { "actual": "S_AXI3_arready"},
-						"ARVALID": { "actual": "S_AXI3_arvalid"},
-						"AWADDR": { "actual": "S_AXI3_awaddr"},
-						"AWREADY": { "actual": "S_AXI3_awready"},
-						"AWVALID": { "actual": "S_AXI3_awvalid"},
-						"BREADY": { "actual": "S_AXI3_bready"},
-						"BRESP": { "actual": "S_AXI3_bresp"},
-						"BVALID": { "actual": "S_AXI3_bvalid"},
-						"RDATA": { "actual": "S_AXI3_rdata"},
-						"RREADY": { "actual": "S_AXI3_rready"},
-						"RRESP": { "actual": "S_AXI3_rresp"},
-						"RVALID": { "actual": "S_AXI3_rvalid"},
-						"WDATA": { "actual": "S_AXI3_wdata"},
-						"WREADY": { "actual": "S_AXI3_wready"},
-						"WSTRB": { "actual": "S_AXI3_wstrb"},
-						"WVALID": { "actual": "S_AXI3_wvalid"}
-					}
-				},
-				"/GPIO_Interface/S_AXI4": {
-					"interface": "xilinx.com:interface:aximm:1.0",
-					"ports": {
-						"ACLK": { "actual": "s_axi_aclk"},
-						"ARADDR": { "actual": "S_AXI4_araddr"},
-						"ARESETN": { "actual": "s_axi_aresetn"},
-						"ARREADY": { "actual": "S_AXI4_arready"},
-						"ARVALID": { "actual": "S_AXI4_arvalid"},
-						"AWADDR": { "actual": "S_AXI4_awaddr"},
-						"AWREADY": { "actual": "S_AXI4_awready"},
-						"AWVALID": { "actual": "S_AXI4_awvalid"},
-						"BREADY": { "actual": "S_AXI4_bready"},
-						"BRESP": { "actual": "S_AXI4_bresp"},
-						"BVALID": { "actual": "S_AXI4_bvalid"},
-						"RDATA": { "actual": "S_AXI4_rdata"},
-						"RREADY": { "actual": "S_AXI4_rready"},
-						"RRESP": { "actual": "S_AXI4_rresp"},
-						"RVALID": { "actual": "S_AXI4_rvalid"},
-						"WDATA": { "actual": "S_AXI4_wdata"},
-						"WREADY": { "actual": "S_AXI4_wready"},
-						"WSTRB": { "actual": "S_AXI4_wstrb"},
-						"WVALID": { "actual": "S_AXI4_wvalid"}
+						"ARREADY": { "actual": "S_AXI2_Taps_arready"},
+						"ARVALID": { "actual": "S_AXI2_Taps_arvalid"},
+						"AWADDR": { "actual": "S_AXI2_Taps_awaddr"},
+						"AWREADY": { "actual": "S_AXI2_Taps_awready"},
+						"AWVALID": { "actual": "S_AXI2_Taps_awvalid"},
+						"BREADY": { "actual": "S_AXI2_Taps_bready"},
+						"BRESP": { "actual": "S_AXI2_Taps_bresp"},
+						"BVALID": { "actual": "S_AXI2_Taps_bvalid"},
+						"RDATA": { "actual": "S_AXI2_Taps_rdata"},
+						"RREADY": { "actual": "S_AXI2_Taps_rready"},
+						"RRESP": { "actual": "S_AXI2_Taps_rresp"},
+						"RVALID": { "actual": "S_AXI2_Taps_rvalid"},
+						"WDATA": { "actual": "S_AXI2_Taps_wdata"},
+						"WREADY": { "actual": "S_AXI2_Taps_wready"},
+						"WSTRB": { "actual": "S_AXI2_Taps_wstrb"},
+						"WVALID": { "actual": "S_AXI2_Taps_wvalid"}
 					}
 				},
 				"/GPIO_Interface/S_AXI_FreqMeasured": {
@@ -495,6 +445,30 @@
 						"WVALID": { "actual": "S_AXI_Kp_wvalid"}
 					}
 				},
+				"/GPIO_Interface/S_AXI_Locking_Strength": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "s_axi_aclk"},
+						"ARADDR": { "actual": "S_AXI_Locking_Strength_araddr"},
+						"ARESETN": { "actual": "s_axi_aresetn"},
+						"ARREADY": { "actual": "S_AXI_Locking_Strength_arready"},
+						"ARVALID": { "actual": "S_AXI_Locking_Strength_arvalid"},
+						"AWADDR": { "actual": "S_AXI_Locking_Strength_awaddr"},
+						"AWREADY": { "actual": "S_AXI_Locking_Strength_awready"},
+						"AWVALID": { "actual": "S_AXI_Locking_Strength_awvalid"},
+						"BREADY": { "actual": "S_AXI_Locking_Strength_bready"},
+						"BRESP": { "actual": "S_AXI_Locking_Strength_bresp"},
+						"BVALID": { "actual": "S_AXI_Locking_Strength_bvalid"},
+						"RDATA": { "actual": "S_AXI_Locking_Strength_rdata"},
+						"RREADY": { "actual": "S_AXI_Locking_Strength_rready"},
+						"RRESP": { "actual": "S_AXI_Locking_Strength_rresp"},
+						"RVALID": { "actual": "S_AXI_Locking_Strength_rvalid"},
+						"WDATA": { "actual": "S_AXI_Locking_Strength_wdata"},
+						"WREADY": { "actual": "S_AXI_Locking_Strength_wready"},
+						"WSTRB": { "actual": "S_AXI_Locking_Strength_wstrb"},
+						"WVALID": { "actual": "S_AXI_Locking_Strength_wvalid"}
+					}
+				},
 				"/GPIO_Interface/S_AXI_PLL_Guess": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
@@ -517,6 +491,30 @@
 						"WREADY": { "actual": "S_AXI_PLL_Guess_wready"},
 						"WSTRB": { "actual": "S_AXI_PLL_Guess_wstrb"},
 						"WVALID": { "actual": "S_AXI_PLL_Guess_wvalid"}
+					}
+				},
+				"/GPIO_Interface/S_AXI_Threshold": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "s_axi_aclk"},
+						"ARADDR": { "actual": "S_AXI_Threshold_araddr"},
+						"ARESETN": { "actual": "s_axi_aresetn"},
+						"ARREADY": { "actual": "S_AXI_Threshold_arready"},
+						"ARVALID": { "actual": "S_AXI_Threshold_arvalid"},
+						"AWADDR": { "actual": "S_AXI_Threshold_awaddr"},
+						"AWREADY": { "actual": "S_AXI_Threshold_awready"},
+						"AWVALID": { "actual": "S_AXI_Threshold_awvalid"},
+						"BREADY": { "actual": "S_AXI_Threshold_bready"},
+						"BRESP": { "actual": "S_AXI_Threshold_bresp"},
+						"BVALID": { "actual": "S_AXI_Threshold_bvalid"},
+						"RDATA": { "actual": "S_AXI_Threshold_rdata"},
+						"RREADY": { "actual": "S_AXI_Threshold_rready"},
+						"RRESP": { "actual": "S_AXI_Threshold_rresp"},
+						"RVALID": { "actual": "S_AXI_Threshold_rvalid"},
+						"WDATA": { "actual": "S_AXI_Threshold_wdata"},
+						"WREADY": { "actual": "S_AXI_Threshold_wready"},
+						"WSTRB": { "actual": "S_AXI_Threshold_wstrb"},
+						"WVALID": { "actual": "S_AXI_Threshold_wvalid"}
 					}
 				},
 				"/PS7/DMA_Engine/M00_AXI": {
@@ -1648,6 +1646,7 @@
 					"ports": {
 						"ACLK": { "actual": "FCLK_CLK0"},
 						"ARADDR": { "actual": "M07_AXI_araddr[255:224]"},
+						"ARESETN": { "actual": "peripheral_aresetn"},
 						"ARREADY": { "actual": "M07_AXI_arready"},
 						"ARVALID": { "actual": "M07_AXI_arvalid"},
 						"AWADDR": { "actual": "M07_AXI_awaddr[255:224]"},
@@ -1671,6 +1670,7 @@
 					"ports": {
 						"ACLK": { "actual": "FCLK_CLK0"},
 						"ARADDR": { "actual": "M08_AXI_araddr[287:256]"},
+						"ARESETN": { "actual": "peripheral_aresetn"},
 						"ARREADY": { "actual": "M08_AXI_arready"},
 						"ARVALID": { "actual": "M08_AXI_arvalid"},
 						"AWADDR": { "actual": "M08_AXI_awaddr[287:256]"},
@@ -3227,12 +3227,13 @@
 						"WVALID": { "actual": "S_AXI_HP0_WVALID"}
 					}
 				},
-				"/axis_red_pitaya_adc_0/M_AXIS": {
+				"/PSK_Debug/PSK_m_axis": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
-						"ACLK": { "actual": "adc_clk"},
-						"TDATA": { "actual": "m_axis_tdata"},
-						"TVALID": { "actual": "m_axis_tvalid"}
+						"ACLK": { "actual": "Clock"},
+						"ARESETN": { "actual": "Reset"},
+						"TDATA": { "actual": "PSK_m_axis_tdata"},
+						"TVALID": { "actual": "PSK_m_axis_tvalid"}
 					}
 				}
 			}

@@ -11,22 +11,23 @@ entity LFSR2008 is
         Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb)
         clock: in std_logic;
         PRBS: out std_logic;
-        reset: in std_logic
+        reset: in std_logic;
+        State: out std_logic_vector(Size -1 downto 0 )
     );
 end LFSR2008;
 
 architecture LFSR2008_Arch of LFSR2008 is
 
-    signal Internal_State: std_logic_vector(Size-1 downto 0);
+    signal Internal_State: std_logic_vector(Size-1 downto 0) := (others => '1');
     begin
-
-    process(clock, reset)
+    State <= Internal_State;
+    process(clock)
         begin
 
         if rising_edge(clock) then
-            -- if reset = '1' then
-            --     Internal_State <= (others => '1');
-            -- else
+            if reset = '1' then
+                Internal_State <= (others => '1');
+            else
                 Internal_State(0) <= Internal_State(Size-1);
                 PRBS <= Internal_State(Size-1);
                 for i in 0 to Size-2 loop
@@ -34,9 +35,10 @@ architecture LFSR2008_Arch of LFSR2008 is
                                             Internal_State(i) when Taps(i) = '0';
                 end loop;
             -- end if;
-        end if;
-        if rising_edge(reset) then
-            Internal_State <= (others => '1');
+            end if;
+        -- if rising_edge(reset) then
+        --     Internal_State <= (others => '1');
+        -- end if;
         end if;
     end process;
 end architecture;
