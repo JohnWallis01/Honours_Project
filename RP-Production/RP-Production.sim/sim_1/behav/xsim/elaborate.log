@@ -13,6 +13,9 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
+Compiling architecture clock_div_arch of entity xil_defaultlib.Clock_Divider [\Clock_Divider(div_rate=5)\]
+Compiling architecture lfsr2008_arch of entity xil_defaultlib.LFSR2008 [\LFSR2008(size=8)\]
+Compiling architecture lfsr_arch of entity xil_defaultlib.LFSR [\LFSR(size=8)\]
 Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(dac_size=14)\]
 Compiling architecture psk_arch of entity xil_defaultlib.PSK [psk_default]
 Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
@@ -20,6 +23,7 @@ Compiling architecture rtl of entity xil_defaultlib.LiteHPFilter [litehpfilter_d
 Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
 Compiling architecture pid_controller_arch of entity xil_defaultlib.PID_Controller [pid_controller_default]
 Compiling architecture system_architecture of entity xil_defaultlib.Squared_Phase_Locked_Loop [squared_phase_locked_loop_defaul...]
+Compiling architecture psk_demodulator_arch of entity xil_defaultlib.PSK_Demodulator [psk_demodulator_default]
 Compiling architecture behavioral of entity xil_defaultlib.Testing_Architecture [testing_architecture_default]
 Compiling module xil_defaultlib.Main_Sim
 Compiling module xil_defaultlib.glbl

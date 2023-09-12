@@ -63,6 +63,7 @@ module system_Squared_Phase_Locked_0_0 (
   Lock_Strength,
   ADC_Stream_in,
   DAC_Stream_out,
+  Locked_Carrier,
   AD_CLK_in,
   Reset_In,
   Reset_Out,
@@ -77,6 +78,7 @@ output wire [31 : 0] Phase_Measured;
 output wire [25 : 0] Lock_Strength;
 input wire [31 : 0] ADC_Stream_in;
 output wire [31 : 0] DAC_Stream_out;
+output wire [13 : 0] Locked_Carrier;
 input wire AD_CLK_in;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset_In, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset_In RST" *)
@@ -99,6 +101,7 @@ input wire Integrator_Reset;
     .Lock_Strength(Lock_Strength),
     .ADC_Stream_in(ADC_Stream_in),
     .DAC_Stream_out(DAC_Stream_out),
+    .Locked_Carrier(Locked_Carrier),
     .AD_CLK_in(AD_CLK_in),
     .Reset_In(Reset_In),
     .Reset_Out(Reset_Out),

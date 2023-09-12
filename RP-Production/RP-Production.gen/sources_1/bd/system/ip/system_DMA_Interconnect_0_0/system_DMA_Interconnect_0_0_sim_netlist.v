@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Sep  8 10:15:15 2023
+// Date        : Mon Sep 11 22:24:32 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0_sim_netlist.v
@@ -18,41 +18,55 @@
 module system_DMA_Interconnect_0_0
    (ADC_s_axis_tdata,
     ADC_s_axis_tvalid,
-    PRBS_s_axis_tdata,
-    PRBS_s_axis_tvalid,
+    Demodulated_PRBS,
+    Reference_PRBS,
+    Debug,
     ADC_Data,
+    ADC_C1,
+    ADC_C2,
     m_axis_tdata,
     m_axis_tvalid,
     m_axis_tready,
     aclk);
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 ADC_s_axis TDATA" *) input [31:0]ADC_s_axis_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 ADC_s_axis TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ADC_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input ADC_s_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 PRBS_s_axis TDATA" *) input [31:0]PRBS_s_axis_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 PRBS_s_axis TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PRBS_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input PRBS_s_axis_tvalid;
+  input Demodulated_PRBS;
+  input Reference_PRBS;
+  input [13:0]Debug;
   output [31:0]ADC_Data;
+  output [13:0]ADC_C1;
+  output [13:0]ADC_C2;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *) output [31:0]m_axis_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TVALID" *) output m_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:PRBS_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input aclk;
 
   wire \<const1> ;
-  wire [31:16]\^ADC_Data ;
+  wire [13:0]ADC_C1;
+  wire [13:0]ADC_C2;
+  wire [31:30]\^ADC_Data ;
   wire [31:0]ADC_s_axis_tdata;
-  wire [31:0]PRBS_s_axis_tdata;
+  wire [13:0]Debug;
+  wire Demodulated_PRBS;
+  wire Reference_PRBS;
   wire aclk;
-  wire [31:0]m_axis_tdata;
+  wire [31:14]\^m_axis_tdata ;
 
-  assign ADC_Data[31:16] = \^ADC_Data [31:16];
-  assign ADC_Data[15:0] = m_axis_tdata[15:0];
+  assign ADC_Data[31:30] = \^ADC_Data [31:30];
+  assign ADC_Data[29:16] = ADC_C2;
+  assign ADC_Data[15:14] = \^m_axis_tdata [15:14];
+  assign ADC_Data[13:0] = ADC_C1;
+  assign m_axis_tdata[31:14] = \^m_axis_tdata [31:14];
+  assign m_axis_tdata[13:0] = ADC_C1;
   assign m_axis_tvalid = \<const1> ;
   VCC VCC
        (.P(\<const1> ));
   system_DMA_Interconnect_0_0_DMA_Interconnect inst
-       (.ADC_Data({\^ADC_Data ,m_axis_tdata[15:0]}),
+       (.ADC_Data({\^ADC_Data ,ADC_C2,\^m_axis_tdata [15:14],ADC_C1}),
         .ADC_s_axis_tdata(ADC_s_axis_tdata),
-        .PRBS_s_axis_tdata(PRBS_s_axis_tdata[15:0]),
+        .D({Debug,Demodulated_PRBS,Reference_PRBS}),
         .aclk(aclk),
-        .m_axis_tdata(m_axis_tdata[31:16]));
+        .m_axis_tdata(\^m_axis_tdata [31:16]));
 endmodule
 
 (* ORIG_REF_NAME = "DMA_Interconnect" *) 
@@ -61,16 +75,16 @@ module system_DMA_Interconnect_0_0_DMA_Interconnect
     m_axis_tdata,
     ADC_s_axis_tdata,
     aclk,
-    PRBS_s_axis_tdata);
+    D);
   output [31:0]ADC_Data;
   output [15:0]m_axis_tdata;
   input [31:0]ADC_s_axis_tdata;
   input aclk;
-  input [15:0]PRBS_s_axis_tdata;
+  input [15:0]D;
 
   wire [31:0]ADC_Data;
   wire [31:0]ADC_s_axis_tdata;
-  wire [15:0]PRBS_s_axis_tdata;
+  wire [15:0]D;
   wire aclk;
   wire [15:0]m_axis_tdata;
 
@@ -269,97 +283,97 @@ module system_DMA_Interconnect_0_0_DMA_Interconnect
   FDRE \m_axis_tdata_reg[16] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[0]),
+        .D(D[0]),
         .Q(m_axis_tdata[0]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[17] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[1]),
+        .D(D[1]),
         .Q(m_axis_tdata[1]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[18] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[2]),
+        .D(D[2]),
         .Q(m_axis_tdata[2]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[19] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[3]),
+        .D(D[3]),
         .Q(m_axis_tdata[3]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[20] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[4]),
+        .D(D[4]),
         .Q(m_axis_tdata[4]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[21] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[5]),
+        .D(D[5]),
         .Q(m_axis_tdata[5]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[22] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[6]),
+        .D(D[6]),
         .Q(m_axis_tdata[6]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[23] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[7]),
+        .D(D[7]),
         .Q(m_axis_tdata[7]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[24] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[8]),
+        .D(D[8]),
         .Q(m_axis_tdata[8]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[25] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[9]),
+        .D(D[9]),
         .Q(m_axis_tdata[9]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[26] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[10]),
+        .D(D[10]),
         .Q(m_axis_tdata[10]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[27] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[11]),
+        .D(D[11]),
         .Q(m_axis_tdata[11]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[28] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[12]),
+        .D(D[12]),
         .Q(m_axis_tdata[12]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[29] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[13]),
+        .D(D[13]),
         .Q(m_axis_tdata[13]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[30] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[14]),
+        .D(D[14]),
         .Q(m_axis_tdata[14]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[31] 
        (.C(aclk),
         .CE(1'b1),
-        .D(PRBS_s_axis_tdata[15]),
+        .D(D[15]),
         .Q(m_axis_tdata[15]),
         .R(1'b0));
 endmodule

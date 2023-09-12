@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sat Sep  9 16:22:01 2023
+// Date        : Tue Sep 12 09:09:50 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_LFSR_0_0/system_LFSR_0_0_stub.v
@@ -15,10 +15,10 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "LFSR,Vivado 2022.2" *)
 module system_LFSR_0_0(Taps, clock, PRBS, reset, State)
-/* synthesis syn_black_box black_box_pad_pin="Taps[6:0],clock,PRBS,reset,State[7:0]" */;
-  input [6:0]Taps;
+/* synthesis syn_black_box black_box_pad_pin="Taps[5:0],clock,PRBS,reset,State[6:0]" */;
+  input [5:0]Taps;
   input clock;
   output PRBS;
   input reset;
-  output [7:0]State;
+  output [6:0]State;
 endmodule

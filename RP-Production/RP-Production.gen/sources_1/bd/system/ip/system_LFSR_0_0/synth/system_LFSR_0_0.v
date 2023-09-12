@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "LFSR,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_LFSR_0_0,LFSR,{}" *)
-(* CORE_GENERATION_INFO = "system_LFSR_0_0,LFSR,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=LFSR,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Size=8}" *)
+(* CORE_GENERATION_INFO = "system_LFSR_0_0,LFSR,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=LFSR,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Size=7}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_LFSR_0_0 (
@@ -63,7 +63,7 @@ module system_LFSR_0_0 (
   State
 );
 
-input wire [6 : 0] Taps;
+input wire [5 : 0] Taps;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clock, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *)
 input wire clock;
@@ -71,10 +71,10 @@ output wire PRBS;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
 input wire reset;
-output wire [7 : 0] State;
+output wire [6 : 0] State;
 
   LFSR #(
-    .Size(8)
+    .Size(7)
   ) inst (
     .Taps(Taps),
     .clock(clock),

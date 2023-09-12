@@ -164,12 +164,15 @@ entity DMA_Interconnect is
         ADC_s_axis_tdata: in std_logic_vector(31 downto 0);
         ADC_s_axis_tvalid: in std_logic;
 
-        --axis input for Local Refences PRBS
-        PRBS_s_axis_tdata: in std_logic_vector(31 downto 0);
-        PRBS_s_axis_tvalid: in std_logic; 
+        --Inputs for PRBS Signals
+        Demodulated_PRBS: in std_logic;
+        Reference_PRBS: in std_logic;
+        Debug: in std_logic_vector(13 downto 0);
 
         --ADC Data_out
         ADC_Data: out std_logic_vector(31 downto 0);
+        ADC_C1: out std_logic_vector(13 downto 0);
+        ADC_C2: out std_logic_vector(13 downto 0);
 
         --axis output to DMA 
         m_axis_tdata: out std_logic_vector(31 downto 0);
@@ -189,6 +192,9 @@ begin
     begin
         if rising_edge(aclk) then
             ADC_Data <= ADC_s_axis_tdata; --this should use the valid signal
+            ADC_C1 <= ADC_s_axis_tdata(13 downto 0);
+            ADC_C2 <= ADC_s_axis_tdata(29 downto 16);
+ 
         end if;
     end process;
 
@@ -197,7 +203,9 @@ begin
         if rising_edge(aclk) then
             m_axis_tvalid <= '1';
             m_axis_tdata(15 downto 0)  <= ADC_s_axis_tdata(15 downto 0);
-            m_axis_tdata(31 downto 16) <= PRBS_s_axis_tdata(15 downto 0); 
+            m_axis_tdata(16) <= Reference_PRBS;
+            m_axis_tdata(17) <= Demodulated_PRBS;
+            m_axis_tdata(31 downto 18) <= Debug;
         end if;
     end process;
 

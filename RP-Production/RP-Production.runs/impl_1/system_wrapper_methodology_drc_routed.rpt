@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Mon Sep 11 18:22:26 2023
+| Date         : Tue Sep 12 09:14:51 2023
 | Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
@@ -23,18 +23,16 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 242
+             Violations found: 168
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
 | TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 1          |
 | TIMING-6  | Critical Warning | No common primary clock between related clocks     | 1          |
 | TIMING-7  | Critical Warning | No common node between related clocks              | 1          |
-| TIMING-17 | Critical Warning | Non-clocked sequential cell                        | 30         |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell                        | 137        |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
-| DPIR-1    | Warning          | Asynchronous driver check                          | 140        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                       | 7          |
-| TIMING-16 | Warning          | Large setup violation                              | 41         |
 | TIMING-18 | Warning          | Missing input or output delay                      | 16         |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten    | 4          |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -58,857 +56,692 @@ Related violations: <none>
 
 TIMING-17#1 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/D_Out_reg[0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[0][0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#3 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[10][0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#4 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[11][0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#5 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[12][0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#6 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[13][0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#7 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[14][0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#8 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[15][0]/C is not reached by a timing clock
+The clock pin system_i/LFSR_0/inst/LFSR/PRBS_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#9 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[16][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/D_Out_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#10 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[17][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[0][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#11 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[18][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[100][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#12 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[19][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[101][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#13 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[1][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[102][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#14 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[2][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[103][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#15 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[3][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[104][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#16 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[4][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[105][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#17 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[5][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[106][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#18 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[6][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[107][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#19 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[7][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[108][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#20 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[8][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[109][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#21 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/Delay_0/inst/Delay_Registers_reg[9][0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[10][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#22 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[0]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[110][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#23 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[1]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[111][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#24 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[2]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[112][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#25 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[3]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[113][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#26 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[4]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[114][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#27 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[5]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[115][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#28 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[6]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[116][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#29 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/Internal_State_reg[7]/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[117][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#30 Critical Warning
 Non-clocked sequential cell  
-The clock pin system_i/LFSR_0/inst/LFSR/PRBS_reg/C is not reached by a timing clock
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[118][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#31 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[119][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#32 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[11][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#33 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[120][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#34 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[121][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#35 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[122][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#36 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[123][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#37 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[124][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#38 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[125][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#39 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[126][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#40 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[127][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#41 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[12][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#42 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[13][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#43 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[14][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#44 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[15][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#45 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[16][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#46 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[17][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#47 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[18][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#48 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[19][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#49 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[1][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#50 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[20][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#51 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[21][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#52 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[22][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#53 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[23][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#54 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[24][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#55 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[25][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#56 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[26][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#57 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[27][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#58 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[28][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#59 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[29][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#60 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[2][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#61 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[30][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#62 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[31][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#63 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[32][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#64 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[33][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#65 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[34][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#66 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[35][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#67 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[36][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#68 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[37][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#69 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[38][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#70 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[39][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#71 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[3][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#72 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[40][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#73 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[41][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#74 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[42][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#75 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[43][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#76 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[44][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#77 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[45][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#78 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[46][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#79 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[47][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#80 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[48][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#81 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[49][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#82 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[4][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#83 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[50][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#84 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[51][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#85 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[52][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#86 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[53][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#87 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[54][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#88 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[55][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#89 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[56][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#90 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[57][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#91 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[58][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#92 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[59][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#93 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[5][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#94 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[60][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#95 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[61][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#96 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[62][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#97 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[63][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#98 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[64][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#99 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[65][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#100 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[66][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#101 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[67][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#102 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[68][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#103 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[69][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#104 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[6][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#105 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[70][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#106 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[71][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#107 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[72][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#108 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[73][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#109 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[74][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#110 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[75][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#111 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[76][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#112 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[77][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#113 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[78][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#114 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[79][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#115 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[7][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#116 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[80][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#117 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[81][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#118 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[82][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#119 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[83][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#120 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[84][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#121 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[85][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#122 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[86][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#123 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[87][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#124 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[88][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#125 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[89][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#126 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[8][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#127 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[90][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#128 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[91][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#129 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[92][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#130 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[93][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#131 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[94][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#132 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[95][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#133 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[96][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#134 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[97][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#135 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[98][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#136 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[99][0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#137 Critical Warning
+Non-clocked sequential cell  
+The clock pin system_i/Variable_Delay_0/inst/Delay_Registers_reg[9][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-27#1 Critical Warning
 Invalid primary clock on hierarchical pin  
 A primary clock system_i/DAC_Interface/clk_wiz_0/inst/clk_in1 is created on an inappropriate internal pin system_i/DAC_Interface/clk_wiz_0/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
-Related violations: <none>
-
-DPIR-1#1 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#2 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#3 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#4 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#5 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#6 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#7 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#8 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#9 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#10 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#11 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#12 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#13 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#14 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#15 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#16 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#17 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#18 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#19 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#20 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#21 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#22 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#23 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#24 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#25 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#26 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#27 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#28 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#29 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#30 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#31 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#32 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#33 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#34 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#35 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__0/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#36 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#37 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#38 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#39 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#40 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#41 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#42 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#43 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#44 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#45 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#46 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#47 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#48 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#49 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#50 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#51 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#52 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__1/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#53 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#54 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#55 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#56 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#57 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#58 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#59 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#60 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#61 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#62 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#63 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#64 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#65 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#66 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#67 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#68 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#69 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#70 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__2/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#71 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#72 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#73 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#74 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#75 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#76 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#77 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#78 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#79 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#80 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#81 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#82 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#83 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#84 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#85 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#86 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#87 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__3/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#88 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#89 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#90 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#91 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#92 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#93 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#94 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#95 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#96 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#97 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#98 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#99 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#100 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#101 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#102 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#103 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#104 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#105 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__4/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#106 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#107 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#108 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#109 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#110 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#111 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#112 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#113 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#114 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#115 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#116 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#117 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#118 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#119 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#120 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#121 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#122 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__5/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#123 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#124 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#125 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#126 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#127 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#128 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#129 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#130 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#131 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#132 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#133 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#134 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#135 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#136 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#137 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#138 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#139 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#140 Warning
-Asynchronous driver check  
-DSP system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6 input pin system_i/Squared_Phase_Locked_0/inst/Loop_Controller/ARG__6/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 LUTAR-1#1 Warning
@@ -1049,211 +882,6 @@ system_i/PS7/DMA_Engine/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axi4_ax
 system_i/PS7/DMA_Engine/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[3]/CLR,
 system_i/PS7/DMA_Engine/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[4]/CLR
  (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-TIMING-16#1 Warning
-Large setup violation  
-There is a large setup violation of -1.016 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[6]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#2 Warning
-Large setup violation  
-There is a large setup violation of -1.020 ns between system_i/Squared_Phase_Locked_0/inst/Loop_Filter/output_register_reg[14]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Loop_Controller/I_pipeline_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#3 Warning
-Large setup violation  
-There is a large setup violation of -1.028 ns between system_i/Squared_Phase_Locked_0/inst/Loop_Filter/output_register_reg[14]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Loop_Controller/I_pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#4 Warning
-Large setup violation  
-There is a large setup violation of -1.041 ns between system_i/Squared_Phase_Locked_0/inst/Loop_Filter/output_register_reg[14]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Loop_Controller/I_pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#5 Warning
-Large setup violation  
-There is a large setup violation of -1.061 ns between system_i/Squared_Phase_Locked_0/inst/Loop_Filter/output_register_reg[14]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Loop_Controller/I_pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#6 Warning
-Large setup violation  
-There is a large setup violation of -1.075 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[7]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#7 Warning
-Large setup violation  
-There is a large setup violation of -1.076 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][18]_replica/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[5]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#8 Warning
-Large setup violation  
-There is a large setup violation of -1.095 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg/RSTP (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#9 Warning
-Large setup violation  
-There is a large setup violation of -1.100 ns between system_i/Squared_Phase_Locked_0/inst/PLL_NCO/Quadrature_out_reg[5]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Quadrature_Mixer/Dout_reg[24]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#10 Warning
-Large setup violation  
-There is a large setup violation of -1.120 ns between system_i/Squared_Phase_Locked_0/inst/PLL_NCO/Quadrature_out_reg[5]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Quadrature_Mixer/Dout_reg[26]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#11 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/product17_reg[0]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#12 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/product17_reg[1]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#13 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/product17_reg[2]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#14 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/product17_reg[3]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#15 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/sum1_9_reg[0]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#16 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/sum1_9_reg[1]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#17 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/sum1_9_reg[2]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#18 Warning
-Large setup violation  
-There is a large setup violation of -1.126 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/sum1_9_reg[3]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#19 Warning
-Large setup violation  
-There is a large setup violation of -1.137 ns between system_i/Squared_Phase_Locked_0/inst/Loop_Filter/output_register_reg[14]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Loop_Controller/I_pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#20 Warning
-Large setup violation  
-There is a large setup violation of -1.137 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[13][10]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#21 Warning
-Large setup violation  
-There is a large setup violation of -1.145 ns between system_i/Squared_Phase_Locked_0/inst/Loop_Filter/output_register_reg[14]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Loop_Controller/I_pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#22 Warning
-Large setup violation  
-There is a large setup violation of -1.196 ns between system_i/Squared_Phase_Locked_0/inst/PLL_NCO/Quadrature_out_reg[5]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Quadrature_Mixer/Dout_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#23 Warning
-Large setup violation  
-There is a large setup violation of -1.204 ns between system_i/Squared_Phase_Locked_0/inst/PLL_NCO/Quadrature_out_reg[5]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/Quadrature_Mixer/Dout_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#24 Warning
-Large setup violation  
-There is a large setup violation of -1.216 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[0]__0/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#25 Warning
-Large setup violation  
-There is a large setup violation of -1.216 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[1]__0/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#26 Warning
-Large setup violation  
-There is a large setup violation of -1.216 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[2]__0/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#27 Warning
-Large setup violation  
-There is a large setup violation of -1.216 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[3]__0/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#28 Warning
-Large setup violation  
-There is a large setup violation of -1.216 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[6]__0/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#29 Warning
-Large setup violation  
-There is a large setup violation of -1.216 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/product17_reg[6]/R (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#30 Warning
-Large setup violation  
-There is a large setup violation of -1.224 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_17_reg/RSTB (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#31 Warning
-Large setup violation  
-There is a large setup violation of -1.238 ns between system_i/Squared_Phase_Locked_0/inst/Reset_Out_reg/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_160/RSTA (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#32 Warning
-Large setup violation  
-There is a large setup violation of -1.275 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[8]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#33 Warning
-Large setup violation  
-There is a large setup violation of -1.331 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[10]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#34 Warning
-Large setup violation  
-There is a large setup violation of -1.386 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[9]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#35 Warning
-Large setup violation  
-There is a large setup violation of -1.390 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[11]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#36 Warning
-Large setup violation  
-There is a large setup violation of -1.539 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[12]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#37 Warning
-Large setup violation  
-There is a large setup violation of -1.555 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[14]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#38 Warning
-Large setup violation  
-There is a large setup violation of -1.629 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[15]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#39 Warning
-Large setup violation  
-There is a large setup violation of -1.650 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[13]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#40 Warning
-Large setup violation  
-There is a large setup violation of -1.723 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[16]__1/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#41 Warning
-Large setup violation  
-There is a large setup violation of -1.834 ns between system_i/Squared_Phase_Locked_0/inst/InputFilter/delay_pipeline_reg[16][21]/C (clocked by adc_clk) and system_i/Squared_Phase_Locked_0/inst/InputFilter/mul_16_reg[17]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

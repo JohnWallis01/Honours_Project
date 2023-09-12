@@ -25,6 +25,7 @@ architecture PID_Controller_arch of PID_Controller is
     signal P_pipeline, I_pipeline: signed(2*Data_Size -1 downto 0) := (others => '0');
     signal D_pipeline: signed(2*Data_Size-1 downto 0) := (others =>'0');
     signal Previous_Input: std_logic_vector(Data_Size-1 downto 0);
+    signal Input_Register: std_logic_vector(Data_Size-1 downto 0);
 
     begin
 
@@ -38,19 +39,21 @@ architecture PID_Controller_arch of PID_Controller is
                     Sig_Buffer <= to_signed(0, 2*Data_Size);
                     I_pipeline <= to_signed(0, 2*Data_Size);
                     D_pipeline <= to_signed(0, 2* Data_Size);
-                    Previous_Input <= (others => '0');
+                    -- Previous_Input <= (others => '0');
+                    Input_Register <= (others => '0');
                 else
-                    D_pipeline <= shift_right(signed(kD)*(signed(SignalInput)-signed(Previous_Input)), Data_Size/2);
-                    Previous_Input <= SignalInput;
-                    P_pipeline <= shift_right(signed(kP)*signed(SignalInput), integer(Data_Size/2));
-                    I_pipeline <= shift_right(signed(kI)*signed(SignalInput), integer(Data_Size/2));
+                    Input_Register <= SignalInput;
+                    -- D_pipeline <= shift_right(signed(kD)*(signed(Input_Register)-signed(Previous_Input)), Data_Size/2);
+                    -- Previous_Input <= Input_Register;
+                    P_pipeline <= shift_right(signed(kP)*signed(Input_Register), integer(Data_Size/2));
+                    I_pipeline <= shift_right(signed(kI)*signed(Input_Register), integer(Data_Size/2));
                     Accumulated_Output <= Integral_Stage + I_pipeline;
                     Integral_Stage <= Accumulated_Output;
-                    Sig_Buffer <= P_pipeline + Integral_Stage + D_pipeline;
+                    Sig_Buffer <= P_pipeline + Integral_Stage; -- + D_pipeline;
                     SignalOutput <= std_logic_vector(Sig_Buffer(Data_Size-1 downto 0));
                 end if;
             end if;
     end process;
 
 
-end architecture; -- PID_Controller
+end architecture; -- PID_Controller 

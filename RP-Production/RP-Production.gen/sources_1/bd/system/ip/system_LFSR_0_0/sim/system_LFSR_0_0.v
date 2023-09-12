@@ -62,7 +62,7 @@ module system_LFSR_0_0 (
   State
 );
 
-input wire [6 : 0] Taps;
+input wire [5 : 0] Taps;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clock, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *)
 input wire clock;
@@ -70,10 +70,10 @@ output wire PRBS;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
 input wire reset;
-output wire [7 : 0] State;
+output wire [6 : 0] State;
 
   LFSR #(
-    .Size(8)
+    .Size(7)
   ) inst (
     .Taps(Taps),
     .clock(clock),

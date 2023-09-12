@@ -57,9 +57,12 @@
 module system_DMA_Interconnect_0_0 (
   ADC_s_axis_tdata,
   ADC_s_axis_tvalid,
-  PRBS_s_axis_tdata,
-  PRBS_s_axis_tvalid,
+  Demodulated_PRBS,
+  Reference_PRBS,
+  Debug,
   ADC_Data,
+  ADC_C1,
+  ADC_C2,
   m_axis_tdata,
   m_axis_tvalid,
   m_axis_tready,
@@ -71,12 +74,12 @@ input wire [31 : 0] ADC_s_axis_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ADC_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 ADC_s_axis TVALID" *)
 input wire ADC_s_axis_tvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 PRBS_s_axis TDATA" *)
-input wire [31 : 0] PRBS_s_axis_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PRBS_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 PRBS_s_axis TVALID" *)
-input wire PRBS_s_axis_tvalid;
+input wire Demodulated_PRBS;
+input wire Reference_PRBS;
+input wire [13 : 0] Debug;
 output wire [31 : 0] ADC_Data;
+output wire [13 : 0] ADC_C1;
+output wire [13 : 0] ADC_C2;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *)
 output wire [31 : 0] m_axis_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TVALID" *)
@@ -84,16 +87,19 @@ output wire m_axis_tvalid;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *)
 input wire m_axis_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:PRBS_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 
   DMA_Interconnect inst (
     .ADC_s_axis_tdata(ADC_s_axis_tdata),
     .ADC_s_axis_tvalid(ADC_s_axis_tvalid),
-    .PRBS_s_axis_tdata(PRBS_s_axis_tdata),
-    .PRBS_s_axis_tvalid(PRBS_s_axis_tvalid),
+    .Demodulated_PRBS(Demodulated_PRBS),
+    .Reference_PRBS(Reference_PRBS),
+    .Debug(Debug),
     .ADC_Data(ADC_Data),
+    .ADC_C1(ADC_C1),
+    .ADC_C2(ADC_C2),
     .m_axis_tdata(m_axis_tdata),
     .m_axis_tvalid(m_axis_tvalid),
     .m_axis_tready(m_axis_tready),

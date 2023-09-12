@@ -75,53 +75,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity Pair_Combiner is
-  port(
-    D0: in std_logic;
-    D1: in std_logic;
-    Q: out std_logic_vector(1 downto 0)
-  );
-end Pair_Combiner;
-
-architecture Pair_Combiner_arch of Pair_Combiner is
-
-begin
-  
-  Q(0) <= D0;
-  Q(1) <= D1; 
-
-end Pair_Combiner_arch ; -- Pair_Combiner_arch
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.math_real.all;
-
-entity LFSR_Debugger is
-  port(
-    Clock: in std_logic;
-    Q: out std_logic_vector(1 downto 0)
-  );
-end LFSR_Debugger;
-
-architecture LFSR_Debugger_arch of LFSR_Debugger is
-  signal state: std_logic;
-  begin
-  process(Clock)
-  begin
-    if Rising_Edge(Clock) then
-      Q(0) <= state;
-      Q(1) <= not state;
-      state <= not state;
-    end if;
-  end process;
-end architecture; 
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.math_real.all;
-
 entity Subtractor is 
       generic(size: integer:= 32);
       port(
@@ -182,49 +135,47 @@ begin
 
 end Reset_Latch_arch; -- Reset_Latch_arch
 
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity interface is
+entity Variable_Delay is
+  generic(
+    Delay_Select_Bits: integer := 7;
+    Bus_Size: integer := 8
+    );
   port(
-    D_in: in std_logic;
-    Q_out: out std_logic_vector(31 downto 0)
+    D_In: in std_logic_vector(Bus_Size-1 downto 0);
+    D_Out: out std_logic_vector(Bus_Size-1 downto 0);
+    Delay_Select: in std_logic_vector(Delay_Select_Bits-1 downto 0);
+    Clock: in std_logic;
+    Reset: in std_logic
   );
-end interface;
+end Variable_Delay;
 
-architecture beh of interface is
+architecture Delay_Arch of Variable_Delay is
 
-  begin
-  Q_out(0) <= D_in;
-  Q_out(31 downto 1) <= (others => '0');
-  end beh ; -- beh
- 
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.math_real.all;
+  constant Delay_Amount: integer := (2**Delay_Select_Bits);
 
-entity Test_Pattern is
-  port(
-    Q_out: out std_logic;
-    clk: in std_logic;
-    reset: in std_logic
-  );
-end Test_Pattern;
+  type Delay_Pipeline is array(0 to Delay_Amount-1) of std_logic_vector(Bus_Size-1 downto 0);  
+  signal Delay_Registers: Delay_Pipeline := (others => (others =>'0'));
 
-architecture beh of Test_Pattern is
-
-  signal state: std_logic;
-  begin
-
-    process(clk)
-      begin
-        if rising_edge(clk) then
-          Q_out <= state;
-          state <= not state;
+begin
+  process(Clock)
+    begin
+      if Rising_Edge(Clock) then 
+        if Reset = '1' then
+          Delay_Registers <= (others => (others => '0'));
+        else
+          Delay_Registers(0) <= D_In;
+          for i in 1 to Delay_Amount-1 loop
+            Delay_Registers(i) <= Delay_Registers(i-1);
+          end loop;
+          D_Out <= Delay_Registers(to_integer(unsigned(Delay_Select)));
         end if;
-    end process;
-  end beh ; -- beh
-  
+      end if;
+  end process;
+end Delay_Arch ; -- Delay_Arch

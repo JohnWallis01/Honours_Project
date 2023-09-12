@@ -25,7 +25,8 @@ entity Squared_Phase_Locked_Loop is
     ADC_Stream_in: in std_logic_vector(31 downto 0);
     ------DAC control   
     DAC_Stream_out: out std_logic_vector(31 downto 0);
-    
+    --Generated Signal
+    Locked_Carrier: out std_logic_vector(13 downto 0);    
 
     ---General
     AD_CLK_in: in std_logic;
@@ -120,7 +121,7 @@ END component;
 
     --production signals
   signal PLL_Freq, PLL_FreqHalve, Control_Input: std_logic_vector(31 downto 0) := (others => '0');
-  signal Target_Signal, Target_Signal_Doubled_Scaled , Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal, Second_Harmonoic_Locked: std_logic_vector(13 downto 0);
+  signal Target_Signal, Target_Signal_Doubled_Scaled , Locked_Signal, ADC_Debug_NCO_Dout, Quadrature_Signal, Second_Harmonic_Locked: std_logic_vector(13 downto 0);
   signal Quadrature_Mixer_Output, Lock_Mixer_Output, Target_Signal_Squared: std_logic_vector(27 downto 0);
   signal Error_Signal: std_logic_vector(25 downto 0);
   signal Target_Signal_Doubled: std_logic_vector(29 downto 0);
@@ -185,7 +186,7 @@ END component;
       PhaseOffset => (others => '0'),
       clock => AD_CLK_in,
       rst => Reset_In,
-      Dout => Second_Harmonoic_Locked,  
+      Dout => Second_Harmonic_Locked,  
       Quadrature_out => open,
       Phase_out => Phase_Measured
   );
@@ -264,7 +265,8 @@ END component;
   DAC_Stream_out(31 downto 30) <= "00";
   DAC_Stream_out(15 downto 14) <= "00";
 
-  DAC_Stream_out(13 downto 0) <= Second_Harmonoic_Locked;
+  DAC_Stream_out(13 downto 0) <= Second_Harmonic_Locked;
   DAC_Stream_out(29 downto 16) <= Target_Signal;
-
+  Locked_Carrier <= Second_Harmonic_Locked;
+  
 end architecture;

@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Fri Sep  8 10:15:15 2023
+-- Date        : Mon Sep 11 22:24:32 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0_sim_netlist.vhdl
@@ -20,7 +20,7 @@ entity system_DMA_Interconnect_0_0_DMA_Interconnect is
     m_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
     ADC_s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     aclk : in STD_LOGIC;
-    PRBS_s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    D : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_DMA_Interconnect_0_0_DMA_Interconnect : entity is "DMA_Interconnect";
@@ -288,7 +288,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(0),
+      D => D(0),
       Q => m_axis_tdata(0),
       R => '0'
     );
@@ -296,7 +296,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(1),
+      D => D(1),
       Q => m_axis_tdata(1),
       R => '0'
     );
@@ -304,7 +304,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(2),
+      D => D(2),
       Q => m_axis_tdata(2),
       R => '0'
     );
@@ -312,7 +312,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(3),
+      D => D(3),
       Q => m_axis_tdata(3),
       R => '0'
     );
@@ -320,7 +320,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(4),
+      D => D(4),
       Q => m_axis_tdata(4),
       R => '0'
     );
@@ -328,7 +328,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(5),
+      D => D(5),
       Q => m_axis_tdata(5),
       R => '0'
     );
@@ -336,7 +336,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(6),
+      D => D(6),
       Q => m_axis_tdata(6),
       R => '0'
     );
@@ -344,7 +344,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(7),
+      D => D(7),
       Q => m_axis_tdata(7),
       R => '0'
     );
@@ -352,7 +352,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(8),
+      D => D(8),
       Q => m_axis_tdata(8),
       R => '0'
     );
@@ -360,7 +360,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(9),
+      D => D(9),
       Q => m_axis_tdata(9),
       R => '0'
     );
@@ -368,7 +368,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(10),
+      D => D(10),
       Q => m_axis_tdata(10),
       R => '0'
     );
@@ -376,7 +376,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(11),
+      D => D(11),
       Q => m_axis_tdata(11),
       R => '0'
     );
@@ -384,7 +384,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(12),
+      D => D(12),
       Q => m_axis_tdata(12),
       R => '0'
     );
@@ -392,7 +392,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(13),
+      D => D(13),
       Q => m_axis_tdata(13),
       R => '0'
     );
@@ -400,7 +400,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(14),
+      D => D(14),
       Q => m_axis_tdata(14),
       R => '0'
     );
@@ -408,7 +408,7 @@ begin
      port map (
       C => aclk,
       CE => '1',
-      D => PRBS_s_axis_tdata(15),
+      D => D(15),
       Q => m_axis_tdata(15),
       R => '0'
     );
@@ -421,9 +421,12 @@ entity system_DMA_Interconnect_0_0 is
   port (
     ADC_s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     ADC_s_axis_tvalid : in STD_LOGIC;
-    PRBS_s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    PRBS_s_axis_tvalid : in STD_LOGIC;
+    Demodulated_PRBS : in STD_LOGIC;
+    Reference_PRBS : in STD_LOGIC;
+    Debug : in STD_LOGIC_VECTOR ( 13 downto 0 );
     ADC_Data : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ADC_C1 : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    ADC_C2 : out STD_LOGIC_VECTOR ( 13 downto 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC;
     m_axis_tready : in STD_LOGIC;
@@ -443,26 +446,30 @@ end system_DMA_Interconnect_0_0;
 
 architecture STRUCTURE of system_DMA_Interconnect_0_0 is
   signal \<const1>\ : STD_LOGIC;
-  signal \^adc_data\ : STD_LOGIC_VECTOR ( 31 downto 16 );
-  signal \^m_axis_tdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \^adc_c1\ : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal \^adc_c2\ : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal \^adc_data\ : STD_LOGIC_VECTOR ( 31 downto 30 );
+  signal \^m_axis_tdata\ : STD_LOGIC_VECTOR ( 31 downto 14 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of ADC_s_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 ADC_s_axis TVALID";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of ADC_s_axis_tvalid : signal is "XIL_INTERFACENAME ADC_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of PRBS_s_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 PRBS_s_axis TVALID";
-  attribute X_INTERFACE_PARAMETER of PRBS_s_axis_tvalid : signal is "XIL_INTERFACENAME PRBS_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of aclk : signal is "xilinx.com:signal:clock:1.0 aclk CLK";
-  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:PRBS_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axis_tready : signal is "xilinx.com:interface:axis:1.0 m_axis TREADY";
   attribute X_INTERFACE_PARAMETER of m_axis_tready : signal is "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 m_axis TVALID";
   attribute X_INTERFACE_INFO of ADC_s_axis_tdata : signal is "xilinx.com:interface:axis:1.0 ADC_s_axis TDATA";
-  attribute X_INTERFACE_INFO of PRBS_s_axis_tdata : signal is "xilinx.com:interface:axis:1.0 PRBS_s_axis TDATA";
   attribute X_INTERFACE_INFO of m_axis_tdata : signal is "xilinx.com:interface:axis:1.0 m_axis TDATA";
 begin
-  ADC_Data(31 downto 16) <= \^adc_data\(31 downto 16);
-  ADC_Data(15 downto 0) <= \^m_axis_tdata\(15 downto 0);
-  m_axis_tdata(31 downto 0) <= \^m_axis_tdata\(31 downto 0);
+  ADC_C1(13 downto 0) <= \^adc_c1\(13 downto 0);
+  ADC_C2(13 downto 0) <= \^adc_c2\(13 downto 0);
+  ADC_Data(31 downto 30) <= \^adc_data\(31 downto 30);
+  ADC_Data(29 downto 16) <= \^adc_c2\(13 downto 0);
+  ADC_Data(15 downto 14) <= \^m_axis_tdata\(15 downto 14);
+  ADC_Data(13 downto 0) <= \^adc_c1\(13 downto 0);
+  m_axis_tdata(31 downto 14) <= \^m_axis_tdata\(31 downto 14);
+  m_axis_tdata(13 downto 0) <= \^adc_c1\(13 downto 0);
   m_axis_tvalid <= \<const1>\;
 VCC: unisim.vcomponents.VCC
      port map (
@@ -470,10 +477,14 @@ VCC: unisim.vcomponents.VCC
     );
 inst: entity work.system_DMA_Interconnect_0_0_DMA_Interconnect
      port map (
-      ADC_Data(31 downto 16) => \^adc_data\(31 downto 16),
-      ADC_Data(15 downto 0) => \^m_axis_tdata\(15 downto 0),
+      ADC_Data(31 downto 30) => \^adc_data\(31 downto 30),
+      ADC_Data(29 downto 16) => \^adc_c2\(13 downto 0),
+      ADC_Data(15 downto 14) => \^m_axis_tdata\(15 downto 14),
+      ADC_Data(13 downto 0) => \^adc_c1\(13 downto 0),
       ADC_s_axis_tdata(31 downto 0) => ADC_s_axis_tdata(31 downto 0),
-      PRBS_s_axis_tdata(15 downto 0) => PRBS_s_axis_tdata(15 downto 0),
+      D(15 downto 2) => Debug(13 downto 0),
+      D(1) => Demodulated_PRBS,
+      D(0) => Reference_PRBS,
       aclk => aclk,
       m_axis_tdata(15 downto 0) => \^m_axis_tdata\(31 downto 16)
     );

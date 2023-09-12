@@ -17,9 +17,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_proc
 # IP: bd/system/ip/system_xbar_2/system_xbar_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar_2 || ORIG_REF_NAME==system_xbar_2} -quiet] -quiet
 
-# IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_axi_interconnect_1_0/system_axi_interconnect_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_1_0 || ORIG_REF_NAME==system_axi_interconnect_1_0} -quiet] -quiet
 
@@ -34,15 +31,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_
 
 # IP: bd/system/ip/system_xbar_5/system_xbar_5.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar_5 || ORIG_REF_NAME==system_xbar_5} -quiet] -quiet
-
-# IP: bd/system/ip/system_auto_us_0/system_auto_us_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_us_0 || ORIG_REF_NAME==system_auto_us_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_auto_ds_0/system_auto_ds_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_ds_0 || ORIG_REF_NAME==system_auto_ds_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_1 || ORIG_REF_NAME==system_auto_pc_1} -quiet] -quiet
 
 # IP: bd/system/ip/system_axi_interconnect_0_1/system_axi_interconnect_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_interconnect_0_1 || ORIG_REF_NAME==system_axi_interconnect_0_1} -quiet] -quiet
@@ -92,25 +80,43 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_
 # IP: bd/system/ip/system_Locking_Strength_0/system_Locking_Strength_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Locking_Strength_0 || ORIG_REF_NAME==system_Locking_Strength_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_Locking_Strength_1/system_Locking_Strength_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Locking_Strength_1 || ORIG_REF_NAME==system_Locking_Strength_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_Demodulator_Threshold_0/system_Demodulator_Threshold_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Demodulator_Threshold_0 || ORIG_REF_NAME==system_Demodulator_Threshold_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_LFSR_0_0/system_LFSR_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_LFSR_0_0 || ORIG_REF_NAME==system_LFSR_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_PSK_0_1/system_PSK_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_0_1 || ORIG_REF_NAME==system_PSK_0_1} -quiet] -quiet
+
 # IP: bd/system/ip/system_Clock_Divider_0_0/system_Clock_Divider_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Clock_Divider_0_0 || ORIG_REF_NAME==system_Clock_Divider_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_DMA_Interconnect_0_0 || ORIG_REF_NAME==system_DMA_Interconnect_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_LFSR_0_0/system_LFSR_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_LFSR_0_0 || ORIG_REF_NAME==system_LFSR_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_Delay_0_0/system_Delay_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Delay_0_0 || ORIG_REF_NAME==system_Delay_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_PSK_0_0/system_PSK_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_0_0 || ORIG_REF_NAME==system_PSK_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_PSK_0_1/system_PSK_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_0_1 || ORIG_REF_NAME==system_PSK_0_1} -quiet] -quiet
+# IP: bd/system/ip/system_PSK_Demodulator_0_0/system_PSK_Demodulator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_Demodulator_0_0 || ORIG_REF_NAME==system_PSK_Demodulator_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_Squared_Phase_Locked_0_0/system_Squared_Phase_Locked_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Squared_Phase_Locked_0_0 || ORIG_REF_NAME==system_Squared_Phase_Locked_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Variable_Delay_0_0/system_Variable_Delay_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Variable_Delay_0_0 || ORIG_REF_NAME==system_Variable_Delay_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_us_0/system_auto_us_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_us_0 || ORIG_REF_NAME==system_auto_us_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_ds_0/system_auto_ds_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_ds_0 || ORIG_REF_NAME==system_auto_ds_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_1 || ORIG_REF_NAME==system_auto_pc_1} -quiet] -quiet
 
 # XDC: c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/system_ooc.xdc

@@ -67,7 +67,7 @@ output wire DivClock_Out;
 input wire Reset;
 
   Clock_Divider #(
-    .Div_Rate(5)
+    .Div_Rate(4)
   ) inst (
     .DivClock_In(DivClock_In),
     .DivClock_Out(DivClock_Out),

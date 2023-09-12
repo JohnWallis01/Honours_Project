@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sat Sep  9 16:22:01 2023
+// Date        : Tue Sep 12 09:09:50 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_LFSR_0_0/system_LFSR_0_0_sim_netlist.v
@@ -21,15 +21,15 @@ module system_LFSR_0_0
     PRBS,
     reset,
     State);
-  input [6:0]Taps;
+  input [5:0]Taps;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clock, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clock;
   output PRBS;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset;
-  output [7:0]State;
+  output [6:0]State;
 
   wire PRBS;
-  wire [7:0]State;
-  wire [6:0]Taps;
+  wire [6:0]State;
+  wire [5:0]Taps;
   wire clock;
   wire reset;
 
@@ -48,15 +48,15 @@ module system_LFSR_0_0_LFSR
     reset,
     clock,
     Taps);
-  output [7:0]Q;
+  output [6:0]Q;
   output PRBS;
   input reset;
   input clock;
-  input [6:0]Taps;
+  input [5:0]Taps;
 
   wire PRBS;
-  wire [7:0]Q;
-  wire [6:0]Taps;
+  wire [6:0]Q;
+  wire [5:0]Taps;
   wire clock;
   wire reset;
 
@@ -75,81 +75,74 @@ module system_LFSR_0_0_LFSR2008
     reset,
     clock,
     Taps);
-  output [7:0]State;
+  output [6:0]State;
   output PRBS;
   input reset;
   input clock;
-  input [6:0]Taps;
+  input [5:0]Taps;
 
   wire PRBS;
   wire PRBS_i_1_n_0;
-  wire [7:0]State;
-  wire [6:0]Taps;
+  wire [6:0]State;
+  wire [5:0]Taps;
   wire clock;
-  wire [7:1]p_22_out;
+  wire [6:1]p_19_out;
   wire reset;
 
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \Internal_State[1]_i_1 
-       (.I0(State[7]),
+       (.I0(State[6]),
         .I1(Taps[0]),
         .I2(State[0]),
-        .O(p_22_out[1]));
+        .O(p_19_out[1]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \Internal_State[2]_i_1 
-       (.I0(State[7]),
+       (.I0(State[6]),
         .I1(Taps[1]),
         .I2(State[1]),
-        .O(p_22_out[2]));
+        .O(p_19_out[2]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \Internal_State[3]_i_1 
-       (.I0(State[7]),
+       (.I0(State[6]),
         .I1(Taps[2]),
         .I2(State[2]),
-        .O(p_22_out[3]));
+        .O(p_19_out[3]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \Internal_State[4]_i_1 
-       (.I0(State[7]),
+       (.I0(State[6]),
         .I1(Taps[3]),
         .I2(State[3]),
-        .O(p_22_out[4]));
+        .O(p_19_out[4]));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \Internal_State[5]_i_1 
-       (.I0(State[7]),
+       (.I0(State[6]),
         .I1(Taps[4]),
         .I2(State[4]),
-        .O(p_22_out[5]));
+        .O(p_19_out[5]));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \Internal_State[6]_i_1 
-       (.I0(State[7]),
+       (.I0(State[6]),
         .I1(Taps[5]),
         .I2(State[5]),
-        .O(p_22_out[6]));
-  LUT3 #(
-    .INIT(8'h78)) 
-    \Internal_State[7]_i_1 
-       (.I0(State[7]),
-        .I1(Taps[6]),
-        .I2(State[6]),
-        .O(p_22_out[7]));
+        .O(p_19_out[6]));
   FDSE #(
     .INIT(1'b1)) 
     \Internal_State_reg[0] 
        (.C(clock),
         .CE(1'b1),
-        .D(State[7]),
+        .D(State[6]),
         .Q(State[0]),
         .S(reset));
   FDSE #(
@@ -157,7 +150,7 @@ module system_LFSR_0_0_LFSR2008
     \Internal_State_reg[1] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_22_out[1]),
+        .D(p_19_out[1]),
         .Q(State[1]),
         .S(reset));
   FDSE #(
@@ -165,7 +158,7 @@ module system_LFSR_0_0_LFSR2008
     \Internal_State_reg[2] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_22_out[2]),
+        .D(p_19_out[2]),
         .Q(State[2]),
         .S(reset));
   FDSE #(
@@ -173,7 +166,7 @@ module system_LFSR_0_0_LFSR2008
     \Internal_State_reg[3] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_22_out[3]),
+        .D(p_19_out[3]),
         .Q(State[3]),
         .S(reset));
   FDSE #(
@@ -181,7 +174,7 @@ module system_LFSR_0_0_LFSR2008
     \Internal_State_reg[4] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_22_out[4]),
+        .D(p_19_out[4]),
         .Q(State[4]),
         .S(reset));
   FDSE #(
@@ -189,7 +182,7 @@ module system_LFSR_0_0_LFSR2008
     \Internal_State_reg[5] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_22_out[5]),
+        .D(p_19_out[5]),
         .Q(State[5]),
         .S(reset));
   FDSE #(
@@ -197,23 +190,15 @@ module system_LFSR_0_0_LFSR2008
     \Internal_State_reg[6] 
        (.C(clock),
         .CE(1'b1),
-        .D(p_22_out[6]),
+        .D(p_19_out[6]),
         .Q(State[6]),
-        .S(reset));
-  FDSE #(
-    .INIT(1'b1)) 
-    \Internal_State_reg[7] 
-       (.C(clock),
-        .CE(1'b1),
-        .D(p_22_out[7]),
-        .Q(State[7]),
         .S(reset));
   LUT3 #(
     .INIT(8'hB8)) 
     PRBS_i_1
        (.I0(PRBS),
         .I1(reset),
-        .I2(State[7]),
+        .I2(State[6]),
         .O(PRBS_i_1_n_0));
   FDRE PRBS_reg
        (.C(clock),

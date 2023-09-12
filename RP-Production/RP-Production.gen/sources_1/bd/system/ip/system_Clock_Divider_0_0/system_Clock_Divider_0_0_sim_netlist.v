@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Sep 10 16:23:59 2023
+// Date        : Sat Sep  9 16:32:45 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Clock_Divider_0_0/system_Clock_Divider_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_Clock_Divider_0_0 -prefix
+//               system_Clock_Divider_0_0_ system_Clock_Divider_0_0_sim_netlist.v
 // Design      : system_Clock_Divider_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,28 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_Clock_Divider_0_0,Clock_Divider,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Clock_Divider,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module system_Clock_Divider_0_0
-   (DivClock_In,
-    DivClock_Out,
-    Reset);
-  input DivClock_In;
-  output DivClock_Out;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset;
-
-  wire DivClock_In;
-  wire DivClock_Out;
-  wire Reset;
-
-  system_Clock_Divider_0_0_Clock_Divider inst
-       (.DivClock_In(DivClock_In),
-        .DivClock_Out(DivClock_Out),
-        .Reset(Reset));
-endmodule
-
-(* ORIG_REF_NAME = "Clock_Divider" *) 
 module system_Clock_Divider_0_0_Clock_Divider
    (DivClock_Out,
     Reset,
@@ -51,19 +29,16 @@ module system_Clock_Divider_0_0_Clock_Divider
   wire \Counter_reg[0]_i_1_n_5 ;
   wire \Counter_reg[0]_i_1_n_6 ;
   wire \Counter_reg[0]_i_1_n_7 ;
-  wire \Counter_reg[5]_i_1_n_3 ;
-  wire \Counter_reg[5]_i_1_n_6 ;
-  wire \Counter_reg[5]_i_1_n_7 ;
+  wire \Counter_reg[4]_i_1_n_7 ;
   wire \Counter_reg_n_0_[0] ;
   wire \Counter_reg_n_0_[1] ;
   wire \Counter_reg_n_0_[2] ;
   wire \Counter_reg_n_0_[3] ;
-  wire \Counter_reg_n_0_[4] ;
   wire DivClock_In;
   wire DivClock_Out;
   wire Reset;
-  wire [3:1]\NLW_Counter_reg[5]_i_1_CO_UNCONNECTED ;
-  wire [3:2]\NLW_Counter_reg[5]_i_1_O_UNCONNECTED ;
+  wire [3:0]\NLW_Counter_reg[4]_i_1_CO_UNCONNECTED ;
+  wire [3:1]\NLW_Counter_reg[4]_i_1_O_UNCONNECTED ;
 
   LUT1 #(
     .INIT(2'h1)) 
@@ -104,22 +79,37 @@ module system_Clock_Divider_0_0_Clock_Divider
   FDRE \Counter_reg[4] 
        (.C(DivClock_In),
         .CE(1'b1),
-        .D(\Counter_reg[5]_i_1_n_7 ),
-        .Q(\Counter_reg_n_0_[4] ),
-        .R(Reset));
-  FDRE \Counter_reg[5] 
-       (.C(DivClock_In),
-        .CE(1'b1),
-        .D(\Counter_reg[5]_i_1_n_6 ),
+        .D(\Counter_reg[4]_i_1_n_7 ),
         .Q(DivClock_Out),
         .R(Reset));
-  CARRY4 \Counter_reg[5]_i_1 
+  CARRY4 \Counter_reg[4]_i_1 
        (.CI(\Counter_reg[0]_i_1_n_0 ),
-        .CO({\NLW_Counter_reg[5]_i_1_CO_UNCONNECTED [3:1],\Counter_reg[5]_i_1_n_3 }),
+        .CO(\NLW_Counter_reg[4]_i_1_CO_UNCONNECTED [3:0]),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_Counter_reg[5]_i_1_O_UNCONNECTED [3:2],\Counter_reg[5]_i_1_n_6 ,\Counter_reg[5]_i_1_n_7 }),
-        .S({1'b0,1'b0,DivClock_Out,\Counter_reg_n_0_[4] }));
+        .O({\NLW_Counter_reg[4]_i_1_O_UNCONNECTED [3:1],\Counter_reg[4]_i_1_n_7 }),
+        .S({1'b0,1'b0,1'b0,DivClock_Out}));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_Clock_Divider_0_0,Clock_Divider,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Clock_Divider,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module system_Clock_Divider_0_0
+   (DivClock_In,
+    DivClock_Out,
+    Reset);
+  input DivClock_In;
+  output DivClock_Out;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset;
+
+  wire DivClock_In;
+  wire DivClock_Out;
+  wire Reset;
+
+  system_Clock_Divider_0_0_Clock_Divider inst
+       (.DivClock_In(DivClock_In),
+        .DivClock_Out(DivClock_Out),
+        .Reset(Reset));
 endmodule
 `ifndef GLBL
 `define GLBL

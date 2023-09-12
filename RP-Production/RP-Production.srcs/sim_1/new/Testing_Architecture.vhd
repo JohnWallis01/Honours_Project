@@ -60,6 +60,17 @@ architecture Behavioral of Testing_Architecture is
           );
     end component;
 
+    component PSK_Demodulator is
+        port(
+            Clock: in std_logic;
+            Reset: in std_logic;
+            Modulated_Signal: in std_logic_vector(13 downto 0);
+            Reference_Signal: in std_logic_vector(13 downto 0);
+            Threshold: in std_logic_vector(27 downto 0); --value 7986224~8 000 000
+            Demodulated_Signal: out std_logic
+            );
+    end component;
+
     component PSK is
         port(
             Frequency: in std_logic_vector(31 downto 0); --- Frequency is in fact 4 times this word
@@ -108,7 +119,7 @@ architecture Behavioral of Testing_Architecture is
         ADC_Stream_in: in std_logic_vector(31 downto 0);
         ------DAC control   
         DAC_Stream_out: out std_logic_vector(31 downto 0);
-        
+        Locked_Carrier: out std_logic_vector(13 downto 0);    
     
         ---General
         AD_CLK_in: in std_logic;
@@ -123,21 +134,60 @@ architecture Behavioral of Testing_Architecture is
     
         );
     
-    
-    
-    
     end component;
 
 
+    component LFSR is
+        generic (
+            Size: integer := 32 -- from size of 1 up to 32
+        );
+        port(
+            Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb and not the taps)
+            clock: in std_logic;
+            PRBS: out std_logic;
+            reset: in std_logic;
+            State: out std_logic_vector(Size -1 downto 0)
+        );
+    end component;
+    
+    component Clock_Divider is
+        generic(Div_Rate: integer := 6);
+          port( 
+            DivClock_In: in std_logic;
+            DivClock_Out: out std_logic;
+            Reset: in std_logic
+            );
+        end component;
 
-
-
-    signal NCO_Data: std_logic_vector(13 downto 0);
+    signal PRBS_Value, Slow_Clock: std_logic;
+    signal NCO_Data, Locked_Signal: std_logic_vector(13 downto 0);
     signal Squared_Data: std_logic_vector(27 downto 0);
     signal Freq_Doubled: std_logic_vector(55 downto 0);
+
     begin
 
     PSKMOD <= NCO_Data;
+
+
+    clkdiv: Clock_Divider
+    generic map(Div_Rate => 5)
+    port map(
+        DivClock_In => Clock,
+        DivClock_Out => Slow_Clock,
+        Reset => Reset
+    );
+
+
+    PRBS: LFSR
+    generic map(Size => 8)
+    port map(
+        Taps => "0111000", --0xB8
+        clock => Slow_Clock,
+        PRBS => PRBS_Value,
+        reset => Reset, 
+        State => open
+    );
+
     PSK_Gen: PSK
     port map(
         Frequency => std_logic_vector(to_unsigned(343597384, 32)),
@@ -145,10 +195,11 @@ architecture Behavioral of Testing_Architecture is
         Reset => Reset,
         PSKout => NCO_Data,
         REFout => PSKREF,
-        Modulation => '0',
+        Modulation => PRBS_Value,
         PSK_m_axis_tdata => open,
         PSK_m_axis_tvalid => open 
         );
+
     PLL: Squared_Phase_Locked_Loop
     generic map (channel => 0)
     port map(
@@ -161,10 +212,21 @@ architecture Behavioral of Testing_Architecture is
         ADC_Stream_In(13 downto 0) => NCO_Data,
         ADC_Stream_In(31 downto 14 ) => (others => '0'),
         DAC_Stream_out => open,
+        Locked_Carrier => Locked_Signal,
         AD_CLK_in => Clock,
         Reset_In => Reset,
         Reset_Out => open,
         Integrator_Reset => '0'
+    );
+    
+    Demodulator: PSK_Demodulator
+    port map(
+        Clock => Clock,
+        Reset => Reset,
+        Modulated_Signal => NCO_Data,
+        Reference_Signal => Locked_Signal,
+        Threshold => std_logic_vector(to_signed(8000000, 28)),
+        Demodulated_Signal => Open
     );
 
 end Behavioral;
