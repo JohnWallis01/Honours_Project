@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<<<<<<< HEAD
 <EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Sep 15 14:58:10 2023" VIVADOVERSION="2022.2">
+=======
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Sep 12 19:18:39 2023" VIVADOVERSION="2022.2">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -257,9 +261,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="13" NAME="Input_Signal" RIGHT="0" SIGIS="undef" SIGNAME="DMA_Interconnect_0_ADC_C1">
+        <PORT DIR="I" LEFT="13" NAME="Input_Signal" RIGHT="0" SIGIS="undef" SIGNAME="PSK_Modulator_0_Output_Signal">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DMA_Interconnect_0" PORT="ADC_C1"/>
+            <CONNECTION INSTANCE="PSK_Modulator_0" PORT="Output_Signal"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="PLL_Guess_Freq" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_PLL_GUESS_Freq_gpio_io_o">
@@ -1120,7 +1124,12 @@
         <PORT DIR="O" LEFT="31" NAME="ADC_Data" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="13" NAME="ADC_C1" RIGHT="0" SIGIS="undef" SIGNAME="DMA_Interconnect_0_ADC_C1">
           <CONNECTIONS>
+<<<<<<< HEAD
             <CONNECTION INSTANCE="Costa_Demodulator_0" PORT="Input_Signal"/>
+=======
+            <CONNECTION INSTANCE="DAC_Interface_DAC_Interface_0" PORT="Input_C2"/>
+            <CONNECTION INSTANCE="PSK_Modulator_0" PORT="Input_Signal"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="13" NAME="ADC_C2" RIGHT="0" SIGIS="undef"/>
@@ -5189,7 +5198,11 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
+<<<<<<< HEAD
     <MODULE COREREVISION="29" FULLNAME="/GPIO_Interface/PRBS_Gain" HWVERSION="2.0" INSTANCE="GPIO_Interface_PRBS_Gain" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_gpio" VLNV="xilinx.com:ip:axi_gpio:2.0">
+=======
+    <MODULE COREREVISION="29" FULLNAME="/GPIO_Interface/PRBS_Enable" HWVERSION="2.0" INSTANCE="GPIO_Interface_PRBS_Enable" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_gpio" VLNV="xilinx.com:ip:axi_gpio:2.0">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=axi_gpio;v=v2_0;d=pg144-axi-gpio.pdf"/>
       </DOCUMENTS>
@@ -5199,7 +5212,11 @@
             <REGISTER NAME="GPIO_DATA">
               <PROPERTY NAME="DESCRIPTION" VALUE="Channel-1 AXI GPIO Data register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x0"/>
+<<<<<<< HEAD
               <PROPERTY NAME="SIZE" VALUE="14"/>
+=======
+              <PROPERTY NAME="SIZE" VALUE="1"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -5212,14 +5229,22 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+<<<<<<< HEAD
                   <PROPERTY NAME="BIT_WIDTH" VALUE="14"/>
+=======
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="GPIO_TRI">
               <PROPERTY NAME="DESCRIPTION" VALUE="Channel-1 AXI GPIO 3-State Control register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x4"/>
+<<<<<<< HEAD
               <PROPERTY NAME="SIZE" VALUE="14"/>
+=======
+              <PROPERTY NAME="SIZE" VALUE="1"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -5232,7 +5257,11 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+<<<<<<< HEAD
                   <PROPERTY NAME="BIT_WIDTH" VALUE="14"/>
+=======
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
                 </FIELD>
               </FIELDS>
             </REGISTER>
@@ -5363,7 +5392,11 @@
         <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
+<<<<<<< HEAD
         <PARAMETER NAME="C_GPIO_WIDTH" VALUE="14"/>
+=======
+        <PARAMETER NAME="C_GPIO_WIDTH" VALUE="1"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
         <PARAMETER NAME="C_GPIO2_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_ALL_INPUTS" VALUE="0"/>
         <PARAMETER NAME="C_ALL_INPUTS_2" VALUE="0"/>
@@ -5394,94 +5427,168 @@
             <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" LEFT="8" NAME="s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_awaddr">
+=======
+        <PORT DIR="I" LEFT="8" NAME="s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_awaddr">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_awvalid">
+=======
+        <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_awvalid">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_awready">
+=======
+        <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_awready">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_wdata">
+=======
+        <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wdata">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_wstrb">
+=======
+        <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wstrb">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_wvalid">
+=======
+        <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wvalid">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_wready">
+=======
+        <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wready">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" LEFT="1" NAME="s_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_bresp">
+=======
+        <PORT DIR="O" LEFT="1" NAME="s_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_bresp">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_bvalid">
+=======
+        <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_bvalid">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_bready">
+=======
+        <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_bready">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" LEFT="8" NAME="s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_araddr">
+=======
+        <PORT DIR="I" LEFT="8" NAME="s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_araddr">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_arvalid">
+=======
+        <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_arvalid">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_arready">
+=======
+        <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_arready">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" LEFT="31" NAME="s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_rdata">
+=======
+        <PORT DIR="O" LEFT="31" NAME="s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rdata">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" LEFT="1" NAME="s_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_rresp">
+=======
+        <PORT DIR="O" LEFT="1" NAME="s_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rresp">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_rvalid">
+=======
+        <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rvalid">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_rready">
+=======
+        <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rready">
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" LEFT="13" NAME="gpio_io_o" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_gpio_io_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="PRBS_Multiply_0" PORT="Scale"/>
+=======
+        <PORT DIR="O" LEFT="0" NAME="gpio_io_o" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_gpio_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PSK_Modulator_0" PORT="Modulation_Enable"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5656,7 +5763,11 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="D_Out" RIGHT="0" SIGIS="undef" SIGNAME="PRBS_Variable_Delay_0_D_Out">
           <CONNECTIONS>
+<<<<<<< HEAD
             <CONNECTION INSTANCE="PRBS_Multiply_0" PORT="PRBS"/>
+=======
+            <CONNECTION INSTANCE="PSK_Modulator_0" PORT="Modulation"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="6" NAME="Delay_Select" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_Delay_Amount_gpio_io_o">
@@ -9477,7 +9588,11 @@
       </DOCUMENTS>
       <PARAMETERS>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
+<<<<<<< HEAD
         <PARAMETER NAME="NUM_MI" VALUE="12"/>
+=======
+        <PARAMETER NAME="NUM_MI" VALUE="11"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
         <PARAMETER NAME="STRATEGY" VALUE="0"/>
         <PARAMETER NAME="ENABLE_ADVANCED_OPTIONS" VALUE="0"/>
         <PARAMETER NAME="ENABLE_PROTOCOL_CHECKERS" VALUE="0"/>
@@ -10984,6 +11099,7 @@
             <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+<<<<<<< HEAD
         <PORT DIR="O" LEFT="31" NAME="M10_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Gain_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_PRBS_Gain" PORT="s_axi_awaddr"/>
@@ -11166,6 +11282,93 @@
         <PORT DIR="O" NAME="M11_AXI_rready" SIGIS="undef" SIGNAME="GPIO_Interface_CLK_DIV_SELECT_s_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_CLK_DIV_SELECT" PORT="s_axi_rready"/>
+=======
+        <PORT DIR="O" LEFT="31" NAME="M10_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_awaddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M10_AXI_awprot" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M10_AXI_awvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M10_AXI_awready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M10_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M10_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M10_AXI_wvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M10_AXI_wready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M10_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M10_AXI_bvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M10_AXI_bready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M10_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_araddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M10_AXI_arprot" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M10_AXI_arvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M10_AXI_arready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M10_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M10_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M10_AXI_rvalid" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M10_AXI_rready" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_s_axi_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_rready"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -11465,6 +11668,7 @@
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M10_AXI_rready"/>
           </PORTMAPS>
         </BUSINTERFACE>
+<<<<<<< HEAD
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M11_AXI" DATAWIDTH="32" NAME="M11_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M11_AXI_awaddr"/>
@@ -11488,6 +11692,8 @@
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M11_AXI_rready"/>
           </PORTMAPS>
         </BUSINTERFACE>
+=======
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
       </BUSINTERFACES>
     </MODULE>
     <MODULE COREREVISION="13" FULLNAME="/PS7/proc_sys_reset_0" HWVERSION="5.0" INSTANCE="PS7_proc_sys_reset_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="proc_sys_reset" VLNV="xilinx.com:ip:proc_sys_reset:5.0">
@@ -11547,8 +11753,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_Internal_Debug_Freq" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="GPIO_Interface_Demodulator_Threshold" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="GPIO_Interface_Delay_Amount" PORT="s_axi_aresetn"/>
+<<<<<<< HEAD
             <CONNECTION INSTANCE="GPIO_Interface_PRBS_Gain" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="GPIO_Interface_CLK_DIV_SELECT" PORT="s_axi_aresetn"/>
+=======
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_aresetn"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M03_ARESETN"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M01_ARESETN"/>
@@ -11569,7 +11779,10 @@
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M08_ARESETN"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M09_ARESETN"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_ARESETN"/>
+<<<<<<< HEAD
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M11_ARESETN"/>
+=======
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -13129,8 +13342,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_Internal_Debug_Freq" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="GPIO_Interface_Demodulator_Threshold" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="GPIO_Interface_Delay_Amount" PORT="s_axi_aclk"/>
+<<<<<<< HEAD
             <CONNECTION INSTANCE="GPIO_Interface_PRBS_Gain" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="GPIO_Interface_CLK_DIV_SELECT" PORT="s_axi_aclk"/>
+=======
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="s_axi_aclk"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
             <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="M_AXI_GP1_ACLK"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="ACLK"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="S00_ACLK"/>
@@ -13155,7 +13372,10 @@
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M08_ACLK"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M09_ACLK"/>
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M10_ACLK"/>
+<<<<<<< HEAD
             <CONNECTION INSTANCE="PS7_axi_interconnect_1" PORT="M11_ACLK"/>
+=======
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="152380966" DIR="O" NAME="FCLK_CLK1" SIGIS="clk"/>
@@ -13591,8 +13811,12 @@
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x41270000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x4127FFFF" INSTANCE="GPIO_Interface_Demodulator_Threshold" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x41280000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x4128FFFF" INSTANCE="GPIO_Interface_Internal_Debug_Freq" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x41290000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x4129FFFF" INSTANCE="GPIO_Interface_Delay_Amount" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
+<<<<<<< HEAD
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x412A0000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x412AFFFF" INSTANCE="GPIO_Interface_PRBS_Gain" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x412B0000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x412BFFFF" INSTANCE="GPIO_Interface_CLK_DIV_SELECT" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
+=======
+        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x412A0000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x412AFFFF" INSTANCE="GPIO_Interface_PRBS_Enable" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x80400000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x8040FFFF" INSTANCE="PS7_DMA_Engine_axi_dma_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP1" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI_LITE"/>
       </MEMORYMAP>
       <PERIPHERALS>
@@ -13606,11 +13830,53 @@
         <PERIPHERAL INSTANCE="GPIO_Interface_Demodulator_Threshold"/>
         <PERIPHERAL INSTANCE="GPIO_Interface_Internal_Debug_Freq"/>
         <PERIPHERAL INSTANCE="GPIO_Interface_Delay_Amount"/>
+<<<<<<< HEAD
         <PERIPHERAL INSTANCE="GPIO_Interface_PRBS_Gain"/>
         <PERIPHERAL INSTANCE="GPIO_Interface_CLK_DIV_SELECT"/>
         <PERIPHERAL INSTANCE="PS7_DMA_Engine_axi_dma_0"/>
       </PERIPHERALS>
     </MODULE>
+=======
+        <PERIPHERAL INSTANCE="GPIO_Interface_PRBS_Enable"/>
+        <PERIPHERAL INSTANCE="PS7_DMA_Engine_axi_dma_0"/>
+      </PERIPHERALS>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/PSK_Modulator_0" HWVERSION="1.0" INSTANCE="PSK_Modulator_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="PSK_Modulator" VLNV="xilinx.com:module_ref:PSK_Modulator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="system_PSK_Modulator_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="Clock" SIGIS="clk" SIGNAME="axis_red_pitaya_adc_0_adc_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_red_pitaya_adc_0" PORT="adc_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Modulation_Enable" SIGIS="undef" SIGNAME="GPIO_Interface_PRBS_Enable_gpio_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GPIO_Interface_PRBS_Enable" PORT="gpio_io_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Modulation" SIGIS="undef" SIGNAME="PRBS_Variable_Delay_0_D_Out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PRBS_Variable_Delay_0" PORT="D_Out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="13" NAME="Input_Signal" RIGHT="0" SIGIS="undef" SIGNAME="DMA_Interconnect_0_ADC_C1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DMA_Interconnect_0" PORT="ADC_C1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="13" NAME="Output_Signal" RIGHT="0" SIGIS="undef" SIGNAME="PSK_Modulator_0_Output_Signal">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Costa_Demodulator_0" PORT="Input_Signal"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
     <MODULE COREREVISION="1" FULLNAME="/Reset_Gen_0" HWVERSION="1.0" INSTANCE="Reset_Gen_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Reset_Gen" VLNV="xilinx.com:module_ref:Reset_Gen:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -13625,6 +13891,10 @@
         </PORT>
         <PORT DIR="O" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="Reset_Gen_0_Reset">
           <CONNECTIONS>
+<<<<<<< HEAD
+=======
+            <CONNECTION INSTANCE="PRBS_Clock_Divider_0" PORT="Reset"/>
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
             <CONNECTION INSTANCE="PRBS_LFSR_0" PORT="reset"/>
             <CONNECTION INSTANCE="PRBS_Clock_Divider_0" PORT="Reset"/>
             <CONNECTION INSTANCE="PRBS_Variable_Delay_0" PORT="Reset"/>
@@ -13656,9 +13926,14 @@
             <CONNECTION INSTANCE="PS7_DMA_Engine_axi_interconnect_0" PORT="S01_ACLK"/>
             <CONNECTION INSTANCE="DMA_Interconnect_0" PORT="aclk"/>
             <CONNECTION INSTANCE="PRBS_Clock_Divider_0" PORT="DivClock_In"/>
+<<<<<<< HEAD
             <CONNECTION INSTANCE="Costa_Demodulator_0" PORT="Clock"/>
             <CONNECTION INSTANCE="PRBS_Multiply_0" PORT="Clock"/>
+=======
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
             <CONNECTION INSTANCE="Reset_Gen_0" PORT="Clock"/>
+            <CONNECTION INSTANCE="PSK_Modulator_0" PORT="Clock"/>
+            <CONNECTION INSTANCE="Costa_Demodulator_0" PORT="Clock"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="adc_csn" SIGIS="undef" SIGNAME="axis_red_pitaya_adc_0_adc_csn">

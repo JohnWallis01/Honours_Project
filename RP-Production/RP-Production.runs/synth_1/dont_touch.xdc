@@ -107,6 +107,7 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Rese
 # IP: bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Costa_Demodulator_0_0 || ORIG_REF_NAME==system_Costa_Demodulator_0_0} -quiet] -quiet
 
+<<<<<<< HEAD
 # IP: bd/system/ip/system_Delay_Amount_0/system_Delay_Amount_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Delay_Amount_0 || ORIG_REF_NAME==system_Delay_Amount_0} -quiet] -quiet
 
@@ -115,6 +116,16 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PRBS
 
 # IP: bd/system/ip/system_PRBS_Gain_0/system_PRBS_Gain_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PRBS_Gain_0 || ORIG_REF_NAME==system_PRBS_Gain_0} -quiet] -quiet
+=======
+# IP: bd/system/ip/system_Reset_Gen_0_0/system_Reset_Gen_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Reset_Gen_0_0 || ORIG_REF_NAME==system_Reset_Gen_0_0} -quiet] -quiet
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
+
+# IP: bd/system/ip/system_PSK_Modulator_0_0/system_PSK_Modulator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_Modulator_0_0 || ORIG_REF_NAME==system_PSK_Modulator_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Delay_Amount_0/system_Delay_Amount_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Delay_Amount_0 || ORIG_REF_NAME==system_Delay_Amount_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet

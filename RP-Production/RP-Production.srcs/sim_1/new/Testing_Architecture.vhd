@@ -86,7 +86,7 @@ architecture Behavioral of Testing_Architecture is
             );
     end component;
 
-    component Costa_Demodulator is
+    component Costa_QLL is
         port (
         --Signal Input
         Input_Signal: in std_logic_vector(13 downto 0);
@@ -95,7 +95,7 @@ architecture Behavioral of Testing_Architecture is
         Control_Kp: in std_logic_vector(31 downto 0);
         Control_Ki: in std_logic_vector(31 downto 0);
         Integrator_Reset: in std_logic;
-        Threshold: in std_logic_vector(25 downto 0);
+        Threshold: in std_logic_vector(26 downto 0);
         --Measurments
         Freq_Measured: out std_logic_vector(31 downto 0);
         Phase_Measured: out std_logic_vector(31 downto 0);
@@ -152,14 +152,14 @@ architecture Behavioral of Testing_Architecture is
         PSK_m_axis_tvalid => open 
         );
 
-    Demodulator: Costa_Demodulator
+    Demodulator: Costa_QLL
     port map(
         Input_Signal => NCO_Data,
         PLL_Guess_Freq =>   std_logic_vector(to_unsigned(343697384, 32)),
-        Control_Kp =>       std_logic_vector(to_signed(-1000000, 32)),
-        Control_Ki =>       std_logic_vector(to_signed(-1000, 32)),
+        Control_Kp =>       std_logic_vector(to_signed(-50000, 32)),
+        Control_Ki =>       std_logic_vector(to_signed(-500, 32)),
         Integrator_Reset => '0',
-        Threshold => std_logic_vector(to_signed(1000000, 26)),
+        Threshold => std_logic_vector(to_signed(100000, 27)),
         Freq_Measured => open,
         Phase_Measured => open,
         Lock_Strength => open,

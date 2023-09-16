@@ -1,8 +1,13 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+<<<<<<< HEAD
 | Date         : Fri Sep 15 15:02:59 2023
 | Host         : Valkyrie running 64-bit major release  (build 9200)
+=======
+| Date         : Tue Sep 12 19:21:11 2023
+| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
 | Command      : report_drc -file system_wrapper_drc_opted.rpt -pb system_wrapper_drc_opted.pb -rpx system_wrapper_drc_opted.rpx
 | Design       : system_wrapper
 | Device       : xc7z010clg400-1
@@ -24,11 +29,11 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 35
+             Violations found: 34
 +--------+----------+------------------------+------------+
 | Rule   | Severity | Description            | Violations |
 +--------+----------+------------------------+------------+
-| DPIP-1 | Warning  | Input pipelining       | 14         |
+| DPIP-1 | Warning  | Input pipelining       | 13         |
 | DPOP-1 | Warning  | PREG Output pipelining | 10         |
 | DPOP-2 | Warning  | MREG Output pipelining | 11         |
 +--------+----------+------------------------+------------+
@@ -57,50 +62,45 @@ Related violations: <none>
 
 DPIP-1#5 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#6 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Costa_Demodulator_0/inst/Input_InPhase_Mixer/Dout_reg input system_i/Costa_Demodulator_0/inst/Input_InPhase_Mixer/Dout_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#7 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Input_InPhase_Mixer/Dout_reg input system_i/Costa_Demodulator_0/inst/Input_InPhase_Mixer/Dout_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Costa_Demodulator_0/inst/Input_Quadrature_Mixer/Dout_reg input system_i/Costa_Demodulator_0/inst/Input_Quadrature_Mixer/Dout_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#8 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Input_Quadrature_Mixer/Dout_reg input system_i/Costa_Demodulator_0/inst/Input_Quadrature_Mixer/Dout_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#9 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__0 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#10 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__0 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__1 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#11 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__1 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__3 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#12 Warning
 Input pipelining  
-DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__3 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#13 Warning
-Input pipelining  
 DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__4 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
-DPIP-1#14 Warning
+DPIP-1#13 Warning
 Input pipelining  
 DSP system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__5 input system_i/Costa_Demodulator_0/inst/Loop_Controller/ARG__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>

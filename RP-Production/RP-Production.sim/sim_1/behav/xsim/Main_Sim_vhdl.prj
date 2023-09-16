@@ -1,7 +1,7 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../../VHDL_Modules/Clock_Div.vhd" \
-"../../../../../VHDL_Modules/Costa_Demodulator.vhd" \
+"../../../../../VHDL_Modules/Costa_QLL.vhd" \
 "../../../../../VHDL_Modules/LFSR.vhd" \
 "../../../../../VHDL_Modules/Logic.vhd" \
 "../../../../../VHDL_Modules/NCO.vhd" \

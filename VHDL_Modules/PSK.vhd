@@ -73,3 +73,34 @@ begin
     );
 
 end architecture;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+
+entity PSK_Modulator is
+    port(
+    Clock: in std_logic;
+    Modulation_Enable: in std_logic;
+    Modulation: in std_logic;
+    Input_Signal: in std_logic_vector(13 downto 0);
+    Output_Signal: out std_logic_vector(13 downto 0)
+    );
+end PSK_Modulator;
+
+architecture PSK_Modulator_arch of PSK_Modulator is
+
+begin
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Modulation = '1' and Modulation_Enable = '1' then
+                Output_Signal <= std_logic_vector(unsigned(not Input_Signal) + to_unsigned(1, 14));
+            else
+                Output_Signal <= Input_Signal;
+            end if;
+        end if;
+    end process;
+end PSK_Modulator_arch ; -- arch

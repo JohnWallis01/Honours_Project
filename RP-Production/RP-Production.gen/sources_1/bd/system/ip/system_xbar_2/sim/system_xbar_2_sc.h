@@ -100,8 +100,11 @@ public:
   xtlm::xtlm_aximm_initiator_socket* initiator_9_wr_socket;
   xtlm::xtlm_aximm_initiator_socket* initiator_10_rd_socket;
   xtlm::xtlm_aximm_initiator_socket* initiator_10_wr_socket;
+<<<<<<< HEAD
   xtlm::xtlm_aximm_initiator_socket* initiator_11_rd_socket;
   xtlm::xtlm_aximm_initiator_socket* initiator_11_wr_socket;
+=======
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
 
   // module socket-to-socket TLM interfaces
 

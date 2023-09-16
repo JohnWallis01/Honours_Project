@@ -173,6 +173,13 @@ int16_t convertUnsignedToSigned(uint16_t value)
     return signedValue;
 }
 
+int convert25BitVectorToSigned(int value)
+{
+    int signedValue = (int)(value << 6);  // Shift left by 2 bits to align the sign
+    signedValue >>= 6;                            // Shift right by 2 bits to restore the sign
+    return signedValue;
+}
+
 int16_t mempipe(char a, char b) {
     uint16_t data = ((b << 8) | (a << 0)) & (0x3FFF);
     return convertUnsignedToSigned(data);

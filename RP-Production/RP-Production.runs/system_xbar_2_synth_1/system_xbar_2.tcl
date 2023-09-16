@@ -70,7 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "system_xbar_2_synth_1" START { ROLLUP_AUTO }
+<<<<<<< HEAD
 set_param chipscope.maxJobs 4
+=======
+>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true
