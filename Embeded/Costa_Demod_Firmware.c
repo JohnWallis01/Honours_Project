@@ -28,6 +28,8 @@
 #define Demodualation_Threshold_ADDR 0x41270000
 #define Debug_Frequency_ADDR         0x41280000
 #define Delay_ADDR                   0x41290000
+#define PRBS_Enable_ADDR             0x412A0000
+
 //Setup Constants
 #define fSampling 125 //in Mhz
 #define PI 3.14159265358979323846
@@ -37,8 +39,11 @@
 
 
 //PLL Tuning
+
+// #define kp_value    -200000           
+// #define ki_value    -8                //These work for PRBS demodualtion
 #define kp_value    -200000           
-#define ki_value    -8                
+#define ki_value    -2000     
 #define PLL_Lock_Threshold 65000000
 #define Demodulation_Threshold_Value 1000000
 
@@ -153,6 +158,13 @@ int16_t convertUnsignedToSigned(uint16_t value)
     return signedValue;
 }
 
+int convert25BitVectorToSigned(int value)
+{
+    int signedValue = (int)(value << 6);  // Shift left by 2 bits to align the sign
+    signedValue >>= 6;                            // Shift right by 2 bits to restore the sign
+    return signedValue;
+}
+
 int16_t mempipe(char a, char b) {
     uint16_t data = ((b << 8) | (a << 0)) & (0x3FFF);
     return convertUnsignedToSigned(data);
@@ -246,9 +258,11 @@ int main() {
     void *Demodualation_Threshold   = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Demodualation_Threshold_ADDR);
     void *Debug_Freq                = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Debug_Frequency_ADDR);
     void *Delay_Control             = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Delay_ADDR);
+    void *PRBS_Enable               = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PRBS_Enable_ADDR);
 
     *(uint32_t*)Debug_Freq      = (int)(Debug_Freq_Value/125.0*pow(2,32));
     *(uint32_t*)Delay_Control   = Delay_Amount; 
+    *(uint32_t*)PRBS_Enable     = 1; //Off for now
 
     *(uint32_t*)LFSR_Polynomial         = TAPS_Polynomial; // This is the polynomial for an 8 bit LFSR
     *(uint32_t*)Ki                      = ki_value;
@@ -298,11 +312,14 @@ int main() {
   
         }
         else {
-            // printf("Lock Strength: %i \n", LockStrength);
-            printf("FFT Measured Freq: %f (MHz)\n", f_measured);
-            printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
+            printf("Lock Strength:           %i \n", convert25BitVectorToSigned(LockStrength));
+            printf("FFT Measured Freq:       %f (MHz)\n", f_measured);
+            if((float)Freq_Measurment*fSampling/pow(2,32) < 62.5) 
+            printf("PLL Measured Frequency   %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
+            else 
+            printf("PLL Measured Frequency   %f (Mhz)\n", 125.0 - (float)Freq_Measurment*fSampling/pow(2,32)); 
             // printf("Estimated Delay: %u (Peak Correlation)\n", Max_n);
-            printf("Estimated Delay: %f (FPGA Clocks)\n", (((double)Max_n)/PRBS_DIV - FPGA_Delay));
+            printf("Estimated Channel Delay: %f (FPGA Clocks)\n", (((double)Max_n)/PRBS_DIV - FPGA_Delay));
 
         }
     }

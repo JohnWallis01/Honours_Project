@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Sep 12 13:34:54 2023
+// Date        : Tue Sep 12 19:19:38 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0_sim_netlist.v
@@ -122,10 +122,10 @@ module system_Costa_Demodulator_0_0_CIC32
   wire \cic_pipeline3_reg_n_0_[7] ;
   wire \cic_pipeline3_reg_n_0_[8] ;
   wire \cic_pipeline3_reg_n_0_[9] ;
-  wire \cur_count[0]_i_1__1_n_0 ;
-  wire \cur_count[1]_i_1__1_n_0 ;
-  wire \cur_count[2]_i_1__1_n_0 ;
-  wire \cur_count[3]_i_1__1_n_0 ;
+  wire \cur_count[0]_i_1_n_0 ;
+  wire \cur_count[1]_i_1_n_0 ;
+  wire \cur_count[2]_i_1_n_0 ;
+  wire \cur_count[3]_i_1_n_0 ;
   wire \cur_count[4]_i_1__1_n_0 ;
   wire [4:0]cur_count_reg;
   wire \diff1_reg_n_0_[0] ;
@@ -683,33 +683,33 @@ module system_Costa_Demodulator_0_0_CIC32
         .Q(\cic_pipeline3_reg_n_0_[9] ));
   LUT1 #(
     .INIT(2'h1)) 
-    \cur_count[0]_i_1__1 
+    \cur_count[0]_i_1 
        (.I0(cur_count_reg[0]),
-        .O(\cur_count[0]_i_1__1_n_0 ));
+        .O(\cur_count[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \cur_count[1]_i_1__1 
+    \cur_count[1]_i_1 
        (.I0(cur_count_reg[0]),
         .I1(cur_count_reg[1]),
-        .O(\cur_count[1]_i_1__1_n_0 ));
+        .O(\cur_count[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h6A)) 
-    \cur_count[2]_i_1__1 
+    \cur_count[2]_i_1 
        (.I0(cur_count_reg[2]),
         .I1(cur_count_reg[0]),
         .I2(cur_count_reg[1]),
-        .O(\cur_count[2]_i_1__1_n_0 ));
+        .O(\cur_count[2]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
-    \cur_count[3]_i_1__1 
+    \cur_count[3]_i_1 
        (.I0(cur_count_reg[3]),
         .I1(cur_count_reg[2]),
         .I2(cur_count_reg[0]),
         .I3(cur_count_reg[1]),
-        .O(\cur_count[3]_i_1__1_n_0 ));
+        .O(\cur_count[3]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'h7F80FF00)) 
@@ -724,25 +724,25 @@ module system_Costa_Demodulator_0_0_CIC32
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[0]_i_1__1_n_0 ),
+        .D(\cur_count[0]_i_1_n_0 ),
         .Q(cur_count_reg[0]));
   FDCE \cur_count_reg[1] 
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[1]_i_1__1_n_0 ),
+        .D(\cur_count[1]_i_1_n_0 ),
         .Q(cur_count_reg[1]));
   FDCE \cur_count_reg[2] 
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[2]_i_1__1_n_0 ),
+        .D(\cur_count[2]_i_1_n_0 ),
         .Q(cur_count_reg[2]));
   FDCE \cur_count_reg[3] 
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[3]_i_1__1_n_0 ),
+        .D(\cur_count[3]_i_1_n_0 ),
         .Q(cur_count_reg[3]));
   FDCE \cur_count_reg[4] 
        (.C(Clock),
@@ -2555,10 +2555,10 @@ module system_Costa_Demodulator_0_0_CIC32_0
   wire Reset;
   wire [2:0]S;
   wire [25:0]cic_pipeline3;
-  wire \cur_count[0]_i_1_n_0 ;
-  wire \cur_count[1]_i_1_n_0 ;
-  wire \cur_count[2]_i_1_n_0 ;
-  wire \cur_count[3]_i_1_n_0 ;
+  wire \cur_count[0]_i_1__1_n_0 ;
+  wire \cur_count[1]_i_1__1_n_0 ;
+  wire \cur_count[2]_i_1__1_n_0 ;
+  wire \cur_count[3]_i_1__1_n_0 ;
   wire \cur_count[4]_i_1_n_0 ;
   wire [4:0]cur_count_reg;
   wire [25:0]diff1;
@@ -3175,33 +3175,33 @@ module system_Costa_Demodulator_0_0_CIC32_0
         .Q(cic_pipeline3[9]));
   LUT1 #(
     .INIT(2'h1)) 
-    \cur_count[0]_i_1 
+    \cur_count[0]_i_1__1 
        (.I0(cur_count_reg[0]),
-        .O(\cur_count[0]_i_1_n_0 ));
+        .O(\cur_count[0]_i_1__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \cur_count[1]_i_1 
+    \cur_count[1]_i_1__1 
        (.I0(cur_count_reg[0]),
         .I1(cur_count_reg[1]),
-        .O(\cur_count[1]_i_1_n_0 ));
+        .O(\cur_count[1]_i_1__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'h6A)) 
-    \cur_count[2]_i_1 
+    \cur_count[2]_i_1__1 
        (.I0(cur_count_reg[2]),
         .I1(cur_count_reg[0]),
         .I2(cur_count_reg[1]),
-        .O(\cur_count[2]_i_1_n_0 ));
+        .O(\cur_count[2]_i_1__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
-    \cur_count[3]_i_1 
+    \cur_count[3]_i_1__1 
        (.I0(cur_count_reg[3]),
         .I1(cur_count_reg[2]),
         .I2(cur_count_reg[0]),
         .I3(cur_count_reg[1]),
-        .O(\cur_count[3]_i_1_n_0 ));
+        .O(\cur_count[3]_i_1__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h7F80FF00)) 
@@ -3216,25 +3216,25 @@ module system_Costa_Demodulator_0_0_CIC32_0
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[0]_i_1_n_0 ),
+        .D(\cur_count[0]_i_1__1_n_0 ),
         .Q(cur_count_reg[0]));
   FDCE \cur_count_reg[1] 
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[1]_i_1_n_0 ),
+        .D(\cur_count[1]_i_1__1_n_0 ),
         .Q(cur_count_reg[1]));
   FDCE \cur_count_reg[2] 
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[2]_i_1_n_0 ),
+        .D(\cur_count[2]_i_1__1_n_0 ),
         .Q(cur_count_reg[2]));
   FDCE \cur_count_reg[3] 
        (.C(Clock),
         .CE(1'b1),
         .CLR(Reset),
-        .D(\cur_count[3]_i_1_n_0 ),
+        .D(\cur_count[3]_i_1__1_n_0 ),
         .Q(cur_count_reg[3]));
   FDCE \cur_count_reg[4] 
        (.C(Clock),
@@ -4711,7 +4711,7 @@ module system_Costa_Demodulator_0_0_CIC32_2
     \section_out1_reg[19]_0 ,
     \section_out1_reg[23]_0 ,
     \section_out1_reg[25]_0 ,
-    Dout0__0_carry__1,
+    Dout0__66_carry__1_0,
     Dout0__0_carry__0,
     Dout0__0_carry__0_0,
     Dout0__0_carry__0_1,
@@ -4720,12 +4720,12 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__33_carry__0_0,
     Dout0__33_carry__0_1,
     Dout0__33_carry__0_2,
-    Dout0__66_carry__1_0,
+    Dout0__66_carry__1_1,
     Dout0__99_carry__2,
     Dout0__99_carry__1,
     Dout0__99_carry__1_0,
     Dout0__99_carry__1_1,
-    Dout0__0_carry__1_0,
+    Dout0__0_carry__1,
     Dout0__33_carry__1_1,
     Dout0__66_carry__0_0,
     Dout0__66_carry__0_1,
@@ -4786,7 +4786,7 @@ module system_Costa_Demodulator_0_0_CIC32_2
   input [3:0]\section_out1_reg[19]_0 ;
   input [3:0]\section_out1_reg[23]_0 ;
   input [1:0]\section_out1_reg[25]_0 ;
-  input [8:0]Dout0__0_carry__1;
+  input [8:0]Dout0__66_carry__1_0;
   input Dout0__0_carry__0;
   input Dout0__0_carry__0_0;
   input Dout0__0_carry__0_1;
@@ -4795,12 +4795,12 @@ module system_Costa_Demodulator_0_0_CIC32_2
   input Dout0__33_carry__0_0;
   input Dout0__33_carry__0_1;
   input Dout0__33_carry__0_2;
-  input Dout0__66_carry__1_0;
+  input Dout0__66_carry__1_1;
   input [2:0]Dout0__99_carry__2;
   input [0:0]Dout0__99_carry__1;
   input [2:0]Dout0__99_carry__1_0;
   input [3:0]Dout0__99_carry__1_1;
-  input Dout0__0_carry__1_0;
+  input Dout0__0_carry__1;
   input Dout0__33_carry__1_1;
   input Dout0__66_carry__0_0;
   input Dout0__66_carry__0_1;
@@ -4820,8 +4820,7 @@ module system_Costa_Demodulator_0_0_CIC32_2
   wire Dout0__0_carry__0_0;
   wire Dout0__0_carry__0_1;
   wire Dout0__0_carry__0_2;
-  wire [8:0]Dout0__0_carry__1;
-  wire Dout0__0_carry__1_0;
+  wire Dout0__0_carry__1;
   wire Dout0__33_carry__0;
   wire Dout0__33_carry__0_0;
   wire Dout0__33_carry__0_1;
@@ -4835,7 +4834,8 @@ module system_Costa_Demodulator_0_0_CIC32_2
   wire Dout0__66_carry__0_2;
   wire Dout0__66_carry__0_3;
   wire [0:0]Dout0__66_carry__1;
-  wire Dout0__66_carry__1_0;
+  wire [8:0]Dout0__66_carry__1_0;
+  wire Dout0__66_carry__1_1;
   wire [0:0]Dout0__99_carry__1;
   wire [2:0]Dout0__99_carry__1_0;
   wire [3:0]Dout0__99_carry__1_1;
@@ -5216,50 +5216,50 @@ module system_Costa_Demodulator_0_0_CIC32_2
     .INIT(64'hF888800080008000)) 
     Dout0__0_carry__0_i_1
        (.I0(Q[19]),
-        .I1(Dout0__0_carry__1[4]),
+        .I1(Dout0__66_carry__1_0[4]),
         .I2(Q[18]),
-        .I3(Dout0__0_carry__1[5]),
+        .I3(Dout0__66_carry__1_0[5]),
         .I4(Q[17]),
-        .I5(Dout0__0_carry__1[6]),
+        .I5(Dout0__66_carry__1_0[6]),
         .O(\output_register_reg[19]_0 [3]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__0_carry__0_i_2
        (.I0(Q[19]),
-        .I1(Dout0__0_carry__1[3]),
+        .I1(Dout0__66_carry__1_0[3]),
         .I2(Q[18]),
-        .I3(Dout0__0_carry__1[4]),
+        .I3(Dout0__66_carry__1_0[4]),
         .I4(Q[17]),
-        .I5(Dout0__0_carry__1[5]),
+        .I5(Dout0__66_carry__1_0[5]),
         .O(\output_register_reg[19]_0 [2]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__0_carry__0_i_3
        (.I0(Q[19]),
-        .I1(Dout0__0_carry__1[2]),
+        .I1(Dout0__66_carry__1_0[2]),
         .I2(Q[18]),
-        .I3(Dout0__0_carry__1[3]),
+        .I3(Dout0__66_carry__1_0[3]),
         .I4(Q[17]),
-        .I5(Dout0__0_carry__1[4]),
+        .I5(Dout0__66_carry__1_0[4]),
         .O(\output_register_reg[19]_0 [1]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__0_carry__0_i_4
        (.I0(Q[19]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .I2(Q[18]),
-        .I3(Dout0__0_carry__1[2]),
+        .I3(Dout0__66_carry__1_0[2]),
         .I4(Q[17]),
-        .I5(Dout0__0_carry__1[3]),
+        .I5(Dout0__66_carry__1_0[3]),
         .O(\output_register_reg[19]_0 [0]));
   LUT6 #(
     .INIT(64'h956A6A956A956A95)) 
     Dout0__0_carry__0_i_5
        (.I0(\output_register_reg[19]_0 [3]),
         .I1(Q[18]),
-        .I2(Dout0__0_carry__1[6]),
+        .I2(Dout0__66_carry__1_0[6]),
         .I3(Dout0__0_carry__0_2),
-        .I4(Dout0__0_carry__1[7]),
+        .I4(Dout0__66_carry__1_0[7]),
         .I5(Q[17]),
         .O(\output_register_reg[18]_0 [3]));
   LUT6 #(
@@ -5267,9 +5267,9 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__0_carry__0_i_6
        (.I0(\output_register_reg[19]_0 [2]),
         .I1(Q[18]),
-        .I2(Dout0__0_carry__1[5]),
+        .I2(Dout0__66_carry__1_0[5]),
         .I3(Dout0__0_carry__0_1),
-        .I4(Dout0__0_carry__1[6]),
+        .I4(Dout0__66_carry__1_0[6]),
         .I5(Q[17]),
         .O(\output_register_reg[18]_0 [2]));
   LUT6 #(
@@ -5277,9 +5277,9 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__0_carry__0_i_7
        (.I0(\output_register_reg[19]_0 [1]),
         .I1(Q[18]),
-        .I2(Dout0__0_carry__1[4]),
+        .I2(Dout0__66_carry__1_0[4]),
         .I3(Dout0__0_carry__0_0),
-        .I4(Dout0__0_carry__1[5]),
+        .I4(Dout0__66_carry__1_0[5]),
         .I5(Q[17]),
         .O(\output_register_reg[18]_0 [1]));
   LUT6 #(
@@ -5287,47 +5287,47 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__0_carry__0_i_8
        (.I0(\output_register_reg[19]_0 [0]),
         .I1(Q[18]),
-        .I2(Dout0__0_carry__1[3]),
+        .I2(Dout0__66_carry__1_0[3]),
         .I3(Dout0__0_carry__0),
-        .I4(Dout0__0_carry__1[4]),
+        .I4(Dout0__66_carry__1_0[4]),
         .I5(Q[17]),
         .O(\output_register_reg[18]_0 [0]));
   LUT4 #(
     .INIT(16'h7000)) 
     Dout0__0_carry__1_i_1
        (.I0(Q[18]),
-        .I1(Dout0__0_carry__1[8]),
+        .I1(Dout0__66_carry__1_0[8]),
         .I2(Q[19]),
-        .I3(Dout0__0_carry__1[7]),
+        .I3(Dout0__66_carry__1_0[7]),
         .O(\output_register_reg[18]_1 [2]));
   LUT6 #(
     .INIT(64'h8000F888F888F888)) 
     Dout0__0_carry__1_i_2
        (.I0(Q[19]),
-        .I1(Dout0__0_carry__1[6]),
+        .I1(Dout0__66_carry__1_0[6]),
         .I2(Q[18]),
-        .I3(Dout0__0_carry__1[7]),
+        .I3(Dout0__66_carry__1_0[7]),
         .I4(Q[17]),
-        .I5(Dout0__0_carry__1[8]),
+        .I5(Dout0__66_carry__1_0[8]),
         .O(\output_register_reg[18]_1 [1]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__0_carry__1_i_3
        (.I0(Q[19]),
-        .I1(Dout0__0_carry__1[5]),
+        .I1(Dout0__66_carry__1_0[5]),
         .I2(Q[18]),
-        .I3(Dout0__0_carry__1[6]),
+        .I3(Dout0__66_carry__1_0[6]),
         .I4(Q[17]),
-        .I5(Dout0__0_carry__1[7]),
+        .I5(Dout0__66_carry__1_0[7]),
         .O(\output_register_reg[18]_1 [0]));
   LUT6 #(
     .INIT(64'h2450F30F4BFFC3FF)) 
     Dout0__0_carry__1_i_5
        (.I0(Q[17]),
-        .I1(Dout0__0_carry__1[6]),
-        .I2(Dout0__0_carry__1[7]),
+        .I1(Dout0__66_carry__1_0[6]),
+        .I2(Dout0__66_carry__1_0[7]),
         .I3(Q[19]),
-        .I4(Dout0__0_carry__1[8]),
+        .I4(Dout0__66_carry__1_0[8]),
         .I5(Q[18]),
         .O(\output_register_reg[17]_0 [1]));
   LUT6 #(
@@ -5335,91 +5335,91 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__0_carry__1_i_6
        (.I0(\output_register_reg[18]_1 [0]),
         .I1(Q[18]),
-        .I2(Dout0__0_carry__1[7]),
-        .I3(Dout0__0_carry__1_0),
-        .I4(Dout0__0_carry__1[8]),
+        .I2(Dout0__66_carry__1_0[7]),
+        .I3(Dout0__0_carry__1),
+        .I4(Dout0__66_carry__1_0[8]),
         .I5(Q[17]),
         .O(\output_register_reg[17]_0 [0]));
   LUT6 #(
     .INIT(64'h8777788878887888)) 
     Dout0__0_carry_i_1
        (.I0(Q[18]),
-        .I1(Dout0__0_carry__1[2]),
+        .I1(Dout0__66_carry__1_0[2]),
         .I2(Q[19]),
-        .I3(Dout0__0_carry__1[1]),
-        .I4(Dout0__0_carry__1[3]),
+        .I3(Dout0__66_carry__1_0[1]),
+        .I4(Dout0__66_carry__1_0[3]),
         .I5(Q[17]),
         .O(DI[2]));
   LUT4 #(
     .INIT(16'h7888)) 
     Dout0__0_carry_i_2
        (.I0(Q[18]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .I2(Q[19]),
-        .I3(Dout0__0_carry__1[0]),
+        .I3(Dout0__66_carry__1_0[0]),
         .O(DI[1]));
   LUT2 #(
     .INIT(4'h8)) 
     Dout0__0_carry_i_3
        (.I0(Q[17]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .O(DI[0]));
   LUT4 #(
     .INIT(16'h7888)) 
     Dout0__0_carry_i_6
        (.I0(Q[17]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .I2(Q[18]),
-        .I3(Dout0__0_carry__1[0]),
+        .I3(Dout0__66_carry__1_0[0]),
         .O(S));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__33_carry__0_i_1
        (.I0(Q[22]),
-        .I1(Dout0__0_carry__1[4]),
+        .I1(Dout0__66_carry__1_0[4]),
         .I2(Q[21]),
-        .I3(Dout0__0_carry__1[5]),
+        .I3(Dout0__66_carry__1_0[5]),
         .I4(Q[20]),
-        .I5(Dout0__0_carry__1[6]),
+        .I5(Dout0__66_carry__1_0[6]),
         .O(\output_register_reg[22]_0 [3]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__33_carry__0_i_2
        (.I0(Q[22]),
-        .I1(Dout0__0_carry__1[3]),
+        .I1(Dout0__66_carry__1_0[3]),
         .I2(Q[21]),
-        .I3(Dout0__0_carry__1[4]),
+        .I3(Dout0__66_carry__1_0[4]),
         .I4(Q[20]),
-        .I5(Dout0__0_carry__1[5]),
+        .I5(Dout0__66_carry__1_0[5]),
         .O(\output_register_reg[22]_0 [2]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__33_carry__0_i_3
        (.I0(Q[22]),
-        .I1(Dout0__0_carry__1[2]),
+        .I1(Dout0__66_carry__1_0[2]),
         .I2(Q[21]),
-        .I3(Dout0__0_carry__1[3]),
+        .I3(Dout0__66_carry__1_0[3]),
         .I4(Q[20]),
-        .I5(Dout0__0_carry__1[4]),
+        .I5(Dout0__66_carry__1_0[4]),
         .O(\output_register_reg[22]_0 [1]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__33_carry__0_i_4
        (.I0(Q[22]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .I2(Q[21]),
-        .I3(Dout0__0_carry__1[2]),
+        .I3(Dout0__66_carry__1_0[2]),
         .I4(Q[20]),
-        .I5(Dout0__0_carry__1[3]),
+        .I5(Dout0__66_carry__1_0[3]),
         .O(\output_register_reg[22]_0 [0]));
   LUT6 #(
     .INIT(64'h956A6A956A956A95)) 
     Dout0__33_carry__0_i_5
        (.I0(\output_register_reg[22]_0 [3]),
         .I1(Q[21]),
-        .I2(Dout0__0_carry__1[6]),
+        .I2(Dout0__66_carry__1_0[6]),
         .I3(Dout0__33_carry__0_2),
-        .I4(Dout0__0_carry__1[7]),
+        .I4(Dout0__66_carry__1_0[7]),
         .I5(Q[20]),
         .O(\output_register_reg[21]_0 [3]));
   LUT6 #(
@@ -5427,9 +5427,9 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__33_carry__0_i_6
        (.I0(\output_register_reg[22]_0 [2]),
         .I1(Q[21]),
-        .I2(Dout0__0_carry__1[5]),
+        .I2(Dout0__66_carry__1_0[5]),
         .I3(Dout0__33_carry__0_1),
-        .I4(Dout0__0_carry__1[6]),
+        .I4(Dout0__66_carry__1_0[6]),
         .I5(Q[20]),
         .O(\output_register_reg[21]_0 [2]));
   LUT6 #(
@@ -5437,9 +5437,9 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__33_carry__0_i_7
        (.I0(\output_register_reg[22]_0 [1]),
         .I1(Q[21]),
-        .I2(Dout0__0_carry__1[4]),
+        .I2(Dout0__66_carry__1_0[4]),
         .I3(Dout0__33_carry__0_0),
-        .I4(Dout0__0_carry__1[5]),
+        .I4(Dout0__66_carry__1_0[5]),
         .I5(Q[20]),
         .O(\output_register_reg[21]_0 [1]));
   LUT6 #(
@@ -5447,47 +5447,47 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__33_carry__0_i_8
        (.I0(\output_register_reg[22]_0 [0]),
         .I1(Q[21]),
-        .I2(Dout0__0_carry__1[3]),
+        .I2(Dout0__66_carry__1_0[3]),
         .I3(Dout0__33_carry__0),
-        .I4(Dout0__0_carry__1[4]),
+        .I4(Dout0__66_carry__1_0[4]),
         .I5(Q[20]),
         .O(\output_register_reg[21]_0 [0]));
   LUT4 #(
     .INIT(16'h7000)) 
     Dout0__33_carry__1_i_1
        (.I0(Q[21]),
-        .I1(Dout0__0_carry__1[8]),
+        .I1(Dout0__66_carry__1_0[8]),
         .I2(Q[22]),
-        .I3(Dout0__0_carry__1[7]),
+        .I3(Dout0__66_carry__1_0[7]),
         .O(\output_register_reg[21]_1 [2]));
   LUT6 #(
     .INIT(64'h8000F888F888F888)) 
     Dout0__33_carry__1_i_2
        (.I0(Q[22]),
-        .I1(Dout0__0_carry__1[6]),
+        .I1(Dout0__66_carry__1_0[6]),
         .I2(Q[21]),
-        .I3(Dout0__0_carry__1[7]),
+        .I3(Dout0__66_carry__1_0[7]),
         .I4(Q[20]),
-        .I5(Dout0__0_carry__1[8]),
+        .I5(Dout0__66_carry__1_0[8]),
         .O(\output_register_reg[21]_1 [1]));
   LUT6 #(
     .INIT(64'hF888800080008000)) 
     Dout0__33_carry__1_i_3
        (.I0(Q[22]),
-        .I1(Dout0__0_carry__1[5]),
+        .I1(Dout0__66_carry__1_0[5]),
         .I2(Q[21]),
-        .I3(Dout0__0_carry__1[6]),
+        .I3(Dout0__66_carry__1_0[6]),
         .I4(Q[20]),
-        .I5(Dout0__0_carry__1[7]),
+        .I5(Dout0__66_carry__1_0[7]),
         .O(\output_register_reg[21]_1 [0]));
   LUT6 #(
     .INIT(64'h2450F30F4BFFC3FF)) 
     Dout0__33_carry__1_i_5
        (.I0(Q[20]),
-        .I1(Dout0__0_carry__1[6]),
-        .I2(Dout0__0_carry__1[7]),
+        .I1(Dout0__66_carry__1_0[6]),
+        .I2(Dout0__66_carry__1_0[7]),
         .I3(Q[22]),
-        .I4(Dout0__0_carry__1[8]),
+        .I4(Dout0__66_carry__1_0[8]),
         .I5(Q[21]),
         .O(\output_register_reg[20]_1 [1]));
   LUT6 #(
@@ -5495,91 +5495,91 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__33_carry__1_i_6
        (.I0(\output_register_reg[21]_1 [0]),
         .I1(Q[21]),
-        .I2(Dout0__0_carry__1[7]),
+        .I2(Dout0__66_carry__1_0[7]),
         .I3(Dout0__33_carry__1_1),
-        .I4(Dout0__0_carry__1[8]),
+        .I4(Dout0__66_carry__1_0[8]),
         .I5(Q[20]),
         .O(\output_register_reg[20]_1 [0]));
   LUT6 #(
     .INIT(64'h8777788878887888)) 
     Dout0__33_carry_i_1
        (.I0(Q[21]),
-        .I1(Dout0__0_carry__1[2]),
+        .I1(Dout0__66_carry__1_0[2]),
         .I2(Q[22]),
-        .I3(Dout0__0_carry__1[1]),
-        .I4(Dout0__0_carry__1[3]),
+        .I3(Dout0__66_carry__1_0[1]),
+        .I4(Dout0__66_carry__1_0[3]),
         .I5(Q[20]),
         .O(\output_register_reg[21]_2 [2]));
   LUT4 #(
     .INIT(16'h7888)) 
     Dout0__33_carry_i_2
        (.I0(Q[21]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .I2(Q[22]),
-        .I3(Dout0__0_carry__1[0]),
+        .I3(Dout0__66_carry__1_0[0]),
         .O(\output_register_reg[21]_2 [1]));
   LUT2 #(
     .INIT(4'h8)) 
     Dout0__33_carry_i_3
        (.I0(Q[20]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .O(\output_register_reg[21]_2 [0]));
   LUT4 #(
     .INIT(16'h7888)) 
     Dout0__33_carry_i_6
        (.I0(Q[20]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .I2(Q[21]),
-        .I3(Dout0__0_carry__1[0]),
+        .I3(Dout0__66_carry__1_0[0]),
         .O(\output_register_reg[20]_0 ));
   LUT6 #(
     .INIT(64'h8FFF088808880888)) 
     Dout0__66_carry__0_i_1
        (.I0(Q[24]),
-        .I1(Dout0__0_carry__1[5]),
+        .I1(Dout0__66_carry__1_0[5]),
         .I2(Q[25]),
-        .I3(Dout0__0_carry__1[4]),
+        .I3(Dout0__66_carry__1_0[4]),
         .I4(Q[23]),
-        .I5(Dout0__0_carry__1[6]),
+        .I5(Dout0__66_carry__1_0[6]),
         .O(\output_register_reg[24]_2 [3]));
   LUT6 #(
     .INIT(64'h8FFF088808880888)) 
     Dout0__66_carry__0_i_2
        (.I0(Q[24]),
-        .I1(Dout0__0_carry__1[4]),
+        .I1(Dout0__66_carry__1_0[4]),
         .I2(Q[25]),
-        .I3(Dout0__0_carry__1[3]),
+        .I3(Dout0__66_carry__1_0[3]),
         .I4(Q[23]),
-        .I5(Dout0__0_carry__1[5]),
+        .I5(Dout0__66_carry__1_0[5]),
         .O(\output_register_reg[24]_2 [2]));
   LUT6 #(
     .INIT(64'h8FFF088808880888)) 
     Dout0__66_carry__0_i_3
        (.I0(Q[24]),
-        .I1(Dout0__0_carry__1[3]),
+        .I1(Dout0__66_carry__1_0[3]),
         .I2(Q[25]),
-        .I3(Dout0__0_carry__1[2]),
+        .I3(Dout0__66_carry__1_0[2]),
         .I4(Q[23]),
-        .I5(Dout0__0_carry__1[4]),
+        .I5(Dout0__66_carry__1_0[4]),
         .O(\output_register_reg[24]_2 [1]));
   LUT6 #(
     .INIT(64'h8FFF088808880888)) 
     Dout0__66_carry__0_i_4
        (.I0(Q[24]),
-        .I1(Dout0__0_carry__1[2]),
+        .I1(Dout0__66_carry__1_0[2]),
         .I2(Q[25]),
-        .I3(Dout0__0_carry__1[1]),
+        .I3(Dout0__66_carry__1_0[1]),
         .I4(Q[23]),
-        .I5(Dout0__0_carry__1[3]),
+        .I5(Dout0__66_carry__1_0[3]),
         .O(\output_register_reg[24]_2 [0]));
   LUT6 #(
     .INIT(64'h6A95956A956A956A)) 
     Dout0__66_carry__0_i_5
        (.I0(\output_register_reg[24]_2 [3]),
         .I1(Q[24]),
-        .I2(Dout0__0_carry__1[6]),
+        .I2(Dout0__66_carry__1_0[6]),
         .I3(Dout0__66_carry__0_3),
-        .I4(Dout0__0_carry__1[7]),
+        .I4(Dout0__66_carry__1_0[7]),
         .I5(Q[23]),
         .O(\output_register_reg[24]_1 [3]));
   LUT6 #(
@@ -5587,9 +5587,9 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__66_carry__0_i_6
        (.I0(\output_register_reg[24]_2 [2]),
         .I1(Q[24]),
-        .I2(Dout0__0_carry__1[5]),
+        .I2(Dout0__66_carry__1_0[5]),
         .I3(Dout0__66_carry__0_2),
-        .I4(Dout0__0_carry__1[6]),
+        .I4(Dout0__66_carry__1_0[6]),
         .I5(Q[23]),
         .O(\output_register_reg[24]_1 [2]));
   LUT6 #(
@@ -5597,9 +5597,9 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__66_carry__0_i_7
        (.I0(\output_register_reg[24]_2 [1]),
         .I1(Q[24]),
-        .I2(Dout0__0_carry__1[4]),
+        .I2(Dout0__66_carry__1_0[4]),
         .I3(Dout0__66_carry__0_1),
-        .I4(Dout0__0_carry__1[5]),
+        .I4(Dout0__66_carry__1_0[5]),
         .I5(Q[23]),
         .O(\output_register_reg[24]_1 [1]));
   LUT6 #(
@@ -5607,55 +5607,55 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__66_carry__0_i_8
        (.I0(\output_register_reg[24]_2 [0]),
         .I1(Q[24]),
-        .I2(Dout0__0_carry__1[3]),
+        .I2(Dout0__66_carry__1_0[3]),
         .I3(Dout0__66_carry__0_0),
-        .I4(Dout0__0_carry__1[4]),
+        .I4(Dout0__66_carry__1_0[4]),
         .I5(Q[23]),
         .O(\output_register_reg[24]_1 [0]));
   LUT4 #(
     .INIT(16'h0777)) 
     Dout0__66_carry__1_i_1
        (.I0(Q[25]),
-        .I1(Dout0__0_carry__1[7]),
+        .I1(Dout0__66_carry__1_0[7]),
         .I2(Q[24]),
-        .I3(Dout0__0_carry__1[8]),
+        .I3(Dout0__66_carry__1_0[8]),
         .O(\output_register_reg[25]_0 [2]));
   LUT6 #(
     .INIT(64'h08888FFF8FFF8FFF)) 
     Dout0__66_carry__1_i_2
        (.I0(Q[24]),
-        .I1(Dout0__0_carry__1[7]),
+        .I1(Dout0__66_carry__1_0[7]),
         .I2(Q[25]),
-        .I3(Dout0__0_carry__1[6]),
+        .I3(Dout0__66_carry__1_0[6]),
         .I4(Q[23]),
-        .I5(Dout0__0_carry__1[8]),
+        .I5(Dout0__66_carry__1_0[8]),
         .O(\output_register_reg[25]_0 [1]));
   LUT6 #(
     .INIT(64'h8FFF088808880888)) 
     Dout0__66_carry__1_i_3
        (.I0(Q[24]),
-        .I1(Dout0__0_carry__1[6]),
+        .I1(Dout0__66_carry__1_0[6]),
         .I2(Q[25]),
-        .I3(Dout0__0_carry__1[5]),
+        .I3(Dout0__66_carry__1_0[5]),
         .I4(Q[23]),
-        .I5(Dout0__0_carry__1[7]),
+        .I5(Dout0__66_carry__1_0[7]),
         .O(\output_register_reg[25]_0 [0]));
   LUT4 #(
     .INIT(16'hE53F)) 
     Dout0__66_carry__1_i_4
        (.I0(Q[24]),
-        .I1(Dout0__0_carry__1[7]),
+        .I1(Dout0__66_carry__1_0[7]),
         .I2(Q[25]),
-        .I3(Dout0__0_carry__1[8]),
+        .I3(Dout0__66_carry__1_0[8]),
         .O(\output_register_reg[24]_0 [2]));
   LUT6 #(
     .INIT(64'h7E0A03FFE155C3FF)) 
     Dout0__66_carry__1_i_5
        (.I0(Q[23]),
-        .I1(Dout0__0_carry__1[6]),
-        .I2(Dout0__0_carry__1[7]),
+        .I1(Dout0__66_carry__1_0[6]),
+        .I2(Dout0__66_carry__1_0[7]),
         .I3(Q[25]),
-        .I4(Dout0__0_carry__1[8]),
+        .I4(Dout0__66_carry__1_0[8]),
         .I5(Q[24]),
         .O(\output_register_reg[24]_0 [1]));
   LUT6 #(
@@ -5663,34 +5663,34 @@ module system_Costa_Demodulator_0_0_CIC32_2
     Dout0__66_carry__1_i_6
        (.I0(\output_register_reg[25]_0 [0]),
         .I1(Q[24]),
-        .I2(Dout0__0_carry__1[7]),
-        .I3(Dout0__66_carry__1_0),
-        .I4(Dout0__0_carry__1[8]),
+        .I2(Dout0__66_carry__1_0[7]),
+        .I3(Dout0__66_carry__1_1),
+        .I4(Dout0__66_carry__1_0[8]),
         .I5(Q[23]),
         .O(\output_register_reg[24]_0 [0]));
   LUT6 #(
     .INIT(64'h7888877787778777)) 
     Dout0__66_carry_i_1
        (.I0(Q[23]),
-        .I1(Dout0__0_carry__1[3]),
-        .I2(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[3]),
+        .I2(Dout0__66_carry__1_0[1]),
         .I3(Q[25]),
-        .I4(Dout0__0_carry__1[2]),
+        .I4(Dout0__66_carry__1_0[2]),
         .I5(Q[24]),
         .O(\output_register_reg[23]_1 [1]));
   LUT2 #(
     .INIT(4'h8)) 
     Dout0__66_carry_i_3
        (.I0(Q[23]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .O(\output_register_reg[23]_1 [0]));
   LUT4 #(
     .INIT(16'h7888)) 
     Dout0__66_carry_i_6
        (.I0(Q[23]),
-        .I1(Dout0__0_carry__1[1]),
+        .I1(Dout0__66_carry__1_0[1]),
         .I2(Q[24]),
-        .I3(Dout0__0_carry__1[0]),
+        .I3(Dout0__66_carry__1_0[0]),
         .O(\output_register_reg[23]_0 ));
   LUT3 #(
     .INIT(8'h96)) 
@@ -7874,32 +7874,6 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
   wire Clock;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire Cross_Filter_n_0;
-  wire Cross_Filter_n_1;
-  wire Cross_Filter_n_10;
-  wire Cross_Filter_n_11;
-  wire Cross_Filter_n_12;
-  wire Cross_Filter_n_13;
-  wire Cross_Filter_n_14;
-  wire Cross_Filter_n_15;
-  wire Cross_Filter_n_16;
-  wire Cross_Filter_n_17;
-  wire Cross_Filter_n_18;
-  wire Cross_Filter_n_19;
-  wire Cross_Filter_n_2;
-  wire Cross_Filter_n_20;
-  wire Cross_Filter_n_21;
-  wire Cross_Filter_n_22;
-  wire Cross_Filter_n_23;
-  wire Cross_Filter_n_24;
-  wire Cross_Filter_n_25;
-  wire Cross_Filter_n_3;
-  wire Cross_Filter_n_4;
-  wire Cross_Filter_n_5;
-  wire Cross_Filter_n_6;
-  wire Cross_Filter_n_7;
-  wire Cross_Filter_n_8;
-  wire Cross_Filter_n_9;
   wire Cross_Mixer_n_0;
   wire Cross_Mixer_n_1;
   wire Cross_Mixer_n_10;
@@ -8301,6 +8275,32 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
   wire Quadrature_Filter_n_162;
   wire Quadrature_Filter_n_163;
   wire Quadrature_Filter_n_26;
+  wire Quadrature_Filter_n_27;
+  wire Quadrature_Filter_n_28;
+  wire Quadrature_Filter_n_29;
+  wire Quadrature_Filter_n_30;
+  wire Quadrature_Filter_n_31;
+  wire Quadrature_Filter_n_32;
+  wire Quadrature_Filter_n_33;
+  wire Quadrature_Filter_n_34;
+  wire Quadrature_Filter_n_35;
+  wire Quadrature_Filter_n_36;
+  wire Quadrature_Filter_n_37;
+  wire Quadrature_Filter_n_38;
+  wire Quadrature_Filter_n_39;
+  wire Quadrature_Filter_n_40;
+  wire Quadrature_Filter_n_41;
+  wire Quadrature_Filter_n_42;
+  wire Quadrature_Filter_n_43;
+  wire Quadrature_Filter_n_44;
+  wire Quadrature_Filter_n_45;
+  wire Quadrature_Filter_n_46;
+  wire Quadrature_Filter_n_47;
+  wire Quadrature_Filter_n_48;
+  wire Quadrature_Filter_n_49;
+  wire Quadrature_Filter_n_50;
+  wire Quadrature_Filter_n_51;
+  wire Quadrature_Filter_n_52;
   wire Quadrature_Filter_n_53;
   wire Quadrature_Filter_n_54;
   wire Quadrature_Filter_n_55;
@@ -8373,7 +8373,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
   system_Costa_Demodulator_0_0_CIC32 Cross_Filter
        (.Clock(Clock),
         .Dout_reg(Dout_reg),
-        .Q({Cross_Filter_n_0,Cross_Filter_n_1,Cross_Filter_n_2,Cross_Filter_n_3,Cross_Filter_n_4,Cross_Filter_n_5,Cross_Filter_n_6,Cross_Filter_n_7,Cross_Filter_n_8,Cross_Filter_n_9,Cross_Filter_n_10,Cross_Filter_n_11,Cross_Filter_n_12,Cross_Filter_n_13,Cross_Filter_n_14,Cross_Filter_n_15,Cross_Filter_n_16,Cross_Filter_n_17,Cross_Filter_n_18,Cross_Filter_n_19,Cross_Filter_n_20,Cross_Filter_n_21,Cross_Filter_n_22,Cross_Filter_n_23,Cross_Filter_n_24,Cross_Filter_n_25}),
+        .Q(Q),
         .Reset(Reset));
   system_Costa_Demodulator_0_0_Mixer__parameterized2 Cross_Mixer
        (.CO(Cross_Mixer_n_0),
@@ -8396,9 +8396,9 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Dout0__99_carry_i_8_0({Quadrature_Filter_n_57,Quadrature_Filter_n_58,Quadrature_Filter_n_59,Quadrature_Filter_n_60}),
         .Dout0__99_carry_i_8_1({Quadrature_Filter_n_53,Quadrature_Filter_n_54,Quadrature_Filter_n_55,Quadrature_Filter_n_56}),
         .Dout_reg(Dout_reg),
-        .Dout_reg__0_0(output_register),
+        .Dout_reg__0_0({Quadrature_Filter_n_27,Quadrature_Filter_n_28,Quadrature_Filter_n_29,Quadrature_Filter_n_30,Quadrature_Filter_n_31,Quadrature_Filter_n_32,Quadrature_Filter_n_33,Quadrature_Filter_n_34,Quadrature_Filter_n_35,Quadrature_Filter_n_36,Quadrature_Filter_n_37,Quadrature_Filter_n_38,Quadrature_Filter_n_39,Quadrature_Filter_n_40,Quadrature_Filter_n_41,Quadrature_Filter_n_42,Quadrature_Filter_n_43,Quadrature_Filter_n_44,Quadrature_Filter_n_45,Quadrature_Filter_n_46,Quadrature_Filter_n_47,Quadrature_Filter_n_48,Quadrature_Filter_n_49,Quadrature_Filter_n_50,Quadrature_Filter_n_51,Quadrature_Filter_n_52}),
         .O(Cross_Mixer_n_1),
-        .Q(Q),
+        .Q(output_register),
         .Reset(Reset),
         .S({InPhase_Filter_n_26,InPhase_Filter_n_27,Quadrature_Filter_n_26,InPhase_Filter_n_28}),
         .i__carry__2_i_4_0({Quadrature_Filter_n_87,Quadrature_Filter_n_88,Quadrature_Filter_n_89}),
@@ -8605,9 +8605,9 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .R(1'b0));
   system_Costa_Demodulator_0_0_CIC32_0 InPhase_Filter
        (.Clock(Clock),
-        .Dout0__66_carry__1_i_6(output_register[25:17]),
+        .Dout0__66_carry__1_i_6({Quadrature_Filter_n_27,Quadrature_Filter_n_28,Quadrature_Filter_n_29,Quadrature_Filter_n_30,Quadrature_Filter_n_31,Quadrature_Filter_n_32,Quadrature_Filter_n_33,Quadrature_Filter_n_34,Quadrature_Filter_n_35}),
         .O({Input_InPhase_Mixer_n_0,Input_InPhase_Mixer_n_1,Input_InPhase_Mixer_n_2,Input_InPhase_Mixer_n_3}),
-        .Q(Q),
+        .Q(output_register),
         .Reset(Reset),
         .S({InPhase_Filter_n_26,InPhase_Filter_n_27,InPhase_Filter_n_28}),
         .\output_register_reg[17]_0 (InPhase_Filter_n_73),
@@ -8670,7 +8670,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Control_Ki(Control_Ki),
         .Control_Kp(Control_Kp),
         .Integrator_Reset(Integrator_Reset),
-        .Q({Cross_Filter_n_0,Cross_Filter_n_1,Cross_Filter_n_2,Cross_Filter_n_3,Cross_Filter_n_4,Cross_Filter_n_5,Cross_Filter_n_6,Cross_Filter_n_7,Cross_Filter_n_8,Cross_Filter_n_9,Cross_Filter_n_10,Cross_Filter_n_11,Cross_Filter_n_12,Cross_Filter_n_13,Cross_Filter_n_14,Cross_Filter_n_15,Cross_Filter_n_16,Cross_Filter_n_17,Cross_Filter_n_18,Cross_Filter_n_19,Cross_Filter_n_20,Cross_Filter_n_21,Cross_Filter_n_22,Cross_Filter_n_23,Cross_Filter_n_24,Cross_Filter_n_25}),
+        .Q(Q),
         .Reset(Reset),
         .\SignalOutput_reg[31]_0 (SignalOutput));
   system_Costa_Demodulator_0_0_NCO Loop_Oscilator
@@ -9460,8 +9460,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Dout0__0_carry__0_0(InPhase_Filter_n_64),
         .Dout0__0_carry__0_1(InPhase_Filter_n_65),
         .Dout0__0_carry__0_2(InPhase_Filter_n_66),
-        .Dout0__0_carry__1(Q[25:17]),
-        .Dout0__0_carry__1_0(InPhase_Filter_n_67),
+        .Dout0__0_carry__1(InPhase_Filter_n_67),
         .Dout0__33_carry__0(InPhase_Filter_n_68),
         .Dout0__33_carry__0_0(InPhase_Filter_n_69),
         .Dout0__33_carry__0_1(InPhase_Filter_n_70),
@@ -9475,7 +9474,8 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Dout0__66_carry__0_2(InPhase_Filter_n_76),
         .Dout0__66_carry__0_3(InPhase_Filter_n_77),
         .Dout0__66_carry__1(Quadrature_Filter_n_110),
-        .Dout0__66_carry__1_0(InPhase_Filter_n_78),
+        .Dout0__66_carry__1_0(output_register[25:17]),
+        .Dout0__66_carry__1_1(InPhase_Filter_n_78),
         .Dout0__99_carry__1(Cross_Mixer_n_3),
         .Dout0__99_carry__1_0({Cross_Mixer_n_4,Cross_Mixer_n_5,Cross_Mixer_n_6}),
         .Dout0__99_carry__1_1({Cross_Mixer_n_7,Cross_Mixer_n_8,Cross_Mixer_n_9,Cross_Mixer_n_10}),
@@ -9485,7 +9485,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Dout0__99_carry__2({Cross_Mixer_n_11,Cross_Mixer_n_12,Cross_Mixer_n_13}),
         .O({Input_Quadrature_Mixer_n_0,Input_Quadrature_Mixer_n_1,Input_Quadrature_Mixer_n_2,Input_Quadrature_Mixer_n_3}),
         .PRBS_output1(PRBS_output1),
-        .Q(output_register),
+        .Q({Quadrature_Filter_n_27,Quadrature_Filter_n_28,Quadrature_Filter_n_29,Quadrature_Filter_n_30,Quadrature_Filter_n_31,Quadrature_Filter_n_32,Quadrature_Filter_n_33,Quadrature_Filter_n_34,Quadrature_Filter_n_35,Quadrature_Filter_n_36,Quadrature_Filter_n_37,Quadrature_Filter_n_38,Quadrature_Filter_n_39,Quadrature_Filter_n_40,Quadrature_Filter_n_41,Quadrature_Filter_n_42,Quadrature_Filter_n_43,Quadrature_Filter_n_44,Quadrature_Filter_n_45,Quadrature_Filter_n_46,Quadrature_Filter_n_47,Quadrature_Filter_n_48,Quadrature_Filter_n_49,Quadrature_Filter_n_50,Quadrature_Filter_n_51,Quadrature_Filter_n_52}),
         .Reset(Reset),
         .S(Quadrature_Filter_n_26),
         .Threshold(Threshold),
@@ -10905,6 +10905,36 @@ module system_Costa_Demodulator_0_0_Mixer__parameterized2
   wire Dout0__0_n_151;
   wire Dout0__0_n_152;
   wire Dout0__0_n_153;
+  wire Dout0__0_n_24;
+  wire Dout0__0_n_25;
+  wire Dout0__0_n_26;
+  wire Dout0__0_n_27;
+  wire Dout0__0_n_28;
+  wire Dout0__0_n_29;
+  wire Dout0__0_n_30;
+  wire Dout0__0_n_31;
+  wire Dout0__0_n_32;
+  wire Dout0__0_n_33;
+  wire Dout0__0_n_34;
+  wire Dout0__0_n_35;
+  wire Dout0__0_n_36;
+  wire Dout0__0_n_37;
+  wire Dout0__0_n_38;
+  wire Dout0__0_n_39;
+  wire Dout0__0_n_40;
+  wire Dout0__0_n_41;
+  wire Dout0__0_n_42;
+  wire Dout0__0_n_43;
+  wire Dout0__0_n_44;
+  wire Dout0__0_n_45;
+  wire Dout0__0_n_46;
+  wire Dout0__0_n_47;
+  wire Dout0__0_n_48;
+  wire Dout0__0_n_49;
+  wire Dout0__0_n_50;
+  wire Dout0__0_n_51;
+  wire Dout0__0_n_52;
+  wire Dout0__0_n_53;
   wire Dout0__0_n_58;
   wire Dout0__0_n_59;
   wire Dout0__0_n_60;
@@ -11308,7 +11338,6 @@ module system_Costa_Demodulator_0_0_Mixer__parameterized2
   wire NLW_Dout0__0_PATTERNBDETECT_UNCONNECTED;
   wire NLW_Dout0__0_PATTERNDETECT_UNCONNECTED;
   wire NLW_Dout0__0_UNDERFLOW_UNCONNECTED;
-  wire [29:0]NLW_Dout0__0_ACOUT_UNCONNECTED;
   wire [17:0]NLW_Dout0__0_BCOUT_UNCONNECTED;
   wire [3:0]NLW_Dout0__0_CARRYOUT_UNCONNECTED;
   wire [2:2]NLW_Dout0__0_carry__1_CO_UNCONNECTED;
@@ -11444,7 +11473,7 @@ module system_Costa_Demodulator_0_0_Mixer__parameterized2
     Dout0__0
        (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,Q[16:0]}),
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .ACOUT(NLW_Dout0__0_ACOUT_UNCONNECTED[29:0]),
+        .ACOUT({Dout0__0_n_24,Dout0__0_n_25,Dout0__0_n_26,Dout0__0_n_27,Dout0__0_n_28,Dout0__0_n_29,Dout0__0_n_30,Dout0__0_n_31,Dout0__0_n_32,Dout0__0_n_33,Dout0__0_n_34,Dout0__0_n_35,Dout0__0_n_36,Dout0__0_n_37,Dout0__0_n_38,Dout0__0_n_39,Dout0__0_n_40,Dout0__0_n_41,Dout0__0_n_42,Dout0__0_n_43,Dout0__0_n_44,Dout0__0_n_45,Dout0__0_n_46,Dout0__0_n_47,Dout0__0_n_48,Dout0__0_n_49,Dout0__0_n_50,Dout0__0_n_51,Dout0__0_n_52,Dout0__0_n_53}),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
         .B({1'b0,Dout_reg__0_0[16:0]}),
         .BCIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
@@ -11977,7 +12006,7 @@ module system_Costa_Demodulator_0_0_Mixer__parameterized2
     .ALUMODEREG(0),
     .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
-    .A_INPUT("DIRECT"),
+    .A_INPUT("CASCADE"),
     .BCASCREG(0),
     .BREG(0),
     .B_INPUT("DIRECT"),
@@ -11998,8 +12027,8 @@ module system_Costa_Demodulator_0_0_Mixer__parameterized2
     .USE_PATTERN_DETECT("NO_PATDET"),
     .USE_SIMD("ONE48")) 
     Dout_reg__0
-       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,Q[16:0]}),
-        .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .ACIN({Dout0__0_n_24,Dout0__0_n_25,Dout0__0_n_26,Dout0__0_n_27,Dout0__0_n_28,Dout0__0_n_29,Dout0__0_n_30,Dout0__0_n_31,Dout0__0_n_32,Dout0__0_n_33,Dout0__0_n_34,Dout0__0_n_35,Dout0__0_n_36,Dout0__0_n_37,Dout0__0_n_38,Dout0__0_n_39,Dout0__0_n_40,Dout0__0_n_41,Dout0__0_n_42,Dout0__0_n_43,Dout0__0_n_44,Dout0__0_n_45,Dout0__0_n_46,Dout0__0_n_47,Dout0__0_n_48,Dout0__0_n_49,Dout0__0_n_50,Dout0__0_n_51,Dout0__0_n_52,Dout0__0_n_53}),
         .ACOUT(NLW_Dout_reg__0_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
         .B({Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25],Dout_reg__0_0[25:17]}),

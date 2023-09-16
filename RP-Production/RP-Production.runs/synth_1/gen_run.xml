@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1694496846" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1694517534" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="system_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="system_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="system_wrapper.vds"/>
   <File Type="RDS-UTIL" Name="system_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="system_wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="system_wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="system_wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="system_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../VHDL_Modules/Logic.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/AXI4_Stream_Infastructure.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../VHDL_Modules/LFSR2008.vhd">
       <FileInfo SFType="VHDL2008">
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -23,31 +32,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VHDL_Modules/NCO.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../VHDL_Modules/PSK.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../VHDL_Modules/Clock_Div.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VHDL_Modules/AXI4_Stream_Infastructure.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../VHDL_Modules/Logic.vhd">
+    <File Path="$PPRDIR/../VHDL_Modules/NCO.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -66,6 +57,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../VHDL_Modules/Costa_Demodulator.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/PSK.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -194,13 +191,13 @@
   <Strategy Version="1" Minor="2">
     <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design">
-      <Option Id="ResourceSharing">2</Option>
-      <Option Id="Directive">7</Option>
-      <Option Id="ShregMinSize">5</Option>
-      <Option Id="KeepEquivalentRegisters">1</Option>
-      <Option Id="NoCombineLuts">1</Option>
       <Option Id="FsmExtraction">1</Option>
       <Option Id="IncrementalMode">3</Option>
+      <Option Id="NoCombineLuts">1</Option>
+      <Option Id="KeepEquivalentRegisters">1</Option>
+      <Option Id="ShregMinSize">5</Option>
+      <Option Id="Directive">7</Option>
+      <Option Id="ResourceSharing">2</Option>
     </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
@@ -208,12 +205,13 @@
   <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_0_6"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_axi_dma_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_5"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_Locking_Strength_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_PSK_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_LFSR_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_Locking_Strength_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_DMA_Interconnect_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_Reset_Gen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_Variable_Delay_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_Reset_Gen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_DAC_Interface_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PSK_Modulator_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_xbar_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_Costa_Demodulator_0_0"/>
 </GenRun>

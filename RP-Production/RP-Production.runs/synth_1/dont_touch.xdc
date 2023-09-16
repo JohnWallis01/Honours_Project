@@ -56,6 +56,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_clk_
 # IP: bd/system/ip/system_axis_red_pitaya_dac_1_0/system_axis_red_pitaya_dac_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_red_pitaya_dac_1_0 || ORIG_REF_NAME==system_axis_red_pitaya_dac_1_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_DAC_Interface_0_0/system_DAC_Interface_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_DAC_Interface_0_0 || ORIG_REF_NAME==system_DAC_Interface_0_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_GPIO_Kp_0/system_GPIO_Kp_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_GPIO_Kp_0 || ORIG_REF_NAME==system_GPIO_Kp_0} -quiet] -quiet
 
@@ -86,17 +89,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Lock
 # IP: bd/system/ip/system_Demodulator_Threshold_0/system_Demodulator_Threshold_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Demodulator_Threshold_0 || ORIG_REF_NAME==system_Demodulator_Threshold_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_DMA_Interconnect_0_0 || ORIG_REF_NAME==system_DMA_Interconnect_0_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_LFSR_0_0/system_LFSR_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_LFSR_0_0 || ORIG_REF_NAME==system_LFSR_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_PSK_0_1/system_PSK_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_0_1 || ORIG_REF_NAME==system_PSK_0_1} -quiet] -quiet
-
 # IP: bd/system/ip/system_Clock_Divider_0_0/system_Clock_Divider_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Clock_Divider_0_0 || ORIG_REF_NAME==system_Clock_Divider_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_DMA_Interconnect_0_0/system_DMA_Interconnect_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_DMA_Interconnect_0_0 || ORIG_REF_NAME==system_DMA_Interconnect_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_Variable_Delay_0_0/system_Variable_Delay_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Variable_Delay_0_0 || ORIG_REF_NAME==system_Variable_Delay_0_0} -quiet] -quiet
@@ -104,11 +104,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Vari
 # IP: bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Costa_Demodulator_0_0 || ORIG_REF_NAME==system_Costa_Demodulator_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_DAC_Interface_0_0/system_DAC_Interface_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_DAC_Interface_0_0 || ORIG_REF_NAME==system_DAC_Interface_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_Reset_Gen_0_0/system_Reset_Gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Reset_Gen_0_0 || ORIG_REF_NAME==system_Reset_Gen_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_PSK_Modulator_0_0/system_PSK_Modulator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_PSK_Modulator_0_0 || ORIG_REF_NAME==system_PSK_Modulator_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_Delay_Amount_0/system_Delay_Amount_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Delay_Amount_0 || ORIG_REF_NAME==system_Delay_Amount_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
