@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Sep 12 13:34:54 2023
--- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+-- Date        : Thu Sep 14 11:34:16 2023
+-- Host        : Valkyrie running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0_sim_netlist.vhdl
 -- Design      : system_Costa_Demodulator_0_0
@@ -3461,7 +3461,7 @@ entity system_Costa_Demodulator_0_0_CIC32_0 is
     \section_out1_reg[19]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \section_out1_reg[23]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \section_out1_reg[25]_0\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    \Dout0__66_carry__1_i_6\ : in STD_LOGIC_VECTOR ( 8 downto 0 )
+    \Dout0__66_carry\ : in STD_LOGIC_VECTOR ( 8 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_Costa_Demodulator_0_0_CIC32_0 : entity is "CIC32";
@@ -3725,7 +3725,7 @@ begin
     )
         port map (
       I0 => \^q\(21),
-      I1 => \Dout0__66_carry__1_i_6\(2),
+      I1 => \Dout0__66_carry\(2),
       O => \output_register_reg[21]_0\
     );
 \Dout0__0_carry__0_i_11\: unisim.vcomponents.LUT2
@@ -3734,7 +3734,7 @@ begin
     )
         port map (
       I0 => \^q\(20),
-      I1 => \Dout0__66_carry__1_i_6\(2),
+      I1 => \Dout0__66_carry\(2),
       O => \output_register_reg[20]_0\
     );
 \Dout0__0_carry__0_i_12\: unisim.vcomponents.LUT2
@@ -3743,7 +3743,7 @@ begin
     )
         port map (
       I0 => \^q\(19),
-      I1 => \Dout0__66_carry__1_i_6\(2),
+      I1 => \Dout0__66_carry\(2),
       O => \output_register_reg[19]_2\
     );
 \Dout0__0_carry__0_i_9\: unisim.vcomponents.LUT2
@@ -3752,7 +3752,7 @@ begin
     )
         port map (
       I0 => \^q\(22),
-      I1 => \Dout0__66_carry__1_i_6\(2),
+      I1 => \Dout0__66_carry\(2),
       O => \output_register_reg[22]_0\
     );
 \Dout0__0_carry__1_i_4\: unisim.vcomponents.LUT4
@@ -3761,8 +3761,8 @@ begin
     )
         port map (
       I0 => \^q\(24),
-      I1 => \Dout0__66_carry__1_i_6\(1),
-      I2 => \Dout0__66_carry__1_i_6\(2),
+      I1 => \Dout0__66_carry\(1),
+      I2 => \Dout0__66_carry\(2),
       I3 => \^q\(25),
       O => \output_register_reg[24]_0\(0)
     );
@@ -3772,7 +3772,7 @@ begin
     )
         port map (
       I0 => \^q\(23),
-      I1 => \Dout0__66_carry__1_i_6\(2),
+      I1 => \Dout0__66_carry\(2),
       O => \output_register_reg[23]_0\
     );
 \Dout0__0_carry_i_4\: unisim.vcomponents.LUT6
@@ -3783,9 +3783,9 @@ begin
       I0 => \^q\(19),
       I1 => \Dout0__0_carry_i_8_n_0\,
       I2 => \^q\(18),
-      I3 => \Dout0__66_carry__1_i_6\(1),
+      I3 => \Dout0__66_carry\(1),
       I4 => \^q\(17),
-      I5 => \Dout0__66_carry__1_i_6\(2),
+      I5 => \Dout0__66_carry\(2),
       O => S(2)
     );
 \Dout0__0_carry_i_5\: unisim.vcomponents.LUT6
@@ -3794,10 +3794,10 @@ begin
     )
         port map (
       I0 => \^q\(17),
-      I1 => \Dout0__66_carry__1_i_6\(2),
+      I1 => \Dout0__66_carry\(2),
       I2 => \^q\(18),
-      I3 => \Dout0__66_carry__1_i_6\(1),
-      I4 => \Dout0__66_carry__1_i_6\(0),
+      I3 => \Dout0__66_carry\(1),
+      I4 => \Dout0__66_carry\(0),
       I5 => \^q\(19),
       O => S(1)
     );
@@ -3807,7 +3807,7 @@ begin
     )
         port map (
       I0 => \^q\(17),
-      I1 => \Dout0__66_carry__1_i_6\(0),
+      I1 => \Dout0__66_carry\(0),
       O => S(0)
     );
 \Dout0__0_carry_i_8\: unisim.vcomponents.LUT2
@@ -3816,7 +3816,7 @@ begin
     )
         port map (
       I0 => \^q\(20),
-      I1 => \Dout0__66_carry__1_i_6\(0),
+      I1 => \Dout0__66_carry\(0),
       O => \Dout0__0_carry_i_8_n_0\
     );
 \Dout0__33_carry__0_i_10\: unisim.vcomponents.LUT2
@@ -3825,7 +3825,7 @@ begin
     )
         port map (
       I0 => \^q\(21),
-      I1 => \Dout0__66_carry__1_i_6\(5),
+      I1 => \Dout0__66_carry\(5),
       O => \output_register_reg[21]_1\
     );
 \Dout0__33_carry__0_i_11\: unisim.vcomponents.LUT2
@@ -3834,7 +3834,7 @@ begin
     )
         port map (
       I0 => \^q\(20),
-      I1 => \Dout0__66_carry__1_i_6\(5),
+      I1 => \Dout0__66_carry\(5),
       O => \output_register_reg[20]_1\
     );
 \Dout0__33_carry__0_i_12\: unisim.vcomponents.LUT2
@@ -3843,7 +3843,7 @@ begin
     )
         port map (
       I0 => \^q\(19),
-      I1 => \Dout0__66_carry__1_i_6\(5),
+      I1 => \Dout0__66_carry\(5),
       O => \output_register_reg[19]_3\
     );
 \Dout0__33_carry__0_i_9\: unisim.vcomponents.LUT2
@@ -3852,7 +3852,7 @@ begin
     )
         port map (
       I0 => \^q\(22),
-      I1 => \Dout0__66_carry__1_i_6\(5),
+      I1 => \Dout0__66_carry\(5),
       O => \output_register_reg[22]_1\
     );
 \Dout0__33_carry__1_i_4\: unisim.vcomponents.LUT4
@@ -3861,8 +3861,8 @@ begin
     )
         port map (
       I0 => \^q\(24),
-      I1 => \Dout0__66_carry__1_i_6\(4),
-      I2 => \Dout0__66_carry__1_i_6\(5),
+      I1 => \Dout0__66_carry\(4),
+      I2 => \Dout0__66_carry\(5),
       I3 => \^q\(25),
       O => \output_register_reg[24]_1\(0)
     );
@@ -3872,7 +3872,7 @@ begin
     )
         port map (
       I0 => \^q\(23),
-      I1 => \Dout0__66_carry__1_i_6\(5),
+      I1 => \Dout0__66_carry\(5),
       O => \output_register_reg[23]_1\
     );
 \Dout0__33_carry_i_4\: unisim.vcomponents.LUT6
@@ -3883,9 +3883,9 @@ begin
       I0 => \^q\(19),
       I1 => \Dout0__33_carry_i_8_n_0\,
       I2 => \^q\(18),
-      I3 => \Dout0__66_carry__1_i_6\(4),
+      I3 => \Dout0__66_carry\(4),
       I4 => \^q\(17),
-      I5 => \Dout0__66_carry__1_i_6\(5),
+      I5 => \Dout0__66_carry\(5),
       O => \output_register_reg[19]_0\(2)
     );
 \Dout0__33_carry_i_5\: unisim.vcomponents.LUT6
@@ -3894,10 +3894,10 @@ begin
     )
         port map (
       I0 => \^q\(17),
-      I1 => \Dout0__66_carry__1_i_6\(5),
+      I1 => \Dout0__66_carry\(5),
       I2 => \^q\(18),
-      I3 => \Dout0__66_carry__1_i_6\(4),
-      I4 => \Dout0__66_carry__1_i_6\(3),
+      I3 => \Dout0__66_carry\(4),
+      I4 => \Dout0__66_carry\(3),
       I5 => \^q\(19),
       O => \output_register_reg[19]_0\(1)
     );
@@ -3907,7 +3907,7 @@ begin
     )
         port map (
       I0 => \^q\(17),
-      I1 => \Dout0__66_carry__1_i_6\(3),
+      I1 => \Dout0__66_carry\(3),
       O => \output_register_reg[19]_0\(0)
     );
 \Dout0__33_carry_i_8\: unisim.vcomponents.LUT2
@@ -3916,7 +3916,7 @@ begin
     )
         port map (
       I0 => \^q\(20),
-      I1 => \Dout0__66_carry__1_i_6\(3),
+      I1 => \Dout0__66_carry\(3),
       O => \Dout0__33_carry_i_8_n_0\
     );
 \Dout0__66_carry__0_i_10\: unisim.vcomponents.LUT2
@@ -3925,7 +3925,7 @@ begin
     )
         port map (
       I0 => \^q\(21),
-      I1 => \Dout0__66_carry__1_i_6\(8),
+      I1 => \Dout0__66_carry\(8),
       O => \output_register_reg[21]_2\
     );
 \Dout0__66_carry__0_i_11\: unisim.vcomponents.LUT2
@@ -3934,7 +3934,7 @@ begin
     )
         port map (
       I0 => \^q\(20),
-      I1 => \Dout0__66_carry__1_i_6\(8),
+      I1 => \Dout0__66_carry\(8),
       O => \output_register_reg[20]_2\
     );
 \Dout0__66_carry__0_i_12\: unisim.vcomponents.LUT2
@@ -3943,7 +3943,7 @@ begin
     )
         port map (
       I0 => \^q\(19),
-      I1 => \Dout0__66_carry__1_i_6\(8),
+      I1 => \Dout0__66_carry\(8),
       O => \output_register_reg[19]_4\
     );
 \Dout0__66_carry__0_i_9\: unisim.vcomponents.LUT2
@@ -3952,7 +3952,7 @@ begin
     )
         port map (
       I0 => \^q\(22),
-      I1 => \Dout0__66_carry__1_i_6\(8),
+      I1 => \Dout0__66_carry\(8),
       O => \output_register_reg[22]_2\
     );
 \Dout0__66_carry__1_i_7\: unisim.vcomponents.LUT2
@@ -3961,7 +3961,7 @@ begin
     )
         port map (
       I0 => \^q\(23),
-      I1 => \Dout0__66_carry__1_i_6\(8),
+      I1 => \Dout0__66_carry\(8),
       O => \output_register_reg[23]_2\
     );
 \Dout0__66_carry_i_2\: unisim.vcomponents.LUT4
@@ -3970,9 +3970,9 @@ begin
     )
         port map (
       I0 => \^q\(17),
-      I1 => \Dout0__66_carry__1_i_6\(8),
+      I1 => \Dout0__66_carry\(8),
       I2 => \^q\(18),
-      I3 => \Dout0__66_carry__1_i_6\(7),
+      I3 => \Dout0__66_carry\(7),
       O => \output_register_reg[17]_0\(0)
     );
 \Dout0__66_carry_i_4\: unisim.vcomponents.LUT6
@@ -3983,9 +3983,9 @@ begin
       I0 => \^q\(19),
       I1 => \Dout0__66_carry_i_8_n_0\,
       I2 => \^q\(18),
-      I3 => \Dout0__66_carry__1_i_6\(7),
+      I3 => \Dout0__66_carry\(7),
       I4 => \^q\(17),
-      I5 => \Dout0__66_carry__1_i_6\(8),
+      I5 => \Dout0__66_carry\(8),
       O => \output_register_reg[19]_1\(2)
     );
 \Dout0__66_carry_i_5\: unisim.vcomponents.LUT6
@@ -3994,10 +3994,10 @@ begin
     )
         port map (
       I0 => \^q\(17),
-      I1 => \Dout0__66_carry__1_i_6\(8),
+      I1 => \Dout0__66_carry\(8),
       I2 => \^q\(18),
-      I3 => \Dout0__66_carry__1_i_6\(7),
-      I4 => \Dout0__66_carry__1_i_6\(6),
+      I3 => \Dout0__66_carry\(7),
+      I4 => \Dout0__66_carry\(6),
       I5 => \^q\(19),
       O => \output_register_reg[19]_1\(1)
     );
@@ -4007,7 +4007,7 @@ begin
     )
         port map (
       I0 => \^q\(17),
-      I1 => \Dout0__66_carry__1_i_6\(6),
+      I1 => \Dout0__66_carry\(6),
       O => \output_register_reg[19]_1\(0)
     );
 \Dout0__66_carry_i_8\: unisim.vcomponents.LUT2
@@ -4016,7 +4016,7 @@ begin
     )
         port map (
       I0 => \^q\(20),
-      I1 => \Dout0__66_carry__1_i_6\(6),
+      I1 => \Dout0__66_carry\(6),
       O => \Dout0__66_carry_i_8_n_0\
     );
 ce_delayline0: unisim.vcomponents.LUT5
@@ -23408,6 +23408,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_Costa_Demodulator_0_0_Costa_Demodulator is
   port (
     Q : out STD_LOGIC_VECTOR ( 25 downto 0 );
+    \output_register_reg[25]\ : out STD_LOGIC_VECTOR ( 13 downto 0 );
     Phase_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Locked_Carrier : out STD_LOGIC_VECTOR ( 13 downto 0 );
     Freq_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -23427,32 +23428,6 @@ entity system_Costa_Demodulator_0_0_Costa_Demodulator is
 end system_Costa_Demodulator_0_0_Costa_Demodulator;
 
 architecture STRUCTURE of system_Costa_Demodulator_0_0_Costa_Demodulator is
-  signal Cross_Filter_n_0 : STD_LOGIC;
-  signal Cross_Filter_n_1 : STD_LOGIC;
-  signal Cross_Filter_n_10 : STD_LOGIC;
-  signal Cross_Filter_n_11 : STD_LOGIC;
-  signal Cross_Filter_n_12 : STD_LOGIC;
-  signal Cross_Filter_n_13 : STD_LOGIC;
-  signal Cross_Filter_n_14 : STD_LOGIC;
-  signal Cross_Filter_n_15 : STD_LOGIC;
-  signal Cross_Filter_n_16 : STD_LOGIC;
-  signal Cross_Filter_n_17 : STD_LOGIC;
-  signal Cross_Filter_n_18 : STD_LOGIC;
-  signal Cross_Filter_n_19 : STD_LOGIC;
-  signal Cross_Filter_n_2 : STD_LOGIC;
-  signal Cross_Filter_n_20 : STD_LOGIC;
-  signal Cross_Filter_n_21 : STD_LOGIC;
-  signal Cross_Filter_n_22 : STD_LOGIC;
-  signal Cross_Filter_n_23 : STD_LOGIC;
-  signal Cross_Filter_n_24 : STD_LOGIC;
-  signal Cross_Filter_n_25 : STD_LOGIC;
-  signal Cross_Filter_n_3 : STD_LOGIC;
-  signal Cross_Filter_n_4 : STD_LOGIC;
-  signal Cross_Filter_n_5 : STD_LOGIC;
-  signal Cross_Filter_n_6 : STD_LOGIC;
-  signal Cross_Filter_n_7 : STD_LOGIC;
-  signal Cross_Filter_n_8 : STD_LOGIC;
-  signal Cross_Filter_n_9 : STD_LOGIC;
   signal Cross_Mixer_n_0 : STD_LOGIC;
   signal Cross_Mixer_n_1 : STD_LOGIC;
   signal Cross_Mixer_n_10 : STD_LOGIC;
@@ -23896,7 +23871,9 @@ architecture STRUCTURE of system_Costa_Demodulator_0_0_Costa_Demodulator is
   signal Quadrature_Filter_n_98 : STD_LOGIC;
   signal Quadrature_Filter_n_99 : STD_LOGIC;
   signal SignalOutput : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal output_register : STD_LOGIC_VECTOR ( 25 downto 0 );
+  signal output_register : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal \output_register__0\ : STD_LOGIC_VECTOR ( 25 downto 0 );
+  signal \^output_register_reg[25]\ : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal section_out1_reg : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal section_out1_reg_0 : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal section_out1_reg_23_sn_1 : STD_LOGIC;
@@ -23941,37 +23918,13 @@ architecture STRUCTURE of system_Costa_Demodulator_0_0_Costa_Demodulator is
 begin
   Message <= \^message\;
   Q(25 downto 0) <= \^q\(25 downto 0);
+  \output_register_reg[25]\(13 downto 0) <= \^output_register_reg[25]\(13 downto 0);
   section_out1_reg_23_sn_1 <= \section_out1_reg[23]\;
 Cross_Filter: entity work.system_Costa_Demodulator_0_0_CIC32
      port map (
       Clock => Clock,
       Dout_reg(15 downto 0) => Dout_reg(51 downto 36),
-      Q(25) => Cross_Filter_n_0,
-      Q(24) => Cross_Filter_n_1,
-      Q(23) => Cross_Filter_n_2,
-      Q(22) => Cross_Filter_n_3,
-      Q(21) => Cross_Filter_n_4,
-      Q(20) => Cross_Filter_n_5,
-      Q(19) => Cross_Filter_n_6,
-      Q(18) => Cross_Filter_n_7,
-      Q(17) => Cross_Filter_n_8,
-      Q(16) => Cross_Filter_n_9,
-      Q(15) => Cross_Filter_n_10,
-      Q(14) => Cross_Filter_n_11,
-      Q(13) => Cross_Filter_n_12,
-      Q(12) => Cross_Filter_n_13,
-      Q(11) => Cross_Filter_n_14,
-      Q(10) => Cross_Filter_n_15,
-      Q(9) => Cross_Filter_n_16,
-      Q(8) => Cross_Filter_n_17,
-      Q(7) => Cross_Filter_n_18,
-      Q(6) => Cross_Filter_n_19,
-      Q(5) => Cross_Filter_n_20,
-      Q(4) => Cross_Filter_n_21,
-      Q(3) => Cross_Filter_n_22,
-      Q(2) => Cross_Filter_n_23,
-      Q(1) => Cross_Filter_n_24,
-      Q(0) => Cross_Filter_n_25,
+      Q(25 downto 0) => \output_register__0\(25 downto 0),
       Reset => Reset
     );
 Cross_Mixer: entity work.\system_Costa_Demodulator_0_0_Mixer__parameterized2\
@@ -24033,7 +23986,8 @@ Cross_Mixer: entity work.\system_Costa_Demodulator_0_0_Mixer__parameterized2\
       \Dout0__99_carry_i_8_1\(1) => Quadrature_Filter_n_55,
       \Dout0__99_carry_i_8_1\(0) => Quadrature_Filter_n_56,
       Dout_reg(15 downto 0) => Dout_reg(51 downto 36),
-      \Dout_reg__0_0\(25 downto 0) => output_register(25 downto 0),
+      \Dout_reg__0_0\(25 downto 12) => \^output_register_reg[25]\(13 downto 0),
+      \Dout_reg__0_0\(11 downto 0) => output_register(11 downto 0),
       O(0) => Cross_Mixer_n_1,
       Q(25 downto 0) => \^q\(25 downto 0),
       Reset => Reset,
@@ -24328,7 +24282,7 @@ Cross_Mixer: entity work.\system_Costa_Demodulator_0_0_Mixer__parameterized2\
 InPhase_Filter: entity work.system_Costa_Demodulator_0_0_CIC32_0
      port map (
       Clock => Clock,
-      \Dout0__66_carry__1_i_6\(8 downto 0) => output_register(25 downto 17),
+      \Dout0__66_carry\(8 downto 0) => \^output_register_reg[25]\(13 downto 5),
       O(3) => Input_InPhase_Mixer_n_0,
       O(2) => Input_InPhase_Mixer_n_1,
       O(1) => Input_InPhase_Mixer_n_2,
@@ -24488,32 +24442,7 @@ Loop_Controller: entity work.system_Costa_Demodulator_0_0_PID_Controller
       Control_Ki(31 downto 0) => Control_Ki(31 downto 0),
       Control_Kp(31 downto 0) => Control_Kp(31 downto 0),
       Integrator_Reset => Integrator_Reset,
-      Q(25) => Cross_Filter_n_0,
-      Q(24) => Cross_Filter_n_1,
-      Q(23) => Cross_Filter_n_2,
-      Q(22) => Cross_Filter_n_3,
-      Q(21) => Cross_Filter_n_4,
-      Q(20) => Cross_Filter_n_5,
-      Q(19) => Cross_Filter_n_6,
-      Q(18) => Cross_Filter_n_7,
-      Q(17) => Cross_Filter_n_8,
-      Q(16) => Cross_Filter_n_9,
-      Q(15) => Cross_Filter_n_10,
-      Q(14) => Cross_Filter_n_11,
-      Q(13) => Cross_Filter_n_12,
-      Q(12) => Cross_Filter_n_13,
-      Q(11) => Cross_Filter_n_14,
-      Q(10) => Cross_Filter_n_15,
-      Q(9) => Cross_Filter_n_16,
-      Q(8) => Cross_Filter_n_17,
-      Q(7) => Cross_Filter_n_18,
-      Q(6) => Cross_Filter_n_19,
-      Q(5) => Cross_Filter_n_20,
-      Q(4) => Cross_Filter_n_21,
-      Q(3) => Cross_Filter_n_22,
-      Q(2) => Cross_Filter_n_23,
-      Q(1) => Cross_Filter_n_24,
-      Q(0) => Cross_Filter_n_25,
+      Q(25 downto 0) => \output_register__0\(25 downto 0),
       Reset => Reset,
       \SignalOutput_reg[31]_0\(31 downto 0) => SignalOutput(31 downto 0)
     );
@@ -25874,7 +25803,8 @@ Quadrature_Filter: entity work.system_Costa_Demodulator_0_0_CIC32_2
       O(1) => Input_Quadrature_Mixer_n_2,
       O(0) => Input_Quadrature_Mixer_n_3,
       PRBS_output1(25 downto 0) => PRBS_output1(25 downto 0),
-      Q(25 downto 0) => output_register(25 downto 0),
+      Q(25 downto 12) => \^output_register_reg[25]\(13 downto 0),
+      Q(11 downto 0) => output_register(11 downto 0),
       Reset => Reset,
       S(0) => Quadrature_Filter_n_26,
       Threshold(25 downto 0) => Threshold(25 downto 0),
@@ -26019,6 +25949,7 @@ entity system_Costa_Demodulator_0_0 is
     Lock_Strength : out STD_LOGIC_VECTOR ( 25 downto 0 );
     Message : out STD_LOGIC;
     Locked_Carrier : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    Debug : out STD_LOGIC_VECTOR ( 13 downto 0 );
     Clock : in STD_LOGIC;
     Reset : in STD_LOGIC
   );
@@ -26060,6 +25991,7 @@ inst: entity work.system_Costa_Demodulator_0_0_Costa_Demodulator
       Q(25 downto 0) => Lock_Strength(25 downto 0),
       Reset => Reset,
       Threshold(25 downto 0) => Threshold(25 downto 0),
+      \output_register_reg[25]\(13 downto 0) => Debug(13 downto 0),
       \section_out1_reg[23]\ => \section_out1_reg[0]_i_10_n_0\
     );
 \section_out1_reg[0]_i_10\: unisim.vcomponents.FDCE

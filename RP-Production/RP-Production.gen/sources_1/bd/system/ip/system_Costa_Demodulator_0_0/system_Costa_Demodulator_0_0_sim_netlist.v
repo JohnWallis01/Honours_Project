@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Sep 12 13:34:54 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Thu Sep 14 11:34:16 2023
+// Host        : Valkyrie running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0_sim_netlist.v
 // Design      : system_Costa_Demodulator_0_0
@@ -27,6 +27,7 @@ module system_Costa_Demodulator_0_0
     Lock_Strength,
     Message,
     Locked_Carrier,
+    Debug,
     Clock,
     Reset);
   input [13:0]Input_Signal;
@@ -40,12 +41,14 @@ module system_Costa_Demodulator_0_0
   output [25:0]Lock_Strength;
   output Message;
   output [13:0]Locked_Carrier;
+  output [13:0]Debug;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clock, ASSOCIATED_RESET Reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input Clock;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset;
 
   wire Clock;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
+  wire [13:0]Debug;
   wire [31:0]Freq_Measured;
   wire [13:0]Input_Signal;
   wire Integrator_Reset;
@@ -72,6 +75,7 @@ module system_Costa_Demodulator_0_0
         .Q(Lock_Strength),
         .Reset(Reset),
         .Threshold(Threshold),
+        .\output_register_reg[25] (Debug),
         .\section_out1_reg[23] (\section_out1_reg[0]_i_10_n_0 ));
   FDCE \section_out1_reg[0]_i_10 
        (.C(Clock),
@@ -2510,7 +2514,7 @@ module system_Costa_Demodulator_0_0_CIC32_0
     \section_out1_reg[19]_0 ,
     \section_out1_reg[23]_0 ,
     \section_out1_reg[25]_0 ,
-    Dout0__66_carry__1_i_6);
+    Dout0__66_carry);
   output [25:0]section_out1_reg;
   output [2:0]S;
   output [25:0]Q;
@@ -2543,12 +2547,12 @@ module system_Costa_Demodulator_0_0_CIC32_0
   input [3:0]\section_out1_reg[19]_0 ;
   input [3:0]\section_out1_reg[23]_0 ;
   input [1:0]\section_out1_reg[25]_0 ;
-  input [8:0]Dout0__66_carry__1_i_6;
+  input [8:0]Dout0__66_carry;
 
   wire Clock;
   wire Dout0__0_carry_i_8_n_0;
   wire Dout0__33_carry_i_8_n_0;
-  wire [8:0]Dout0__66_carry__1_i_6;
+  wire [8:0]Dout0__66_carry;
   wire Dout0__66_carry_i_8_n_0;
   wire [3:0]O;
   wire [25:0]Q;
@@ -2785,35 +2789,35 @@ module system_Costa_Demodulator_0_0_CIC32_0
     .INIT(4'h7)) 
     Dout0__0_carry__0_i_10
        (.I0(Q[21]),
-        .I1(Dout0__66_carry__1_i_6[2]),
+        .I1(Dout0__66_carry[2]),
         .O(\output_register_reg[21]_0 ));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__0_carry__0_i_11
        (.I0(Q[20]),
-        .I1(Dout0__66_carry__1_i_6[2]),
+        .I1(Dout0__66_carry[2]),
         .O(\output_register_reg[20]_0 ));
   (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__0_carry__0_i_12
        (.I0(Q[19]),
-        .I1(Dout0__66_carry__1_i_6[2]),
+        .I1(Dout0__66_carry[2]),
         .O(\output_register_reg[19]_2 ));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__0_carry__0_i_9
        (.I0(Q[22]),
-        .I1(Dout0__66_carry__1_i_6[2]),
+        .I1(Dout0__66_carry[2]),
         .O(\output_register_reg[22]_0 ));
   LUT4 #(
     .INIT(16'h2F5F)) 
     Dout0__0_carry__1_i_4
        (.I0(Q[24]),
-        .I1(Dout0__66_carry__1_i_6[1]),
-        .I2(Dout0__66_carry__1_i_6[2]),
+        .I1(Dout0__66_carry[1]),
+        .I2(Dout0__66_carry[2]),
         .I3(Q[25]),
         .O(\output_register_reg[24]_0 ));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
@@ -2821,7 +2825,7 @@ module system_Costa_Demodulator_0_0_CIC32_0
     .INIT(4'h7)) 
     Dout0__0_carry__1_i_7
        (.I0(Q[23]),
-        .I1(Dout0__66_carry__1_i_6[2]),
+        .I1(Dout0__66_carry[2]),
         .O(\output_register_reg[23]_0 ));
   LUT6 #(
     .INIT(64'h99C369C399339933)) 
@@ -2829,67 +2833,67 @@ module system_Costa_Demodulator_0_0_CIC32_0
        (.I0(Q[19]),
         .I1(Dout0__0_carry_i_8_n_0),
         .I2(Q[18]),
-        .I3(Dout0__66_carry__1_i_6[1]),
+        .I3(Dout0__66_carry[1]),
         .I4(Q[17]),
-        .I5(Dout0__66_carry__1_i_6[2]),
+        .I5(Dout0__66_carry[2]),
         .O(S[2]));
   LUT6 #(
     .INIT(64'h8777788878887888)) 
     Dout0__0_carry_i_5
        (.I0(Q[17]),
-        .I1(Dout0__66_carry__1_i_6[2]),
+        .I1(Dout0__66_carry[2]),
         .I2(Q[18]),
-        .I3(Dout0__66_carry__1_i_6[1]),
-        .I4(Dout0__66_carry__1_i_6[0]),
+        .I3(Dout0__66_carry[1]),
+        .I4(Dout0__66_carry[0]),
         .I5(Q[19]),
         .O(S[1]));
   LUT2 #(
     .INIT(4'h8)) 
     Dout0__0_carry_i_7
        (.I0(Q[17]),
-        .I1(Dout0__66_carry__1_i_6[0]),
+        .I1(Dout0__66_carry[0]),
         .O(S[0]));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__0_carry_i_8
        (.I0(Q[20]),
-        .I1(Dout0__66_carry__1_i_6[0]),
+        .I1(Dout0__66_carry[0]),
         .O(Dout0__0_carry_i_8_n_0));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__33_carry__0_i_10
        (.I0(Q[21]),
-        .I1(Dout0__66_carry__1_i_6[5]),
+        .I1(Dout0__66_carry[5]),
         .O(\output_register_reg[21]_1 ));
   (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__33_carry__0_i_11
        (.I0(Q[20]),
-        .I1(Dout0__66_carry__1_i_6[5]),
+        .I1(Dout0__66_carry[5]),
         .O(\output_register_reg[20]_1 ));
   (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__33_carry__0_i_12
        (.I0(Q[19]),
-        .I1(Dout0__66_carry__1_i_6[5]),
+        .I1(Dout0__66_carry[5]),
         .O(\output_register_reg[19]_3 ));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__33_carry__0_i_9
        (.I0(Q[22]),
-        .I1(Dout0__66_carry__1_i_6[5]),
+        .I1(Dout0__66_carry[5]),
         .O(\output_register_reg[22]_1 ));
   LUT4 #(
     .INIT(16'h2F5F)) 
     Dout0__33_carry__1_i_4
        (.I0(Q[24]),
-        .I1(Dout0__66_carry__1_i_6[4]),
-        .I2(Dout0__66_carry__1_i_6[5]),
+        .I1(Dout0__66_carry[4]),
+        .I2(Dout0__66_carry[5]),
         .I3(Q[25]),
         .O(\output_register_reg[24]_1 ));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
@@ -2897,7 +2901,7 @@ module system_Costa_Demodulator_0_0_CIC32_0
     .INIT(4'h7)) 
     Dout0__33_carry__1_i_7
        (.I0(Q[23]),
-        .I1(Dout0__66_carry__1_i_6[5]),
+        .I1(Dout0__66_carry[5]),
         .O(\output_register_reg[23]_1 ));
   LUT6 #(
     .INIT(64'h99C369C399339933)) 
@@ -2905,75 +2909,75 @@ module system_Costa_Demodulator_0_0_CIC32_0
        (.I0(Q[19]),
         .I1(Dout0__33_carry_i_8_n_0),
         .I2(Q[18]),
-        .I3(Dout0__66_carry__1_i_6[4]),
+        .I3(Dout0__66_carry[4]),
         .I4(Q[17]),
-        .I5(Dout0__66_carry__1_i_6[5]),
+        .I5(Dout0__66_carry[5]),
         .O(\output_register_reg[19]_0 [2]));
   LUT6 #(
     .INIT(64'h8777788878887888)) 
     Dout0__33_carry_i_5
        (.I0(Q[17]),
-        .I1(Dout0__66_carry__1_i_6[5]),
+        .I1(Dout0__66_carry[5]),
         .I2(Q[18]),
-        .I3(Dout0__66_carry__1_i_6[4]),
-        .I4(Dout0__66_carry__1_i_6[3]),
+        .I3(Dout0__66_carry[4]),
+        .I4(Dout0__66_carry[3]),
         .I5(Q[19]),
         .O(\output_register_reg[19]_0 [1]));
   LUT2 #(
     .INIT(4'h8)) 
     Dout0__33_carry_i_7
        (.I0(Q[17]),
-        .I1(Dout0__66_carry__1_i_6[3]),
+        .I1(Dout0__66_carry[3]),
         .O(\output_register_reg[19]_0 [0]));
   (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__33_carry_i_8
        (.I0(Q[20]),
-        .I1(Dout0__66_carry__1_i_6[3]),
+        .I1(Dout0__66_carry[3]),
         .O(Dout0__33_carry_i_8_n_0));
   (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__66_carry__0_i_10
        (.I0(Q[21]),
-        .I1(Dout0__66_carry__1_i_6[8]),
+        .I1(Dout0__66_carry[8]),
         .O(\output_register_reg[21]_2 ));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__66_carry__0_i_11
        (.I0(Q[20]),
-        .I1(Dout0__66_carry__1_i_6[8]),
+        .I1(Dout0__66_carry[8]),
         .O(\output_register_reg[20]_2 ));
   (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__66_carry__0_i_12
        (.I0(Q[19]),
-        .I1(Dout0__66_carry__1_i_6[8]),
+        .I1(Dout0__66_carry[8]),
         .O(\output_register_reg[19]_4 ));
   (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__66_carry__0_i_9
        (.I0(Q[22]),
-        .I1(Dout0__66_carry__1_i_6[8]),
+        .I1(Dout0__66_carry[8]),
         .O(\output_register_reg[22]_2 ));
   (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__66_carry__1_i_7
        (.I0(Q[23]),
-        .I1(Dout0__66_carry__1_i_6[8]),
+        .I1(Dout0__66_carry[8]),
         .O(\output_register_reg[23]_2 ));
   LUT4 #(
     .INIT(16'h8777)) 
     Dout0__66_carry_i_2
        (.I0(Q[17]),
-        .I1(Dout0__66_carry__1_i_6[8]),
+        .I1(Dout0__66_carry[8]),
         .I2(Q[18]),
-        .I3(Dout0__66_carry__1_i_6[7]),
+        .I3(Dout0__66_carry[7]),
         .O(\output_register_reg[17]_0 ));
   LUT6 #(
     .INIT(64'h963C663C96CC96CC)) 
@@ -2981,32 +2985,32 @@ module system_Costa_Demodulator_0_0_CIC32_0
        (.I0(Q[19]),
         .I1(Dout0__66_carry_i_8_n_0),
         .I2(Q[18]),
-        .I3(Dout0__66_carry__1_i_6[7]),
+        .I3(Dout0__66_carry[7]),
         .I4(Q[17]),
-        .I5(Dout0__66_carry__1_i_6[8]),
+        .I5(Dout0__66_carry[8]),
         .O(\output_register_reg[19]_1 [2]));
   LUT6 #(
     .INIT(64'h7888877787778777)) 
     Dout0__66_carry_i_5
        (.I0(Q[17]),
-        .I1(Dout0__66_carry__1_i_6[8]),
+        .I1(Dout0__66_carry[8]),
         .I2(Q[18]),
-        .I3(Dout0__66_carry__1_i_6[7]),
-        .I4(Dout0__66_carry__1_i_6[6]),
+        .I3(Dout0__66_carry[7]),
+        .I4(Dout0__66_carry[6]),
         .I5(Q[19]),
         .O(\output_register_reg[19]_1 [1]));
   LUT2 #(
     .INIT(4'h8)) 
     Dout0__66_carry_i_7
        (.I0(Q[17]),
-        .I1(Dout0__66_carry__1_i_6[6]),
+        .I1(Dout0__66_carry[6]),
         .O(\output_register_reg[19]_1 [0]));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h7)) 
     Dout0__66_carry_i_8
        (.I0(Q[20]),
-        .I1(Dout0__66_carry__1_i_6[6]),
+        .I1(Dout0__66_carry[6]),
         .O(Dout0__66_carry_i_8_n_0));
   LUT5 #(
     .INIT(32'h00000002)) 
@@ -7843,6 +7847,7 @@ endmodule
 (* ORIG_REF_NAME = "Costa_Demodulator" *) 
 module system_Costa_Demodulator_0_0_Costa_Demodulator
    (Q,
+    \output_register_reg[25] ,
     Phase_Measured,
     Locked_Carrier,
     Freq_Measured,
@@ -7857,6 +7862,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
     Threshold,
     Integrator_Reset);
   output [25:0]Q;
+  output [13:0]\output_register_reg[25] ;
   output [31:0]Phase_Measured;
   output [13:0]Locked_Carrier;
   output [31:0]Freq_Measured;
@@ -7874,32 +7880,6 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
   wire Clock;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
-  wire Cross_Filter_n_0;
-  wire Cross_Filter_n_1;
-  wire Cross_Filter_n_10;
-  wire Cross_Filter_n_11;
-  wire Cross_Filter_n_12;
-  wire Cross_Filter_n_13;
-  wire Cross_Filter_n_14;
-  wire Cross_Filter_n_15;
-  wire Cross_Filter_n_16;
-  wire Cross_Filter_n_17;
-  wire Cross_Filter_n_18;
-  wire Cross_Filter_n_19;
-  wire Cross_Filter_n_2;
-  wire Cross_Filter_n_20;
-  wire Cross_Filter_n_21;
-  wire Cross_Filter_n_22;
-  wire Cross_Filter_n_23;
-  wire Cross_Filter_n_24;
-  wire Cross_Filter_n_25;
-  wire Cross_Filter_n_3;
-  wire Cross_Filter_n_4;
-  wire Cross_Filter_n_5;
-  wire Cross_Filter_n_6;
-  wire Cross_Filter_n_7;
-  wire Cross_Filter_n_8;
-  wire Cross_Filter_n_9;
   wire Cross_Mixer_n_0;
   wire Cross_Mixer_n_1;
   wire Cross_Mixer_n_10;
@@ -8351,7 +8331,9 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
   wire Reset;
   wire [31:0]SignalOutput;
   wire [25:0]Threshold;
-  wire [25:0]output_register;
+  wire [11:0]output_register;
+  wire [25:0]output_register__0;
+  wire [13:0]\output_register_reg[25] ;
   wire [25:0]section_out1_reg;
   wire [25:0]section_out1_reg_0;
   wire section_out1_reg_23_sn_1;
@@ -8373,7 +8355,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
   system_Costa_Demodulator_0_0_CIC32 Cross_Filter
        (.Clock(Clock),
         .Dout_reg(Dout_reg),
-        .Q({Cross_Filter_n_0,Cross_Filter_n_1,Cross_Filter_n_2,Cross_Filter_n_3,Cross_Filter_n_4,Cross_Filter_n_5,Cross_Filter_n_6,Cross_Filter_n_7,Cross_Filter_n_8,Cross_Filter_n_9,Cross_Filter_n_10,Cross_Filter_n_11,Cross_Filter_n_12,Cross_Filter_n_13,Cross_Filter_n_14,Cross_Filter_n_15,Cross_Filter_n_16,Cross_Filter_n_17,Cross_Filter_n_18,Cross_Filter_n_19,Cross_Filter_n_20,Cross_Filter_n_21,Cross_Filter_n_22,Cross_Filter_n_23,Cross_Filter_n_24,Cross_Filter_n_25}),
+        .Q(output_register__0),
         .Reset(Reset));
   system_Costa_Demodulator_0_0_Mixer__parameterized2 Cross_Mixer
        (.CO(Cross_Mixer_n_0),
@@ -8396,7 +8378,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Dout0__99_carry_i_8_0({Quadrature_Filter_n_57,Quadrature_Filter_n_58,Quadrature_Filter_n_59,Quadrature_Filter_n_60}),
         .Dout0__99_carry_i_8_1({Quadrature_Filter_n_53,Quadrature_Filter_n_54,Quadrature_Filter_n_55,Quadrature_Filter_n_56}),
         .Dout_reg(Dout_reg),
-        .Dout_reg__0_0(output_register),
+        .Dout_reg__0_0({\output_register_reg[25] ,output_register}),
         .O(Cross_Mixer_n_1),
         .Q(Q),
         .Reset(Reset),
@@ -8605,7 +8587,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .R(1'b0));
   system_Costa_Demodulator_0_0_CIC32_0 InPhase_Filter
        (.Clock(Clock),
-        .Dout0__66_carry__1_i_6(output_register[25:17]),
+        .Dout0__66_carry(\output_register_reg[25] [13:5]),
         .O({Input_InPhase_Mixer_n_0,Input_InPhase_Mixer_n_1,Input_InPhase_Mixer_n_2,Input_InPhase_Mixer_n_3}),
         .Q(Q),
         .Reset(Reset),
@@ -8670,7 +8652,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Control_Ki(Control_Ki),
         .Control_Kp(Control_Kp),
         .Integrator_Reset(Integrator_Reset),
-        .Q({Cross_Filter_n_0,Cross_Filter_n_1,Cross_Filter_n_2,Cross_Filter_n_3,Cross_Filter_n_4,Cross_Filter_n_5,Cross_Filter_n_6,Cross_Filter_n_7,Cross_Filter_n_8,Cross_Filter_n_9,Cross_Filter_n_10,Cross_Filter_n_11,Cross_Filter_n_12,Cross_Filter_n_13,Cross_Filter_n_14,Cross_Filter_n_15,Cross_Filter_n_16,Cross_Filter_n_17,Cross_Filter_n_18,Cross_Filter_n_19,Cross_Filter_n_20,Cross_Filter_n_21,Cross_Filter_n_22,Cross_Filter_n_23,Cross_Filter_n_24,Cross_Filter_n_25}),
+        .Q(output_register__0),
         .Reset(Reset),
         .\SignalOutput_reg[31]_0 (SignalOutput));
   system_Costa_Demodulator_0_0_NCO Loop_Oscilator
@@ -9485,7 +9467,7 @@ module system_Costa_Demodulator_0_0_Costa_Demodulator
         .Dout0__99_carry__2({Cross_Mixer_n_11,Cross_Mixer_n_12,Cross_Mixer_n_13}),
         .O({Input_Quadrature_Mixer_n_0,Input_Quadrature_Mixer_n_1,Input_Quadrature_Mixer_n_2,Input_Quadrature_Mixer_n_3}),
         .PRBS_output1(PRBS_output1),
-        .Q(output_register),
+        .Q({\output_register_reg[25] ,output_register}),
         .Reset(Reset),
         .S(Quadrature_Filter_n_26),
         .Threshold(Threshold),

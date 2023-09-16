@@ -28,25 +28,45 @@
 #define Demodualation_Threshold_ADDR 0x41270000
 #define Debug_Frequency_ADDR         0x41280000
 #define Delay_ADDR                   0x41290000
+#define PRBS_Gain_ADDR               0x412A0000
+#define PRBS_Rate_Div_ADDR           0x412B0000
+
 //Setup Constants
 #define fSampling 125 //in Mhz
 #define PI 3.14159265358979323846
+// #define TransferWindow 16384
 #define TransferWindow 16384
-#define PRBS_DIV 32.0
-#define FPGA_Delay 4.5
+#define PRBS_DIV 0
+#define FPGA_Delay 0
 
+#define CalibrationDelay 295
 
 //PLL Tuning
-#define kp_value    -200000           
-#define ki_value    -8                
+
+// #define kp_value    -1        
+// #define ki_value    -0
+
+// #define kp_value    -20000000        
+// #define ki_value    -32  
+
+// #define kp_value    -200000000        
+// #define ki_value    -32  
+
+
+#define kp_value  -20000000       
+#define ki_value  -50  
+
+
+
 #define PLL_Lock_Threshold 65000000
-#define Demodulation_Threshold_Value 1000000
+#define PLL_Low_Threshold 5000
+#define Demodulation_Threshold_Value 1
 
 //PRBS Setup
-#define TAPS_Polynomial 0x60                //Use the Hex values from here: https://en.wikipedia.org/wiki/Linear-feedback_shift_register#Example_polynomials_for_maximal_LFSRs
+#define TAPS_Polynomial 0xB8                //Use the Hex values from here: https://en.wikipedia.org/wiki/Linear-feedback_shift_register#Example_polynomials_for_maximal_LFSRs
 //Debug Constants
 #define Debug_Freq_Value 30.0
-#define Delay_Amount 15
+#define Delay_Amount 0
 
 void handle_sigint(int sig) {
     printf("\nTerminating Gracefully\n");
@@ -217,10 +237,12 @@ void Debug_Log(void* virtual_address) {
         printf("%u", (p[offset + 2]) & 0x1);
     }
     printf("\n");
-    // printf("ADC Signal\n");
-    // for (int offset = 0; offset < TransferWindow; offset = offset + 4) {
-    //     printf("%i\n", mempipe(p[offset], p[offset+1]));
-    // }  
+    printf("Debug Signal\n");
+    for (int offset = 0; offset < TransferWindow; offset = offset + 4) {
+        printf("%i,", (p[offset+2] >> 2) | (p[offset + 3] << 6));
+    }
+    printf("\n");
+      
 }
 
 int main() {
@@ -246,12 +268,19 @@ int main() {
     void *Demodualation_Threshold   = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Demodualation_Threshold_ADDR);
     void *Debug_Freq                = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Debug_Frequency_ADDR);
     void *Delay_Control             = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Delay_ADDR);
+    void *PRBS_Gain                 = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PRBS_Gain_ADDR);
+    void *PRBS_Rate_Div             = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PRBS_Rate_Div_ADDR);
 
     *(uint32_t*)Debug_Freq      = (int)(Debug_Freq_Value/125.0*pow(2,32));
     *(uint32_t*)Delay_Control   = Delay_Amount; 
+    // *(uint32_t*)PRBS_Gain       =  3276; 
+    *(uint32_t*)PRBS_Gain       =  1400; 
+    // *(uint32_t*)PRBS_Gain       =  0; 
+    *(uint32_t*)PRBS_Rate_Div   =  4; 
+ 
 
     *(uint32_t*)LFSR_Polynomial         = TAPS_Polynomial; // This is the polynomial for an 8 bit LFSR
-    *(uint32_t*)Ki                      = ki_value;
+    *(uint32_t*)Ki                      = ki_value; 
     *(uint32_t*)Kp                      = kp_value;
     *(uint32_t*)Demodualation_Threshold = Demodulation_Threshold_Value;
      
@@ -261,7 +290,7 @@ int main() {
 
     int Max_n = 0;
     int init = 1;
-    // printf("Setup Complete\n");
+    printf("Setup Complete\n");
 
     while(1)
     {
@@ -284,7 +313,7 @@ int main() {
         uint f_tuning = f_measured/(fSampling)*pow(2,32);                //Compute the integer Tuning Word 
 
         int LockStrength = *(int*)PLL_Supervisor;                        //Logic to decide when to override the PLL.
-        if((LockStrength < PLL_Lock_Threshold && 0) || init) {
+        if((LockStrength < PLL_Lock_Threshold && LockStrength > PLL_Low_Threshold && 0) || init) {
                 *(uint32_t*)Integrator_Reset = 1;
                 *(uint32_t*)PLL_Guess_Freq = f_tuning;
                 usleep(1);
@@ -294,15 +323,15 @@ int main() {
                 printf("    PLL Measured Tuning: %d\n", Freq_Measurment);
                 printf("    Lock Strength: %i \n", LockStrength);
                 init = 0;
-                printf("        Estimated Delay: %f (FPGA Clocks)\n", (((double)Max_n)/PRBS_DIV - FPGA_Delay));
   
         }
         else {
-            // printf("Lock Strength: %i \n", LockStrength);
+            printf("Lock Strength:     %i \n", LockStrength);
             printf("FFT Measured Freq: %f (MHz)\n", f_measured);
             printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
             // printf("Estimated Delay: %u (Peak Correlation)\n", Max_n);
-            printf("Estimated Delay: %f (FPGA Clocks)\n", (((double)Max_n)/PRBS_DIV - FPGA_Delay));
+            printf("Estimated Delay: %i (FPGA Clocks)\n", Max_n);
+            printf("Estimated Distance: %f\n", (float)Max_n/(125.0*pow(10,6))*(3*pow(10,8)/(1.46)) - CalibrationDelay);
 
         }
     }

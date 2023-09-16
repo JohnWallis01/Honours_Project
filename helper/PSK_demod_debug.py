@@ -28,6 +28,14 @@ with open("dump.txt", "r") as file:
 
 original = np.array([int(char) for char in data[3][:-1]])
 delayed = np.array([int(char) for char in data[1][:-1]])
+signal = np.array([int(char) for char in data[5].split(",")]    )
+average = np.average(signal)
+
+delayed_distort = (np.sign(signal -average)+1)/2
+
+plt.plot(original)
+plt.plot(signal)
+plt.show()
 
 
 def FFT(vector):
@@ -45,15 +53,15 @@ def FFT(vector):
         y[i+int(n/2)] = transformed_even[i] - (omega**i)*transformed_odd[i]
     return np.array(y)
 
-# plt.plot(FFT(FFT(original)))
-# plt.plot(FFT(delayed))
-plt.plot(np.abs(FFT(FFT(original) * np.conj(FFT(delayed)))))
+plt.plot(FFT(FFT(original)))
+plt.plot(FFT(delayed_distort))
+plt.plot(np.abs(FFT(FFT(original) * np.conj(FFT(delayed_distort)))))
 plt.show()
 
-plt.plot(original)
-plt.plot(-np.roll(delayed, -1350))
-plt.show()
-exit()
+# plt.plot(original)
+# plt.plot(-np.roll(delayed, -1350))
+# plt.show()
+# exit()
 
 
 
@@ -83,31 +91,31 @@ exit()
 # plt.show()
 
 
-plt.plot(sp.correlate(delayed, original, mode='same'))
-print(np.argmax((sp.correlate(delayed, original, mode='same'))))
-print(len(original), len(delayed))
-plt.show()
-correlation = correlate(2*(np.array(delayed) - 1/2), -2*(np.array(original) - 1/2))
-print(np.argmax(abs(np.array(correlation))))
+# plt.plot(sp.correlate(delayed, original, mode='same'))
+# print(np.argmax((sp.correlate(delayed, original, mode='same'))))
+# print(len(original), len(delayed))
+# plt.show()
+# correlation = correlate(2*(np.array(delayed) - 1/2), -2*(np.array(original) - 1/2))
+# print(np.argmax(abs(np.array(correlation))))
 
 
 
-plt.plot(Debug)
+# plt.plot(Debug)
 
-plt.plot(8000*np.array(delayed))
-plt.plot(-8000*np.array(original))
-plt.show()
-plt.plot(sp.correlate(delayed, original, mode='same'))
-plt.show()
-best_match = np.argmax(sp.correlate(delayed, original, mode = 'same'))
-print(best_match)
+# plt.plot(8000*np.array(delayed))
+# plt.plot(-8000*np.array(original))
+# plt.show()
+# plt.plot(sp.correlate(delayed, original, mode='same'))
+# plt.show()
+# best_match = np.argmax(sp.correlate(delayed, original, mode = 'same'))
+# print(best_match)
 
 
 
-plt.plot(2*(np.array(delayed) - 1/2))
-plt.plot(-2*(np.array(original) - 1/2))
-plt.show()
-correlation = correlate(2*(np.array(delayed) - 1/2), -2*(np.array(original) - 1/2))
-print(np.argmax(abs(np.array(correlation))))
-plt.plot(abs(np.array(correlation)))
-plt.show()
+# plt.plot(2*(np.array(delayed) - 1/2))
+# plt.plot(-2*(np.array(original) - 1/2))
+# plt.show()
+# correlation = correlate(2*(np.array(delayed) - 1/2), -2*(np.array(original) - 1/2))
+# print(np.argmax(abs(np.array(correlation))))
+# plt.plot(abs(np.array(correlation)))
+# plt.show()

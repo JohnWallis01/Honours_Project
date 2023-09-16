@@ -237,3 +237,36 @@ begin
   end process;
 
 end arch ; -- arch
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity PRBS_Multiply is 
+        port(
+          PRBS: in std_logic;
+          Scale: in std_logic_vector(13 downto 0);
+          Output_Signal: out std_logic_vector(13 downto 0);
+          Clock: in std_logic
+        );
+end PRBS_Multiply;
+
+architecture PRBS_Multiply_arch of PRBS_Multiply is
+
+begin
+
+  process(Clock)
+  begin
+    if rising_edge(Clock) then
+      if PRBS = '1' then
+        Output_Signal <= Scale;
+      else
+        Output_Signal <= std_logic_vector(-signed(Scale));
+        -- Output_Signal <= (others => '0');
+      end if;
+    end if;
+  end process;
+
+end PRBS_Multiply_arch ; -- arch

@@ -8,6 +8,7 @@ generic(Div_Rate: integer := 6);
   port( 
     DivClock_In: in std_logic;
     DivClock_Out: out std_logic;
+    Div_Select: std_logic_vector(4 downto 0);
     Reset: in std_logic
     );
 end Clock_Divider;
@@ -25,5 +26,5 @@ begin
             end if;
         end if;
     end process;
-    DivClock_Out <= std_logic(Counter(Div_Rate));
+    DivClock_Out <= std_logic(Counter(to_integer(unsigned(Div_Select))));
 end architecture;

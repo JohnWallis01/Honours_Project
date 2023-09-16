@@ -103,7 +103,7 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd
   C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd
 }
-read_ip -quiet c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0.xci
+read_ip -quiet C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

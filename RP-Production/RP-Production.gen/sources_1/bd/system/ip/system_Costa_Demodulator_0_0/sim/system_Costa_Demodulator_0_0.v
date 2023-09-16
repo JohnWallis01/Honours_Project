@@ -66,6 +66,7 @@ module system_Costa_Demodulator_0_0 (
   Lock_Strength,
   Message,
   Locked_Carrier,
+  Debug,
   Clock,
   Reset
 );
@@ -83,6 +84,7 @@ output wire [31 : 0] Phase_Measured;
 output wire [25 : 0] Lock_Strength;
 output wire Message;
 output wire [13 : 0] Locked_Carrier;
+output wire [13 : 0] Debug;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clock, ASSOCIATED_RESET Reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clock CLK" *)
 input wire Clock;
@@ -102,6 +104,7 @@ input wire Reset;
     .Lock_Strength(Lock_Strength),
     .Message(Message),
     .Locked_Carrier(Locked_Carrier),
+    .Debug(Debug),
     .Clock(Clock),
     .Reset(Reset)
   );

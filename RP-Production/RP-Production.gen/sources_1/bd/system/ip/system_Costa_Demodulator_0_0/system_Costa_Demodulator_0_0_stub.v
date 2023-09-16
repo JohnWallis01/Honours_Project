@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Sep 12 13:34:54 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Thu Sep 14 11:34:16 2023
+// Host        : Valkyrie running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0_stub.v
 // Design      : system_Costa_Demodulator_0_0
@@ -16,8 +16,8 @@
 (* X_CORE_INFO = "Costa_Demodulator,Vivado 2022.2" *)
 module system_Costa_Demodulator_0_0(Input_Signal, PLL_Guess_Freq, Control_Kp, 
   Control_Ki, Integrator_Reset, Threshold, Freq_Measured, Phase_Measured, Lock_Strength, 
-  Message, Locked_Carrier, Clock, Reset)
-/* synthesis syn_black_box black_box_pad_pin="Input_Signal[13:0],PLL_Guess_Freq[31:0],Control_Kp[31:0],Control_Ki[31:0],Integrator_Reset,Threshold[25:0],Freq_Measured[31:0],Phase_Measured[31:0],Lock_Strength[25:0],Message,Locked_Carrier[13:0],Clock,Reset" */;
+  Message, Locked_Carrier, Debug, Clock, Reset)
+/* synthesis syn_black_box black_box_pad_pin="Input_Signal[13:0],PLL_Guess_Freq[31:0],Control_Kp[31:0],Control_Ki[31:0],Integrator_Reset,Threshold[25:0],Freq_Measured[31:0],Phase_Measured[31:0],Lock_Strength[25:0],Message,Locked_Carrier[13:0],Debug[13:0],Clock,Reset" */;
   input [13:0]Input_Signal;
   input [31:0]PLL_Guess_Freq;
   input [31:0]Control_Kp;
@@ -29,6 +29,7 @@ module system_Costa_Demodulator_0_0(Input_Signal, PLL_Guess_Freq, Control_Kp,
   output [25:0]Lock_Strength;
   output Message;
   output [13:0]Locked_Carrier;
+  output [13:0]Debug;
   input Clock;
   input Reset;
 endmodule

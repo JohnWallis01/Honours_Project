@@ -22,7 +22,7 @@ entity Costa_Demodulator is
     Lock_Strength: out std_logic_vector(25 downto 0);
     Message: out std_logic;
     Locked_Carrier: out std_logic_vector(13 downto 0);     
-
+    Debug: out std_logic_vector(13 downto 0);
     ---General
     Clock: in std_logic;
     Reset: in std_logic
@@ -162,6 +162,7 @@ begin
         end if;
     end process;
     Message <= PRBS_output;
+    Debug <= Quadrature_Filtered_Signal(25 downto 12);
 
     Cross_Mixer: Mixer
     generic map(MixerSize  => 26)
@@ -205,7 +206,7 @@ begin
     end process;    
 
     Loop_Oscilator: NCO
-    generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
+    generic map(Freq_Size => 32, ROM_Size => 16, DAC_Size => 14)
     port map(
         Frequency => PLL_Freq,
         PhaseOffset => (others => '0'),

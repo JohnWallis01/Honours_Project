@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_Clock_Divider_0_0",
-    "cell_name": "PRBS/Clock_Divider_0",
+    "cell_name": "Clock_Divider_0",
     "component_reference": "xilinx.com:module_ref:Clock_Divider:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_Clock_Divider_0_0",
@@ -44,6 +44,7 @@
       "ports": {
         "DivClock_In": [ { "direction": "in" } ],
         "DivClock_Out": [ { "direction": "out" } ],
+        "Div_Select": [ { "direction": "in", "size_left": "4", "size_right": "0" } ],
         "Reset": [ { "direction": "in" } ]
       },
       "interfaces": {

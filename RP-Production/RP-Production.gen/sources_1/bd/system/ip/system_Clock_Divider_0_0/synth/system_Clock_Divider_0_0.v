@@ -58,11 +58,13 @@
 module system_Clock_Divider_0_0 (
   DivClock_In,
   DivClock_Out,
+  Div_Select,
   Reset
 );
 
 input wire DivClock_In;
 output wire DivClock_Out;
+input wire [4 : 0] Div_Select;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *)
 input wire Reset;
@@ -72,6 +74,7 @@ input wire Reset;
   ) inst (
     .DivClock_In(DivClock_In),
     .DivClock_Out(DivClock_Out),
+    .Div_Select(Div_Select),
     .Reset(Reset)
   );
 endmodule
