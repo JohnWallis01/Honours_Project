@@ -47,7 +47,6 @@
 // DO NOT MODIFY THIS FILE.
 
 
-<<<<<<<< HEAD:RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PRBS_Multiply_0_0/synth/system_PRBS_Multiply_0_0.v
 // IP VLNV: xilinx.com:module_ref:PRBS_Multiply:1.0
 // IP Revision: 1
 
@@ -75,36 +74,5 @@ input wire Clock;
     .Scale(Scale),
     .Output_Signal(Output_Signal),
     .Clock(Clock)
-========
-// IP VLNV: xilinx.com:module_ref:PSK_Modulator:1.0
-// IP Revision: 1
-
-`timescale 1ns/1ps
-
-(* IP_DEFINITION_SOURCE = "module_ref" *)
-(* DowngradeIPIdentifiedWarnings = "yes" *)
-module system_PSK_Modulator_0_0 (
-  Clock,
-  Modulation_Enable,
-  Modulation,
-  Input_Signal,
-  Output_Signal
-);
-
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clock, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clock CLK" *)
-input wire Clock;
-input wire Modulation_Enable;
-input wire Modulation;
-input wire [13 : 0] Input_Signal;
-output wire [13 : 0] Output_Signal;
-
-  PSK_Modulator inst (
-    .Clock(Clock),
-    .Modulation_Enable(Modulation_Enable),
-    .Modulation(Modulation),
-    .Input_Signal(Input_Signal),
-    .Output_Signal(Output_Signal)
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.ip_user_files/bd/system/ip/system_PSK_Modulator_0_0/sim/system_PSK_Modulator_0_0.v
   );
 endmodule

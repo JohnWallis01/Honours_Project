@@ -132,6 +132,9 @@ begin
         ce_out => open
     );
 
+    Lock_Strength <= InPhase_Filtered_Signal; 
+
+
     Quadrature_Filter: CIC32
     port map(
         clk => Clock,
@@ -179,9 +182,7 @@ begin
         filter_in => Cross_Mixed_Signal(51 downto 36),
         filter_out => Cross_Filtered_Signal,
         ce_out => open
-    );
-     
-    Lock_Strength <= Cross_Filtered_Signal; 
+    ); 
 
 
     Loop_Controller: PID_Controller

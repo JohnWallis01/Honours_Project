@@ -20,11 +20,9 @@ Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(dac_size=14)\]
 Compiling architecture psk_arch of entity xil_defaultlib.PSK [psk_default]
 Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
 Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
-Compiling architecture phase_detector_arch of entity xil_defaultlib.Phase_Detector [phase_detector_default]
 Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=26)\]
-Compiling architecture phase_detector_arch of entity xil_defaultlib.Phase_Detector [\Phase_Detector(size=26)\]
 Compiling architecture pid_controller_arch of entity xil_defaultlib.PID_Controller [pid_controller_default]
-Compiling architecture costa_arc of entity xil_defaultlib.Costa_QLL [costa_qll_default]
+Compiling architecture costa_arc of entity xil_defaultlib.Costa_Demodulator [costa_demodulator_default]
 Compiling architecture behavioral of entity xil_defaultlib.Testing_Architecture [testing_architecture_default]
 Compiling module xil_defaultlib.Main_Sim
 Compiling module xil_defaultlib.glbl

@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_DAC_Interface_0_0",
-    "cell_name": "DAC_Interface/DAC_Interface_0",
+    "cell_name": "DAC_Interface_0",
     "component_reference": "xilinx.com:module_ref:DAC_Interface:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/system/ip/system_DAC_Interface_0_0",

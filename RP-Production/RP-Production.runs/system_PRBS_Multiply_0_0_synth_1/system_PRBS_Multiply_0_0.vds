@@ -2,7 +2,6 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 # Start of session at: Thu Sep 14 11:32:56 2023
 # Process ID: 26040
 # Current directory: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1
@@ -18,29 +17,12 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_PRBS_Multiply_0_0
 Command: synth_design -top system_PRBS_Multiply_0_0 -part xc7z010clg400-1 -incremental_mode off -mode out_of_context
-========
-# Start of session at: Tue Sep 12 17:45:51 2023
-# Process ID: 18768
-# Current directory: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1
-# Command line: vivado.exe -log system_PSK_Modulator_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_PSK_Modulator_0_0.tcl
-# Log file: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
-# Journal file: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1\vivado.jou
-# Running On: Centurion-Heavy, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17101 MB
-#-----------------------------------------------------------
-source system_PSK_Modulator_0_0.tcl -notrace
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
-INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_PSK_Modulator_0_0
-Command: synth_design -top system_PSK_Modulator_0_0 -part xc7z010clg400-1 -incremental_mode off -mode out_of_context
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 INFO: [Synth 8-7075] Helper process launched with PID 10948
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
@@ -52,93 +34,48 @@ INFO: [Synth 8-256] done synthesizing module 'PRBS_Multiply' (0#1) [C:/Users/Joh
 INFO: [Synth 8-6155] done synthesizing module 'system_PRBS_Multiply_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PRBS_Multiply_0_0/synth/system_PRBS_Multiply_0_0.v:53]
 ---------------------------------------------------------------------------------
 Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1311.246 ; gain = 502.656
-========
-INFO: [Synth 8-7075] Helper process launched with PID 37708
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1216.117 ; gain = 408.094
----------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'system_PSK_Modulator_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PSK_Modulator_0_0/synth/system_PSK_Modulator_0_0.v:53]
-INFO: [Synth 8-638] synthesizing module 'PSK_Modulator' [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/PSK.vhd:93]
-INFO: [Synth 8-256] done synthesizing module 'PSK_Modulator' (0#1) [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/PSK.vhd:93]
-INFO: [Synth 8-6155] done synthesizing module 'system_PSK_Modulator_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PSK_Modulator_0_0/synth/system_PSK_Modulator_0_0.v:53]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1311.602 ; gain = 503.578
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1311.246 ; gain = 502.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1311.246 ; gain = 502.656
 ---------------------------------------------------------------------------------
 Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1311.246 ; gain = 0.000
-========
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1311.602 ; gain = 503.578
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1311.602 ; gain = 503.578
----------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1311.602 ; gain = 0.000
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1363.191 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1363.211 ; gain = 0.020
-========
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1319.203 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1319.250 ; gain = 0.047
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1319.250 ; gain = 511.227
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1319.250 ; gain = 511.227
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1363.211 ; gain = 554.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1319.250 ; gain = 511.227
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1319.250 ; gain = 511.227
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -149,11 +86,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	               14 Bit    Registers := 1     
 +---Muxes : 
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 	   2 Input   14 Bit        Muxes := 2     
-========
-	   2 Input   14 Bit        Muxes := 1     
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -171,41 +104,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1319.250 ; gain = 511.227
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1319.250 ; gain = 511.227
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1319.250 ; gain = 511.227
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1326.770 ; gain = 518.746
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -223,61 +140,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1332.539 ; gain = 524.516
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1332.539 ; gain = 524.516
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1332.539 ; gain = 524.516
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1332.539 ; gain = 524.516
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1332.539 ; gain = 524.516
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1363.211 ; gain = 554.621
-========
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1332.539 ; gain = 524.516
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -294,7 +187,6 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |CARRY4 |     4|
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 |2     |LUT1   |     2|
 |3     |LUT2   |    13|
 |4     |FDRE   |    14|
@@ -307,26 +199,10 @@ Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 .
 Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1363.211 ; gain = 554.621
 INFO: [Project 1-571] Translating synthesized netlist
 Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1363.211 ; gain = 0.000
-========
-|2     |LUT1   |     1|
-|3     |LUT2   |     1|
-|4     |LUT3   |    13|
-|5     |FDRE   |    14|
-+------+-------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1332.539 ; gain = 524.516
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 1332.539 ; gain = 516.867
-Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1332.539 ; gain = 524.516
-INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1344.586 ; gain = 0.000
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-<<<<<<<< HEAD:RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.vds
 Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1363.211 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
@@ -341,19 +217,3 @@ INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_PRBS_Mul
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PRBS_Multiply_0_0_synth_1/system_PRBS_Multiply_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_PRBS_Multiply_0_0_utilization_synth.rpt -pb system_PRBS_Multiply_0_0_utilization_synth.pb
 INFO: [Common 17-206] Exiting Vivado at Thu Sep 14 11:34:07 2023...
-========
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1349.238 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Synth Design complete, checksum: 26d8e3d9
-INFO: [Common 17-83] Releasing license: Synthesis
-25 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1349.238 ; gain = 918.949
-INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_PSK_Modulator_0_0, cache-ID = 7900f5a33c1f00ae
-INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file system_PSK_Modulator_0_0_utilization_synth.rpt -pb system_PSK_Modulator_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Sep 12 17:46:25 2023...
->>>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3:RP-Production/RP-Production.runs/system_PSK_Modulator_0_0_synth_1/system_PSK_Modulator_0_0.vds

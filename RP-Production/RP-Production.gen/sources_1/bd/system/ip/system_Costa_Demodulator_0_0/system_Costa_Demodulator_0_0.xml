@@ -200,11 +200,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< HEAD
             <spirit:value>Thu Sep 14 03:32:25 UTC 2023</spirit:value>
-=======
-            <spirit:value>Tue Sep 12 11:18:39 UTC 2023</spirit:value>
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -236,11 +232,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< HEAD
             <spirit:value>Thu Sep 14 03:32:25 UTC 2023</spirit:value>
-=======
-            <spirit:value>Tue Sep 12 11:18:39 UTC 2023</spirit:value>
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -258,11 +250,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< HEAD
             <spirit:value>Thu Sep 14 03:34:16 UTC 2023</spirit:value>
-=======
-            <spirit:value>Tue Sep 12 11:19:38 UTC 2023</spirit:value>
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>

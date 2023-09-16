@@ -1,13 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-<<<<<<< HEAD
 | Date         : Fri Sep 15 15:06:46 2023
 | Host         : Valkyrie running 64-bit major release  (build 9200)
-=======
-| Date         : Tue Sep 12 19:23:55 2023
-| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
 | Device       : xc7z010clg400-1
@@ -28,11 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-<<<<<<< HEAD
              Violations found: 287
-=======
-             Violations found: 269
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -41,7 +32,7 @@ Table of Contents
 | TIMING-7  | Critical Warning | No common node between related clocks              | 1          |
 | TIMING-17 | Critical Warning | Non-clocked sequential cell                        | 138        |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
-| DPIR-1    | Warning          | Asynchronous driver check                          | 87         |
+| DPIR-1    | Warning          | Asynchronous driver check                          | 104        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                       | 7          |
 | TIMING-18 | Warning          | Missing input or output delay                      | 30         |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten    | 4          |
@@ -1106,90 +1097,175 @@ Related violations: <none>
 
 DPIR-1#70 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#71 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#72 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#73 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#74 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#75 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#76 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#77 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#78 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#79 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#80 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#81 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#82 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#83 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#84 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#85 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#86 Warning
 Asynchronous driver check  
-DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#87 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#88 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#89 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#90 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#91 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#92 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#93 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#94 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#95 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#96 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#97 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#98 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#99 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#100 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#101 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#102 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#103 Warning
+Asynchronous driver check  
+DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#104 Warning
 Asynchronous driver check  
 DSP system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0 input pin system_i/Costa_Demodulator_0/inst/Cross_Mixer/Dout_reg__0/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>

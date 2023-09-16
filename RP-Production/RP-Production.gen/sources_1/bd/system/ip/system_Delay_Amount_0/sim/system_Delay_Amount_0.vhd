@@ -77,11 +77,7 @@ ENTITY system_Delay_Amount_0 IS
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
-<<<<<<< HEAD
     gpio_io_o : OUT STD_LOGIC_VECTOR(13 DOWNTO 0)
-=======
-    gpio_io_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
   );
 END system_Delay_Amount_0;
 
@@ -127,15 +123,9 @@ ARCHITECTURE system_Delay_Amount_0_arch OF system_Delay_Amount_0 IS
       s_axi_rvalid : OUT STD_LOGIC;
       s_axi_rready : IN STD_LOGIC;
       ip2intc_irpt : OUT STD_LOGIC;
-<<<<<<< HEAD
       gpio_io_i : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
       gpio_io_o : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
       gpio_io_t : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-=======
-      gpio_io_i : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      gpio_io_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      gpio_io_t : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
       gpio2_io_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       gpio2_io_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       gpio2_io_t : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -174,11 +164,7 @@ BEGIN
       C_FAMILY => "zynq",
       C_S_AXI_ADDR_WIDTH => 9,
       C_S_AXI_DATA_WIDTH => 32,
-<<<<<<< HEAD
       C_GPIO_WIDTH => 14,
-=======
-      C_GPIO_WIDTH => 1,
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
       C_GPIO2_WIDTH => 32,
       C_ALL_INPUTS => 0,
       C_ALL_INPUTS_2 => 0,
@@ -211,11 +197,7 @@ BEGIN
       s_axi_rresp => s_axi_rresp,
       s_axi_rvalid => s_axi_rvalid,
       s_axi_rready => s_axi_rready,
-<<<<<<< HEAD
       gpio_io_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 14)),
-=======
-      gpio_io_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
       gpio_io_o => gpio_io_o,
       gpio2_io_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32))
     );

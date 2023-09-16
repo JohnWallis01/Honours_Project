@@ -1,10 +1,9 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Clock_Div.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Clock_Divider'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Costa_QLL.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Phase_Detector'
-INFO: [VRFC 10-3107] analyzing entity 'Costa_QLL'
-WARNING: [VRFC 10-3093] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Costa_QLL.vhd:263]
-WARNING: [VRFC 10-3093] actual for formal port 'reset' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Costa_QLL.vhd:269]
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Costa_Demodulator.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Costa_Demodulator'
+WARNING: [VRFC 10-3093] actual for formal port 'signalinput' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Costa_Demodulator.vhd:190]
+WARNING: [VRFC 10-3093] actual for formal port 'reset' is neither a static name nor a globally static expression [C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Costa_Demodulator.vhd:196]
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/LFSR.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'LFSR'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd" into library xil_defaultlib
@@ -19,7 +18,6 @@ INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/V
 INFO: [VRFC 10-3107] analyzing entity 'NCO'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/PSK.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'PSK'
-INFO: [VRFC 10-3107] analyzing entity 'PSK_Modulator'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Testing_Architecture.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Testing_Architecture'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd" into library xil_defaultlib

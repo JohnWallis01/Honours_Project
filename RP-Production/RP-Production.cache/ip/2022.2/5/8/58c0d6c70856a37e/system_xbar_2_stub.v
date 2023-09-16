@@ -1,13 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-<<<<<<< HEAD
 // Date        : Wed Sep 13 16:04:23 2023
 // Host        : Valkyrie running 64-bit major release  (build 9200)
-=======
-// Date        : Tue Sep 12 17:46:35 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
->>>>>>> 9eee53f2058b56a42e82c683f809f69ed94d3bb3
 // Command     : write_verilog -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_xbar_2_stub.v
 // Design      : system_xbar_2
