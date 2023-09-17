@@ -35,46 +35,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity Delay is
-  generic(
-    Delay_Amount: integer := 32;
-    Bus_Size: integer := 8
-    );
-  port(
-    D_In: in std_logic_vector(Bus_Size-1 downto 0);
-    D_Out: out std_logic_vector(Bus_Size-1 downto 0);
-    Clock: in std_logic;
-    Reset: in std_logic
-  );
-end Delay;
-
-architecture Delay_Arch of Delay is
-
-  type Delay_Pipeline is array(0 to Delay_Amount-1) of std_logic_vector(Bus_Size-1 downto 0);  
-  signal Delay_Registers: Delay_Pipeline := (others => (others =>'0'));
-
-begin
-  process(Clock)
-    begin
-      if Rising_Edge(Clock) then 
-        if Reset = '1' then
-          Delay_Registers <= (others => (others => '0'));
-        else
-          Delay_Registers(0) <= D_In;
-          for i in 1 to Delay_Amount-1 loop
-            Delay_Registers(i) <= Delay_Registers(i-1);
-          end loop;
-          D_Out <= Delay_Registers(Delay_Amount-1);
-        end if;
-      end if;
-  end process;
-end Delay_Arch ; -- Delay_Arch
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.math_real.all;
-
 entity Subtractor is 
       generic(size: integer:= 32);
       port(
@@ -134,8 +94,6 @@ begin
  end process;
 
 end Reset_Latch_arch; -- Reset_Latch_arch
-
-
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -237,7 +195,6 @@ begin
   end process;
 
 end arch ; -- arch
-
 
 library ieee;
 use ieee.std_logic_1164.all;

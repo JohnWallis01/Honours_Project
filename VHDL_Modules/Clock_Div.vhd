@@ -4,7 +4,6 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 entity Clock_Divider is
-generic(Div_Rate: integer := 6);
   port( 
     DivClock_In: in std_logic;
     DivClock_Out: out std_logic;
