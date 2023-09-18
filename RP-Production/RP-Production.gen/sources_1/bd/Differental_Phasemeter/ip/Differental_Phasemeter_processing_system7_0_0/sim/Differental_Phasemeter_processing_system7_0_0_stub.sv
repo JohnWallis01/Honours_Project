@@ -178,7 +178,7 @@ module Differental_Phasemeter_processing_system7_0_0 (
   output bit [1 : 0] S_AXI_HP0_RRESP,
   output bit [5 : 0] S_AXI_HP0_BID,
   output bit [5 : 0] S_AXI_HP0_RID,
-  output bit [63 : 0] S_AXI_HP0_RDATA,
+  output bit [31 : 0] S_AXI_HP0_RDATA,
   output bit [7 : 0] S_AXI_HP0_RCOUNT,
   output bit [7 : 0] S_AXI_HP0_WCOUNT,
   output bit [2 : 0] S_AXI_HP0_RACOUNT,
@@ -211,8 +211,8 @@ module Differental_Phasemeter_processing_system7_0_0 (
   input bit [5 : 0] S_AXI_HP0_ARID,
   input bit [5 : 0] S_AXI_HP0_AWID,
   input bit [5 : 0] S_AXI_HP0_WID,
-  input bit [63 : 0] S_AXI_HP0_WDATA,
-  input bit [7 : 0] S_AXI_HP0_WSTRB,
+  input bit [31 : 0] S_AXI_HP0_WDATA,
+  input bit [3 : 0] S_AXI_HP0_WSTRB,
   output bit_as_bool FCLK_CLK0,
   output bit_as_bool FCLK_CLK1,
   output bit_as_bool FCLK_RESET0_N,
@@ -359,7 +359,7 @@ module Differental_Phasemeter_processing_system7_0_0 (ENET0_MDIO_MDC,ENET0_MDIO_
   output wire [1 : 0] S_AXI_HP0_RRESP;
   output wire [5 : 0] S_AXI_HP0_BID;
   output wire [5 : 0] S_AXI_HP0_RID;
-  output wire [63 : 0] S_AXI_HP0_RDATA;
+  output wire [31 : 0] S_AXI_HP0_RDATA;
   output wire [7 : 0] S_AXI_HP0_RCOUNT;
   output wire [7 : 0] S_AXI_HP0_WCOUNT;
   output wire [2 : 0] S_AXI_HP0_RACOUNT;
@@ -392,8 +392,8 @@ module Differental_Phasemeter_processing_system7_0_0 (ENET0_MDIO_MDC,ENET0_MDIO_
   input bit [5 : 0] S_AXI_HP0_ARID;
   input bit [5 : 0] S_AXI_HP0_AWID;
   input bit [5 : 0] S_AXI_HP0_WID;
-  input bit [63 : 0] S_AXI_HP0_WDATA;
-  input bit [7 : 0] S_AXI_HP0_WSTRB;
+  input bit [31 : 0] S_AXI_HP0_WDATA;
+  input bit [3 : 0] S_AXI_HP0_WSTRB;
   output wire FCLK_CLK0;
   output wire FCLK_CLK1;
   output wire FCLK_RESET0_N;

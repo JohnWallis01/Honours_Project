@@ -47,52 +47,113 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:module_ref:Data_Logger:1.0
+// IP VLNV: xilinx.com:module_ref:DATA_LOGGER:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "Data_Logger,Vivado 2022.2" *)
-(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_Data_Logger_0_0,Data_Logger,{}" *)
-(* CORE_GENERATION_INFO = "Differental_Phasemeter_Data_Logger_0_0,Data_Logger,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Data_Logger,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Pointer_Bits=16}" *)
+(* X_CORE_INFO = "DATA_LOGGER,Vivado 2022.2" *)
+(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_DATA_LOGGER_0_0,DATA_LOGGER,{}" *)
+(* CORE_GENERATION_INFO = "Differental_Phasemeter_DATA_LOGGER_0_0,DATA_LOGGER,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=DATA_LOGGER,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AXIS_TDATA_WIDTH=32,DOWN_SAMPLE=1,DMA_BUFFER=36864,N_FIFO=10,DUAL=0,FULL_OFFSET=1,VAR_DS=1}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module Differental_Phasemeter_Data_Logger_0_0 (
-  Sampling_Div_Rate,
-  Clock,
-  Reset,
-  m_axis_tdata,
-  m_axis_tvalid,
-  m_axis_tready,
-  Sampling_Data,
-  Status_Register
+module Differental_Phasemeter_DATA_LOGGER_0_0 (
+  m_axis_S2MMD_tdata,
+  m_axis_S2MMD_tvalid,
+  m_axis_S2MMD_tlast,
+  m_axis_S2MMD_tready,
+  m_axis_S2MMS_tdata,
+  m_axis_S2MMS_tvalid,
+  m_axis_S2MMS_tlast,
+  m_axis_S2MMS_tready,
+  s_axis_CH1_tready,
+  s_axis_CH1_tdata,
+  s_axis_CH1_tvalid,
+  s_axis_CH2_tready,
+  s_axis_CH2_tdata,
+  s_axis_CH2_tvalid,
+  down_sample,
+  s_axis_aclk,
+  m_axis_aclk,
+  rst,
+  trigger,
+  AFULL,
+  AEMPTY
 );
 
-input wire [4 : 0] Sampling_Div_Rate;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clock, ASSOCIATED_BUSIF m_axis, ASSOCIATED_RESET Reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clock CLK" *)
-input wire Clock;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *)
-input wire Reset;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *)
-output wire [31 : 0] m_axis_tdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TVALID" *)
-output wire m_axis_tvalid;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *)
-input wire m_axis_tready;
-input wire [31 : 0] Sampling_Data;
-output wire [7 : 0] Status_Register;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TDATA" *)
+output wire [63 : 0] m_axis_S2MMD_tdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TVALID" *)
+output wire m_axis_S2MMD_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TLAST" *)
+output wire m_axis_S2MMD_tlast;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_S2MMD, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 125000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TREADY" *)
+input wire m_axis_S2MMD_tready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TDATA" *)
+output wire [31 : 0] m_axis_S2MMS_tdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TVALID" *)
+output wire m_axis_S2MMS_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TLAST" *)
+output wire m_axis_S2MMS_tlast;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_S2MMS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 125000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TREADY" *)
+input wire m_axis_S2MMS_tready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TREADY" *)
+output wire s_axis_CH1_tready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TDATA" *)
+input wire [31 : 0] s_axis_CH1_tdata;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_CH1, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TVALID" *)
+input wire s_axis_CH1_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TREADY" *)
+output wire s_axis_CH2_tready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TDATA" *)
+input wire [31 : 0] s_axis_CH2_tdata;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_CH2, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TVALID" *)
+input wire s_axis_CH2_tvalid;
+input wire [4 : 0] down_sample;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *)
+input wire s_axis_aclk;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_aclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_axis_aclk CLK" *)
+input wire m_axis_aclk;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
+input wire rst;
+output wire trigger;
+output wire AFULL;
+output wire AEMPTY;
 
-  Data_Logger #(
-    .Pointer_Bits(16)
+  DATA_LOGGER #(
+    .AXIS_TDATA_WIDTH(32),
+    .DOWN_SAMPLE(1),
+    .DMA_BUFFER(36864),
+    .N_FIFO(10),
+    .DUAL(0),
+    .FULL_OFFSET(1),
+    .VAR_DS(1)
   ) inst (
-    .Sampling_Div_Rate(Sampling_Div_Rate),
-    .Clock(Clock),
-    .Reset(Reset),
-    .m_axis_tdata(m_axis_tdata),
-    .m_axis_tvalid(m_axis_tvalid),
-    .m_axis_tready(m_axis_tready),
-    .Sampling_Data(Sampling_Data),
-    .Status_Register(Status_Register)
+    .m_axis_S2MMD_tdata(m_axis_S2MMD_tdata),
+    .m_axis_S2MMD_tvalid(m_axis_S2MMD_tvalid),
+    .m_axis_S2MMD_tlast(m_axis_S2MMD_tlast),
+    .m_axis_S2MMD_tready(m_axis_S2MMD_tready),
+    .m_axis_S2MMS_tdata(m_axis_S2MMS_tdata),
+    .m_axis_S2MMS_tvalid(m_axis_S2MMS_tvalid),
+    .m_axis_S2MMS_tlast(m_axis_S2MMS_tlast),
+    .m_axis_S2MMS_tready(m_axis_S2MMS_tready),
+    .s_axis_CH1_tready(s_axis_CH1_tready),
+    .s_axis_CH1_tdata(s_axis_CH1_tdata),
+    .s_axis_CH1_tvalid(s_axis_CH1_tvalid),
+    .s_axis_CH2_tready(s_axis_CH2_tready),
+    .s_axis_CH2_tdata(s_axis_CH2_tdata),
+    .s_axis_CH2_tvalid(s_axis_CH2_tvalid),
+    .down_sample(down_sample),
+    .s_axis_aclk(s_axis_aclk),
+    .m_axis_aclk(m_axis_aclk),
+    .rst(rst),
+    .trigger(trigger),
+    .AFULL(AFULL),
+    .AEMPTY(AEMPTY)
   );
 endmodule

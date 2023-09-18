@@ -371,7 +371,7 @@ void Differental_Phasemeter_processing_system7_0_0::before_end_of_elaboration()
     xsc::common_cpp::properties S_AXI_HP0_transactor_param_props;
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
-    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
+    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -402,7 +402,7 @@ void Differental_Phasemeter_processing_system7_0_0::before_end_of_elaboration()
     S_AXI_HP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S_AXI_HP0_transactor_param_props.addString("CLK_DOMAIN", "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk");
 
-    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
+    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
 
     // S_AXI_HP0' transactor ports
 
@@ -786,7 +786,7 @@ void Differental_Phasemeter_processing_system7_0_0::before_end_of_elaboration()
     xsc::common_cpp::properties S_AXI_HP0_transactor_param_props;
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
-    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
+    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -817,7 +817,7 @@ void Differental_Phasemeter_processing_system7_0_0::before_end_of_elaboration()
     S_AXI_HP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S_AXI_HP0_transactor_param_props.addString("CLK_DOMAIN", "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk");
 
-    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
+    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
 
     // S_AXI_HP0' transactor ports
 
@@ -1201,7 +1201,7 @@ void Differental_Phasemeter_processing_system7_0_0::before_end_of_elaboration()
     xsc::common_cpp::properties S_AXI_HP0_transactor_param_props;
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
-    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
+    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1232,7 +1232,7 @@ void Differental_Phasemeter_processing_system7_0_0::before_end_of_elaboration()
     S_AXI_HP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S_AXI_HP0_transactor_param_props.addString("CLK_DOMAIN", "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk");
 
-    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
+    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
 
     // S_AXI_HP0' transactor ports
 
@@ -1567,7 +1567,7 @@ Differental_Phasemeter_processing_system7_0_0::Differental_Phasemeter_processing
     xsc::common_cpp::properties S_AXI_HP0_transactor_param_props;
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
-    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
+    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1598,7 +1598,7 @@ Differental_Phasemeter_processing_system7_0_0::Differental_Phasemeter_processing
     S_AXI_HP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S_AXI_HP0_transactor_param_props.addString("CLK_DOMAIN", "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk");
 
-    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
+    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
   mp_S_AXI_HP0_transactor->ARREADY(S_AXI_HP0_ARREADY);
   mp_S_AXI_HP0_transactor->AWREADY(S_AXI_HP0_AWREADY);
   mp_S_AXI_HP0_transactor->BVALID(S_AXI_HP0_BVALID);
@@ -1981,7 +1981,7 @@ Differental_Phasemeter_processing_system7_0_0::Differental_Phasemeter_processing
     xsc::common_cpp::properties S_AXI_HP0_transactor_param_props;
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
-    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
+    S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -2012,7 +2012,7 @@ Differental_Phasemeter_processing_system7_0_0::Differental_Phasemeter_processing
     S_AXI_HP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S_AXI_HP0_transactor_param_props.addString("CLK_DOMAIN", "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk");
 
-    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
+    mp_S_AXI_HP0_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,6,1,1,1,1,1>("S_AXI_HP0_transactor", S_AXI_HP0_transactor_param_props);
   mp_S_AXI_HP0_transactor->ARREADY(S_AXI_HP0_ARREADY);
   mp_S_AXI_HP0_transactor->AWREADY(S_AXI_HP0_AWREADY);
   mp_S_AXI_HP0_transactor->BVALID(S_AXI_HP0_BVALID);
@@ -2165,6 +2165,6 @@ XMSC_MODULE_EXPORT(Differental_Phasemeter_processing_system7_0_0);
 
 #ifdef RIVIERA
 SC_MODULE_EXPORT(Differental_Phasemeter_processing_system7_0_0);
-SC_REGISTER_BV(64);
+SC_REGISTER_BV(54);
 #endif
 

@@ -11,6 +11,15 @@
 #include <math.h>
 #include <complex.h>
 
+#include <string.h>
+#include <arpa/inet.h>
+
+//COMMS
+#define SERVER_IP "169.254.171.222" // Change this to the server's IP address
+#define SERVER_PORT 8080       // Change this to the server's port
+
+
+
 //DMA Constants
 #define S2MM_CONTROL_REGISTER 0x30
 #define S2MM_STATUS_REGISTER 0x34
@@ -35,10 +44,9 @@
 #define fSampling 125 //in Mhz
 #define PI 3.14159265358979323846
 // #define TransferWindow 16384
-#define TransferWindow 16384
-#define PRBS_DIV 0
-#define FPGA_Delay 0
-
+#define TransferWindow 4*16384
+#define PRBS_DIV 4
+#define Enable_Relocking 1
 #define CalibrationDelay 295
 
 //PLL Tuning
@@ -53,17 +61,19 @@
 // #define ki_value    -32  
 
 
-#define kp_value  -20000000       
+#define kp_value  -200000       
 #define ki_value  -50  
 
 
 
-#define PLL_Lock_Threshold 65000000
+#define PLL_Lock_Threshold 60000000
 #define PLL_Low_Threshold 5000
 #define Demodulation_Threshold_Value 1
 
 //PRBS Setup
 #define TAPS_Polynomial 0xB8                //Use the Hex values from here: https://en.wikipedia.org/wiki/Linear-feedback_shift_register#Example_polynomials_for_maximal_LFSRs
+#define PRBS_Gain_Amount 1400
+
 //Debug Constants
 #define Debug_Freq_Value 30.0
 #define Delay_Amount 0
@@ -254,8 +264,27 @@ int main() {
     complex double *ADC_Data;           //Setup pointer that the Fourier Data will be stored in
     int *PRBS_Data;                     //Poitner Local and Demodualted PRBS is stored in
 
+    int client_socket;
+    struct sockaddr_in server_address;
+    printf("Connecting to Server:\n");
+     // Create a socket
+    if ((client_socket = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+        perror("Socket creation failed");
+        exit(1);
+    }
 
-    
+    // Configure the server address
+    server_address.sin_family = AF_INET;
+    server_address.sin_port = htons(SERVER_PORT);
+    server_address.sin_addr.s_addr = inet_addr(SERVER_IP);
+
+    // Connect to the server
+    if (connect(client_socket, (struct sockaddr*)&server_address, sizeof(server_address)) == -1) {
+        perror("Connection failed");
+        exit(1);
+    }
+
+    printf("Connection Established\n");
     signal(SIGINT, handle_sigint);     // Register signal handler for SIGINTs
 
     void *PLL_Freq_Measured         = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, FREQ_MEASURED_ADDR);    
@@ -274,9 +303,9 @@ int main() {
     *(uint32_t*)Debug_Freq      = (int)(Debug_Freq_Value/125.0*pow(2,32));
     *(uint32_t*)Delay_Control   = Delay_Amount; 
     // *(uint32_t*)PRBS_Gain       =  3276; 
-    *(uint32_t*)PRBS_Gain       =  1400; 
+    *(uint32_t*)PRBS_Gain       =  PRBS_Gain_Amount; 
     // *(uint32_t*)PRBS_Gain       =  0; 
-    *(uint32_t*)PRBS_Rate_Div   =  4; 
+    *(uint32_t*)PRBS_Rate_Div   =  PRBS_DIV; 
  
 
     *(uint32_t*)LFSR_Polynomial         = TAPS_Polynomial; // This is the polynomial for an 8 bit LFSR
@@ -287,6 +316,8 @@ int main() {
     *(uint32_t*)Integrator_Reset = 0;
     *(uint32_t*)Integrator_Reset = 1;
     *(uint32_t*)Integrator_Reset = 0;     //Pulse the Reset 
+
+    float F_Resolution = (4.0*(float)fSampling/(float)TransferWindow);
 
     int Max_n = 0;
     int init = 1;
@@ -313,7 +344,7 @@ int main() {
         uint f_tuning = f_measured/(fSampling)*pow(2,32);                //Compute the integer Tuning Word 
 
         int LockStrength = *(int*)PLL_Supervisor;                        //Logic to decide when to override the PLL.
-        if((LockStrength < PLL_Lock_Threshold && LockStrength > PLL_Low_Threshold && 0) || init) {
+        if((/*LockStrength < PLL_Lock_Threshold && LockStrength > PLL_Low_Threshold &&*/ Enable_Relocking && abs(f_tuning - Freq_Measurment)*fSampling/pow(2,32) > F_Resolution) || init) {
                 *(uint32_t*)Integrator_Reset = 1;
                 *(uint32_t*)PLL_Guess_Freq = f_tuning;
                 usleep(1);
@@ -321,17 +352,36 @@ int main() {
                 printf("    Relocking:\n");
                 printf("    FFT Measured Tuning: %d\n" , f_tuning);
                 printf("    PLL Measured Tuning: %d\n", Freq_Measurment);
-                printf("    Lock Strength: %i \n", LockStrength);
+                printf("    Lock Strength:       %i \n", LockStrength);
+                printf("    Delta Frequency:     %f\n", abs(f_tuning - Freq_Measurment)*fSampling/pow(2,32));
                 init = 0;
   
         }
         else {
-            printf("Lock Strength:     %i \n", LockStrength);
-            printf("FFT Measured Freq: %f (MHz)\n", f_measured);
-            printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
-            // printf("Estimated Delay: %u (Peak Correlation)\n", Max_n);
-            printf("Estimated Delay: %i (FPGA Clocks)\n", Max_n);
-            printf("Estimated Distance: %f\n", (float)Max_n/(125.0*pow(10,6))*(3*pow(10,8)/(1.46)) - CalibrationDelay);
+
+            // printf("Lock Strength:     %i \n", LockStrength);
+            // printf("FFT Measured Freq: %f (MHz)\n", f_measured);
+            // printf("PLL Measured Frequency %f (Mhz)\n", (float)Freq_Measurment*fSampling/pow(2,32));
+            // // printf("Estimated Delay: %u (Peak Correlation)\n", Max_n);
+            // printf("Estimated Delay: %i (FPGA Clocks)\n", Max_n);
+            // printf("Estimated Distance: %f\n", (float)Max_n/(125.0*pow(10,6))*(3*pow(10,8)/(1.46)) - CalibrationDelay);
+            
+            if (send(client_socket, &LockStrength, sizeof(int), 0) == -1) {
+                perror("Send failed");
+                exit(1);
+            }
+            if (send(client_socket, &f_tuning, sizeof(int), 0) == -1) {
+                perror("Send failed");
+                exit(1);
+            }
+            if (send(client_socket, &Freq_Measurment, sizeof(int), 0) == -1) {
+                perror("Send failed");
+                exit(1);
+            }
+            if (send(client_socket, &Max_n, sizeof(int), 0) == -1) {
+                perror("Send failed");
+                exit(1);
+            }
 
         }
     }

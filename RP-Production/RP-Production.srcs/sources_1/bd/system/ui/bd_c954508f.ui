@@ -72,7 +72,7 @@ pagesize -pg 1 -db -bbox -sgen -220 -850 2400 1890
    "Color Coded_TopLeft":"-159,-461",
    "Default View_Layers":"/DAC_Controller/axis_red_pitaya_dac_1_dac_rst:true|/PS7/processing_system7_0_FCLK_CLK0:true|/PS7/processing_system7_0_FCLK_RESET0_N:true|/DAC_Controller/axis_red_pitaya_dac_1_dac_clk:true|/Daisy_Controller/util_ds_buf_0_IBUF_OUT:true|/DAC_Controller/clk_wiz_0_clk_out1:true|/ADC_Interface/Net:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_P:true|/Daisy_Controller/util_ds_buf_1_OBUF_DS_N:true|/PS7/S00_ARESETN_1:true|/PS7/proc_sys_reset_0_interconnect_aresetn:true|/DAC_Interface/clk_wiz_0_clk_out1:true|/PS7/ARESETN_1:true|/DAC_Interface/axis_red_pitaya_dac_1_dac_rst:true|/Net:true|/Phase_Locked_Loop_0_Reset_Out:true|/DAC_Interface/axis_red_pitaya_dac_1_dac_clk:true|",
    "Default View_ScaleFactor":"0.696226",
-   "Default View_TopLeft":"105,-185",
+   "Default View_TopLeft":"-157,73",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "Display-PortTypeReset":"true",
@@ -166,7 +166,7 @@ pagesize -pg 1 -db -bbox -sgen -370 -3100 2630 1170
    "Reduced Jogs_ScaleFactor":"0.242494",
    "Reduced Jogs_TopLeft":"-2635,-895",
    "commentid":"",
-   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port Vp_Vn -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
 preplace port Vaux0 -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
@@ -201,44 +201,44 @@ preplace inst axis_red_pitaya_adc_0 -pg 1 -lvl 2 -x 470 -y 400 -defaultsOSRD
 preplace inst DAC_Interface -pg 1 -lvl 7 -x 2400 -y 730 -defaultsOSRD
 preplace inst GPIO_Interface -pg 1 -lvl 5 -x 1650 -y 430 -defaultsOSRD
 preplace inst PRBS -pg 1 -lvl 2 -x 470 -y 600 -defaultsOSRD
-preplace inst PRBS_Multiply_0 -pg 1 -lvl 6 -x 2100 -y 790 -defaultsOSRD
-preplace inst Costa_Demodulator_0 -pg 1 -lvl 2 -x 470 -y 170 -defaultsOSRD
 preplace inst DMA_Interconnect_0 -pg 1 -lvl 3 -x 890 -y 410 -defaultsOSRD
+preplace inst Costa_Demodulator_0 -pg 1 -lvl 2 -x 470 -y 170 -defaultsOSRD
+preplace inst PRBS_Multiply_0 -pg 1 -lvl 6 -x 2100 -y 790 -defaultsOSRD
 preplace inst Reset_Gen_0 -pg 1 -lvl 1 -x 120 -y 280 -defaultsOSRD
-preplace netloc Costa_Demodulator_0_Debug 1 2 1 690 220n
+preplace netloc Costa_Demodulator_0_Debug 1 2 1 680 220n
 preplace netloc Costa_Demodulator_0_Freq_Measured 1 2 3 NJ 120 NJ 120 1420
-preplace netloc Costa_Demodulator_0_Locked_Carrier 1 2 5 660 140 NJ 140 NJ 140 NJ 140 2250J
-preplace netloc Costa_Demodulator_0_Message 1 2 1 670 180n
+preplace netloc Costa_Demodulator_0_Locked_Carrier 1 2 5 650 140 NJ 140 NJ 140 NJ 140 2250J
+preplace netloc Costa_Demodulator_0_Message 1 2 1 660 180n
 preplace netloc DMA_Interconnect_0_ADC_C1 1 1 3 250 300 NJ 300 1060
-preplace netloc GPIO_Interface_gpio_Integrator_Reset 1 1 5 220 10 NJ 10 NJ 10 NJ 10 1900
-preplace netloc GPIO_Interface_gpio_Ki 1 1 5 260 310 680J 180 NJ 180 NJ 180 1860
-preplace netloc GPIO_Interface_gpio_Kp 1 1 5 230 20 NJ 20 NJ 20 NJ 20 1880
-preplace netloc GPIO_Interface_gpio_PLL_Guess_Freq 1 1 5 260 30 NJ 30 NJ 30 NJ 30 1870
-preplace netloc GPIO_Interface_gpio_io_o1 1 1 5 250 700 NJ 700 NJ 700 NJ 700 1900
-preplace netloc GPIO_Interface_gpio_io_o2 1 1 5 240 40 NJ 40 NJ 40 NJ 40 1890
-preplace netloc GPIO_Interface_gpio_io_o3 1 1 5 260 500 680J 520 1070J 630 NJ 630 1870
-preplace netloc GPIO_Interface_gpio_io_o4 1 5 1 1920 500n
-preplace netloc GPIO_Interface_gpio_io_o5 1 1 5 260 690 NJ 690 NJ 690 NJ 690 1860
-preplace netloc LFSR_0_PRBS 1 2 1 720 420n
-preplace netloc Net 1 0 7 20 340 220 490 710 290 1070 160 NJ 160 1930 700 N
+preplace netloc GPIO_Interface_gpio_Integrator_Reset 1 1 5 220 10 NJ 10 NJ 10 NJ 10 1890
+preplace netloc GPIO_Interface_gpio_Ki 1 1 5 260 310 670J 180 NJ 180 NJ 180 1850
+preplace netloc GPIO_Interface_gpio_Kp 1 1 5 230 20 NJ 20 NJ 20 NJ 20 1870
+preplace netloc GPIO_Interface_gpio_PLL_Guess_Freq 1 1 5 260 30 NJ 30 NJ 30 NJ 30 1860
+preplace netloc GPIO_Interface_gpio_io_o1 1 1 5 250 700 NJ 700 NJ 700 NJ 700 1890
+preplace netloc GPIO_Interface_gpio_io_o2 1 1 5 240 40 NJ 40 NJ 40 NJ 40 1880
+preplace netloc GPIO_Interface_gpio_io_o3 1 1 5 260 500 670J 520 1070J 630 NJ 630 1860
+preplace netloc GPIO_Interface_gpio_io_o4 1 5 1 1910 500n
+preplace netloc GPIO_Interface_gpio_io_o5 1 1 5 260 690 NJ 690 NJ 690 NJ 690 1850
+preplace netloc LFSR_0_PRBS 1 2 1 710 420n
+preplace netloc Net 1 0 7 20 350 220 490 700 290 1070 160 NJ 160 1920 700 N
 preplace netloc PRBS_Multiply_0_Output_Signal 1 6 1 2250 760n
 preplace netloc PS7_FCLK_CLK0 1 4 1 N 520
 preplace netloc PS7_peripheral_aresetn 1 4 1 N 540
 preplace netloc Squared_Phase_Locked_0_Reset_Out 1 1 1 240 240n
-preplace netloc Variable_Delay_0_D_Out 1 2 4 NJ 610 NJ 610 1410J 640 1910
+preplace netloc Variable_Delay_0_D_Out 1 2 4 NJ 610 NJ 610 1410J 640 1900
 preplace netloc adc_clk_n_i_1 1 0 2 NJ 390 NJ
 preplace netloc adc_clk_p_i_1 1 0 2 NJ 360 230J
 preplace netloc adc_dat_a_i_1 1 0 2 20J 410 NJ
 preplace netloc adc_dat_b_i_1 1 0 2 20J 430 NJ
-preplace netloc axis_red_pitaya_adc_0_adc_csn 1 2 6 700J 150 NJ 150 NJ 150 NJ 150 NJ 150 2530J
+preplace netloc axis_red_pitaya_adc_0_adc_csn 1 2 6 690J 150 NJ 150 NJ 150 NJ 150 NJ 150 2530J
 preplace netloc axis_red_pitaya_dac_1_dac_clk 1 7 1 2530J 670n
 preplace netloc axis_red_pitaya_dac_1_dac_dat 1 7 1 2530J 770n
 preplace netloc axis_red_pitaya_dac_1_dac_rst 1 7 1 2530J 700n
 preplace netloc axis_red_pitaya_dac_1_dac_sel 1 7 1 NJ 730
 preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 7 1 2530J 750n
 preplace netloc daisy_n_i_1 1 0 7 NJ 890 NJ 890 NJ 890 NJ 890 NJ 890 NJ 890 NJ
-preplace netloc daisy_p_i_1 1 0 7 NJ 860 NJ 860 NJ 860 NJ 860 NJ 860 1890J 870 NJ
-preplace netloc gpio_io_Locking_Strength_1 1 2 3 710 170 NJ 170 1400J
+preplace netloc daisy_p_i_1 1 0 7 NJ 860 NJ 860 NJ 860 NJ 860 NJ 860 1880J 870 NJ
+preplace netloc gpio_io_Locking_Strength_1 1 2 3 700 170 NJ 170 1400J
 preplace netloc util_ds_buf_1_OBUF_DS_N 1 7 1 NJ 890
 preplace netloc util_ds_buf_1_OBUF_DS_P 1 7 1 2530J 860n
 preplace netloc DMA_Interconnect_0_m_axis 1 3 1 N 380
@@ -254,16 +254,16 @@ preplace netloc PS7_M11_AXI 1 4 1 N 500
 preplace netloc S_AXI2_1 1 4 1 N 480
 preplace netloc S_AXI6_1 1 4 1 N 320
 preplace netloc S_AXI7_1 1 4 1 N 340
-preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 2 1 660 360n
+preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 2 1 650 360n
 preplace netloc processing_system7_0_DDR 1 4 4 1390J 190 NJ 190 NJ 190 NJ
 preplace netloc processing_system7_0_FIXED_IO 1 4 4 1410J 220 NJ 220 NJ 220 NJ
 levelinfo -pg 1 0 120 470 890 1230 1650 2100 2400 2560
-pagesize -pg 1 -db -bbox -sgen -170 0 2720 940
+pagesize -pg 1 -db -bbox -sgen -160 0 2720 940
 "
 }
 {
-   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"4",
-   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"3",
-   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"1",
-   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_ps7_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"1"
+   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"4",
+   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"3",
+   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"1",
+   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_ps7_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"1"
 }

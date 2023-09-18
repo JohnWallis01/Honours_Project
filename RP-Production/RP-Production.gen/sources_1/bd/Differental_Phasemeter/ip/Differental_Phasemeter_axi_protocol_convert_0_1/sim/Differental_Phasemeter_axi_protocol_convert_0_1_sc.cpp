@@ -62,7 +62,7 @@ Differental_Phasemeter_axi_protocol_convert_0_1_sc::Differental_Phasemeter_axi_p
   // initialize module
     xsc::common_cpp::properties model_param_props;
     model_param_props.addLong("C_M_AXI_PROTOCOL", "2");
-    model_param_props.addLong("C_S_AXI_PROTOCOL", "1");
+    model_param_props.addLong("C_S_AXI_PROTOCOL", "0");
     model_param_props.addLong("C_IGNORE_ID", "0");
     model_param_props.addLong("C_AXI_ID_WIDTH", "12");
     model_param_props.addLong("C_AXI_ADDR_WIDTH", "32");

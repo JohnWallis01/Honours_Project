@@ -171,7 +171,8 @@ use ieee.math_real.all;
 
 entity Reset_Gen is
   port (  Clock: in std_logic;
-          Reset: out std_logic
+          Reset: out std_logic;
+          ResetN: out std_logic
   );
 end Reset_Gen;
 
@@ -187,9 +188,11 @@ begin
     if Rising_Edge(Clock) then
       if Init_State = '1' then
         Reset <= '1';
+        ResetN <= '0';
         Init_State <= '0';
       else
         Reset <= '0';
+        ResetN <= '1';
       end if;
     end if;
   end process;
@@ -227,3 +230,56 @@ begin
   end process;
 
 end PRBS_Multiply_arch ; -- arch
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Test_Pattern_Gen is 
+        port(
+          Clock: in std_logic;
+          Reset: in std_logic;
+          Data: out std_logic_vector(31 downto 0)
+        );
+end Test_Pattern_Gen;
+
+architecture Test_Pattern_arch of Test_Pattern_Gen  is
+
+  signal Internal_State: unsigned(31 downto 0);
+
+begin
+
+  Data <= std_logic_vector(Internal_State);
+  process(Clock)
+  begin
+    if rising_edge(Clock) then
+      if Reset = '1' then
+        Internal_State <= (others => '0');
+      else
+        Internal_State <= Internal_State + to_unsigned(1, 32);        
+      end if;
+    end if;
+  end process;
+
+end Test_Pattern_arch ;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity Inverter is
+  port (
+  D: in std_logic;
+  Q: out std_logic
+  );
+end Inverter;
+
+architecture Inverter_Logic_arch of Inverter is
+
+
+begin
+  Q <= not D;
+
+end Inverter_Logic_arch ; -- Inverter_Logic_arch

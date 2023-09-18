@@ -56,7 +56,8 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module Differental_Phasemeter_Reset_Gen_0_0 (
   Clock,
-  Reset
+  Reset,
+  ResetN
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clock, ASSOCIATED_RESET Reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
@@ -65,9 +66,13 @@ input wire Clock;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *)
 output wire Reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ResetN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 ResetN RST" *)
+output wire ResetN;
 
   Reset_Gen inst (
     .Clock(Clock),
-    .Reset(Reset)
+    .Reset(Reset),
+    .ResetN(ResetN)
   );
 endmodule

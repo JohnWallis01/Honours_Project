@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sun Sep 17 22:10:35 2023
-// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Date        : Mon Sep 18 15:38:24 2023
+// Host        : Valkyrie running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Reset_Gen_0_0/Differental_Phasemeter_Reset_Gen_0_0_sim_netlist.v
 // Design      : Differental_Phasemeter_Reset_Gen_0_0
@@ -17,28 +17,36 @@
 (* NotValidForBitStream *)
 module Differental_Phasemeter_Reset_Gen_0_0
    (Clock,
-    Reset);
+    Reset,
+    ResetN);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clock, ASSOCIATED_RESET Reset, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input Clock;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output Reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 ResetN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ResetN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output ResetN;
 
   wire Clock;
   wire Reset;
+  wire ResetN;
 
   Differental_Phasemeter_Reset_Gen_0_0_Reset_Gen inst
        (.Clock(Clock),
-        .Reset(Reset));
+        .Reset(Reset),
+        .ResetN(ResetN));
 endmodule
 
 (* ORIG_REF_NAME = "Reset_Gen" *) 
 module Differental_Phasemeter_Reset_Gen_0_0_Reset_Gen
    (Reset,
+    ResetN,
     Clock);
   output Reset;
+  output ResetN;
   input Clock;
 
   wire Clock;
   wire Init_State;
   wire Reset;
+  wire ResetN;
+  wire ResetN_i_1_n_0;
 
   FDRE #(
     .INIT(1'b1)) 
@@ -47,6 +55,17 @@ module Differental_Phasemeter_Reset_Gen_0_0_Reset_Gen
         .CE(1'b1),
         .D(1'b0),
         .Q(Init_State),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    ResetN_i_1
+       (.I0(Init_State),
+        .O(ResetN_i_1_n_0));
+  FDRE ResetN_reg
+       (.C(Clock),
+        .CE(1'b1),
+        .D(ResetN_i_1_n_0),
+        .Q(ResetN),
         .R(1'b0));
   FDRE Reset_reg
        (.C(Clock),

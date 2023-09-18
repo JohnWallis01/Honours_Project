@@ -206,7 +206,7 @@ begin
     end process;    
 
     Loop_Oscilator: NCO
-    generic map(Freq_Size => 32, ROM_Size => 16, DAC_Size => 14)
+    generic map(Freq_Size => 32, ROM_Size => 8, DAC_Size => 14)
     port map(
         Frequency => PLL_Freq,
         PhaseOffset => (others => '0'),

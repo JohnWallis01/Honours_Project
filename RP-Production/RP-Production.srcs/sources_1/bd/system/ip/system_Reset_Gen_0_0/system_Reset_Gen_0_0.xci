@@ -39,7 +39,8 @@
     "boundary": {
       "ports": {
         "Clock": [ { "direction": "in" } ],
-        "Reset": [ { "direction": "out" } ]
+        "Reset": [ { "direction": "out" } ],
+        "ResetN": [ { "direction": "out" } ]
       },
       "interfaces": {
         "Reset": {
@@ -52,6 +53,18 @@
           },
           "port_maps": {
             "RST": [ { "physical_name": "Reset" } ]
+          }
+        },
+        "ResetN": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "master",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "ResetN" } ]
           }
         },
         "Clock": {

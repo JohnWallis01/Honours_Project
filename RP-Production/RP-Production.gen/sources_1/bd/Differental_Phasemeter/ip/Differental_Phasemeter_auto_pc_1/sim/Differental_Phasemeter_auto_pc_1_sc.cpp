@@ -63,10 +63,10 @@ Differental_Phasemeter_auto_pc_1_sc::Differental_Phasemeter_auto_pc_1_sc(const s
     xsc::common_cpp::properties model_param_props;
     model_param_props.addLong("C_M_AXI_PROTOCOL", "1");
     model_param_props.addLong("C_S_AXI_PROTOCOL", "0");
-    model_param_props.addLong("C_IGNORE_ID", "0");
+    model_param_props.addLong("C_IGNORE_ID", "1");
     model_param_props.addLong("C_AXI_ID_WIDTH", "1");
     model_param_props.addLong("C_AXI_ADDR_WIDTH", "32");
-    model_param_props.addLong("C_AXI_DATA_WIDTH", "64");
+    model_param_props.addLong("C_AXI_DATA_WIDTH", "32");
     model_param_props.addLong("C_AXI_SUPPORTS_WRITE", "1");
     model_param_props.addLong("C_AXI_SUPPORTS_READ", "1");
     model_param_props.addLong("C_AXI_SUPPORTS_USER_SIGNALS", "0");
@@ -75,7 +75,7 @@ Differental_Phasemeter_auto_pc_1_sc::Differental_Phasemeter_auto_pc_1_sc(const s
     model_param_props.addLong("C_AXI_WUSER_WIDTH", "1");
     model_param_props.addLong("C_AXI_RUSER_WIDTH", "1");
     model_param_props.addLong("C_AXI_BUSER_WIDTH", "1");
-    model_param_props.addLong("C_TRANSLATION_MODE", "2");
+    model_param_props.addLong("C_TRANSLATION_MODE", "0");
     model_param_props.addString("C_FAMILY", "zynq");
     model_param_props.addString("COMPONENT_NAME", "Differental_Phasemeter_auto_pc_1");
 

@@ -143,9 +143,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../VHDL_Modules/Data_Logger.vhd">
+      <File Path="$PPRDIR/../VHDL_Modules/Logger_Core.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -155,32 +156,8 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_DAC_Interface_0_0/Differental_Phasemeter_DAC_Interface_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_DAC_Interface_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_GPIO_SamplingReset_1/Differental_Phasemeter_GPIO_SamplingReset_1.xci">
           <Proxy FileSetName="Differental_Phasemeter_GPIO_SamplingReset_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_DMA_Interconnect_0_0/Differental_Phasemeter_DMA_Interconnect_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_DMA_Interconnect_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Costa_Demodulator_0_0/Differental_Phasemeter_Costa_Demodulator_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_Costa_Demodulator_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_Costa_Demodulator_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_PRBS_Multiply_0_0/Differental_Phasemeter_PRBS_Multiply_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_PRBS_Multiply_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Clock_Divider_0_0/Differental_Phasemeter_Clock_Divider_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_Clock_Divider_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Subtractor_0_0/Differental_Phasemeter_Subtractor_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_Subtractor_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Reset_Gen_0_0/Differental_Phasemeter_Reset_Gen_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_Reset_Gen_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_processing_system7_0_0/Differental_Phasemeter_processing_system7_0_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_processing_system7_0_0"/>
@@ -188,17 +165,57 @@
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_xbar_0/Differental_Phasemeter_xbar_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_xbar_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_axi_dma_0_1/Differental_Phasemeter_axi_dma_0_1.xci">
-          <Proxy FileSetName="Differental_Phasemeter_axi_dma_0_1"/>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_DAC_Interface_0_0/Differental_Phasemeter_DAC_Interface_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_DAC_Interface_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Clock_Divider_0_0/Differental_Phasemeter_Clock_Divider_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Clock_Divider_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Costa_Demodulator_0_0/Differental_Phasemeter_Costa_Demodulator_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Costa_Demodulator_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_DMA_Interconnect_0_0/Differental_Phasemeter_DMA_Interconnect_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_DMA_Interconnect_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_AXI_Stream_Writer_0_0/Differental_Phasemeter_AXI_Stream_Writer_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_AXI_Stream_Writer_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_PRBS_Multiply_0_0/Differental_Phasemeter_PRBS_Multiply_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_PRBS_Multiply_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Reset_Gen_0_0/Differental_Phasemeter_Reset_Gen_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Reset_Gen_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Variable_Delay_0_0/Differental_Phasemeter_Variable_Delay_0_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_Variable_Delay_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Costa_Demodulator_1_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Subtractor_0_0/Differental_Phasemeter_Subtractor_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Subtractor_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Test_Pattern_Gen_0_0/Differental_Phasemeter_Test_Pattern_Gen_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Test_Pattern_Gen_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Inverter_0_0/Differental_Phasemeter_Inverter_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Inverter_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_DATA_LOGGER_0_0/Differental_Phasemeter_DATA_LOGGER_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_DATA_LOGGER_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/Differental_Phasemeter/hdl/Differental_Phasemeter_wrapper.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../VHDL_Modules/Data_Logger.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -211,17 +228,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Locking_Strength_1/system_Locking_Strength_1.xci">
-          <Proxy FileSetName="system_Locking_Strength_1"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_dma_0_2/system_axi_dma_0_2.xci">
+          <Proxy FileSetName="system_axi_dma_0_2"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Variable_Delay_0_0/system_Variable_Delay_0_0.xci">
-          <Proxy FileSetName="system_Variable_Delay_0_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_2/system_xbar_2.xci">
+          <Proxy FileSetName="system_xbar_2"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_PRBS_Multiply_0_0/system_PRBS_Multiply_0_0.xci">
-          <Proxy FileSetName="system_PRBS_Multiply_0_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_5/system_xbar_5.xci">
+          <Proxy FileSetName="system_xbar_5"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_gpio_0_6/system_axi_gpio_0_6.xci">
-          <Proxy FileSetName="system_axi_gpio_0_6"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
+          <Proxy FileSetName="system_processing_system7_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Delay_Amount_0/system_Delay_Amount_0.xci">
           <Proxy FileSetName="system_Delay_Amount_0"/>
@@ -229,20 +246,11 @@
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_PRBS_Gain_0/system_PRBS_Gain_0.xci">
           <Proxy FileSetName="system_PRBS_Gain_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_5/system_xbar_5.xci">
-          <Proxy FileSetName="system_xbar_5"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_gpio_0_6/system_axi_gpio_0_6.xci">
+          <Proxy FileSetName="system_axi_gpio_0_6"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_DAC_Interface_0_0/system_DAC_Interface_0_0.xci">
-          <Proxy FileSetName="system_DAC_Interface_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
-          <Proxy FileSetName="system_processing_system7_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_dma_0_2/system_axi_dma_0_2.xci">
-          <Proxy FileSetName="system_axi_dma_0_2"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_2/system_xbar_2.xci">
-          <Proxy FileSetName="system_xbar_2"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Locking_Strength_1/system_Locking_Strength_1.xci">
+          <Proxy FileSetName="system_Locking_Strength_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/system_wrapper.v">
@@ -390,14 +398,6 @@
         <Define Name="TOOL_VIVADO"/>
       </Config>
     </FileSet>
-    <FileSet Name="Differental_Phasemeter_axi_dma_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_axi_dma_0_1" RelGenDir="$PGENDIR/Differental_Phasemeter_axi_dma_0_1">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_axi_dma_0_1"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
     <FileSet Name="system_xbar_5" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_xbar_5" RelGenDir="$PGENDIR/system_xbar_5">
       <Config>
         <Option Name="TopModule" Val="system_xbar_5"/>
@@ -446,41 +446,9 @@
         <Define Name="TOOL_VIVADO"/>
       </Config>
     </FileSet>
-    <FileSet Name="system_DAC_Interface_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_DAC_Interface_0_0" RelGenDir="$PGENDIR/system_DAC_Interface_0_0">
-      <Config>
-        <Option Name="TopModule" Val="system_DAC_Interface_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="system_Variable_Delay_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_Variable_Delay_0_0" RelGenDir="$PGENDIR/system_Variable_Delay_0_0">
-      <Config>
-        <Option Name="TopModule" Val="system_Variable_Delay_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="system_PRBS_Multiply_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_PRBS_Multiply_0_0" RelGenDir="$PGENDIR/system_PRBS_Multiply_0_0">
-      <Config>
-        <Option Name="TopModule" Val="system_PRBS_Multiply_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
     <FileSet Name="system_axi_dma_0_2" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_axi_dma_0_2" RelGenDir="$PGENDIR/system_axi_dma_0_2">
       <Config>
         <Option Name="TopModule" Val="system_axi_dma_0_2"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="Differental_Phasemeter_DAC_Interface_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_DAC_Interface_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_DAC_Interface_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_DAC_Interface_0_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
         <Define Name="TOOL_VIVADO"/>
@@ -494,57 +462,9 @@
         <Define Name="TOOL_VIVADO"/>
       </Config>
     </FileSet>
-    <FileSet Name="Differental_Phasemeter_DMA_Interconnect_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_DMA_Interconnect_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_DMA_Interconnect_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_DMA_Interconnect_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="Differental_Phasemeter_Costa_Demodulator_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Costa_Demodulator_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Costa_Demodulator_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_Costa_Demodulator_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="Differental_Phasemeter_Costa_Demodulator_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Costa_Demodulator_1_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Costa_Demodulator_1_0">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_Costa_Demodulator_1_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="Differental_Phasemeter_PRBS_Multiply_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_PRBS_Multiply_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_PRBS_Multiply_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_PRBS_Multiply_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
     <FileSet Name="Differental_Phasemeter_Clock_Divider_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Clock_Divider_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Clock_Divider_0_0">
       <Config>
         <Option Name="TopModule" Val="Differental_Phasemeter_Clock_Divider_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="Differental_Phasemeter_Subtractor_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Subtractor_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Subtractor_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_Subtractor_0_0"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-        <Define Name="TOOL_VIVADO"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="Differental_Phasemeter_Reset_Gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Reset_Gen_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Reset_Gen_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_Reset_Gen_0_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
         <Define Name="TOOL_VIVADO"/>
@@ -558,6 +478,54 @@
         <Define Name="TOOL_VIVADO"/>
       </Config>
     </FileSet>
+    <FileSet Name="Differental_Phasemeter_DMA_Interconnect_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_DMA_Interconnect_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_DMA_Interconnect_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_DMA_Interconnect_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_AXI_Stream_Writer_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_AXI_Stream_Writer_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_AXI_Stream_Writer_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_AXI_Stream_Writer_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_DAC_Interface_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_DAC_Interface_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_DAC_Interface_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_DAC_Interface_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_Costa_Demodulator_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Costa_Demodulator_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Costa_Demodulator_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_Costa_Demodulator_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_PRBS_Multiply_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_PRBS_Multiply_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_PRBS_Multiply_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_PRBS_Multiply_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_Reset_Gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Reset_Gen_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Reset_Gen_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_Reset_Gen_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
     <FileSet Name="Differental_Phasemeter_Variable_Delay_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Variable_Delay_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Variable_Delay_0_0">
       <Config>
         <Option Name="TopModule" Val="Differental_Phasemeter_Variable_Delay_0_0"/>
@@ -566,9 +534,41 @@
         <Define Name="TOOL_VIVADO"/>
       </Config>
     </FileSet>
-    <FileSet Name="Differental_Phasemeter_Data_Logger_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Data_Logger_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Data_Logger_0_0">
+    <FileSet Name="Differental_Phasemeter_Costa_Demodulator_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Costa_Demodulator_1_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Costa_Demodulator_1_0">
       <Config>
-        <Option Name="TopModule" Val="Differental_Phasemeter_Data_Logger_0_0"/>
+        <Option Name="TopModule" Val="Differental_Phasemeter_Costa_Demodulator_1_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_Subtractor_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Subtractor_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Subtractor_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_Subtractor_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_Test_Pattern_Gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Test_Pattern_Gen_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Test_Pattern_Gen_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_Test_Pattern_Gen_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_Inverter_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_Inverter_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_Inverter_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_Inverter_0_0"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+        <Define Name="TOOL_VIVADO"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="Differental_Phasemeter_DATA_LOGGER_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Differental_Phasemeter_DATA_LOGGER_0_0" RelGenDir="$PGENDIR/Differental_Phasemeter_DATA_LOGGER_0_0">
+      <Config>
+        <Option Name="TopModule" Val="Differental_Phasemeter_DATA_LOGGER_0_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
         <Define Name="TOOL_VIVADO"/>
@@ -594,16 +594,14 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="19">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="Trades off Performance and Area for better Runtime." AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PPRDIR/../1_led_blink.srcs/utils_1/imports/synth_1">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PPRDIR/../1_led_blink.srcs/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Flow_RuntimeOptimized" Flow="Vivado Synthesis 2022"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design">
-          <Option Id="FlattenHierarchy">1</Option>
-          <Option Id="Directive">0</Option>
           <Option Id="IncrementalMode">3</Option>
-          <Option Id="FsmExtraction">0</Option>
         </Step>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -628,21 +626,12 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_axi_dma_0_1_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_axi_dma_0_1" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_axi_dma_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_axi_dma_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_axi_dma_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_axi_dma_0_1_synth_1">
+    <Run Id="system_xbar_5_synth_1" Type="Ft3:Synth" SrcSet="system_xbar_5" Part="xc7z010clg400-1" ConstrsSet="system_xbar_5" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_xbar_5_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_xbar_5_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_xbar_5_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_xbar_5_synth_1" Type="Ft3:Synth" SrcSet="system_xbar_5" Part="xc7z010clg400-1" ConstrsSet="system_xbar_5" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_xbar_5_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_xbar_5_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -667,11 +656,12 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="system_xbar_2_synth_1" Type="Ft3:Synth" SrcSet="system_xbar_2" Part="xc7z010clg400-1" ConstrsSet="system_xbar_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_xbar_2_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_xbar_2_synth_1">
+    <Run Id="system_xbar_2_synth_1" Type="Ft3:Synth" SrcSet="system_xbar_2" Part="xc7z010clg400-1" ConstrsSet="system_xbar_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_xbar_2_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_xbar_2_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_xbar_2_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -696,36 +686,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="system_DAC_Interface_0_0_synth_1" Type="Ft3:Synth" SrcSet="system_DAC_Interface_0_0" Part="xc7z010clg400-1" ConstrsSet="system_DAC_Interface_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_DAC_Interface_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_DAC_Interface_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_DAC_Interface_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_Variable_Delay_0_0_synth_1" Type="Ft3:Synth" SrcSet="system_Variable_Delay_0_0" Part="xc7z010clg400-1" ConstrsSet="system_Variable_Delay_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_Variable_Delay_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_Variable_Delay_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_Variable_Delay_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_PRBS_Multiply_0_0_synth_1" Type="Ft3:Synth" SrcSet="system_PRBS_Multiply_0_0" Part="xc7z010clg400-1" ConstrsSet="system_PRBS_Multiply_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_PRBS_Multiply_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_PRBS_Multiply_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_PRBS_Multiply_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="system_axi_dma_0_2_synth_1" Type="Ft3:Synth" SrcSet="system_axi_dma_0_2" Part="xc7z010clg400-1" ConstrsSet="system_axi_dma_0_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_axi_dma_0_2_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_axi_dma_0_2_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_axi_dma_0_2_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
@@ -736,11 +696,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_DAC_Interface_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_DAC_Interface_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DAC_Interface_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_DAC_Interface_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_synth_1">
+    <Run Id="Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_GPIO_SamplingReset_1" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_GPIO_SamplingReset_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -748,11 +706,19 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_GPIO_SamplingReset_1" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_GPIO_SamplingReset_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_synth_1">
+    <Run Id="Differental_Phasemeter_Clock_Divider_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Clock_Divider_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Clock_Divider_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Clock_Divider_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_xbar_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_xbar_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -761,6 +727,26 @@
       <RQSFiles/>
     </Run>
     <Run Id="Differental_Phasemeter_DMA_Interconnect_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_DMA_Interconnect_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DMA_Interconnect_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_DMA_Interconnect_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DMA_Interconnect_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DMA_Interconnect_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_AXI_Stream_Writer_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_AXI_Stream_Writer_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_DAC_Interface_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_DAC_Interface_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DAC_Interface_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_DAC_Interface_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -784,43 +770,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Costa_Demodulator_1_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Costa_Demodulator_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="Differental_Phasemeter_PRBS_Multiply_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_PRBS_Multiply_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_PRBS_Multiply_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_PRBS_Multiply_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_PRBS_Multiply_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_PRBS_Multiply_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="Differental_Phasemeter_Clock_Divider_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Clock_Divider_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Clock_Divider_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Clock_Divider_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="Differental_Phasemeter_Subtractor_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Subtractor_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Subtractor_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Subtractor_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -844,18 +794,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_xbar_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_xbar_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="Differental_Phasemeter_Variable_Delay_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Variable_Delay_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Variable_Delay_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Variable_Delay_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Variable_Delay_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Variable_Delay_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
@@ -868,25 +806,80 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="Fastest possible runtime, all timing-driven behavior disabled. Useful for utilization estimation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../1_led_blink.srcs/utils_1/imports/impl_1" AutoRQSDir="$PPRDIR/../1_led_blink.srcs/utils_1/imports/impl_1">
+    <Run Id="Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Costa_Demodulator_1_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Costa_Demodulator_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Flow_Quick" Flow="Vivado Implementation 2022"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_Subtractor_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Subtractor_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Subtractor_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Subtractor_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Test_Pattern_Gen_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Test_Pattern_Gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_Inverter_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_Inverter_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Inverter_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_Inverter_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Inverter_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Inverter_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_DATA_LOGGER_0_0_synth_1" Type="Ft3:Synth" SrcSet="Differental_Phasemeter_DATA_LOGGER_0_0" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DATA_LOGGER_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Differental_Phasemeter_DATA_LOGGER_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DATA_LOGGER_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DATA_LOGGER_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../1_led_blink.srcs/utils_1/imports/impl_1" AutoRQSDir="$PPRDIR/../1_led_blink.srcs/utils_1/imports/impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
-        <Step Id="opt_design">
-          <Option Id="Directive">4</Option>
-        </Step>
+        <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
-        <Step Id="place_design">
-          <Option Id="Directive">16</Option>
-        </Step>
+        <Step Id="place_design"/>
         <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design" EnableStepBool="0"/>
-        <Step Id="route_design">
-          <Option Id="Directive">6</Option>
-        </Step>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -909,23 +902,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="Differental_Phasemeter_processing_system7_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_processing_system7_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_processing_system7_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_processing_system7_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_processing_system7_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="Differental_Phasemeter_axi_dma_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_axi_dma_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_axi_dma_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_axi_dma_0_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_axi_dma_0_1_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
@@ -1044,57 +1020,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="system_DAC_Interface_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="system_DAC_Interface_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_DAC_Interface_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_DAC_Interface_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_DAC_Interface_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_Variable_Delay_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="system_Variable_Delay_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_Variable_Delay_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_Variable_Delay_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_Variable_Delay_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="system_PRBS_Multiply_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="system_PRBS_Multiply_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_PRBS_Multiply_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_PRBS_Multiply_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_PRBS_Multiply_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="system_axi_dma_0_2_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="system_axi_dma_0_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_axi_dma_0_2_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_axi_dma_0_2_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/system_axi_dma_0_2_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
@@ -1112,11 +1037,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_DAC_Interface_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DAC_Interface_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_DAC_Interface_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_impl_1">
+    <Run Id="Differental_Phasemeter_GPIO_SamplingReset_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_GPIO_SamplingReset_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1131,11 +1054,26 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_GPIO_SamplingReset_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_GPIO_SamplingReset_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_GPIO_SamplingReset_1_impl_1">
+    <Run Id="Differental_Phasemeter_Clock_Divider_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Clock_Divider_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Clock_Divider_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_xbar_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_xbar_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_xbar_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1151,6 +1089,40 @@
       <RQSFiles/>
     </Run>
     <Run Id="Differental_Phasemeter_DMA_Interconnect_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DMA_Interconnect_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_DMA_Interconnect_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DMA_Interconnect_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DMA_Interconnect_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_AXI_Stream_Writer_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_AXI_Stream_Writer_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_AXI_Stream_Writer_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_AXI_Stream_Writer_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_DAC_Interface_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DAC_Interface_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_DAC_Interface_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DAC_Interface_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>
@@ -1188,64 +1160,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_Costa_Demodulator_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Costa_Demodulator_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="Differental_Phasemeter_PRBS_Multiply_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_PRBS_Multiply_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_PRBS_Multiply_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_PRBS_Multiply_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_PRBS_Multiply_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="Differental_Phasemeter_Clock_Divider_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Clock_Divider_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Clock_Divider_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Clock_Divider_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="Differental_Phasemeter_Subtractor_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Subtractor_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Subtractor_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>
@@ -1283,7 +1198,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_xbar_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_xbar_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_xbar_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_xbar_0_impl_1">
+    <Run Id="Differental_Phasemeter_Variable_Delay_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Variable_Delay_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Variable_Delay_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Variable_Delay_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Variable_Delay_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>
@@ -1302,7 +1217,83 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Differental_Phasemeter_Variable_Delay_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Variable_Delay_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Variable_Delay_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Variable_Delay_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Variable_Delay_0_0_impl_1">
+    <Run Id="Differental_Phasemeter_Costa_Demodulator_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Costa_Demodulator_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Costa_Demodulator_1_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_Subtractor_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Subtractor_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Subtractor_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Subtractor_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_Test_Pattern_Gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Test_Pattern_Gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Test_Pattern_Gen_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Test_Pattern_Gen_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_Inverter_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_Inverter_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_Inverter_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Inverter_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_Inverter_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="Differental_Phasemeter_DATA_LOGGER_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="Differental_Phasemeter_DATA_LOGGER_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Differental_Phasemeter_DATA_LOGGER_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DATA_LOGGER_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/Differental_Phasemeter_DATA_LOGGER_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>

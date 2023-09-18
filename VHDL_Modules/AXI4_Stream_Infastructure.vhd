@@ -79,3 +79,29 @@ begin
     end process;
 
 end DMA_Interconnect_arch ; -- DMA_Interconnect_arch
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity AXI_Stream_Writer is
+    port (
+        D_In: in std_logic_vector(31 downto 0);
+        m_axis_tdata: out std_logic_vector(31 downto 0);
+        m_axis_tvalid: out std_logic
+    );
+end AXI_Stream_Writer;
+
+
+architecture A of AXI_Stream_Writer is
+
+
+begin
+
+    m_axis_tdata  <= D_In;
+    m_axis_tvalid <= '1';
+
+end A ; -- A
+
