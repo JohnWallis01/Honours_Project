@@ -10,10 +10,9 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source system_axi_dma_0_2.tcl -notrace
-create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 395.129 ; gain = 75.508
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_axi_dma_0_2
 Command: synth_design -top system_axi_dma_0_2 -part xc7z010clg400-1 -incremental_mode off -mode out_of_context
 Starting synth_design
@@ -22,10 +21,10 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 45340
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 23572
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1217.594 ; gain = 405.613
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1218.184 ; gain = 407.719
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'system_axi_dma_0_2' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_dma_0_2/synth/system_axi_dma_0_2.vhd:107]
 	Parameter C_S_AXI_LITE_ADDR_WIDTH bound to: 10 - type: integer 
@@ -738,42 +737,42 @@ INFO: [Synth 8-638] synthesizing module 'async_fifo_fg' [c:/Users/John/Desktop/H
 	Parameter DOUT_RESET_VALUE bound to: 0 - type: string 
 	Parameter ECC_MODE bound to: no_ecc - type: string 
 	Parameter WAKEUP_TIME bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'xpm_fifo_async' declared at 'C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151' bound to instance 'xpm_fifo_async_inst' of component 'xpm_fifo_async' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:1932]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_async' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray__parameterized1' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray__parameterized1' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_bit' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_bit' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized1' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized1' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_rst' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_sync_rst' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_sync_rst' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_rst' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized2' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized2' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized3' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized3' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_async' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
+INFO: [Synth 8-3491] module 'xpm_fifo_async' declared at 'E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151' bound to instance 'xpm_fifo_async_inst' of component 'xpm_fifo_async' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:1932]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_async' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized0' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized0' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray__parameterized0' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray__parameterized0' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec__parameterized0' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec__parameterized0' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray__parameterized1' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray__parameterized1' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_bit' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_bit' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized1' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized1' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_rst' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_sync_rst' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_sync_rst' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_rst' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized2' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized2' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized3' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized3' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_async' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
 INFO: [Synth 8-256] done synthesizing module 'async_fifo_fg' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:255]
 INFO: [Synth 8-256] done synthesizing module 'axi_datamover_afifo_autord' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:881]
 INFO: [Synth 8-256] done synthesizing module 'axi_datamover_fifo' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:1886]
@@ -797,16 +796,16 @@ INFO: [Synth 8-638] synthesizing module 'async_fifo_fg__parameterized0' [c:/User
 	Parameter DOUT_RESET_VALUE bound to: 0 - type: string 
 	Parameter ECC_MODE bound to: no_ecc - type: string 
 	Parameter WAKEUP_TIME bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'xpm_fifo_async' declared at 'C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151' bound to instance 'xpm_fifo_async_inst' of component 'xpm_fifo_async' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:1932]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_async__parameterized1' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_async__parameterized1' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
+INFO: [Synth 8-3491] module 'xpm_fifo_async' declared at 'E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151' bound to instance 'xpm_fifo_async_inst' of component 'xpm_fifo_async' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:1932]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_async__parameterized1' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base__parameterized0' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized0' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized0' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base__parameterized0' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_async__parameterized1' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
 INFO: [Synth 8-256] done synthesizing module 'async_fifo_fg__parameterized0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:255]
 INFO: [Synth 8-256] done synthesizing module 'axi_datamover_afifo_autord__parameterized0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:881]
 INFO: [Synth 8-256] done synthesizing module 'axi_datamover_fifo__parameterized0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:1886]
@@ -887,19 +886,19 @@ INFO: [Synth 8-638] synthesizing module 'sync_fifo_fg' [c:/Users/John/Desktop/Ho
 	Parameter DOUT_RESET_VALUE bound to: 0 - type: string 
 	Parameter ECC_MODE bound to: no_ecc - type: string 
 	Parameter WAKEUP_TIME bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'xpm_fifo_sync' declared at 'C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955' bound to instance 'xpm_fifo_sync_inst' of component 'xpm_fifo_sync' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:2627]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_sync' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base__parameterized1' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized1' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value.   [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:493]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized1' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_rst__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_rst__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base__parameterized1' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_sync' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
+INFO: [Synth 8-3491] module 'xpm_fifo_sync' declared at 'E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955' bound to instance 'xpm_fifo_sync_inst' of component 'xpm_fifo_sync' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:2627]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_sync' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base__parameterized1' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized1' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value.   [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:493]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized1' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_rst__parameterized0' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_rst__parameterized0' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base__parameterized1' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_sync' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
 INFO: [Synth 8-256] done synthesizing module 'sync_fifo_fg' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:2250]
 INFO: [Synth 8-256] done synthesizing module 'axi_datamover_sfifo_autord' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:1295]
 INFO: [Synth 8-638] synthesizing module 'axi_datamover_sfifo_autord__parameterized0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:1295]
@@ -919,24 +918,24 @@ INFO: [Synth 8-638] synthesizing module 'sync_fifo_fg__parameterized0' [c:/Users
 	Parameter DOUT_RESET_VALUE bound to: 0 - type: string 
 	Parameter ECC_MODE bound to: no_ecc - type: string 
 	Parameter WAKEUP_TIME bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'xpm_fifo_sync' declared at 'C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955' bound to instance 'xpm_fifo_sync_inst' of component 'xpm_fifo_sync' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:2627]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_sync__parameterized1' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base__parameterized2' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized4' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized4' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized5' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized5' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized2' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized2' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
-INFO: [Synth 8-226] default block is never used [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized6' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized6' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized7' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized7' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base__parameterized2' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_sync__parameterized1' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
+INFO: [Synth 8-3491] module 'xpm_fifo_sync' declared at 'E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955' bound to instance 'xpm_fifo_sync_inst' of component 'xpm_fifo_sync' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:2627]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_sync__parameterized1' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base__parameterized2' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized4' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized4' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized5' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized5' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized2' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized2' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1207]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1274]
+INFO: [Synth 8-226] default block is never used [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1296]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized6' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized6' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized7' [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized7' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base__parameterized2' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_sync__parameterized1' (0#1) [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1955]
 INFO: [Synth 8-256] done synthesizing module 'sync_fifo_fg__parameterized0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/6c82/hdl/lib_fifo_v1_0_rfs.vhd:2250]
 INFO: [Synth 8-256] done synthesizing module 'axi_datamover_sfifo_autord__parameterized0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:1295]
 INFO: [Synth 8-638] synthesizing module 'axi_datamover_skid_buf__parameterized0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:19500]
@@ -981,17 +980,17 @@ WARNING: [Synth 8-6014] Unused sequential element GEN_ASYNC_CMDSTAT_RESET.sig_se
 WARNING: [Synth 8-6014] Unused sequential element sig_cmd_stat_rst_int_reg_n_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:191]
 WARNING: [Synth 8-6014] Unused sequential element sig_mmap_rst_reg_n_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:194]
 WARNING: [Synth 8-6014] Unused sequential element sig_stream_rst_reg_n_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:197]
-WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
-WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
-WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
-WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
-WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
-WARNING: [Synth 8-6014] Unused sequential element gen_pf_ic_rc.gae_ic_std.ram_aempty_i_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:758]
-WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
-WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
-WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
-WARNING: [Synth 8-6014] Unused sequential element gen_pf_ic_rc.gae_ic_std.ram_aempty_i_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:758]
-WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
+WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
+WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
+WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
+WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
+WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
+WARNING: [Synth 8-6014] Unused sequential element gen_pf_ic_rc.gae_ic_std.ram_aempty_i_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:758]
+WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
+WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
+WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
+WARNING: [Synth 8-6014] Unused sequential element gen_pf_ic_rc.gae_ic_std.ram_aempty_i_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:758]
+WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
 WARNING: [Synth 8-6014] Unused sequential element sig_input_reg_full_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:26374]
 WARNING: [Synth 8-6014] Unused sequential element sig_psm_ld_calc2_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:26578]
 WARNING: [Synth 8-6014] Unused sequential element sig_child_cmd_reg_empty_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:27034]
@@ -1000,15 +999,15 @@ WARNING: [Synth 8-6014] Unused sequential element sig_xfer_is_seq_reg was remove
 WARNING: [Synth 8-6014] Unused sequential element sig_xfer_reg_empty_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:28171]
 WARNING: [Synth 8-6014] Unused sequential element sig_xfer_reg_full_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:28172]
 WARNING: [Synth 8-6014] Unused sequential element sig_sm_ld_scatter_cmd_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:47510]
-WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
-WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
-WARNING: [Synth 8-6014] Unused sequential element gen_pntr_flags_cc.gae_cc_std.ram_aempty_i_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:969]
-WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
+WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
+WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
+WARNING: [Synth 8-6014] Unused sequential element gen_pntr_flags_cc.gae_cc_std.ram_aempty_i_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:969]
+WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
 WARNING: [Synth 8-6014] Unused sequential element hold_ff_q_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:1513]
-WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
-WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
-WARNING: [Synth 8-6014] Unused sequential element gen_pntr_flags_cc.gae_cc_std.ram_aempty_i_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:969]
-WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
+WARNING: [Synth 8-6014] Unused sequential element gen_rd_b.gen_doutb_pipe.enb_pipe_reg[0] was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:3017]
+WARNING: [Synth 8-6014] Unused sequential element gdvld.data_valid_std_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:537]
+WARNING: [Synth 8-6014] Unused sequential element gen_pntr_flags_cc.gae_cc_std.ram_aempty_i_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:969]
+WARNING: [Synth 8-6014] Unused sequential element gen_fwft.empty_fwft_fb_reg was removed.  [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1391]
 WARNING: [Synth 8-6014] Unused sequential element hold_ff_q_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:1513]
 WARNING: [Synth 8-6014] Unused sequential element sig_next_tag_reg_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:10410]
 WARNING: [Synth 8-6014] Unused sequential element sig_next_cmd_cmplt_reg_reg was removed.  [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/2237/hdl/axi_datamover_v5_1_vh_rfs.vhd:10417]
@@ -1125,18 +1124,18 @@ WARNING: [Synth 8-7129] Port dinb[33] in module xpm_memory_base__parameterized0 
 WARNING: [Synth 8-7129] Port dinb[32] in module xpm_memory_base__parameterized0 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.160 . Memory (MB): peak = 1520.707 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.139 . Memory (MB): peak = 1522.254 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 618 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -1153,32 +1152,32 @@ Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Product
 Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_dma_0_2_synth_1/dont_touch.xdc]
 Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_dma_0_2/system_axi_dma_0_2_clocks.xdc] for cell 'U0'
 Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_axi_dma_0_2/system_axi_dma_0_2_clocks.xdc] for cell 'U0'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_axi_dma_0_2_propImpl.xdc].
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_axi_dma_0_2_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_axi_dma_0_2_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_axi_dma_0_2_propImpl.xdc].
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_axi_dma_0_2_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_axi_dma_0_2_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_axi_dma_0_2_propImpl.xdc].
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_axi_dma_0_2_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_axi_dma_0_2_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Project 1-1714] 16 XPM XDC files have been applied to the design.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1520.707 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1522.254 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 618 instances were transformed.
   FDR => FDRE: 618 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 1520.707 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 1522.254 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1201,7 +1200,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for U0/I_PRMRY_DATAMOVER/\GEN_S2MM_FU
 Applied set_property KEEP_HIERARCHY = SOFT for U0/I_PRMRY_DATAMOVER/\GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER /\GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT /I_XD_FIFO/\NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO /\xpm_fifo_instance.xpm_fifo_sync_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for U0/I_PRMRY_DATAMOVER/\GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER /\GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT /I_DATA_FIFO/\BLK_MEM.I_SYNC_FIFOGEN_FIFO /\xpm_fifo_instance.xpm_fifo_sync_inst . (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'smpl_cs_reg' in module 'axi_dma_smple_sm'
 INFO: [Synth 8-802] inferred FSM for state register 'gen_rst_ic.curr_wrst_state_reg' in module 'xpm_fifo_rst__xdcDup__1'
@@ -1344,7 +1343,7 @@ INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'gen_fwft.curr_fwft_state_reg' using encoding 'sequential' in module 'xpm_fifo_base__parameterized2'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1571,7 +1570,7 @@ INFO: [Synth 8-3332] Sequential element (I_AXI_DMA_REG_MODULE/GEN_AXI_LITE_IF.AX
 INFO: [Synth 8-3332] Sequential element (I_AXI_DMA_REG_MODULE/GEN_AXI_LITE_IF.AXI_LITE_IF_I/GEN_ASYNC_WRITE.REG_WADDR_TO_IPCLK1/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d2[24].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d2) is unused and will be removed from module axi_dma.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -1606,7 +1605,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -1617,7 +1616,7 @@ INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1647,7 +1646,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1667,37 +1666,37 @@ Finished Final Netlist Cleanup
 INFO: [Synth 8-3295] tying undriven pin I_AXI_DMA_REG_MODULE/strm_valid_int2_inferred:in0 to constant 0
 INFO: [Synth 8-3295] tying undriven pin I_AXI_DMA_REG_MODULE/strm_valid_int_cdc_to_inferred:in0 to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:00:51 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:51 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1749,18 +1748,18 @@ Report Cell Usage:
 |17    |FDSE     |    74|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1522.254 ; gain = 711.789
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 364 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:48 . Memory (MB): peak = 1520.707 ; gain = 708.727
-Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:52 . Memory (MB): peak = 1520.707 ; gain = 708.727
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:39 . Memory (MB): peak = 1522.254 ; gain = 711.789
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1522.254 ; gain = 711.789
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 1520.707 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.076 . Memory (MB): peak = 1522.254 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 346 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1520.707 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1522.254 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 280 instances were transformed.
   FDR => FDRE: 277 instances
@@ -1771,10 +1770,10 @@ Synth Design complete, checksum: ca6a47a3
 INFO: [Common 17-83] Releasing license: Synthesis
 523 Infos, 154 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:01:03 . Memory (MB): peak = 1520.707 ; gain = 1089.891
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:46 . Memory (MB): peak = 1522.254 ; gain = 1092.086
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_dma_0_2_synth_1/system_axi_dma_0_2.dcp' has been generated.
 INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_axi_dma_0_2, cache-ID = d809837cdf3cbab3
 INFO: [Coretcl 2-1174] Renamed 152 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_dma_0_2_synth_1/system_axi_dma_0_2.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_axi_dma_0_2_utilization_synth.rpt -pb system_axi_dma_0_2_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Sep 15 15:00:59 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 18 22:56:26 2023...

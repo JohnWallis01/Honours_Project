@@ -1,16 +1,27 @@
-
-fp = open("logger_dump.bin", "rb")
-time = []
-data = []
-TIME = 1
-DS = 1
-N = int(100)
-for i in range(0,N):
-    byte = fp.read(4)
-    time.append(i*(2**DS/125000000))
-    data_p = int.from_bytes(byte,"little",signed=False) 
-    data.append(data_p)
-    fp.read(4) 
-import matplotlib.pyplot as plt
 import numpy as np
-print(np.diff(data))
+import matplotlib.pyplot as plt
+fp = open("logger_dump.bin", "rb")
+Reading = 1
+data = []
+last = 0
+while Reading:
+    data.append(int.from_bytes(fp.read(8), "little"))
+    if fp.tell() == last:
+        break
+    last = fp.tell()
+data=np.array(data)
+
+plt.plot(data)
+# plt.plot(np.diff(data))
+plt.show()
+plt.plot(data[data != 0])
+plt.show()
+# data = np.array(data)
+# data = data[data != 0]
+# plt.plot(data)
+# plt.plot(np.diff(data))
+# plt.show()
+
+
+# plt.plot(data[np.where(np.diff(data) == 4096)[0]])
+# plt.show()

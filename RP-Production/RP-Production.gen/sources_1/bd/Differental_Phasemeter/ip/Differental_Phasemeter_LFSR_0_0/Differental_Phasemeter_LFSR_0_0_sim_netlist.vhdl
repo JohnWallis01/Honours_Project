@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sat Sep  9 16:22:00 2023
+-- Date        : Mon Sep 18 21:42:07 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top Differental_Phasemeter_LFSR_0_0 -prefix
---               Differental_Phasemeter_LFSR_0_0_ system_LFSR_0_0_sim_netlist.vhdl
--- Design      : system_LFSR_0_0
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_LFSR_0_0/Differental_Phasemeter_LFSR_0_0_sim_netlist.vhdl
+-- Design      : Differental_Phasemeter_LFSR_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z010clg400-1
@@ -22,6 +22,8 @@ entity Differental_Phasemeter_LFSR_0_0_LFSR2008 is
     clock : in STD_LOGIC;
     Taps : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_LFSR_0_0_LFSR2008 : entity is "LFSR2008";
 end Differental_Phasemeter_LFSR_0_0_LFSR2008;
 
 architecture STRUCTURE of Differental_Phasemeter_LFSR_0_0_LFSR2008 is
@@ -228,6 +230,8 @@ entity Differental_Phasemeter_LFSR_0_0_LFSR is
     clock : in STD_LOGIC;
     Taps : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_LFSR_0_0_LFSR : entity is "LFSR";
 end Differental_Phasemeter_LFSR_0_0_LFSR;
 
 architecture STRUCTURE of Differental_Phasemeter_LFSR_0_0_LFSR is
@@ -256,7 +260,7 @@ entity Differental_Phasemeter_LFSR_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of Differental_Phasemeter_LFSR_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of Differental_Phasemeter_LFSR_0_0 : entity is "system_LFSR_0_0,LFSR,{}";
+  attribute CHECK_LICENSE_TYPE of Differental_Phasemeter_LFSR_0_0 : entity is "Differental_Phasemeter_LFSR_0_0,LFSR,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of Differental_Phasemeter_LFSR_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;

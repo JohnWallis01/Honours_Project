@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Aug  9 13:52:09 2023
--- Host        : Valkyrie running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top Differental_Phasemeter_clk_wiz_0_0 -prefix
---               Differental_Phasemeter_clk_wiz_0_0_ Differental_Phasemeter_clk_wiz_0_0_sim_netlist.vhdl
+-- Date        : Mon Sep 18 21:40:36 2023
+-- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_clk_wiz_0_0/Differental_Phasemeter_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : Differental_Phasemeter_clk_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,16 +14,16 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity Differental_Phasemeter_clk_wiz_0_0_Differental_Phasemeter_clk_wiz_0_0_clk_wiz is
+entity Differental_Phasemeter_clk_wiz_0_0_clk_wiz is
   port (
     clk_out1 : out STD_LOGIC;
     reset : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-end Differental_Phasemeter_clk_wiz_0_0_Differental_Phasemeter_clk_wiz_0_0_clk_wiz;
+end Differental_Phasemeter_clk_wiz_0_0_clk_wiz;
 
-architecture STRUCTURE of Differental_Phasemeter_clk_wiz_0_0_Differental_Phasemeter_clk_wiz_0_0_clk_wiz is
+architecture STRUCTURE of Differental_Phasemeter_clk_wiz_0_0_clk_wiz is
   signal clk_in1_Differental_Phasemeter_clk_wiz_0_0 : STD_LOGIC;
   signal clk_out1_Differental_Phasemeter_clk_wiz_0_0 : STD_LOGIC;
   signal clkfbout_Differental_Phasemeter_clk_wiz_0_0 : STD_LOGIC;
@@ -179,7 +179,7 @@ end Differental_Phasemeter_clk_wiz_0_0;
 
 architecture STRUCTURE of Differental_Phasemeter_clk_wiz_0_0 is
 begin
-inst: entity work.Differental_Phasemeter_clk_wiz_0_0_Differental_Phasemeter_clk_wiz_0_0_clk_wiz
+inst: entity work.Differental_Phasemeter_clk_wiz_0_0_clk_wiz
      port map (
       clk_in1 => clk_in1,
       clk_out1 => clk_out1,

@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Aug 14 15:46:05 2023
-// Host        : Valkyrie running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_axi_dma_0_1 -prefix
-//               Differental_Phasemeter_axi_dma_0_1_ Differental_Phasemeter_axi_dma_0_1_sim_netlist.v
+// Date        : Mon Sep 18 21:43:23 2023
+// Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_dma_0_1/Differental_Phasemeter_axi_dma_0_1_sim_netlist.v
 // Design      : Differental_Phasemeter_axi_dma_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -403,6 +403,7 @@ module Differental_Phasemeter_axi_dma_0_1
        (.P(\<const1> ));
 endmodule
 
+(* ORIG_REF_NAME = "async_fifo_fg" *) 
 module Differental_Phasemeter_axi_dma_0_1_async_fifo_fg
    (dout,
     data_valid,
@@ -902,6 +903,7 @@ module Differental_Phasemeter_axi_dma_0_1_async_fifo_fg__parameterized0
         .O(\USE_ASYNC_FIFO.sig_async_rd_fifo ));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover
    (dout,
     data_valid,
@@ -1064,6 +1066,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover
         .sts_received_i_reg_0(sts_received_i_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_addr_cntl" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_addr_cntl
    (out,
     FIFO_Full_reg,
@@ -1533,6 +1536,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_addr_cntl
         .R(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_afifo_autord" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_afifo_autord
    (dout,
     data_valid,
@@ -1666,6 +1670,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_afifo_autord__parameteri
         .sts_received_i_reg_0(sts_received_i_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_cmd_status" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_cmd_status
    (dout,
     data_valid,
@@ -1803,6 +1808,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_cmd_status
         .sig_secondary_aresetn_reg(sig_secondary_aresetn_reg));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_fifo" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_fifo
    (dout,
     data_valid,
@@ -2894,6 +2900,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_fifo__parameterized6
         .R(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_ibttcc" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_ibttcc
    (sig_psm_pop_input_cmd,
     sig_csm_pop_child_cmd,
@@ -7275,6 +7282,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_ibttcc
         .O(sig_csm_pop_sf_fifo_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_indet_btt" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_indet_btt
    (dout,
     empty,
@@ -7910,6 +7918,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_indet_btt
         .R(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_mssai_skid_buf" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_mssai_skid_buf
    (out,
     sig_m_valid_out_reg_0,
@@ -9159,6 +9168,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_mssai_skid_buf
         .O(din[32]));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_reset" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_reset
    (sig_rst2all_stop_request,
     sig_stream_rst,
@@ -9487,6 +9497,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_reset
         .O(sig_sec_neg_edge_plus_delay0__0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_s2mm_full_wrap" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_s2mm_full_wrap
    (dout,
     data_valid,
@@ -10138,6 +10149,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_s2mm_full_wrap
         .sig_wsc2stat_status_valid(sig_wsc2stat_status_valid));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_s2mm_realign" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_s2mm_realign
    (out,
     sig_s_ready_dup3_reg,
@@ -10405,6 +10417,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_s2mm_realign
         .R(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_s2mm_scatter" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_s2mm_scatter
    (out,
     sig_s_ready_dup3_reg,
@@ -11901,6 +11914,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_s2mm_scatter
         .R(sig_eop_sent_reg0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_sfifo_autord" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_sfifo_autord
    (dout,
     empty,
@@ -12058,6 +12072,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_sfifo_autord__parameteri
         .sig_stream_rst(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_skid2mm_buf" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_skid2mm_buf
    (out,
     sig_s_ready_out_reg_0,
@@ -13008,6 +13023,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_skid2mm_buf
         .R(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_skid_buf" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_skid_buf
    (out,
     s_axis_s2mm_tready,
@@ -15231,6 +15247,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_skid_buf__parameterized0
         .O(rd_en));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_slice" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_slice
    (slice_insert_valid,
     ld_btt_cntr_reg2_reg,
@@ -15604,6 +15621,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_slice
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_wr_status_cntl" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_wr_status_cntl
    (sig_wsc2stat_status_valid,
     \GEN_ENABLE_INDET_BTT.sig_coelsc_eop_reg_0 ,
@@ -16120,6 +16138,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_datamover_wr_status_cntl
         .R(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_datamover_wrdata_cntl" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_datamover_wrdata_cntl
    (FIFO_Full_reg,
     sig_push_dqual_reg,
@@ -17384,7 +17403,7 @@ endmodule
 (* C_PRMRY_IS_ACLK_ASYNC = "1" *) (* C_S2MM_BURST_SIZE = "256" *) (* C_SG_INCLUDE_STSCNTRL_STRM = "0" *) 
 (* C_SG_LENGTH_WIDTH = "20" *) (* C_SG_USE_STSAPP_LENGTH = "0" *) (* C_S_AXIS_S2MM_STS_TDATA_WIDTH = "32" *) 
 (* C_S_AXIS_S2MM_TDATA_WIDTH = "32" *) (* C_S_AXI_LITE_ADDR_WIDTH = "10" *) (* C_S_AXI_LITE_DATA_WIDTH = "32" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* ORIG_REF_NAME = "axi_dma" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma
    (s_axi_lite_aclk,
     m_axi_sg_aclk,
@@ -18264,6 +18283,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma
         .soft_reset_re0(\GEN_RESET_FOR_S2MM.RESET_I/soft_reset_re0 ));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_lite_if" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_lite_if
    (s_axi_lite_arready,
     \GEN_ASYNC_READ.s_axi_lite_rvalid_i_reg_0 ,
@@ -19714,6 +19734,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_lite_if
         .R(wvalid_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_reg_module" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_reg_module
    (s_axi_lite_arready,
     s2mm_length_wren,
@@ -20003,6 +20024,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_reg_module
         .O(strm_valid_int_cdc_to));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_register_s2mm" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_register_s2mm
    (s2mm_length_wren,
     \dmacr_i_reg[0]_0 ,
@@ -21067,6 +21089,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_register_s2mm
         .O(soft_reset_re0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_reset" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_reset
    (out,
     \GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 ,
@@ -21477,6 +21500,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_reset
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_rst_module" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_rst_module
    (out,
     \GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 ,
@@ -21619,6 +21643,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_rst_module
         .O(\GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4_3 ));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_s2mm_cmdsts_if" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_s2mm_cmdsts_if
    (s2mm_smpl_slverr_set,
     s2mm_smpl_decerr_set,
@@ -22123,6 +22148,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_s2mm_cmdsts_if
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_s2mm_mngr" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_s2mm_mngr
    (s2mm_smpl_slverr_set,
     s2mm_smpl_decerr_set,
@@ -22343,6 +22369,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_s2mm_mngr
         .R(all_is_idle_d1_reg));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_s2mm_sts_mngr" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_s2mm_sts_mngr
    (axi_dma_tstvec,
     idle_reg,
@@ -22465,6 +22492,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_s2mm_sts_mngr
         .R(all_is_idle_d1_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_smple_sm" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_smple_sm
    (s2mm_cmnd_wr,
     s2mm_sts_received_clr,
@@ -23009,6 +23037,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_smple_sm
         .O(sts_received_clr_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_dma_sofeof_gen" *) 
 module Differental_Phasemeter_axi_dma_0_1_axi_dma_sofeof_gen
    (axi_dma_tstvec,
     \GEN_FOR_ASYNC.s_eof_d3_reg_0 ,
@@ -23208,6 +23237,7 @@ module Differental_Phasemeter_axi_dma_0_1_axi_dma_sofeof_gen
         .R(\GEN_FOR_ASYNC.s_eof_d3_reg_0 ));
 endmodule
 
+(* ORIG_REF_NAME = "cdc_sync" *) 
 module Differental_Phasemeter_axi_dma_0_1_cdc_sync
    (scndry_out,
     axi_resetn,
@@ -27645,6 +27675,7 @@ module Differental_Phasemeter_axi_dma_0_1_cdc_sync__parameterized4
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "cntr_incr_decr_addn_f" *) 
 module Differental_Phasemeter_axi_dma_0_1_cntr_incr_decr_addn_f
    (fifo_full_p1,
     Q,
@@ -28566,6 +28597,7 @@ module Differental_Phasemeter_axi_dma_0_1_cntr_incr_decr_addn_f__parameterized1
         .S(sig_eop_sent_reg0));
 endmodule
 
+(* ORIG_REF_NAME = "dynshreg_f" *) 
 module Differental_Phasemeter_axi_dma_0_1_dynshreg_f
    (\GEN_ENABLE_INDET_BTT.sig_coelsc_decerr_reg_reg ,
     \GEN_ENABLE_INDET_BTT.sig_coelsc_slverr_reg_reg ,
@@ -30731,6 +30763,7 @@ module Differental_Phasemeter_axi_dma_0_1_dynshreg_f__parameterized4
         .O(sig_single_dbeat_reg));
 endmodule
 
+(* ORIG_REF_NAME = "srl_fifo_f" *) 
 module Differental_Phasemeter_axi_dma_0_1_srl_fifo_f
    (D,
     \GEN_ENABLE_INDET_BTT.sig_coelsc_decerr_reg_reg ,
@@ -31284,6 +31317,7 @@ module Differental_Phasemeter_axi_dma_0_1_srl_fifo_f__parameterized4
         .sig_wdc_status_going_full(sig_wdc_status_going_full));
 endmodule
 
+(* ORIG_REF_NAME = "srl_fifo_rbu_f" *) 
 module Differental_Phasemeter_axi_dma_0_1_srl_fifo_rbu_f
    (D,
     \GEN_ENABLE_INDET_BTT.sig_coelsc_decerr_reg_reg ,
@@ -32008,6 +32042,7 @@ module Differental_Phasemeter_axi_dma_0_1_srl_fifo_rbu_f__parameterized4
         .R(sig_stream_rst));
 endmodule
 
+(* ORIG_REF_NAME = "sync_fifo_fg" *) 
 module Differental_Phasemeter_axi_dma_0_1_sync_fifo_fg
    (dout,
     empty,
@@ -32475,10 +32510,10 @@ module Differental_Phasemeter_axi_dma_0_1_sync_fifo_fg__parameterized0
         .wr_rst_busy(\NLW_xpm_fifo_instance.xpm_fifo_sync_inst_wr_rst_busy_UNCONNECTED ));
 endmodule
 
-(* DEST_SYNC_FF = "4" *) (* INIT_SYNC_FF = "1" *) (* REG_OUTPUT = "0" *) 
-(* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) (* VERSION = "0" *) 
-(* WIDTH = "4" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) 
-(* xpm_cdc = "GRAY" *) 
+(* DEST_SYNC_FF = "4" *) (* INIT_SYNC_FF = "1" *) (* ORIG_REF_NAME = "xpm_cdc_gray" *) 
+(* REG_OUTPUT = "0" *) (* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) 
+(* VERSION = "0" *) (* WIDTH = "4" *) (* XPM_MODULE = "TRUE" *) 
+(* keep_hierarchy = "true" *) (* xpm_cdc = "GRAY" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_cdc_gray
    (src_clk,
     src_in_bin,
@@ -34800,8 +34835,9 @@ module Differental_Phasemeter_axi_dma_0_1_xpm_cdc_gray__parameterized1__2
 endmodule
 
 (* DEF_VAL = "1'b0" *) (* DEST_SYNC_FF = "4" *) (* INIT = "0" *) 
-(* INIT_SYNC_FF = "1" *) (* SIM_ASSERT_CHK = "0" *) (* VERSION = "0" *) 
-(* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) (* xpm_cdc = "SYNC_RST" *) 
+(* INIT_SYNC_FF = "1" *) (* ORIG_REF_NAME = "xpm_cdc_sync_rst" *) (* SIM_ASSERT_CHK = "0" *) 
+(* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) 
+(* xpm_cdc = "SYNC_RST" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_cdc_sync_rst
    (src_rst,
     dest_clk,
@@ -35050,6 +35086,7 @@ module Differental_Phasemeter_axi_dma_0_1_xpm_cdc_sync_rst__6
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "xpm_counter_updn" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_counter_updn
    (Q,
     wrst_busy,
@@ -38318,12 +38355,13 @@ endmodule
 (* CASCADE_HEIGHT = "0" *) (* CDC_SYNC_STAGES = "4" *) (* DOUT_RESET_VALUE = "0" *) 
 (* ECC_MODE = "no_ecc" *) (* EN_ADV_FEATURE_ASYNC = "16'b0001111100011111" *) (* FIFO_MEMORY_TYPE = "block" *) 
 (* FIFO_READ_LATENCY = "0" *) (* FIFO_WRITE_DEPTH = "16" *) (* FULL_RESET_VALUE = "1" *) 
-(* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) (* P_COMMON_CLOCK = "0" *) 
-(* P_ECC_MODE = "0" *) (* P_FIFO_MEMORY_TYPE = "2" *) (* P_READ_MODE = "1" *) 
-(* P_WAKEUP_TIME = "2" *) (* RD_DATA_COUNT_WIDTH = "4" *) (* READ_DATA_WIDTH = "71" *) 
-(* READ_MODE = "fwft" *) (* RELATED_CLOCKS = "0" *) (* SIM_ASSERT_CHK = "0" *) 
-(* USE_ADV_FEATURES = "1F1F" *) (* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH = "71" *) 
-(* WR_DATA_COUNT_WIDTH = "4" *) (* XPM_MODULE = "TRUE" *) (* dont_touch = "true" *) 
+(* ORIG_REF_NAME = "xpm_fifo_async" *) (* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) 
+(* P_COMMON_CLOCK = "0" *) (* P_ECC_MODE = "0" *) (* P_FIFO_MEMORY_TYPE = "2" *) 
+(* P_READ_MODE = "1" *) (* P_WAKEUP_TIME = "2" *) (* RD_DATA_COUNT_WIDTH = "4" *) 
+(* READ_DATA_WIDTH = "71" *) (* READ_MODE = "fwft" *) (* RELATED_CLOCKS = "0" *) 
+(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1F1F" *) (* WAKEUP_TIME = "0" *) 
+(* WRITE_DATA_WIDTH = "71" *) (* WR_DATA_COUNT_WIDTH = "4" *) (* XPM_MODULE = "TRUE" *) 
+(* dont_touch = "true" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_async
    (sleep,
     rst,
@@ -38705,19 +38743,19 @@ endmodule
 (* EN_WACK = "1'b1" *) (* EN_WDC = "1'b1" *) (* FG_EQ_ASYM_DOUT = "1'b0" *) 
 (* FIFO_MEMORY_TYPE = "2" *) (* FIFO_MEM_TYPE = "2" *) (* FIFO_READ_DEPTH = "16" *) 
 (* FIFO_READ_LATENCY = "0" *) (* FIFO_SIZE = "1136" *) (* FIFO_WRITE_DEPTH = "16" *) 
-(* FULL_RESET_VALUE = "1" *) (* FULL_RST_VAL = "1'b1" *) (* PE_THRESH_ADJ = "8" *) 
-(* PE_THRESH_MAX = "11" *) (* PE_THRESH_MIN = "5" *) (* PF_THRESH_ADJ = "8" *) 
-(* PF_THRESH_MAX = "11" *) (* PF_THRESH_MIN = "9" *) (* PROG_EMPTY_THRESH = "10" *) 
-(* PROG_FULL_THRESH = "10" *) (* RD_DATA_COUNT_WIDTH = "4" *) (* RD_DC_WIDTH_EXT = "5" *) 
-(* RD_LATENCY = "2" *) (* RD_MODE = "1" *) (* RD_PNTR_WIDTH = "4" *) 
-(* READ_DATA_WIDTH = "71" *) (* READ_MODE = "1" *) (* READ_MODE_LL = "1" *) 
-(* RELATED_CLOCKS = "0" *) (* REMOVE_WR_RD_PROT_LOGIC = "0" *) (* SIM_ASSERT_CHK = "0" *) 
-(* USE_ADV_FEATURES = "1F1F" *) (* VERSION = "0" *) (* WAKEUP_TIME = "0" *) 
-(* WIDTH_RATIO = "1" *) (* WRITE_DATA_WIDTH = "71" *) (* WR_DATA_COUNT_WIDTH = "4" *) 
-(* WR_DC_WIDTH_EXT = "5" *) (* WR_DEPTH_LOG = "4" *) (* WR_PNTR_WIDTH = "4" *) 
-(* WR_RD_RATIO = "0" *) (* WR_WIDTH_LOG = "7" *) (* XPM_MODULE = "TRUE" *) 
-(* both_stages_valid = "3" *) (* invalid = "0" *) (* keep_hierarchy = "soft" *) 
-(* stage1_valid = "2" *) (* stage2_valid = "1" *) 
+(* FULL_RESET_VALUE = "1" *) (* FULL_RST_VAL = "1'b1" *) (* ORIG_REF_NAME = "xpm_fifo_base" *) 
+(* PE_THRESH_ADJ = "8" *) (* PE_THRESH_MAX = "11" *) (* PE_THRESH_MIN = "5" *) 
+(* PF_THRESH_ADJ = "8" *) (* PF_THRESH_MAX = "11" *) (* PF_THRESH_MIN = "9" *) 
+(* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) (* RD_DATA_COUNT_WIDTH = "4" *) 
+(* RD_DC_WIDTH_EXT = "5" *) (* RD_LATENCY = "2" *) (* RD_MODE = "1" *) 
+(* RD_PNTR_WIDTH = "4" *) (* READ_DATA_WIDTH = "71" *) (* READ_MODE = "1" *) 
+(* READ_MODE_LL = "1" *) (* RELATED_CLOCKS = "0" *) (* REMOVE_WR_RD_PROT_LOGIC = "0" *) 
+(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1F1F" *) (* VERSION = "0" *) 
+(* WAKEUP_TIME = "0" *) (* WIDTH_RATIO = "1" *) (* WRITE_DATA_WIDTH = "71" *) 
+(* WR_DATA_COUNT_WIDTH = "4" *) (* WR_DC_WIDTH_EXT = "5" *) (* WR_DEPTH_LOG = "4" *) 
+(* WR_PNTR_WIDTH = "4" *) (* WR_RD_RATIO = "0" *) (* WR_WIDTH_LOG = "7" *) 
+(* XPM_MODULE = "TRUE" *) (* both_stages_valid = "3" *) (* invalid = "0" *) 
+(* keep_hierarchy = "soft" *) (* stage1_valid = "2" *) (* stage2_valid = "1" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_base
    (sleep,
     rst,
@@ -40977,6 +41015,7 @@ module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_base__parameterized2
         .wr_en(wr_en));
 endmodule
 
+(* ORIG_REF_NAME = "xpm_fifo_reg_bit" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_reg_bit
    (rst_d1,
     \gen_pf_ic_rc.gpf_ic.diff_pntr_pf_q_reg[4] ,
@@ -41230,6 +41269,7 @@ module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_reg_bit_32
         .O(clr_full));
 endmodule
 
+(* ORIG_REF_NAME = "xpm_fifo_reg_vec" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_reg_vec
    (\gen_pf_ic_rc.gen_full_rst_val.ram_full_i_reg ,
     diff_pntr_pf_q0,
@@ -42211,6 +42251,7 @@ module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_reg_vec__parameterized0_9
         .R(\reg_out_i_reg[4]_0 ));
 endmodule
 
+(* ORIG_REF_NAME = "xpm_fifo_rst" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_rst
    (\gen_rst_ic.fifo_rd_rst_ic_reg_0 ,
     wrst_busy,
@@ -43216,13 +43257,13 @@ endmodule
 
 (* CASCADE_HEIGHT = "0" *) (* DOUT_RESET_VALUE = "0" *) (* ECC_MODE = "no_ecc" *) 
 (* EN_ADV_FEATURE_SYNC = "16'b0001111100011111" *) (* FIFO_MEMORY_TYPE = "auto" *) (* FIFO_READ_LATENCY = "0" *) 
-(* FIFO_WRITE_DEPTH = "16" *) (* FULL_RESET_VALUE = "1" *) (* PROG_EMPTY_THRESH = "10" *) 
-(* PROG_FULL_THRESH = "10" *) (* P_COMMON_CLOCK = "1" *) (* P_ECC_MODE = "0" *) 
-(* P_FIFO_MEMORY_TYPE = "0" *) (* P_READ_MODE = "1" *) (* P_WAKEUP_TIME = "2" *) 
-(* RD_DATA_COUNT_WIDTH = "4" *) (* READ_DATA_WIDTH = "13" *) (* READ_MODE = "fwft" *) 
-(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1F1F" *) (* WAKEUP_TIME = "0" *) 
-(* WRITE_DATA_WIDTH = "13" *) (* WR_DATA_COUNT_WIDTH = "5" *) (* XPM_MODULE = "TRUE" *) 
-(* keep_hierarchy = "soft" *) 
+(* FIFO_WRITE_DEPTH = "16" *) (* FULL_RESET_VALUE = "1" *) (* ORIG_REF_NAME = "xpm_fifo_sync" *) 
+(* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) (* P_COMMON_CLOCK = "1" *) 
+(* P_ECC_MODE = "0" *) (* P_FIFO_MEMORY_TYPE = "0" *) (* P_READ_MODE = "1" *) 
+(* P_WAKEUP_TIME = "2" *) (* RD_DATA_COUNT_WIDTH = "4" *) (* READ_DATA_WIDTH = "13" *) 
+(* READ_MODE = "fwft" *) (* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1F1F" *) 
+(* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH = "13" *) (* WR_DATA_COUNT_WIDTH = "5" *) 
+(* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "soft" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_fifo_sync
    (sleep,
     rst,
@@ -43626,24 +43667,25 @@ endmodule
 (* ECC_TYPE = "NONE" *) (* IGNORE_INIT_SYNTH = "0" *) (* MAX_NUM_CHAR = "0" *) 
 (* MEMORY_INIT_FILE = "none" *) (* MEMORY_INIT_PARAM = "" *) (* MEMORY_OPTIMIZATION = "true" *) 
 (* MEMORY_PRIMITIVE = "2" *) (* MEMORY_SIZE = "1136" *) (* MEMORY_TYPE = "1" *) 
-(* MESSAGE_CONTROL = "0" *) (* NUM_CHAR_LOC = "0" *) (* P_ECC_MODE = "no_ecc" *) 
-(* P_ENABLE_BYTE_WRITE_A = "0" *) (* P_ENABLE_BYTE_WRITE_B = "0" *) (* P_MAX_DEPTH_DATA = "16" *) 
-(* P_MEMORY_OPT = "yes" *) (* P_MEMORY_PRIMITIVE = "block" *) (* P_MIN_WIDTH_DATA = "71" *) 
-(* P_MIN_WIDTH_DATA_A = "71" *) (* P_MIN_WIDTH_DATA_B = "71" *) (* P_MIN_WIDTH_DATA_ECC = "71" *) 
-(* P_MIN_WIDTH_DATA_LDW = "4" *) (* P_MIN_WIDTH_DATA_SHFT = "71" *) (* P_NUM_COLS_WRITE_A = "1" *) 
-(* P_NUM_COLS_WRITE_B = "1" *) (* P_NUM_ROWS_READ_A = "1" *) (* P_NUM_ROWS_READ_B = "1" *) 
-(* P_NUM_ROWS_WRITE_A = "1" *) (* P_NUM_ROWS_WRITE_B = "1" *) (* P_SDP_WRITE_MODE = "no" *) 
-(* P_WIDTH_ADDR_LSB_READ_A = "0" *) (* P_WIDTH_ADDR_LSB_READ_B = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) 
-(* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) (* P_WIDTH_ADDR_READ_A = "4" *) (* P_WIDTH_ADDR_READ_B = "4" *) 
-(* P_WIDTH_ADDR_WRITE_A = "4" *) (* P_WIDTH_ADDR_WRITE_B = "4" *) (* P_WIDTH_COL_WRITE_A = "71" *) 
-(* P_WIDTH_COL_WRITE_B = "71" *) (* READ_DATA_WIDTH_A = "71" *) (* READ_DATA_WIDTH_B = "71" *) 
-(* READ_LATENCY_A = "2" *) (* READ_LATENCY_B = "2" *) (* READ_RESET_VALUE_A = "0" *) 
-(* READ_RESET_VALUE_B = "0" *) (* RST_MODE_A = "SYNC" *) (* RST_MODE_B = "SYNC" *) 
-(* SIM_ASSERT_CHK = "0" *) (* USE_EMBEDDED_CONSTRAINT = "0" *) (* USE_MEM_INIT = "0" *) 
-(* USE_MEM_INIT_MMI = "0" *) (* VERSION = "0" *) (* WAKEUP_TIME = "0" *) 
-(* WRITE_DATA_WIDTH_A = "71" *) (* WRITE_DATA_WIDTH_B = "71" *) (* WRITE_MODE_A = "2" *) 
-(* WRITE_MODE_B = "2" *) (* WRITE_PROTECT = "1" *) (* XPM_MODULE = "TRUE" *) 
-(* keep_hierarchy = "soft" *) (* rsta_loop_iter = "72" *) (* rstb_loop_iter = "72" *) 
+(* MESSAGE_CONTROL = "0" *) (* NUM_CHAR_LOC = "0" *) (* ORIG_REF_NAME = "xpm_memory_base" *) 
+(* P_ECC_MODE = "no_ecc" *) (* P_ENABLE_BYTE_WRITE_A = "0" *) (* P_ENABLE_BYTE_WRITE_B = "0" *) 
+(* P_MAX_DEPTH_DATA = "16" *) (* P_MEMORY_OPT = "yes" *) (* P_MEMORY_PRIMITIVE = "block" *) 
+(* P_MIN_WIDTH_DATA = "71" *) (* P_MIN_WIDTH_DATA_A = "71" *) (* P_MIN_WIDTH_DATA_B = "71" *) 
+(* P_MIN_WIDTH_DATA_ECC = "71" *) (* P_MIN_WIDTH_DATA_LDW = "4" *) (* P_MIN_WIDTH_DATA_SHFT = "71" *) 
+(* P_NUM_COLS_WRITE_A = "1" *) (* P_NUM_COLS_WRITE_B = "1" *) (* P_NUM_ROWS_READ_A = "1" *) 
+(* P_NUM_ROWS_READ_B = "1" *) (* P_NUM_ROWS_WRITE_A = "1" *) (* P_NUM_ROWS_WRITE_B = "1" *) 
+(* P_SDP_WRITE_MODE = "no" *) (* P_WIDTH_ADDR_LSB_READ_A = "0" *) (* P_WIDTH_ADDR_LSB_READ_B = "0" *) 
+(* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) (* P_WIDTH_ADDR_READ_A = "4" *) 
+(* P_WIDTH_ADDR_READ_B = "4" *) (* P_WIDTH_ADDR_WRITE_A = "4" *) (* P_WIDTH_ADDR_WRITE_B = "4" *) 
+(* P_WIDTH_COL_WRITE_A = "71" *) (* P_WIDTH_COL_WRITE_B = "71" *) (* READ_DATA_WIDTH_A = "71" *) 
+(* READ_DATA_WIDTH_B = "71" *) (* READ_LATENCY_A = "2" *) (* READ_LATENCY_B = "2" *) 
+(* READ_RESET_VALUE_A = "0" *) (* READ_RESET_VALUE_B = "0" *) (* RST_MODE_A = "SYNC" *) 
+(* RST_MODE_B = "SYNC" *) (* SIM_ASSERT_CHK = "0" *) (* USE_EMBEDDED_CONSTRAINT = "0" *) 
+(* USE_MEM_INIT = "0" *) (* USE_MEM_INIT_MMI = "0" *) (* VERSION = "0" *) 
+(* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH_A = "71" *) (* WRITE_DATA_WIDTH_B = "71" *) 
+(* WRITE_MODE_A = "2" *) (* WRITE_MODE_B = "2" *) (* WRITE_PROTECT = "1" *) 
+(* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "soft" *) (* rsta_loop_iter = "72" *) 
+(* rstb_loop_iter = "72" *) 
 module Differental_Phasemeter_axi_dma_0_1_xpm_memory_base
    (sleep,
     clka,

@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -141,6 +141,9 @@ set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_SamplingReset_1/Differental_Phasemeter_GPIO_SamplingReset_1_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_SamplingReset_1/Differental_Phasemeter_GPIO_SamplingReset_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_SamplingReset_1/Differental_Phasemeter_GPIO_SamplingReset_1.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/Differental_Phasemeter_GPIO_LoggerStatus_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/Differental_Phasemeter_GPIO_LoggerStatus_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/Differental_Phasemeter_GPIO_LoggerStatus_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_processing_system7_0_0/Differental_Phasemeter_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_proc_sys_reset_0_0/Differental_Phasemeter_proc_sys_reset_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_proc_sys_reset_0_0/Differental_Phasemeter_proc_sys_reset_0_0.xdc]
@@ -152,9 +155,6 @@ set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_protocol_convert_0_1/Differental_Phasemeter_axi_protocol_convert_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_3/Differental_Phasemeter_xbar_3_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_4/Differental_Phasemeter_xbar_4_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/Differental_Phasemeter_GPIO_LoggerStatus_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/Differental_Phasemeter_GPIO_LoggerStatus_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/Differental_Phasemeter_GPIO_LoggerStatus_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_0/Differental_Phasemeter_auto_pc_0_ooc.xdc]
 set_property used_in_synthesis false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_us_0/Differental_Phasemeter_auto_us_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_us_0/Differental_Phasemeter_auto_us_0_clocks.xdc]

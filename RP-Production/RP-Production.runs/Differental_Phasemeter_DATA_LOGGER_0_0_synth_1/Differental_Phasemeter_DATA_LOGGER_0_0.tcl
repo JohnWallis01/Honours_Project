@@ -70,8 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "Differental_Phasemeter_DATA_LOGGER_0_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/mref
@@ -94,7 +92,7 @@ set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logger_Core.v
-read_ip -quiet c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_DATA_LOGGER_0_0/Differental_Phasemeter_DATA_LOGGER_0_0.xci
+read_ip -quiet C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_DATA_LOGGER_0_0/Differental_Phasemeter_DATA_LOGGER_0_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

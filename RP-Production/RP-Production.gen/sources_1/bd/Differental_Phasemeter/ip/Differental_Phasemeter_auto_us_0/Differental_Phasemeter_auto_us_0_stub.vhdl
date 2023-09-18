@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Jun 12 13:40:07 2023
+-- Date        : Mon Sep 18 21:43:45 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top Differental_Phasemeter_auto_us_0 -prefix
---               Differental_Phasemeter_auto_us_0_ system_auto_us_1_stub.vhdl
--- Design      : system_auto_us_1
+--               Differental_Phasemeter_auto_us_0_ Differental_Phasemeter_auto_us_0_stub.vhdl
+-- Design      : Differental_Phasemeter_auto_us_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1
 -- --------------------------------------------------------------------------------

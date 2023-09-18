@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "Differental_Phasemeter_Costa_Demodulator_0_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
+set_msg_config -id {Common 17-41} -limit 10000000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/mref

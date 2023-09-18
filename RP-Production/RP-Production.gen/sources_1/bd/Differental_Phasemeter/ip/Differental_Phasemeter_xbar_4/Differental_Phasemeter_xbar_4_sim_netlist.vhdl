@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Sep 18 15:51:24 2023
--- Host        : Valkyrie running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top Differental_Phasemeter_xbar_4 -prefix
---               Differental_Phasemeter_xbar_4_ Differental_Phasemeter_xbar_4_sim_netlist.vhdl
+-- Date        : Mon Sep 18 21:43:39 2023
+-- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_4/Differental_Phasemeter_xbar_4_sim_netlist.vhdl
 -- Design      : Differental_Phasemeter_xbar_4
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -48,6 +48,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_addr_arbiter is
     \gen_no_arbiter.m_target_hot_i_reg[2]_4\ : in STD_LOGIC;
     aresetn_d : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_addr_arbiter : entity is "axi_crossbar_v2_1_28_addr_arbiter";
 end Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_addr_arbiter;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_addr_arbiter is
@@ -1896,6 +1898,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_arbiter_resp is
     SR : in STD_LOGIC_VECTOR ( 0 to 0 );
     aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_arbiter_resp : entity is "axi_crossbar_v2_1_28_arbiter_resp";
 end Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_arbiter_resp;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_arbiter_resp is
@@ -3952,6 +3956,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_decerr_slave is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_axi.s_axi_bid_i_reg[11]_0\ : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_decerr_slave : entity is "axi_crossbar_v2_1_28_decerr_slave";
 end Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_decerr_slave;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_decerr_slave is
@@ -4696,6 +4702,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_splitter is
     aresetn_d : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_splitter : entity is "axi_crossbar_v2_1_28_splitter";
 end Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_splitter;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_splitter is
@@ -10065,6 +10073,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_si_transactor is
     \gen_no_arbiter.m_valid_i_reg_inv_0\ : in STD_LOGIC;
     p_1_in : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_si_transactor : entity is "axi_crossbar_v2_1_28_si_transactor";
 end Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_si_transactor;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_si_transactor is
@@ -16150,6 +16160,8 @@ entity Differental_Phasemeter_xbar_4_axi_data_fifo_v2_1_26_axic_reg_srl_fifo is
     mi_wready_2 : in STD_LOGIC;
     \storage_data1_reg[1]_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_data_fifo_v2_1_26_axic_reg_srl_fifo : entity is "axi_data_fifo_v2_1_26_axic_reg_srl_fifo";
 end Differental_Phasemeter_xbar_4_axi_data_fifo_v2_1_26_axic_reg_srl_fifo;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_data_fifo_v2_1_26_axic_reg_srl_fifo is
@@ -16597,6 +16609,8 @@ entity Differental_Phasemeter_xbar_4_axi_register_slice_v2_1_27_axi_register_sli
     \m_payload_i_reg[13]_0\ : in STD_LOGIC_VECTOR ( 13 downto 0 );
     \m_payload_i_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_register_slice_v2_1_27_axi_register_slice : entity is "axi_register_slice_v2_1_27_axi_register_slice";
 end Differental_Phasemeter_xbar_4_axi_register_slice_v2_1_27_axi_register_slice;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_register_slice_v2_1_27_axi_register_slice is
@@ -16860,6 +16874,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_wdata_router is
     mi_wready_2 : in STD_LOGIC;
     \storage_data1_reg[1]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_wdata_router : entity is "axi_crossbar_v2_1_28_wdata_router";
 end Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_wdata_router;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_wdata_router is
@@ -16932,6 +16948,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_crossbar is
     s_axi_wlast : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_wready : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_crossbar : entity is "axi_crossbar_v2_1_28_crossbar";
 end Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_crossbar;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_crossbar is
@@ -17782,6 +17800,8 @@ entity Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_axi_crossbar is
   attribute C_S_AXI_WRITE_ACCEPTANCE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_axi_crossbar : entity is 8;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_axi_crossbar : entity is "yes";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_axi_crossbar : entity is "axi_crossbar_v2_1_28_axi_crossbar";
   attribute P_ADDR_DECODE : integer;
   attribute P_ADDR_DECODE of Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_axi_crossbar : entity is 1;
   attribute P_AXI3 : integer;

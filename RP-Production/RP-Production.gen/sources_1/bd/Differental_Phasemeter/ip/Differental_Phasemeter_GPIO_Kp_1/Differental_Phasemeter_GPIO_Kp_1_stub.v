@@ -1,11 +1,11 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Mar 15 12:15:59 2023
+// Date        : Mon Sep 18 21:42:10 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top Differental_Phasemeter_GPIO_Kp_1 -prefix
-//               Differental_Phasemeter_GPIO_Kp_1_ system_axi_gpio_4_0_stub.v
-// Design      : system_axi_gpio_4_0
+//               Differental_Phasemeter_GPIO_Kp_1_ Differental_Phasemeter_GPIO_Ki_0_stub.v
+// Design      : Differental_Phasemeter_GPIO_Ki_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1
 // --------------------------------------------------------------------------------

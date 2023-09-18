@@ -84,9 +84,9 @@
         "Variable_Delay_0": ""
       },
       "DMA_Interconnect_0": "",
-      "Costa_Demodulator_0": "",
       "PRBS_Multiply_0": "",
-      "Reset_Gen_0": ""
+      "Reset_Gen_0": "",
+      "Costa_Demodulator_0": ""
     },
     "interface_ports": {
       "Vp_Vn": {
@@ -5936,6 +5936,73 @@
           }
         }
       },
+      "PRBS_Multiply_0": {
+        "vlnv": "xilinx.com:module_ref:PRBS_Multiply:1.0",
+        "xci_name": "system_PRBS_Multiply_0_0",
+        "xci_path": "ip\\system_PRBS_Multiply_0_0\\system_PRBS_Multiply_0_0.xci",
+        "inst_hier_path": "PRBS_Multiply_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "PRBS_Multiply",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PRBS": {
+            "direction": "I"
+          },
+          "Scale": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "Output_Signal": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Clock": {
+            "type": "clk",
+            "direction": "I"
+          }
+        }
+      },
+      "Reset_Gen_0": {
+        "vlnv": "xilinx.com:module_ref:Reset_Gen:1.0",
+        "xci_name": "system_Reset_Gen_0_0",
+        "xci_path": "ip\\system_Reset_Gen_0_0\\system_Reset_Gen_0_0.xci",
+        "inst_hier_path": "Reset_Gen_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Reset_Gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "O"
+          },
+          "ResetN": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
+      },
       "Costa_Demodulator_0": {
         "vlnv": "xilinx.com:module_ref:Costa_Demodulator:1.0",
         "xci_name": "system_Costa_Demodulator_0_0",
@@ -6017,73 +6084,6 @@
           "Reset": {
             "type": "rst",
             "direction": "I"
-          }
-        }
-      },
-      "PRBS_Multiply_0": {
-        "vlnv": "xilinx.com:module_ref:PRBS_Multiply:1.0",
-        "xci_name": "system_PRBS_Multiply_0_0",
-        "xci_path": "ip\\system_PRBS_Multiply_0_0\\system_PRBS_Multiply_0_0.xci",
-        "inst_hier_path": "PRBS_Multiply_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "PRBS_Multiply",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "PRBS": {
-            "direction": "I"
-          },
-          "Scale": {
-            "direction": "I",
-            "left": "13",
-            "right": "0"
-          },
-          "Output_Signal": {
-            "direction": "O",
-            "left": "13",
-            "right": "0"
-          },
-          "Clock": {
-            "type": "clk",
-            "direction": "I"
-          }
-        }
-      },
-      "Reset_Gen_0": {
-        "vlnv": "xilinx.com:module_ref:Reset_Gen:1.0",
-        "xci_name": "system_Reset_Gen_0_0",
-        "xci_path": "ip\\system_Reset_Gen_0_0\\system_Reset_Gen_0_0.xci",
-        "inst_hier_path": "Reset_Gen_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Reset_Gen",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "Reset",
-                "value_src": "constant"
-              }
-            }
-          },
-          "Reset": {
-            "type": "rst",
-            "direction": "O"
-          },
-          "ResetN": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
           }
         }
       }
@@ -6284,9 +6284,9 @@
           "PS7/aclk",
           "PRBS/DivClock_In",
           "DMA_Interconnect_0/aclk",
-          "Costa_Demodulator_0/Clock",
           "PRBS_Multiply_0/Clock",
-          "Reset_Gen_0/Clock"
+          "Reset_Gen_0/Clock",
+          "Costa_Demodulator_0/Clock"
         ]
       },
       "PRBS_Multiply_0_Output_Signal": {

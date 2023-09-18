@@ -1,0 +1,25 @@
+
+*** Running vivado
+    with args -log Differental_Phasemeter_GPIO_PRBS_Scale_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Differental_Phasemeter_GPIO_PRBS_Scale_0.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source Differental_Phasemeter_GPIO_PRBS_Scale_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 394.094 ; gain = 61.863
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: Differental_Phasemeter_GPIO_PRBS_Scale_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 17a2f062a9918d95 to dir: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.cache/ip/2022.2/1/7/17a2f062a9918d95/Differental_Phasemeter_GPIO_PRBS_Scale_2.dcp to C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1/Differental_Phasemeter_GPIO_PRBS_Scale_0.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.cache/ip/2022.2/1/7/17a2f062a9918d95/Differental_Phasemeter_GPIO_PRBS_Scale_2_sim_netlist.v to C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1/Differental_Phasemeter_GPIO_PRBS_Scale_0_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.cache/ip/2022.2/1/7/17a2f062a9918d95/Differental_Phasemeter_GPIO_PRBS_Scale_2_sim_netlist.vhdl to C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1/Differental_Phasemeter_GPIO_PRBS_Scale_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.cache/ip/2022.2/1/7/17a2f062a9918d95/Differental_Phasemeter_GPIO_PRBS_Scale_2_stub.v to C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1/Differental_Phasemeter_GPIO_PRBS_Scale_0_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.cache/ip/2022.2/1/7/17a2f062a9918d95/Differental_Phasemeter_GPIO_PRBS_Scale_2_stub.vhdl to C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1/Differental_Phasemeter_GPIO_PRBS_Scale_0_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP Differental_Phasemeter_GPIO_PRBS_Scale_0, cache-ID = 17a2f062a9918d95.
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 18 21:42:28 2023...

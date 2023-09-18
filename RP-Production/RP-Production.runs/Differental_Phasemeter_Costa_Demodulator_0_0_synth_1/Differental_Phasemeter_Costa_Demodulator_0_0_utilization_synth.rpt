@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Mon Sep 18 15:38:34 2023
-| Host         : Valkyrie running 64-bit major release  (build 9200)
+| Date         : Mon Sep 18 22:59:54 2023
+| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Differental_Phasemeter_Costa_Demodulator_0_0_utilization_synth.rpt -pb Differental_Phasemeter_Costa_Demodulator_0_0_utilization_synth.pb
 | Design       : Differental_Phasemeter_Costa_Demodulator_0_0
 | Device       : xc7z010clg400-1
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  746 |     0 |          0 |     17600 |  4.24 |
-|   LUT as Logic          |  746 |     0 |          0 |     17600 |  4.24 |
+| Slice LUTs*             |  750 |     0 |          0 |     17600 |  4.26 |
+|   LUT as Logic          |  750 |     0 |          0 |     17600 |  4.26 |
 |   LUT as Memory         |    0 |     0 |          0 |      6000 |  0.00 |
-| Slice Registers         |  869 |     0 |          0 |     35200 |  2.47 |
-|   Register as Flip Flop |  869 |     0 |          0 |     35200 |  2.47 |
+| Slice Registers         |  881 |     0 |          0 |     35200 |  2.50 |
+|   Register as Flip Flop |  881 |     0 |          0 |     35200 |  2.50 |
 |   Register as Latch     |    0 |     0 |          0 |     35200 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |      8800 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |      4400 |  0.00 |
@@ -59,7 +59,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 500   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 369   |          Yes |       Reset |            - |
+| 381   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -69,10 +69,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-------------------+------+-------+------------+-----------+-------+
 |     Site Type     | Used | Fixed | Prohibited | Available | Util% |
 +-------------------+------+-------+------------+-----------+-------+
-| Block RAM Tile    |  0.5 |     0 |          0 |        60 |  0.83 |
-|   RAMB36/FIFO*    |    0 |     0 |          0 |        60 |  0.00 |
-|   RAMB18          |    1 |     0 |          0 |       120 |  0.83 |
-|     RAMB18E1 only |    1 |       |            |           |       |
+| Block RAM Tile    |    2 |     0 |          0 |        60 |  3.33 |
+|   RAMB36/FIFO*    |    2 |     0 |          0 |        60 |  3.33 |
+|     RAMB36E1 only |    2 |       |            |           |       |
+|   RAMB18          |    0 |     0 |          0 |       120 |  0.00 |
 +-------------------+------+-------+------------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
@@ -150,9 +150,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |  614 |                 LUT |
+| LUT2     |  622 |                 LUT |
 | FDCE     |  500 |        Flop & Latch |
-| FDRE     |  369 |        Flop & Latch |
+| FDRE     |  381 |        Flop & Latch |
 | CARRY4   |  174 |          CarryLogic |
 | LUT4     |   76 |                 LUT |
 | LUT3     |   74 |                 LUT |
@@ -160,7 +160,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | LUT1     |   29 |                 LUT |
 | DSP48E1  |   13 |    Block Arithmetic |
 | LUT5     |   12 |                 LUT |
-| RAMB18E1 |    1 |        Block Memory |
+| RAMB36E1 |    2 |        Block Memory |
 +----------+------+---------------------+
 
 

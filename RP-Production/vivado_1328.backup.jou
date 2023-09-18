@@ -1,0 +1,649 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Mar 15 11:05:50 2023
+# Process ID: 1328
+# Current directory: C:/Users/John/Desktop/Honours_Project/RP-Production
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2120 C:\Users\John\Desktop\Honours_Project\RP-Production\RP-Production.xpr
+# Log file: C:/Users/John/Desktop/Honours_Project/RP-Production/vivado.log
+# Journal file: C:/Users/John/Desktop/Honours_Project/RP-Production\vivado.jou
+# Running On: Centurion-Heavy, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17101 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.xpr
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+update_compile_order -fileset sources_1
+set_property location {1 145 -385} [get_bd_cells PS7]
+set_property location {2 479 -667} [get_bd_cells util_ds_buf_0]
+set_property location {-49 -681} [get_bd_ports daisy_p_i]
+set_property location {1583 -670} [get_bd_ports daisy_p_o]
+set_property location {1576 -647} [get_bd_ports daisy_n_o]
+set_property location {-56 -673} [get_bd_ports daisy_p_i]
+set_property location {1579 -564} [get_bd_intf_ports DDR]
+set_property location {1559 -544} [get_bd_intf_ports FIXED_IO]
+set_property location {1 155 -484} [get_bd_cells PS7]
+set_property location {1 148 -516} [get_bd_cells PS7]
+set_property location {1559 -531} [get_bd_intf_ports DDR]
+set_property location {1554 -617} [get_bd_intf_ports DDR]
+set_property location {3 870 -344} [get_bd_cells SignalGenerator]
+set_property location {3 879 -318} [get_bd_cells SignalGenerator]
+set_property location {1 151 129} [get_bd_cells axis_red_pitaya_adc_0]
+set_property location {1 483 -708} [get_bd_cells util_ds_buf_0]
+set_property location {2 1678 -683} [get_bd_cells util_ds_buf_1]
+set_property location {2 1649 -733} [get_bd_cells util_ds_buf_1]
+set_property location {2 1628 -725} [get_bd_cells util_ds_buf_1]
+set_property location {2 1664 -714} [get_bd_cells util_ds_buf_1]
+set_property location {1.5 1254 -367} [get_bd_cells axi_gpio_0]
+set_property location {2 1240 -380} [get_bd_cells axi_gpio_0]
+set_property location {3514 411} [get_bd_ports adc_csn_o]
+move_bd_cells [get_bd_cells /] [get_bd_cells SignalGenerator/axis_red_pitaya_dac_1]
+move_bd_cells [get_bd_cells /] [get_bd_cells SignalGenerator/axis_constant_0]
+set_property location {4 2909 -176} [get_bd_cells axis_constant_0]
+move_bd_cells [get_bd_cells /] [get_bd_cells SignalGenerator/clk_wiz_0]
+move_bd_cells [get_bd_cells /] [get_bd_cells SignalGenerator/DacRoute_0]
+set_property location {4 2932 -109} [get_bd_cells DacRoute_0]
+set_property location {4 2939 -139} [get_bd_cells DacRoute_0]
+set_property location {4.5 3089 -136} [get_bd_cells axis_constant_0]
+set_property location {4 2833 -134} [get_bd_cells DacRoute_0]
+set_property location {5 3080 -189} [get_bd_cells axis_constant_0]
+set_property location {5 3076 -185} [get_bd_cells axis_constant_0]
+set_property location {4 2836 -183} [get_bd_cells DacRoute_0]
+set_property location {4 2843 -178} [get_bd_cells DacRoute_0]
+set_property location {4 2837 -173} [get_bd_cells DacRoute_0]
+set_property location {5 3026 -44} [get_bd_cells clk_wiz_0]
+group_bd_cells DAC_Controller [get_bd_cells axis_constant_0] [get_bd_cells DacRoute_0] [get_bd_cells clk_wiz_0] [get_bd_cells axis_red_pitaya_dac_1]
+connect_bd_net [get_bd_pins DAC_Controller/DacRoute_0/in1] [get_bd_pins PIG_Controller_0/SignalOutput]
+delete_bd_objs [get_bd_nets DAC_Controller/in1_1]
+delete_bd_objs [get_bd_nets PIG_Controller_0_SignalOutput]
+connect_bd_net [get_bd_pins DAC_Controller/in1] [get_bd_pins DAC_Controller/DacRoute_0/in1]
+set_property location {-16 168} [get_bd_pins DAC_Controller/aclk]
+set_property location {-23 30} [get_bd_pins DAC_Controller/in1]
+set_property location {-14 57} [get_bd_pins DAC_Controller/in2]
+delete_bd_objs [get_bd_nets DAC_Controller/in1_1]
+delete_bd_objs [get_bd_pins DAC_Controller/in1]
+delete_bd_objs [get_bd_nets DAC_Controller/SignalGenerator_Dout]
+delete_bd_objs [get_bd_nets SignalGenerator_Dout] [get_bd_pins DAC_Controller/in2]
+create_bd_pin -dir I -from 14 -to 0 DAC_Controller/Dac1
+create_bd_pin -dir I -from 14 -to 0 DAC_Controller/Dac2
+connect_bd_net [get_bd_pins DAC_Controller/Dac1] [get_bd_pins DAC_Controller/DacRoute_0/in1]
+connect_bd_net [get_bd_pins DAC_Controller/Dac2] [get_bd_pins DAC_Controller/DacRoute_0/in2]
+set_property location {-16 85} [get_bd_pins DAC_Controller/Dac1]
+set_property location {-18 102} [get_bd_pins DAC_Controller/Dac2]
+save_bd_design
+set_property location {2 848 147} [get_bd_cells AXI4_Stream_Reader_0]
+set_property location {2 905 142} [get_bd_cells AXI4_Stream_Reader_0]
+set_property location {1.5 792 224} [get_bd_cells AXI4_Stream_Reader_0]
+set_property location {1.5 658 328} [get_bd_cells axis_red_pitaya_adc_0]
+set_property location {2 665 233} [get_bd_cells axis_red_pitaya_adc_0]
+move_bd_cells [get_bd_cells /] [get_bd_cells SignalGenerator/BitSlicer_0]
+set_property location {4 1182 222} [get_bd_cells BitSlicer_0]
+copy_bd_objs /  [get_bd_cells {BitSlicer_0}]
+connect_bd_net [get_bd_pins BitSlicer_1/Data_In] [get_bd_pins AXI4_Stream_Reader_0/Dout]
+startgroup
+set_property -dict [list \
+  CONFIG.Slice_End {0} \
+  CONFIG.Slice_Start {13} \
+] [get_bd_cells BitSlicer_1]
+endgroup
+group_bd_cells ADC_Interface [get_bd_cells BitSlicer_0] [get_bd_cells axis_red_pitaya_adc_0] [get_bd_cells AXI4_Stream_Reader_0] [get_bd_cells BitSlicer_1]
+set_property name ADC2 [get_bd_pins ADC_Interface/Data_Out]
+create_bd_pin -dir O -from 14 -to 0 ADC_Interface/ADC1
+connect_bd_net [get_bd_pins ADC_Interface/ADC1] [get_bd_pins ADC_Interface/BitSlicer_1/Data_Out]
+set_property location {850 199} [get_bd_pins ADC_Interface/ADC1]
+set_property location {850 203} [get_bd_pins ADC_Interface/ADC1]
+set_property location {3 663 271} [get_bd_cells ADC_Interface/BitSlicer_0]
+set_property location {3 656 101} [get_bd_cells ADC_Interface/BitSlicer_1]
+set_property location {835 109} [get_bd_pins ADC_Interface/ADC1]
+set_property location {3 667 219} [get_bd_cells ADC_Interface/BitSlicer_0]
+set_property location {839 97} [get_bd_pins ADC_Interface/ADC1]
+save_bd_design
+set_property location {837 104} [get_bd_pins ADC_Interface/ADC1]
+delete_bd_objs [get_bd_nets ADC_Interface/BitSlicer_1_Data_Out] [get_bd_pins ADC_Interface/ADC1]
+delete_bd_objs [get_bd_nets ADC_Interface/BitSlicer_0_Data_Out] [get_bd_nets BitSlicer_0_Data_Out] [get_bd_pins ADC_Interface/ADC2]
+create_bd_pin -dir O -from 14 -to 0 ADC_Interface/ADC1
+create_bd_pin -dir O ADC_Interface/ADC2
+connect_bd_net [get_bd_pins ADC_Interface/ADC2] [get_bd_pins ADC_Interface/BitSlicer_0/Data_Out]
+connect_bd_net [get_bd_pins ADC_Interface/ADC1] [get_bd_pins ADC_Interface/BitSlicer_1/Data_Out]
+set_property location {848 111} [get_bd_pins ADC_Interface/ADC1]
+set_property location {839 106} [get_bd_pins ADC_Interface/ADC1]
+set_property location {842 95} [get_bd_pins ADC_Interface/ADC1]
+set_property location {839 102} [get_bd_pins ADC_Interface/ADC1]
+delete_bd_objs [get_bd_nets ADC_Interface/BitSlicer_0_Data_Out] [get_bd_pins ADC_Interface/ADC2]
+create_bd_pin -dir I -from 14 -to 0 ADC_Interface/ADC2
+delete_bd_objs [get_bd_pins ADC_Interface/ADC2]
+create_bd_pin -dir O -from 14 -to 0 ADC_Interface/ADC2
+connect_bd_net [get_bd_pins ADC_Interface/ADC2] [get_bd_pins ADC_Interface/BitSlicer_0/Data_Out]
+set_property location {839 214} [get_bd_pins ADC_Interface/ADC2]
+set_property location {837 222} [get_bd_pins ADC_Interface/ADC2]
+save_bd_design
+set_property location {1 24 205} [get_bd_cells ADC_Interface]
+set_property location {1 -384 113} [get_bd_cells ADC_Interface]
+group_bd_cells Daisy_Controller [get_bd_cells util_ds_buf_0] [get_bd_cells util_ds_buf_1]
+save_bd_design
+ungroup_bd_cells [get_bd_cells SignalGenerator]
+set_property location {1.5 789 -253} [get_bd_cells axi_gpio_0]
+set_property location {2 751 -279} [get_bd_cells axi_gpio_0]
+save_bd_design
+set_property location {2.5 1236 -279} [get_bd_cells Subtractor_0]
+set_property location {3 1144 -255} [get_bd_cells Subtractor_0]
+set_property location {3 1243 -267} [get_bd_cells Subtractor_0]
+set_property location {3 1230 -296} [get_bd_cells Subtractor_0]
+set_property location {3 1239 -285} [get_bd_cells Subtractor_0]
+set_property location {3 1240 -267} [get_bd_cells Subtractor_0]
+set_property location {3 1239 -256} [get_bd_cells Subtractor_0]
+set_property location {4 1617 -241} [get_bd_cells NCO_0]
+set_property location {3.5 1460 -240} [get_bd_cells NCO_0]
+set_property location {4 1461 -266} [get_bd_cells NCO_0]
+set_property location {4 1457 -258} [get_bd_cells NCO_0]
+set_property location {4 1457 -252} [get_bd_cells NCO_0]
+set_property location {4 1462 -243} [get_bd_cells NCO_0]
+set_property location {4 1457 -238} [get_bd_cells NCO_0]
+set_property location {4 1457 -231} [get_bd_cells NCO_0]
+set_property location {3 1211 -180} [get_bd_cells ConstantIP_2]
+set_property location {3 1169 -210} [get_bd_cells ConstantIP_2]
+set_property location {3 1199 -28} [get_bd_cells PIG_Controller_0]
+set_property location {3 1163 -72} [get_bd_cells PIG_Controller_0]
+connect_bd_net [get_bd_pins PIG_Controller_0/SignalOutput] [get_bd_pins Subtractor_0/Q2]
+set_property location {2.5 953 -174} [get_bd_cells PIG_Controller_0]
+set_property location {3 931 -216} [get_bd_cells PIG_Controller_0]
+set_property location {6.5 2045 -157} [get_bd_cells CIC_Filter_0]
+set_property location {6 1675 -214} [get_bd_cells CIC_Filter_0]
+set_property location {5.5 1558 -71} [get_bd_cells Mixer_0]
+set_property location {6 1540 -221} [get_bd_cells Mixer_0]
+connect_bd_net [get_bd_pins NCO_0/Dout] [get_bd_pins Mixer_0/Q1]
+set_property location {6.5 1704 -232} [get_bd_cells Compressor_1]
+set_property location {7 1704 -216} [get_bd_cells Compressor_1]
+set_property location {8 1981 -194} [get_bd_cells CIC_Filter_0]
+set_property location {7.5 1827 -132} [get_bd_cells ConstantIP_0]
+set_property location {7 1598 -126} [get_bd_cells ConstantIP_0]
+set_property location {7.5 1855 -195} [get_bd_cells CIC_Filter_0]
+set_property location {7 1572 183} [get_bd_cells ConstantIP_3]
+set_property location {7 1580 183} [get_bd_cells ConstantIP_3]
+set_property location {1 -711 676} [get_bd_cells ConstantIP_3]
+set_property location {7 1600 -175} [get_bd_cells ConstantIP_1]
+group_bd_cells PLL [get_bd_cells Subtractor_0] [get_bd_cells ConstantIP_0] [get_bd_cells NCO_0] [get_bd_cells ConstantIP_1] [get_bd_cells ConstantIP_2] [get_bd_cells Mixer_0] [get_bd_cells PIG_Controller_0] [get_bd_cells Compressor_1] [get_bd_cells CIC_Filter_0]
+set_property name Freq_Guess [get_bd_pins PLL/Q1]
+update_module_reference system_PIG_Controller_0_0
+set_property location {-18 130} [get_bd_pins PLL/Freq_Guess]
+set_property location {3.5 894 543} [get_bd_cells PLL/PIG_Controller_0]
+set_property location {2 665 567} [get_bd_cells PLL/PIG_Controller_0]
+set_property location {2.5 873 354} [get_bd_cells PLL/Mixer_0]
+set_property location {5 1183 325} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1212 265} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1217 207} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1219 172} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1221 181} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {3.5 1106 363} [get_bd_cells PLL/Compressor_1]
+set_property location {4 1117 216} [get_bd_cells PLL/ConstantIP_0]
+set_property location {4 1107 115} [get_bd_cells PLL/ConstantIP_1]
+set_property location {4.5 1403 275} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1404 302} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1398 342} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1404 318} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1400 332} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1404 319} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {5 1402 326} [get_bd_cells PLL/CIC_Filter_0]
+set_property location {3 871 340} [get_bd_cells PLL/Mixer_0]
+startgroup
+endgroup
+startgroup
+set_property CONFIG.Data_Size {30} [get_bd_cells PLL/PIG_Controller_0]
+endgroup
+create_bd_pin -dir O -from 14 -to 0 PLL/LockedSignal
+set_property location {1658 370} [get_bd_pins PLL/LockedSignal]
+connect_bd_net [get_bd_pins PLL/LockedSignal] [get_bd_pins PLL/NCO_0/Dout]
+set_property location {1677 414} [get_bd_pins PLL/LockedSignal]
+set_property location {1672 429} [get_bd_pins PLL/LockedSignal]
+create_bd_pin -dir O -from 30 -to 0 PLL/ErrorSignal
+connect_bd_net [get_bd_pins PLL/ErrorSignal] [get_bd_pins PLL/CIC_Filter_0/filter_out]
+create_bd_pin -dir I -from 30 -to 0 PLL/kI
+create_bd_pin -dir I -from 30 -to 0 PLL/kP
+create_bd_pin -dir I -from 30 -to 0 PLL/kG
+startgroup
+connect_bd_net [get_bd_pins PLL/kI] [get_bd_pins PLL/PIG_Controller_0/kI]
+set_property location {-24 555} [get_bd_pins PLL/kI]
+connect_bd_net [get_bd_pins PLL/kP] [get_bd_pins PLL/PIG_Controller_0/kP]
+delete_bd_objs [get_bd_nets PLL/kI_1] [get_bd_pins PLL/kI]
+endgroup
+delete_bd_objs [get_bd_nets PLL/kP_1] [get_bd_pins PLL/kP]
+delete_bd_objs [get_bd_pins PLL/kG]
+delete_bd_objs [get_bd_pins PLL/ErrorSignal]
+delete_bd_objs [get_bd_pins PLL/LockedSignal]
+create_bd_pin -dir O -from 29 -to 0 PLL/ErrorSignal
+connect_bd_net [get_bd_pins PLL/ErrorSignal] [get_bd_pins PLL/CIC_Filter_0/filter_out]
+create_bd_pin -dir O -from 13 -to 0 PLL/LockedSignal
+connect_bd_net [get_bd_pins PLL/LockedSignal] [get_bd_pins PLL/NCO_0/Dout]
+create_bd_pin -dir I -from 29 -to 0 PLL/kI
+create_bd_pin -dir I -from 29 -to 0 PLL/kG
+create_bd_pin -dir I -from 29 -to 0 PLL/kP
+connect_bd_net [get_bd_pins PLL/kP] [get_bd_pins PLL/PIG_Controller_0/kP]
+connect_bd_net [get_bd_pins PLL/kG] [get_bd_pins PLL/PIG_Controller_0/kG]
+connect_bd_net [get_bd_pins PLL/kI] [get_bd_pins PLL/PIG_Controller_0/kI]
+set_property location {-7 660} [get_bd_pins PLL/kG]
+set_property location {-9 596} [get_bd_pins PLL/kP]
+set_property location {-11 622} [get_bd_pins PLL/kG]
+set_property location {-10 556} [get_bd_pins PLL/kI]
+set_property location {-14 587} [get_bd_pins PLL/kP]
+set_property location {-14 607} [get_bd_pins PLL/kG]
+set_property location {-15 570} [get_bd_pins PLL/kI]
+save_bd_design
+create_bd_pin -dir I -from 14 -to 0 PLL/TargetSignal
+connect_bd_net [get_bd_pins PLL/TargetSignal] [get_bd_pins PLL/Mixer_0/Q2]
+set_property location {-22 63} [get_bd_pins PLL/TargetSignal]
+set_property location {1 255 431} [get_bd_cells PLL/ConstantIP_2]
+set_property location {-4 444} [get_bd_pins PLL/rst]
+set_property location {-25 534} [get_bd_pins PLL/rst]
+set_property location {1 246 323} [get_bd_cells PLL/ConstantIP_2]
+set_property location {1 262 335} [get_bd_cells PLL/ConstantIP_2]
+set_property location {1 261 360} [get_bd_cells PLL/ConstantIP_2]
+set_property location {1 257 434} [get_bd_cells PLL/ConstantIP_2]
+set_property location {1 267 397} [get_bd_cells PLL/ConstantIP_2]
+set_property location {1 271 359} [get_bd_cells PLL/ConstantIP_2]
+set_property location {1 254 257} [get_bd_cells PLL/Subtractor_0]
+set_property location {1 261 227} [get_bd_cells PLL/Subtractor_0]
+set_property location {1 265 191} [get_bd_cells PLL/Subtractor_0]
+set_property location {-13 200} [get_bd_pins PLL/Freq_Guess]
+set_property location {3 871 216} [get_bd_cells PLL/Mixer_0]
+save_bd_design
+copy_bd_objs /  [get_bd_cells {axi_gpio_0}]
+copy_bd_objs /  [get_bd_cells {axi_gpio_0}]
+copy_bd_objs /  [get_bd_cells {axi_gpio_0}]
+connect_bd_net [get_bd_pins axi_gpio_1/s_axi_aresetn] [get_bd_pins PS7/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_gpio_2/s_axi_aresetn] [get_bd_pins PS7/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_gpio_3/s_axi_aresetn] [get_bd_pins PS7/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_gpio_3/s_axi_aclk] [get_bd_pins PS7/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins PS7/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_gpio_1/s_axi_aclk] [get_bd_pins PS7/FCLK_CLK0]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_1/GPIO]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_slave {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_xbar {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Master {/PS7/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_1/S_AXI} ddr_seg {Auto} intc_ip {/PS7/axi_interconnect_1} master_apm {0}}  [get_bd_intf_pins axi_gpio_1/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_2/GPIO]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_slave {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_xbar {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Master {/PS7/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_2/S_AXI} ddr_seg {Auto} intc_ip {/PS7/axi_interconnect_1} master_apm {0}}  [get_bd_intf_pins axi_gpio_2/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_3/GPIO]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_slave {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_xbar {/PS7/processing_system7_0/FCLK_CLK0 (125 MHz)} Master {/PS7/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_3/S_AXI} ddr_seg {Auto} intc_ip {/PS7/axi_interconnect_1} master_apm {0}}  [get_bd_intf_pins axi_gpio_3/S_AXI]
+endgroup
+delete_bd_objs [get_bd_intf_nets axi_gpio_1_GPIO]
+undo
+undo
+startgroup
+set_property -dict [list \
+  CONFIG.NUM_MI {1} \
+  CONFIG.NUM_SI {4} \
+] [get_bd_cells PS7/axi_interconnect_1]
+delete_bd_objs [get_bd_intf_nets PS7/Conn2]
+endgroup
+startgroup
+set_property -dict [list \
+  CONFIG.NUM_MI {4} \
+  CONFIG.NUM_SI {1} \
+] [get_bd_cells PS7/axi_interconnect_1]
+endgroup
+connect_bd_intf_net [get_bd_intf_pins axi_gpio_1/S_AXI] -boundary_type upper [get_bd_intf_pins PS7/axi_interconnect_1/M01_AXI]
+connect_bd_intf_net [get_bd_intf_pins axi_gpio_2/S_AXI] -boundary_type upper [get_bd_intf_pins PS7/axi_interconnect_1/M02_AXI]
+connect_bd_intf_net [get_bd_intf_pins axi_gpio_3/S_AXI] -boundary_type upper [get_bd_intf_pins PS7/axi_interconnect_1/M03_AXI]
+group_bd_cells GPIO_Controller [get_bd_cells axi_gpio_1] [get_bd_cells axi_gpio_2] [get_bd_cells axi_gpio_3] [get_bd_cells axi_gpio_0]
+set_property location {1 -901 -466} [get_bd_cells PS7]
+set_property location {1 -905 -454} [get_bd_cells PS7]
+set_property location {2 -563 -424} [get_bd_cells GPIO_Controller]
+move_bd_cells [get_bd_cells /] [get_bd_cells GPIO_Controller/axi_gpio_0]
+move_bd_cells [get_bd_cells GPIO_Controller] [get_bd_cells axi_gpio_0]
+move_bd_cells [get_bd_cells /] [get_bd_cells GPIO_Controller/axi_gpio_0]
+undo
+undo
+undo
+undo
+undo
+startgroup
+set_property CONFIG.C_GPIO_WIDTH {30} [get_bd_cells GPIO_Controller/axi_gpio_1]
+endgroup
+startgroup
+set_property CONFIG.C_GPIO_WIDTH {30} [get_bd_cells GPIO_Controller/axi_gpio_2]
+endgroup
+startgroup
+set_property CONFIG.C_GPIO_WIDTH {30} [get_bd_cells GPIO_Controller/axi_gpio_3]
+endgroup
+connect_bd_net [get_bd_pins GPIO_Controller/axi_gpio_1/gpio_io_o] [get_bd_pins PLL/kP]
+connect_bd_net [get_bd_pins GPIO_Controller/axi_gpio_2/gpio_io_o] [get_bd_pins PLL/kI]
+connect_bd_net [get_bd_pins GPIO_Controller/axi_gpio_3/gpio_io_o] [get_bd_pins PLL/kG]
+set_property location {3 -107 -140} [get_bd_cells PLL]
+set_property location {3 -98 -124} [get_bd_cells PLL]
+set_property location {3.5 287 -91} [get_bd_cells DAC_Controller]
+set_property location {4 249 -119} [get_bd_cells DAC_Controller]
+set_property location {1 -933 172} [get_bd_cells ConstantIP_3]
+set_property location {4 209 -117} [get_bd_cells DAC_Controller]
+connect_bd_net [get_bd_pins PLL/LockedSignal] [get_bd_pins DAC_Controller/Dac1] -boundary_type upper
+create_bd_cell -type module -reference Compressor Compressor_0
+set_property -dict [list \
+  CONFIG.InputSize {30} \
+  CONFIG.OutputSize {14} \
+] [get_bd_cells Compressor_0]
+delete_bd_objs [get_bd_nets DAC_Controller/Dac2_1] [get_bd_pins DAC_Controller/Dac2]
+delete_bd_objs [get_bd_nets DAC_Controller/Dac1_1] [get_bd_nets PLL_LockedSignal] [get_bd_pins DAC_Controller/Dac1]
+create_bd_pin -dir I -from 13 -to 0 DAC_Controller/DAC1
+create_bd_pin -dir I -from 13 -to 0 DAC_Controller/DAC2
+connect_bd_net [get_bd_pins DAC_Controller/DAC2] [get_bd_pins DAC_Controller/DacRoute_0/in2]
+set_property location {16 53} [get_bd_pins DAC_Controller/DAC1]
+set_property location {-13 77} [get_bd_pins DAC_Controller/DAC1]
+connect_bd_net [get_bd_pins DAC_Controller/DAC1] [get_bd_pins DAC_Controller/DacRoute_0/in1]
+save_bd_design
+connect_bd_net [get_bd_pins DAC_Controller/DAC1] [get_bd_pins PLL/LockedSignal] -boundary_type upper
+connect_bd_net [get_bd_pins Compressor_0/D] [get_bd_pins DAC_Controller/DAC2]
+startgroup
+connect_bd_net [get_bd_pins Compressor_0/Q] [get_bd_pins PLL/ErrorSignal]
+endgroup
+save_bd_design
+set_property location {4 193 -150} [get_bd_cells Compressor_0]
+set_property location {4 204 -126} [get_bd_cells Compressor_0]
+delete_bd_objs [get_bd_nets ADC_Interface/BitSlicer_1_Data_Out] [get_bd_pins ADC_Interface/ADC1]
+delete_bd_objs [get_bd_nets ADC_Interface/BitSlicer_0_Data_Out] [get_bd_pins ADC_Interface/ADC2]
+create_bd_pin -dir O -from 13 -to 0 ADC_Interface/ADC1
+create_bd_pin -dir O -from 13 -to 0 ADC_Interface/ADC2
+connect_bd_net [get_bd_pins ADC_Interface/ADC2] [get_bd_pins ADC_Interface/BitSlicer_0/Data_Out]
+set_property location {811 134} [get_bd_pins ADC_Interface/ADC1]
+set_property location {842 106} [get_bd_pins ADC_Interface/ADC1]
+connect_bd_net [get_bd_pins ADC_Interface/ADC1] [get_bd_pins ADC_Interface/BitSlicer_1/Data_Out]
+set_property location {841 216} [get_bd_pins ADC_Interface/ADC2]
+set_property location {841 94} [get_bd_pins ADC_Interface/ADC1]
+set_property location {840 98} [get_bd_pins ADC_Interface/ADC1]
+save_bd_design
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1}
+update_module_reference system_Mixer_0_0
+update_module_reference system_Subtractor_0_0
+set_property location {2 -477 -123} [get_bd_cells GPIO_Controller]
+update_module_reference system_PIG_Controller_0_0
+create_bd_cell -type module -reference Dual_Multiplexer Dual_Multiplexer_0
+delete_bd_objs [get_bd_nets PLL/TargetSignal_1] [get_bd_pins PLL/TargetSignal]
+create_bd_pin -dir I -from 13 -to 0 PLL/TargetSignal
+startgroup
+connect_bd_net [get_bd_pins PLL/TargetSignal] [get_bd_pins PLL/Mixer_0/Q2]
+save_bd_design
+connect_bd_net [get_bd_pins Dual_Multiplexer_0/Dout] [get_bd_pins PLL/TargetSignal]
+set_property location {2 -480 229} [get_bd_cells Dual_Multiplexer_0]
+connect_bd_net [get_bd_pins ADC_Interface/ADC1] [get_bd_pins Dual_Multiplexer_0/Input1]
+copy_bd_objs /  [get_bd_cells {GPIO_Controller/axi_gpio_3}]
+move_bd_cells [get_bd_cells GPIO_Controller] [get_bd_cells axi_gpio_3]
+set_property CONFIG.C_GPIO_WIDTH {1} [get_bd_cells GPIO_Controller/axi_gpio_4]
+connect_bd_net [get_bd_pins GPIO_Controller/s_axi_aresetn] [get_bd_pins GPIO_Controller/axi_gpio_4/s_axi_aresetn]
+connect_bd_net [get_bd_pins GPIO_Controller/s_axi_aclk] [get_bd_pins GPIO_Controller/axi_gpio_4/s_axi_aclk]
+set_property CONFIG.NUM_MI {6} [get_bd_cells PS7/axi_interconnect_1]
+connect_bd_intf_net -boundary_type upper [get_bd_intf_pins PS7/axi_interconnect_1/M04_AXI] [get_bd_intf_pins GPIO_Controller/axi_gpio_4/S_AXI]
+copy_bd_objs /  [get_bd_cells {GPIO_Controller/axi_gpio_4}]
+move_bd_cells [get_bd_cells GPIO_Controller] [get_bd_cells axi_gpio_4]
+connect_bd_intf_net [get_bd_intf_pins GPIO_Controller/axi_gpio_5/S_AXI] -boundary_type upper [get_bd_intf_pins PS7/axi_interconnect_1/M05_AXI]
+connect_bd_net [get_bd_pins GPIO_Controller/s_axi_aresetn] [get_bd_pins GPIO_Controller/axi_gpio_5/s_axi_aresetn]
+connect_bd_net [get_bd_pins GPIO_Controller/s_axi_aclk] [get_bd_pins GPIO_Controller/axi_gpio_5/s_axi_aclk]
+set_property CONFIG.C_GPIO_WIDTH {32} [get_bd_cells GPIO_Controller/axi_gpio_5]
+connect_bd_net [get_bd_pins GPIO_Controller/axi_gpio_4/gpio_io_o] [get_bd_pins Dual_Multiplexer_0/Sel]
+set_property location {2 477 564} [get_bd_cells Dual_Multiplexer_0]
+set_property location {2 391 -173} [get_bd_cells Dual_Multiplexer_0]
+set_property location {2 -487 102} [get_bd_cells Dual_Multiplexer_0]
+create_bd_cell -type module -reference NCO NCO_0
+set_property CONFIG.ADC_SIZE {14} [get_bd_cells NCO_0]
+connect_bd_net [get_bd_pins NCO_0/Dout] [get_bd_pins Dual_Multiplexer_0/Input2]
+connect_bd_net [get_bd_pins NCO_0/rst] [get_bd_pins ConstantIP_3/D]
+connect_bd_net [get_bd_pins NCO_0/clock] [get_bd_pins ADC_Interface/aclk]
+copy_bd_objs /  [get_bd_cells {ConstantIP_3}]
+set_property CONFIG.OutputSize {32} [get_bd_cells ConstantIP_4]
+connect_bd_net [get_bd_pins NCO_0/PhaseOffset] [get_bd_pins ConstantIP_4/D]
+set_property location {2 -622 493} [get_bd_cells ConstantIP_4]
+connect_bd_net [get_bd_pins GPIO_Controller/axi_gpio_5/gpio_io_o] [get_bd_pins NCO_0/Frequency]
+set_property location {3 -186 -310} [get_bd_cells GPIO_Controller]
+set_property location {3 -175 -344} [get_bd_cells GPIO_Controller]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells GPIO_Controller/axi_gpio_1]
+move_bd_cells [get_bd_cells /] [get_bd_cells GPIO_Controller/axi_gpio_2]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells axi_gpio_2]
+move_bd_cells [get_bd_cells /] [get_bd_cells GPIO_Controller/axi_gpio_3]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells axi_gpio_3]
+move_bd_cells [get_bd_cells /] [get_bd_cells GPIO_Controller/axi_gpio_5]
+move_bd_cells [get_bd_cells /] [get_bd_cells GPIO_Controller/axi_gpio_4]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells GPIO_Controller/axi_gpio_0]
+delete_bd_objs [get_bd_cells GPIO_Controller]
+endgroup
+set_property location {2.5 -410 1154} [get_bd_cells axi_gpio_5]
+set_property location {3 -408 1125} [get_bd_cells axi_gpio_5]
+set_property location {3 -408 1134} [get_bd_cells axi_gpio_5]
+set_property location {3 -313 780} [get_bd_cells axi_gpio_4]
+set_property location {3 -409 772} [get_bd_cells axi_gpio_4]
+set_property location {3 -404 783} [get_bd_cells axi_gpio_4]
+set_property location {3 -412 766} [get_bd_cells axi_gpio_4]
+set_property location {4 -143 771} [get_bd_cells Dual_Multiplexer_0]
+set_property location {4.5 194 1002} [get_bd_cells Dual_Multiplexer_0]
+set_property location {5 167 1093} [get_bd_cells Dual_Multiplexer_0]
+set_property location {3 -433 1003} [get_bd_cells axi_gpio_4]
+set_property location {4 -133 1079} [get_bd_cells NCO_0]
+set_property location {3 -406 1252} [get_bd_cells ConstantIP_4]
+set_property location {2 -447 1233} [get_bd_cells ConstantIP_4]
+group_bd_cells ADC_override [get_bd_cells NCO_0] [get_bd_cells ConstantIP_4] [get_bd_cells axi_gpio_4] [get_bd_cells axi_gpio_5] [get_bd_cells Dual_Multiplexer_0]
+set_property location {2 -451 -329} [get_bd_cells ADC_override]
+set_property location {1 235 763} [get_bd_cells PLL/axi_gpio_2]
+set_property location {1 268 777} [get_bd_cells PLL/axi_gpio_2]
+set_property location {1 249 887} [get_bd_cells PLL/axi_gpio_2]
+set_property location {1 306 778} [get_bd_cells PLL/axi_gpio_1]
+set_property location {1 300 1067} [get_bd_cells PLL/axi_gpio_3]
+set_property location {1 263 1057} [get_bd_cells PLL/axi_gpio_3]
+set_property location {-23 765} [get_bd_intf_pins PLL/S_AXI]
+set_property location {-20 890} [get_bd_intf_pins PLL/S_AXI1]
+set_property location {-20 1035} [get_bd_intf_pins PLL/S_AXI2]
+set_property name S_AXI2_KG [get_bd_intf_pins PLL/S_AXI2]
+set_property name S_AXI1_KP [get_bd_intf_pins PLL/S_AXI1]
+set_property location {-22 907} [get_bd_intf_pins PLL/S_AXI1_KP]
+set_property location {-16 898} [get_bd_intf_pins PLL/S_AXI1_KP]
+set_property name S_AXI1_KG [get_bd_intf_pins PLL/S_AXI1_KP]
+set_property name S_AXI1_KI [get_bd_intf_pins PLL/S_AXI1_KG]
+set_property name S_AXI_KP [get_bd_intf_pins PLL/S_AXI]
+set_property name S_AXI3_Fguess [get_bd_intf_pins PLL/S_AXI3]
+set_property location {-14 270} [get_bd_pins PLL/clk]
+set_property location {-24 302} [get_bd_pins PLL/rst]
+set_property location {-14 291} [get_bd_pins PLL/rst]
+set_property location {1 238 380} [get_bd_cells PLL/ConstantIP_2]
+save_bd_design
+set_property name S_AXI1_Freq [get_bd_intf_pins ADC_override/S_AXI1]
+set_property name S_AXI_En [get_bd_intf_pins ADC_override/S_AXI]
+save_bd_design
+set_property location {1 -959 -298} [get_bd_cells ADC_Interface]
+set_property location {1 -952 -265} [get_bd_cells ADC_Interface]
+set_property location {3 567 -522} [get_bd_cells PLL]
+set_property location {2.5 -81 -320} [get_bd_cells PLL]
+set_property location {2 -444 -250} [get_bd_cells ADC_override]
+set_property location {2 -437 -256} [get_bd_cells ADC_override]
+set_property location {2 -426 -270} [get_bd_cells ADC_override]
+set_property location {2 -429 -267} [get_bd_cells ADC_override]
+set_property location {2 -480 -311} [get_bd_cells ADC_override]
+set_property location {2 -479 -305} [get_bd_cells ADC_override]
+set_property location {2 -480 -309} [get_bd_cells ADC_override]
+set_property location {2 -496 -293} [get_bd_cells ADC_override]
+set_property location {2 -474 -307} [get_bd_cells ADC_override]
+set_property location {2 -487 -287} [get_bd_cells ADC_override]
+set_property location {2 -477 -279} [get_bd_cells ADC_override]
+set_property location {1 -964 -449} [get_bd_cells PS7]
+set_property location {1 -960 -181} [get_bd_cells ADC_Interface]
+set_property location {1 -992 -27} [get_bd_cells ConstantIP_3]
+startgroup
+set_property location {1 -957 -24} [get_bd_cells PS7]
+set_property location {1 -957 196} [get_bd_cells ConstantIP_3]
+set_property location {1 -957 -274} [get_bd_cells Daisy_Controller]
+set_property location {1 -957 26} [get_bd_cells ADC_Interface]
+set_property location {2 -447 146} [get_bd_cells ADC_override]
+set_property location {3 -77 106} [get_bd_cells PLL]
+endgroup
+set_property location {3.5 212 93} [get_bd_cells Compressor_0]
+set_property location {4 212 62} [get_bd_cells Compressor_0]
+set_property location {4.5 502 61} [get_bd_cells DAC_Controller]
+set_property location {876 -467} [get_bd_ports daisy_p_o]
+set_property location {858 -442} [get_bd_ports daisy_n_o]
+set_property location {868 -84} [get_bd_ports exp_n_tri_io]
+set_property location {860 -122} [get_bd_ports adc_enc_n_o]
+set_property location {860 -158} [get_bd_ports adc_enc_p_o]
+set_property location {866 -193} [get_bd_ports dac_pwm_o]
+set_property location {862 -145} [get_bd_ports exp_p_tri_io]
+set_property location {875 -102} [get_bd_ports led_o]
+set_property location {874 -337} [get_bd_intf_ports FIXED_IO]
+set_property location {872 -367} [get_bd_intf_ports DDR]
+set_property location {853 -364} [get_bd_intf_ports DDR]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 14
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M01_ACLK] [get_bd_pins PS7/processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M02_ACLK] [get_bd_pins PS7/processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M03_ACLK] [get_bd_pins PS7/processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M04_ACLK] [get_bd_pins PS7/processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M05_ACLK] [get_bd_pins PS7/processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M05_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M04_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M03_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M02_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M01_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+save_bd_design
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs ADC_override/axi_gpio_4/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs ADC_override/axi_gpio_5/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs PLL/axi_gpio_1/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs PLL/axi_gpio_2/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs PLL/axi_gpio_3/S_AXI/Reg] -force
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs ADC_override/axi_gpio_4/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs ADC_override/axi_gpio_5/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs PLL/axi_gpio_1/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs PLL/axi_gpio_2/S_AXI/Reg] -force
+assign_bd_address -target_address_space /PS7/processing_system7_0/Data [get_bd_addr_segs PLL/axi_gpio_3/S_AXI/Reg] -force
+save_bd_design
+set_property range 4k [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_4_Reg}]
+set_property range 128 [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_4_Reg}]
+set_property range 4k [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_4_Reg}]
+set_property range 4k [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_5_Reg}]
+set_property range 4k [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_0_Reg}]
+set_property range 4k [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_1_Reg}]
+set_property range 4k [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_3_Reg}]
+set_property range 4k [get_bd_addr_segs {PS7/processing_system7_0/Data/SEG_axi_gpio_2_Reg}]
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 14
+wait_on_run impl_1
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M01_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M02_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 14
+reset_run system_PIG_Controller_0_0_synth_1
+reset_run system_Compressor_0_0_synth_1
+reset_run system_axi_gpio_0_2_synth_1
+reset_run system_axi_gpio_0_1_synth_1
+reset_run system_BitSlicer_0_1_synth_1
+reset_run system_ConstantIP_3_0_synth_1
+reset_run system_Dual_Multiplexer_0_0_synth_1
+reset_run system_Compressor_1_0_synth_1
+reset_run system_ConstantIP_0_1_synth_1
+reset_run system_ConstantIP_1_0_synth_1
+reset_run system_Mixer_0_0_synth_1
+reset_run system_BitSlicer_0_0_synth_1
+reset_run system_ConstantIP_0_3_synth_1
+reset_run system_Subtractor_0_0_synth_1
+reset_run system_ConstantIP_1_1_synth_1
+reset_run system_auto_pc_0_synth_1
+reset_run system_axis_red_pitaya_dac_1_0_synth_1
+reset_run system_processing_system7_0_0_synth_1
+reset_run system_CIC_Filter_0_0_synth_1
+reset_run system_axi_gpio_0_3_synth_1
+reset_run system_axi_gpio_4_0_synth_1
+reset_run system_axi_gpio_3_0_synth_1
+reset_run system_NCO_0_1_synth_1
+reset_run system_xbar_2_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 14
+wait_on_run impl_1
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1 system_ConstantIP_3_0}
+update_module_reference system_Dual_Multiplexer_0_0
+update_module_reference system_Mixer_0_0
+update_module_reference system_Subtractor_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 14
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/system.bd}
+set_property location {4 279 115} [get_bd_cells Compressor_0]
+set_property location {4 302 94} [get_bd_cells Compressor_0]
+set_property location {4 298 106} [get_bd_cells Compressor_0]
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1 system_ConstantIP_3_0}
+update_module_reference system_Dual_Multiplexer_0_0
+update_module_reference system_Mixer_0_0
+update_module_reference system_Subtractor_0_0
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1 system_ConstantIP_3_0}
+update_module_reference system_Dual_Multiplexer_0_0
+update_module_reference system_Mixer_0_0
+update_module_reference system_Subtractor_0_0
+create_bd_cell -type module -reference Fast_Divider PLL/Fast_Divider_0
+move_bd_cells [get_bd_cells /] [get_bd_cells PLL/Fast_Divider_0]
+set_property location {3 459 -100} [get_bd_cells Fast_Divider_0]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells Fast_Divider_0]
+delete_bd_objs [get_bd_nets PLL/PIG_Controller_0_SignalOutput]
+set_property CONFIG.Data_Size {30} [get_bd_cells PLL/Fast_Divider_0]
+connect_bd_net [get_bd_pins PLL/Fast_Divider_0/Dout] [get_bd_pins PLL/Subtractor_0/Q2]
+connect_bd_net [get_bd_pins PLL/Fast_Divider_0/Input1] [get_bd_pins PLL/PIG_Controller_0/SignalOutput]
+move_bd_cells [get_bd_cells /] [get_bd_cells PLL/Fast_Divider_0]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells Fast_Divider_0]
+copy_bd_objs /  [get_bd_cells {PLL/axi_gpio_3}]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells axi_gpio_3]
+undo
+undo
+undo
+redo
+copy_bd_objs /  [get_bd_cells {PLL/axi_gpio_3}]
+set_property location {3 -50 -1580} [get_bd_cells axi_gpio_3]
+move_bd_cells [get_bd_cells PLL] [get_bd_cells axi_gpio_3]
+set_property CONFIG.C_GPIO_WIDTH {8} [get_bd_cells PLL/axi_gpio_4]
+connect_bd_net [get_bd_pins PLL/axi_gpio_4/gpio_io_o] [get_bd_pins PLL/Fast_Divider_0/Shift]
+startgroup
+set_property CONFIG.NUM_MI {7} [get_bd_cells PS7/axi_interconnect_1]
+endgroup
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M06_ACLK] [get_bd_pins PS7/processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins PS7/axi_interconnect_1/M06_ARESETN] [get_bd_pins PS7/proc_sys_reset_0/peripheral_aresetn]
+connect_bd_intf_net -boundary_type upper [get_bd_intf_pins PS7/axi_interconnect_1/M06_AXI] [get_bd_intf_pins PLL/axi_gpio_4/S_AXI]
+set_property location {3 712 -114} [get_bd_cells PLL]
+set_property location {4 955 -123} [get_bd_cells Compressor_0]
+set_property location {5 1227 323} [get_bd_cells DAC_Controller]
+delete_bd_objs [get_bd_nets Compressor_0_D]
+set_property location {4 235 130} [get_bd_cells Compressor_0]
+create_bd_cell -type module -reference n_Multiplexer n_Multiplexer_0
+set_property location {2.5 -320 443} [get_bd_cells Compressor_0]
+connect_bd_net [get_bd_pins n_Multiplexer_0/Dout] [get_bd_pins DAC_Controller/DAC2]
+connect_bd_net [get_bd_pins n_Multiplexer_0/Input1] [get_bd_pins Compressor_0/D]
+connect_bd_net [get_bd_pins n_Multiplexer_0/Input2] [get_bd_pins ADC_override/Dout]
+set_property location {3 405 1089} [get_bd_cells Compressor_0]
+set_property location {3 415 1079} [get_bd_cells Compressor_0]
+update_module_reference {system_BitSlicer_0_0 system_BitSlicer_0_1}
+update_module_reference {system_Compressor_0_0 system_Compressor_1_0}
+update_module_reference {system_ConstantIP_0_1 system_ConstantIP_0_3 system_ConstantIP_1_0 system_ConstantIP_1_1 system_ConstantIP_3_0}
+update_module_reference system_Dual_Multiplexer_0_0
+update_module_reference system_Fast_Divider_0_0
+update_module_reference system_Mixer_0_0
+update_module_reference system_Subtractor_0_0
+update_module_reference system_n_Multiplexer_0_0
+set_property location {3 404 1037} [get_bd_cells Compressor_0]
+set_property location {4 921 1023} [get_bd_cells n_Multiplexer_0]
+copy_bd_objs /  [get_bd_cells {ADC_override/axi_gpio_4}]
+set_property location {3 445 1224} [get_bd_cells axi_gpio_4]
+startgroup
+copy_bd_objs /  [get_bd_cells {Compressor_0}]
+set_property location {1 -911 -316} [get_bd_cells Compressor_1]
+endgroup
+set_property location {3 382 621} [get_bd_cells Compressor_0]
+set_property location {3 340 726} [get_bd_cells axi_gpio_4]
+set_property location {4 854 699} [get_bd_cells n_Multiplexer_0]

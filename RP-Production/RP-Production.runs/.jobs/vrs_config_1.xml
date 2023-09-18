@@ -1,76 +1,160 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
-	<Run Id="system_axi_gpio_0_3_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_gpio_0_3_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_Compressor_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Compressor_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_axi_gpio_0_2_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_gpio_0_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
-		<Parent Id="system_axi_gpio_0_3_synth_1"/>
+	<Run Id="Differental_Phasemeter_processing_system7_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_processing_system7_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_SamplingReset_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_Clock_Divider_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_Clock_Divider_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_xbar_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_xbar_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_DMA_Interconnect_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_DMA_Interconnect_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_DAC_Interface_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_DAC_Interface_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_PRBS_Multiply_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_PRBS_Multiply_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_Reset_Gen_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_Reset_Gen_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_Variable_Delay_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_Variable_Delay_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_Subtractor_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_Subtractor_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_DATA_LOGGER_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_DATA_LOGGER_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_clk_wiz_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_clk_wiz_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_axis_constant_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_axis_constant_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_axis_red_pitaya_adc_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_axis_red_pitaya_adc_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_Integrator_Reset_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_Integrator_Reset_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_Ki_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_Ki_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_0_synth_1"/>
 	</Run>
-	<Run Id="system_axi_gpio_0_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_gpio_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
-		<Parent Id="system_axi_gpio_0_3_synth_1"/>
+	<Run Id="Differental_Phasemeter_axis_red_pitaya_dac_1_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_axis_red_pitaya_dac_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_FreqMeasureA_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_FreqMeasureA_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_FreqMeasure_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_FreqMeasure_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_FreqMeasureA_0_synth_1"/>
 	</Run>
-	<Run Id="system_BitSlicer_0_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_BitSlicer_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_axi_gpio_4_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_gpio_4_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_axi_gpio_3_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_axi_gpio_3_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_ConstantIP_3_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_3_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_NCO_0_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_NCO_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_Dual_Multiplexer_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Dual_Multiplexer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_Compressor_1_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Compressor_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_ConstantIP_0_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_ConstantIP_1_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_Mixer_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Mixer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_xbar_2_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_BitSlicer_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_BitSlicer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_PIG_Controller_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_PIG_Controller_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_ConstantIP_0_3_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_0_3_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_Subtractor_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_Subtractor_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_ConstantIP_1_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_ConstantIP_1_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="system_auto_pc_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_Kp_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_Kp_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_0_synth_1"/>
+	</Run>
+	<Run Id="Differental_Phasemeter_GPIO_Kp_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_Kp_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_0_synth_1"/>
+	</Run>
+	<Run Id="Differental_Phasemeter_GPIO_KpB_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_KpB_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_PRBS_Scale_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_PRBS_Scale_2_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_Scale_2_synth_1"/>
+	</Run>
+	<Run Id="Differental_Phasemeter_GPIO_PRBS_DIV_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_PRBS_DIV_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_0_synth_1"/>
+	</Run>
+	<Run Id="Differental_Phasemeter_GPIO_Taps_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_Taps_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_Integrator_Reset_0_synth_1"/>
+	</Run>
+	<Run Id="Differental_Phasemeter_GPIO_Ki_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_Ki_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_0_synth_1"/>
+	</Run>
+	<Run Id="Differental_Phasemeter_LFSR_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_LFSR_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_Costa_Demodulator_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_Costa_Demodulator_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_Costa_Demodulator_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_GPIO_LoggerStatus_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_GPIO_LoggerStatus_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_axi_dma_0_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_axi_dma_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_proc_sys_reset_0_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_proc_sys_reset_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_axi_protocol_convert_0_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_axi_protocol_convert_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_xbar_4_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_xbar_4_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_xbar_3_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_xbar_3_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_auto_pc_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_auto_us_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_auto_us_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_auto_ds_0_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_auto_ds_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_auto_pc_1_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_auto_pc_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Differental_Phasemeter_auto_pc_2_synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/Differental_Phasemeter_auto_pc_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
 	<Run Id="synth_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
-		<Parent Id="system_axi_gpio_0_3_synth_1"/>
-		<Parent Id="system_Compressor_0_0_synth_1"/>
-		<Parent Id="system_axi_gpio_0_2_synth_1"/>
-		<Parent Id="system_axi_gpio_0_1_synth_1"/>
-		<Parent Id="system_BitSlicer_0_1_synth_1"/>
-		<Parent Id="system_axi_gpio_4_0_synth_1"/>
-		<Parent Id="system_axi_gpio_3_0_synth_1"/>
-		<Parent Id="system_ConstantIP_3_0_synth_1"/>
-		<Parent Id="system_NCO_0_1_synth_1"/>
-		<Parent Id="system_Dual_Multiplexer_0_0_synth_1"/>
-		<Parent Id="system_Compressor_1_0_synth_1"/>
-		<Parent Id="system_ConstantIP_0_1_synth_1"/>
-		<Parent Id="system_ConstantIP_1_0_synth_1"/>
-		<Parent Id="system_Mixer_0_0_synth_1"/>
-		<Parent Id="system_xbar_2_synth_1"/>
-		<Parent Id="system_BitSlicer_0_0_synth_1"/>
-		<Parent Id="system_PIG_Controller_0_0_synth_1"/>
-		<Parent Id="system_ConstantIP_0_3_synth_1"/>
-		<Parent Id="system_Subtractor_0_0_synth_1"/>
-		<Parent Id="system_ConstantIP_1_1_synth_1"/>
-		<Parent Id="system_auto_pc_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_processing_system7_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_SamplingReset_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Clock_Divider_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_xbar_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_DMA_Interconnect_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_DAC_Interface_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_PRBS_Multiply_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Reset_Gen_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Variable_Delay_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Subtractor_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_DATA_LOGGER_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_clk_wiz_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axis_constant_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axis_red_pitaya_adc_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Integrator_Reset_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axis_red_pitaya_dac_1_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_FreqMeasureA_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_FreqMeasure_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Kp_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Kp_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_KpB_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_Scale_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_Scale_2_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_DIV_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Taps_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_LFSR_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Costa_Demodulator_1_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Costa_Demodulator_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_LoggerStatus_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axi_dma_0_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_proc_sys_reset_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axi_protocol_convert_0_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_xbar_4_synth_1"/>
+		<Parent Id="Differental_Phasemeter_xbar_3_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_pc_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_us_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_ds_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_pc_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_pc_2_synth_1"/>
 	</Run>
 	<Run Id="impl_1" LaunchDir="C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
 		<Parent Id="synth_1"/>
-		<Parent Id="system_axi_gpio_0_3_synth_1"/>
-		<Parent Id="system_Compressor_0_0_synth_1"/>
-		<Parent Id="system_axi_gpio_0_2_synth_1"/>
-		<Parent Id="system_axi_gpio_0_1_synth_1"/>
-		<Parent Id="system_BitSlicer_0_1_synth_1"/>
-		<Parent Id="system_axi_gpio_4_0_synth_1"/>
-		<Parent Id="system_axi_gpio_3_0_synth_1"/>
-		<Parent Id="system_ConstantIP_3_0_synth_1"/>
-		<Parent Id="system_NCO_0_1_synth_1"/>
-		<Parent Id="system_Dual_Multiplexer_0_0_synth_1"/>
-		<Parent Id="system_Compressor_1_0_synth_1"/>
-		<Parent Id="system_ConstantIP_0_1_synth_1"/>
-		<Parent Id="system_ConstantIP_1_0_synth_1"/>
-		<Parent Id="system_Mixer_0_0_synth_1"/>
-		<Parent Id="system_xbar_2_synth_1"/>
-		<Parent Id="system_BitSlicer_0_0_synth_1"/>
-		<Parent Id="system_PIG_Controller_0_0_synth_1"/>
-		<Parent Id="system_ConstantIP_0_3_synth_1"/>
-		<Parent Id="system_Subtractor_0_0_synth_1"/>
-		<Parent Id="system_ConstantIP_1_1_synth_1"/>
-		<Parent Id="system_auto_pc_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_processing_system7_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_SamplingReset_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Clock_Divider_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_xbar_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_DMA_Interconnect_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_AXI_Stream_Writer_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_DAC_Interface_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_PRBS_Multiply_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Reset_Gen_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Variable_Delay_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Subtractor_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Test_Pattern_Gen_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_DATA_LOGGER_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_clk_wiz_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axis_constant_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axis_red_pitaya_adc_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Integrator_Reset_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axis_red_pitaya_dac_1_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_FreqMeasureA_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_FreqMeasure_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Kp_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Kp_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_KpB_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_Scale_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_Scale_2_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_Scale_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_PRBS_DIV_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Taps_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_Ki_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_LFSR_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Costa_Demodulator_1_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_Costa_Demodulator_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_GPIO_LoggerStatus_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axi_dma_0_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_proc_sys_reset_0_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_axi_protocol_convert_0_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_xbar_4_synth_1"/>
+		<Parent Id="Differental_Phasemeter_xbar_3_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_pc_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_us_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_ds_0_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_pc_1_synth_1"/>
+		<Parent Id="Differental_Phasemeter_auto_pc_2_synth_1"/>
 	</Run>
 	<Parameters>
 		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>

@@ -1,17 +1,47 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sat Sep  9 16:22:00 2023
+// Date        : Mon Sep 18 21:42:07 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_LFSR_0_0 -prefix
-//               Differental_Phasemeter_LFSR_0_0_ system_LFSR_0_0_sim_netlist.v
-// Design      : system_LFSR_0_0
+// Command     : write_verilog -force -mode funcsim
+//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_LFSR_0_0/Differental_Phasemeter_LFSR_0_0_sim_netlist.v
+// Design      : Differental_Phasemeter_LFSR_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z010clg400-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_LFSR_0_0,LFSR,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "LFSR,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module Differental_Phasemeter_LFSR_0_0
+   (Taps,
+    clock,
+    PRBS,
+    reset,
+    State);
+  input [6:0]Taps;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clock, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clock;
+  output PRBS;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset;
+  output [7:0]State;
+
+  wire PRBS;
+  wire [7:0]State;
+  wire [6:0]Taps;
+  wire clock;
+  wire reset;
+
+  Differental_Phasemeter_LFSR_0_0_LFSR inst
+       (.PRBS(PRBS),
+        .Q(State),
+        .Taps(Taps),
+        .clock(clock),
+        .reset(reset));
+endmodule
+
+(* ORIG_REF_NAME = "LFSR" *) 
 module Differental_Phasemeter_LFSR_0_0_LFSR
    (Q,
     PRBS,
@@ -38,6 +68,7 @@ module Differental_Phasemeter_LFSR_0_0_LFSR
         .reset(reset));
 endmodule
 
+(* ORIG_REF_NAME = "LFSR2008" *) 
 module Differental_Phasemeter_LFSR_0_0_LFSR2008
    (State,
     PRBS,
@@ -190,35 +221,6 @@ module Differental_Phasemeter_LFSR_0_0_LFSR2008
         .D(PRBS_i_1_n_0),
         .Q(PRBS),
         .R(1'b0));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "system_LFSR_0_0,LFSR,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "LFSR,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module Differental_Phasemeter_LFSR_0_0
-   (Taps,
-    clock,
-    PRBS,
-    reset,
-    State);
-  input [6:0]Taps;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clock, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input clock;
-  output PRBS;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset;
-  output [7:0]State;
-
-  wire PRBS;
-  wire [7:0]State;
-  wire [6:0]Taps;
-  wire clock;
-  wire reset;
-
-  Differental_Phasemeter_LFSR_0_0_LFSR inst
-       (.PRBS(PRBS),
-        .Q(State),
-        .Taps(Taps),
-        .clock(clock),
-        .reset(reset));
 endmodule
 `ifndef GLBL
 `define GLBL

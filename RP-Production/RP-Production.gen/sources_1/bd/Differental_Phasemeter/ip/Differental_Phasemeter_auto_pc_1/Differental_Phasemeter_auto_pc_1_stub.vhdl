@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Sep 18 16:56:07 2023
--- Host        : Valkyrie running 64-bit major release  (build 9200)
+-- Date        : Mon Sep 18 21:43:43 2023
+-- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top Differental_Phasemeter_auto_pc_1 -prefix
 --               Differental_Phasemeter_auto_pc_1_ Differental_Phasemeter_auto_pc_1_stub.vhdl
 -- Design      : Differental_Phasemeter_auto_pc_1

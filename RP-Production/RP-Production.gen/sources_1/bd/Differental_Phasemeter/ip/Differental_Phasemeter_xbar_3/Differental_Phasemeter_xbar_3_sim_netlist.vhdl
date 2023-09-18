@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Jun 12 14:47:15 2023
+-- Date        : Mon Sep 18 21:43:32 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top Differental_Phasemeter_xbar_3 -prefix
---               Differental_Phasemeter_xbar_3_ system_xbar_5_sim_netlist.vhdl
--- Design      : system_xbar_5
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_3/Differental_Phasemeter_xbar_3_sim_netlist.vhdl
+-- Design      : Differental_Phasemeter_xbar_3
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z010clg400-1
@@ -45,6 +45,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_addr_arbiter is
     \gen_single_thread.active_target_hot\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_single_thread.active_target_enc\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_addr_arbiter : entity is "axi_crossbar_v2_1_28_addr_arbiter";
 end Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_addr_arbiter;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_addr_arbiter is
@@ -2722,6 +2724,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_decerr_slave is
     \gen_axi.s_axi_bid_i_reg[0]_1\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_axi.s_axi_rlast_i_reg_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_decerr_slave : entity is "axi_crossbar_v2_1_28_decerr_slave";
 end Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_decerr_slave;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_decerr_slave is
@@ -3330,6 +3334,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_si_transactor is
     s_axi_rready : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_single_thread.accept_cnt_reg[0]_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_si_transactor : entity is "axi_crossbar_v2_1_28_si_transactor";
 end Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_si_transactor;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_si_transactor is
@@ -4255,6 +4261,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_splitter is
     aresetn_d : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_splitter : entity is "axi_crossbar_v2_1_28_splitter";
 end Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_splitter;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_splitter is
@@ -4606,6 +4614,8 @@ entity Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_ndeep_srl is
     \storage_data1_reg[0]_0\ : in STD_LOGIC;
     m_select_enc : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_ndeep_srl : entity is "axi_data_fifo_v2_1_26_ndeep_srl";
 end Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_ndeep_srl;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_ndeep_srl is
@@ -7912,6 +7922,8 @@ entity Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_axic_reg_srl_fifo is
     s_axi_wvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_wlast : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_axic_reg_srl_fifo : entity is "axi_data_fifo_v2_1_26_axic_reg_srl_fifo";
 end Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_axic_reg_srl_fifo;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_data_fifo_v2_1_26_axic_reg_srl_fifo is
@@ -10027,6 +10039,8 @@ entity Differental_Phasemeter_xbar_3_axi_register_slice_v2_1_27_axi_register_sli
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_register_slice_v2_1_27_axi_register_slice : entity is "axi_register_slice_v2_1_27_axi_register_slice";
 end Differental_Phasemeter_xbar_3_axi_register_slice_v2_1_27_axi_register_slice;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_register_slice_v2_1_27_axi_register_slice is
@@ -10213,6 +10227,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_mux is
     D : in STD_LOGIC_VECTOR ( 0 to 0 );
     SR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_mux : entity is "axi_crossbar_v2_1_28_wdata_mux";
 end Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_mux;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_mux is
@@ -10340,6 +10356,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_router is
     s_axi_wvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_wlast : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_router : entity is "axi_crossbar_v2_1_28_wdata_router";
 end Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_router;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_wdata_router is
@@ -10482,6 +10500,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_crossbar is
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_wdata : in STD_LOGIC_VECTOR ( 127 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_crossbar : entity is "axi_crossbar_v2_1_28_crossbar";
 end Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_crossbar;
 
 architecture STRUCTURE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_crossbar is
@@ -11367,6 +11387,8 @@ entity Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_axi_crossbar is
   attribute C_S_AXI_WRITE_ACCEPTANCE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_axi_crossbar : entity is "64'b0000000000000000000000000000100000000000000000000000000000000010";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_axi_crossbar : entity is "yes";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_axi_crossbar : entity is "axi_crossbar_v2_1_28_axi_crossbar";
   attribute P_ADDR_DECODE : integer;
   attribute P_ADDR_DECODE of Differental_Phasemeter_xbar_3_axi_crossbar_v2_1_28_axi_crossbar : entity is 1;
   attribute P_AXI3 : integer;
@@ -11676,7 +11698,7 @@ entity Differental_Phasemeter_xbar_3 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of Differental_Phasemeter_xbar_3 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of Differental_Phasemeter_xbar_3 : entity is "system_xbar_5,axi_crossbar_v2_1_28_axi_crossbar,{}";
+  attribute CHECK_LICENSE_TYPE of Differental_Phasemeter_xbar_3 : entity is "Differental_Phasemeter_xbar_3,axi_crossbar_v2_1_28_axi_crossbar,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of Differental_Phasemeter_xbar_3 : entity is "yes";
   attribute X_CORE_INFO : string;
@@ -11806,7 +11828,7 @@ architecture STRUCTURE of Differental_Phasemeter_xbar_3 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of aclk : signal is "xilinx.com:signal:clock:1.0 CLKIF CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLKIF, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI:M08_AXI:M09_AXI:M10_AXI:M11_AXI:M12_AXI:M13_AXI:M14_AXI:M15_AXI:S00_AXI:S01_AXI:S02_AXI:S03_AXI:S04_AXI:S05_AXI:S06_AXI:S07_AXI:S08_AXI:S09_AXI:S10_AXI:S11_AXI:S12_AXI:S13_AXI:S14_AXI:S15_AXI, ASSOCIATED_RESET ARESETN, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLKIF, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI:M08_AXI:M09_AXI:M10_AXI:M11_AXI:M12_AXI:M13_AXI:M14_AXI:M15_AXI:S00_AXI:S01_AXI:S02_AXI:S03_AXI:S04_AXI:S05_AXI:S06_AXI:S07_AXI:S08_AXI:S09_AXI:S10_AXI:S11_AXI:S12_AXI:S13_AXI:S14_AXI:S15_AXI, ASSOCIATED_RESET ARESETN, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of aresetn : signal is "xilinx.com:signal:reset:1.0 RSTIF RST";
   attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, INSERT_VIP 0, TYPE INTERCONNECT";
   attribute X_INTERFACE_INFO of m_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 M00_AXI ARADDR";
@@ -11841,7 +11863,7 @@ architecture STRUCTURE of Differental_Phasemeter_xbar_3 is
   attribute X_INTERFACE_INFO of m_axi_rid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RID";
   attribute X_INTERFACE_INFO of m_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RLAST";
   attribute X_INTERFACE_INFO of m_axi_rready : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RREADY";
-  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M00_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 125000000, ID_WIDTH 1, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M00_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 125000000, ID_WIDTH 1, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RRESP";
   attribute X_INTERFACE_INFO of m_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RVALID";
   attribute X_INTERFACE_INFO of m_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WDATA";
@@ -11879,7 +11901,7 @@ architecture STRUCTURE of Differental_Phasemeter_xbar_3 is
   attribute X_INTERFACE_INFO of s_axi_rid : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RID [0:0] [0:0], xilinx.com:interface:aximm:1.0 S01_AXI RID [0:0] [1:1]";
   attribute X_INTERFACE_INFO of s_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RLAST [0:0] [0:0], xilinx.com:interface:aximm:1.0 S01_AXI RLAST [0:0] [1:1]";
   attribute X_INTERFACE_INFO of s_axi_rready : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RREADY [0:0] [0:0], xilinx.com:interface:aximm:1.0 S01_AXI RREADY [0:0] [1:1]";
-  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S00_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 125000000, ID_WIDTH 1, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0, XIL_INTERFACENAME S01_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 125000000, ID_WIDTH 1, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE WRITE_ONLY, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S00_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 125000000, ID_WIDTH 1, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0, XIL_INTERFACENAME S01_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 125000000, ID_WIDTH 1, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE WRITE_ONLY, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RRESP [1:0] [1:0], xilinx.com:interface:aximm:1.0 S01_AXI RRESP [1:0] [3:2]";
   attribute X_INTERFACE_INFO of s_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RVALID [0:0] [0:0], xilinx.com:interface:aximm:1.0 S01_AXI RVALID [0:0] [1:1]";
   attribute X_INTERFACE_INFO of s_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 S00_AXI WDATA [63:0] [63:0], xilinx.com:interface:aximm:1.0 S01_AXI WDATA [63:0] [127:64]";

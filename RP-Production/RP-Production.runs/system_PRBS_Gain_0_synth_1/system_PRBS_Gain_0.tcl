@@ -71,8 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "system_PRBS_Gain_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_msg_config -id {HDL 9-1061} -limit 100000
-set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Common 17-41} -limit 10000000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -94,7 +93,7 @@ set_property ip_cache_permissions {read write} [current_project]
 set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ip/system_PRBS_Gain_0/system_PRBS_Gain_0.xci
+read_ip -quiet C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sources_1/bd/system/ip/system_PRBS_Gain_0/system_PRBS_Gain_0.xci
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PRBS_Gain_0/system_PRBS_Gain_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PRBS_Gain_0/system_PRBS_Gain_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_PRBS_Gain_0/system_PRBS_Gain_0.xdc]

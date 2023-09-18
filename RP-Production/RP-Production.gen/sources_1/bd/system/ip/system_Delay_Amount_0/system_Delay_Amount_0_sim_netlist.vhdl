@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Sep 13 13:39:35 2023
--- Host        : Valkyrie running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_Delay_Amount_0/system_Delay_Amount_0_sim_netlist.vhdl
--- Design      : system_Delay_Amount_0
+-- Date        : Mon Sep 18 21:42:08 2023
+-- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_Delay_Amount_0 -prefix
+--               system_Delay_Amount_0_ Differental_Phasemeter_GPIO_KpB_0_sim_netlist.vhdl
+-- Design      : Differental_Phasemeter_GPIO_KpB_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z010clg400-1
@@ -32,8 +32,6 @@ entity system_Delay_Amount_0_GPIO_Core is
     Bus_RNW_reg : in STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Amount_0_GPIO_Core : entity is "GPIO_Core";
 end system_Delay_Amount_0_GPIO_Core;
 
 architecture STRUCTURE of system_Delay_Amount_0_GPIO_Core is
@@ -573,8 +571,6 @@ entity system_Delay_Amount_0_pselect_f is
     ce_expnd_i_3 : out STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Amount_0_pselect_f : entity is "pselect_f";
 end system_Delay_Amount_0_pselect_f;
 
 architecture STRUCTURE of system_Delay_Amount_0_pselect_f is
@@ -642,8 +638,6 @@ entity system_Delay_Amount_0_address_decoder is
     s_axi_awready : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 27 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Amount_0_address_decoder : entity is "address_decoder";
 end system_Delay_Amount_0_address_decoder;
 
 architecture STRUCTURE of system_Delay_Amount_0_address_decoder is
@@ -1004,8 +998,6 @@ entity system_Delay_Amount_0_slave_attachment is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Amount_0_slave_attachment : entity is "slave_attachment";
 end system_Delay_Amount_0_slave_attachment;
 
 architecture STRUCTURE of system_Delay_Amount_0_slave_attachment is
@@ -1743,8 +1735,6 @@ entity system_Delay_Amount_0_axi_lite_ipif is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Amount_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end system_Delay_Amount_0_axi_lite_ipif;
 
 architecture STRUCTURE of system_Delay_Amount_0_axi_lite_ipif is
@@ -1844,8 +1834,6 @@ entity system_Delay_Amount_0_axi_gpio is
   attribute C_TRI_DEFAULT of system_Delay_Amount_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
   attribute C_TRI_DEFAULT_2 : string;
   attribute C_TRI_DEFAULT_2 of system_Delay_Amount_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_Delay_Amount_0_axi_gpio : entity is "axi_gpio";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_Delay_Amount_0_axi_gpio : entity is "yes";
   attribute ip_group : string;
@@ -2259,7 +2247,7 @@ entity system_Delay_Amount_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of system_Delay_Amount_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of system_Delay_Amount_0 : entity is "system_Delay_Amount_0,axi_gpio,{}";
+  attribute CHECK_LICENSE_TYPE of system_Delay_Amount_0 : entity is "Differental_Phasemeter_GPIO_KpB_0,axi_gpio,{}";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_Delay_Amount_0 : entity is "yes";
   attribute x_core_info : string;
@@ -2310,7 +2298,7 @@ architecture STRUCTURE of system_Delay_Amount_0 is
   attribute x_interface_info : string;
   attribute x_interface_info of s_axi_aclk : signal is "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK";
   attribute x_interface_parameter : string;
-  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
+  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   attribute x_interface_info of s_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST";
   attribute x_interface_parameter of s_axi_aresetn : signal is "XIL_INTERFACENAME S_AXI_ARESETN, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute x_interface_info of s_axi_arready : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARREADY";
@@ -2327,7 +2315,7 @@ architecture STRUCTURE of system_Delay_Amount_0 is
   attribute x_interface_parameter of gpio_io_o : signal is "XIL_INTERFACENAME GPIO, BOARD.ASSOCIATED_PARAM GPIO_BOARD_INTERFACE";
   attribute x_interface_info of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARADDR";
   attribute x_interface_info of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWADDR";
-  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 125000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 125000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute x_interface_info of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI BRESP";
   attribute x_interface_info of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI RDATA";
   attribute x_interface_info of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI RRESP";

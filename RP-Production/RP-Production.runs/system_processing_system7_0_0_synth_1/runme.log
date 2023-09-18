@@ -20,10 +20,10 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 46248
+INFO: [Synth 8-7075] Helper process launched with PID 20916
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1221.660 ; gain = 408.738
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1222.363 ; gain = 408.008
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'processing_system7_v5_5_processing_system7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:152]
@@ -129,18 +129,18 @@ WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[2] in module processing_system7_v
 WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1326.246 ; gain = 511.891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1326.246 ; gain = 511.891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1326.246 ; gain = 511.891
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1324.980 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1326.961 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -153,32 +153,32 @@ Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Product
 Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_processing_system7_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1324.980 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1352.133 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1324.980 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1352.145 ; gain = 0.012
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.145 ; gain = 537.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.145 ; gain = 537.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_processing_system7_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.145 ; gain = 537.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1352.145 ; gain = 537.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -223,25 +223,25 @@ WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[4] in module processing_system7_v5_5
 WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1324.980 ; gain = 512.059
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1352.145 ; gain = 537.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1445.180 ; gain = 632.258
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1446.141 ; gain = 631.785
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1465.344 ; gain = 652.422
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1466.293 ; gain = 651.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1476.746 ; gain = 663.824
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1477.750 ; gain = 663.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -259,37 +259,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -311,16 +311,16 @@ Report Cell Usage:
 |4     |PS7   |     1|
 +------+------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 80 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:24 . Memory (MB): peak = 1482.781 ; gain = 669.859
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1482.781 ; gain = 669.859
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 1485.773 ; gain = 645.520
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1485.773 ; gain = 671.418
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1482.781 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1485.773 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1509.230 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1510.543 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -328,341 +328,7 @@ Synth Design complete, checksum: 7e8794dd
 INFO: [Common 17-83] Releasing license: Synthesis
 30 Infos, 115 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1509.230 ; gain = 1074.406
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1510.543 ; gain = 1075.605
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_processing_system7_0_0_synth_1/system_processing_system7_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_processing_system7_0_0_utilization_synth.rpt -pb system_processing_system7_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Aug 22 09:20:11 2023...
-
-*** Running vivado
-    with args -log system_processing_system7_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_processing_system7_0_0.tcl
-
-
-
-****** Vivado v2022.2 (64-bit)
-  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
-  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-
-source system_processing_system7_0_0.tcl -notrace
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
-Command: synth_design -top system_processing_system7_0_0 -part xc7z010clg400-1 -incremental_mode off -mode out_of_context
-Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
-INFO: [Device 21-403] Loading part xc7z010clg400-1
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
-INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 25044
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1222.023 ; gain = 406.898
----------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'processing_system7_v5_5_processing_system7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:152]
-INFO: [Synth 8-6157] synthesizing module 'BUFG' [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
-INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
-INFO: [Synth 8-6157] synthesizing module 'BIBUF' [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:729]
-INFO: [Synth 8-6155] done synthesizing module 'BIBUF' (0#1) [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:729]
-INFO: [Synth 8-6157] synthesizing module 'PS7' [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:109424]
-INFO: [Synth 8-6155] done synthesizing module 'PS7' (0#1) [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:109424]
-INFO: [Synth 8-6155] done synthesizing module 'processing_system7_v5_5_processing_system7' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:152]
-WARNING: [Synth 8-7071] port 'M_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'M_AXI_GP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'S_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'S_AXI_GP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'S_AXI_HP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'S_AXI_HP3_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'DMA0_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'DMA1_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'DMA2_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7071] port 'DMA3_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-WARNING: [Synth 8-7023] instance 'inst' of module 'processing_system7_v5_5_processing_system7' has 685 connections declared, but only 672 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:650]
-INFO: [Synth 8-6155] done synthesizing module 'system_processing_system7_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/synth/system_processing_system7_0_0.v:53]
-WARNING: [Synth 8-7129] Port ENET0_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RX_DV in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RX_ER in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RX_DV in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RX_ER in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP0_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP0_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP1_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP1_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ACP_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ACP_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP0_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP0_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP1_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP1_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP2_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP2_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP3_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP3_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG3_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG2_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG1_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG0_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[31] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[30] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[29] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[28] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[27] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[26] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[25] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[24] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[23] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[22] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[21] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[20] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[19] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[18] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[17] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[16] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[15] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[14] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[13] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[12] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[11] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[10] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[9] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[8] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_VALID in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1326.410 ; gain = 511.285
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1326.410 ; gain = 511.285
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1326.410 ; gain = 511.285
----------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1326.410 ; gain = 0.000
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc] for cell 'inst'
-Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc] for cell 'inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_processing_system7_0_0_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/system_processing_system7_0_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_processing_system7_0_0_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_processing_system7_0_0_synth_1/dont_touch.xdc]
-Completed Processing XDC Constraints
-
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1340.020 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1340.027 ; gain = 0.008
-INFO: [Designutils 20-5008] Incremental synthesis strategy off
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1340.027 ; gain = 524.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7z010clg400-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1340.027 ; gain = 524.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_processing_system7_0_0_synth_1/dont_touch.xdc, line 9).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1340.027 ; gain = 524.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1340.027 ; gain = 524.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 80 (col length:40)
-BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
-WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port ENET0_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RX_DV in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RX_ER in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RX_DV in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RX_ER in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1340.027 ; gain = 524.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1444.344 ; gain = 629.219
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1464.453 ; gain = 649.328
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1475.906 ; gain = 660.781
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 1482.062 ; gain = 666.938
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 1482.062 ; gain = 666.938
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 1482.062 ; gain = 666.938
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 1482.062 ; gain = 666.938
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 1482.062 ; gain = 666.938
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 1482.062 ; gain = 666.938
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
-
-Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |BIBUF |   130|
-|2     |BUFG  |     2|
-|3     |LUT1  |    29|
-|4     |PS7   |     1|
-+------+------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 1482.062 ; gain = 666.938
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 80 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 1482.062 ; gain = 653.320
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1482.062 ; gain = 666.938
-INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1482.062 ; gain = 0.000
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1509.531 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Synth Design complete, checksum: 7e8794dd
-INFO: [Common 17-83] Releasing license: Synthesis
-30 Infos, 115 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1509.531 ; gain = 1074.086
-INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_processing_system7_0_0_synth_1/system_processing_system7_0_0.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file system_processing_system7_0_0_utilization_synth.rpt -pb system_processing_system7_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Sep  1 20:10:24 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 18 22:52:05 2023...
