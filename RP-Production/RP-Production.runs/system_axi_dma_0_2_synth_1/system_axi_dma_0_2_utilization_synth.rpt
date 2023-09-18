@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Mon Jun 12 15:51:04 2023
-| Host         : Centurion-Heavy running 64-bit major release  (build 9200)
+| Date         : Fri Sep 15 15:00:58 2023
+| Host         : Valkyrie running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_axi_dma_0_2_utilization_synth.rpt -pb system_axi_dma_0_2_utilization_synth.pb
 | Design       : system_axi_dma_0_2
 | Device       : xc7z010clg400-1
@@ -31,13 +31,13 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                | 1153 |     0 |          0 |     17600 |  6.55 |
-|   LUT as Logic             | 1032 |     0 |          0 |     17600 |  5.86 |
-|   LUT as Memory            |  121 |     0 |          0 |      6000 |  2.02 |
+| Slice LUTs*                | 1259 |     0 |          0 |     17600 |  7.15 |
+|   LUT as Logic             | 1116 |     0 |          0 |     17600 |  6.34 |
+|   LUT as Memory            |  143 |     0 |          0 |      6000 |  2.38 |
 |     LUT as Distributed RAM |   10 |     0 |            |           |       |
-|     LUT as Shift Register  |  111 |     0 |            |           |       |
-| Slice Registers            | 1949 |     0 |          0 |     35200 |  5.54 |
-|   Register as Flip Flop    | 1949 |     0 |          0 |     35200 |  5.54 |
+|     LUT as Shift Register  |  133 |     0 |            |           |       |
+| Slice Registers            | 2059 |     0 |          0 |     35200 |  5.85 |
+|   Register as Flip Flop    | 2059 |     0 |          0 |     35200 |  5.85 |
 |   Register as Latch        |    0 |     0 |          0 |     35200 |  0.00 |
 | F7 Muxes                   |    0 |     0 |          0 |      8800 |  0.00 |
 | F8 Muxes                   |    0 |     0 |          0 |      4400 |  0.00 |
@@ -61,7 +61,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 74    |          Yes |         Set |            - |
-| 1875  |          Yes |       Reset |            - |
+| 1985  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -152,16 +152,16 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 1875 |        Flop & Latch |
-| LUT3     |  345 |                 LUT |
-| LUT4     |  237 |                 LUT |
-| LUT6     |  214 |                 LUT |
-| LUT5     |  175 |                 LUT |
-| LUT2     |  161 |                 LUT |
-| SRL16E   |  111 |  Distributed Memory |
+| FDRE     | 1985 |        Flop & Latch |
+| LUT3     |  369 |                 LUT |
+| LUT4     |  261 |                 LUT |
+| LUT6     |  233 |                 LUT |
+| LUT5     |  191 |                 LUT |
+| LUT2     |  175 |                 LUT |
+| SRL16E   |  133 |  Distributed Memory |
 | FDSE     |   74 |        Flop & Latch |
 | LUT1     |   64 |                 LUT |
-| CARRY4   |   50 |          CarryLogic |
+| CARRY4   |   61 |          CarryLogic |
 | RAMD32   |   14 |  Distributed Memory |
 | RAMS32   |    4 |  Distributed Memory |
 | RAMB36E1 |    3 |        Block Memory |

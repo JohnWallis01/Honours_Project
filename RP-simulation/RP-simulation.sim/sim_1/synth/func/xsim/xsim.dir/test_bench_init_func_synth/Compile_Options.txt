@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "secureip" --snapshot "test_bench_init_func_synth" "xil_defaultlib.test_bench_init" "xil_defaultlib.glbl" -log "elaborate.log" 

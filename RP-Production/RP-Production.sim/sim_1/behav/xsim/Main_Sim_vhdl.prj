@@ -1,0 +1,17 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../VHDL_Modules/Clock_Div.vhd" \
+"../../../../../VHDL_Modules/Costa_Demodulator.vhd" \
+"../../../../../VHDL_Modules/LFSR.vhd" \
+"../../../../../VHDL_Modules/Logic.vhd" \
+"../../../../../VHDL_Modules/NCO.vhd" \
+"../../../../../VHDL_Modules/PSK.vhd" \
+"../../../../RP-Production.srcs/sim_1/new/Testing_Architecture.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../../VHDL_Modules/CIC32.vhd" \
+"../../../../../VHDL_Modules/Controllers.vhd" \
+"../../../../../VHDL_Modules/LFSR2008.vhd" \
+
+# Do not sort compile order
+nosort

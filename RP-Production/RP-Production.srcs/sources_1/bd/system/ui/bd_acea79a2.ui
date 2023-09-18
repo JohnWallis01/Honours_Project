@@ -1,0 +1,29 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.164",
+   "Default View_TopLeft":"-249,0",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port S_AXIS -pg 1 -lvl 0 -x 0 -y 50 -defaultsOSRD
+preplace port M_AXIS -pg 1 -lvl 2 -x 330 -y 120 -defaultsOSRD
+preplace port S01_AXIS -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port S_AXI_CTRL -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port port-id_aresetn -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace port port-id_aclk -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace port port-id_s_axi_ctrl_aclk -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
+preplace port port-id_s_axi_ctrl_aresetn -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace inst axis_switch_0 -pg 1 -lvl 1 -x 180 -y 120 -defaultsOSRD
+preplace netloc aclk_1 1 0 1 20J 120n
+preplace netloc s_axi_ctrl_aclk_1 1 0 1 40J 160n
+preplace netloc s_axi_ctrl_aresetn_1 1 0 1 50J 180n
+preplace netloc aresetn_1 1 0 1 30J 140n
+preplace netloc S01_AXIS_1 1 0 1 NJ 80
+preplace netloc S_AXIS_1 1 0 1 20J 50n
+preplace netloc S_AXI_CTRL_1 1 0 1 20J 100n
+preplace netloc axis_switch_0_M00_AXIS 1 1 1 N 120
+levelinfo -pg 1 0 180 330
+pagesize -pg 1 -db -bbox -sgen -160 0 430 250
+"
+}
+0

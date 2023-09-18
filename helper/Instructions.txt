@@ -1,8 +1,0 @@
-cat J_PLL_debug.bit > /dev/xdevcfg --flash FPGA
-monitor 0x41200000 1 -- set internal oscillator
-monitor 0x41210000 343597384 -- set to 10Mhz internal oscialltor
-monitor 0x41250000 1 -- output the target signal to DAC2
-monitor 0x4200000 343597384 -- set the guess oscillator to 10Mhz
-monitor 0x41240000 1 -- set Kg to 1
-monitor 0x41230000 0 -- set Ki to 0
-monitor 0x41220000 1 -- set Kp to 1

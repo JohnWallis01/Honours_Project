@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1686564042" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
-  <File Type="PA-TCL" Name="system_wrapper.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="system_wrapper_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="system_wrapper_reports.tcl"/>
-  <File Type="RDS-RDS" Name="system_wrapper.vds"/>
-  <File Type="RDS-UTIL" Name="system_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="system_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="system_wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="system_wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="system_wrapper_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1695028318" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
+  <File Type="PA-TCL" Name="Differental_Phasemeter_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Differental_Phasemeter_wrapper_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Differental_Phasemeter_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Differental_Phasemeter_wrapper.vds"/>
+  <File Type="RDS-UTIL" Name="Differental_Phasemeter_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Differental_Phasemeter_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Differental_Phasemeter_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Differental_Phasemeter_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Differental_Phasemeter_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/AXI4_Stream_Reader.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../1_led_blink.srcs/sources_1/new/AXI4_Stream_Reader.vhd"/>
-        <Attr Name="ImportTime" Val="1678774021"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../VHDL_Modules/CIC32.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../VHDL_Modules/Controllers.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../VHDL_Modules/Logic.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/LFSR2008.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/LFSR.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/Clock_Div.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/AXI4_Stream_Infastructure.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -43,14 +47,55 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VHDL_Modules/Main.vhd">
+    <File Path="$PPRDIR/../VHDL_Modules/CIC32.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/Controllers.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/Costa_Demodulator.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/Logger_Core.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/Differental_Phasemeter/Differental_Phasemeter.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PGENDIR/sources_1/bd/Differental_Phasemeter/hdl/Differental_Phasemeter_wrapper.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/Data_Logger.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/bd/system/system.bd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../1_led_blink.srcs/sources_1/bd/system/system.bd"/>
         <Attr Name="ImportTime" Val="1678849505"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -60,6 +105,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/imports/system_wrapper.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../1_led_blink.gen/sources_1/bd/system/hdl/system_wrapper.v"/>
         <Attr Name="ImportTime" Val="1678780743"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -67,7 +113,35 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VHDL_Modules/Debuging.vhd">
+    <File Path="$PPRDIR/../VHDL_Modules/PSK.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/PSK_Demodulator.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/LiteHPFilter.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/FrequencyDoubledPLL.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VHDL_Modules/PLL.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -76,8 +150,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="system_wrapper"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="Differental_Phasemeter_wrapper"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -99,6 +172,7 @@
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/cfg/ports.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -119,21 +193,33 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2022"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design">
-      <Option Id="ResourceSharing">2</Option>
       <Option Id="IncrementalMode">3</Option>
-      <Option Id="Directive">7</Option>
-      <Option Id="ShregMinSize">5</Option>
-      <Option Id="FsmExtraction">1</Option>
-      <Option Id="KeepEquivalentRegisters">1</Option>
-      <Option Id="NoCombineLuts">1</Option>
     </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_Phase_Locked_Loop_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_axi_dma_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_DAC_Interface_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PRBS_Gain_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_0_6"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_5"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_axis_broadcaster_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_Locking_Strength_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_Delay_Amount_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_dma_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_GPIO_SamplingReset_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Clock_Divider_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_DMA_Interconnect_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_DATA_LOGGER_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_AXI_Stream_Writer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Subtractor_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Costa_Demodulator_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_PRBS_Multiply_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Test_Pattern_Gen_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Reset_Gen_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Variable_Delay_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Costa_Demodulator_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Inverter_0_0"/>
 </GenRun>

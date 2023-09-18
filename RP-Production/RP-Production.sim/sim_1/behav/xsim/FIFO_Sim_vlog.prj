@@ -1,9 +1,0 @@
-# compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../RP-Production.gen/sources_1/bd/system/ipshared/ec67/hdl" --include "../../../../RP-Production.gen/sources_1/bd/system/ipshared/ee60/hdl" --include "../../../../RP-Production.gen/sources_1/bd/system/ipshared/7698" --include "E:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../../RP-Production.srcs/sim_1/new/FIFO_Sim.v" \
-
-# compile glbl module
-verilog xil_defaultlib "glbl.v"
-
-# Do not sort compile order
-nosort

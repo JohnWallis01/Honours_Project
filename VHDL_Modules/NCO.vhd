@@ -12,12 +12,13 @@ entity NCO is
   DAC_SIZE:integer := 16
   ) ;
   port (
-    Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); --- Frequency is in fact 4 times this word
-    PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0');
+    Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); 
+    PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0);
     clock: in std_logic := '0';
     rst: in std_logic := '0';
     Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
-    Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0') 
+    Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0');
+    Phase_Out: out std_logic_vector(Freq_Size-1 downto 0)
 
   );
 end NCO;
@@ -30,13 +31,13 @@ architecture NCO_str of NCO is
     TYPE SINTAB IS ARRAY(0 TO ROMSIZE-1) OF STD_LOGIC_VECTOR (DAC_Size-2 DOWNTO 0);
     signal phase: signed(Freq_Size-1 downto 0) := (others => '0');
     signal OffsetPhase: signed(Freq_Size-1 downto 0) := (others => '0');
-    alias sigbits is OffsetPhase(Freq_Size-1 downto Freq_Size-2);
-    alias subbits is OffsetPhase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
-    signal databuffer: std_logic_vector(DAC_Size-1 downto 0) := (others => '0');
+    alias sigbits is Offsetphase(Freq_Size-1 downto Freq_Size-2);
+    alias subbits is Offsetphase(Freq_Size-3 downto Freq_Size-ROM_Size-2); 
+    signal databuffer: std_logic_vector(DAC_Size-2 downto 0) := (others => '0');
     signal dataAddr: signed(ROM_Size-1 downto 0) := (others => '0');
-    signal sigbuffer: signed(1 downto 0) := (others => '0');
-    signal Quadrature_buffer: std_logic_vector(DAC_Size-1 downto 0) := (others => '0');
+    signal Quadrature_buffer: std_logic_vector(DAC_Size-2 downto 0) := (others => '0');
     signal Quadrature_addr: signed(ROM_Size-1 downto 0) := (others => '0');
+    signal DelayPipe1, DelayPipe2: signed(1 downto 0);
 
     --compile time setup
     function sinelut_init return SINTAB is
@@ -47,29 +48,30 @@ architecture NCO_str of NCO is
         for i in 0 to ROMSIZE-1 loop
              x := SIN(real(i)*MATH_PI/real(2*ROMSIZE)); -- creates the quater wave table
              xn := to_signed(INTEGER(x*real((2**(DAC_Size-2))-1)),DAC_Size-1); -- this just the unsigned portion and add the signed bit later
-            
-            
-            
              sinlut(i) := STD_LOGIC_VECTOR(xn);	
         end loop;
         return sinlut;
       end;
       
       constant SINROM: SINTAB := sinelut_init;
+      constant COSROM: SINTAB := sinelut_init;
 
     BEGIN
 
-    --this runs at compile time
-    -- GENROM:
-    -- FOR idx in 0 TO ROMSIZE-1 GENERATE
-    --     CONSTANT x: REAL := SIN(real(idx)*MATH_PI/real(2*ROMSIZE)); -- creates the quater wave table
-    --     CONSTANT xn: unsigned (DAC_Size-2 DOWNTO 0) := to_unsigned(INTEGER(x*real(ROMSIZE-1)),DAC_Size-1); -- this just the unsigned portion and add the signed bit later
-    -- BEGIN
-    --     SINROM(idx) <= STD_LOGIC_VECTOR(xn);	
+    Phase_Out <= std_logic_vector(phase);
 
-    -- END GENERATE;
-
-    --implying a block ram
+    process(clock)
+    begin
+      if rising_edge(clock) then
+        if(rst ='1') then
+          DelayPipe1 <= (others => '0'); 
+          DelayPipe2 <= (others => '0'); 
+        else
+          DelayPipe1 <= sigbits;
+          DelayPipe2 <= DelayPipe1;
+        end if;
+      end if;
+    end process; 
 
     process(clock)
     begin
@@ -77,10 +79,8 @@ architecture NCO_str of NCO is
         if (rst='1') then
           phase <= (others =>'0');
         else
-        phase <= phase +  signed(Frequency);
+        phase <= phase + signed(Frequency);
         OffsetPhase <= phase + signed(PhaseOffset);
-        --implying ram
-        sigbuffer <= sigbits;
         case sigbits is
           when "00" =>
             dataAddr <= (subbits);
@@ -99,69 +99,48 @@ architecture NCO_str of NCO is
     end if;
   end process;
 
+
+  process(clock)
+  begin
+    if rising_edge(clock) then
+      if rst = '1' then
+        Quadrature_buffer <= (others => '0');
+      else
+        Quadrature_buffer <= COSROM(to_integer(unsigned(Quadrature_addr)));
+      end if;
+    end if;
+  end process;
+
+  process(clock)
+  begin
+    if rising_edge(clock) then
+      if rst = '1' then
+        databuffer  <= (others => '0');
+      else
+        databuffer <= SINROM(to_integer(unsigned(dataAddr)));
+      end if;
+    end if;
+  end process;
+
   process(clock)
     begin
       if rising_edge(clock) then
-        databuffer(DAC_Size-1) <= sigbuffer(1);
-        case sigbuffer is
+        case DelayPipe2 is
           when "00" =>
-            databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(dataAddr)));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(Quadrature_addr)));
-            Quadrature_buffer(DAC_Size-1) <= '0';
+            Dout <= DelayPipe2(1) & Databuffer; 
+            Quadrature_out <= (DelayPipe2(1)) & Quadrature_buffer; 
           when "01" =>
-            databuffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(dataAddr)));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(Quadrature_addr)));
-            Quadrature_buffer(DAC_Size-1) <= '1';
+            Dout <= DelayPipe2(1) &  Databuffer;
+            Quadrature_out <= (not DelayPipe2(1)) & (not Quadrature_buffer); 
           when "10" =>
-            databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(dataAddr)));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(Quadrature_addr)));
-            Quadrature_buffer(DAC_Size-1) <= '1';
+            Dout <= DelayPipe2(1) & (not Databuffer);
+            Quadrature_out <= (DelayPipe2(1)) & (not Quadrature_buffer); 
           when others =>
-            databuffer(DAC_Size-2 downto 0) <= not SINROM(to_integer(unsigned(dataAddr)));
-            Quadrature_buffer(DAC_Size-2 downto 0) <= SINROM(to_integer(unsigned(Quadrature_addr)));
-            Quadrature_buffer(DAC_Size-1) <= '0';
+            Dout <= DelayPipe2(1) & (not Databuffer);
+            Quadrature_out <= (not DelayPipe2(1)) & Quadrature_buffer; 
         end case;
-        Dout <= databuffer;
-        Quadrature_out <= Quadrature_buffer;
       end if;
   end process;
 
 
-
-
-
-    -- process(clock)
-    -- begin
-    --     if rising_edge(clock) then
-    --         if(rst = '1') then
-    --             phase <= (others => '0');
-    --         else
-    --             phase <= phase + Frequency;
-    --             OffsetPhase <= phase + PhaseOffset;
-    --             databuffer(DAC_Size-1) <= OffsetPhase(Freq_Size-1); -- controls the sign of the output based on the zone of the wave
-    --             -- if sigbits = "00" then
-    --             -- Dout(DAC_Size-2 downto 0) <= SINROM(to_integer(subbits));
-    --             -- elsif sigbits = "01" then
-    --             -- Dout(DAC_Size-2 downto 0) <= SINROM(to_integer(not subbits));
-    --             -- elsif sigbits = "10" then
-    --             -- Dout(DAC_Size-2 downto 0) <=  not SINROM(to_integer(subbits));    
-    --             -- else
-    --             -- Dout(DAC_Size-2 downto 0) <= not SINROM(to_integer(not subbits));    
-    --             -- end if;
-                
-    --             --logic to determine what zone you are in add signs or flip wave
-    --             case sigbits is
-    --               when "00" =>
-    --                 databuffer(DAC_Size-2 downto 0) <=  SINROM(to_integer(subbits));
-    --               when "01" =>
-    --                 databuffer(DAC_Size-2 downto 0) <=  SINROM(to_integer(not subbits));
-    --               when "10" =>
-    --                 databuffer(DAC_Size-2 downto 0) <=  not SINROM(to_integer(subbits)); 
-    --               when others =>
-    --                 databuffer(DAC_Size-2 downto 0) <=  not SINROM(to_integer(not subbits)); 
-    --             end case;
-    --             Dout <= databuffer;  
-    --         end if;
-    -- end if;
-    -- end process;				
 end architecture;
