@@ -10,10 +10,11 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source Differental_Phasemeter_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 393.352 ; gain = 55.098
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
-add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 443.180 ; gain = 23.914
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
+add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 442.887 ; gain = 24.406
 Command: read_checkpoint -auto_incremental -incremental C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/utils_1/imports/synth_1/system_wrapper.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/utils_1/imports/synth_1/system_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -26,136 +27,139 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 19048
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 19940
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1254.355 ; gain = 408.867
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1254.109 ; gain = 408.727
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_wrapper' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/hdl/Differental_Phasemeter_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:678]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_AXI_Stream_Writer_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_AXI_Stream_Writer_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_AXI_Stream_Writer_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_AXI_Stream_Writer_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Costa_Demodulator_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Costa_Demodulator_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Costa_Demodulator_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Costa_Demodulator_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'Threshold' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' is unconnected for instance 'Costa_Demodulator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1118]
-WARNING: [Synth 8-7071] port 'Lock_Strength' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' is unconnected for instance 'Costa_Demodulator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1118]
-WARNING: [Synth 8-7071] port 'Locked_Carrier' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' is unconnected for instance 'Costa_Demodulator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1118]
-WARNING: [Synth 8-7071] port 'Debug' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' is unconnected for instance 'Costa_Demodulator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1118]
-WARNING: [Synth 8-7023] instance 'Costa_Demodulator_0' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' has 14 connections declared, but only 10 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1118]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Costa_Demodulator_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Costa_Demodulator_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Costa_Demodulator_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Costa_Demodulator_1_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'Threshold' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' is unconnected for instance 'Costa_Demodulator_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1129]
-WARNING: [Synth 8-7071] port 'Lock_Strength' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' is unconnected for instance 'Costa_Demodulator_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1129]
-WARNING: [Synth 8-7071] port 'Locked_Carrier' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' is unconnected for instance 'Costa_Demodulator_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1129]
-WARNING: [Synth 8-7071] port 'Debug' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' is unconnected for instance 'Costa_Demodulator_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1129]
-WARNING: [Synth 8-7023] instance 'Costa_Demodulator_1' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' has 14 connections declared, but only 10 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1129]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_AXI_Stream_Writer_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_AXI_Stream_Writer_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_AXI_Stream_Writer_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_AXI_Stream_Writer_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Costa_Demodulator_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Costa_Demodulator_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Costa_Demodulator_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Costa_Demodulator_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'Lock_Strength' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' is unconnected for instance 'Costa_Demodulator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1121]
+WARNING: [Synth 8-7071] port 'Locked_Carrier' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' is unconnected for instance 'Costa_Demodulator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1121]
+WARNING: [Synth 8-7071] port 'Debug' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' is unconnected for instance 'Costa_Demodulator_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1121]
+WARNING: [Synth 8-7023] instance 'Costa_Demodulator_0' of module 'Differental_Phasemeter_Costa_Demodulator_0_0' has 14 connections declared, but only 11 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1121]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Costa_Demodulator_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Costa_Demodulator_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Costa_Demodulator_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Costa_Demodulator_1_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'Lock_Strength' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' is unconnected for instance 'Costa_Demodulator_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1133]
+WARNING: [Synth 8-7071] port 'Locked_Carrier' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' is unconnected for instance 'Costa_Demodulator_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1133]
+WARNING: [Synth 8-7071] port 'Debug' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' is unconnected for instance 'Costa_Demodulator_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1133]
+WARNING: [Synth 8-7023] instance 'Costa_Demodulator_1' of module 'Differental_Phasemeter_Costa_Demodulator_1_0' has 14 connections declared, but only 11 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1133]
 INFO: [Synth 8-6157] synthesizing module 'DAC_Interface_imp_10MNJJP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_DAC_Interface_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_DAC_Interface_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_DAC_Interface_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_DAC_Interface_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axis_constant_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axis_constant_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axis_constant_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axis_constant_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axis_red_pitaya_dac_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axis_red_pitaya_dac_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axis_red_pitaya_dac_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axis_red_pitaya_dac_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_DAC_Interface_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_DAC_Interface_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_DAC_Interface_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_DAC_Interface_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axis_constant_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axis_constant_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axis_constant_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axis_constant_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axis_red_pitaya_dac_1_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axis_red_pitaya_dac_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axis_red_pitaya_dac_1_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axis_red_pitaya_dac_1_0_stub.v:5]
 WARNING: [Synth 8-7071] port 's_axis_tready' of module 'Differental_Phasemeter_axis_red_pitaya_dac_1_0' is unconnected for instance 'axis_red_pitaya_dac_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:65]
 WARNING: [Synth 8-7023] instance 'axis_red_pitaya_dac_1' of module 'Differental_Phasemeter_axis_red_pitaya_dac_1_0' has 11 connections declared, but only 10 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:65]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_clk_wiz_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_clk_wiz_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_clk_wiz_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_clk_wiz_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_clk_wiz_0_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'DAC_Interface_imp_10MNJJP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_DATA_LOGGER_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_DATA_LOGGER_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_DATA_LOGGER_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_DATA_LOGGER_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'm_axis_S2MMD_tdata' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-WARNING: [Synth 8-7071] port 'm_axis_S2MMD_tvalid' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-WARNING: [Synth 8-7071] port 'm_axis_S2MMD_tlast' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-WARNING: [Synth 8-7071] port 's_axis_CH1_tready' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-WARNING: [Synth 8-7071] port 's_axis_CH2_tready' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-WARNING: [Synth 8-7071] port 'AFULL' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-WARNING: [Synth 8-7071] port 'AEMPTY' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-WARNING: [Synth 8-7023] instance 'DATA_LOGGER_0' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' has 21 connections declared, but only 14 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1150]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_DMA_Interconnect_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_DMA_Interconnect_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_DMA_Interconnect_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_DMA_Interconnect_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'ADC_Data' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' is unconnected for instance 'DMA_Interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1165]
-WARNING: [Synth 8-7071] port 'm_axis_tdata' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' is unconnected for instance 'DMA_Interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1165]
-WARNING: [Synth 8-7071] port 'm_axis_tvalid' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' is unconnected for instance 'DMA_Interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1165]
-WARNING: [Synth 8-7023] instance 'DMA_Interconnect_0' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' has 13 connections declared, but only 10 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1165]
-INFO: [Synth 8-6157] synthesizing module 'GPIO_Interface_imp_E62RCN' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:6099]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasure_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_FreqMeasure_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasure_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_FreqMeasure_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasureA_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_FreqMeasureA_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasureA_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_FreqMeasureA_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Integrator_Reset_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Integrator_Reset_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Integrator_Reset_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Integrator_Reset_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Ki_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Ki_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Ki_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Ki_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Ki_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Ki_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Ki_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Ki_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Kp_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Kp_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Kp_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Kp_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Kp_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Kp_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Kp_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Kp_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_SamplingReset_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_SamplingReset_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_SamplingReset_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_SamplingReset_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_LoggerStatus_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_LoggerStatus_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_LoggerStatus_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_LoggerStatus_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_KpB_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_KpB_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_KpB_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_KpB_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_2_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Taps_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Taps_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Taps_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_Taps_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_DIV_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_DIV_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_DIV_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_GPIO_PRBS_DIV_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'GPIO_Interface_imp_E62RCN' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:6099]
-INFO: [Synth 8-6157] synthesizing module 'PRBS_imp_1MAE0CP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7600]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Clock_Divider_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Clock_Divider_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Clock_Divider_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Clock_Divider_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_LFSR_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_LFSR_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_LFSR_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_LFSR_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'State' of module 'Differental_Phasemeter_LFSR_0_0' is unconnected for instance 'LFSR_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7637]
-WARNING: [Synth 8-7023] instance 'LFSR_0' of module 'Differental_Phasemeter_LFSR_0_0' has 5 connections declared, but only 4 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7637]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Variable_Delay_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Variable_Delay_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Variable_Delay_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Variable_Delay_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'PRBS_imp_1MAE0CP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7600]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_PRBS_Multiply_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_PRBS_Multiply_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_PRBS_Multiply_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_PRBS_Multiply_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'PS7_imp_1LE2GRM' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7650]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_DATA_LOGGER_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_DATA_LOGGER_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_DATA_LOGGER_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_DATA_LOGGER_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axis_S2MMD_tdata' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+WARNING: [Synth 8-7071] port 'm_axis_S2MMD_tvalid' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+WARNING: [Synth 8-7071] port 'm_axis_S2MMD_tlast' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+WARNING: [Synth 8-7071] port 's_axis_CH1_tready' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+WARNING: [Synth 8-7071] port 's_axis_CH2_tready' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+WARNING: [Synth 8-7071] port 'AFULL' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+WARNING: [Synth 8-7071] port 'AEMPTY' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' is unconnected for instance 'DATA_LOGGER_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+WARNING: [Synth 8-7023] instance 'DATA_LOGGER_0' of module 'Differental_Phasemeter_DATA_LOGGER_0_0' has 21 connections declared, but only 14 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1155]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_DMA_Interconnect_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_DMA_Interconnect_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_DMA_Interconnect_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_DMA_Interconnect_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'ADC_Data' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' is unconnected for instance 'DMA_Interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1170]
+WARNING: [Synth 8-7071] port 'm_axis_tdata' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' is unconnected for instance 'DMA_Interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1170]
+WARNING: [Synth 8-7071] port 'm_axis_tvalid' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' is unconnected for instance 'DMA_Interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1170]
+WARNING: [Synth 8-7023] instance 'DMA_Interconnect_0' of module 'Differental_Phasemeter_DMA_Interconnect_0_0' has 13 connections declared, but only 10 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1170]
+INFO: [Synth 8-6157] synthesizing module 'GPIO_Interface_imp_E62RCN' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:6114]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasure_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_FreqMeasure_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasure_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_FreqMeasure_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasureA_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_FreqMeasureA_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_FreqMeasureA_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_FreqMeasureA_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Integrator_Reset_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Integrator_Reset_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Integrator_Reset_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Integrator_Reset_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Ki_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Ki_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Ki_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Ki_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Ki_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Ki_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Ki_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Ki_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Kp_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Kp_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Kp_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Kp_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Kp_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Kp_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Kp_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Kp_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_SamplingReset_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_SamplingReset_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_SamplingReset_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_SamplingReset_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_LoggerStatus_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_LoggerStatus_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_LoggerStatus_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_LoggerStatus_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_KpB_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_KpB_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_KpB_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_KpB_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_Scale_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_Scale_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_Taps_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Taps_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_Taps_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_Taps_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_GPIO_PRBS_DIV_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_DIV_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_GPIO_PRBS_DIV_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_GPIO_PRBS_DIV_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'GPIO_Interface_imp_E62RCN' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:6114]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_NCO_Wrapper_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_NCO_Wrapper_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_NCO_Wrapper_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_NCO_Wrapper_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'Quadrature_out' of module 'Differental_Phasemeter_NCO_Wrapper_0_0' is unconnected for instance 'NCO_Wrapper_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1472]
+WARNING: [Synth 8-7071] port 'Phase_Out' of module 'Differental_Phasemeter_NCO_Wrapper_0_0' is unconnected for instance 'NCO_Wrapper_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1472]
+WARNING: [Synth 8-7023] instance 'NCO_Wrapper_0' of module 'Differental_Phasemeter_NCO_Wrapper_0_0' has 7 connections declared, but only 5 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1472]
+INFO: [Synth 8-6157] synthesizing module 'PRBS_imp_1MAE0CP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7615]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Clock_Divider_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Clock_Divider_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Clock_Divider_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Clock_Divider_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_LFSR_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_LFSR_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_LFSR_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_LFSR_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'State' of module 'Differental_Phasemeter_LFSR_0_0' is unconnected for instance 'LFSR_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7652]
+WARNING: [Synth 8-7023] instance 'LFSR_0' of module 'Differental_Phasemeter_LFSR_0_0' has 5 connections declared, but only 4 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7652]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Variable_Delay_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Variable_Delay_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Variable_Delay_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Variable_Delay_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'PRBS_imp_1MAE0CP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7615]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_PRBS_Multiply_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_PRBS_Multiply_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_PRBS_Multiply_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_PRBS_Multiply_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'PS7_imp_1LE2GRM' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7665]
 INFO: [Synth 8-6157] synthesizing module 'DMA_Engine_imp_1S5CNGA' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:83]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_dma_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axi_dma_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_dma_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axi_dma_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_dma_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axi_dma_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_dma_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axi_dma_0_1_stub.v:5]
 WARNING: [Synth 8-7071] port 's2mm_prmry_reset_out_n' of module 'Differental_Phasemeter_axi_dma_0_1' is unconnected for instance 'axi_dma_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:454]
 WARNING: [Synth 8-7071] port 's2mm_introut' of module 'Differental_Phasemeter_axi_dma_0_1' is unconnected for instance 'axi_dma_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:454]
 WARNING: [Synth 8-7071] port 'axi_dma_tstvec' of module 'Differental_Phasemeter_axi_dma_0_1' is unconnected for instance 'axi_dma_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:454]
 WARNING: [Synth 8-7023] instance 'axi_dma_0' of module 'Differental_Phasemeter_axi_dma_0_1' has 43 connections declared, but only 40 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:454]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_0_2' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1814]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_K8UTIP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10134]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_ds_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_ds_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_ds_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_ds_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_pc_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_pc_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_pc_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_pc_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_K8UTIP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10134]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_KB1DZR' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13540]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_KB1DZR' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13540]
-INFO: [Synth 8-6157] synthesizing module 's01_couplers_imp_1FBIH19' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14117]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_us_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_us_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_us_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_us_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'Differental_Phasemeter_auto_us_0' is unconnected for instance 'auto_us' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14268]
-WARNING: [Synth 8-7023] instance 'auto_us' of module 'Differental_Phasemeter_auto_us_0' has 40 connections declared, but only 39 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14268]
-INFO: [Synth 8-6155] done synthesizing module 's01_couplers_imp_1FBIH19' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14117]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xbar_3' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_xbar_3_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xbar_3' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_xbar_3_stub.v:5]
-WARNING: [Synth 8-689] width (1) of port connection 's_axi_arready' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2532]
-WARNING: [Synth 8-689] width (1) of port connection 's_axi_bid' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2546]
-WARNING: [Synth 8-689] width (64) of port connection 's_axi_rdata' does not match port width (128) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2550]
-WARNING: [Synth 8-689] width (1) of port connection 's_axi_rid' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2551]
-WARNING: [Synth 8-689] width (1) of port connection 's_axi_rlast' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2552]
-WARNING: [Synth 8-689] width (2) of port connection 's_axi_rresp' does not match port width (4) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2554]
-WARNING: [Synth 8-689] width (1) of port connection 's_axi_rvalid' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2555]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_0_2' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1814]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_0_2' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1829]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_K8UTIP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10149]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_ds_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_ds_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_ds_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_ds_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_pc_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_pc_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_pc_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_pc_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_K8UTIP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10149]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_KB1DZR' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13555]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_KB1DZR' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13555]
+INFO: [Synth 8-6157] synthesizing module 's01_couplers_imp_1FBIH19' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14132]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_us_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_us_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_us_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_us_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'Differental_Phasemeter_auto_us_0' is unconnected for instance 'auto_us' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14283]
+WARNING: [Synth 8-7023] instance 'auto_us' of module 'Differental_Phasemeter_auto_us_0' has 40 connections declared, but only 39 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14283]
+INFO: [Synth 8-6155] done synthesizing module 's01_couplers_imp_1FBIH19' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:14132]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xbar_3' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_xbar_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xbar_3' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_xbar_3_stub.v:5]
+WARNING: [Synth 8-689] width (1) of port connection 's_axi_arready' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2547]
+WARNING: [Synth 8-689] width (1) of port connection 's_axi_bid' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2561]
+WARNING: [Synth 8-689] width (64) of port connection 's_axi_rdata' does not match port width (128) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2565]
+WARNING: [Synth 8-689] width (1) of port connection 's_axi_rid' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2566]
+WARNING: [Synth 8-689] width (1) of port connection 's_axi_rlast' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2567]
+WARNING: [Synth 8-689] width (2) of port connection 's_axi_rresp' does not match port width (4) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2569]
+WARNING: [Synth 8-689] width (1) of port connection 's_axi_rvalid' does not match port width (2) of module 'Differental_Phasemeter_xbar_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2570]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_0_2' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1829]
 WARNING: [Synth 8-7071] port 'S00_AXI_arready' of module 'Differental_Phasemeter_axi_interconnect_0_2' is unconnected for instance 'axi_interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:495]
 WARNING: [Synth 8-7071] port 'S00_AXI_awready' of module 'Differental_Phasemeter_axi_interconnect_0_2' is unconnected for instance 'axi_interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:495]
 WARNING: [Synth 8-7071] port 'S00_AXI_bid' of module 'Differental_Phasemeter_axi_interconnect_0_2' is unconnected for instance 'axi_interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:495]
@@ -168,153 +172,161 @@ WARNING: [Synth 8-7071] port 'S00_AXI_rresp' of module 'Differental_Phasemeter_a
 WARNING: [Synth 8-7071] port 'S00_AXI_rvalid' of module 'Differental_Phasemeter_axi_interconnect_0_2' is unconnected for instance 'axi_interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:495]
 WARNING: [Synth 8-7071] port 'S00_AXI_wready' of module 'Differental_Phasemeter_axi_interconnect_0_2' is unconnected for instance 'axi_interconnect_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:495]
 WARNING: [Synth 8-7023] instance 'axi_interconnect_0' of module 'Differental_Phasemeter_axi_interconnect_0_2' has 94 connections declared, but only 83 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:495]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_2_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5909]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1F9DPJ0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13020]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1F9DPJ0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13020]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_2_1' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5909]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_protocol_convert_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axi_protocol_convert_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_protocol_convert_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axi_protocol_convert_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_2_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5924]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1F9DPJ0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13035]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1F9DPJ0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13035]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_2_1' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5924]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_protocol_convert_0_1' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axi_protocol_convert_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_protocol_convert_0_1' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axi_protocol_convert_0_1_stub.v:5]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'Differental_Phasemeter_axi_protocol_convert_0_1' is unconnected for instance 'axi_protocol_convert_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:618]
 WARNING: [Synth 8-7071] port 'm_axi_wstrb' of module 'Differental_Phasemeter_axi_protocol_convert_0_1' is unconnected for instance 'axi_protocol_convert_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:618]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'Differental_Phasemeter_axi_protocol_convert_0_1' is unconnected for instance 'axi_protocol_convert_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:618]
 WARNING: [Synth 8-7023] instance 'axi_protocol_convert_0' of module 'Differental_Phasemeter_axi_protocol_convert_0_1' has 60 connections declared, but only 57 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:618]
 INFO: [Synth 8-6155] done synthesizing module 'DMA_Engine_imp_1S5CNGA' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:83]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_0_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2563]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1TFYD1A' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9848]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1TFYD1A' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9848]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_77YN6C' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10886]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_77YN6C' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10886]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1SXJZ4O' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13145]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_pc_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_pc_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_pc_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_pc_2_stub.v:5]
-WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'Differental_Phasemeter_auto_pc_2' is unconnected for instance 'auto_pc' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13460]
-WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'Differental_Phasemeter_auto_pc_2' is unconnected for instance 'auto_pc' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13460]
-WARNING: [Synth 8-7023] instance 'auto_pc' of module 'Differental_Phasemeter_auto_pc_2' has 79 connections declared, but only 77 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13460]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1SXJZ4O' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13145]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xbar_4' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_xbar_4_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xbar_4' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_xbar_4_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_0_3' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2563]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_1_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:3504]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_Z5AYGB' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10622]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_Z5AYGB' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10622]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_13T0669' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10754]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_13T0669' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10754]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_JJBIF2' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11172]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_JJBIF2' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11172]
-INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1EYXLJO' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11304]
-INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_1EYXLJO' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11304]
-INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_47BOHT' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11436]
-INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_47BOHT' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11436]
-INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1YQZ7FV' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11568]
-INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1YQZ7FV' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11568]
-INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_FI8XQS' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11700]
-INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_FI8XQS' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11700]
-INFO: [Synth 8-6157] synthesizing module 'm07_couplers_imp_1J003UM' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11832]
-INFO: [Synth 8-6155] done synthesizing module 'm07_couplers_imp_1J003UM' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11832]
-INFO: [Synth 8-6157] synthesizing module 'm08_couplers_imp_17RFAGV' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11964]
-INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_17RFAGV' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11964]
-INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_U2MEC5' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12096]
-INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_U2MEC5' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12096]
-INFO: [Synth 8-6157] synthesizing module 'm10_couplers_imp_K2VXG8' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12228]
-INFO: [Synth 8-6155] done synthesizing module 'm10_couplers_imp_K2VXG8' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12228]
-INFO: [Synth 8-6157] synthesizing module 'm11_couplers_imp_1FH3EEQ' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12360]
-INFO: [Synth 8-6155] done synthesizing module 'm11_couplers_imp_1FH3EEQ' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12360]
-INFO: [Synth 8-6157] synthesizing module 'm12_couplers_imp_V8TATP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12492]
-INFO: [Synth 8-6155] done synthesizing module 'm12_couplers_imp_V8TATP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12492]
-INFO: [Synth 8-6157] synthesizing module 'm13_couplers_imp_ZV40BR' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12624]
-INFO: [Synth 8-6155] done synthesizing module 'm13_couplers_imp_ZV40BR' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12624]
-INFO: [Synth 8-6157] synthesizing module 'm14_couplers_imp_G1NTPU' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12756]
-INFO: [Synth 8-6155] done synthesizing module 'm14_couplers_imp_G1NTPU' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12756]
-INFO: [Synth 8-6157] synthesizing module 'm15_couplers_imp_1JIBM3C' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12888]
-INFO: [Synth 8-6155] done synthesizing module 'm15_couplers_imp_1JIBM3C' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12888]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_ZD3MDP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13812]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_pc_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_pc_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_ZD3MDP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13812]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xbar_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xbar_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_xbar_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'Differental_Phasemeter_xbar_0' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5868]
-WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'Differental_Phasemeter_xbar_0' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5868]
-WARNING: [Synth 8-7023] instance 'xbar' of module 'Differental_Phasemeter_xbar_0' has 40 connections declared, but only 38 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5868]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_1_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:3504]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_proc_sys_reset_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_proc_sys_reset_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_proc_sys_reset_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_proc_sys_reset_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'Differental_Phasemeter_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9691]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'Differental_Phasemeter_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9691]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'Differental_Phasemeter_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9691]
-WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'Differental_Phasemeter_proc_sys_reset_0_0' has 10 connections declared, but only 7 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9691]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_processing_system7_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_processing_system7_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_processing_system7_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_processing_system7_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'FCLK_CLK1' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7071] port 'FCLK_RESET1_N' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'Differental_Phasemeter_processing_system7_0_0' has 172 connections declared, but only 146 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9699]
-INFO: [Synth 8-6155] done synthesizing module 'PS7_imp_1LE2GRM' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7650]
-WARNING: [Synth 8-7071] port 'M01_AXI1_araddr' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arburst' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arcache' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arlen' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arlock' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arprot' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arqos' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arregion' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arsize' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_arvalid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awaddr' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awburst' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awcache' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awlen' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awlock' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awprot' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awqos' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awregion' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awsize' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_awvalid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_bready' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_rready' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_wdata' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_wlast' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_wstrb' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7071] port 'M01_AXI1_wvalid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-WARNING: [Synth 8-7023] instance 'PS7' of module 'PS7_imp_1LE2GRM' has 339 connections declared, but only 311 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1480]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Reset_Gen_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Reset_Gen_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Reset_Gen_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Reset_Gen_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'ResetN' of module 'Differental_Phasemeter_Reset_Gen_0_0' is unconnected for instance 'Reset_Gen_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1792]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_0_3' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2578]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1TFYD1A' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9863]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1TFYD1A' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9863]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_77YN6C' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10901]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_77YN6C' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10901]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1SXJZ4O' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13160]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_pc_2' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_pc_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_pc_2' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_pc_2_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'Differental_Phasemeter_auto_pc_2' is unconnected for instance 'auto_pc' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13475]
+WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'Differental_Phasemeter_auto_pc_2' is unconnected for instance 'auto_pc' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13475]
+WARNING: [Synth 8-7023] instance 'auto_pc' of module 'Differental_Phasemeter_auto_pc_2' has 79 connections declared, but only 77 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13475]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1SXJZ4O' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13160]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xbar_4' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_xbar_4_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xbar_4' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_xbar_4_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_0_3' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:2578]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axi_interconnect_1_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:3519]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_Z5AYGB' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10637]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_Z5AYGB' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10637]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_13T0669' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10769]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_13T0669' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:10769]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_JJBIF2' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11187]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_JJBIF2' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11187]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1EYXLJO' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11319]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_1EYXLJO' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11319]
+INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_47BOHT' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11451]
+INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_47BOHT' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11451]
+INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1YQZ7FV' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11583]
+INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1YQZ7FV' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11583]
+INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_FI8XQS' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11715]
+INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_FI8XQS' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11715]
+INFO: [Synth 8-6157] synthesizing module 'm07_couplers_imp_1J003UM' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11847]
+INFO: [Synth 8-6155] done synthesizing module 'm07_couplers_imp_1J003UM' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11847]
+INFO: [Synth 8-6157] synthesizing module 'm08_couplers_imp_17RFAGV' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11979]
+INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_17RFAGV' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:11979]
+INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_U2MEC5' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12111]
+INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_U2MEC5' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12111]
+INFO: [Synth 8-6157] synthesizing module 'm10_couplers_imp_K2VXG8' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12243]
+INFO: [Synth 8-6155] done synthesizing module 'm10_couplers_imp_K2VXG8' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12243]
+INFO: [Synth 8-6157] synthesizing module 'm11_couplers_imp_1FH3EEQ' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12375]
+INFO: [Synth 8-6155] done synthesizing module 'm11_couplers_imp_1FH3EEQ' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12375]
+INFO: [Synth 8-6157] synthesizing module 'm12_couplers_imp_V8TATP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12507]
+INFO: [Synth 8-6155] done synthesizing module 'm12_couplers_imp_V8TATP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12507]
+INFO: [Synth 8-6157] synthesizing module 'm13_couplers_imp_ZV40BR' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12639]
+INFO: [Synth 8-6155] done synthesizing module 'm13_couplers_imp_ZV40BR' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12639]
+INFO: [Synth 8-6157] synthesizing module 'm14_couplers_imp_G1NTPU' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12771]
+INFO: [Synth 8-6155] done synthesizing module 'm14_couplers_imp_G1NTPU' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12771]
+INFO: [Synth 8-6157] synthesizing module 'm15_couplers_imp_1JIBM3C' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12903]
+INFO: [Synth 8-6155] done synthesizing module 'm15_couplers_imp_1JIBM3C' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:12903]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_ZD3MDP' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13827]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_auto_pc_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_auto_pc_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_ZD3MDP' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:13827]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xbar_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xbar_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_xbar_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'Differental_Phasemeter_xbar_0' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5883]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'Differental_Phasemeter_xbar_0' is unconnected for instance 'xbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5883]
+WARNING: [Synth 8-7023] instance 'xbar' of module 'Differental_Phasemeter_xbar_0' has 40 connections declared, but only 38 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:5883]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axi_interconnect_1_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:3519]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_proc_sys_reset_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_proc_sys_reset_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_proc_sys_reset_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_proc_sys_reset_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'Differental_Phasemeter_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9706]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'Differental_Phasemeter_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9706]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'Differental_Phasemeter_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9706]
+WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'Differental_Phasemeter_proc_sys_reset_0_0' has 10 connections declared, but only 7 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9706]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_processing_system7_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_processing_system7_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_processing_system7_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_processing_system7_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'FCLK_CLK1' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7071] port 'FCLK_RESET1_N' of module 'Differental_Phasemeter_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'Differental_Phasemeter_processing_system7_0_0' has 172 connections declared, but only 146 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:9714]
+INFO: [Synth 8-6155] done synthesizing module 'PS7_imp_1LE2GRM' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:7665]
+WARNING: [Synth 8-7071] port 'M01_AXI1_araddr' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arburst' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arcache' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arlen' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arlock' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arprot' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arqos' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arregion' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arsize' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_arvalid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awaddr' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awburst' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awcache' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awlen' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awlock' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awprot' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awqos' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awregion' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awsize' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_awvalid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_bready' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_rready' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_wdata' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_wlast' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_wstrb' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7071] port 'M01_AXI1_wvalid' of module 'PS7_imp_1LE2GRM' is unconnected for instance 'PS7' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+WARNING: [Synth 8-7023] instance 'PS7' of module 'PS7_imp_1LE2GRM' has 339 connections declared, but only 311 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1491]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Reset_Gen_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Reset_Gen_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Reset_Gen_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Reset_Gen_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'ResetN' of module 'Differental_Phasemeter_Reset_Gen_0_0' is unconnected for instance 'Reset_Gen_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1803]
 INFO: [Common 17-14] Message 'Synth 8-7071' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-7023] instance 'Reset_Gen_0' of module 'Differental_Phasemeter_Reset_Gen_0_0' has 3 connections declared, but only 2 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1792]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1795]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Subtractor_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Subtractor_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Subtractor_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Subtractor_0_0_stub.v:5]
-WARNING: [Synth 8-7023] instance 'Subtractor_0' of module 'Differental_Phasemeter_Subtractor_0_0' has 4 connections declared, but only 3 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1795]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Test_Pattern_Gen_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Test_Pattern_Gen_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Test_Pattern_Gen_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_Test_Pattern_Gen_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axis_red_pitaya_adc_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axis_red_pitaya_adc_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axis_red_pitaya_adc_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-8908-Centurion-Heavy/realtime/Differental_Phasemeter_axis_red_pitaya_adc_0_0_stub.v:5]
+WARNING: [Synth 8-7023] instance 'Reset_Gen_0' of module 'Differental_Phasemeter_Reset_Gen_0_0' has 3 connections declared, but only 2 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1803]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Subtractor_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Subtractor_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Subtractor_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Subtractor_0_0_stub.v:5]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1811]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_Test_Pattern_Gen_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Test_Pattern_Gen_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_Test_Pattern_Gen_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_Test_Pattern_Gen_0_0_stub.v:5]
+WARNING: [Synth 8-7023] instance 'Test_Pattern_Gen_0' of module 'Differental_Phasemeter_Test_Pattern_Gen_0_0' has 3 connections declared, but only 2 given [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:1811]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_axis_red_pitaya_adc_0_0' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axis_red_pitaya_adc_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_axis_red_pitaya_adc_0_0' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/.Xil/Vivado-58824-Valkyrie/realtime/Differental_Phasemeter_axis_red_pitaya_adc_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xlconstant_0_0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xlconstant_0_0/synth/Differental_Phasemeter_xlconstant_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xlconstant_0_0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xlconstant_0_0/synth/Differental_Phasemeter_xlconstant_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'Differental_Phasemeter_xlconstant_0_1' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xlconstant_0_1/synth/Differental_Phasemeter_xlconstant_0_1.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_xlconstant_0_1' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xlconstant_0_1/synth/Differental_Phasemeter_xlconstant_0_1.v:53]
 INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:678]
 INFO: [Synth 8-6155] done synthesizing module 'Differental_Phasemeter_wrapper' (0#1) [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/hdl/Differental_Phasemeter_wrapper.v:12]
 WARNING: [Synth 8-3848] Net adc_enc_n_o in module/entity Differental_Phasemeter does not have driver. [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/synth/Differental_Phasemeter.v:745]
@@ -423,18 +435,18 @@ WARNING: [Synth 8-7129] Port Taps[23] in module PRBS_imp_1MAE0CP is either uncon
 WARNING: [Synth 8-7129] Port Taps[22] in module PRBS_imp_1MAE0CP is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1376.078 ; gain = 530.590
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1375.203 ; gain = 529.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1376.078 ; gain = 530.590
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1375.203 ; gain = 529.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1376.078 ; gain = 530.590
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1375.203 ; gain = 529.820
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.131 . Memory (MB): peak = 1376.078 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.153 . Memory (MB): peak = 1375.203 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -529,6 +541,8 @@ Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Product
 Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_0_0/Differental_Phasemeter_Costa_Demodulator_0_0/Differental_Phasemeter_Costa_Demodulator_0_0_in_context.xdc] for cell 'Differental_Phasemeter_i/Costa_Demodulator_0'
 Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0_in_context.xdc] for cell 'Differental_Phasemeter_i/Costa_Demodulator_1'
 Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0_in_context.xdc] for cell 'Differental_Phasemeter_i/Costa_Demodulator_1'
+Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_NCO_Wrapper_0_0/Differental_Phasemeter_NCO_Wrapper_0_0/Differental_Phasemeter_NCO_Wrapper_0_0_in_context.xdc] for cell 'Differental_Phasemeter_i/NCO_Wrapper_0'
+Finished Parsing XDC File [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_NCO_Wrapper_0_0/Differental_Phasemeter_NCO_Wrapper_0_0/Differental_Phasemeter_NCO_Wrapper_0_0_in_context.xdc] for cell 'Differental_Phasemeter_i/NCO_Wrapper_0'
 Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/constrs_1/imports/cfg/clocks.xdc]
 Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/constrs_1/imports/cfg/clocks.xdc]
 Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/constrs_1/imports/cfg/ports.xdc]
@@ -584,11 +598,11 @@ Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Product
 Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1397.148 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1398.930 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1397.148 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1398.930 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'Differental_Phasemeter_i/GPIO_Interface/GPIO_FreqMeasureA' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'Differental_Phasemeter_i/GPIO_Interface/GPIO_FreqMeasureB' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'Differental_Phasemeter_i/GPIO_Interface/GPIO_Integrator_Reset' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
@@ -608,16 +622,16 @@ WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context s
 INFO: [Designutils 20-5008] Incremental synthesis strategy quick
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -934,13 +948,16 @@ Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/Reset_Ge
 Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/Subtractor_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/Test_Pattern_Gen_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/DATA_LOGGER_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/xlconstant_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/xlconstant_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/Costa_Demodulator_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/Costa_Demodulator_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for Differental_Phasemeter_i/NCO_Wrapper_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -963,25 +980,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -998,90 +1015,38 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[25]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[24]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[23]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[22]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[21]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[20]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[19]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[18]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[17]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[16]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[15]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[14]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[13]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[12]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[11]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[10]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[9]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[8]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_0 has unconnected pin Threshold[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[25]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[24]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[23]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[22]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[21]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[20]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[19]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[18]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[17]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[16]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[15]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[14]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[13]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[12]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[11]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[10]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[9]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[8]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module Costa_Demodulator_1 has unconnected pin Threshold[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1096,46 +1061,47 @@ Report BlackBoxes:
 |3     |Differental_Phasemeter_Costa_Demodulator_1_0    |         1|
 |4     |Differental_Phasemeter_DATA_LOGGER_0_0          |         1|
 |5     |Differental_Phasemeter_DMA_Interconnect_0_0     |         1|
-|6     |Differental_Phasemeter_PRBS_Multiply_0_0        |         1|
-|7     |Differental_Phasemeter_Reset_Gen_0_0            |         1|
-|8     |Differental_Phasemeter_Subtractor_0_0           |         1|
-|9     |Differental_Phasemeter_Test_Pattern_Gen_0_0     |         1|
-|10    |Differental_Phasemeter_axis_red_pitaya_adc_0_0  |         1|
-|11    |Differental_Phasemeter_DAC_Interface_0_0        |         1|
-|12    |Differental_Phasemeter_axis_constant_0_0        |         1|
-|13    |Differental_Phasemeter_axis_red_pitaya_dac_1_0  |         1|
-|14    |Differental_Phasemeter_clk_wiz_0_0              |         1|
-|15    |Differental_Phasemeter_GPIO_FreqMeasure_0       |         1|
-|16    |Differental_Phasemeter_GPIO_FreqMeasureA_0      |         1|
-|17    |Differental_Phasemeter_GPIO_Integrator_Reset_0  |         1|
-|18    |Differental_Phasemeter_GPIO_Ki_0                |         1|
-|19    |Differental_Phasemeter_GPIO_Ki_1                |         1|
-|20    |Differental_Phasemeter_GPIO_Kp_0                |         1|
-|21    |Differental_Phasemeter_GPIO_Kp_1                |         1|
-|22    |Differental_Phasemeter_GPIO_SamplingReset_1     |         1|
-|23    |Differental_Phasemeter_GPIO_LoggerStatus_0      |         1|
-|24    |Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0    |         1|
-|25    |Differental_Phasemeter_GPIO_PRBS_Scale_0        |         1|
-|26    |Differental_Phasemeter_GPIO_PRBS_Scale_1        |         1|
-|27    |Differental_Phasemeter_GPIO_KpB_0               |         1|
-|28    |Differental_Phasemeter_GPIO_PRBS_Scale_2        |         1|
-|29    |Differental_Phasemeter_GPIO_Taps_0              |         1|
-|30    |Differental_Phasemeter_GPIO_PRBS_DIV_0          |         1|
-|31    |Differental_Phasemeter_Clock_Divider_0_0        |         1|
-|32    |Differental_Phasemeter_LFSR_0_0                 |         1|
-|33    |Differental_Phasemeter_Variable_Delay_0_0       |         1|
-|34    |Differental_Phasemeter_xbar_4                   |         1|
-|35    |Differental_Phasemeter_auto_pc_2                |         1|
-|36    |Differental_Phasemeter_xbar_0                   |         1|
-|37    |Differental_Phasemeter_auto_pc_0                |         1|
-|38    |Differental_Phasemeter_proc_sys_reset_0_0       |         1|
-|39    |Differental_Phasemeter_processing_system7_0_0   |         1|
-|40    |Differental_Phasemeter_xbar_3                   |         1|
-|41    |Differental_Phasemeter_auto_ds_0                |         1|
-|42    |Differental_Phasemeter_auto_pc_1                |         1|
-|43    |Differental_Phasemeter_auto_us_0                |         1|
-|44    |Differental_Phasemeter_axi_dma_0_1              |         1|
-|45    |Differental_Phasemeter_axi_protocol_convert_0_1 |         1|
+|6     |Differental_Phasemeter_NCO_Wrapper_0_0          |         1|
+|7     |Differental_Phasemeter_PRBS_Multiply_0_0        |         1|
+|8     |Differental_Phasemeter_Reset_Gen_0_0            |         1|
+|9     |Differental_Phasemeter_Subtractor_0_0           |         1|
+|10    |Differental_Phasemeter_Test_Pattern_Gen_0_0     |         1|
+|11    |Differental_Phasemeter_axis_red_pitaya_adc_0_0  |         1|
+|12    |Differental_Phasemeter_DAC_Interface_0_0        |         1|
+|13    |Differental_Phasemeter_axis_constant_0_0        |         1|
+|14    |Differental_Phasemeter_axis_red_pitaya_dac_1_0  |         1|
+|15    |Differental_Phasemeter_clk_wiz_0_0              |         1|
+|16    |Differental_Phasemeter_GPIO_FreqMeasure_0       |         1|
+|17    |Differental_Phasemeter_GPIO_FreqMeasureA_0      |         1|
+|18    |Differental_Phasemeter_GPIO_Integrator_Reset_0  |         1|
+|19    |Differental_Phasemeter_GPIO_Ki_0                |         1|
+|20    |Differental_Phasemeter_GPIO_Ki_1                |         1|
+|21    |Differental_Phasemeter_GPIO_Kp_0                |         1|
+|22    |Differental_Phasemeter_GPIO_Kp_1                |         1|
+|23    |Differental_Phasemeter_GPIO_SamplingReset_1     |         1|
+|24    |Differental_Phasemeter_GPIO_LoggerStatus_0      |         1|
+|25    |Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0    |         1|
+|26    |Differental_Phasemeter_GPIO_PRBS_Scale_0        |         1|
+|27    |Differental_Phasemeter_GPIO_PRBS_Scale_1        |         1|
+|28    |Differental_Phasemeter_GPIO_KpB_0               |         1|
+|29    |Differental_Phasemeter_GPIO_PRBS_Scale_2        |         1|
+|30    |Differental_Phasemeter_GPIO_Taps_0              |         1|
+|31    |Differental_Phasemeter_GPIO_PRBS_DIV_0          |         1|
+|32    |Differental_Phasemeter_Clock_Divider_0_0        |         1|
+|33    |Differental_Phasemeter_LFSR_0_0                 |         1|
+|34    |Differental_Phasemeter_Variable_Delay_0_0       |         1|
+|35    |Differental_Phasemeter_xbar_4                   |         1|
+|36    |Differental_Phasemeter_auto_pc_2                |         1|
+|37    |Differental_Phasemeter_xbar_0                   |         1|
+|38    |Differental_Phasemeter_auto_pc_0                |         1|
+|39    |Differental_Phasemeter_proc_sys_reset_0_0       |         1|
+|40    |Differental_Phasemeter_processing_system7_0_0   |         1|
+|41    |Differental_Phasemeter_xbar_3                   |         1|
+|42    |Differental_Phasemeter_auto_ds_0                |         1|
+|43    |Differental_Phasemeter_auto_pc_1                |         1|
+|44    |Differental_Phasemeter_auto_us_0                |         1|
+|45    |Differental_Phasemeter_axi_dma_0_1              |         1|
+|46    |Differental_Phasemeter_axi_protocol_convert_0_1 |         1|
 +------+------------------------------------------------+----------+
 
 Report Cell Usage: 
@@ -1162,47 +1128,47 @@ Report Cell Usage:
 |22    |Differental_Phasemeter_GPIO_SamplingReset     |     1|
 |23    |Differental_Phasemeter_GPIO_Taps              |     1|
 |24    |Differental_Phasemeter_LFSR_0                 |     1|
-|25    |Differental_Phasemeter_PRBS_Multiply_0        |     1|
-|26    |Differental_Phasemeter_Reset_Gen_0            |     1|
-|27    |Differental_Phasemeter_Subtractor_0           |     1|
-|28    |Differental_Phasemeter_Test_Pattern_Gen_0     |     1|
-|29    |Differental_Phasemeter_Variable_Delay_0       |     1|
-|30    |Differental_Phasemeter_auto_ds                |     1|
-|31    |Differental_Phasemeter_auto_pc                |     3|
-|34    |Differental_Phasemeter_auto_us                |     1|
-|35    |Differental_Phasemeter_axi_dma_0              |     1|
-|36    |Differental_Phasemeter_axi_protocol_convert_0 |     1|
-|37    |Differental_Phasemeter_axis_constant_0        |     1|
-|38    |Differental_Phasemeter_axis_red_pitaya_adc_0  |     1|
-|39    |Differental_Phasemeter_axis_red_pitaya_dac_1  |     1|
-|40    |Differental_Phasemeter_clk_wiz_0              |     1|
-|41    |Differental_Phasemeter_proc_sys_reset_0       |     1|
-|42    |Differental_Phasemeter_processing_system7_0   |     1|
-|43    |Differental_Phasemeter_xbar                   |     3|
-|46    |IBUF                                          |    44|
-|47    |OBUF                                          |    19|
-|48    |OBUFT                                         |     7|
+|25    |Differental_Phasemeter_NCO_Wrapper_0          |     1|
+|26    |Differental_Phasemeter_PRBS_Multiply_0        |     1|
+|27    |Differental_Phasemeter_Reset_Gen_0            |     1|
+|28    |Differental_Phasemeter_Subtractor_0           |     1|
+|29    |Differental_Phasemeter_Test_Pattern_Gen_0     |     1|
+|30    |Differental_Phasemeter_Variable_Delay_0       |     1|
+|31    |Differental_Phasemeter_auto_ds                |     1|
+|32    |Differental_Phasemeter_auto_pc                |     3|
+|35    |Differental_Phasemeter_auto_us                |     1|
+|36    |Differental_Phasemeter_axi_dma_0              |     1|
+|37    |Differental_Phasemeter_axi_protocol_convert_0 |     1|
+|38    |Differental_Phasemeter_axis_constant_0        |     1|
+|39    |Differental_Phasemeter_axis_red_pitaya_adc_0  |     1|
+|40    |Differental_Phasemeter_axis_red_pitaya_dac_1  |     1|
+|41    |Differental_Phasemeter_clk_wiz_0              |     1|
+|42    |Differental_Phasemeter_proc_sys_reset_0       |     1|
+|43    |Differental_Phasemeter_processing_system7_0   |     1|
+|44    |Differental_Phasemeter_xbar                   |     3|
+|47    |IBUF                                          |    44|
+|48    |OBUF                                          |    19|
+|49    |OBUFT                                         |     7|
 +------+----------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 52 critical warnings and 74 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 1397.320 ; gain = 530.590
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1397.320 ; gain = 551.832
+Synthesis finished with 0 errors, 0 critical warnings and 74 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:23 . Memory (MB): peak = 1398.930 ; gain = 529.820
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1398.930 ; gain = 553.547
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 1398.480 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 1405.859 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1402.160 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1409.520 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: c88c9d62
+Synth Design complete, checksum: 52d1a02e
 INFO: [Common 17-83] Releasing license: Synthesis
-187 Infos, 291 Warnings, 52 Critical Warnings and 0 Errors encountered.
+197 Infos, 292 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1402.160 ; gain = 940.047
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1409.520 ; gain = 947.699
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/synth_1/Differental_Phasemeter_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Differental_Phasemeter_wrapper_utilization_synth.rpt -pb Differental_Phasemeter_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Sep 18 23:00:40 2023...
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 19 15:32:53 2023...

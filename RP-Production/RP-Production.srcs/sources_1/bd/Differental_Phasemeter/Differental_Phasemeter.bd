@@ -100,8 +100,11 @@
       "Subtractor_0": "",
       "Test_Pattern_Gen_0": "",
       "DATA_LOGGER_0": "",
+      "xlconstant_0": "",
+      "xlconstant_1": "",
       "Costa_Demodulator_0": "",
-      "Costa_Demodulator_1": ""
+      "Costa_Demodulator_1": "",
+      "NCO_Wrapper_0": ""
     },
     "interface_ports": {
       "Vaux0": {
@@ -7584,6 +7587,34 @@
           }
         }
       },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "Differental_Phasemeter_xlconstant_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_xlconstant_0_0\\Differental_Phasemeter_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "343597384"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "Differental_Phasemeter_xlconstant_0_1",
+        "xci_path": "ip\\Differental_Phasemeter_xlconstant_0_1\\Differental_Phasemeter_xlconstant_0_1.xci",
+        "inst_hier_path": "xlconstant_1",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "1"
+          },
+          "CONST_WIDTH": {
+            "value": "26"
+          }
+        }
+      },
       "Costa_Demodulator_0": {
         "vlnv": "xilinx.com:module_ref:Costa_Demodulator:1.0",
         "xci_name": "Differental_Phasemeter_Costa_Demodulator_0_0",
@@ -7765,6 +7796,74 @@
           "Reset": {
             "type": "rst",
             "direction": "I"
+          }
+        }
+      },
+      "NCO_Wrapper_0": {
+        "vlnv": "xilinx.com:module_ref:NCO_Wrapper:1.0",
+        "xci_name": "Differental_Phasemeter_NCO_Wrapper_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_NCO_Wrapper_0_0\\Differental_Phasemeter_NCO_Wrapper_0_0.xci",
+        "inst_hier_path": "NCO_Wrapper_0",
+        "parameters": {
+          "DAC_SIZE": {
+            "value": "14"
+          },
+          "ROM_Size": {
+            "value": "12"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "NCO_Wrapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Frequency": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "PhaseOffset": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Quadrature_out": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Phase_Out": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
           }
         }
       }
@@ -8006,6 +8105,12 @@
           "DATA_LOGGER_0/down_sample"
         ]
       },
+      "NCO_Wrapper_0_Dout": {
+        "ports": [
+          "NCO_Wrapper_0/Dout",
+          "DAC_Interface/Input_C1"
+        ]
+      },
       "Net": {
         "ports": [
           "axis_red_pitaya_adc_0/adc_clk",
@@ -8020,7 +8125,8 @@
           "DATA_LOGGER_0/m_axis_aclk",
           "DATA_LOGGER_0/s_axis_aclk",
           "Costa_Demodulator_0/Clock",
-          "Costa_Demodulator_1/Clock"
+          "Costa_Demodulator_1/Clock",
+          "NCO_Wrapper_0/clock"
         ]
       },
       "Net1": {
@@ -8039,6 +8145,7 @@
       },
       "Net3": {
         "ports": [
+          "xlconstant_1/dout",
           "Costa_Demodulator_0/Threshold",
           "Costa_Demodulator_1/Threshold"
         ]
@@ -8049,7 +8156,8 @@
           "PRBS/Reset",
           "DATA_LOGGER_0/rst",
           "Costa_Demodulator_0/Reset",
-          "Costa_Demodulator_1/Reset"
+          "Costa_Demodulator_1/Reset",
+          "NCO_Wrapper_0/rst"
         ]
       },
       "PRBS_Delayed": {
@@ -8082,16 +8190,16 @@
           "GPIO_Interface/s_axi_aresetn"
         ]
       },
+      "Subtractor_0_Q": {
+        "ports": [
+          "Subtractor_0/Q",
+          "AXI_Stream_Writer_0/D_In"
+        ]
+      },
       "Taps_1": {
         "ports": [
           "GPIO_Interface/gpio_Taps",
           "PRBS/Taps"
-        ]
-      },
-      "Test_Pattern_Gen_0_Data": {
-        "ports": [
-          "Test_Pattern_Gen_0/Data",
-          "AXI_Stream_Writer_0/D_In"
         ]
       },
       "adc_clk_n_i_1": {
@@ -8162,6 +8270,12 @@
       "daisy_p_i_1": {
         "ports": [
           "daisy_p_i"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "NCO_Wrapper_0/Frequency"
         ]
       }
     },

@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Sep 18 21:43:32 2023
+// Date        : Mon Sep 18 21:43:31 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_3/Differental_Phasemeter_xbar_3_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top Differental_Phasemeter_xbar_3 -prefix
+//               Differental_Phasemeter_xbar_3_ Differental_Phasemeter_xbar_3_stub.v
 // Design      : Differental_Phasemeter_xbar_3
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

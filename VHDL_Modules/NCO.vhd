@@ -144,3 +144,63 @@ architecture NCO_str of NCO is
 
 
 end architecture;
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
+entity NCO_Wrapper is
+  generic (
+  Freq_Size: integer := 32;
+  ROM_Size: integer := 8;
+  DAC_SIZE:integer := 16
+  ) ;
+  port (
+    Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); 
+    PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0);
+    clock: in std_logic := '0';
+    rst: in std_logic := '0';
+    Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
+    Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0');
+    Phase_Out: out std_logic_vector(Freq_Size-1 downto 0)
+
+  );
+end NCO_Wrapper;
+
+architecture YetAnotherBugInVivado of NCO_Wrapper is
+
+  component NCO is
+    generic (
+    Freq_Size: integer := 32;
+    ROM_Size: integer := 8;
+    DAC_SIZE:integer := 16
+    ) ;
+    port (
+      Frequency: in std_logic_vector(Freq_Size-1 downto 0) := (others =>'0'); 
+      PhaseOffset: in std_logic_vector(Freq_Size-1 downto 0);
+      clock: in std_logic := '0';
+      rst: in std_logic := '0';
+      Dout: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0'); -- DAC size
+      Quadrature_out: out std_logic_vector(DAC_SIZE-1 Downto 0) := (others =>'0');
+      Phase_Out: out std_logic_vector(Freq_Size-1 downto 0)
+  
+    );
+  end component; 
+
+begin
+
+  ThisisFine: NCO
+  generic map(Freq_Size => Freq_Size, ROM_Size => ROM_Size, DAC_Size => DAC_Size)
+  port map(
+    Frequency => Frequency,
+    PhaseOffset => PhaseOffset,
+    clock => clock,
+    rst => rst,
+    Dout => Dout,
+    Quadrature_out => Quadrature_out,
+    Phase_Out => Phase_Out
+  );
+
+end YetAnotherBugInVivado ; -- Fuck_Vivado

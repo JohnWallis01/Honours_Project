@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Sep 18 21:43:39 2023
+// Date        : Mon Sep 18 21:43:38 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_4/Differental_Phasemeter_xbar_4_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_xbar_4 -prefix
+//               Differental_Phasemeter_xbar_4_ Differental_Phasemeter_xbar_4_sim_netlist.v
 // Design      : Differental_Phasemeter_xbar_4
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -424,7 +424,6 @@ module Differental_Phasemeter_xbar_4
         .s_axi_wvalid(s_axi_wvalid));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_28_addr_arbiter" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_addr_arbiter
    (\gen_no_arbiter.s_ready_i_reg[0]_0 ,
     p_1_in,
@@ -1900,7 +1899,6 @@ module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_addr_arbiter_0
         .O(\storage_data1[1]_i_6_n_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_28_arbiter_resp" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_arbiter_resp
    (aresetn_d_reg,
     \gen_multi_thread.gen_thread_loop[6].active_target_reg[49] ,
@@ -3827,13 +3825,13 @@ endmodule
 (* C_NUM_MASTER_SLOTS = "2" *) (* C_NUM_SLAVE_SLOTS = "1" *) (* C_R_REGISTER = "0" *) 
 (* C_S_AXI_ARB_PRIORITY = "0" *) (* C_S_AXI_BASE_ID = "0" *) (* C_S_AXI_READ_ACCEPTANCE = "8" *) 
 (* C_S_AXI_SINGLE_THREAD = "0" *) (* C_S_AXI_THREAD_ID_WIDTH = "12" *) (* C_S_AXI_WRITE_ACCEPTANCE = "8" *) 
-(* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "axi_crossbar_v2_1_28_axi_crossbar" *) (* P_ADDR_DECODE = "1" *) 
-(* P_AXI3 = "1" *) (* P_AXI4 = "0" *) (* P_AXILITE = "2" *) 
-(* P_AXILITE_SIZE = "3'b010" *) (* P_FAMILY = "zynq" *) (* P_INCR = "2'b01" *) 
-(* P_LEN = "8" *) (* P_LOCK = "1" *) (* P_M_AXI_ERR_MODE = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) 
-(* P_M_AXI_SUPPORTS_READ = "2'b11" *) (* P_M_AXI_SUPPORTS_WRITE = "2'b11" *) (* P_ONES = "65'b11111111111111111111111111111111111111111111111111111111111111111" *) 
-(* P_RANGE_CHECK = "1" *) (* P_S_AXI_BASE_ID = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) (* P_S_AXI_HIGH_ID = "64'b0000000000000000000000000000000000000000000000000000111111111111" *) 
-(* P_S_AXI_SUPPORTS_READ = "1'b1" *) (* P_S_AXI_SUPPORTS_WRITE = "1'b1" *) 
+(* DowngradeIPIdentifiedWarnings = "yes" *) (* P_ADDR_DECODE = "1" *) (* P_AXI3 = "1" *) 
+(* P_AXI4 = "0" *) (* P_AXILITE = "2" *) (* P_AXILITE_SIZE = "3'b010" *) 
+(* P_FAMILY = "zynq" *) (* P_INCR = "2'b01" *) (* P_LEN = "8" *) 
+(* P_LOCK = "1" *) (* P_M_AXI_ERR_MODE = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) (* P_M_AXI_SUPPORTS_READ = "2'b11" *) 
+(* P_M_AXI_SUPPORTS_WRITE = "2'b11" *) (* P_ONES = "65'b11111111111111111111111111111111111111111111111111111111111111111" *) (* P_RANGE_CHECK = "1" *) 
+(* P_S_AXI_BASE_ID = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) (* P_S_AXI_HIGH_ID = "64'b0000000000000000000000000000000000000000000000000000111111111111" *) (* P_S_AXI_SUPPORTS_READ = "1'b1" *) 
+(* P_S_AXI_SUPPORTS_WRITE = "1'b1" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_axi_crossbar
    (aclk,
     aresetn,
@@ -4231,7 +4229,6 @@ module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_axi_crossbar
         .s_ready_i_reg(s_axi_awready));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_28_crossbar" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_crossbar
    (\gen_no_arbiter.s_ready_i_reg[0] ,
     m_axi_bready,
@@ -4876,7 +4873,6 @@ module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_crossbar
         .p_1_in(p_1_in_0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_28_decerr_slave" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_decerr_slave
    (mi_awready_2,
     mi_wready_2,
@@ -5497,7 +5493,6 @@ module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_decerr_slave
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_28_si_transactor" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_si_transactor
    (\gen_multi_thread.gen_thread_loop[2].active_target_reg[17]_0 ,
     SR,
@@ -10208,7 +10203,6 @@ module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_si_transactor__paramet
         .O(\gen_no_arbiter.s_ready_i[0]_i_5__0_n_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_28_splitter" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_splitter
    (s_ready_i_reg,
     m_ready_d,
@@ -10374,7 +10368,6 @@ module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_splitter_3
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_28_wdata_router" *) 
 module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_wdata_router
    (ss_wr_awready,
     m_axi_wvalid,
@@ -10445,7 +10438,6 @@ module Differental_Phasemeter_xbar_4_axi_crossbar_v2_1_28_wdata_router
         .\storage_data1_reg[1]_0 (\storage_data1_reg[1] ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_data_fifo_v2_1_26_axic_reg_srl_fifo" *) 
 module Differental_Phasemeter_xbar_4_axi_data_fifo_v2_1_26_axic_reg_srl_fifo
    (s_ready_i_reg_0,
     m_axi_wvalid,
@@ -10949,7 +10941,6 @@ module Differental_Phasemeter_xbar_4_axi_data_fifo_v2_1_26_ndeep_srl__parameteri
         .O(s_ready_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "axi_register_slice_v2_1_27_axi_register_slice" *) 
 module Differental_Phasemeter_xbar_4_axi_register_slice_v2_1_27_axi_register_slice
    (m_axi_bready,
     st_mr_rvalid,
