@@ -1,14 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.signal as sp
-
+import numpy as np
 
 fs = 125 * 10**6 #Sample Rate is 125 MHz (upped sample rate to improve calc speed)
 
 
-freq1 =  10.5 *10**(6)
-NCO_omega_original = (10)*10**6 #inital PLL Guess
-T_analysis = 1000 * 10 **(-7)
+freq1 =  15*10**(6)
+NCO_omega_original = (24)*10**6 #inital PLL Guess
+T_analysis = 1000 * 10 **(-6)
 N_analysis = int(T_analysis * fs)
 
 Filter_Impulse = [
@@ -47,6 +47,20 @@ Filter_Impulse = [
 -0.007193104140959998   
 ]
 
+
+class Moving_Average_Filter:
+    def __init__(self, length):
+        self.length = length
+        self.buffer = np.zeros(length)
+        self.Generator = self.Moving_Average_Filter()
+        self.input = 0
+    
+    def Moving_Average_Filter(self):
+        while True:
+            np.roll(self.buffer, 1)
+            self.buffer[0] = self.input
+            yield np.sum(self.buffer)/self.length
+        return -1
 
 class FIR_Filter:
     def __init__(self, impulse_response):
@@ -128,10 +142,10 @@ Loop_Oscilator.omega = NCO_omega_original
 Phase_Filter = FIR_Filter(Filter_Impulse)
 Quadrature_Filter = FIR_Filter(Filter_Impulse)
 Noise_Filter = FIR_Filter(Filter_Impulse)
-Cosine_Filter = FIR_Filter(Filter_Impulse)
+Frequency_Filter = FIR_Filter(Filter_Impulse)
 
-Loop_Controler = PID_Controller(1e5, 50, 0)
-
+Loop_Controler = PID_Controller(5e5, 5e3, 1e1)
+Frequency_Controller = PID_Controller(1e4, 1e5, 0)
 
 
 
@@ -143,9 +157,10 @@ Quadrature_Filter_Data          = []
 Noise_Filter_Data               = []
 Controller_Data                 = []
 Osc_Data                        = []
+Differentiated_Ouput            = []
+Frequency_Error_Data            = []
+Frequency_Controller_Data       = []
 
-Quadrature_Squared = []
-Squared_Phase_Error = []
 
 for i in range(N_analysis):
     if i%1000==0:
@@ -164,16 +179,20 @@ for i in range(N_analysis):
     Noise_Filter.FIR_Filter_Stream_In = Phase_Filter_Data[-1]*Quadrature_Filter_Data[-1]
     Noise_Filter_Data.append(next(Noise_Filter.Generator))
 
+    if len(Differentiated_Ouput) >= 2:
+        Differentiated_Ouput.append(Quadrature_Filter_Data[-1] - Quadrature_Filter_Data[-2])
+    else:
+        Differentiated_Ouput.append(0)
 
-    Cosine_Filter.FIR_Filter_Stream_In = 0.5*(Phase_Filter_Data[-1]**2 - Quadrature_Filter_Data[-1]**2)
-    Quadrature_Squared.append(next(Cosine_Filter.Generator))
+    Frequency_Filter.FIR_Filter_Stream_In = Differentiated_Ouput[-1]*Phase_Filter_Data[-1]
+    Frequency_Error_Data.append(next(Frequency_Filter.Generator)) 
 
-    Squared_Phase_Error.append(Noise_Filter_Data[-1]*Quadrature_Squared[-1])
-
-    Loop_Controler.input = Squared_Phase_Error[-1]
+    Frequency_Controller.input = Frequency_Error_Data[-1]
+    Frequency_Controller_Data.append(next(Frequency_Controller.Generator))
+    Loop_Controler.input = Noise_Filter_Data[-1]
     Controller_Data.append(next(Loop_Controler.Generator))
 
-    Loop_Oscilator.omega = NCO_omega_original - Controller_Data[-1]
+    Loop_Oscilator.omega = NCO_omega_original - Frequency_Controller_Data[-1] - Controller_Data[-1]
 
 
 fig, axs = plt.subplots(3,2)
@@ -183,6 +202,7 @@ axs[0,0].plot(Loop_Oscilator_Phase_Data, label = "Loop Oscilator")
 axs[0,0].legend()
 
 axs[1,0].plot(Controller_Data, label = "Controller")
+axs[1,0].plot(Frequency_Controller_Data, label = "Frequency Controller")
 axs[1,0].legend()
 
 axs[0,1].plot(Phase_Filter_Data, label = "Phase Filter")
@@ -190,16 +210,14 @@ axs[0,1].plot(Quadrature_Filter_Data, label = "Quadrature Filter")
 axs[0,1].legend()
 
 axs[1,1].plot(Noise_Filter_Data, label = "Noise Filter") 
-axs[1,1].plot(Quadrature_Squared, label = "Quadrature Squared")
-axs[1,1].plot(Squared_Phase_Error, label = "Squared Phase Error")
 axs[1,1].legend()
 
 axs[2,0].plot(Loop_Controler.Integral_Data, label = "Integral")
-axs[2,0].plot(Loop_Controler.Double_Integral_Data, label = "Double Integral")
+axs[2,0].plot(Frequency_Controller.Integral_Data, label = "Frequency Integral")
 
 axs[2,0].legend()
 
-axs[2,1].plot(np.array(Loop_Oscilator_Quadrature_Data) - np.array(Input_Signal_Data), label = "Phase Error")
+axs[2,1].plot(Frequency_Error_Data, label = "Frequency Detector")
 axs[2,1].legend()
 
 plt.show()
