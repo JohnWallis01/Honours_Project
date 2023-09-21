@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Sep 19 15:22:29 2023
+//Date        : Thu Sep 21 11:44:50 2023
 //Host        : Valkyrie running 64-bit major release  (build 9200)
 //Command     : generate_target Differental_Phasemeter.bd
 //Design      : Differental_Phasemeter
@@ -760,10 +760,10 @@ module Differental_Phasemeter
   wire AXI_Stream_Writer_0_m_axis_TVALID;
   wire [31:0]Costa_Demodulator_0_Freq_Measured;
   wire Costa_Demodulator_0_Message;
-  wire [31:0]Costa_Demodulator_0_Phase_Measured;
+  wire [31:0]Costa_Demodulator_0_Phase_Error;
   wire [31:0]Costa_Demodulator_1_Freq_Measured;
   wire Costa_Demodulator_1_Message;
-  wire [31:0]Costa_Demodulator_1_Phase_Measured;
+  wire [31:0]Costa_Demodulator_1_Phase_Error;
   wire [31:0]DATA_LOGGER_0_m_axis_S2MMS_TDATA;
   wire DATA_LOGGER_0_m_axis_S2MMS_TLAST;
   wire DATA_LOGGER_0_m_axis_S2MMS_TREADY;
@@ -1127,7 +1127,7 @@ module Differental_Phasemeter
         .Integrator_Reset(Net2),
         .Message(Costa_Demodulator_0_Message),
         .PLL_Guess_Freq(Net1),
-        .Phase_Measured(Costa_Demodulator_0_Phase_Measured),
+        .Phase_Error(Costa_Demodulator_0_Phase_Error),
         .Reset(Net5),
         .Threshold(Net3));
   Differental_Phasemeter_Costa_Demodulator_1_0 Costa_Demodulator_1
@@ -1139,7 +1139,7 @@ module Differental_Phasemeter
         .Integrator_Reset(Net2),
         .Message(Costa_Demodulator_1_Message),
         .PLL_Guess_Freq(Net1),
-        .Phase_Measured(Costa_Demodulator_1_Phase_Measured),
+        .Phase_Error(Costa_Demodulator_1_Phase_Error),
         .Reset(Net5),
         .Threshold(Net3));
   DAC_Interface_imp_10MNJJP DAC_Interface
@@ -1804,8 +1804,8 @@ module Differental_Phasemeter
        (.Clock(Net),
         .Reset(Net5));
   Differental_Phasemeter_Subtractor_0_0 Subtractor_0
-       (.Dminus(Costa_Demodulator_1_Phase_Measured),
-        .Dplus(Costa_Demodulator_0_Phase_Measured),
+       (.Dminus(Costa_Demodulator_1_Phase_Error),
+        .Dplus(Costa_Demodulator_0_Phase_Error),
         .Q(Subtractor_0_Q),
         .clock(Net));
   Differental_Phasemeter_Test_Pattern_Gen_0_0 Test_Pattern_Gen_0

@@ -6008,6 +6008,11 @@
         "xci_name": "system_Costa_Demodulator_0_0",
         "xci_path": "ip\\system_Costa_Demodulator_0_0\\system_Costa_Demodulator_0_0.xci",
         "inst_hier_path": "Costa_Demodulator_0",
+        "parameters": {
+          "RAM_Size": {
+            "value": "12"
+          }
+        },
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "Costa_Demodulator",
@@ -6049,6 +6054,11 @@
             "right": "0"
           },
           "Phase_Measured": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Phase_Error": {
             "direction": "O",
             "left": "31",
             "right": "0"

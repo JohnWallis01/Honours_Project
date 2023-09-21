@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Sep 19 15:24:42 2023
+-- Date        : Thu Sep 21 11:46:30 2023
 -- Host        : Valkyrie running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0_sim_netlist.vhdl
@@ -6825,10 +6825,10 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_CIC32_2 i
   attribute HLUTNM : string;
   attribute HLUTNM of \Dout0__99_carry__1_i_7\ : label is "lutpair0";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \cur_count[1]_i_1__0\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \cur_count[2]_i_1__0\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \cur_count[3]_i_1__0\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \cur_count[4]_i_1__0\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \cur_count[1]_i_1__0\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \cur_count[2]_i_1__0\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \cur_count[3]_i_1__0\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \cur_count[4]_i_1__0\ : label is "soft_lutpair21";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \section_out2_reg[0]_i_1__0\ : label is 11;
   attribute ADDER_THRESHOLD of \section_out2_reg[12]_i_1__0\ : label is 11;
@@ -14799,8 +14799,8 @@ entity Differental_Phasemeter_Costa_Demodulator_1_0_NCO is
     D : out STD_LOGIC_VECTOR ( 13 downto 0 );
     Locked_Carrier : out STD_LOGIC_VECTOR ( 13 downto 0 );
     B : out STD_LOGIC_VECTOR ( 13 downto 0 );
-    Reset : in STD_LOGIC;
     Clock : in STD_LOGIC;
+    Reset : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -14811,13 +14811,10 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_NCO is
   signal \^d\ : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal DelayPipe1 : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \DelayPipe2_reg_n_0_[0]\ : STD_LOGIC;
-  signal L : STD_LOGIC_VECTOR ( 29 downto 18 );
+  signal L : STD_LOGIC_VECTOR ( 29 downto 22 );
   signal \^phase_measured\ : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal Quadrature_addr : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal Quadrature_addr : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \Quadrature_addr[0]_i_1_n_0\ : STD_LOGIC;
-  signal \Quadrature_addr[10]_i_1_n_0\ : STD_LOGIC;
-  signal \Quadrature_addr[11]_i_1_n_0\ : STD_LOGIC;
-  signal \Quadrature_addr[11]_i_2_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[1]_i_1_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[2]_i_1_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[3]_i_1_n_0\ : STD_LOGIC;
@@ -14825,13 +14822,10 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_NCO is
   signal \Quadrature_addr[5]_i_1_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[6]_i_1_n_0\ : STD_LOGIC;
   signal \Quadrature_addr[7]_i_1_n_0\ : STD_LOGIC;
-  signal \Quadrature_addr[8]_i_1_n_0\ : STD_LOGIC;
-  signal \Quadrature_addr[9]_i_1_n_0\ : STD_LOGIC;
-  signal Quadrature_buffer_reg : STD_LOGIC_VECTOR ( 12 downto 0 );
-  signal dataAddr : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal \Quadrature_addr[7]_i_2_n_0\ : STD_LOGIC;
+  signal \^quadrature_buffer_reg\ : STD_LOGIC_VECTOR ( 12 downto 0 );
+  signal dataAddr : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \dataAddr[0]_i_1_n_0\ : STD_LOGIC;
-  signal \dataAddr[10]_i_1_n_0\ : STD_LOGIC;
-  signal \dataAddr[11]_i_1_n_0\ : STD_LOGIC;
   signal \dataAddr[1]_i_1_n_0\ : STD_LOGIC;
   signal \dataAddr[2]_i_1_n_0\ : STD_LOGIC;
   signal \dataAddr[3]_i_1_n_0\ : STD_LOGIC;
@@ -14839,8 +14833,6 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_NCO is
   signal \dataAddr[5]_i_1_n_0\ : STD_LOGIC;
   signal \dataAddr[6]_i_1_n_0\ : STD_LOGIC;
   signal \dataAddr[7]_i_1_n_0\ : STD_LOGIC;
-  signal \dataAddr[8]_i_1_n_0\ : STD_LOGIC;
-  signal \dataAddr[9]_i_1_n_0\ : STD_LOGIC;
   signal databuffer_reg : STD_LOGIC_VECTOR ( 12 downto 0 );
   signal p_0_in : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \phase[11]_i_2_n_0\ : STD_LOGIC;
@@ -14938,86 +14930,48 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_NCO is
   signal \phase_reg[7]_i_1_n_5\ : STD_LOGIC;
   signal \phase_reg[7]_i_1_n_6\ : STD_LOGIC;
   signal \phase_reg[7]_i_1_n_7\ : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_0_CASCADEOUTA_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_0_CASCADEOUTB_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_0_DBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_0_INJECTDBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_0_INJECTSBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_0_SBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_0_DOADO_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 8 );
-  signal NLW_Quadrature_buffer_reg_0_DOBDO_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 8 );
-  signal NLW_Quadrature_buffer_reg_0_DOPADOP_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal NLW_Quadrature_buffer_reg_0_DOPBDOP_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal NLW_Quadrature_buffer_reg_0_ECCPARITY_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal NLW_Quadrature_buffer_reg_0_RDADDRECC_UNCONNECTED : STD_LOGIC_VECTOR ( 8 downto 0 );
-  signal NLW_Quadrature_buffer_reg_1_CASCADEOUTA_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_1_CASCADEOUTB_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_1_DBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_1_INJECTDBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_1_INJECTSBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_1_SBITERR_UNCONNECTED : STD_LOGIC;
-  signal NLW_Quadrature_buffer_reg_1_DOADO_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 5 );
-  signal NLW_Quadrature_buffer_reg_1_DOBDO_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 5 );
-  signal NLW_Quadrature_buffer_reg_1_DOPADOP_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal NLW_Quadrature_buffer_reg_1_DOPBDOP_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal NLW_Quadrature_buffer_reg_1_ECCPARITY_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal NLW_Quadrature_buffer_reg_1_RDADDRECC_UNCONNECTED : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal NLW_Quadrature_buffer_reg_DOADO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 13 );
+  signal NLW_Quadrature_buffer_reg_DOBDO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 13 );
+  signal NLW_Quadrature_buffer_reg_DOPADOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_Quadrature_buffer_reg_DOPBDOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \NLW_phase_reg[31]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \Quadrature_addr[0]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \Quadrature_addr[10]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \Quadrature_addr[11]_i_2\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \Quadrature_addr[1]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \Quadrature_addr[2]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \Quadrature_addr[3]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \Quadrature_addr[4]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \Quadrature_addr[5]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \Quadrature_addr[6]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \Quadrature_addr[7]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \Quadrature_addr[8]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \Quadrature_addr[9]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \Quadrature_addr[0]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \Quadrature_addr[1]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \Quadrature_addr[2]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \Quadrature_addr[3]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \Quadrature_addr[4]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \Quadrature_addr[5]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \Quadrature_addr[6]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \Quadrature_addr[7]_i_2\ : label is "soft_lutpair13";
   attribute \MEM.PORTA.DATA_BIT_LAYOUT\ : string;
-  attribute \MEM.PORTA.DATA_BIT_LAYOUT\ of Quadrature_buffer_reg_0 : label is "p0_d8";
+  attribute \MEM.PORTA.DATA_BIT_LAYOUT\ of Quadrature_buffer_reg : label is "p0_d13";
   attribute METHODOLOGY_DRC_VIOS : string;
-  attribute METHODOLOGY_DRC_VIOS of Quadrature_buffer_reg_0 : label is "{SYNTH-6 {cell *THIS*}}";
+  attribute METHODOLOGY_DRC_VIOS of Quadrature_buffer_reg : label is "{SYNTH-6 {cell *THIS*}}";
   attribute RTL_RAM_BITS : integer;
-  attribute RTL_RAM_BITS of Quadrature_buffer_reg_0 : label is 53248;
+  attribute RTL_RAM_BITS of Quadrature_buffer_reg : label is 3328;
   attribute RTL_RAM_NAME : string;
-  attribute RTL_RAM_NAME of Quadrature_buffer_reg_0 : label is "inst/Loop_Oscilator/Quadrature_buffer_reg_0";
+  attribute RTL_RAM_NAME of Quadrature_buffer_reg : label is "inst/Loop_Oscilator/Quadrature_buffer_reg";
   attribute RTL_RAM_TYPE : string;
-  attribute RTL_RAM_TYPE of Quadrature_buffer_reg_0 : label is "RAM_SP";
+  attribute RTL_RAM_TYPE of Quadrature_buffer_reg : label is "RAM_SP";
   attribute ram_addr_begin : integer;
-  attribute ram_addr_begin of Quadrature_buffer_reg_0 : label is 0;
+  attribute ram_addr_begin of Quadrature_buffer_reg : label is 0;
   attribute ram_addr_end : integer;
-  attribute ram_addr_end of Quadrature_buffer_reg_0 : label is 4095;
+  attribute ram_addr_end of Quadrature_buffer_reg : label is 1023;
   attribute ram_offset : integer;
-  attribute ram_offset of Quadrature_buffer_reg_0 : label is 0;
+  attribute ram_offset of Quadrature_buffer_reg : label is 0;
   attribute ram_slice_begin : integer;
-  attribute ram_slice_begin of Quadrature_buffer_reg_0 : label is 0;
+  attribute ram_slice_begin of Quadrature_buffer_reg : label is 0;
   attribute ram_slice_end : integer;
-  attribute ram_slice_end of Quadrature_buffer_reg_0 : label is 7;
-  attribute \MEM.PORTA.DATA_BIT_LAYOUT\ of Quadrature_buffer_reg_1 : label is "p0_d5";
-  attribute METHODOLOGY_DRC_VIOS of Quadrature_buffer_reg_1 : label is "{SYNTH-6 {cell *THIS*}}";
-  attribute RTL_RAM_BITS of Quadrature_buffer_reg_1 : label is 53248;
-  attribute RTL_RAM_NAME of Quadrature_buffer_reg_1 : label is "inst/Loop_Oscilator/Quadrature_buffer_reg_1";
-  attribute RTL_RAM_TYPE of Quadrature_buffer_reg_1 : label is "RAM_SP";
-  attribute ram_addr_begin of Quadrature_buffer_reg_1 : label is 0;
-  attribute ram_addr_end of Quadrature_buffer_reg_1 : label is 4095;
-  attribute ram_offset of Quadrature_buffer_reg_1 : label is 0;
-  attribute ram_slice_begin of Quadrature_buffer_reg_1 : label is 8;
-  attribute ram_slice_end of Quadrature_buffer_reg_1 : label is 12;
-  attribute SOFT_HLUTNM of \dataAddr[0]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \dataAddr[10]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \dataAddr[11]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \dataAddr[1]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \dataAddr[2]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \dataAddr[3]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \dataAddr[4]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \dataAddr[5]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \dataAddr[6]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \dataAddr[7]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \dataAddr[8]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \dataAddr[9]_i_1\ : label is "soft_lutpair15";
+  attribute ram_slice_end of Quadrature_buffer_reg : label is 12;
+  attribute SOFT_HLUTNM of \dataAddr[0]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \dataAddr[1]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \dataAddr[2]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \dataAddr[3]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \dataAddr[4]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \dataAddr[5]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \dataAddr[6]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \dataAddr[7]_i_1\ : label is "soft_lutpair13";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \phase_reg[11]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \phase_reg[15]_i_1\ : label is 11;
@@ -15348,7 +15302,7 @@ Dout_reg_i_10: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(4),
+      I1 => \^quadrature_buffer_reg\(4),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(4)
     );
@@ -15358,7 +15312,7 @@ Dout_reg_i_11: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(3),
+      I1 => \^quadrature_buffer_reg\(3),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(3)
     );
@@ -15368,7 +15322,7 @@ Dout_reg_i_12: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(2),
+      I1 => \^quadrature_buffer_reg\(2),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(2)
     );
@@ -15378,7 +15332,7 @@ Dout_reg_i_13: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(1),
+      I1 => \^quadrature_buffer_reg\(1),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(1)
     );
@@ -15388,7 +15342,7 @@ Dout_reg_i_14: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(0),
+      I1 => \^quadrature_buffer_reg\(0),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(0)
     );
@@ -15398,7 +15352,7 @@ Dout_reg_i_2: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(12),
+      I1 => \^quadrature_buffer_reg\(12),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(12)
     );
@@ -15408,7 +15362,7 @@ Dout_reg_i_3: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(11),
+      I1 => \^quadrature_buffer_reg\(11),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(11)
     );
@@ -15418,7 +15372,7 @@ Dout_reg_i_4: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(10),
+      I1 => \^quadrature_buffer_reg\(10),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(10)
     );
@@ -15428,7 +15382,7 @@ Dout_reg_i_5: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(9),
+      I1 => \^quadrature_buffer_reg\(9),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(9)
     );
@@ -15438,7 +15392,7 @@ Dout_reg_i_6: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(8),
+      I1 => \^quadrature_buffer_reg\(8),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(8)
     );
@@ -15448,7 +15402,7 @@ Dout_reg_i_7: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(7),
+      I1 => \^quadrature_buffer_reg\(7),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(7)
     );
@@ -15458,7 +15412,7 @@ Dout_reg_i_8: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(6),
+      I1 => \^quadrature_buffer_reg\(6),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(6)
     );
@@ -15468,53 +15422,9 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \^d\(13),
-      I1 => Quadrature_buffer_reg(5),
+      I1 => \^quadrature_buffer_reg\(5),
       I2 => \DelayPipe2_reg_n_0_[0]\,
       O => B(5)
-    );
-\OffsetPhase_reg[18]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \^phase_measured\(18),
-      Q => L(18),
-      R => '0'
-    );
-\OffsetPhase_reg[19]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \^phase_measured\(19),
-      Q => L(19),
-      R => '0'
-    );
-\OffsetPhase_reg[20]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \^phase_measured\(20),
-      Q => L(20),
-      R => '0'
-    );
-\OffsetPhase_reg[21]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \^phase_measured\(21),
-      Q => L(21),
-      R => '0'
     );
 \OffsetPhase_reg[22]\: unisim.vcomponents.FDRE
     generic map(
@@ -15522,7 +15432,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(22),
       Q => L(22),
       R => '0'
@@ -15533,7 +15443,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(23),
       Q => L(23),
       R => '0'
@@ -15544,7 +15454,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(24),
       Q => L(24),
       R => '0'
@@ -15555,7 +15465,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(25),
       Q => L(25),
       R => '0'
@@ -15566,7 +15476,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(26),
       Q => L(26),
       R => '0'
@@ -15577,7 +15487,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(27),
       Q => L(27),
       R => '0'
@@ -15588,7 +15498,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(28),
       Q => L(28),
       R => '0'
@@ -15599,7 +15509,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(29),
       Q => L(29),
       R => '0'
@@ -15610,7 +15520,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(30),
       Q => p_0_in(0),
       R => '0'
@@ -15621,7 +15531,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \^phase_measured\(31),
       Q => p_0_in(1),
       R => '0'
@@ -15631,42 +15541,16 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => L(18),
+      I0 => L(22),
       I1 => p_0_in(0),
       O => \Quadrature_addr[0]_i_1_n_0\
-    );
-\Quadrature_addr[10]_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => L(28),
-      I1 => p_0_in(0),
-      O => \Quadrature_addr[10]_i_1_n_0\
-    );
-\Quadrature_addr[11]_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => Reset,
-      O => \Quadrature_addr[11]_i_1_n_0\
-    );
-\Quadrature_addr[11]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => L(29),
-      I1 => p_0_in(0),
-      O => \Quadrature_addr[11]_i_2_n_0\
     );
 \Quadrature_addr[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => L(19),
+      I0 => L(23),
       I1 => p_0_in(0),
       O => \Quadrature_addr[1]_i_1_n_0\
     );
@@ -15675,7 +15559,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => L(20),
+      I0 => L(24),
       I1 => p_0_in(0),
       O => \Quadrature_addr[2]_i_1_n_0\
     );
@@ -15684,7 +15568,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => L(21),
+      I0 => L(25),
       I1 => p_0_in(0),
       O => \Quadrature_addr[3]_i_1_n_0\
     );
@@ -15693,7 +15577,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => L(22),
+      I0 => L(26),
       I1 => p_0_in(0),
       O => \Quadrature_addr[4]_i_1_n_0\
     );
@@ -15702,7 +15586,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => L(23),
+      I0 => L(27),
       I1 => p_0_in(0),
       O => \Quadrature_addr[5]_i_1_n_0\
     );
@@ -15711,36 +15595,26 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
       INIT => X"9"
     )
         port map (
-      I0 => L(24),
+      I0 => L(28),
       I1 => p_0_in(0),
       O => \Quadrature_addr[6]_i_1_n_0\
     );
-\Quadrature_addr[7]_i_1\: unisim.vcomponents.LUT2
+\Quadrature_addr[7]_i_1\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"9"
+      INIT => X"1"
     )
         port map (
-      I0 => L(25),
-      I1 => p_0_in(0),
+      I0 => Reset,
       O => \Quadrature_addr[7]_i_1_n_0\
     );
-\Quadrature_addr[8]_i_1\: unisim.vcomponents.LUT2
+\Quadrature_addr[7]_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => L(26),
+      I0 => L(29),
       I1 => p_0_in(0),
-      O => \Quadrature_addr[8]_i_1_n_0\
-    );
-\Quadrature_addr[9]_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => L(27),
-      I1 => p_0_in(0),
-      O => \Quadrature_addr[9]_i_1_n_0\
+      O => \Quadrature_addr[7]_i_2_n_0\
     );
 \Quadrature_addr_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -15748,31 +15622,9 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \Quadrature_addr[0]_i_1_n_0\,
       Q => Quadrature_addr(0),
-      R => '0'
-    );
-\Quadrature_addr_reg[10]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \Quadrature_addr[10]_i_1_n_0\,
-      Q => Quadrature_addr(10),
-      R => '0'
-    );
-\Quadrature_addr_reg[11]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \Quadrature_addr[11]_i_2_n_0\,
-      Q => Quadrature_addr(11),
       R => '0'
     );
 \Quadrature_addr_reg[1]\: unisim.vcomponents.FDRE
@@ -15781,7 +15633,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \Quadrature_addr[1]_i_1_n_0\,
       Q => Quadrature_addr(1),
       R => '0'
@@ -15792,7 +15644,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \Quadrature_addr[2]_i_1_n_0\,
       Q => Quadrature_addr(2),
       R => '0'
@@ -15803,7 +15655,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \Quadrature_addr[3]_i_1_n_0\,
       Q => Quadrature_addr(3),
       R => '0'
@@ -15814,7 +15666,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \Quadrature_addr[4]_i_1_n_0\,
       Q => Quadrature_addr(4),
       R => '0'
@@ -15825,7 +15677,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \Quadrature_addr[5]_i_1_n_0\,
       Q => Quadrature_addr(5),
       R => '0'
@@ -15836,7 +15688,7 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \Quadrature_addr[6]_i_1_n_0\,
       Q => Quadrature_addr(6),
       R => '0'
@@ -15847,39 +15699,15 @@ Dout_reg_i_9: unisim.vcomponents.LUT3
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \Quadrature_addr[7]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
+      D => \Quadrature_addr[7]_i_2_n_0\,
       Q => Quadrature_addr(7),
       R => '0'
     );
-\Quadrature_addr_reg[8]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \Quadrature_addr[8]_i_1_n_0\,
-      Q => Quadrature_addr(8),
-      R => '0'
-    );
-\Quadrature_addr_reg[9]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \Quadrature_addr[9]_i_1_n_0\,
-      Q => Quadrature_addr(9),
-      R => '0'
-    );
-Quadrature_buffer_reg_0: unisim.vcomponents.RAMB36E1
+Quadrature_buffer_reg: unisim.vcomponents.RAMB18E1
     generic map(
       DOA_REG => 0,
       DOB_REG => 0,
-      EN_ECC_READ => false,
-      EN_ECC_WRITE => false,
       INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -15888,443 +15716,132 @@ Quadrature_buffer_reg_0: unisim.vcomponents.RAMB36E1
       INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_08 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_09 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0A => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0B => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0C => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"312F2E2C2A2927262423211F1E1C1B191816141311100E0D0B09080605030200",
-      INIT_01 => X"6361605E5D5B5A5856555352504F4D4B4A4847454442403F3D3C3A3937353432",
-      INIT_02 => X"959492908F8D8C8A8987858482817F7E7C7A7977767473716F6E6C6B69686664",
-      INIT_03 => X"C7C6C4C3C1C0BEBCBBB9B8B6B5B3B1B0AEADABAAA8A6A5A3A2A09F9D9B9A9897",
-      INIT_04 => X"FAF8F6F5F3F2F0EFEDEBEAE8E7E5E4E2E0DFDDDCDAD9D7D5D4D2D1CFCECCCBC9",
-      INIT_05 => X"2C2A2927252422211F1E1C1A1917161413110F0E0C0B09080605030100FEFDFB",
-      INIT_06 => X"5E5C5B595856545351504E4D4B494846454342403E3D3B3A3837353432302F2D",
-      INIT_07 => X"908E8D8B8A8886858382807F7D7B7A7877757472716F6D6C6A6967666462615F",
-      INIT_08 => X"C2C0BFBDBCBAB8B7B5B4B2B1AFAEACAAA9A7A6A4A3A19F9E9C9B999896959391",
-      INIT_09 => X"F4F2F1EFEDECEAE9E7E6E4E3E1DFDEDCDBD9D8D6D5D3D1D0CECDCBCAC8C6C5C3",
-      INIT_0A => X"262422211F1E1C1B191816141311100E0D0B0A080605030200FFFDFCFAF8F7F5",
-      INIT_0B => X"5756545351504E4C4B494846454342403E3D3B3A3837353432302F2D2C2A2927",
-      INIT_0C => X"898786848381807E7D7B797876757372706F6D6B6A6867656462615F5E5C5A59",
-      INIT_0D => X"BBB9B7B6B4B3B1B0AEADABAAA8A6A5A3A2A09F9D9C9A9897959492918F8E8C8B",
-      INIT_0E => X"ECEAE9E7E6E4E3E1E0DEDDDBD9D8D6D5D3D2D0CFCDCCCAC8C7C5C4C2C1BFBEBC",
-      INIT_0F => X"1D1C1A1917161413110F0E0C0B09080605030200FFFDFBFAF8F7F5F4F2F1EFEE",
-      INIT_10 => X"4F4D4C4A4847454442413F3E3C3B393836343331302E2D2B2A2827252422201F",
-      INIT_11 => X"807E7D7B7A7876757372706F6D6C6A6967666463615F5E5C5B59585655535250",
-      INIT_12 => X"B1AFAEACABA9A7A6A4A3A1A09E9D9B9A9897959492918F8D8C8A898786848381",
-      INIT_13 => X"E1E0DEDDDBDAD8D7D5D4D2D1CFCECCCBC9C8C6C5C3C1C0BEBDBBBAB8B7B5B4B2",
-      INIT_14 => X"12110F0E0C0B09080604030100FEFDFBFAF8F7F5F4F2F1EFEEECEBE9E8E6E5E3",
-      INIT_15 => X"4341403E3D3B3A3837353432302F2D2C2A292726242321201E1D1B1A18171514",
-      INIT_16 => X"7372706F6D6B6A6867656462615F5E5C5B595856555352504F4D4C4A49474644",
-      INIT_17 => X"A3A2A09F9D9C9A999796949391908E8D8B8A8887858482817F7E7C7B79787675",
-      INIT_18 => X"D3D2D0CFCDCCCAC9C7C6C4C3C1C0BEBDBBBAB8B7B5B4B2B1AFAEACABA9A8A6A5",
-      INIT_19 => X"030200FFFDFCFAF9F7F6F4F3F1F0EEEDEBEAE8E7E5E4E2E1DFDEDCDBD9D8D6D5",
-      INIT_1A => X"3331302E2D2B2A2827252422211F1E1C1B191816151312100F0D0C0A09080605",
-      INIT_1B => X"62615F5E5C5B595856555352504F4D4C4A494746444342403F3D3C3A39373634",
-      INIT_1C => X"91908E8D8B8A888786848381807E7D7B7A7877757472716F6E6C6B6968676564",
-      INIT_1D => X"C0BFBDBCBAB9B8B6B5B3B2B0AFADACAAA9A7A6A4A3A1A09F9D9C9A9997969493",
-      INIT_1E => X"EFEEECEBE9E8E6E5E3E2E0DFDEDCDBD9D8D6D5D3D2D0CFCDCCCBC9C8C6C5C3C2",
-      INIT_1F => X"1E1C1B191816151312110F0E0C0B09080605030201FFFEFCFBF9F8F6F5F3F2F1",
-      INIT_20 => X"4C4B494846454342403F3E3C3B393836353332302F2E2C2B292826252322211F",
-      INIT_21 => X"7A797776747371706F6D6C6A696766646362605F5D5C5A595756555352504F4D",
-      INIT_22 => X"A8A6A5A4A2A19F9E9C9B9A989795949291908E8D8B8A888786848381807E7D7B",
-      INIT_23 => X"D5D4D3D1D0CECDCBCAC9C7C6C4C3C2C0BFBDBCBAB9B8B6B5B3B2B0AFAEACABA9",
-      INIT_24 => X"030100FEFDFCFAF9F7F6F5F3F2F0EFEEECEBE9E8E6E5E4E2E1DFDEDDDBDAD8D7",
-      INIT_25 => X"302E2D2C2A292726252322201F1D1C1B191816151412110F0E0D0B0A08070604",
-      INIT_26 => X"5D5B5A585756545351504F4D4C4A494846454342413F3E3C3B3A383735343331",
-      INIT_27 => X"898886858382817F7E7D7B7A787776747371706F6D6C6A696866656362615F5E",
-      INIT_28 => X"B5B4B2B1B0AEADACAAA9A7A6A5A3A2A09F9E9C9B9A989795949391908F8D8C8A",
-      INIT_29 => X"E1E0DEDDDCDAD9D7D6D5D3D2D1CFCECDCBCAC8C7C6C4C3C2C0BFBDBCBBB9B8B7",
-      INIT_2A => X"0D0B0A09070604030200FFFEFCFBFAF8F7F6F4F3F1F0EFEDECEBE9E8E7E5E4E2",
-      INIT_2B => X"383735343331302E2D2C2A29282625242221201E1D1C1A191716151312110F0E",
-      INIT_2C => X"6362605F5E5C5B59585755545351504F4D4C4B49484745444341403F3D3C3B39",
-      INIT_2D => X"8D8C8B8A888786848382807F7E7C7B7A787776747372706F6E6C6B6A68676664",
-      INIT_2E => X"B8B6B5B4B3B1B0AFADACABA9A8A7A5A4A3A1A09F9D9C9B99989795949391908F",
-      INIT_2F => X"E2E0DFDEDDDBDAD9D7D6D5D3D2D1CFCECDCCCAC9C8C6C5C4C2C1C0BEBDBCBAB9",
-      INIT_30 => X"0B0A0907060504020100FEFDFCFBF9F8F7F5F4F3F1F0EFEDECEBEAE8E7E6E4E3",
-      INIT_31 => X"35333231302E2D2C2A29282725242321201F1D1C1B1A181716141312110F0E0D",
-      INIT_32 => X"5E5C5B5A58575655535251504E4D4C4A49484745444341403F3E3C3B3A393736",
-      INIT_33 => X"8685848281807F7D7C7B79787776747372716F6E6D6C6A69686665646361605F",
-      INIT_34 => X"AEADACABA9A8A7A6A4A3A2A19F9E9D9C9A99989695949391908F8E8C8B8A8987",
-      INIT_35 => X"D6D5D4D2D1D0CFCDCCCBCAC8C7C6C5C4C2C1C0BFBDBCBBBAB8B7B6B5B3B2B1B0",
-      INIT_36 => X"FEFCFBFAF9F7F6F5F4F3F1F0EFEEECEBEAE9E7E6E5E4E3E1E0DFDEDCDBDAD9D7",
-      INIT_37 => X"25232221201F1D1C1B1A18171615141211100F0D0C0B0A0907060504020100FF",
-      INIT_38 => X"4B4A49484645444342403F3E3D3C3A3938373634333231302E2D2C2B29282726",
-      INIT_39 => X"72706F6E6D6C6A6968676664636261605E5D5C5B5A58575655545251504F4E4C",
-      INIT_3A => X"979695949392908F8E8D8C8A8988878685838281807F7D7C7B7A797776757473",
-      INIT_3B => X"BDBCBBB9B8B7B6B5B4B2B1B0AFAEADABAAA9A8A7A6A4A3A2A1A09E9D9C9B9A99",
-      INIT_3C => X"E2E1E0DEDDDCDBDAD9D8D6D5D4D3D2D1CFCECDCCCBCAC8C7C6C5C4C3C2C0BFBE",
-      INIT_3D => X"07050403020100FFFDFCFBFAF9F8F7F5F4F3F2F1F0EFEDECEBEAE9E8E7E5E4E3",
-      INIT_3E => X"2B2A28272625242322211F1E1D1C1B1A1918161514131211100E0D0C0B0A0908",
-      INIT_3F => X"4E4D4C4B4A4948474644434241403F3E3D3C3A3938373635343331302F2E2D2C",
-      INIT_40 => X"7271706F6D6C6B6A6968676665646261605F5E5D5C5B5A585756555453525150",
-      INIT_41 => X"95949391908F8E8D8C8B8A8988878584838281807F7E7D7C7B79787776757473",
-      INIT_42 => X"B7B6B5B4B3B2B1B0AFAEACABAAA9A8A7A6A5A4A3A2A1A09E9D9C9B9A99989796",
-      INIT_43 => X"D9D8D7D6D5D4D3D2D1D0CFCECCCBCAC9C8C7C6C5C4C3C2C1C0BFBEBCBBBAB9B8",
-      INIT_44 => X"FBFAF9F8F7F5F4F3F2F1F0EFEEEDECEBEAE9E8E7E6E5E4E3E2E1DFDEDDDCDBDA",
-      INIT_45 => X"1C1B1A1918171615141211100F0E0D0C0B0A09080706050403020100FFFEFDFC",
-      INIT_46 => X"3C3B3A393837363534333231302F2E2D2C2B2A292827262524232221201F1E1D",
-      INIT_47 => X"5C5B5A595857565554535251504F4E4D4C4B4A494847464544434241403F3E3D",
-      INIT_48 => X"7C7B7A797877767574737271706F6E6D6C6B6A696867666564636261605F5E5D",
-      INIT_49 => X"9B9A99989796969594939291908F8E8D8C8B8A898887868584838281807F7E7D",
-      INIT_4A => X"BAB9B8B7B6B5B4B3B2B1B0B0AFAEADACABAAA9A8A7A6A5A4A3A2A1A09F9E9D9C",
-      INIT_4B => X"D8D7D6D5D4D4D3D2D1D0CFCECDCCCBCAC9C8C7C6C5C4C3C3C2C1C0BFBEBDBCBB",
-      INIT_4C => X"F6F5F4F3F2F1F0EFEFEEEDECEBEAE9E8E7E6E5E4E3E2E2E1E0DFDEDDDCDBDAD9",
-      INIT_4D => X"131211100F0F0E0D0C0B0A0908070605050403020100FFFEFDFCFBFAFAF9F8F7",
-      INIT_4E => X"302F2E2D2C2B2A2A29282726252423222221201F1E1D1C1B1A19191817161514",
-      INIT_4F => X"4C4B4A4948484746454443424141403F3E3D3C3B3A3A39383736353433323231",
-      INIT_50 => X"686766656463636261605F5E5D5C5C5B5A59585756565554535251504F4F4E4D",
-      INIT_51 => X"838281807F7F7E7D7C7B7A7A79787776757474737271706F6F6E6D6C6B6A6969",
-      INIT_52 => X"9D9D9C9B9A9999989796959494939291908F8F8E8D8C8B8A8A89888786858584",
-      INIT_53 => X"B8B7B6B5B4B4B3B2B1B0AFAFAEADACABABAAA9A8A7A7A6A5A4A3A2A2A1A09F9E",
-      INIT_54 => X"D1D0D0CFCECDCCCCCBCAC9C8C8C7C6C5C4C4C3C2C1C0C0BFBEBDBCBCBBBAB9B8",
-      INIT_55 => X"EAE9E9E8E7E6E6E5E4E3E2E2E1E0DFDFDEDDDCDBDBDAD9D8D7D7D6D5D4D4D3D2",
-      INIT_56 => X"0302010000FFFEFDFDFCFBFAFAF9F8F7F7F6F5F4F3F3F2F1F0F0EFEEEDEDECEB",
-      INIT_57 => X"1B1A19191817161615141313121110100F0E0D0D0C0B0A0A0908070706050404",
-      INIT_58 => X"323131302F2F2E2D2C2C2B2A29292827272625242423222121201F1E1E1D1C1B",
-      INIT_59 => X"49484847464645444343424141403F3E3E3D3C3C3B3A39393837363635343433",
-      INIT_5A => X"5F5F5E5D5D5C5B5B5A59585857565655545453525151504F4F4E4D4D4C4B4A4A",
-      INIT_5B => X"7574747372727170706F6E6E6D6C6C6B6A6A6968686766666564646362616160",
-      INIT_5C => X"8A8A8988888786868584848382828181807F7F7E7D7D7C7B7B7A797978777776",
-      INIT_5D => X"9F9E9E9D9D9C9B9B9A999998979796959594939392929190908F8E8E8D8C8C8B",
-      INIT_5E => X"B3B3B2B1B1B0AFAFAEAEADACACABAAAAA9A9A8A7A7A6A5A5A4A3A3A2A2A1A0A0",
-      INIT_5F => X"C7C6C5C5C4C4C3C2C2C1C1C0BFBFBEBEBDBCBCBBBBBAB9B9B8B7B7B6B6B5B4B4",
-      INIT_60 => X"DAD9D8D8D7D7D6D6D5D4D4D3D3D2D1D1D0D0CFCECECDCDCCCBCBCACAC9C8C8C7",
-      INIT_61 => X"ECEBEBEAEAE9E9E8E7E7E6E6E5E5E4E3E3E2E2E1E1E0DFDFDEDEDDDDDCDBDBDA",
-      INIT_62 => X"FEFDFDFCFCFBFBFAF9F9F8F8F7F7F6F6F5F4F4F3F3F2F2F1F1F0EFEFEEEEEDED",
-      INIT_63 => X"0F0F0E0E0D0C0C0B0B0A0A090908080707060505040403030202010100FFFFFE",
-      INIT_64 => X"201F1F1E1E1D1D1C1C1B1B1A1A19191817171616151514141313121211111010",
-      INIT_65 => X"302F2F2E2E2D2D2C2C2B2B2A2A29292828272726262525242423232222212120",
-      INIT_66 => X"3F3F3E3E3D3D3C3C3B3B3B3A3A39393838373736363535343433333232313130",
-      INIT_67 => X"4E4E4D4D4C4C4B4B4B4A4A494948484747464645454544444343424241414040",
-      INIT_68 => X"5D5C5C5B5B5A5A59595958585757565655555554545353525251515050504F4F",
-      INIT_69 => X"6A6A6969696868676766666665656464636363626261616060605F5F5E5E5D5D",
-      INIT_6A => X"77777776767575757474737373727271717070706F6F6E6E6E6D6D6C6C6B6B6B",
-      INIT_6B => X"8484838382828281818080807F7F7E7E7E7D7D7D7C7C7B7B7B7A7A7979797878",
-      INIT_6C => X"908F8F8F8E8E8E8D8D8D8C8C8B8B8B8A8A8A8989888888878787868685858584",
-      INIT_6D => X"9B9B9A9A9A999999989898979797969696959595949493939392929291919190",
-      INIT_6E => X"A6A6A5A5A5A4A4A4A3A3A3A2A2A2A1A1A1A0A0A09F9F9F9E9E9E9D9D9D9C9C9C",
-      INIT_6F => X"B0B0AFAFAFAEAEAEAEADADADACACACABABABAAAAAAA9A9A9A8A8A8A8A7A7A7A6",
-      INIT_70 => X"BAB9B9B9B8B8B8B7B7B7B7B6B6B6B5B5B5B5B4B4B4B3B3B3B2B2B2B2B1B1B1B0",
-      INIT_71 => X"C2C2C2C2C1C1C1C1C0C0C0BFBFBFBFBEBEBEBEBDBDBDBCBCBCBCBBBBBBBABABA",
-      INIT_72 => X"CBCACACACAC9C9C9C9C8C8C8C8C7C7C7C7C6C6C6C6C5C5C5C5C4C4C4C4C3C3C3",
-      INIT_73 => X"D2D2D2D2D2D1D1D1D1D0D0D0D0CFCFCFCFCECECECECDCDCDCDCCCCCCCCCBCBCB",
-      INIT_74 => X"DAD9D9D9D9D8D8D8D8D8D7D7D7D7D7D6D6D6D6D5D5D5D5D5D4D4D4D4D3D3D3D3",
-      INIT_75 => X"E0E0E0DFDFDFDFDFDEDEDEDEDEDDDDDDDDDDDCDCDCDCDCDBDBDBDBDBDADADADA",
-      INIT_76 => X"E6E6E6E5E5E5E5E5E4E4E4E4E4E4E3E3E3E3E3E2E2E2E2E2E2E1E1E1E1E1E0E0",
-      INIT_77 => X"EBEBEBEBEBEAEAEAEAEAEAE9E9E9E9E9E9E8E8E8E8E8E8E7E7E7E7E7E7E6E6E6",
-      INIT_78 => X"F0F0EFEFEFEFEFEFEFEFEEEEEEEEEEEEEEEDEDEDEDEDEDECECECECECECECEBEB",
-      INIT_79 => X"F4F4F4F3F3F3F3F3F3F3F3F2F2F2F2F2F2F2F2F1F1F1F1F1F1F1F1F0F0F0F0F0",
-      INIT_7A => X"F7F7F7F7F7F7F7F7F6F6F6F6F6F6F6F6F6F5F5F5F5F5F5F5F5F5F4F4F4F4F4F4",
-      INIT_7B => X"FAFAFAFAFAFAFAF9F9F9F9F9F9F9F9F9F9F9F8F8F8F8F8F8F8F8F8F8F8F7F7F7",
-      INIT_7C => X"FCFCFCFCFCFCFCFCFCFCFCFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFAFAFAFAFAFA",
-      INIT_7D => X"FEFEFEFEFEFEFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFCFCFCFCFC",
-      INIT_7E => X"FFFFFFFFFFFFFFFFFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFE",
-      INIT_7F => X"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-      INIT_A => X"000000000",
-      INIT_B => X"000000000",
-      RAM_EXTENSION_A => "NONE",
-      RAM_EXTENSION_B => "NONE",
+      INIT_00 => X"0178015F0146012D011400FB00E200C900B00097007E0064004B003200190000",
+      INIT_01 => X"030602EE02D502BC02A3028B0272025902400227020E01F501DC01C301AA0191",
+      INIT_02 => X"048D0475045C0444042C041403FB03E303CB03B2039A0381036903500338031F",
+      INIT_03 => X"060805F105D905C205AA0593057B0564054C0534051C050504ED04D504BD04A5",
+      INIT_04 => X"0774075E07480731071B070406EE06D706C006A90692067B0664064D0636061F",
+      INIT_05 => X"08CE08B908A4088F087A0864084F08390824080E07F807E207CD07B707A0078A",
+      INIT_06 => X"0A1209FF09EB09D709C409B0099C09870973095F094A09360921090D08F808E3",
+      INIT_07 => X"0B3E0B2C0B1A0B080AF50AE30AD10ABE0AAB0A990A860A730A600A4C0A390A26",
+      INIT_08 => X"0C4D0C3D0C2D0C1D0C0C0BFC0BEB0BDA0BC90BB80BA70B960B840B730B610B50",
+      INIT_09 => X"0D3F0D310D220D140D050CF70CE80CD90CCA0CBB0CAC0C9C0C8D0C7D0C6D0C5D",
+      INIT_0A => X"0E100E040DF70DEB0DDF0DD20DC50DB80DAB0D9E0D910D840D760D690D5B0D4D",
+      INIT_0B => X"0EBE0EB40EAA0EA00E950E8B0E810E760E6B0E600E550E4A0E3E0E330E270E1B",
+      INIT_0C => X"0F470F400F380F300F280F200F180F100F070EFE0EF60EED0EE30EDA0ED10EC7",
+      INIT_0D => X"0FAB0FA60FA10F9C0F960F900F8A0F840F7E0F780F710F6B0F640F5D0F560F4F",
+      INIT_0E => X"0FE90FE60FE30FE00FDD0FDA0FD60FD30FCF0FCB0FC70FC30FBE0FBA0FB50FB0",
+      INIT_0F => X"0FFF0FFF0FFE0FFE0FFD0FFC0FFB0FFA0FF90FF70FF60FF40FF20FF00FEE0FEB",
+      INIT_10 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_11 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_12 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_13 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_14 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_15 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_16 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_17 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_18 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_19 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_1A => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_1B => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_1C => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_1D => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_1E => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_1F => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_20 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_21 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_22 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_23 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_24 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_25 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_26 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_27 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_28 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_29 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_2A => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_2B => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_2C => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_2D => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_2E => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_2F => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_30 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_31 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_32 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_33 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_34 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_35 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_36 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_37 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_38 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_39 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_3A => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_3B => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_3C => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_3D => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_A => X"00000",
+      INIT_B => X"00000",
       RAM_MODE => "TDP",
       RDADDR_COLLISION_HWCONFIG => "PERFORMANCE",
-      READ_WIDTH_A => 9,
-      READ_WIDTH_B => 9,
+      READ_WIDTH_A => 18,
+      READ_WIDTH_B => 18,
       RSTREG_PRIORITY_A => "RSTREG",
       RSTREG_PRIORITY_B => "RSTREG",
       SIM_COLLISION_CHECK => "ALL",
       SIM_DEVICE => "7SERIES",
-      SRVAL_A => X"000000000",
-      SRVAL_B => X"000000000",
+      SRVAL_A => X"00000",
+      SRVAL_B => X"00000",
       WRITE_MODE_A => "WRITE_FIRST",
       WRITE_MODE_B => "WRITE_FIRST",
-      WRITE_WIDTH_A => 9,
+      WRITE_WIDTH_A => 18,
       WRITE_WIDTH_B => 0
     )
         port map (
-      ADDRARDADDR(15) => '1',
-      ADDRARDADDR(14 downto 3) => Quadrature_addr(11 downto 0),
-      ADDRARDADDR(2 downto 0) => B"000",
-      ADDRBWRADDR(15) => '1',
-      ADDRBWRADDR(14 downto 3) => dataAddr(11 downto 0),
-      ADDRBWRADDR(2 downto 0) => B"000",
-      CASCADEINA => '1',
-      CASCADEINB => '0',
-      CASCADEOUTA => NLW_Quadrature_buffer_reg_0_CASCADEOUTA_UNCONNECTED,
-      CASCADEOUTB => NLW_Quadrature_buffer_reg_0_CASCADEOUTB_UNCONNECTED,
+      ADDRARDADDR(13 downto 12) => B"00",
+      ADDRARDADDR(11 downto 4) => Quadrature_addr(7 downto 0),
+      ADDRARDADDR(3 downto 0) => B"0000",
+      ADDRBWRADDR(13 downto 12) => B"00",
+      ADDRBWRADDR(11 downto 4) => dataAddr(7 downto 0),
+      ADDRBWRADDR(3 downto 0) => B"0000",
       CLKARDCLK => Clock,
       CLKBWRCLK => Clock,
-      DBITERR => NLW_Quadrature_buffer_reg_0_DBITERR_UNCONNECTED,
-      DIADI(31 downto 0) => B"00000000000000000000000011111111",
-      DIBDI(31 downto 0) => B"11111111111111111111111111111111",
-      DIPADIP(3 downto 0) => B"0000",
-      DIPBDIP(3 downto 0) => B"1111",
-      DOADO(31 downto 8) => NLW_Quadrature_buffer_reg_0_DOADO_UNCONNECTED(31 downto 8),
-      DOADO(7 downto 0) => Quadrature_buffer_reg(7 downto 0),
-      DOBDO(31 downto 8) => NLW_Quadrature_buffer_reg_0_DOBDO_UNCONNECTED(31 downto 8),
-      DOBDO(7 downto 0) => databuffer_reg(7 downto 0),
-      DOPADOP(3 downto 0) => NLW_Quadrature_buffer_reg_0_DOPADOP_UNCONNECTED(3 downto 0),
-      DOPBDOP(3 downto 0) => NLW_Quadrature_buffer_reg_0_DOPBDOP_UNCONNECTED(3 downto 0),
-      ECCPARITY(7 downto 0) => NLW_Quadrature_buffer_reg_0_ECCPARITY_UNCONNECTED(7 downto 0),
+      DIADI(15 downto 0) => B"0001111111111111",
+      DIBDI(15 downto 0) => B"1111111111111111",
+      DIPADIP(1 downto 0) => B"00",
+      DIPBDIP(1 downto 0) => B"11",
+      DOADO(15 downto 13) => NLW_Quadrature_buffer_reg_DOADO_UNCONNECTED(15 downto 13),
+      DOADO(12 downto 0) => \^quadrature_buffer_reg\(12 downto 0),
+      DOBDO(15 downto 13) => NLW_Quadrature_buffer_reg_DOBDO_UNCONNECTED(15 downto 13),
+      DOBDO(12 downto 0) => databuffer_reg(12 downto 0),
+      DOPADOP(1 downto 0) => NLW_Quadrature_buffer_reg_DOPADOP_UNCONNECTED(1 downto 0),
+      DOPBDOP(1 downto 0) => NLW_Quadrature_buffer_reg_DOPBDOP_UNCONNECTED(1 downto 0),
       ENARDEN => '1',
       ENBWREN => '1',
-      INJECTDBITERR => NLW_Quadrature_buffer_reg_0_INJECTDBITERR_UNCONNECTED,
-      INJECTSBITERR => NLW_Quadrature_buffer_reg_0_INJECTSBITERR_UNCONNECTED,
-      RDADDRECC(8 downto 0) => NLW_Quadrature_buffer_reg_0_RDADDRECC_UNCONNECTED(8 downto 0),
       REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => Reset,
       RSTRAMB => Reset,
       RSTREGARSTREG => '0',
       RSTREGB => '0',
-      SBITERR => NLW_Quadrature_buffer_reg_0_SBITERR_UNCONNECTED,
-      WEA(3 downto 0) => B"0000",
-      WEBWE(7 downto 0) => B"00000000"
-    );
-Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
-    generic map(
-      DOA_REG => 0,
-      DOB_REG => 0,
-      EN_ECC_READ => false,
-      EN_ECC_WRITE => false,
-      INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_08 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_09 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0A => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0B => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0C => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_05 => X"0101010101010101010101010101010101010101010101010101010101000000",
-      INIT_06 => X"0101010101010101010101010101010101010101010101010101010101010101",
-      INIT_07 => X"0101010101010101010101010101010101010101010101010101010101010101",
-      INIT_08 => X"0101010101010101010101010101010101010101010101010101010101010101",
-      INIT_09 => X"0101010101010101010101010101010101010101010101010101010101010101",
-      INIT_0A => X"0202020202020202020202020202020202020202020202020201010101010101",
-      INIT_0B => X"0202020202020202020202020202020202020202020202020202020202020202",
-      INIT_0C => X"0202020202020202020202020202020202020202020202020202020202020202",
-      INIT_0D => X"0202020202020202020202020202020202020202020202020202020202020202",
-      INIT_0E => X"0202020202020202020202020202020202020202020202020202020202020202",
-      INIT_0F => X"0303030303030303030303030303030303030303020202020202020202020202",
-      INIT_10 => X"0303030303030303030303030303030303030303030303030303030303030303",
-      INIT_11 => X"0303030303030303030303030303030303030303030303030303030303030303",
-      INIT_12 => X"0303030303030303030303030303030303030303030303030303030303030303",
-      INIT_13 => X"0303030303030303030303030303030303030303030303030303030303030303",
-      INIT_14 => X"0404040404040404040404040403030303030303030303030303030303030303",
-      INIT_15 => X"0404040404040404040404040404040404040404040404040404040404040404",
-      INIT_16 => X"0404040404040404040404040404040404040404040404040404040404040404",
-      INIT_17 => X"0404040404040404040404040404040404040404040404040404040404040404",
-      INIT_18 => X"0404040404040404040404040404040404040404040404040404040404040404",
-      INIT_19 => X"0505050404040404040404040404040404040404040404040404040404040404",
-      INIT_1A => X"0505050505050505050505050505050505050505050505050505050505050505",
-      INIT_1B => X"0505050505050505050505050505050505050505050505050505050505050505",
-      INIT_1C => X"0505050505050505050505050505050505050505050505050505050505050505",
-      INIT_1D => X"0505050505050505050505050505050505050505050505050505050505050505",
-      INIT_1E => X"0505050505050505050505050505050505050505050505050505050505050505",
-      INIT_1F => X"0606060606060606060606060606060606060606060505050505050505050505",
-      INIT_20 => X"0606060606060606060606060606060606060606060606060606060606060606",
-      INIT_21 => X"0606060606060606060606060606060606060606060606060606060606060606",
-      INIT_22 => X"0606060606060606060606060606060606060606060606060606060606060606",
-      INIT_23 => X"0606060606060606060606060606060606060606060606060606060606060606",
-      INIT_24 => X"0707070606060606060606060606060606060606060606060606060606060606",
-      INIT_25 => X"0707070707070707070707070707070707070707070707070707070707070707",
-      INIT_26 => X"0707070707070707070707070707070707070707070707070707070707070707",
-      INIT_27 => X"0707070707070707070707070707070707070707070707070707070707070707",
-      INIT_28 => X"0707070707070707070707070707070707070707070707070707070707070707",
-      INIT_29 => X"0707070707070707070707070707070707070707070707070707070707070707",
-      INIT_2A => X"0808080808080808080807070707070707070707070707070707070707070707",
-      INIT_2B => X"0808080808080808080808080808080808080808080808080808080808080808",
-      INIT_2C => X"0808080808080808080808080808080808080808080808080808080808080808",
-      INIT_2D => X"0808080808080808080808080808080808080808080808080808080808080808",
-      INIT_2E => X"0808080808080808080808080808080808080808080808080808080808080808",
-      INIT_2F => X"0808080808080808080808080808080808080808080808080808080808080808",
-      INIT_30 => X"0909090909090909090908080808080808080808080808080808080808080808",
-      INIT_31 => X"0909090909090909090909090909090909090909090909090909090909090909",
-      INIT_32 => X"0909090909090909090909090909090909090909090909090909090909090909",
-      INIT_33 => X"0909090909090909090909090909090909090909090909090909090909090909",
-      INIT_34 => X"0909090909090909090909090909090909090909090909090909090909090909",
-      INIT_35 => X"0909090909090909090909090909090909090909090909090909090909090909",
-      INIT_36 => X"0909090909090909090909090909090909090909090909090909090909090909",
-      INIT_37 => X"0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A09",
-      INIT_38 => X"0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A",
-      INIT_39 => X"0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A",
-      INIT_3A => X"0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A",
-      INIT_3B => X"0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A",
-      INIT_3C => X"0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A",
-      INIT_3D => X"0B0B0B0B0B0B0B0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A",
-      INIT_3E => X"0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B",
-      INIT_3F => X"0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B",
-      INIT_40 => X"0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B",
-      INIT_41 => X"0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B",
-      INIT_42 => X"0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B",
-      INIT_43 => X"0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B",
-      INIT_44 => X"0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B",
-      INIT_45 => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0B0B0B0B",
-      INIT_46 => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C",
-      INIT_47 => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C",
-      INIT_48 => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C",
-      INIT_49 => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C",
-      INIT_4A => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C",
-      INIT_4B => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C",
-      INIT_4C => X"0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C",
-      INIT_4D => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0C0C0C0C0C0C0C0C0C0C",
-      INIT_4E => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_4F => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_50 => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_51 => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_52 => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_53 => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_54 => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_55 => X"0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_56 => X"0E0E0E0E0E0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D",
-      INIT_57 => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_58 => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_59 => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_5A => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_5B => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_5C => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_5D => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_5E => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_5F => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_60 => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_61 => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_62 => X"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E",
-      INIT_63 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0E0E0E",
-      INIT_64 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_65 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_66 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_67 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_68 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_69 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_6A => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_6B => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_6C => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_6D => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_6E => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_6F => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_70 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_71 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_72 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_73 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_74 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_75 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_76 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_77 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_78 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_79 => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_7A => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_7B => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_7C => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_7D => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_7E => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_7F => X"0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F",
-      INIT_A => X"000000000",
-      INIT_B => X"000000000",
-      RAM_EXTENSION_A => "NONE",
-      RAM_EXTENSION_B => "NONE",
-      RAM_MODE => "TDP",
-      RDADDR_COLLISION_HWCONFIG => "PERFORMANCE",
-      READ_WIDTH_A => 9,
-      READ_WIDTH_B => 9,
-      RSTREG_PRIORITY_A => "RSTREG",
-      RSTREG_PRIORITY_B => "RSTREG",
-      SIM_COLLISION_CHECK => "ALL",
-      SIM_DEVICE => "7SERIES",
-      SRVAL_A => X"000000000",
-      SRVAL_B => X"000000000",
-      WRITE_MODE_A => "WRITE_FIRST",
-      WRITE_MODE_B => "WRITE_FIRST",
-      WRITE_WIDTH_A => 9,
-      WRITE_WIDTH_B => 0
-    )
-        port map (
-      ADDRARDADDR(15) => '1',
-      ADDRARDADDR(14 downto 3) => Quadrature_addr(11 downto 0),
-      ADDRARDADDR(2 downto 0) => B"000",
-      ADDRBWRADDR(15) => '1',
-      ADDRBWRADDR(14 downto 3) => dataAddr(11 downto 0),
-      ADDRBWRADDR(2 downto 0) => B"000",
-      CASCADEINA => '1',
-      CASCADEINB => '0',
-      CASCADEOUTA => NLW_Quadrature_buffer_reg_1_CASCADEOUTA_UNCONNECTED,
-      CASCADEOUTB => NLW_Quadrature_buffer_reg_1_CASCADEOUTB_UNCONNECTED,
-      CLKARDCLK => Clock,
-      CLKBWRCLK => Clock,
-      DBITERR => NLW_Quadrature_buffer_reg_1_DBITERR_UNCONNECTED,
-      DIADI(31 downto 0) => B"00000000000000000000000000011111",
-      DIBDI(31 downto 0) => B"11111111111111111111111111111111",
-      DIPADIP(3 downto 0) => B"0000",
-      DIPBDIP(3 downto 0) => B"1111",
-      DOADO(31 downto 5) => NLW_Quadrature_buffer_reg_1_DOADO_UNCONNECTED(31 downto 5),
-      DOADO(4 downto 0) => Quadrature_buffer_reg(12 downto 8),
-      DOBDO(31 downto 5) => NLW_Quadrature_buffer_reg_1_DOBDO_UNCONNECTED(31 downto 5),
-      DOBDO(4 downto 0) => databuffer_reg(12 downto 8),
-      DOPADOP(3 downto 0) => NLW_Quadrature_buffer_reg_1_DOPADOP_UNCONNECTED(3 downto 0),
-      DOPBDOP(3 downto 0) => NLW_Quadrature_buffer_reg_1_DOPBDOP_UNCONNECTED(3 downto 0),
-      ECCPARITY(7 downto 0) => NLW_Quadrature_buffer_reg_1_ECCPARITY_UNCONNECTED(7 downto 0),
-      ENARDEN => '1',
-      ENBWREN => '1',
-      INJECTDBITERR => NLW_Quadrature_buffer_reg_1_INJECTDBITERR_UNCONNECTED,
-      INJECTSBITERR => NLW_Quadrature_buffer_reg_1_INJECTSBITERR_UNCONNECTED,
-      RDADDRECC(8 downto 0) => NLW_Quadrature_buffer_reg_1_RDADDRECC_UNCONNECTED(8 downto 0),
-      REGCEAREGCE => '0',
-      REGCEB => '0',
-      RSTRAMARSTRAM => Reset,
-      RSTRAMB => Reset,
-      RSTREGARSTREG => '0',
-      RSTREGB => '0',
-      SBITERR => NLW_Quadrature_buffer_reg_1_SBITERR_UNCONNECTED,
-      WEA(3 downto 0) => B"0000",
-      WEBWE(7 downto 0) => B"00000000"
+      WEA(1 downto 0) => B"00",
+      WEBWE(3 downto 0) => B"0000"
     );
 \dataAddr[0]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => L(18),
+      I0 => L(22),
       I1 => p_0_in(0),
       O => \dataAddr[0]_i_1_n_0\
-    );
-\dataAddr[10]_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => L(28),
-      I1 => p_0_in(0),
-      O => \dataAddr[10]_i_1_n_0\
-    );
-\dataAddr[11]_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => L(29),
-      I1 => p_0_in(0),
-      O => \dataAddr[11]_i_1_n_0\
     );
 \dataAddr[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => L(19),
+      I0 => L(23),
       I1 => p_0_in(0),
       O => \dataAddr[1]_i_1_n_0\
     );
@@ -16333,7 +15850,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => L(20),
+      I0 => L(24),
       I1 => p_0_in(0),
       O => \dataAddr[2]_i_1_n_0\
     );
@@ -16342,7 +15859,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => L(21),
+      I0 => L(25),
       I1 => p_0_in(0),
       O => \dataAddr[3]_i_1_n_0\
     );
@@ -16351,7 +15868,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => L(22),
+      I0 => L(26),
       I1 => p_0_in(0),
       O => \dataAddr[4]_i_1_n_0\
     );
@@ -16360,7 +15877,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => L(23),
+      I0 => L(27),
       I1 => p_0_in(0),
       O => \dataAddr[5]_i_1_n_0\
     );
@@ -16369,7 +15886,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => L(24),
+      I0 => L(28),
       I1 => p_0_in(0),
       O => \dataAddr[6]_i_1_n_0\
     );
@@ -16378,27 +15895,9 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
       INIT => X"6"
     )
         port map (
-      I0 => L(25),
+      I0 => L(29),
       I1 => p_0_in(0),
       O => \dataAddr[7]_i_1_n_0\
-    );
-\dataAddr[8]_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => L(26),
-      I1 => p_0_in(0),
-      O => \dataAddr[8]_i_1_n_0\
-    );
-\dataAddr[9]_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => L(27),
-      I1 => p_0_in(0),
-      O => \dataAddr[9]_i_1_n_0\
     );
 \dataAddr_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -16406,31 +15905,9 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[0]_i_1_n_0\,
       Q => dataAddr(0),
-      R => '0'
-    );
-\dataAddr_reg[10]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \dataAddr[10]_i_1_n_0\,
-      Q => dataAddr(10),
-      R => '0'
-    );
-\dataAddr_reg[11]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \dataAddr[11]_i_1_n_0\,
-      Q => dataAddr(11),
       R => '0'
     );
 \dataAddr_reg[1]\: unisim.vcomponents.FDRE
@@ -16439,7 +15916,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[1]_i_1_n_0\,
       Q => dataAddr(1),
       R => '0'
@@ -16450,7 +15927,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[2]_i_1_n_0\,
       Q => dataAddr(2),
       R => '0'
@@ -16461,7 +15938,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[3]_i_1_n_0\,
       Q => dataAddr(3),
       R => '0'
@@ -16472,7 +15949,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[4]_i_1_n_0\,
       Q => dataAddr(4),
       R => '0'
@@ -16483,7 +15960,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[5]_i_1_n_0\,
       Q => dataAddr(5),
       R => '0'
@@ -16494,7 +15971,7 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[6]_i_1_n_0\,
       Q => dataAddr(6),
       R => '0'
@@ -16505,31 +15982,9 @@ Quadrature_buffer_reg_1: unisim.vcomponents.RAMB36E1
     )
         port map (
       C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
+      CE => \Quadrature_addr[7]_i_1_n_0\,
       D => \dataAddr[7]_i_1_n_0\,
       Q => dataAddr(7),
-      R => '0'
-    );
-\dataAddr_reg[8]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \dataAddr[8]_i_1_n_0\,
-      Q => dataAddr(8),
-      R => '0'
-    );
-\dataAddr_reg[9]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => Clock,
-      CE => \Quadrature_addr[11]_i_1_n_0\,
-      D => \dataAddr[9]_i_1_n_0\,
-      Q => dataAddr(9),
       R => '0'
     );
 \phase[11]_i_2\: unisim.vcomponents.LUT2
@@ -17324,11 +16779,28 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller is
   port (
-    \SignalOutput_reg[31]_0\ : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    O : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \SignalOutput_reg[7]_0\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \SignalOutput_reg[11]_0\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \SignalOutput_reg[15]_0\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \SignalOutput_reg[19]_0\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \SignalOutput_reg[23]_0\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \SignalOutput_reg[27]_0\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \SignalOutput_reg[30]_0\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    S : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PLL_Guess_Freq[7]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PLL_Guess_Freq[11]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PLL_Guess_Freq[15]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PLL_Guess_Freq[19]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PLL_Guess_Freq[23]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PLL_Guess_Freq[27]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \PLL_Guess_Freq[31]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
     Clock : in STD_LOGIC;
     Control_Ki : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Q : in STD_LOGIC_VECTOR ( 25 downto 0 );
     Control_Kp : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    PLL_Guess_Freq : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    Phase_Error : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Integrator_Reset : in STD_LOGIC;
     Reset : in STD_LOGIC
   );
@@ -18261,6 +17733,69 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_PID_Contr
   signal \P_pipeline_reg[7]_i_1_n_5\ : STD_LOGIC;
   signal \P_pipeline_reg[7]_i_1_n_6\ : STD_LOGIC;
   signal \P_pipeline_reg[7]_i_1_n_7\ : STD_LOGIC;
+  signal \Phase_Accumulated[11]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[11]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[11]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[11]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[15]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[15]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[15]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[15]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[19]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[19]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[19]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[19]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[23]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[23]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[23]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[23]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[27]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[27]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[27]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[27]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[31]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[31]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[31]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[31]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[3]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[3]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[3]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[3]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[7]_i_2_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[7]_i_3_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[7]_i_4_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated[7]_i_5_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[11]_i_1_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[11]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[11]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[11]_i_1_n_3\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[15]_i_1_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[15]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[15]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[15]_i_1_n_3\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[19]_i_1_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[19]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[19]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[19]_i_1_n_3\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[23]_i_1_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[23]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[23]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[23]_i_1_n_3\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[27]_i_1_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[27]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[27]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[27]_i_1_n_3\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[31]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[31]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[31]_i_1_n_3\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[3]_i_1_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[3]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[3]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[3]_i_1_n_3\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[7]_i_1_n_0\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[7]_i_1_n_1\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[7]_i_1_n_2\ : STD_LOGIC;
+  signal \Phase_Accumulated_reg[7]_i_1_n_3\ : STD_LOGIC;
   signal \Sig_Buffer_reg0_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \Sig_Buffer_reg0_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \Sig_Buffer_reg0_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -18389,6 +17924,38 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_PID_Contr
   signal \Sig_Buffer_reg_n_0_[8]\ : STD_LOGIC;
   signal \Sig_Buffer_reg_n_0_[9]\ : STD_LOGIC;
   signal \SignalOutput[31]_i_1_n_0\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[0]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[10]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[11]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[12]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[13]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[14]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[15]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[16]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[17]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[18]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[19]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[1]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[20]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[21]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[22]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[23]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[24]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[25]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[26]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[27]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[28]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[29]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[2]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[30]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[31]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[3]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[4]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[5]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[6]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[7]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[8]\ : STD_LOGIC;
+  signal \SignalOutput_reg_n_0_[9]\ : STD_LOGIC;
   signal NLW_ARG_CARRYCASCOUT_UNCONNECTED : STD_LOGIC;
   signal NLW_ARG_MULTSIGNOUT_UNCONNECTED : STD_LOGIC;
   signal NLW_ARG_OVERFLOW_UNCONNECTED : STD_LOGIC;
@@ -18466,6 +18033,7 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_PID_Contr
   signal \NLW_Accumulated_Output0_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_I_pipeline_reg[31]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_P_pipeline_reg[31]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_Phase_Accumulated_reg[31]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_Sig_Buffer_reg0_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of ARG : label is "{SYNTH-10 {cell *THIS*} {string 15x18 4}}";
@@ -18476,6 +18044,15 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_PID_Contr
   attribute METHODOLOGY_DRC_VIOS of \ARG__4\ : label is "{SYNTH-10 {cell *THIS*} {string 15x15 4}}";
   attribute METHODOLOGY_DRC_VIOS of \ARG__5\ : label is "{SYNTH-10 {cell *THIS*} {string 18x18 4}}";
   attribute METHODOLOGY_DRC_VIOS of \ARG__6\ : label is "{SYNTH-10 {cell *THIS*} {string 18x15 4}}";
+  attribute ADDER_THRESHOLD : integer;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[11]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[15]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[19]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[23]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[27]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[31]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[3]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \Phase_Accumulated_reg[7]_i_1\ : label is 11;
 begin
 ARG: unisim.vcomponents.DSP48E1
     generic map(
@@ -22000,6 +21577,294 @@ Accumulated_Output0_carry_i_4: unisim.vcomponents.LUT2
       Q => Integral_Stage(9),
       R => ARG_i_1_n_0
     );
+\PLL_Freq0_carry__0_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(7),
+      I1 => \SignalOutput_reg_n_0_[7]\,
+      O => \PLL_Guess_Freq[7]\(3)
+    );
+\PLL_Freq0_carry__0_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(6),
+      I1 => \SignalOutput_reg_n_0_[6]\,
+      O => \PLL_Guess_Freq[7]\(2)
+    );
+\PLL_Freq0_carry__0_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(5),
+      I1 => \SignalOutput_reg_n_0_[5]\,
+      O => \PLL_Guess_Freq[7]\(1)
+    );
+\PLL_Freq0_carry__0_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(4),
+      I1 => \SignalOutput_reg_n_0_[4]\,
+      O => \PLL_Guess_Freq[7]\(0)
+    );
+\PLL_Freq0_carry__1_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(11),
+      I1 => \SignalOutput_reg_n_0_[11]\,
+      O => \PLL_Guess_Freq[11]\(3)
+    );
+\PLL_Freq0_carry__1_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(10),
+      I1 => \SignalOutput_reg_n_0_[10]\,
+      O => \PLL_Guess_Freq[11]\(2)
+    );
+\PLL_Freq0_carry__1_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(9),
+      I1 => \SignalOutput_reg_n_0_[9]\,
+      O => \PLL_Guess_Freq[11]\(1)
+    );
+\PLL_Freq0_carry__1_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(8),
+      I1 => \SignalOutput_reg_n_0_[8]\,
+      O => \PLL_Guess_Freq[11]\(0)
+    );
+\PLL_Freq0_carry__2_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(15),
+      I1 => \SignalOutput_reg_n_0_[15]\,
+      O => \PLL_Guess_Freq[15]\(3)
+    );
+\PLL_Freq0_carry__2_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(14),
+      I1 => \SignalOutput_reg_n_0_[14]\,
+      O => \PLL_Guess_Freq[15]\(2)
+    );
+\PLL_Freq0_carry__2_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(13),
+      I1 => \SignalOutput_reg_n_0_[13]\,
+      O => \PLL_Guess_Freq[15]\(1)
+    );
+\PLL_Freq0_carry__2_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(12),
+      I1 => \SignalOutput_reg_n_0_[12]\,
+      O => \PLL_Guess_Freq[15]\(0)
+    );
+\PLL_Freq0_carry__3_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(19),
+      I1 => \SignalOutput_reg_n_0_[19]\,
+      O => \PLL_Guess_Freq[19]\(3)
+    );
+\PLL_Freq0_carry__3_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(18),
+      I1 => \SignalOutput_reg_n_0_[18]\,
+      O => \PLL_Guess_Freq[19]\(2)
+    );
+\PLL_Freq0_carry__3_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(17),
+      I1 => \SignalOutput_reg_n_0_[17]\,
+      O => \PLL_Guess_Freq[19]\(1)
+    );
+\PLL_Freq0_carry__3_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(16),
+      I1 => \SignalOutput_reg_n_0_[16]\,
+      O => \PLL_Guess_Freq[19]\(0)
+    );
+\PLL_Freq0_carry__4_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(23),
+      I1 => \SignalOutput_reg_n_0_[23]\,
+      O => \PLL_Guess_Freq[23]\(3)
+    );
+\PLL_Freq0_carry__4_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(22),
+      I1 => \SignalOutput_reg_n_0_[22]\,
+      O => \PLL_Guess_Freq[23]\(2)
+    );
+\PLL_Freq0_carry__4_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(21),
+      I1 => \SignalOutput_reg_n_0_[21]\,
+      O => \PLL_Guess_Freq[23]\(1)
+    );
+\PLL_Freq0_carry__4_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(20),
+      I1 => \SignalOutput_reg_n_0_[20]\,
+      O => \PLL_Guess_Freq[23]\(0)
+    );
+\PLL_Freq0_carry__5_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(27),
+      I1 => \SignalOutput_reg_n_0_[27]\,
+      O => \PLL_Guess_Freq[27]\(3)
+    );
+\PLL_Freq0_carry__5_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(26),
+      I1 => \SignalOutput_reg_n_0_[26]\,
+      O => \PLL_Guess_Freq[27]\(2)
+    );
+\PLL_Freq0_carry__5_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(25),
+      I1 => \SignalOutput_reg_n_0_[25]\,
+      O => \PLL_Guess_Freq[27]\(1)
+    );
+\PLL_Freq0_carry__5_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(24),
+      I1 => \SignalOutput_reg_n_0_[24]\,
+      O => \PLL_Guess_Freq[27]\(0)
+    );
+\PLL_Freq0_carry__6_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(31),
+      I1 => \SignalOutput_reg_n_0_[31]\,
+      O => \PLL_Guess_Freq[31]\(3)
+    );
+\PLL_Freq0_carry__6_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(30),
+      I1 => \SignalOutput_reg_n_0_[30]\,
+      O => \PLL_Guess_Freq[31]\(2)
+    );
+\PLL_Freq0_carry__6_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(29),
+      I1 => \SignalOutput_reg_n_0_[29]\,
+      O => \PLL_Guess_Freq[31]\(1)
+    );
+\PLL_Freq0_carry__6_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(28),
+      I1 => \SignalOutput_reg_n_0_[28]\,
+      O => \PLL_Guess_Freq[31]\(0)
+    );
+PLL_Freq0_carry_i_1: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(3),
+      I1 => \SignalOutput_reg_n_0_[3]\,
+      O => S(3)
+    );
+PLL_Freq0_carry_i_2: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(2),
+      I1 => \SignalOutput_reg_n_0_[2]\,
+      O => S(2)
+    );
+PLL_Freq0_carry_i_3: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(1),
+      I1 => \SignalOutput_reg_n_0_[1]\,
+      O => S(1)
+    );
+PLL_Freq0_carry_i_4: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => PLL_Guess_Freq(0),
+      I1 => \SignalOutput_reg_n_0_[0]\,
+      O => S(0)
+    );
 \P_pipeline[11]_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
@@ -22798,6 +22663,438 @@ Accumulated_Output0_carry_i_4: unisim.vcomponents.LUT2
       D => \P_pipeline_reg[11]_i_1_n_6\,
       Q => P_pipeline(9),
       R => ARG_i_1_n_0
+    );
+\Phase_Accumulated[11]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[11]\,
+      I1 => Phase_Error(11),
+      O => \Phase_Accumulated[11]_i_2_n_0\
+    );
+\Phase_Accumulated[11]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[10]\,
+      I1 => Phase_Error(10),
+      O => \Phase_Accumulated[11]_i_3_n_0\
+    );
+\Phase_Accumulated[11]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[9]\,
+      I1 => Phase_Error(9),
+      O => \Phase_Accumulated[11]_i_4_n_0\
+    );
+\Phase_Accumulated[11]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[8]\,
+      I1 => Phase_Error(8),
+      O => \Phase_Accumulated[11]_i_5_n_0\
+    );
+\Phase_Accumulated[15]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[15]\,
+      I1 => Phase_Error(15),
+      O => \Phase_Accumulated[15]_i_2_n_0\
+    );
+\Phase_Accumulated[15]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[14]\,
+      I1 => Phase_Error(14),
+      O => \Phase_Accumulated[15]_i_3_n_0\
+    );
+\Phase_Accumulated[15]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[13]\,
+      I1 => Phase_Error(13),
+      O => \Phase_Accumulated[15]_i_4_n_0\
+    );
+\Phase_Accumulated[15]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[12]\,
+      I1 => Phase_Error(12),
+      O => \Phase_Accumulated[15]_i_5_n_0\
+    );
+\Phase_Accumulated[19]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[19]\,
+      I1 => Phase_Error(19),
+      O => \Phase_Accumulated[19]_i_2_n_0\
+    );
+\Phase_Accumulated[19]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[18]\,
+      I1 => Phase_Error(18),
+      O => \Phase_Accumulated[19]_i_3_n_0\
+    );
+\Phase_Accumulated[19]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[17]\,
+      I1 => Phase_Error(17),
+      O => \Phase_Accumulated[19]_i_4_n_0\
+    );
+\Phase_Accumulated[19]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[16]\,
+      I1 => Phase_Error(16),
+      O => \Phase_Accumulated[19]_i_5_n_0\
+    );
+\Phase_Accumulated[23]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[23]\,
+      I1 => Phase_Error(23),
+      O => \Phase_Accumulated[23]_i_2_n_0\
+    );
+\Phase_Accumulated[23]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[22]\,
+      I1 => Phase_Error(22),
+      O => \Phase_Accumulated[23]_i_3_n_0\
+    );
+\Phase_Accumulated[23]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[21]\,
+      I1 => Phase_Error(21),
+      O => \Phase_Accumulated[23]_i_4_n_0\
+    );
+\Phase_Accumulated[23]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[20]\,
+      I1 => Phase_Error(20),
+      O => \Phase_Accumulated[23]_i_5_n_0\
+    );
+\Phase_Accumulated[27]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[27]\,
+      I1 => Phase_Error(27),
+      O => \Phase_Accumulated[27]_i_2_n_0\
+    );
+\Phase_Accumulated[27]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[26]\,
+      I1 => Phase_Error(26),
+      O => \Phase_Accumulated[27]_i_3_n_0\
+    );
+\Phase_Accumulated[27]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[25]\,
+      I1 => Phase_Error(25),
+      O => \Phase_Accumulated[27]_i_4_n_0\
+    );
+\Phase_Accumulated[27]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[24]\,
+      I1 => Phase_Error(24),
+      O => \Phase_Accumulated[27]_i_5_n_0\
+    );
+\Phase_Accumulated[31]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[31]\,
+      I1 => Phase_Error(31),
+      O => \Phase_Accumulated[31]_i_2_n_0\
+    );
+\Phase_Accumulated[31]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[30]\,
+      I1 => Phase_Error(30),
+      O => \Phase_Accumulated[31]_i_3_n_0\
+    );
+\Phase_Accumulated[31]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[29]\,
+      I1 => Phase_Error(29),
+      O => \Phase_Accumulated[31]_i_4_n_0\
+    );
+\Phase_Accumulated[31]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[28]\,
+      I1 => Phase_Error(28),
+      O => \Phase_Accumulated[31]_i_5_n_0\
+    );
+\Phase_Accumulated[3]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[3]\,
+      I1 => Phase_Error(3),
+      O => \Phase_Accumulated[3]_i_2_n_0\
+    );
+\Phase_Accumulated[3]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[2]\,
+      I1 => Phase_Error(2),
+      O => \Phase_Accumulated[3]_i_3_n_0\
+    );
+\Phase_Accumulated[3]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[1]\,
+      I1 => Phase_Error(1),
+      O => \Phase_Accumulated[3]_i_4_n_0\
+    );
+\Phase_Accumulated[3]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[0]\,
+      I1 => Phase_Error(0),
+      O => \Phase_Accumulated[3]_i_5_n_0\
+    );
+\Phase_Accumulated[7]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[7]\,
+      I1 => Phase_Error(7),
+      O => \Phase_Accumulated[7]_i_2_n_0\
+    );
+\Phase_Accumulated[7]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[6]\,
+      I1 => Phase_Error(6),
+      O => \Phase_Accumulated[7]_i_3_n_0\
+    );
+\Phase_Accumulated[7]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[5]\,
+      I1 => Phase_Error(5),
+      O => \Phase_Accumulated[7]_i_4_n_0\
+    );
+\Phase_Accumulated[7]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \SignalOutput_reg_n_0_[4]\,
+      I1 => Phase_Error(4),
+      O => \Phase_Accumulated[7]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[11]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \Phase_Accumulated_reg[7]_i_1_n_0\,
+      CO(3) => \Phase_Accumulated_reg[11]_i_1_n_0\,
+      CO(2) => \Phase_Accumulated_reg[11]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[11]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[11]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => \SignalOutput_reg_n_0_[11]\,
+      DI(2) => \SignalOutput_reg_n_0_[10]\,
+      DI(1) => \SignalOutput_reg_n_0_[9]\,
+      DI(0) => \SignalOutput_reg_n_0_[8]\,
+      O(3 downto 0) => \SignalOutput_reg[11]_0\(3 downto 0),
+      S(3) => \Phase_Accumulated[11]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[11]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[11]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[11]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[15]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \Phase_Accumulated_reg[11]_i_1_n_0\,
+      CO(3) => \Phase_Accumulated_reg[15]_i_1_n_0\,
+      CO(2) => \Phase_Accumulated_reg[15]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[15]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[15]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => \SignalOutput_reg_n_0_[15]\,
+      DI(2) => \SignalOutput_reg_n_0_[14]\,
+      DI(1) => \SignalOutput_reg_n_0_[13]\,
+      DI(0) => \SignalOutput_reg_n_0_[12]\,
+      O(3 downto 0) => \SignalOutput_reg[15]_0\(3 downto 0),
+      S(3) => \Phase_Accumulated[15]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[15]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[15]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[15]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[19]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \Phase_Accumulated_reg[15]_i_1_n_0\,
+      CO(3) => \Phase_Accumulated_reg[19]_i_1_n_0\,
+      CO(2) => \Phase_Accumulated_reg[19]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[19]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[19]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => \SignalOutput_reg_n_0_[19]\,
+      DI(2) => \SignalOutput_reg_n_0_[18]\,
+      DI(1) => \SignalOutput_reg_n_0_[17]\,
+      DI(0) => \SignalOutput_reg_n_0_[16]\,
+      O(3 downto 0) => \SignalOutput_reg[19]_0\(3 downto 0),
+      S(3) => \Phase_Accumulated[19]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[19]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[19]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[19]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[23]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \Phase_Accumulated_reg[19]_i_1_n_0\,
+      CO(3) => \Phase_Accumulated_reg[23]_i_1_n_0\,
+      CO(2) => \Phase_Accumulated_reg[23]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[23]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[23]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => \SignalOutput_reg_n_0_[23]\,
+      DI(2) => \SignalOutput_reg_n_0_[22]\,
+      DI(1) => \SignalOutput_reg_n_0_[21]\,
+      DI(0) => \SignalOutput_reg_n_0_[20]\,
+      O(3 downto 0) => \SignalOutput_reg[23]_0\(3 downto 0),
+      S(3) => \Phase_Accumulated[23]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[23]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[23]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[23]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[27]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \Phase_Accumulated_reg[23]_i_1_n_0\,
+      CO(3) => \Phase_Accumulated_reg[27]_i_1_n_0\,
+      CO(2) => \Phase_Accumulated_reg[27]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[27]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[27]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => \SignalOutput_reg_n_0_[27]\,
+      DI(2) => \SignalOutput_reg_n_0_[26]\,
+      DI(1) => \SignalOutput_reg_n_0_[25]\,
+      DI(0) => \SignalOutput_reg_n_0_[24]\,
+      O(3 downto 0) => \SignalOutput_reg[27]_0\(3 downto 0),
+      S(3) => \Phase_Accumulated[27]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[27]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[27]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[27]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[31]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \Phase_Accumulated_reg[27]_i_1_n_0\,
+      CO(3) => \NLW_Phase_Accumulated_reg[31]_i_1_CO_UNCONNECTED\(3),
+      CO(2) => \Phase_Accumulated_reg[31]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[31]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[31]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2) => \SignalOutput_reg_n_0_[30]\,
+      DI(1) => \SignalOutput_reg_n_0_[29]\,
+      DI(0) => \SignalOutput_reg_n_0_[28]\,
+      O(3 downto 0) => \SignalOutput_reg[30]_0\(3 downto 0),
+      S(3) => \Phase_Accumulated[31]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[31]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[31]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[31]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[3]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \Phase_Accumulated_reg[3]_i_1_n_0\,
+      CO(2) => \Phase_Accumulated_reg[3]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[3]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[3]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => \SignalOutput_reg_n_0_[3]\,
+      DI(2) => \SignalOutput_reg_n_0_[2]\,
+      DI(1) => \SignalOutput_reg_n_0_[1]\,
+      DI(0) => \SignalOutput_reg_n_0_[0]\,
+      O(3 downto 0) => O(3 downto 0),
+      S(3) => \Phase_Accumulated[3]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[3]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[3]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[3]_i_5_n_0\
+    );
+\Phase_Accumulated_reg[7]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \Phase_Accumulated_reg[3]_i_1_n_0\,
+      CO(3) => \Phase_Accumulated_reg[7]_i_1_n_0\,
+      CO(2) => \Phase_Accumulated_reg[7]_i_1_n_1\,
+      CO(1) => \Phase_Accumulated_reg[7]_i_1_n_2\,
+      CO(0) => \Phase_Accumulated_reg[7]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => \SignalOutput_reg_n_0_[7]\,
+      DI(2) => \SignalOutput_reg_n_0_[6]\,
+      DI(1) => \SignalOutput_reg_n_0_[5]\,
+      DI(0) => \SignalOutput_reg_n_0_[4]\,
+      O(3 downto 0) => \SignalOutput_reg[7]_0\(3 downto 0),
+      S(3) => \Phase_Accumulated[7]_i_2_n_0\,
+      S(2) => \Phase_Accumulated[7]_i_3_n_0\,
+      S(1) => \Phase_Accumulated[7]_i_4_n_0\,
+      S(0) => \Phase_Accumulated[7]_i_5_n_0\
     );
 Sig_Buffer_reg0_carry: unisim.vcomponents.CARRY4
      port map (
@@ -23601,7 +23898,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[0]\,
-      Q => \SignalOutput_reg[31]_0\(0),
+      Q => \SignalOutput_reg_n_0_[0]\,
       R => '0'
     );
 \SignalOutput_reg[10]\: unisim.vcomponents.FDRE
@@ -23612,7 +23909,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[10]\,
-      Q => \SignalOutput_reg[31]_0\(10),
+      Q => \SignalOutput_reg_n_0_[10]\,
       R => '0'
     );
 \SignalOutput_reg[11]\: unisim.vcomponents.FDRE
@@ -23623,7 +23920,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[11]\,
-      Q => \SignalOutput_reg[31]_0\(11),
+      Q => \SignalOutput_reg_n_0_[11]\,
       R => '0'
     );
 \SignalOutput_reg[12]\: unisim.vcomponents.FDRE
@@ -23634,7 +23931,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[12]\,
-      Q => \SignalOutput_reg[31]_0\(12),
+      Q => \SignalOutput_reg_n_0_[12]\,
       R => '0'
     );
 \SignalOutput_reg[13]\: unisim.vcomponents.FDRE
@@ -23645,7 +23942,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[13]\,
-      Q => \SignalOutput_reg[31]_0\(13),
+      Q => \SignalOutput_reg_n_0_[13]\,
       R => '0'
     );
 \SignalOutput_reg[14]\: unisim.vcomponents.FDRE
@@ -23656,7 +23953,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[14]\,
-      Q => \SignalOutput_reg[31]_0\(14),
+      Q => \SignalOutput_reg_n_0_[14]\,
       R => '0'
     );
 \SignalOutput_reg[15]\: unisim.vcomponents.FDRE
@@ -23667,7 +23964,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[15]\,
-      Q => \SignalOutput_reg[31]_0\(15),
+      Q => \SignalOutput_reg_n_0_[15]\,
       R => '0'
     );
 \SignalOutput_reg[16]\: unisim.vcomponents.FDRE
@@ -23678,7 +23975,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[16]\,
-      Q => \SignalOutput_reg[31]_0\(16),
+      Q => \SignalOutput_reg_n_0_[16]\,
       R => '0'
     );
 \SignalOutput_reg[17]\: unisim.vcomponents.FDRE
@@ -23689,7 +23986,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[17]\,
-      Q => \SignalOutput_reg[31]_0\(17),
+      Q => \SignalOutput_reg_n_0_[17]\,
       R => '0'
     );
 \SignalOutput_reg[18]\: unisim.vcomponents.FDRE
@@ -23700,7 +23997,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[18]\,
-      Q => \SignalOutput_reg[31]_0\(18),
+      Q => \SignalOutput_reg_n_0_[18]\,
       R => '0'
     );
 \SignalOutput_reg[19]\: unisim.vcomponents.FDRE
@@ -23711,7 +24008,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[19]\,
-      Q => \SignalOutput_reg[31]_0\(19),
+      Q => \SignalOutput_reg_n_0_[19]\,
       R => '0'
     );
 \SignalOutput_reg[1]\: unisim.vcomponents.FDRE
@@ -23722,7 +24019,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[1]\,
-      Q => \SignalOutput_reg[31]_0\(1),
+      Q => \SignalOutput_reg_n_0_[1]\,
       R => '0'
     );
 \SignalOutput_reg[20]\: unisim.vcomponents.FDRE
@@ -23733,7 +24030,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[20]\,
-      Q => \SignalOutput_reg[31]_0\(20),
+      Q => \SignalOutput_reg_n_0_[20]\,
       R => '0'
     );
 \SignalOutput_reg[21]\: unisim.vcomponents.FDRE
@@ -23744,7 +24041,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[21]\,
-      Q => \SignalOutput_reg[31]_0\(21),
+      Q => \SignalOutput_reg_n_0_[21]\,
       R => '0'
     );
 \SignalOutput_reg[22]\: unisim.vcomponents.FDRE
@@ -23755,7 +24052,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[22]\,
-      Q => \SignalOutput_reg[31]_0\(22),
+      Q => \SignalOutput_reg_n_0_[22]\,
       R => '0'
     );
 \SignalOutput_reg[23]\: unisim.vcomponents.FDRE
@@ -23766,7 +24063,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[23]\,
-      Q => \SignalOutput_reg[31]_0\(23),
+      Q => \SignalOutput_reg_n_0_[23]\,
       R => '0'
     );
 \SignalOutput_reg[24]\: unisim.vcomponents.FDRE
@@ -23777,7 +24074,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[24]\,
-      Q => \SignalOutput_reg[31]_0\(24),
+      Q => \SignalOutput_reg_n_0_[24]\,
       R => '0'
     );
 \SignalOutput_reg[25]\: unisim.vcomponents.FDRE
@@ -23788,7 +24085,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[25]\,
-      Q => \SignalOutput_reg[31]_0\(25),
+      Q => \SignalOutput_reg_n_0_[25]\,
       R => '0'
     );
 \SignalOutput_reg[26]\: unisim.vcomponents.FDRE
@@ -23799,7 +24096,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[26]\,
-      Q => \SignalOutput_reg[31]_0\(26),
+      Q => \SignalOutput_reg_n_0_[26]\,
       R => '0'
     );
 \SignalOutput_reg[27]\: unisim.vcomponents.FDRE
@@ -23810,7 +24107,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[27]\,
-      Q => \SignalOutput_reg[31]_0\(27),
+      Q => \SignalOutput_reg_n_0_[27]\,
       R => '0'
     );
 \SignalOutput_reg[28]\: unisim.vcomponents.FDRE
@@ -23821,7 +24118,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[28]\,
-      Q => \SignalOutput_reg[31]_0\(28),
+      Q => \SignalOutput_reg_n_0_[28]\,
       R => '0'
     );
 \SignalOutput_reg[29]\: unisim.vcomponents.FDRE
@@ -23832,7 +24129,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[29]\,
-      Q => \SignalOutput_reg[31]_0\(29),
+      Q => \SignalOutput_reg_n_0_[29]\,
       R => '0'
     );
 \SignalOutput_reg[2]\: unisim.vcomponents.FDRE
@@ -23843,7 +24140,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[2]\,
-      Q => \SignalOutput_reg[31]_0\(2),
+      Q => \SignalOutput_reg_n_0_[2]\,
       R => '0'
     );
 \SignalOutput_reg[30]\: unisim.vcomponents.FDRE
@@ -23854,7 +24151,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[30]\,
-      Q => \SignalOutput_reg[31]_0\(30),
+      Q => \SignalOutput_reg_n_0_[30]\,
       R => '0'
     );
 \SignalOutput_reg[31]\: unisim.vcomponents.FDRE
@@ -23865,7 +24162,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[31]\,
-      Q => \SignalOutput_reg[31]_0\(31),
+      Q => \SignalOutput_reg_n_0_[31]\,
       R => '0'
     );
 \SignalOutput_reg[3]\: unisim.vcomponents.FDRE
@@ -23876,7 +24173,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[3]\,
-      Q => \SignalOutput_reg[31]_0\(3),
+      Q => \SignalOutput_reg_n_0_[3]\,
       R => '0'
     );
 \SignalOutput_reg[4]\: unisim.vcomponents.FDRE
@@ -23887,7 +24184,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[4]\,
-      Q => \SignalOutput_reg[31]_0\(4),
+      Q => \SignalOutput_reg_n_0_[4]\,
       R => '0'
     );
 \SignalOutput_reg[5]\: unisim.vcomponents.FDRE
@@ -23898,7 +24195,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[5]\,
-      Q => \SignalOutput_reg[31]_0\(5),
+      Q => \SignalOutput_reg_n_0_[5]\,
       R => '0'
     );
 \SignalOutput_reg[6]\: unisim.vcomponents.FDRE
@@ -23909,7 +24206,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[6]\,
-      Q => \SignalOutput_reg[31]_0\(6),
+      Q => \SignalOutput_reg_n_0_[6]\,
       R => '0'
     );
 \SignalOutput_reg[7]\: unisim.vcomponents.FDRE
@@ -23920,7 +24217,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[7]\,
-      Q => \SignalOutput_reg[31]_0\(7),
+      Q => \SignalOutput_reg_n_0_[7]\,
       R => '0'
     );
 \SignalOutput_reg[8]\: unisim.vcomponents.FDRE
@@ -23931,7 +24228,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[8]\,
-      Q => \SignalOutput_reg[31]_0\(8),
+      Q => \SignalOutput_reg_n_0_[8]\,
       R => '0'
     );
 \SignalOutput_reg[9]\: unisim.vcomponents.FDRE
@@ -23942,7 +24239,7 @@ Sig_Buffer_reg0_carry_i_4: unisim.vcomponents.LUT2
       C => Clock,
       CE => \SignalOutput[31]_i_1_n_0\,
       D => \Sig_Buffer_reg_n_0_[9]\,
-      Q => \SignalOutput_reg[31]_0\(9),
+      Q => \SignalOutput_reg_n_0_[9]\,
       R => '0'
     );
 end STRUCTURE;
@@ -23957,6 +24254,7 @@ entity Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator is
     Phase_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Locked_Carrier : out STD_LOGIC_VECTOR ( 13 downto 0 );
     Freq_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    Phase_Error : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Message : out STD_LOGIC;
     \section_out1_reg[23]\ : in STD_LOGIC;
     Clock : in STD_LOGIC;
@@ -23964,15 +24262,16 @@ entity Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator is
     Input_Signal : in STD_LOGIC_VECTOR ( 13 downto 0 );
     Control_Ki : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Control_Kp : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    Integrator_Reset : in STD_LOGIC;
     PLL_Guess_Freq : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    Threshold : in STD_LOGIC_VECTOR ( 25 downto 0 );
-    Integrator_Reset : in STD_LOGIC
+    Threshold : in STD_LOGIC_VECTOR ( 25 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator : entity is "Costa_Demodulator";
 end Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator;
 
 architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator is
+  signal Counter_reg : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal Cross_Mixer_n_0 : STD_LOGIC;
   signal Cross_Mixer_n_1 : STD_LOGIC;
   signal Cross_Mixer_n_10 : STD_LOGIC;
@@ -24069,6 +24368,70 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Dem
   signal Input_Quadrature_Mixer_n_7 : STD_LOGIC;
   signal Input_Quadrature_Mixer_n_8 : STD_LOGIC;
   signal Input_Quadrature_Mixer_n_9 : STD_LOGIC;
+  signal Loop_Controller_n_0 : STD_LOGIC;
+  signal Loop_Controller_n_1 : STD_LOGIC;
+  signal Loop_Controller_n_10 : STD_LOGIC;
+  signal Loop_Controller_n_11 : STD_LOGIC;
+  signal Loop_Controller_n_12 : STD_LOGIC;
+  signal Loop_Controller_n_13 : STD_LOGIC;
+  signal Loop_Controller_n_14 : STD_LOGIC;
+  signal Loop_Controller_n_15 : STD_LOGIC;
+  signal Loop_Controller_n_16 : STD_LOGIC;
+  signal Loop_Controller_n_17 : STD_LOGIC;
+  signal Loop_Controller_n_18 : STD_LOGIC;
+  signal Loop_Controller_n_19 : STD_LOGIC;
+  signal Loop_Controller_n_2 : STD_LOGIC;
+  signal Loop_Controller_n_20 : STD_LOGIC;
+  signal Loop_Controller_n_21 : STD_LOGIC;
+  signal Loop_Controller_n_22 : STD_LOGIC;
+  signal Loop_Controller_n_23 : STD_LOGIC;
+  signal Loop_Controller_n_24 : STD_LOGIC;
+  signal Loop_Controller_n_25 : STD_LOGIC;
+  signal Loop_Controller_n_26 : STD_LOGIC;
+  signal Loop_Controller_n_27 : STD_LOGIC;
+  signal Loop_Controller_n_28 : STD_LOGIC;
+  signal Loop_Controller_n_29 : STD_LOGIC;
+  signal Loop_Controller_n_3 : STD_LOGIC;
+  signal Loop_Controller_n_30 : STD_LOGIC;
+  signal Loop_Controller_n_31 : STD_LOGIC;
+  signal Loop_Controller_n_32 : STD_LOGIC;
+  signal Loop_Controller_n_33 : STD_LOGIC;
+  signal Loop_Controller_n_34 : STD_LOGIC;
+  signal Loop_Controller_n_35 : STD_LOGIC;
+  signal Loop_Controller_n_36 : STD_LOGIC;
+  signal Loop_Controller_n_37 : STD_LOGIC;
+  signal Loop_Controller_n_38 : STD_LOGIC;
+  signal Loop_Controller_n_39 : STD_LOGIC;
+  signal Loop_Controller_n_4 : STD_LOGIC;
+  signal Loop_Controller_n_40 : STD_LOGIC;
+  signal Loop_Controller_n_41 : STD_LOGIC;
+  signal Loop_Controller_n_42 : STD_LOGIC;
+  signal Loop_Controller_n_43 : STD_LOGIC;
+  signal Loop_Controller_n_44 : STD_LOGIC;
+  signal Loop_Controller_n_45 : STD_LOGIC;
+  signal Loop_Controller_n_46 : STD_LOGIC;
+  signal Loop_Controller_n_47 : STD_LOGIC;
+  signal Loop_Controller_n_48 : STD_LOGIC;
+  signal Loop_Controller_n_49 : STD_LOGIC;
+  signal Loop_Controller_n_5 : STD_LOGIC;
+  signal Loop_Controller_n_50 : STD_LOGIC;
+  signal Loop_Controller_n_51 : STD_LOGIC;
+  signal Loop_Controller_n_52 : STD_LOGIC;
+  signal Loop_Controller_n_53 : STD_LOGIC;
+  signal Loop_Controller_n_54 : STD_LOGIC;
+  signal Loop_Controller_n_55 : STD_LOGIC;
+  signal Loop_Controller_n_56 : STD_LOGIC;
+  signal Loop_Controller_n_57 : STD_LOGIC;
+  signal Loop_Controller_n_58 : STD_LOGIC;
+  signal Loop_Controller_n_59 : STD_LOGIC;
+  signal Loop_Controller_n_6 : STD_LOGIC;
+  signal Loop_Controller_n_60 : STD_LOGIC;
+  signal Loop_Controller_n_61 : STD_LOGIC;
+  signal Loop_Controller_n_62 : STD_LOGIC;
+  signal Loop_Controller_n_63 : STD_LOGIC;
+  signal Loop_Controller_n_7 : STD_LOGIC;
+  signal Loop_Controller_n_8 : STD_LOGIC;
+  signal Loop_Controller_n_9 : STD_LOGIC;
   signal Loop_Oscilator_n_33 : STD_LOGIC;
   signal Loop_Oscilator_n_34 : STD_LOGIC;
   signal Loop_Oscilator_n_35 : STD_LOGIC;
@@ -24097,101 +24460,69 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Dem
   signal Loop_Oscilator_n_72 : STD_LOGIC;
   signal Loop_Oscilator_n_73 : STD_LOGIC;
   signal \^message\ : STD_LOGIC;
-  signal \PLL_Freq[11]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[11]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[11]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[11]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[15]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[15]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[15]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[15]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[19]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[19]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[19]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[19]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[23]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[23]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[23]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[23]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[27]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[27]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[27]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[27]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[31]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[31]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[31]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[31]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[3]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[3]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[3]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[3]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[7]_i_2_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[7]_i_3_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[7]_i_4_n_0\ : STD_LOGIC;
-  signal \PLL_Freq[7]_i_5_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[11]_i_1_n_7\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[15]_i_1_n_7\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[19]_i_1_n_7\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[23]_i_1_n_7\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[27]_i_1_n_7\ : STD_LOGIC;
-  signal \PLL_Freq_reg[31]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[31]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[31]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[31]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[31]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[31]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[31]_i_1_n_7\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[3]_i_1_n_7\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_0\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_1\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_2\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_3\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_4\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_5\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_6\ : STD_LOGIC;
-  signal \PLL_Freq_reg[7]_i_1_n_7\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_0\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_1\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_2\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_3\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_4\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_5\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_6\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__0_n_7\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_0\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_1\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_2\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_3\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_4\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_5\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_6\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__1_n_7\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_0\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_1\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_2\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_3\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_4\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_5\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_6\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__2_n_7\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_0\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_1\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_2\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_3\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_4\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_5\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_6\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__3_n_7\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_0\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_1\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_2\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_3\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_4\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_5\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_6\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__4_n_7\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_0\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_1\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_2\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_3\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_4\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_5\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_6\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__5_n_7\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__6_n_1\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__6_n_2\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__6_n_3\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__6_n_4\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__6_n_5\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__6_n_6\ : STD_LOGIC;
+  signal \PLL_Freq0_carry__6_n_7\ : STD_LOGIC;
+  signal PLL_Freq0_carry_n_0 : STD_LOGIC;
+  signal PLL_Freq0_carry_n_1 : STD_LOGIC;
+  signal PLL_Freq0_carry_n_2 : STD_LOGIC;
+  signal PLL_Freq0_carry_n_3 : STD_LOGIC;
+  signal PLL_Freq0_carry_n_4 : STD_LOGIC;
+  signal PLL_Freq0_carry_n_5 : STD_LOGIC;
+  signal PLL_Freq0_carry_n_6 : STD_LOGIC;
+  signal PLL_Freq0_carry_n_7 : STD_LOGIC;
   signal \PLL_Freq_reg_n_0_[0]\ : STD_LOGIC;
   signal \PLL_Freq_reg_n_0_[10]\ : STD_LOGIC;
   signal \PLL_Freq_reg_n_0_[11]\ : STD_LOGIC;
@@ -24302,6 +24633,7 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Dem
   signal PRBS_output1_carry_n_2 : STD_LOGIC;
   signal PRBS_output1_carry_n_3 : STD_LOGIC;
   signal PRBS_output_i_1_n_0 : STD_LOGIC;
+  signal \^phase_error\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \^q\ : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal Quadrature_Filter_n_100 : STD_LOGIC;
   signal Quadrature_Filter_n_101 : STD_LOGIC;
@@ -24415,14 +24747,16 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Dem
   signal Quadrature_Filter_n_97 : STD_LOGIC;
   signal Quadrature_Filter_n_98 : STD_LOGIC;
   signal Quadrature_Filter_n_99 : STD_LOGIC;
-  signal SignalOutput : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \Sample__0\ : STD_LOGIC;
+  signal clear : STD_LOGIC;
   signal output_register : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \output_register__0\ : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal \^output_register_reg[25]\ : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal section_out1_reg : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal section_out1_reg_0 : STD_LOGIC_VECTOR ( 25 downto 0 );
   signal section_out1_reg_23_sn_1 : STD_LOGIC;
-  signal \NLW_PLL_Freq_reg[31]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_PLL_Freq0_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal NLW_PRBS_output0_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_PRBS_output0_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_PRBS_output0_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -24435,15 +24769,20 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Dem
   signal \NLW_PRBS_output0_inferred__0/i__carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_PRBS_output1_carry__5_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
   signal \NLW_PRBS_output1_carry__5_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \Counter[1]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \Counter[2]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \Counter[3]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \Counter[4]_i_2\ : label is "soft_lutpair23";
   attribute ADDER_THRESHOLD : integer;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[11]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[15]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[19]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[23]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[27]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[31]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[3]_i_1\ : label is 35;
-  attribute ADDER_THRESHOLD of \PLL_Freq_reg[7]_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of PLL_Freq0_carry : label is 35;
+  attribute ADDER_THRESHOLD of \PLL_Freq0_carry__0\ : label is 35;
+  attribute ADDER_THRESHOLD of \PLL_Freq0_carry__1\ : label is 35;
+  attribute ADDER_THRESHOLD of \PLL_Freq0_carry__2\ : label is 35;
+  attribute ADDER_THRESHOLD of \PLL_Freq0_carry__3\ : label is 35;
+  attribute ADDER_THRESHOLD of \PLL_Freq0_carry__4\ : label is 35;
+  attribute ADDER_THRESHOLD of \PLL_Freq0_carry__5\ : label is 35;
+  attribute ADDER_THRESHOLD of \PLL_Freq0_carry__6\ : label is 35;
   attribute COMPARATOR_THRESHOLD : integer;
   attribute COMPARATOR_THRESHOLD of PRBS_output0_carry : label is 11;
   attribute COMPARATOR_THRESHOLD of \PRBS_output0_carry__0\ : label is 11;
@@ -24462,9 +24801,113 @@ architecture STRUCTURE of Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Dem
   attribute ADDER_THRESHOLD of \PRBS_output1_carry__5\ : label is 35;
 begin
   Message <= \^message\;
+  Phase_Error(31 downto 0) <= \^phase_error\(31 downto 0);
   Q(25 downto 0) <= \^q\(25 downto 0);
   \output_register_reg[25]\(13 downto 0) <= \^output_register_reg[25]\(13 downto 0);
   section_out1_reg_23_sn_1 <= \section_out1_reg[23]\;
+\Counter[0]_i_1\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Counter_reg(0),
+      O => \p_0_in__0\(0)
+    );
+\Counter[1]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => Counter_reg(0),
+      I1 => Counter_reg(1),
+      O => \p_0_in__0\(1)
+    );
+\Counter[2]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => Counter_reg(0),
+      I1 => Counter_reg(1),
+      I2 => Counter_reg(2),
+      O => \p_0_in__0\(2)
+    );
+\Counter[3]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7F80"
+    )
+        port map (
+      I0 => Counter_reg(1),
+      I1 => Counter_reg(0),
+      I2 => Counter_reg(2),
+      I3 => Counter_reg(3),
+      O => \p_0_in__0\(3)
+    );
+\Counter[4]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFF80000000"
+    )
+        port map (
+      I0 => Counter_reg(3),
+      I1 => Counter_reg(2),
+      I2 => Counter_reg(0),
+      I3 => Counter_reg(4),
+      I4 => Counter_reg(1),
+      I5 => Reset,
+      O => clear
+    );
+\Counter[4]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"7FFF8000"
+    )
+        port map (
+      I0 => Counter_reg(2),
+      I1 => Counter_reg(0),
+      I2 => Counter_reg(1),
+      I3 => Counter_reg(3),
+      I4 => Counter_reg(4),
+      O => \p_0_in__0\(4)
+    );
+\Counter_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \p_0_in__0\(0),
+      Q => Counter_reg(0),
+      R => clear
+    );
+\Counter_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \p_0_in__0\(1),
+      Q => Counter_reg(1),
+      R => clear
+    );
+\Counter_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \p_0_in__0\(2),
+      Q => Counter_reg(2),
+      R => clear
+    );
+\Counter_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \p_0_in__0\(3),
+      Q => Counter_reg(3),
+      R => clear
+    );
+\Counter_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => '1',
+      D => \p_0_in__0\(4),
+      Q => Counter_reg(4),
+      R => clear
+    );
 Cross_Filter: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_CIC32
      port map (
       Clock => Clock,
@@ -24987,9 +25430,74 @@ Loop_Controller: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_PID_Co
       Control_Ki(31 downto 0) => Control_Ki(31 downto 0),
       Control_Kp(31 downto 0) => Control_Kp(31 downto 0),
       Integrator_Reset => Integrator_Reset,
+      O(3) => Loop_Controller_n_0,
+      O(2) => Loop_Controller_n_1,
+      O(1) => Loop_Controller_n_2,
+      O(0) => Loop_Controller_n_3,
+      PLL_Guess_Freq(31 downto 0) => PLL_Guess_Freq(31 downto 0),
+      \PLL_Guess_Freq[11]\(3) => Loop_Controller_n_40,
+      \PLL_Guess_Freq[11]\(2) => Loop_Controller_n_41,
+      \PLL_Guess_Freq[11]\(1) => Loop_Controller_n_42,
+      \PLL_Guess_Freq[11]\(0) => Loop_Controller_n_43,
+      \PLL_Guess_Freq[15]\(3) => Loop_Controller_n_44,
+      \PLL_Guess_Freq[15]\(2) => Loop_Controller_n_45,
+      \PLL_Guess_Freq[15]\(1) => Loop_Controller_n_46,
+      \PLL_Guess_Freq[15]\(0) => Loop_Controller_n_47,
+      \PLL_Guess_Freq[19]\(3) => Loop_Controller_n_48,
+      \PLL_Guess_Freq[19]\(2) => Loop_Controller_n_49,
+      \PLL_Guess_Freq[19]\(1) => Loop_Controller_n_50,
+      \PLL_Guess_Freq[19]\(0) => Loop_Controller_n_51,
+      \PLL_Guess_Freq[23]\(3) => Loop_Controller_n_52,
+      \PLL_Guess_Freq[23]\(2) => Loop_Controller_n_53,
+      \PLL_Guess_Freq[23]\(1) => Loop_Controller_n_54,
+      \PLL_Guess_Freq[23]\(0) => Loop_Controller_n_55,
+      \PLL_Guess_Freq[27]\(3) => Loop_Controller_n_56,
+      \PLL_Guess_Freq[27]\(2) => Loop_Controller_n_57,
+      \PLL_Guess_Freq[27]\(1) => Loop_Controller_n_58,
+      \PLL_Guess_Freq[27]\(0) => Loop_Controller_n_59,
+      \PLL_Guess_Freq[31]\(3) => Loop_Controller_n_60,
+      \PLL_Guess_Freq[31]\(2) => Loop_Controller_n_61,
+      \PLL_Guess_Freq[31]\(1) => Loop_Controller_n_62,
+      \PLL_Guess_Freq[31]\(0) => Loop_Controller_n_63,
+      \PLL_Guess_Freq[7]\(3) => Loop_Controller_n_36,
+      \PLL_Guess_Freq[7]\(2) => Loop_Controller_n_37,
+      \PLL_Guess_Freq[7]\(1) => Loop_Controller_n_38,
+      \PLL_Guess_Freq[7]\(0) => Loop_Controller_n_39,
+      Phase_Error(31 downto 0) => \^phase_error\(31 downto 0),
       Q(25 downto 0) => \output_register__0\(25 downto 0),
       Reset => Reset,
-      \SignalOutput_reg[31]_0\(31 downto 0) => SignalOutput(31 downto 0)
+      S(3) => Loop_Controller_n_32,
+      S(2) => Loop_Controller_n_33,
+      S(1) => Loop_Controller_n_34,
+      S(0) => Loop_Controller_n_35,
+      \SignalOutput_reg[11]_0\(3) => Loop_Controller_n_8,
+      \SignalOutput_reg[11]_0\(2) => Loop_Controller_n_9,
+      \SignalOutput_reg[11]_0\(1) => Loop_Controller_n_10,
+      \SignalOutput_reg[11]_0\(0) => Loop_Controller_n_11,
+      \SignalOutput_reg[15]_0\(3) => Loop_Controller_n_12,
+      \SignalOutput_reg[15]_0\(2) => Loop_Controller_n_13,
+      \SignalOutput_reg[15]_0\(1) => Loop_Controller_n_14,
+      \SignalOutput_reg[15]_0\(0) => Loop_Controller_n_15,
+      \SignalOutput_reg[19]_0\(3) => Loop_Controller_n_16,
+      \SignalOutput_reg[19]_0\(2) => Loop_Controller_n_17,
+      \SignalOutput_reg[19]_0\(1) => Loop_Controller_n_18,
+      \SignalOutput_reg[19]_0\(0) => Loop_Controller_n_19,
+      \SignalOutput_reg[23]_0\(3) => Loop_Controller_n_20,
+      \SignalOutput_reg[23]_0\(2) => Loop_Controller_n_21,
+      \SignalOutput_reg[23]_0\(1) => Loop_Controller_n_22,
+      \SignalOutput_reg[23]_0\(0) => Loop_Controller_n_23,
+      \SignalOutput_reg[27]_0\(3) => Loop_Controller_n_24,
+      \SignalOutput_reg[27]_0\(2) => Loop_Controller_n_25,
+      \SignalOutput_reg[27]_0\(1) => Loop_Controller_n_26,
+      \SignalOutput_reg[27]_0\(0) => Loop_Controller_n_27,
+      \SignalOutput_reg[30]_0\(3) => Loop_Controller_n_28,
+      \SignalOutput_reg[30]_0\(2) => Loop_Controller_n_29,
+      \SignalOutput_reg[30]_0\(1) => Loop_Controller_n_30,
+      \SignalOutput_reg[30]_0\(0) => Loop_Controller_n_31,
+      \SignalOutput_reg[7]_0\(3) => Loop_Controller_n_4,
+      \SignalOutput_reg[7]_0\(2) => Loop_Controller_n_5,
+      \SignalOutput_reg[7]_0\(1) => Loop_Controller_n_6,
+      \SignalOutput_reg[7]_0\(0) => Loop_Controller_n_7
     );
 Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
      port map (
@@ -25058,293 +25566,150 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
       Q(0) => \PLL_Freq_reg_n_0_[0]\,
       Reset => Reset
     );
-\PLL_Freq[11]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(11),
-      I1 => SignalOutput(11),
-      O => \PLL_Freq[11]_i_2_n_0\
+PLL_Freq0_carry: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => PLL_Freq0_carry_n_0,
+      CO(2) => PLL_Freq0_carry_n_1,
+      CO(1) => PLL_Freq0_carry_n_2,
+      CO(0) => PLL_Freq0_carry_n_3,
+      CYINIT => '0',
+      DI(3 downto 0) => PLL_Guess_Freq(3 downto 0),
+      O(3) => PLL_Freq0_carry_n_4,
+      O(2) => PLL_Freq0_carry_n_5,
+      O(1) => PLL_Freq0_carry_n_6,
+      O(0) => PLL_Freq0_carry_n_7,
+      S(3) => Loop_Controller_n_32,
+      S(2) => Loop_Controller_n_33,
+      S(1) => Loop_Controller_n_34,
+      S(0) => Loop_Controller_n_35
     );
-\PLL_Freq[11]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(10),
-      I1 => SignalOutput(10),
-      O => \PLL_Freq[11]_i_3_n_0\
+\PLL_Freq0_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => PLL_Freq0_carry_n_0,
+      CO(3) => \PLL_Freq0_carry__0_n_0\,
+      CO(2) => \PLL_Freq0_carry__0_n_1\,
+      CO(1) => \PLL_Freq0_carry__0_n_2\,
+      CO(0) => \PLL_Freq0_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => PLL_Guess_Freq(7 downto 4),
+      O(3) => \PLL_Freq0_carry__0_n_4\,
+      O(2) => \PLL_Freq0_carry__0_n_5\,
+      O(1) => \PLL_Freq0_carry__0_n_6\,
+      O(0) => \PLL_Freq0_carry__0_n_7\,
+      S(3) => Loop_Controller_n_36,
+      S(2) => Loop_Controller_n_37,
+      S(1) => Loop_Controller_n_38,
+      S(0) => Loop_Controller_n_39
     );
-\PLL_Freq[11]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(9),
-      I1 => SignalOutput(9),
-      O => \PLL_Freq[11]_i_4_n_0\
+\PLL_Freq0_carry__1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PLL_Freq0_carry__0_n_0\,
+      CO(3) => \PLL_Freq0_carry__1_n_0\,
+      CO(2) => \PLL_Freq0_carry__1_n_1\,
+      CO(1) => \PLL_Freq0_carry__1_n_2\,
+      CO(0) => \PLL_Freq0_carry__1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => PLL_Guess_Freq(11 downto 8),
+      O(3) => \PLL_Freq0_carry__1_n_4\,
+      O(2) => \PLL_Freq0_carry__1_n_5\,
+      O(1) => \PLL_Freq0_carry__1_n_6\,
+      O(0) => \PLL_Freq0_carry__1_n_7\,
+      S(3) => Loop_Controller_n_40,
+      S(2) => Loop_Controller_n_41,
+      S(1) => Loop_Controller_n_42,
+      S(0) => Loop_Controller_n_43
     );
-\PLL_Freq[11]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(8),
-      I1 => SignalOutput(8),
-      O => \PLL_Freq[11]_i_5_n_0\
+\PLL_Freq0_carry__2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PLL_Freq0_carry__1_n_0\,
+      CO(3) => \PLL_Freq0_carry__2_n_0\,
+      CO(2) => \PLL_Freq0_carry__2_n_1\,
+      CO(1) => \PLL_Freq0_carry__2_n_2\,
+      CO(0) => \PLL_Freq0_carry__2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => PLL_Guess_Freq(15 downto 12),
+      O(3) => \PLL_Freq0_carry__2_n_4\,
+      O(2) => \PLL_Freq0_carry__2_n_5\,
+      O(1) => \PLL_Freq0_carry__2_n_6\,
+      O(0) => \PLL_Freq0_carry__2_n_7\,
+      S(3) => Loop_Controller_n_44,
+      S(2) => Loop_Controller_n_45,
+      S(1) => Loop_Controller_n_46,
+      S(0) => Loop_Controller_n_47
     );
-\PLL_Freq[15]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(15),
-      I1 => SignalOutput(15),
-      O => \PLL_Freq[15]_i_2_n_0\
+\PLL_Freq0_carry__3\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PLL_Freq0_carry__2_n_0\,
+      CO(3) => \PLL_Freq0_carry__3_n_0\,
+      CO(2) => \PLL_Freq0_carry__3_n_1\,
+      CO(1) => \PLL_Freq0_carry__3_n_2\,
+      CO(0) => \PLL_Freq0_carry__3_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => PLL_Guess_Freq(19 downto 16),
+      O(3) => \PLL_Freq0_carry__3_n_4\,
+      O(2) => \PLL_Freq0_carry__3_n_5\,
+      O(1) => \PLL_Freq0_carry__3_n_6\,
+      O(0) => \PLL_Freq0_carry__3_n_7\,
+      S(3) => Loop_Controller_n_48,
+      S(2) => Loop_Controller_n_49,
+      S(1) => Loop_Controller_n_50,
+      S(0) => Loop_Controller_n_51
     );
-\PLL_Freq[15]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(14),
-      I1 => SignalOutput(14),
-      O => \PLL_Freq[15]_i_3_n_0\
+\PLL_Freq0_carry__4\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PLL_Freq0_carry__3_n_0\,
+      CO(3) => \PLL_Freq0_carry__4_n_0\,
+      CO(2) => \PLL_Freq0_carry__4_n_1\,
+      CO(1) => \PLL_Freq0_carry__4_n_2\,
+      CO(0) => \PLL_Freq0_carry__4_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => PLL_Guess_Freq(23 downto 20),
+      O(3) => \PLL_Freq0_carry__4_n_4\,
+      O(2) => \PLL_Freq0_carry__4_n_5\,
+      O(1) => \PLL_Freq0_carry__4_n_6\,
+      O(0) => \PLL_Freq0_carry__4_n_7\,
+      S(3) => Loop_Controller_n_52,
+      S(2) => Loop_Controller_n_53,
+      S(1) => Loop_Controller_n_54,
+      S(0) => Loop_Controller_n_55
     );
-\PLL_Freq[15]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(13),
-      I1 => SignalOutput(13),
-      O => \PLL_Freq[15]_i_4_n_0\
+\PLL_Freq0_carry__5\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PLL_Freq0_carry__4_n_0\,
+      CO(3) => \PLL_Freq0_carry__5_n_0\,
+      CO(2) => \PLL_Freq0_carry__5_n_1\,
+      CO(1) => \PLL_Freq0_carry__5_n_2\,
+      CO(0) => \PLL_Freq0_carry__5_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => PLL_Guess_Freq(27 downto 24),
+      O(3) => \PLL_Freq0_carry__5_n_4\,
+      O(2) => \PLL_Freq0_carry__5_n_5\,
+      O(1) => \PLL_Freq0_carry__5_n_6\,
+      O(0) => \PLL_Freq0_carry__5_n_7\,
+      S(3) => Loop_Controller_n_56,
+      S(2) => Loop_Controller_n_57,
+      S(1) => Loop_Controller_n_58,
+      S(0) => Loop_Controller_n_59
     );
-\PLL_Freq[15]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(12),
-      I1 => SignalOutput(12),
-      O => \PLL_Freq[15]_i_5_n_0\
-    );
-\PLL_Freq[19]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(19),
-      I1 => SignalOutput(19),
-      O => \PLL_Freq[19]_i_2_n_0\
-    );
-\PLL_Freq[19]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(18),
-      I1 => SignalOutput(18),
-      O => \PLL_Freq[19]_i_3_n_0\
-    );
-\PLL_Freq[19]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(17),
-      I1 => SignalOutput(17),
-      O => \PLL_Freq[19]_i_4_n_0\
-    );
-\PLL_Freq[19]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(16),
-      I1 => SignalOutput(16),
-      O => \PLL_Freq[19]_i_5_n_0\
-    );
-\PLL_Freq[23]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(23),
-      I1 => SignalOutput(23),
-      O => \PLL_Freq[23]_i_2_n_0\
-    );
-\PLL_Freq[23]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(22),
-      I1 => SignalOutput(22),
-      O => \PLL_Freq[23]_i_3_n_0\
-    );
-\PLL_Freq[23]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(21),
-      I1 => SignalOutput(21),
-      O => \PLL_Freq[23]_i_4_n_0\
-    );
-\PLL_Freq[23]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(20),
-      I1 => SignalOutput(20),
-      O => \PLL_Freq[23]_i_5_n_0\
-    );
-\PLL_Freq[27]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(27),
-      I1 => SignalOutput(27),
-      O => \PLL_Freq[27]_i_2_n_0\
-    );
-\PLL_Freq[27]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(26),
-      I1 => SignalOutput(26),
-      O => \PLL_Freq[27]_i_3_n_0\
-    );
-\PLL_Freq[27]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(25),
-      I1 => SignalOutput(25),
-      O => \PLL_Freq[27]_i_4_n_0\
-    );
-\PLL_Freq[27]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(24),
-      I1 => SignalOutput(24),
-      O => \PLL_Freq[27]_i_5_n_0\
-    );
-\PLL_Freq[31]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(31),
-      I1 => SignalOutput(31),
-      O => \PLL_Freq[31]_i_2_n_0\
-    );
-\PLL_Freq[31]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(30),
-      I1 => SignalOutput(30),
-      O => \PLL_Freq[31]_i_3_n_0\
-    );
-\PLL_Freq[31]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(29),
-      I1 => SignalOutput(29),
-      O => \PLL_Freq[31]_i_4_n_0\
-    );
-\PLL_Freq[31]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(28),
-      I1 => SignalOutput(28),
-      O => \PLL_Freq[31]_i_5_n_0\
-    );
-\PLL_Freq[3]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(3),
-      I1 => SignalOutput(3),
-      O => \PLL_Freq[3]_i_2_n_0\
-    );
-\PLL_Freq[3]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(2),
-      I1 => SignalOutput(2),
-      O => \PLL_Freq[3]_i_3_n_0\
-    );
-\PLL_Freq[3]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(1),
-      I1 => SignalOutput(1),
-      O => \PLL_Freq[3]_i_4_n_0\
-    );
-\PLL_Freq[3]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(0),
-      I1 => SignalOutput(0),
-      O => \PLL_Freq[3]_i_5_n_0\
-    );
-\PLL_Freq[7]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(7),
-      I1 => SignalOutput(7),
-      O => \PLL_Freq[7]_i_2_n_0\
-    );
-\PLL_Freq[7]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(6),
-      I1 => SignalOutput(6),
-      O => \PLL_Freq[7]_i_3_n_0\
-    );
-\PLL_Freq[7]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(5),
-      I1 => SignalOutput(5),
-      O => \PLL_Freq[7]_i_4_n_0\
-    );
-\PLL_Freq[7]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => PLL_Guess_Freq(4),
-      I1 => SignalOutput(4),
-      O => \PLL_Freq[7]_i_5_n_0\
+\PLL_Freq0_carry__6\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \PLL_Freq0_carry__5_n_0\,
+      CO(3) => \NLW_PLL_Freq0_carry__6_CO_UNCONNECTED\(3),
+      CO(2) => \PLL_Freq0_carry__6_n_1\,
+      CO(1) => \PLL_Freq0_carry__6_n_2\,
+      CO(0) => \PLL_Freq0_carry__6_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => PLL_Guess_Freq(30 downto 28),
+      O(3) => \PLL_Freq0_carry__6_n_4\,
+      O(2) => \PLL_Freq0_carry__6_n_5\,
+      O(1) => \PLL_Freq0_carry__6_n_6\,
+      O(0) => \PLL_Freq0_carry__6_n_7\,
+      S(3) => Loop_Controller_n_60,
+      S(2) => Loop_Controller_n_61,
+      S(1) => Loop_Controller_n_62,
+      S(0) => Loop_Controller_n_63
     );
 \PLL_Freq_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -25353,7 +25718,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[3]_i_1_n_7\,
+      D => PLL_Freq0_carry_n_7,
       Q => \PLL_Freq_reg_n_0_[0]\,
       R => '0'
     );
@@ -25364,7 +25729,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[11]_i_1_n_5\,
+      D => \PLL_Freq0_carry__1_n_5\,
       Q => \PLL_Freq_reg_n_0_[10]\,
       R => '0'
     );
@@ -25375,27 +25740,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[11]_i_1_n_4\,
+      D => \PLL_Freq0_carry__1_n_4\,
       Q => \PLL_Freq_reg_n_0_[11]\,
       R => '0'
-    );
-\PLL_Freq_reg[11]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \PLL_Freq_reg[7]_i_1_n_0\,
-      CO(3) => \PLL_Freq_reg[11]_i_1_n_0\,
-      CO(2) => \PLL_Freq_reg[11]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[11]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[11]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => PLL_Guess_Freq(11 downto 8),
-      O(3) => \PLL_Freq_reg[11]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[11]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[11]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[11]_i_1_n_7\,
-      S(3) => \PLL_Freq[11]_i_2_n_0\,
-      S(2) => \PLL_Freq[11]_i_3_n_0\,
-      S(1) => \PLL_Freq[11]_i_4_n_0\,
-      S(0) => \PLL_Freq[11]_i_5_n_0\
     );
 \PLL_Freq_reg[12]\: unisim.vcomponents.FDRE
     generic map(
@@ -25404,7 +25751,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[15]_i_1_n_7\,
+      D => \PLL_Freq0_carry__2_n_7\,
       Q => \PLL_Freq_reg_n_0_[12]\,
       R => '0'
     );
@@ -25415,7 +25762,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[15]_i_1_n_6\,
+      D => \PLL_Freq0_carry__2_n_6\,
       Q => \PLL_Freq_reg_n_0_[13]\,
       R => '0'
     );
@@ -25426,7 +25773,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[15]_i_1_n_5\,
+      D => \PLL_Freq0_carry__2_n_5\,
       Q => \PLL_Freq_reg_n_0_[14]\,
       R => '0'
     );
@@ -25437,27 +25784,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[15]_i_1_n_4\,
+      D => \PLL_Freq0_carry__2_n_4\,
       Q => \PLL_Freq_reg_n_0_[15]\,
       R => '0'
-    );
-\PLL_Freq_reg[15]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \PLL_Freq_reg[11]_i_1_n_0\,
-      CO(3) => \PLL_Freq_reg[15]_i_1_n_0\,
-      CO(2) => \PLL_Freq_reg[15]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[15]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[15]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => PLL_Guess_Freq(15 downto 12),
-      O(3) => \PLL_Freq_reg[15]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[15]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[15]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[15]_i_1_n_7\,
-      S(3) => \PLL_Freq[15]_i_2_n_0\,
-      S(2) => \PLL_Freq[15]_i_3_n_0\,
-      S(1) => \PLL_Freq[15]_i_4_n_0\,
-      S(0) => \PLL_Freq[15]_i_5_n_0\
     );
 \PLL_Freq_reg[16]\: unisim.vcomponents.FDRE
     generic map(
@@ -25466,7 +25795,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[19]_i_1_n_7\,
+      D => \PLL_Freq0_carry__3_n_7\,
       Q => \PLL_Freq_reg_n_0_[16]\,
       R => '0'
     );
@@ -25477,7 +25806,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[19]_i_1_n_6\,
+      D => \PLL_Freq0_carry__3_n_6\,
       Q => \PLL_Freq_reg_n_0_[17]\,
       R => '0'
     );
@@ -25488,7 +25817,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[19]_i_1_n_5\,
+      D => \PLL_Freq0_carry__3_n_5\,
       Q => \PLL_Freq_reg_n_0_[18]\,
       R => '0'
     );
@@ -25499,27 +25828,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[19]_i_1_n_4\,
+      D => \PLL_Freq0_carry__3_n_4\,
       Q => \PLL_Freq_reg_n_0_[19]\,
       R => '0'
-    );
-\PLL_Freq_reg[19]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \PLL_Freq_reg[15]_i_1_n_0\,
-      CO(3) => \PLL_Freq_reg[19]_i_1_n_0\,
-      CO(2) => \PLL_Freq_reg[19]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[19]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[19]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => PLL_Guess_Freq(19 downto 16),
-      O(3) => \PLL_Freq_reg[19]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[19]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[19]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[19]_i_1_n_7\,
-      S(3) => \PLL_Freq[19]_i_2_n_0\,
-      S(2) => \PLL_Freq[19]_i_3_n_0\,
-      S(1) => \PLL_Freq[19]_i_4_n_0\,
-      S(0) => \PLL_Freq[19]_i_5_n_0\
     );
 \PLL_Freq_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -25528,7 +25839,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[3]_i_1_n_6\,
+      D => PLL_Freq0_carry_n_6,
       Q => \PLL_Freq_reg_n_0_[1]\,
       R => '0'
     );
@@ -25539,7 +25850,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[23]_i_1_n_7\,
+      D => \PLL_Freq0_carry__4_n_7\,
       Q => \PLL_Freq_reg_n_0_[20]\,
       R => '0'
     );
@@ -25550,7 +25861,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[23]_i_1_n_6\,
+      D => \PLL_Freq0_carry__4_n_6\,
       Q => \PLL_Freq_reg_n_0_[21]\,
       R => '0'
     );
@@ -25561,7 +25872,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[23]_i_1_n_5\,
+      D => \PLL_Freq0_carry__4_n_5\,
       Q => \PLL_Freq_reg_n_0_[22]\,
       R => '0'
     );
@@ -25572,27 +25883,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[23]_i_1_n_4\,
+      D => \PLL_Freq0_carry__4_n_4\,
       Q => \PLL_Freq_reg_n_0_[23]\,
       R => '0'
-    );
-\PLL_Freq_reg[23]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \PLL_Freq_reg[19]_i_1_n_0\,
-      CO(3) => \PLL_Freq_reg[23]_i_1_n_0\,
-      CO(2) => \PLL_Freq_reg[23]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[23]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[23]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => PLL_Guess_Freq(23 downto 20),
-      O(3) => \PLL_Freq_reg[23]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[23]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[23]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[23]_i_1_n_7\,
-      S(3) => \PLL_Freq[23]_i_2_n_0\,
-      S(2) => \PLL_Freq[23]_i_3_n_0\,
-      S(1) => \PLL_Freq[23]_i_4_n_0\,
-      S(0) => \PLL_Freq[23]_i_5_n_0\
     );
 \PLL_Freq_reg[24]\: unisim.vcomponents.FDRE
     generic map(
@@ -25601,7 +25894,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[27]_i_1_n_7\,
+      D => \PLL_Freq0_carry__5_n_7\,
       Q => \PLL_Freq_reg_n_0_[24]\,
       R => '0'
     );
@@ -25612,7 +25905,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[27]_i_1_n_6\,
+      D => \PLL_Freq0_carry__5_n_6\,
       Q => \PLL_Freq_reg_n_0_[25]\,
       R => '0'
     );
@@ -25623,7 +25916,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[27]_i_1_n_5\,
+      D => \PLL_Freq0_carry__5_n_5\,
       Q => \PLL_Freq_reg_n_0_[26]\,
       R => '0'
     );
@@ -25634,27 +25927,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[27]_i_1_n_4\,
+      D => \PLL_Freq0_carry__5_n_4\,
       Q => \PLL_Freq_reg_n_0_[27]\,
       R => '0'
-    );
-\PLL_Freq_reg[27]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \PLL_Freq_reg[23]_i_1_n_0\,
-      CO(3) => \PLL_Freq_reg[27]_i_1_n_0\,
-      CO(2) => \PLL_Freq_reg[27]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[27]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[27]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => PLL_Guess_Freq(27 downto 24),
-      O(3) => \PLL_Freq_reg[27]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[27]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[27]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[27]_i_1_n_7\,
-      S(3) => \PLL_Freq[27]_i_2_n_0\,
-      S(2) => \PLL_Freq[27]_i_3_n_0\,
-      S(1) => \PLL_Freq[27]_i_4_n_0\,
-      S(0) => \PLL_Freq[27]_i_5_n_0\
     );
 \PLL_Freq_reg[28]\: unisim.vcomponents.FDRE
     generic map(
@@ -25663,7 +25938,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[31]_i_1_n_7\,
+      D => \PLL_Freq0_carry__6_n_7\,
       Q => \PLL_Freq_reg_n_0_[28]\,
       R => '0'
     );
@@ -25674,7 +25949,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[31]_i_1_n_6\,
+      D => \PLL_Freq0_carry__6_n_6\,
       Q => \PLL_Freq_reg_n_0_[29]\,
       R => '0'
     );
@@ -25685,7 +25960,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[3]_i_1_n_5\,
+      D => PLL_Freq0_carry_n_5,
       Q => \PLL_Freq_reg_n_0_[2]\,
       R => '0'
     );
@@ -25696,7 +25971,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[31]_i_1_n_5\,
+      D => \PLL_Freq0_carry__6_n_5\,
       Q => \PLL_Freq_reg_n_0_[30]\,
       R => '0'
     );
@@ -25707,28 +25982,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[31]_i_1_n_4\,
+      D => \PLL_Freq0_carry__6_n_4\,
       Q => \PLL_Freq_reg_n_0_[31]\,
       R => '0'
-    );
-\PLL_Freq_reg[31]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \PLL_Freq_reg[27]_i_1_n_0\,
-      CO(3) => \NLW_PLL_Freq_reg[31]_i_1_CO_UNCONNECTED\(3),
-      CO(2) => \PLL_Freq_reg[31]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[31]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[31]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3) => '0',
-      DI(2 downto 0) => PLL_Guess_Freq(30 downto 28),
-      O(3) => \PLL_Freq_reg[31]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[31]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[31]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[31]_i_1_n_7\,
-      S(3) => \PLL_Freq[31]_i_2_n_0\,
-      S(2) => \PLL_Freq[31]_i_3_n_0\,
-      S(1) => \PLL_Freq[31]_i_4_n_0\,
-      S(0) => \PLL_Freq[31]_i_5_n_0\
     );
 \PLL_Freq_reg[3]\: unisim.vcomponents.FDRE
     generic map(
@@ -25737,27 +25993,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[3]_i_1_n_4\,
+      D => PLL_Freq0_carry_n_4,
       Q => \PLL_Freq_reg_n_0_[3]\,
       R => '0'
-    );
-\PLL_Freq_reg[3]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \PLL_Freq_reg[3]_i_1_n_0\,
-      CO(2) => \PLL_Freq_reg[3]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[3]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[3]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => PLL_Guess_Freq(3 downto 0),
-      O(3) => \PLL_Freq_reg[3]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[3]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[3]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[3]_i_1_n_7\,
-      S(3) => \PLL_Freq[3]_i_2_n_0\,
-      S(2) => \PLL_Freq[3]_i_3_n_0\,
-      S(1) => \PLL_Freq[3]_i_4_n_0\,
-      S(0) => \PLL_Freq[3]_i_5_n_0\
     );
 \PLL_Freq_reg[4]\: unisim.vcomponents.FDRE
     generic map(
@@ -25766,7 +26004,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[7]_i_1_n_7\,
+      D => \PLL_Freq0_carry__0_n_7\,
       Q => \PLL_Freq_reg_n_0_[4]\,
       R => '0'
     );
@@ -25777,7 +26015,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[7]_i_1_n_6\,
+      D => \PLL_Freq0_carry__0_n_6\,
       Q => \PLL_Freq_reg_n_0_[5]\,
       R => '0'
     );
@@ -25788,7 +26026,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[7]_i_1_n_5\,
+      D => \PLL_Freq0_carry__0_n_5\,
       Q => \PLL_Freq_reg_n_0_[6]\,
       R => '0'
     );
@@ -25799,27 +26037,9 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[7]_i_1_n_4\,
+      D => \PLL_Freq0_carry__0_n_4\,
       Q => \PLL_Freq_reg_n_0_[7]\,
       R => '0'
-    );
-\PLL_Freq_reg[7]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \PLL_Freq_reg[3]_i_1_n_0\,
-      CO(3) => \PLL_Freq_reg[7]_i_1_n_0\,
-      CO(2) => \PLL_Freq_reg[7]_i_1_n_1\,
-      CO(1) => \PLL_Freq_reg[7]_i_1_n_2\,
-      CO(0) => \PLL_Freq_reg[7]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => PLL_Guess_Freq(7 downto 4),
-      O(3) => \PLL_Freq_reg[7]_i_1_n_4\,
-      O(2) => \PLL_Freq_reg[7]_i_1_n_5\,
-      O(1) => \PLL_Freq_reg[7]_i_1_n_6\,
-      O(0) => \PLL_Freq_reg[7]_i_1_n_7\,
-      S(3) => \PLL_Freq[7]_i_2_n_0\,
-      S(2) => \PLL_Freq[7]_i_3_n_0\,
-      S(1) => \PLL_Freq[7]_i_4_n_0\,
-      S(0) => \PLL_Freq[7]_i_5_n_0\
     );
 \PLL_Freq_reg[8]\: unisim.vcomponents.FDRE
     generic map(
@@ -25828,7 +26048,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[11]_i_1_n_7\,
+      D => \PLL_Freq0_carry__1_n_7\,
       Q => \PLL_Freq_reg_n_0_[8]\,
       R => '0'
     );
@@ -25839,7 +26059,7 @@ Loop_Oscilator: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_NCO
         port map (
       C => Clock,
       CE => '1',
-      D => \PLL_Freq_reg[11]_i_1_n_6\,
+      D => \PLL_Freq0_carry__1_n_6\,
       Q => \PLL_Freq_reg_n_0_[9]\,
       R => '0'
     );
@@ -26297,6 +26517,262 @@ PRBS_output_reg: unisim.vcomponents.FDRE
       Q => \^message\,
       R => '0'
     );
+\Phase_Accumulated_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_3,
+      Q => \^phase_error\(0),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_9,
+      Q => \^phase_error\(10),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_8,
+      Q => \^phase_error\(11),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_15,
+      Q => \^phase_error\(12),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_14,
+      Q => \^phase_error\(13),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[14]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_13,
+      Q => \^phase_error\(14),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[15]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_12,
+      Q => \^phase_error\(15),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[16]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_19,
+      Q => \^phase_error\(16),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[17]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_18,
+      Q => \^phase_error\(17),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[18]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_17,
+      Q => \^phase_error\(18),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[19]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_16,
+      Q => \^phase_error\(19),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_2,
+      Q => \^phase_error\(1),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[20]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_23,
+      Q => \^phase_error\(20),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[21]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_22,
+      Q => \^phase_error\(21),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[22]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_21,
+      Q => \^phase_error\(22),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[23]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_20,
+      Q => \^phase_error\(23),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[24]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_27,
+      Q => \^phase_error\(24),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[25]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_26,
+      Q => \^phase_error\(25),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[26]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_25,
+      Q => \^phase_error\(26),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[27]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_24,
+      Q => \^phase_error\(27),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[28]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_31,
+      Q => \^phase_error\(28),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[29]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_30,
+      Q => \^phase_error\(29),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_1,
+      Q => \^phase_error\(2),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[30]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_29,
+      Q => \^phase_error\(30),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[31]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_28,
+      Q => \^phase_error\(31),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_0,
+      Q => \^phase_error\(3),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_7,
+      Q => \^phase_error\(4),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_6,
+      Q => \^phase_error\(5),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_5,
+      Q => \^phase_error\(6),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_4,
+      Q => \^phase_error\(7),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_11,
+      Q => \^phase_error\(8),
+      R => Integrator_Reset
+    );
+\Phase_Accumulated_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => Clock,
+      CE => \Sample__0\,
+      D => Loop_Controller_n_10,
+      Q => \^phase_error\(9),
+      R => Integrator_Reset
+    );
 Quadrature_Filter: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_CIC32_2
      port map (
       CO(0) => Cross_Mixer_n_0,
@@ -26476,6 +26952,18 @@ Quadrature_Filter: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_CIC3
       \section_out1_reg[7]_0\(1) => Input_Quadrature_Mixer_n_6,
       \section_out1_reg[7]_0\(0) => Input_Quadrature_Mixer_n_7
     );
+Sample: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => Counter_reg(0),
+      I1 => Counter_reg(2),
+      I2 => Counter_reg(1),
+      I3 => Counter_reg(3),
+      I4 => Counter_reg(4),
+      O => \Sample__0\
+    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -26491,6 +26979,7 @@ entity Differental_Phasemeter_Costa_Demodulator_1_0 is
     Threshold : in STD_LOGIC_VECTOR ( 25 downto 0 );
     Freq_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Phase_Measured : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    Phase_Error : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Lock_Strength : out STD_LOGIC_VECTOR ( 25 downto 0 );
     Message : out STD_LOGIC;
     Locked_Carrier : out STD_LOGIC_VECTOR ( 13 downto 0 );
@@ -26532,6 +27021,7 @@ inst: entity work.Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
       Locked_Carrier(13 downto 0) => Locked_Carrier(13 downto 0),
       Message => Message,
       PLL_Guess_Freq(31 downto 0) => PLL_Guess_Freq(31 downto 0),
+      Phase_Error(31 downto 0) => Phase_Error(31 downto 0),
       Phase_Measured(31 downto 0) => Phase_Measured(31 downto 0),
       Q(25 downto 0) => Lock_Strength(25 downto 0),
       Reset => Reset,

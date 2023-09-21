@@ -102,9 +102,9 @@
       "DATA_LOGGER_0": "",
       "xlconstant_0": "",
       "xlconstant_1": "",
+      "NCO_Wrapper_0": "",
       "Costa_Demodulator_0": "",
-      "Costa_Demodulator_1": "",
-      "NCO_Wrapper_0": ""
+      "Costa_Demodulator_1": ""
     },
     "interface_ports": {
       "Vaux0": {
@@ -7615,190 +7615,6 @@
           }
         }
       },
-      "Costa_Demodulator_0": {
-        "vlnv": "xilinx.com:module_ref:Costa_Demodulator:1.0",
-        "xci_name": "Differental_Phasemeter_Costa_Demodulator_0_0",
-        "xci_path": "ip\\Differental_Phasemeter_Costa_Demodulator_0_0\\Differental_Phasemeter_Costa_Demodulator_0_0.xci",
-        "inst_hier_path": "Costa_Demodulator_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Costa_Demodulator",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Input_Signal": {
-            "direction": "I",
-            "left": "13",
-            "right": "0"
-          },
-          "PLL_Guess_Freq": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Control_Kp": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Control_Ki": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Integrator_Reset": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "Threshold": {
-            "direction": "I",
-            "left": "25",
-            "right": "0"
-          },
-          "Freq_Measured": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "Phase_Measured": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "Lock_Strength": {
-            "direction": "O",
-            "left": "25",
-            "right": "0"
-          },
-          "Message": {
-            "direction": "O"
-          },
-          "Locked_Carrier": {
-            "direction": "O",
-            "left": "13",
-            "right": "0"
-          },
-          "Debug": {
-            "direction": "O",
-            "left": "13",
-            "right": "0"
-          },
-          "Clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "Reset",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "Reset": {
-            "type": "rst",
-            "direction": "I"
-          }
-        }
-      },
-      "Costa_Demodulator_1": {
-        "vlnv": "xilinx.com:module_ref:Costa_Demodulator:1.0",
-        "xci_name": "Differental_Phasemeter_Costa_Demodulator_1_0",
-        "xci_path": "ip\\Differental_Phasemeter_Costa_Demodulator_1_0\\Differental_Phasemeter_Costa_Demodulator_1_0.xci",
-        "inst_hier_path": "Costa_Demodulator_1",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Costa_Demodulator",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Input_Signal": {
-            "direction": "I",
-            "left": "13",
-            "right": "0"
-          },
-          "PLL_Guess_Freq": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Control_Kp": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Control_Ki": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Integrator_Reset": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "Threshold": {
-            "direction": "I",
-            "left": "25",
-            "right": "0"
-          },
-          "Freq_Measured": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "Phase_Measured": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "Lock_Strength": {
-            "direction": "O",
-            "left": "25",
-            "right": "0"
-          },
-          "Message": {
-            "direction": "O"
-          },
-          "Locked_Carrier": {
-            "direction": "O",
-            "left": "13",
-            "right": "0"
-          },
-          "Debug": {
-            "direction": "O",
-            "left": "13",
-            "right": "0"
-          },
-          "Clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "Reset",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "Reset": {
-            "type": "rst",
-            "direction": "I"
-          }
-        }
-      },
       "NCO_Wrapper_0": {
         "vlnv": "xilinx.com:module_ref:NCO_Wrapper:1.0",
         "xci_name": "Differental_Phasemeter_NCO_Wrapper_0_0",
@@ -7864,6 +7680,210 @@
             "direction": "O",
             "left": "31",
             "right": "0"
+          }
+        }
+      },
+      "Costa_Demodulator_0": {
+        "vlnv": "xilinx.com:module_ref:Costa_Demodulator:1.0",
+        "xci_name": "Differental_Phasemeter_Costa_Demodulator_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_Costa_Demodulator_0_0\\Differental_Phasemeter_Costa_Demodulator_0_0.xci",
+        "inst_hier_path": "Costa_Demodulator_0",
+        "parameters": {
+          "RAM_Size": {
+            "value": "8"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Costa_Demodulator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Input_Signal": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "PLL_Guess_Freq": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_Kp": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_Ki": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Integrator_Reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Threshold": {
+            "direction": "I",
+            "left": "25",
+            "right": "0"
+          },
+          "Freq_Measured": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Phase_Measured": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Phase_Error": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Lock_Strength": {
+            "direction": "O",
+            "left": "25",
+            "right": "0"
+          },
+          "Message": {
+            "direction": "O"
+          },
+          "Locked_Carrier": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Debug": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I"
+          }
+        }
+      },
+      "Costa_Demodulator_1": {
+        "vlnv": "xilinx.com:module_ref:Costa_Demodulator:1.0",
+        "xci_name": "Differental_Phasemeter_Costa_Demodulator_1_0",
+        "xci_path": "ip\\Differental_Phasemeter_Costa_Demodulator_1_0\\Differental_Phasemeter_Costa_Demodulator_1_0.xci",
+        "inst_hier_path": "Costa_Demodulator_1",
+        "parameters": {
+          "RAM_Size": {
+            "value": "8"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Costa_Demodulator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Input_Signal": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "PLL_Guess_Freq": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_Kp": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_Ki": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Integrator_Reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Threshold": {
+            "direction": "I",
+            "left": "25",
+            "right": "0"
+          },
+          "Freq_Measured": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Phase_Measured": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Phase_Error": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "Lock_Strength": {
+            "direction": "O",
+            "left": "25",
+            "right": "0"
+          },
+          "Message": {
+            "direction": "O"
+          },
+          "Locked_Carrier": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Debug": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I"
           }
         }
       }
@@ -8009,9 +8029,9 @@
           "DMA_Interconnect_0/Demodulated_PRBS"
         ]
       },
-      "Costa_Demodulator_0_Phase_Measured": {
+      "Costa_Demodulator_0_Phase_Error": {
         "ports": [
-          "Costa_Demodulator_0/Phase_Measured",
+          "Costa_Demodulator_0/Phase_Error",
           "Subtractor_0/Dplus"
         ]
       },
@@ -8027,9 +8047,9 @@
           "DMA_Interconnect_0/Demodulated_PRBS_B"
         ]
       },
-      "Costa_Demodulator_1_Phase_Measured": {
+      "Costa_Demodulator_1_Phase_Error": {
         "ports": [
-          "Costa_Demodulator_1/Phase_Measured",
+          "Costa_Demodulator_1/Phase_Error",
           "Subtractor_0/Dminus"
         ]
       },
@@ -8124,9 +8144,9 @@
           "Test_Pattern_Gen_0/Clock",
           "DATA_LOGGER_0/m_axis_aclk",
           "DATA_LOGGER_0/s_axis_aclk",
+          "NCO_Wrapper_0/clock",
           "Costa_Demodulator_0/Clock",
-          "Costa_Demodulator_1/Clock",
-          "NCO_Wrapper_0/clock"
+          "Costa_Demodulator_1/Clock"
         ]
       },
       "Net1": {
@@ -8155,9 +8175,9 @@
           "Reset_Gen_0/Reset",
           "PRBS/Reset",
           "DATA_LOGGER_0/rst",
+          "NCO_Wrapper_0/rst",
           "Costa_Demodulator_0/Reset",
-          "Costa_Demodulator_1/Reset",
-          "NCO_Wrapper_0/rst"
+          "Costa_Demodulator_1/Reset"
         ]
       },
       "PRBS_Delayed": {

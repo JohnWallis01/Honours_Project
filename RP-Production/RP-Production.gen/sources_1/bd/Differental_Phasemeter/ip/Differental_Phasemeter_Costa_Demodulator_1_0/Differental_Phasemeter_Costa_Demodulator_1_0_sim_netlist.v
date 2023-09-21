@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Sep 19 15:24:42 2023
+// Date        : Thu Sep 21 11:46:30 2023
 // Host        : Valkyrie running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0_sim_netlist.v
@@ -24,6 +24,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0
     Threshold,
     Freq_Measured,
     Phase_Measured,
+    Phase_Error,
     Lock_Strength,
     Message,
     Locked_Carrier,
@@ -38,6 +39,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0
   input [25:0]Threshold;
   output [31:0]Freq_Measured;
   output [31:0]Phase_Measured;
+  output [31:0]Phase_Error;
   output [25:0]Lock_Strength;
   output Message;
   output [13:0]Locked_Carrier;
@@ -56,6 +58,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0
   wire [13:0]Locked_Carrier;
   wire Message;
   wire [31:0]PLL_Guess_Freq;
+  wire [31:0]Phase_Error;
   wire [31:0]Phase_Measured;
   wire Reset;
   wire [25:0]Threshold;
@@ -71,6 +74,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0
         .Locked_Carrier(Locked_Carrier),
         .Message(Message),
         .PLL_Guess_Freq(PLL_Guess_Freq),
+        .Phase_Error(Phase_Error),
         .Phase_Measured(Phase_Measured),
         .Q(Lock_Strength),
         .Reset(Reset),
@@ -6154,14 +6158,14 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_CIC32_2
     \cur_count[0]_i_1__0 
        (.I0(cur_count_reg[0]),
         .O(\cur_count[0]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \cur_count[1]_i_1__0 
        (.I0(cur_count_reg[0]),
         .I1(cur_count_reg[1]),
         .O(\cur_count[1]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \cur_count[2]_i_1__0 
@@ -6169,7 +6173,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_CIC32_2
         .I1(cur_count_reg[0]),
         .I2(cur_count_reg[1]),
         .O(\cur_count[2]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \cur_count[3]_i_1__0 
@@ -6178,7 +6182,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_CIC32_2
         .I2(cur_count_reg[0]),
         .I3(cur_count_reg[1]),
         .O(\cur_count[3]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT5 #(
     .INIT(32'h7F80FF00)) 
     \cur_count[4]_i_1__0 
@@ -7851,6 +7855,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     Phase_Measured,
     Locked_Carrier,
     Freq_Measured,
+    Phase_Error,
     Message,
     \section_out1_reg[23] ,
     Clock,
@@ -7858,14 +7863,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     Input_Signal,
     Control_Ki,
     Control_Kp,
+    Integrator_Reset,
     PLL_Guess_Freq,
-    Threshold,
-    Integrator_Reset);
+    Threshold);
   output [25:0]Q;
   output [13:0]\output_register_reg[25] ;
   output [31:0]Phase_Measured;
   output [13:0]Locked_Carrier;
   output [31:0]Freq_Measured;
+  output [31:0]Phase_Error;
   output Message;
   input \section_out1_reg[23] ;
   input Clock;
@@ -7873,13 +7879,14 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
   input [13:0]Input_Signal;
   input [31:0]Control_Ki;
   input [31:0]Control_Kp;
+  input Integrator_Reset;
   input [31:0]PLL_Guess_Freq;
   input [25:0]Threshold;
-  input Integrator_Reset;
 
   wire Clock;
   wire [31:0]Control_Ki;
   wire [31:0]Control_Kp;
+  wire [4:0]Counter_reg;
   wire Cross_Mixer_n_0;
   wire Cross_Mixer_n_1;
   wire Cross_Mixer_n_10;
@@ -7980,6 +7987,70 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
   wire [13:0]Input_Signal;
   wire Integrator_Reset;
   wire [13:0]Locked_Carrier;
+  wire Loop_Controller_n_0;
+  wire Loop_Controller_n_1;
+  wire Loop_Controller_n_10;
+  wire Loop_Controller_n_11;
+  wire Loop_Controller_n_12;
+  wire Loop_Controller_n_13;
+  wire Loop_Controller_n_14;
+  wire Loop_Controller_n_15;
+  wire Loop_Controller_n_16;
+  wire Loop_Controller_n_17;
+  wire Loop_Controller_n_18;
+  wire Loop_Controller_n_19;
+  wire Loop_Controller_n_2;
+  wire Loop_Controller_n_20;
+  wire Loop_Controller_n_21;
+  wire Loop_Controller_n_22;
+  wire Loop_Controller_n_23;
+  wire Loop_Controller_n_24;
+  wire Loop_Controller_n_25;
+  wire Loop_Controller_n_26;
+  wire Loop_Controller_n_27;
+  wire Loop_Controller_n_28;
+  wire Loop_Controller_n_29;
+  wire Loop_Controller_n_3;
+  wire Loop_Controller_n_30;
+  wire Loop_Controller_n_31;
+  wire Loop_Controller_n_32;
+  wire Loop_Controller_n_33;
+  wire Loop_Controller_n_34;
+  wire Loop_Controller_n_35;
+  wire Loop_Controller_n_36;
+  wire Loop_Controller_n_37;
+  wire Loop_Controller_n_38;
+  wire Loop_Controller_n_39;
+  wire Loop_Controller_n_4;
+  wire Loop_Controller_n_40;
+  wire Loop_Controller_n_41;
+  wire Loop_Controller_n_42;
+  wire Loop_Controller_n_43;
+  wire Loop_Controller_n_44;
+  wire Loop_Controller_n_45;
+  wire Loop_Controller_n_46;
+  wire Loop_Controller_n_47;
+  wire Loop_Controller_n_48;
+  wire Loop_Controller_n_49;
+  wire Loop_Controller_n_5;
+  wire Loop_Controller_n_50;
+  wire Loop_Controller_n_51;
+  wire Loop_Controller_n_52;
+  wire Loop_Controller_n_53;
+  wire Loop_Controller_n_54;
+  wire Loop_Controller_n_55;
+  wire Loop_Controller_n_56;
+  wire Loop_Controller_n_57;
+  wire Loop_Controller_n_58;
+  wire Loop_Controller_n_59;
+  wire Loop_Controller_n_6;
+  wire Loop_Controller_n_60;
+  wire Loop_Controller_n_61;
+  wire Loop_Controller_n_62;
+  wire Loop_Controller_n_63;
+  wire Loop_Controller_n_7;
+  wire Loop_Controller_n_8;
+  wire Loop_Controller_n_9;
   wire Loop_Oscilator_n_33;
   wire Loop_Oscilator_n_34;
   wire Loop_Oscilator_n_35;
@@ -8008,101 +8079,69 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
   wire Loop_Oscilator_n_72;
   wire Loop_Oscilator_n_73;
   wire Message;
-  wire \PLL_Freq[11]_i_2_n_0 ;
-  wire \PLL_Freq[11]_i_3_n_0 ;
-  wire \PLL_Freq[11]_i_4_n_0 ;
-  wire \PLL_Freq[11]_i_5_n_0 ;
-  wire \PLL_Freq[15]_i_2_n_0 ;
-  wire \PLL_Freq[15]_i_3_n_0 ;
-  wire \PLL_Freq[15]_i_4_n_0 ;
-  wire \PLL_Freq[15]_i_5_n_0 ;
-  wire \PLL_Freq[19]_i_2_n_0 ;
-  wire \PLL_Freq[19]_i_3_n_0 ;
-  wire \PLL_Freq[19]_i_4_n_0 ;
-  wire \PLL_Freq[19]_i_5_n_0 ;
-  wire \PLL_Freq[23]_i_2_n_0 ;
-  wire \PLL_Freq[23]_i_3_n_0 ;
-  wire \PLL_Freq[23]_i_4_n_0 ;
-  wire \PLL_Freq[23]_i_5_n_0 ;
-  wire \PLL_Freq[27]_i_2_n_0 ;
-  wire \PLL_Freq[27]_i_3_n_0 ;
-  wire \PLL_Freq[27]_i_4_n_0 ;
-  wire \PLL_Freq[27]_i_5_n_0 ;
-  wire \PLL_Freq[31]_i_2_n_0 ;
-  wire \PLL_Freq[31]_i_3_n_0 ;
-  wire \PLL_Freq[31]_i_4_n_0 ;
-  wire \PLL_Freq[31]_i_5_n_0 ;
-  wire \PLL_Freq[3]_i_2_n_0 ;
-  wire \PLL_Freq[3]_i_3_n_0 ;
-  wire \PLL_Freq[3]_i_4_n_0 ;
-  wire \PLL_Freq[3]_i_5_n_0 ;
-  wire \PLL_Freq[7]_i_2_n_0 ;
-  wire \PLL_Freq[7]_i_3_n_0 ;
-  wire \PLL_Freq[7]_i_4_n_0 ;
-  wire \PLL_Freq[7]_i_5_n_0 ;
-  wire \PLL_Freq_reg[11]_i_1_n_0 ;
-  wire \PLL_Freq_reg[11]_i_1_n_1 ;
-  wire \PLL_Freq_reg[11]_i_1_n_2 ;
-  wire \PLL_Freq_reg[11]_i_1_n_3 ;
-  wire \PLL_Freq_reg[11]_i_1_n_4 ;
-  wire \PLL_Freq_reg[11]_i_1_n_5 ;
-  wire \PLL_Freq_reg[11]_i_1_n_6 ;
-  wire \PLL_Freq_reg[11]_i_1_n_7 ;
-  wire \PLL_Freq_reg[15]_i_1_n_0 ;
-  wire \PLL_Freq_reg[15]_i_1_n_1 ;
-  wire \PLL_Freq_reg[15]_i_1_n_2 ;
-  wire \PLL_Freq_reg[15]_i_1_n_3 ;
-  wire \PLL_Freq_reg[15]_i_1_n_4 ;
-  wire \PLL_Freq_reg[15]_i_1_n_5 ;
-  wire \PLL_Freq_reg[15]_i_1_n_6 ;
-  wire \PLL_Freq_reg[15]_i_1_n_7 ;
-  wire \PLL_Freq_reg[19]_i_1_n_0 ;
-  wire \PLL_Freq_reg[19]_i_1_n_1 ;
-  wire \PLL_Freq_reg[19]_i_1_n_2 ;
-  wire \PLL_Freq_reg[19]_i_1_n_3 ;
-  wire \PLL_Freq_reg[19]_i_1_n_4 ;
-  wire \PLL_Freq_reg[19]_i_1_n_5 ;
-  wire \PLL_Freq_reg[19]_i_1_n_6 ;
-  wire \PLL_Freq_reg[19]_i_1_n_7 ;
-  wire \PLL_Freq_reg[23]_i_1_n_0 ;
-  wire \PLL_Freq_reg[23]_i_1_n_1 ;
-  wire \PLL_Freq_reg[23]_i_1_n_2 ;
-  wire \PLL_Freq_reg[23]_i_1_n_3 ;
-  wire \PLL_Freq_reg[23]_i_1_n_4 ;
-  wire \PLL_Freq_reg[23]_i_1_n_5 ;
-  wire \PLL_Freq_reg[23]_i_1_n_6 ;
-  wire \PLL_Freq_reg[23]_i_1_n_7 ;
-  wire \PLL_Freq_reg[27]_i_1_n_0 ;
-  wire \PLL_Freq_reg[27]_i_1_n_1 ;
-  wire \PLL_Freq_reg[27]_i_1_n_2 ;
-  wire \PLL_Freq_reg[27]_i_1_n_3 ;
-  wire \PLL_Freq_reg[27]_i_1_n_4 ;
-  wire \PLL_Freq_reg[27]_i_1_n_5 ;
-  wire \PLL_Freq_reg[27]_i_1_n_6 ;
-  wire \PLL_Freq_reg[27]_i_1_n_7 ;
-  wire \PLL_Freq_reg[31]_i_1_n_1 ;
-  wire \PLL_Freq_reg[31]_i_1_n_2 ;
-  wire \PLL_Freq_reg[31]_i_1_n_3 ;
-  wire \PLL_Freq_reg[31]_i_1_n_4 ;
-  wire \PLL_Freq_reg[31]_i_1_n_5 ;
-  wire \PLL_Freq_reg[31]_i_1_n_6 ;
-  wire \PLL_Freq_reg[31]_i_1_n_7 ;
-  wire \PLL_Freq_reg[3]_i_1_n_0 ;
-  wire \PLL_Freq_reg[3]_i_1_n_1 ;
-  wire \PLL_Freq_reg[3]_i_1_n_2 ;
-  wire \PLL_Freq_reg[3]_i_1_n_3 ;
-  wire \PLL_Freq_reg[3]_i_1_n_4 ;
-  wire \PLL_Freq_reg[3]_i_1_n_5 ;
-  wire \PLL_Freq_reg[3]_i_1_n_6 ;
-  wire \PLL_Freq_reg[3]_i_1_n_7 ;
-  wire \PLL_Freq_reg[7]_i_1_n_0 ;
-  wire \PLL_Freq_reg[7]_i_1_n_1 ;
-  wire \PLL_Freq_reg[7]_i_1_n_2 ;
-  wire \PLL_Freq_reg[7]_i_1_n_3 ;
-  wire \PLL_Freq_reg[7]_i_1_n_4 ;
-  wire \PLL_Freq_reg[7]_i_1_n_5 ;
-  wire \PLL_Freq_reg[7]_i_1_n_6 ;
-  wire \PLL_Freq_reg[7]_i_1_n_7 ;
+  wire PLL_Freq0_carry__0_n_0;
+  wire PLL_Freq0_carry__0_n_1;
+  wire PLL_Freq0_carry__0_n_2;
+  wire PLL_Freq0_carry__0_n_3;
+  wire PLL_Freq0_carry__0_n_4;
+  wire PLL_Freq0_carry__0_n_5;
+  wire PLL_Freq0_carry__0_n_6;
+  wire PLL_Freq0_carry__0_n_7;
+  wire PLL_Freq0_carry__1_n_0;
+  wire PLL_Freq0_carry__1_n_1;
+  wire PLL_Freq0_carry__1_n_2;
+  wire PLL_Freq0_carry__1_n_3;
+  wire PLL_Freq0_carry__1_n_4;
+  wire PLL_Freq0_carry__1_n_5;
+  wire PLL_Freq0_carry__1_n_6;
+  wire PLL_Freq0_carry__1_n_7;
+  wire PLL_Freq0_carry__2_n_0;
+  wire PLL_Freq0_carry__2_n_1;
+  wire PLL_Freq0_carry__2_n_2;
+  wire PLL_Freq0_carry__2_n_3;
+  wire PLL_Freq0_carry__2_n_4;
+  wire PLL_Freq0_carry__2_n_5;
+  wire PLL_Freq0_carry__2_n_6;
+  wire PLL_Freq0_carry__2_n_7;
+  wire PLL_Freq0_carry__3_n_0;
+  wire PLL_Freq0_carry__3_n_1;
+  wire PLL_Freq0_carry__3_n_2;
+  wire PLL_Freq0_carry__3_n_3;
+  wire PLL_Freq0_carry__3_n_4;
+  wire PLL_Freq0_carry__3_n_5;
+  wire PLL_Freq0_carry__3_n_6;
+  wire PLL_Freq0_carry__3_n_7;
+  wire PLL_Freq0_carry__4_n_0;
+  wire PLL_Freq0_carry__4_n_1;
+  wire PLL_Freq0_carry__4_n_2;
+  wire PLL_Freq0_carry__4_n_3;
+  wire PLL_Freq0_carry__4_n_4;
+  wire PLL_Freq0_carry__4_n_5;
+  wire PLL_Freq0_carry__4_n_6;
+  wire PLL_Freq0_carry__4_n_7;
+  wire PLL_Freq0_carry__5_n_0;
+  wire PLL_Freq0_carry__5_n_1;
+  wire PLL_Freq0_carry__5_n_2;
+  wire PLL_Freq0_carry__5_n_3;
+  wire PLL_Freq0_carry__5_n_4;
+  wire PLL_Freq0_carry__5_n_5;
+  wire PLL_Freq0_carry__5_n_6;
+  wire PLL_Freq0_carry__5_n_7;
+  wire PLL_Freq0_carry__6_n_1;
+  wire PLL_Freq0_carry__6_n_2;
+  wire PLL_Freq0_carry__6_n_3;
+  wire PLL_Freq0_carry__6_n_4;
+  wire PLL_Freq0_carry__6_n_5;
+  wire PLL_Freq0_carry__6_n_6;
+  wire PLL_Freq0_carry__6_n_7;
+  wire PLL_Freq0_carry_n_0;
+  wire PLL_Freq0_carry_n_1;
+  wire PLL_Freq0_carry_n_2;
+  wire PLL_Freq0_carry_n_3;
+  wire PLL_Freq0_carry_n_4;
+  wire PLL_Freq0_carry_n_5;
+  wire PLL_Freq0_carry_n_6;
+  wire PLL_Freq0_carry_n_7;
   wire \PLL_Freq_reg_n_0_[0] ;
   wire \PLL_Freq_reg_n_0_[10] ;
   wire \PLL_Freq_reg_n_0_[11] ;
@@ -8214,6 +8253,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
   wire PRBS_output1_carry_n_2;
   wire PRBS_output1_carry_n_3;
   wire PRBS_output_i_1_n_0;
+  wire [31:0]Phase_Error;
   wire [31:0]Phase_Measured;
   wire [25:0]Q;
   wire Quadrature_Filter_n_100;
@@ -8329,15 +8369,17 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
   wire Quadrature_Filter_n_98;
   wire Quadrature_Filter_n_99;
   wire Reset;
-  wire [31:0]SignalOutput;
+  wire Sample__0;
   wire [25:0]Threshold;
+  wire clear;
   wire [11:0]output_register;
   wire [25:0]output_register__0;
   wire [13:0]\output_register_reg[25] ;
+  wire [4:0]p_0_in__0;
   wire [25:0]section_out1_reg;
   wire [25:0]section_out1_reg_0;
   wire section_out1_reg_23_sn_1;
-  wire [3:3]\NLW_PLL_Freq_reg[31]_i_1_CO_UNCONNECTED ;
+  wire [3:3]NLW_PLL_Freq0_carry__6_CO_UNCONNECTED;
   wire [3:0]NLW_PRBS_output0_carry_O_UNCONNECTED;
   wire [3:0]NLW_PRBS_output0_carry__0_O_UNCONNECTED;
   wire [3:0]NLW_PRBS_output0_carry__1_O_UNCONNECTED;
@@ -8352,6 +8394,85 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
   wire [3:2]NLW_PRBS_output1_carry__5_O_UNCONNECTED;
 
   assign section_out1_reg_23_sn_1 = \section_out1_reg[23] ;
+  LUT1 #(
+    .INIT(2'h1)) 
+    \Counter[0]_i_1 
+       (.I0(Counter_reg[0]),
+        .O(p_0_in__0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Counter[1]_i_1 
+       (.I0(Counter_reg[0]),
+        .I1(Counter_reg[1]),
+        .O(p_0_in__0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \Counter[2]_i_1 
+       (.I0(Counter_reg[0]),
+        .I1(Counter_reg[1]),
+        .I2(Counter_reg[2]),
+        .O(p_0_in__0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \Counter[3]_i_1 
+       (.I0(Counter_reg[1]),
+        .I1(Counter_reg[0]),
+        .I2(Counter_reg[2]),
+        .I3(Counter_reg[3]),
+        .O(p_0_in__0[3]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF80000000)) 
+    \Counter[4]_i_1 
+       (.I0(Counter_reg[3]),
+        .I1(Counter_reg[2]),
+        .I2(Counter_reg[0]),
+        .I3(Counter_reg[4]),
+        .I4(Counter_reg[1]),
+        .I5(Reset),
+        .O(clear));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \Counter[4]_i_2 
+       (.I0(Counter_reg[2]),
+        .I1(Counter_reg[0]),
+        .I2(Counter_reg[1]),
+        .I3(Counter_reg[3]),
+        .I4(Counter_reg[4]),
+        .O(p_0_in__0[4]));
+  FDRE \Counter_reg[0] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(p_0_in__0[0]),
+        .Q(Counter_reg[0]),
+        .R(clear));
+  FDRE \Counter_reg[1] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(p_0_in__0[1]),
+        .Q(Counter_reg[1]),
+        .R(clear));
+  FDRE \Counter_reg[2] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(p_0_in__0[2]),
+        .Q(Counter_reg[2]),
+        .R(clear));
+  FDRE \Counter_reg[3] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(p_0_in__0[3]),
+        .Q(Counter_reg[3]),
+        .R(clear));
+  FDRE \Counter_reg[4] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(p_0_in__0[4]),
+        .Q(Counter_reg[4]),
+        .R(clear));
   Differental_Phasemeter_Costa_Demodulator_1_0_CIC32 Cross_Filter
        (.Clock(Clock),
         .Dout_reg(Dout_reg),
@@ -8652,9 +8773,26 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
         .Control_Ki(Control_Ki),
         .Control_Kp(Control_Kp),
         .Integrator_Reset(Integrator_Reset),
+        .O({Loop_Controller_n_0,Loop_Controller_n_1,Loop_Controller_n_2,Loop_Controller_n_3}),
+        .PLL_Guess_Freq(PLL_Guess_Freq),
+        .\PLL_Guess_Freq[11] ({Loop_Controller_n_40,Loop_Controller_n_41,Loop_Controller_n_42,Loop_Controller_n_43}),
+        .\PLL_Guess_Freq[15] ({Loop_Controller_n_44,Loop_Controller_n_45,Loop_Controller_n_46,Loop_Controller_n_47}),
+        .\PLL_Guess_Freq[19] ({Loop_Controller_n_48,Loop_Controller_n_49,Loop_Controller_n_50,Loop_Controller_n_51}),
+        .\PLL_Guess_Freq[23] ({Loop_Controller_n_52,Loop_Controller_n_53,Loop_Controller_n_54,Loop_Controller_n_55}),
+        .\PLL_Guess_Freq[27] ({Loop_Controller_n_56,Loop_Controller_n_57,Loop_Controller_n_58,Loop_Controller_n_59}),
+        .\PLL_Guess_Freq[31] ({Loop_Controller_n_60,Loop_Controller_n_61,Loop_Controller_n_62,Loop_Controller_n_63}),
+        .\PLL_Guess_Freq[7] ({Loop_Controller_n_36,Loop_Controller_n_37,Loop_Controller_n_38,Loop_Controller_n_39}),
+        .Phase_Error(Phase_Error),
         .Q(output_register__0),
         .Reset(Reset),
-        .\SignalOutput_reg[31]_0 (SignalOutput));
+        .S({Loop_Controller_n_32,Loop_Controller_n_33,Loop_Controller_n_34,Loop_Controller_n_35}),
+        .\SignalOutput_reg[11]_0 ({Loop_Controller_n_8,Loop_Controller_n_9,Loop_Controller_n_10,Loop_Controller_n_11}),
+        .\SignalOutput_reg[15]_0 ({Loop_Controller_n_12,Loop_Controller_n_13,Loop_Controller_n_14,Loop_Controller_n_15}),
+        .\SignalOutput_reg[19]_0 ({Loop_Controller_n_16,Loop_Controller_n_17,Loop_Controller_n_18,Loop_Controller_n_19}),
+        .\SignalOutput_reg[23]_0 ({Loop_Controller_n_20,Loop_Controller_n_21,Loop_Controller_n_22,Loop_Controller_n_23}),
+        .\SignalOutput_reg[27]_0 ({Loop_Controller_n_24,Loop_Controller_n_25,Loop_Controller_n_26,Loop_Controller_n_27}),
+        .\SignalOutput_reg[30]_0 ({Loop_Controller_n_28,Loop_Controller_n_29,Loop_Controller_n_30,Loop_Controller_n_31}),
+        .\SignalOutput_reg[7]_0 ({Loop_Controller_n_4,Loop_Controller_n_5,Loop_Controller_n_6,Loop_Controller_n_7}));
   Differental_Phasemeter_Costa_Demodulator_1_0_NCO Loop_Oscilator
        (.B({Loop_Oscilator_n_60,Loop_Oscilator_n_61,Loop_Oscilator_n_62,Loop_Oscilator_n_63,Loop_Oscilator_n_64,Loop_Oscilator_n_65,Loop_Oscilator_n_66,Loop_Oscilator_n_67,Loop_Oscilator_n_68,Loop_Oscilator_n_69,Loop_Oscilator_n_70,Loop_Oscilator_n_71,Loop_Oscilator_n_72,Loop_Oscilator_n_73}),
         .Clock(Clock),
@@ -8663,204 +8801,76 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
         .Phase_Measured(Phase_Measured),
         .Q({\PLL_Freq_reg_n_0_[31] ,\PLL_Freq_reg_n_0_[30] ,\PLL_Freq_reg_n_0_[29] ,\PLL_Freq_reg_n_0_[28] ,\PLL_Freq_reg_n_0_[27] ,\PLL_Freq_reg_n_0_[26] ,\PLL_Freq_reg_n_0_[25] ,\PLL_Freq_reg_n_0_[24] ,\PLL_Freq_reg_n_0_[23] ,\PLL_Freq_reg_n_0_[22] ,\PLL_Freq_reg_n_0_[21] ,\PLL_Freq_reg_n_0_[20] ,\PLL_Freq_reg_n_0_[19] ,\PLL_Freq_reg_n_0_[18] ,\PLL_Freq_reg_n_0_[17] ,\PLL_Freq_reg_n_0_[16] ,\PLL_Freq_reg_n_0_[15] ,\PLL_Freq_reg_n_0_[14] ,\PLL_Freq_reg_n_0_[13] ,\PLL_Freq_reg_n_0_[12] ,\PLL_Freq_reg_n_0_[11] ,\PLL_Freq_reg_n_0_[10] ,\PLL_Freq_reg_n_0_[9] ,\PLL_Freq_reg_n_0_[8] ,\PLL_Freq_reg_n_0_[7] ,\PLL_Freq_reg_n_0_[6] ,\PLL_Freq_reg_n_0_[5] ,\PLL_Freq_reg_n_0_[4] ,\PLL_Freq_reg_n_0_[3] ,\PLL_Freq_reg_n_0_[2] ,\PLL_Freq_reg_n_0_[1] ,\PLL_Freq_reg_n_0_[0] }),
         .Reset(Reset));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[11]_i_2 
-       (.I0(PLL_Guess_Freq[11]),
-        .I1(SignalOutput[11]),
-        .O(\PLL_Freq[11]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[11]_i_3 
-       (.I0(PLL_Guess_Freq[10]),
-        .I1(SignalOutput[10]),
-        .O(\PLL_Freq[11]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[11]_i_4 
-       (.I0(PLL_Guess_Freq[9]),
-        .I1(SignalOutput[9]),
-        .O(\PLL_Freq[11]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[11]_i_5 
-       (.I0(PLL_Guess_Freq[8]),
-        .I1(SignalOutput[8]),
-        .O(\PLL_Freq[11]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[15]_i_2 
-       (.I0(PLL_Guess_Freq[15]),
-        .I1(SignalOutput[15]),
-        .O(\PLL_Freq[15]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[15]_i_3 
-       (.I0(PLL_Guess_Freq[14]),
-        .I1(SignalOutput[14]),
-        .O(\PLL_Freq[15]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[15]_i_4 
-       (.I0(PLL_Guess_Freq[13]),
-        .I1(SignalOutput[13]),
-        .O(\PLL_Freq[15]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[15]_i_5 
-       (.I0(PLL_Guess_Freq[12]),
-        .I1(SignalOutput[12]),
-        .O(\PLL_Freq[15]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[19]_i_2 
-       (.I0(PLL_Guess_Freq[19]),
-        .I1(SignalOutput[19]),
-        .O(\PLL_Freq[19]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[19]_i_3 
-       (.I0(PLL_Guess_Freq[18]),
-        .I1(SignalOutput[18]),
-        .O(\PLL_Freq[19]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[19]_i_4 
-       (.I0(PLL_Guess_Freq[17]),
-        .I1(SignalOutput[17]),
-        .O(\PLL_Freq[19]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[19]_i_5 
-       (.I0(PLL_Guess_Freq[16]),
-        .I1(SignalOutput[16]),
-        .O(\PLL_Freq[19]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[23]_i_2 
-       (.I0(PLL_Guess_Freq[23]),
-        .I1(SignalOutput[23]),
-        .O(\PLL_Freq[23]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[23]_i_3 
-       (.I0(PLL_Guess_Freq[22]),
-        .I1(SignalOutput[22]),
-        .O(\PLL_Freq[23]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[23]_i_4 
-       (.I0(PLL_Guess_Freq[21]),
-        .I1(SignalOutput[21]),
-        .O(\PLL_Freq[23]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[23]_i_5 
-       (.I0(PLL_Guess_Freq[20]),
-        .I1(SignalOutput[20]),
-        .O(\PLL_Freq[23]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[27]_i_2 
-       (.I0(PLL_Guess_Freq[27]),
-        .I1(SignalOutput[27]),
-        .O(\PLL_Freq[27]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[27]_i_3 
-       (.I0(PLL_Guess_Freq[26]),
-        .I1(SignalOutput[26]),
-        .O(\PLL_Freq[27]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[27]_i_4 
-       (.I0(PLL_Guess_Freq[25]),
-        .I1(SignalOutput[25]),
-        .O(\PLL_Freq[27]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[27]_i_5 
-       (.I0(PLL_Guess_Freq[24]),
-        .I1(SignalOutput[24]),
-        .O(\PLL_Freq[27]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[31]_i_2 
-       (.I0(PLL_Guess_Freq[31]),
-        .I1(SignalOutput[31]),
-        .O(\PLL_Freq[31]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[31]_i_3 
-       (.I0(PLL_Guess_Freq[30]),
-        .I1(SignalOutput[30]),
-        .O(\PLL_Freq[31]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[31]_i_4 
-       (.I0(PLL_Guess_Freq[29]),
-        .I1(SignalOutput[29]),
-        .O(\PLL_Freq[31]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[31]_i_5 
-       (.I0(PLL_Guess_Freq[28]),
-        .I1(SignalOutput[28]),
-        .O(\PLL_Freq[31]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[3]_i_2 
-       (.I0(PLL_Guess_Freq[3]),
-        .I1(SignalOutput[3]),
-        .O(\PLL_Freq[3]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[3]_i_3 
-       (.I0(PLL_Guess_Freq[2]),
-        .I1(SignalOutput[2]),
-        .O(\PLL_Freq[3]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[3]_i_4 
-       (.I0(PLL_Guess_Freq[1]),
-        .I1(SignalOutput[1]),
-        .O(\PLL_Freq[3]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[3]_i_5 
-       (.I0(PLL_Guess_Freq[0]),
-        .I1(SignalOutput[0]),
-        .O(\PLL_Freq[3]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[7]_i_2 
-       (.I0(PLL_Guess_Freq[7]),
-        .I1(SignalOutput[7]),
-        .O(\PLL_Freq[7]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[7]_i_3 
-       (.I0(PLL_Guess_Freq[6]),
-        .I1(SignalOutput[6]),
-        .O(\PLL_Freq[7]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[7]_i_4 
-       (.I0(PLL_Guess_Freq[5]),
-        .I1(SignalOutput[5]),
-        .O(\PLL_Freq[7]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \PLL_Freq[7]_i_5 
-       (.I0(PLL_Guess_Freq[4]),
-        .I1(SignalOutput[4]),
-        .O(\PLL_Freq[7]_i_5_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry
+       (.CI(1'b0),
+        .CO({PLL_Freq0_carry_n_0,PLL_Freq0_carry_n_1,PLL_Freq0_carry_n_2,PLL_Freq0_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI(PLL_Guess_Freq[3:0]),
+        .O({PLL_Freq0_carry_n_4,PLL_Freq0_carry_n_5,PLL_Freq0_carry_n_6,PLL_Freq0_carry_n_7}),
+        .S({Loop_Controller_n_32,Loop_Controller_n_33,Loop_Controller_n_34,Loop_Controller_n_35}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry__0
+       (.CI(PLL_Freq0_carry_n_0),
+        .CO({PLL_Freq0_carry__0_n_0,PLL_Freq0_carry__0_n_1,PLL_Freq0_carry__0_n_2,PLL_Freq0_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI(PLL_Guess_Freq[7:4]),
+        .O({PLL_Freq0_carry__0_n_4,PLL_Freq0_carry__0_n_5,PLL_Freq0_carry__0_n_6,PLL_Freq0_carry__0_n_7}),
+        .S({Loop_Controller_n_36,Loop_Controller_n_37,Loop_Controller_n_38,Loop_Controller_n_39}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry__1
+       (.CI(PLL_Freq0_carry__0_n_0),
+        .CO({PLL_Freq0_carry__1_n_0,PLL_Freq0_carry__1_n_1,PLL_Freq0_carry__1_n_2,PLL_Freq0_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI(PLL_Guess_Freq[11:8]),
+        .O({PLL_Freq0_carry__1_n_4,PLL_Freq0_carry__1_n_5,PLL_Freq0_carry__1_n_6,PLL_Freq0_carry__1_n_7}),
+        .S({Loop_Controller_n_40,Loop_Controller_n_41,Loop_Controller_n_42,Loop_Controller_n_43}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry__2
+       (.CI(PLL_Freq0_carry__1_n_0),
+        .CO({PLL_Freq0_carry__2_n_0,PLL_Freq0_carry__2_n_1,PLL_Freq0_carry__2_n_2,PLL_Freq0_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI(PLL_Guess_Freq[15:12]),
+        .O({PLL_Freq0_carry__2_n_4,PLL_Freq0_carry__2_n_5,PLL_Freq0_carry__2_n_6,PLL_Freq0_carry__2_n_7}),
+        .S({Loop_Controller_n_44,Loop_Controller_n_45,Loop_Controller_n_46,Loop_Controller_n_47}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry__3
+       (.CI(PLL_Freq0_carry__2_n_0),
+        .CO({PLL_Freq0_carry__3_n_0,PLL_Freq0_carry__3_n_1,PLL_Freq0_carry__3_n_2,PLL_Freq0_carry__3_n_3}),
+        .CYINIT(1'b0),
+        .DI(PLL_Guess_Freq[19:16]),
+        .O({PLL_Freq0_carry__3_n_4,PLL_Freq0_carry__3_n_5,PLL_Freq0_carry__3_n_6,PLL_Freq0_carry__3_n_7}),
+        .S({Loop_Controller_n_48,Loop_Controller_n_49,Loop_Controller_n_50,Loop_Controller_n_51}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry__4
+       (.CI(PLL_Freq0_carry__3_n_0),
+        .CO({PLL_Freq0_carry__4_n_0,PLL_Freq0_carry__4_n_1,PLL_Freq0_carry__4_n_2,PLL_Freq0_carry__4_n_3}),
+        .CYINIT(1'b0),
+        .DI(PLL_Guess_Freq[23:20]),
+        .O({PLL_Freq0_carry__4_n_4,PLL_Freq0_carry__4_n_5,PLL_Freq0_carry__4_n_6,PLL_Freq0_carry__4_n_7}),
+        .S({Loop_Controller_n_52,Loop_Controller_n_53,Loop_Controller_n_54,Loop_Controller_n_55}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry__5
+       (.CI(PLL_Freq0_carry__4_n_0),
+        .CO({PLL_Freq0_carry__5_n_0,PLL_Freq0_carry__5_n_1,PLL_Freq0_carry__5_n_2,PLL_Freq0_carry__5_n_3}),
+        .CYINIT(1'b0),
+        .DI(PLL_Guess_Freq[27:24]),
+        .O({PLL_Freq0_carry__5_n_4,PLL_Freq0_carry__5_n_5,PLL_Freq0_carry__5_n_6,PLL_Freq0_carry__5_n_7}),
+        .S({Loop_Controller_n_56,Loop_Controller_n_57,Loop_Controller_n_58,Loop_Controller_n_59}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 PLL_Freq0_carry__6
+       (.CI(PLL_Freq0_carry__5_n_0),
+        .CO({NLW_PLL_Freq0_carry__6_CO_UNCONNECTED[3],PLL_Freq0_carry__6_n_1,PLL_Freq0_carry__6_n_2,PLL_Freq0_carry__6_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,PLL_Guess_Freq[30:28]}),
+        .O({PLL_Freq0_carry__6_n_4,PLL_Freq0_carry__6_n_5,PLL_Freq0_carry__6_n_6,PLL_Freq0_carry__6_n_7}),
+        .S({Loop_Controller_n_60,Loop_Controller_n_61,Loop_Controller_n_62,Loop_Controller_n_63}));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[0] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[3]_i_1_n_7 ),
+        .D(PLL_Freq0_carry_n_7),
         .Q(\PLL_Freq_reg_n_0_[0] ),
         .R(1'b0));
   FDRE #(
@@ -8868,7 +8878,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[10] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[11]_i_1_n_5 ),
+        .D(PLL_Freq0_carry__1_n_5),
         .Q(\PLL_Freq_reg_n_0_[10] ),
         .R(1'b0));
   FDRE #(
@@ -8876,23 +8886,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[11] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[11]_i_1_n_4 ),
+        .D(PLL_Freq0_carry__1_n_4),
         .Q(\PLL_Freq_reg_n_0_[11] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[11]_i_1 
-       (.CI(\PLL_Freq_reg[7]_i_1_n_0 ),
-        .CO({\PLL_Freq_reg[11]_i_1_n_0 ,\PLL_Freq_reg[11]_i_1_n_1 ,\PLL_Freq_reg[11]_i_1_n_2 ,\PLL_Freq_reg[11]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(PLL_Guess_Freq[11:8]),
-        .O({\PLL_Freq_reg[11]_i_1_n_4 ,\PLL_Freq_reg[11]_i_1_n_5 ,\PLL_Freq_reg[11]_i_1_n_6 ,\PLL_Freq_reg[11]_i_1_n_7 }),
-        .S({\PLL_Freq[11]_i_2_n_0 ,\PLL_Freq[11]_i_3_n_0 ,\PLL_Freq[11]_i_4_n_0 ,\PLL_Freq[11]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[12] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[15]_i_1_n_7 ),
+        .D(PLL_Freq0_carry__2_n_7),
         .Q(\PLL_Freq_reg_n_0_[12] ),
         .R(1'b0));
   FDRE #(
@@ -8900,7 +8902,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[13] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[15]_i_1_n_6 ),
+        .D(PLL_Freq0_carry__2_n_6),
         .Q(\PLL_Freq_reg_n_0_[13] ),
         .R(1'b0));
   FDRE #(
@@ -8908,7 +8910,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[14] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[15]_i_1_n_5 ),
+        .D(PLL_Freq0_carry__2_n_5),
         .Q(\PLL_Freq_reg_n_0_[14] ),
         .R(1'b0));
   FDRE #(
@@ -8916,23 +8918,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[15] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[15]_i_1_n_4 ),
+        .D(PLL_Freq0_carry__2_n_4),
         .Q(\PLL_Freq_reg_n_0_[15] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[15]_i_1 
-       (.CI(\PLL_Freq_reg[11]_i_1_n_0 ),
-        .CO({\PLL_Freq_reg[15]_i_1_n_0 ,\PLL_Freq_reg[15]_i_1_n_1 ,\PLL_Freq_reg[15]_i_1_n_2 ,\PLL_Freq_reg[15]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(PLL_Guess_Freq[15:12]),
-        .O({\PLL_Freq_reg[15]_i_1_n_4 ,\PLL_Freq_reg[15]_i_1_n_5 ,\PLL_Freq_reg[15]_i_1_n_6 ,\PLL_Freq_reg[15]_i_1_n_7 }),
-        .S({\PLL_Freq[15]_i_2_n_0 ,\PLL_Freq[15]_i_3_n_0 ,\PLL_Freq[15]_i_4_n_0 ,\PLL_Freq[15]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[16] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[19]_i_1_n_7 ),
+        .D(PLL_Freq0_carry__3_n_7),
         .Q(\PLL_Freq_reg_n_0_[16] ),
         .R(1'b0));
   FDRE #(
@@ -8940,7 +8934,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[17] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[19]_i_1_n_6 ),
+        .D(PLL_Freq0_carry__3_n_6),
         .Q(\PLL_Freq_reg_n_0_[17] ),
         .R(1'b0));
   FDRE #(
@@ -8948,7 +8942,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[18] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[19]_i_1_n_5 ),
+        .D(PLL_Freq0_carry__3_n_5),
         .Q(\PLL_Freq_reg_n_0_[18] ),
         .R(1'b0));
   FDRE #(
@@ -8956,23 +8950,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[19] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[19]_i_1_n_4 ),
+        .D(PLL_Freq0_carry__3_n_4),
         .Q(\PLL_Freq_reg_n_0_[19] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[19]_i_1 
-       (.CI(\PLL_Freq_reg[15]_i_1_n_0 ),
-        .CO({\PLL_Freq_reg[19]_i_1_n_0 ,\PLL_Freq_reg[19]_i_1_n_1 ,\PLL_Freq_reg[19]_i_1_n_2 ,\PLL_Freq_reg[19]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(PLL_Guess_Freq[19:16]),
-        .O({\PLL_Freq_reg[19]_i_1_n_4 ,\PLL_Freq_reg[19]_i_1_n_5 ,\PLL_Freq_reg[19]_i_1_n_6 ,\PLL_Freq_reg[19]_i_1_n_7 }),
-        .S({\PLL_Freq[19]_i_2_n_0 ,\PLL_Freq[19]_i_3_n_0 ,\PLL_Freq[19]_i_4_n_0 ,\PLL_Freq[19]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[1] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[3]_i_1_n_6 ),
+        .D(PLL_Freq0_carry_n_6),
         .Q(\PLL_Freq_reg_n_0_[1] ),
         .R(1'b0));
   FDRE #(
@@ -8980,7 +8966,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[20] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[23]_i_1_n_7 ),
+        .D(PLL_Freq0_carry__4_n_7),
         .Q(\PLL_Freq_reg_n_0_[20] ),
         .R(1'b0));
   FDRE #(
@@ -8988,7 +8974,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[21] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[23]_i_1_n_6 ),
+        .D(PLL_Freq0_carry__4_n_6),
         .Q(\PLL_Freq_reg_n_0_[21] ),
         .R(1'b0));
   FDRE #(
@@ -8996,7 +8982,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[22] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[23]_i_1_n_5 ),
+        .D(PLL_Freq0_carry__4_n_5),
         .Q(\PLL_Freq_reg_n_0_[22] ),
         .R(1'b0));
   FDRE #(
@@ -9004,23 +8990,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[23] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[23]_i_1_n_4 ),
+        .D(PLL_Freq0_carry__4_n_4),
         .Q(\PLL_Freq_reg_n_0_[23] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[23]_i_1 
-       (.CI(\PLL_Freq_reg[19]_i_1_n_0 ),
-        .CO({\PLL_Freq_reg[23]_i_1_n_0 ,\PLL_Freq_reg[23]_i_1_n_1 ,\PLL_Freq_reg[23]_i_1_n_2 ,\PLL_Freq_reg[23]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(PLL_Guess_Freq[23:20]),
-        .O({\PLL_Freq_reg[23]_i_1_n_4 ,\PLL_Freq_reg[23]_i_1_n_5 ,\PLL_Freq_reg[23]_i_1_n_6 ,\PLL_Freq_reg[23]_i_1_n_7 }),
-        .S({\PLL_Freq[23]_i_2_n_0 ,\PLL_Freq[23]_i_3_n_0 ,\PLL_Freq[23]_i_4_n_0 ,\PLL_Freq[23]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[24] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[27]_i_1_n_7 ),
+        .D(PLL_Freq0_carry__5_n_7),
         .Q(\PLL_Freq_reg_n_0_[24] ),
         .R(1'b0));
   FDRE #(
@@ -9028,7 +9006,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[25] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[27]_i_1_n_6 ),
+        .D(PLL_Freq0_carry__5_n_6),
         .Q(\PLL_Freq_reg_n_0_[25] ),
         .R(1'b0));
   FDRE #(
@@ -9036,7 +9014,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[26] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[27]_i_1_n_5 ),
+        .D(PLL_Freq0_carry__5_n_5),
         .Q(\PLL_Freq_reg_n_0_[26] ),
         .R(1'b0));
   FDRE #(
@@ -9044,23 +9022,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[27] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[27]_i_1_n_4 ),
+        .D(PLL_Freq0_carry__5_n_4),
         .Q(\PLL_Freq_reg_n_0_[27] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[27]_i_1 
-       (.CI(\PLL_Freq_reg[23]_i_1_n_0 ),
-        .CO({\PLL_Freq_reg[27]_i_1_n_0 ,\PLL_Freq_reg[27]_i_1_n_1 ,\PLL_Freq_reg[27]_i_1_n_2 ,\PLL_Freq_reg[27]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(PLL_Guess_Freq[27:24]),
-        .O({\PLL_Freq_reg[27]_i_1_n_4 ,\PLL_Freq_reg[27]_i_1_n_5 ,\PLL_Freq_reg[27]_i_1_n_6 ,\PLL_Freq_reg[27]_i_1_n_7 }),
-        .S({\PLL_Freq[27]_i_2_n_0 ,\PLL_Freq[27]_i_3_n_0 ,\PLL_Freq[27]_i_4_n_0 ,\PLL_Freq[27]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[28] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[31]_i_1_n_7 ),
+        .D(PLL_Freq0_carry__6_n_7),
         .Q(\PLL_Freq_reg_n_0_[28] ),
         .R(1'b0));
   FDRE #(
@@ -9068,7 +9038,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[29] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[31]_i_1_n_6 ),
+        .D(PLL_Freq0_carry__6_n_6),
         .Q(\PLL_Freq_reg_n_0_[29] ),
         .R(1'b0));
   FDRE #(
@@ -9076,7 +9046,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[2] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[3]_i_1_n_5 ),
+        .D(PLL_Freq0_carry_n_5),
         .Q(\PLL_Freq_reg_n_0_[2] ),
         .R(1'b0));
   FDRE #(
@@ -9084,7 +9054,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[30] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[31]_i_1_n_5 ),
+        .D(PLL_Freq0_carry__6_n_5),
         .Q(\PLL_Freq_reg_n_0_[30] ),
         .R(1'b0));
   FDRE #(
@@ -9092,39 +9062,23 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[31] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[31]_i_1_n_4 ),
+        .D(PLL_Freq0_carry__6_n_4),
         .Q(\PLL_Freq_reg_n_0_[31] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[31]_i_1 
-       (.CI(\PLL_Freq_reg[27]_i_1_n_0 ),
-        .CO({\NLW_PLL_Freq_reg[31]_i_1_CO_UNCONNECTED [3],\PLL_Freq_reg[31]_i_1_n_1 ,\PLL_Freq_reg[31]_i_1_n_2 ,\PLL_Freq_reg[31]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,PLL_Guess_Freq[30:28]}),
-        .O({\PLL_Freq_reg[31]_i_1_n_4 ,\PLL_Freq_reg[31]_i_1_n_5 ,\PLL_Freq_reg[31]_i_1_n_6 ,\PLL_Freq_reg[31]_i_1_n_7 }),
-        .S({\PLL_Freq[31]_i_2_n_0 ,\PLL_Freq[31]_i_3_n_0 ,\PLL_Freq[31]_i_4_n_0 ,\PLL_Freq[31]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[3] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[3]_i_1_n_4 ),
+        .D(PLL_Freq0_carry_n_4),
         .Q(\PLL_Freq_reg_n_0_[3] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[3]_i_1 
-       (.CI(1'b0),
-        .CO({\PLL_Freq_reg[3]_i_1_n_0 ,\PLL_Freq_reg[3]_i_1_n_1 ,\PLL_Freq_reg[3]_i_1_n_2 ,\PLL_Freq_reg[3]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(PLL_Guess_Freq[3:0]),
-        .O({\PLL_Freq_reg[3]_i_1_n_4 ,\PLL_Freq_reg[3]_i_1_n_5 ,\PLL_Freq_reg[3]_i_1_n_6 ,\PLL_Freq_reg[3]_i_1_n_7 }),
-        .S({\PLL_Freq[3]_i_2_n_0 ,\PLL_Freq[3]_i_3_n_0 ,\PLL_Freq[3]_i_4_n_0 ,\PLL_Freq[3]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[4] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[7]_i_1_n_7 ),
+        .D(PLL_Freq0_carry__0_n_7),
         .Q(\PLL_Freq_reg_n_0_[4] ),
         .R(1'b0));
   FDRE #(
@@ -9132,7 +9086,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[5] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[7]_i_1_n_6 ),
+        .D(PLL_Freq0_carry__0_n_6),
         .Q(\PLL_Freq_reg_n_0_[5] ),
         .R(1'b0));
   FDRE #(
@@ -9140,7 +9094,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[6] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[7]_i_1_n_5 ),
+        .D(PLL_Freq0_carry__0_n_5),
         .Q(\PLL_Freq_reg_n_0_[6] ),
         .R(1'b0));
   FDRE #(
@@ -9148,23 +9102,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[7] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[7]_i_1_n_4 ),
+        .D(PLL_Freq0_carry__0_n_4),
         .Q(\PLL_Freq_reg_n_0_[7] ),
         .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \PLL_Freq_reg[7]_i_1 
-       (.CI(\PLL_Freq_reg[3]_i_1_n_0 ),
-        .CO({\PLL_Freq_reg[7]_i_1_n_0 ,\PLL_Freq_reg[7]_i_1_n_1 ,\PLL_Freq_reg[7]_i_1_n_2 ,\PLL_Freq_reg[7]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI(PLL_Guess_Freq[7:4]),
-        .O({\PLL_Freq_reg[7]_i_1_n_4 ,\PLL_Freq_reg[7]_i_1_n_5 ,\PLL_Freq_reg[7]_i_1_n_6 ,\PLL_Freq_reg[7]_i_1_n_7 }),
-        .S({\PLL_Freq[7]_i_2_n_0 ,\PLL_Freq[7]_i_3_n_0 ,\PLL_Freq[7]_i_4_n_0 ,\PLL_Freq[7]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \PLL_Freq_reg[8] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[11]_i_1_n_7 ),
+        .D(PLL_Freq0_carry__1_n_7),
         .Q(\PLL_Freq_reg_n_0_[8] ),
         .R(1'b0));
   FDRE #(
@@ -9172,7 +9118,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
     \PLL_Freq_reg[9] 
        (.C(Clock),
         .CE(1'b1),
-        .D(\PLL_Freq_reg[11]_i_1_n_6 ),
+        .D(PLL_Freq0_carry__1_n_6),
         .Q(\PLL_Freq_reg_n_0_[9] ),
         .R(1'b0));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -9434,6 +9380,198 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
         .D(PRBS_output_i_1_n_0),
         .Q(Message),
         .R(1'b0));
+  FDRE \Phase_Accumulated_reg[0] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_3),
+        .Q(Phase_Error[0]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[10] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_9),
+        .Q(Phase_Error[10]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[11] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_8),
+        .Q(Phase_Error[11]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[12] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_15),
+        .Q(Phase_Error[12]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[13] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_14),
+        .Q(Phase_Error[13]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[14] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_13),
+        .Q(Phase_Error[14]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[15] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_12),
+        .Q(Phase_Error[15]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[16] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_19),
+        .Q(Phase_Error[16]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[17] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_18),
+        .Q(Phase_Error[17]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[18] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_17),
+        .Q(Phase_Error[18]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[19] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_16),
+        .Q(Phase_Error[19]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[1] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_2),
+        .Q(Phase_Error[1]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[20] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_23),
+        .Q(Phase_Error[20]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[21] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_22),
+        .Q(Phase_Error[21]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[22] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_21),
+        .Q(Phase_Error[22]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[23] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_20),
+        .Q(Phase_Error[23]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[24] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_27),
+        .Q(Phase_Error[24]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[25] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_26),
+        .Q(Phase_Error[25]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[26] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_25),
+        .Q(Phase_Error[26]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[27] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_24),
+        .Q(Phase_Error[27]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[28] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_31),
+        .Q(Phase_Error[28]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[29] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_30),
+        .Q(Phase_Error[29]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[2] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_1),
+        .Q(Phase_Error[2]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[30] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_29),
+        .Q(Phase_Error[30]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[31] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_28),
+        .Q(Phase_Error[31]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[3] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_0),
+        .Q(Phase_Error[3]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[4] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_7),
+        .Q(Phase_Error[4]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[5] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_6),
+        .Q(Phase_Error[5]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[6] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_5),
+        .Q(Phase_Error[6]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[7] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_4),
+        .Q(Phase_Error[7]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[8] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_11),
+        .Q(Phase_Error[8]),
+        .R(Integrator_Reset));
+  FDRE \Phase_Accumulated_reg[9] 
+       (.C(Clock),
+        .CE(Sample__0),
+        .D(Loop_Controller_n_10),
+        .Q(Phase_Error[9]),
+        .R(Integrator_Reset));
   Differental_Phasemeter_Costa_Demodulator_1_0_CIC32_2 Quadrature_Filter
        (.CO(Cross_Mixer_n_0),
         .Clock(Clock),
@@ -9510,6 +9648,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_Costa_Demodulator
         .\section_out1_reg[23]_0 ({Input_Quadrature_Mixer_n_20,Input_Quadrature_Mixer_n_21,Input_Quadrature_Mixer_n_22,Input_Quadrature_Mixer_n_23}),
         .\section_out1_reg[25]_0 ({Input_Quadrature_Mixer_n_24,Input_Quadrature_Mixer_n_25}),
         .\section_out1_reg[7]_0 ({Input_Quadrature_Mixer_n_4,Input_Quadrature_Mixer_n_5,Input_Quadrature_Mixer_n_6,Input_Quadrature_Mixer_n_7}));
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    Sample
+       (.I0(Counter_reg[0]),
+        .I1(Counter_reg[2]),
+        .I2(Counter_reg[1]),
+        .I3(Counter_reg[3]),
+        .I4(Counter_reg[4]),
+        .O(Sample__0));
 endmodule
 
 (* ORIG_REF_NAME = "Mixer" *) 
@@ -12428,15 +12575,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     D,
     Locked_Carrier,
     B,
-    Reset,
     Clock,
+    Reset,
     Q);
   output [31:0]Phase_Measured;
   output [13:0]D;
   output [13:0]Locked_Carrier;
   output [13:0]B;
-  input Reset;
   input Clock;
+  input Reset;
   input [31:0]Q;
 
   wire [13:0]B;
@@ -12444,15 +12591,12 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
   wire [13:0]D;
   wire [1:0]DelayPipe1;
   wire \DelayPipe2_reg_n_0_[0] ;
-  wire [29:18]L;
+  wire [29:22]L;
   wire [13:0]Locked_Carrier;
   wire [31:0]Phase_Measured;
   wire [31:0]Q;
-  wire [11:0]Quadrature_addr;
+  wire [7:0]Quadrature_addr;
   wire \Quadrature_addr[0]_i_1_n_0 ;
-  wire \Quadrature_addr[10]_i_1_n_0 ;
-  wire \Quadrature_addr[11]_i_1_n_0 ;
-  wire \Quadrature_addr[11]_i_2_n_0 ;
   wire \Quadrature_addr[1]_i_1_n_0 ;
   wire \Quadrature_addr[2]_i_1_n_0 ;
   wire \Quadrature_addr[3]_i_1_n_0 ;
@@ -12460,14 +12604,11 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
   wire \Quadrature_addr[5]_i_1_n_0 ;
   wire \Quadrature_addr[6]_i_1_n_0 ;
   wire \Quadrature_addr[7]_i_1_n_0 ;
-  wire \Quadrature_addr[8]_i_1_n_0 ;
-  wire \Quadrature_addr[9]_i_1_n_0 ;
-  wire [12:0]Quadrature_buffer_reg;
+  wire \Quadrature_addr[7]_i_2_n_0 ;
+  wire [12:0]\^Quadrature_buffer_reg ;
   wire Reset;
-  wire [11:0]dataAddr;
+  wire [7:0]dataAddr;
   wire \dataAddr[0]_i_1_n_0 ;
-  wire \dataAddr[10]_i_1_n_0 ;
-  wire \dataAddr[11]_i_1_n_0 ;
   wire \dataAddr[1]_i_1_n_0 ;
   wire \dataAddr[2]_i_1_n_0 ;
   wire \dataAddr[3]_i_1_n_0 ;
@@ -12475,8 +12616,6 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
   wire \dataAddr[5]_i_1_n_0 ;
   wire \dataAddr[6]_i_1_n_0 ;
   wire \dataAddr[7]_i_1_n_0 ;
-  wire \dataAddr[8]_i_1_n_0 ;
-  wire \dataAddr[9]_i_1_n_0 ;
   wire [12:0]databuffer_reg;
   wire [1:0]p_0_in;
   wire \phase[11]_i_2_n_0 ;
@@ -12574,30 +12713,10 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
   wire \phase_reg[7]_i_1_n_5 ;
   wire \phase_reg[7]_i_1_n_6 ;
   wire \phase_reg[7]_i_1_n_7 ;
-  wire NLW_Quadrature_buffer_reg_0_CASCADEOUTA_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_0_CASCADEOUTB_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_0_DBITERR_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_0_INJECTDBITERR_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_0_INJECTSBITERR_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_0_SBITERR_UNCONNECTED;
-  wire [31:8]NLW_Quadrature_buffer_reg_0_DOADO_UNCONNECTED;
-  wire [31:8]NLW_Quadrature_buffer_reg_0_DOBDO_UNCONNECTED;
-  wire [3:0]NLW_Quadrature_buffer_reg_0_DOPADOP_UNCONNECTED;
-  wire [3:0]NLW_Quadrature_buffer_reg_0_DOPBDOP_UNCONNECTED;
-  wire [7:0]NLW_Quadrature_buffer_reg_0_ECCPARITY_UNCONNECTED;
-  wire [8:0]NLW_Quadrature_buffer_reg_0_RDADDRECC_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_1_CASCADEOUTA_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_1_CASCADEOUTB_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_1_DBITERR_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_1_INJECTDBITERR_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_1_INJECTSBITERR_UNCONNECTED;
-  wire NLW_Quadrature_buffer_reg_1_SBITERR_UNCONNECTED;
-  wire [31:5]NLW_Quadrature_buffer_reg_1_DOADO_UNCONNECTED;
-  wire [31:5]NLW_Quadrature_buffer_reg_1_DOBDO_UNCONNECTED;
-  wire [3:0]NLW_Quadrature_buffer_reg_1_DOPADOP_UNCONNECTED;
-  wire [3:0]NLW_Quadrature_buffer_reg_1_DOPBDOP_UNCONNECTED;
-  wire [7:0]NLW_Quadrature_buffer_reg_1_ECCPARITY_UNCONNECTED;
-  wire [8:0]NLW_Quadrature_buffer_reg_1_RDADDRECC_UNCONNECTED;
+  wire [15:13]NLW_Quadrature_buffer_reg_DOADO_UNCONNECTED;
+  wire [15:13]NLW_Quadrature_buffer_reg_DOBDO_UNCONNECTED;
+  wire [1:0]NLW_Quadrature_buffer_reg_DOPADOP_UNCONNECTED;
+  wire [1:0]NLW_Quadrature_buffer_reg_DOPBDOP_UNCONNECTED;
   wire [3:3]\NLW_phase_reg[31]_i_1_CO_UNCONNECTED ;
 
   FDRE \DelayPipe1_reg[0] 
@@ -12824,130 +12943,98 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(8'h96)) 
     Dout_reg_i_10
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[4]),
+        .I1(\^Quadrature_buffer_reg [4]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[4]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_11
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[3]),
+        .I1(\^Quadrature_buffer_reg [3]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[3]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_12
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[2]),
+        .I1(\^Quadrature_buffer_reg [2]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[2]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_13
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[1]),
+        .I1(\^Quadrature_buffer_reg [1]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[1]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_14
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[0]),
+        .I1(\^Quadrature_buffer_reg [0]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[0]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_2
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[12]),
+        .I1(\^Quadrature_buffer_reg [12]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[12]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_3
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[11]),
+        .I1(\^Quadrature_buffer_reg [11]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[11]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_4
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[10]),
+        .I1(\^Quadrature_buffer_reg [10]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[10]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_5
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[9]),
+        .I1(\^Quadrature_buffer_reg [9]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[9]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_6
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[8]),
+        .I1(\^Quadrature_buffer_reg [8]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[8]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_7
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[7]),
+        .I1(\^Quadrature_buffer_reg [7]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[7]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_8
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[6]),
+        .I1(\^Quadrature_buffer_reg [6]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[6]));
   LUT3 #(
     .INIT(8'h96)) 
     Dout_reg_i_9
        (.I0(D[13]),
-        .I1(Quadrature_buffer_reg[5]),
+        .I1(\^Quadrature_buffer_reg [5]),
         .I2(\DelayPipe2_reg_n_0_[0] ),
         .O(B[5]));
   FDRE #(
     .INIT(1'b0)) 
-    \OffsetPhase_reg[18] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(Phase_Measured[18]),
-        .Q(L[18]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \OffsetPhase_reg[19] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(Phase_Measured[19]),
-        .Q(L[19]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \OffsetPhase_reg[20] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(Phase_Measured[20]),
-        .Q(L[20]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \OffsetPhase_reg[21] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(Phase_Measured[21]),
-        .Q(L[21]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
     \OffsetPhase_reg[22] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[22]),
         .Q(L[22]),
         .R(1'b0));
@@ -12955,7 +13042,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[23] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[23]),
         .Q(L[23]),
         .R(1'b0));
@@ -12963,7 +13050,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[24] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[24]),
         .Q(L[24]),
         .R(1'b0));
@@ -12971,7 +13058,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[25] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[25]),
         .Q(L[25]),
         .R(1'b0));
@@ -12979,7 +13066,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[26] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[26]),
         .Q(L[26]),
         .R(1'b0));
@@ -12987,7 +13074,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[27] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[27]),
         .Q(L[27]),
         .R(1'b0));
@@ -12995,7 +13082,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[28] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[28]),
         .Q(L[28]),
         .R(1'b0));
@@ -13003,7 +13090,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[29] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[29]),
         .Q(L[29]),
         .R(1'b0));
@@ -13011,7 +13098,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[30] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[30]),
         .Q(p_0_in[0]),
         .R(1'b0));
@@ -13019,128 +13106,84 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \OffsetPhase_reg[31] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(Phase_Measured[31]),
         .Q(p_0_in[1]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
-  LUT2 #(
-    .INIT(4'h9)) 
-    \Quadrature_addr[0]_i_1 
-       (.I0(L[18]),
-        .I1(p_0_in[0]),
-        .O(\Quadrature_addr[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT2 #(
-    .INIT(4'h9)) 
-    \Quadrature_addr[10]_i_1 
-       (.I0(L[28]),
-        .I1(p_0_in[0]),
-        .O(\Quadrature_addr[10]_i_1_n_0 ));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \Quadrature_addr[11]_i_1 
-       (.I0(Reset),
-        .O(\Quadrature_addr[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT2 #(
-    .INIT(4'h9)) 
-    \Quadrature_addr[11]_i_2 
-       (.I0(L[29]),
-        .I1(p_0_in[0]),
-        .O(\Quadrature_addr[11]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
-  LUT2 #(
-    .INIT(4'h9)) 
-    \Quadrature_addr[1]_i_1 
-       (.I0(L[19]),
-        .I1(p_0_in[0]),
-        .O(\Quadrature_addr[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT2 #(
-    .INIT(4'h9)) 
-    \Quadrature_addr[2]_i_1 
-       (.I0(L[20]),
-        .I1(p_0_in[0]),
-        .O(\Quadrature_addr[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
-  LUT2 #(
-    .INIT(4'h9)) 
-    \Quadrature_addr[3]_i_1 
-       (.I0(L[21]),
-        .I1(p_0_in[0]),
-        .O(\Quadrature_addr[3]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[4]_i_1 
+    \Quadrature_addr[0]_i_1 
        (.I0(L[22]),
         .I1(p_0_in[0]),
-        .O(\Quadrature_addr[4]_i_1_n_0 ));
+        .O(\Quadrature_addr[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[5]_i_1 
+    \Quadrature_addr[1]_i_1 
        (.I0(L[23]),
         .I1(p_0_in[0]),
-        .O(\Quadrature_addr[5]_i_1_n_0 ));
+        .O(\Quadrature_addr[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[6]_i_1 
+    \Quadrature_addr[2]_i_1 
        (.I0(L[24]),
         .I1(p_0_in[0]),
-        .O(\Quadrature_addr[6]_i_1_n_0 ));
+        .O(\Quadrature_addr[2]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[7]_i_1 
+    \Quadrature_addr[3]_i_1 
        (.I0(L[25]),
         .I1(p_0_in[0]),
-        .O(\Quadrature_addr[7]_i_1_n_0 ));
+        .O(\Quadrature_addr[3]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[8]_i_1 
+    \Quadrature_addr[4]_i_1 
        (.I0(L[26]),
         .I1(p_0_in[0]),
-        .O(\Quadrature_addr[8]_i_1_n_0 ));
+        .O(\Quadrature_addr[4]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    \Quadrature_addr[9]_i_1 
+    \Quadrature_addr[5]_i_1 
        (.I0(L[27]),
         .I1(p_0_in[0]),
-        .O(\Quadrature_addr[9]_i_1_n_0 ));
+        .O(\Quadrature_addr[5]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \Quadrature_addr[6]_i_1 
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
+        .O(\Quadrature_addr[6]_i_1_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \Quadrature_addr[7]_i_1 
+       (.I0(Reset),
+        .O(\Quadrature_addr[7]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \Quadrature_addr[7]_i_2 
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
+        .O(\Quadrature_addr[7]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \Quadrature_addr_reg[0] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\Quadrature_addr[0]_i_1_n_0 ),
         .Q(Quadrature_addr[0]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \Quadrature_addr_reg[10] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\Quadrature_addr[10]_i_1_n_0 ),
-        .Q(Quadrature_addr[10]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \Quadrature_addr_reg[11] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\Quadrature_addr[11]_i_2_n_0 ),
-        .Q(Quadrature_addr[11]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
     \Quadrature_addr_reg[1] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\Quadrature_addr[1]_i_1_n_0 ),
         .Q(Quadrature_addr[1]),
         .R(1'b0));
@@ -13148,7 +13191,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[2] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\Quadrature_addr[2]_i_1_n_0 ),
         .Q(Quadrature_addr[2]),
         .R(1'b0));
@@ -13156,7 +13199,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[3] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\Quadrature_addr[3]_i_1_n_0 ),
         .Q(Quadrature_addr[3]),
         .R(1'b0));
@@ -13164,7 +13207,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[4] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\Quadrature_addr[4]_i_1_n_0 ),
         .Q(Quadrature_addr[4]),
         .R(1'b0));
@@ -13172,7 +13215,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[5] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\Quadrature_addr[5]_i_1_n_0 ),
         .Q(Quadrature_addr[5]),
         .R(1'b0));
@@ -13180,7 +13223,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[6] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\Quadrature_addr[6]_i_1_n_0 ),
         .Q(Quadrature_addr[6]),
         .R(1'b0));
@@ -13188,251 +13231,23 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \Quadrature_addr_reg[7] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\Quadrature_addr[7]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
+        .D(\Quadrature_addr[7]_i_2_n_0 ),
         .Q(Quadrature_addr[7]),
         .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \Quadrature_addr_reg[8] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\Quadrature_addr[8]_i_1_n_0 ),
-        .Q(Quadrature_addr[8]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \Quadrature_addr_reg[9] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\Quadrature_addr[9]_i_1_n_0 ),
-        .Q(Quadrature_addr[9]),
-        .R(1'b0));
-  (* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d8" *) 
+  (* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d13" *) 
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
-  (* RTL_RAM_BITS = "53248" *) 
-  (* RTL_RAM_NAME = "inst/Loop_Oscilator/Quadrature_buffer_reg_0" *) 
+  (* RTL_RAM_BITS = "3328" *) 
+  (* RTL_RAM_NAME = "inst/Loop_Oscilator/Quadrature_buffer_reg" *) 
   (* RTL_RAM_TYPE = "RAM_SP" *) 
   (* ram_addr_begin = "0" *) 
-  (* ram_addr_end = "4095" *) 
+  (* ram_addr_end = "1023" *) 
   (* ram_offset = "0" *) 
   (* ram_slice_begin = "0" *) 
-  (* ram_slice_end = "7" *) 
-  RAMB36E1 #(
-    .DOA_REG(0),
-    .DOB_REG(0),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h312F2E2C2A2927262423211F1E1C1B191816141311100E0D0B09080605030200),
-    .INIT_01(256'h6361605E5D5B5A5856555352504F4D4B4A4847454442403F3D3C3A3937353432),
-    .INIT_02(256'h959492908F8D8C8A8987858482817F7E7C7A7977767473716F6E6C6B69686664),
-    .INIT_03(256'hC7C6C4C3C1C0BEBCBBB9B8B6B5B3B1B0AEADABAAA8A6A5A3A2A09F9D9B9A9897),
-    .INIT_04(256'hFAF8F6F5F3F2F0EFEDEBEAE8E7E5E4E2E0DFDDDCDAD9D7D5D4D2D1CFCECCCBC9),
-    .INIT_05(256'h2C2A2927252422211F1E1C1A1917161413110F0E0C0B09080605030100FEFDFB),
-    .INIT_06(256'h5E5C5B595856545351504E4D4B494846454342403E3D3B3A3837353432302F2D),
-    .INIT_07(256'h908E8D8B8A8886858382807F7D7B7A7877757472716F6D6C6A6967666462615F),
-    .INIT_08(256'hC2C0BFBDBCBAB8B7B5B4B2B1AFAEACAAA9A7A6A4A3A19F9E9C9B999896959391),
-    .INIT_09(256'hF4F2F1EFEDECEAE9E7E6E4E3E1DFDEDCDBD9D8D6D5D3D1D0CECDCBCAC8C6C5C3),
-    .INIT_0A(256'h262422211F1E1C1B191816141311100E0D0B0A080605030200FFFDFCFAF8F7F5),
-    .INIT_0B(256'h5756545351504E4C4B494846454342403E3D3B3A3837353432302F2D2C2A2927),
-    .INIT_0C(256'h898786848381807E7D7B797876757372706F6D6B6A6867656462615F5E5C5A59),
-    .INIT_0D(256'hBBB9B7B6B4B3B1B0AEADABAAA8A6A5A3A2A09F9D9C9A9897959492918F8E8C8B),
-    .INIT_0E(256'hECEAE9E7E6E4E3E1E0DEDDDBD9D8D6D5D3D2D0CFCDCCCAC8C7C5C4C2C1BFBEBC),
-    .INIT_0F(256'h1D1C1A1917161413110F0E0C0B09080605030200FFFDFBFAF8F7F5F4F2F1EFEE),
-    .INIT_10(256'h4F4D4C4A4847454442413F3E3C3B393836343331302E2D2B2A2827252422201F),
-    .INIT_11(256'h807E7D7B7A7876757372706F6D6C6A6967666463615F5E5C5B59585655535250),
-    .INIT_12(256'hB1AFAEACABA9A7A6A4A3A1A09E9D9B9A9897959492918F8D8C8A898786848381),
-    .INIT_13(256'hE1E0DEDDDBDAD8D7D5D4D2D1CFCECCCBC9C8C6C5C3C1C0BEBDBBBAB8B7B5B4B2),
-    .INIT_14(256'h12110F0E0C0B09080604030100FEFDFBFAF8F7F5F4F2F1EFEEECEBE9E8E6E5E3),
-    .INIT_15(256'h4341403E3D3B3A3837353432302F2D2C2A292726242321201E1D1B1A18171514),
-    .INIT_16(256'h7372706F6D6B6A6867656462615F5E5C5B595856555352504F4D4C4A49474644),
-    .INIT_17(256'hA3A2A09F9D9C9A999796949391908E8D8B8A8887858482817F7E7C7B79787675),
-    .INIT_18(256'hD3D2D0CFCDCCCAC9C7C6C4C3C1C0BEBDBBBAB8B7B5B4B2B1AFAEACABA9A8A6A5),
-    .INIT_19(256'h030200FFFDFCFAF9F7F6F4F3F1F0EEEDEBEAE8E7E5E4E2E1DFDEDCDBD9D8D6D5),
-    .INIT_1A(256'h3331302E2D2B2A2827252422211F1E1C1B191816151312100F0D0C0A09080605),
-    .INIT_1B(256'h62615F5E5C5B595856555352504F4D4C4A494746444342403F3D3C3A39373634),
-    .INIT_1C(256'h91908E8D8B8A888786848381807E7D7B7A7877757472716F6E6C6B6968676564),
-    .INIT_1D(256'hC0BFBDBCBAB9B8B6B5B3B2B0AFADACAAA9A7A6A4A3A1A09F9D9C9A9997969493),
-    .INIT_1E(256'hEFEEECEBE9E8E6E5E3E2E0DFDEDCDBD9D8D6D5D3D2D0CFCDCCCBC9C8C6C5C3C2),
-    .INIT_1F(256'h1E1C1B191816151312110F0E0C0B09080605030201FFFEFCFBF9F8F6F5F3F2F1),
-    .INIT_20(256'h4C4B494846454342403F3E3C3B393836353332302F2E2C2B292826252322211F),
-    .INIT_21(256'h7A797776747371706F6D6C6A696766646362605F5D5C5A595756555352504F4D),
-    .INIT_22(256'hA8A6A5A4A2A19F9E9C9B9A989795949291908E8D8B8A888786848381807E7D7B),
-    .INIT_23(256'hD5D4D3D1D0CECDCBCAC9C7C6C4C3C2C0BFBDBCBAB9B8B6B5B3B2B0AFAEACABA9),
-    .INIT_24(256'h030100FEFDFCFAF9F7F6F5F3F2F0EFEEECEBE9E8E6E5E4E2E1DFDEDDDBDAD8D7),
-    .INIT_25(256'h302E2D2C2A292726252322201F1D1C1B191816151412110F0E0D0B0A08070604),
-    .INIT_26(256'h5D5B5A585756545351504F4D4C4A494846454342413F3E3C3B3A383735343331),
-    .INIT_27(256'h898886858382817F7E7D7B7A787776747371706F6D6C6A696866656362615F5E),
-    .INIT_28(256'hB5B4B2B1B0AEADACAAA9A7A6A5A3A2A09F9E9C9B9A989795949391908F8D8C8A),
-    .INIT_29(256'hE1E0DEDDDCDAD9D7D6D5D3D2D1CFCECDCBCAC8C7C6C4C3C2C0BFBDBCBBB9B8B7),
-    .INIT_2A(256'h0D0B0A09070604030200FFFEFCFBFAF8F7F6F4F3F1F0EFEDECEBE9E8E7E5E4E2),
-    .INIT_2B(256'h383735343331302E2D2C2A29282625242221201E1D1C1A191716151312110F0E),
-    .INIT_2C(256'h6362605F5E5C5B59585755545351504F4D4C4B49484745444341403F3D3C3B39),
-    .INIT_2D(256'h8D8C8B8A888786848382807F7E7C7B7A787776747372706F6E6C6B6A68676664),
-    .INIT_2E(256'hB8B6B5B4B3B1B0AFADACABA9A8A7A5A4A3A1A09F9D9C9B99989795949391908F),
-    .INIT_2F(256'hE2E0DFDEDDDBDAD9D7D6D5D3D2D1CFCECDCCCAC9C8C6C5C4C2C1C0BEBDBCBAB9),
-    .INIT_30(256'h0B0A0907060504020100FEFDFCFBF9F8F7F5F4F3F1F0EFEDECEBEAE8E7E6E4E3),
-    .INIT_31(256'h35333231302E2D2C2A29282725242321201F1D1C1B1A181716141312110F0E0D),
-    .INIT_32(256'h5E5C5B5A58575655535251504E4D4C4A49484745444341403F3E3C3B3A393736),
-    .INIT_33(256'h8685848281807F7D7C7B79787776747372716F6E6D6C6A69686665646361605F),
-    .INIT_34(256'hAEADACABA9A8A7A6A4A3A2A19F9E9D9C9A99989695949391908F8E8C8B8A8987),
-    .INIT_35(256'hD6D5D4D2D1D0CFCDCCCBCAC8C7C6C5C4C2C1C0BFBDBCBBBAB8B7B6B5B3B2B1B0),
-    .INIT_36(256'hFEFCFBFAF9F7F6F5F4F3F1F0EFEEECEBEAE9E7E6E5E4E3E1E0DFDEDCDBDAD9D7),
-    .INIT_37(256'h25232221201F1D1C1B1A18171615141211100F0D0C0B0A0907060504020100FF),
-    .INIT_38(256'h4B4A49484645444342403F3E3D3C3A3938373634333231302E2D2C2B29282726),
-    .INIT_39(256'h72706F6E6D6C6A6968676664636261605E5D5C5B5A58575655545251504F4E4C),
-    .INIT_3A(256'h979695949392908F8E8D8C8A8988878685838281807F7D7C7B7A797776757473),
-    .INIT_3B(256'hBDBCBBB9B8B7B6B5B4B2B1B0AFAEADABAAA9A8A7A6A4A3A2A1A09E9D9C9B9A99),
-    .INIT_3C(256'hE2E1E0DEDDDCDBDAD9D8D6D5D4D3D2D1CFCECDCCCBCAC8C7C6C5C4C3C2C0BFBE),
-    .INIT_3D(256'h07050403020100FFFDFCFBFAF9F8F7F5F4F3F2F1F0EFEDECEBEAE9E8E7E5E4E3),
-    .INIT_3E(256'h2B2A28272625242322211F1E1D1C1B1A1918161514131211100E0D0C0B0A0908),
-    .INIT_3F(256'h4E4D4C4B4A4948474644434241403F3E3D3C3A3938373635343331302F2E2D2C),
-    .INIT_40(256'h7271706F6D6C6B6A6968676665646261605F5E5D5C5B5A585756555453525150),
-    .INIT_41(256'h95949391908F8E8D8C8B8A8988878584838281807F7E7D7C7B79787776757473),
-    .INIT_42(256'hB7B6B5B4B3B2B1B0AFAEACABAAA9A8A7A6A5A4A3A2A1A09E9D9C9B9A99989796),
-    .INIT_43(256'hD9D8D7D6D5D4D3D2D1D0CFCECCCBCAC9C8C7C6C5C4C3C2C1C0BFBEBCBBBAB9B8),
-    .INIT_44(256'hFBFAF9F8F7F5F4F3F2F1F0EFEEEDECEBEAE9E8E7E6E5E4E3E2E1DFDEDDDCDBDA),
-    .INIT_45(256'h1C1B1A1918171615141211100F0E0D0C0B0A09080706050403020100FFFEFDFC),
-    .INIT_46(256'h3C3B3A393837363534333231302F2E2D2C2B2A292827262524232221201F1E1D),
-    .INIT_47(256'h5C5B5A595857565554535251504F4E4D4C4B4A494847464544434241403F3E3D),
-    .INIT_48(256'h7C7B7A797877767574737271706F6E6D6C6B6A696867666564636261605F5E5D),
-    .INIT_49(256'h9B9A99989796969594939291908F8E8D8C8B8A898887868584838281807F7E7D),
-    .INIT_4A(256'hBAB9B8B7B6B5B4B3B2B1B0B0AFAEADACABAAA9A8A7A6A5A4A3A2A1A09F9E9D9C),
-    .INIT_4B(256'hD8D7D6D5D4D4D3D2D1D0CFCECDCCCBCAC9C8C7C6C5C4C3C3C2C1C0BFBEBDBCBB),
-    .INIT_4C(256'hF6F5F4F3F2F1F0EFEFEEEDECEBEAE9E8E7E6E5E4E3E2E2E1E0DFDEDDDCDBDAD9),
-    .INIT_4D(256'h131211100F0F0E0D0C0B0A0908070605050403020100FFFEFDFCFBFAFAF9F8F7),
-    .INIT_4E(256'h302F2E2D2C2B2A2A29282726252423222221201F1E1D1C1B1A19191817161514),
-    .INIT_4F(256'h4C4B4A4948484746454443424141403F3E3D3C3B3A3A39383736353433323231),
-    .INIT_50(256'h686766656463636261605F5E5D5C5C5B5A59585756565554535251504F4F4E4D),
-    .INIT_51(256'h838281807F7F7E7D7C7B7A7A79787776757474737271706F6F6E6D6C6B6A6969),
-    .INIT_52(256'h9D9D9C9B9A9999989796959494939291908F8F8E8D8C8B8A8A89888786858584),
-    .INIT_53(256'hB8B7B6B5B4B4B3B2B1B0AFAFAEADACABABAAA9A8A7A7A6A5A4A3A2A2A1A09F9E),
-    .INIT_54(256'hD1D0D0CFCECDCCCCCBCAC9C8C8C7C6C5C4C4C3C2C1C0C0BFBEBDBCBCBBBAB9B8),
-    .INIT_55(256'hEAE9E9E8E7E6E6E5E4E3E2E2E1E0DFDFDEDDDCDBDBDAD9D8D7D7D6D5D4D4D3D2),
-    .INIT_56(256'h0302010000FFFEFDFDFCFBFAFAF9F8F7F7F6F5F4F3F3F2F1F0F0EFEEEDEDECEB),
-    .INIT_57(256'h1B1A19191817161615141313121110100F0E0D0D0C0B0A0A0908070706050404),
-    .INIT_58(256'h323131302F2F2E2D2C2C2B2A29292827272625242423222121201F1E1E1D1C1B),
-    .INIT_59(256'h49484847464645444343424141403F3E3E3D3C3C3B3A39393837363635343433),
-    .INIT_5A(256'h5F5F5E5D5D5C5B5B5A59585857565655545453525151504F4F4E4D4D4C4B4A4A),
-    .INIT_5B(256'h7574747372727170706F6E6E6D6C6C6B6A6A6968686766666564646362616160),
-    .INIT_5C(256'h8A8A8988888786868584848382828181807F7F7E7D7D7C7B7B7A797978777776),
-    .INIT_5D(256'h9F9E9E9D9D9C9B9B9A999998979796959594939392929190908F8E8E8D8C8C8B),
-    .INIT_5E(256'hB3B3B2B1B1B0AFAFAEAEADACACABAAAAA9A9A8A7A7A6A5A5A4A3A3A2A2A1A0A0),
-    .INIT_5F(256'hC7C6C5C5C4C4C3C2C2C1C1C0BFBFBEBEBDBCBCBBBBBAB9B9B8B7B7B6B6B5B4B4),
-    .INIT_60(256'hDAD9D8D8D7D7D6D6D5D4D4D3D3D2D1D1D0D0CFCECECDCDCCCBCBCACAC9C8C8C7),
-    .INIT_61(256'hECEBEBEAEAE9E9E8E7E7E6E6E5E5E4E3E3E2E2E1E1E0DFDFDEDEDDDDDCDBDBDA),
-    .INIT_62(256'hFEFDFDFCFCFBFBFAF9F9F8F8F7F7F6F6F5F4F4F3F3F2F2F1F1F0EFEFEEEEEDED),
-    .INIT_63(256'h0F0F0E0E0D0C0C0B0B0A0A090908080707060505040403030202010100FFFFFE),
-    .INIT_64(256'h201F1F1E1E1D1D1C1C1B1B1A1A19191817171616151514141313121211111010),
-    .INIT_65(256'h302F2F2E2E2D2D2C2C2B2B2A2A29292828272726262525242423232222212120),
-    .INIT_66(256'h3F3F3E3E3D3D3C3C3B3B3B3A3A39393838373736363535343433333232313130),
-    .INIT_67(256'h4E4E4D4D4C4C4B4B4B4A4A494948484747464645454544444343424241414040),
-    .INIT_68(256'h5D5C5C5B5B5A5A59595958585757565655555554545353525251515050504F4F),
-    .INIT_69(256'h6A6A6969696868676766666665656464636363626261616060605F5F5E5E5D5D),
-    .INIT_6A(256'h77777776767575757474737373727271717070706F6F6E6E6E6D6D6C6C6B6B6B),
-    .INIT_6B(256'h8484838382828281818080807F7F7E7E7E7D7D7D7C7C7B7B7B7A7A7979797878),
-    .INIT_6C(256'h908F8F8F8E8E8E8D8D8D8C8C8B8B8B8A8A8A8989888888878787868685858584),
-    .INIT_6D(256'h9B9B9A9A9A999999989898979797969696959595949493939392929291919190),
-    .INIT_6E(256'hA6A6A5A5A5A4A4A4A3A3A3A2A2A2A1A1A1A0A0A09F9F9F9E9E9E9D9D9D9C9C9C),
-    .INIT_6F(256'hB0B0AFAFAFAEAEAEAEADADADACACACABABABAAAAAAA9A9A9A8A8A8A8A7A7A7A6),
-    .INIT_70(256'hBAB9B9B9B8B8B8B7B7B7B7B6B6B6B5B5B5B5B4B4B4B3B3B3B2B2B2B2B1B1B1B0),
-    .INIT_71(256'hC2C2C2C2C1C1C1C1C0C0C0BFBFBFBFBEBEBEBEBDBDBDBCBCBCBCBBBBBBBABABA),
-    .INIT_72(256'hCBCACACACAC9C9C9C9C8C8C8C8C7C7C7C7C6C6C6C6C5C5C5C5C4C4C4C4C3C3C3),
-    .INIT_73(256'hD2D2D2D2D2D1D1D1D1D0D0D0D0CFCFCFCFCECECECECDCDCDCDCCCCCCCCCBCBCB),
-    .INIT_74(256'hDAD9D9D9D9D8D8D8D8D8D7D7D7D7D7D6D6D6D6D5D5D5D5D5D4D4D4D4D3D3D3D3),
-    .INIT_75(256'hE0E0E0DFDFDFDFDFDEDEDEDEDEDDDDDDDDDDDCDCDCDCDCDBDBDBDBDBDADADADA),
-    .INIT_76(256'hE6E6E6E5E5E5E5E5E4E4E4E4E4E4E3E3E3E3E3E2E2E2E2E2E2E1E1E1E1E1E0E0),
-    .INIT_77(256'hEBEBEBEBEBEAEAEAEAEAEAE9E9E9E9E9E9E8E8E8E8E8E8E7E7E7E7E7E7E6E6E6),
-    .INIT_78(256'hF0F0EFEFEFEFEFEFEFEFEEEEEEEEEEEEEEEDEDEDEDEDEDECECECECECECECEBEB),
-    .INIT_79(256'hF4F4F4F3F3F3F3F3F3F3F3F2F2F2F2F2F2F2F2F1F1F1F1F1F1F1F1F0F0F0F0F0),
-    .INIT_7A(256'hF7F7F7F7F7F7F7F7F6F6F6F6F6F6F6F6F6F5F5F5F5F5F5F5F5F5F4F4F4F4F4F4),
-    .INIT_7B(256'hFAFAFAFAFAFAFAF9F9F9F9F9F9F9F9F9F9F9F8F8F8F8F8F8F8F8F8F8F8F7F7F7),
-    .INIT_7C(256'hFCFCFCFCFCFCFCFCFCFCFCFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFAFAFAFAFAFA),
-    .INIT_7D(256'hFEFEFEFEFEFEFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFCFCFCFCFC),
-    .INIT_7E(256'hFFFFFFFFFFFFFFFFFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFE),
-    .INIT_7F(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("PERFORMANCE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("RSTREG"),
-    .RSTREG_PRIORITY_B("RSTREG"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(0)) 
-    Quadrature_buffer_reg_0
-       (.ADDRARDADDR({1'b1,Quadrature_addr,1'b0,1'b0,1'b0}),
-        .ADDRBWRADDR({1'b1,dataAddr,1'b0,1'b0,1'b0}),
-        .CASCADEINA(1'b1),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(NLW_Quadrature_buffer_reg_0_CASCADEOUTA_UNCONNECTED),
-        .CASCADEOUTB(NLW_Quadrature_buffer_reg_0_CASCADEOUTB_UNCONNECTED),
-        .CLKARDCLK(Clock),
-        .CLKBWRCLK(Clock),
-        .DBITERR(NLW_Quadrature_buffer_reg_0_DBITERR_UNCONNECTED),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .DIBDI({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .DIPADIP({1'b0,1'b0,1'b0,1'b0}),
-        .DIPBDIP({1'b1,1'b1,1'b1,1'b1}),
-        .DOADO({NLW_Quadrature_buffer_reg_0_DOADO_UNCONNECTED[31:8],Quadrature_buffer_reg[7:0]}),
-        .DOBDO({NLW_Quadrature_buffer_reg_0_DOBDO_UNCONNECTED[31:8],databuffer_reg[7:0]}),
-        .DOPADOP(NLW_Quadrature_buffer_reg_0_DOPADOP_UNCONNECTED[3:0]),
-        .DOPBDOP(NLW_Quadrature_buffer_reg_0_DOPBDOP_UNCONNECTED[3:0]),
-        .ECCPARITY(NLW_Quadrature_buffer_reg_0_ECCPARITY_UNCONNECTED[7:0]),
-        .ENARDEN(1'b1),
-        .ENBWREN(1'b1),
-        .INJECTDBITERR(NLW_Quadrature_buffer_reg_0_INJECTDBITERR_UNCONNECTED),
-        .INJECTSBITERR(NLW_Quadrature_buffer_reg_0_INJECTSBITERR_UNCONNECTED),
-        .RDADDRECC(NLW_Quadrature_buffer_reg_0_RDADDRECC_UNCONNECTED[8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(1'b0),
-        .RSTRAMARSTRAM(Reset),
-        .RSTRAMB(Reset),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(NLW_Quadrature_buffer_reg_0_SBITERR_UNCONNECTED),
-        .WEA({1'b0,1'b0,1'b0,1'b0}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  (* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d5" *) 
-  (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
-  (* RTL_RAM_BITS = "53248" *) 
-  (* RTL_RAM_NAME = "inst/Loop_Oscilator/Quadrature_buffer_reg_1" *) 
-  (* RTL_RAM_TYPE = "RAM_SP" *) 
-  (* ram_addr_begin = "0" *) 
-  (* ram_addr_end = "4095" *) 
-  (* ram_offset = "0" *) 
-  (* ram_slice_begin = "8" *) 
   (* ram_slice_end = "12" *) 
-  RAMB36E1 #(
+  RAMB18E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
     .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -13441,306 +13256,178 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0101010101010101010101010101010101010101010101010101010101000000),
-    .INIT_06(256'h0101010101010101010101010101010101010101010101010101010101010101),
-    .INIT_07(256'h0101010101010101010101010101010101010101010101010101010101010101),
-    .INIT_08(256'h0101010101010101010101010101010101010101010101010101010101010101),
-    .INIT_09(256'h0101010101010101010101010101010101010101010101010101010101010101),
-    .INIT_0A(256'h0202020202020202020202020202020202020202020202020201010101010101),
-    .INIT_0B(256'h0202020202020202020202020202020202020202020202020202020202020202),
-    .INIT_0C(256'h0202020202020202020202020202020202020202020202020202020202020202),
-    .INIT_0D(256'h0202020202020202020202020202020202020202020202020202020202020202),
-    .INIT_0E(256'h0202020202020202020202020202020202020202020202020202020202020202),
-    .INIT_0F(256'h0303030303030303030303030303030303030303020202020202020202020202),
-    .INIT_10(256'h0303030303030303030303030303030303030303030303030303030303030303),
-    .INIT_11(256'h0303030303030303030303030303030303030303030303030303030303030303),
-    .INIT_12(256'h0303030303030303030303030303030303030303030303030303030303030303),
-    .INIT_13(256'h0303030303030303030303030303030303030303030303030303030303030303),
-    .INIT_14(256'h0404040404040404040404040403030303030303030303030303030303030303),
-    .INIT_15(256'h0404040404040404040404040404040404040404040404040404040404040404),
-    .INIT_16(256'h0404040404040404040404040404040404040404040404040404040404040404),
-    .INIT_17(256'h0404040404040404040404040404040404040404040404040404040404040404),
-    .INIT_18(256'h0404040404040404040404040404040404040404040404040404040404040404),
-    .INIT_19(256'h0505050404040404040404040404040404040404040404040404040404040404),
-    .INIT_1A(256'h0505050505050505050505050505050505050505050505050505050505050505),
-    .INIT_1B(256'h0505050505050505050505050505050505050505050505050505050505050505),
-    .INIT_1C(256'h0505050505050505050505050505050505050505050505050505050505050505),
-    .INIT_1D(256'h0505050505050505050505050505050505050505050505050505050505050505),
-    .INIT_1E(256'h0505050505050505050505050505050505050505050505050505050505050505),
-    .INIT_1F(256'h0606060606060606060606060606060606060606060505050505050505050505),
-    .INIT_20(256'h0606060606060606060606060606060606060606060606060606060606060606),
-    .INIT_21(256'h0606060606060606060606060606060606060606060606060606060606060606),
-    .INIT_22(256'h0606060606060606060606060606060606060606060606060606060606060606),
-    .INIT_23(256'h0606060606060606060606060606060606060606060606060606060606060606),
-    .INIT_24(256'h0707070606060606060606060606060606060606060606060606060606060606),
-    .INIT_25(256'h0707070707070707070707070707070707070707070707070707070707070707),
-    .INIT_26(256'h0707070707070707070707070707070707070707070707070707070707070707),
-    .INIT_27(256'h0707070707070707070707070707070707070707070707070707070707070707),
-    .INIT_28(256'h0707070707070707070707070707070707070707070707070707070707070707),
-    .INIT_29(256'h0707070707070707070707070707070707070707070707070707070707070707),
-    .INIT_2A(256'h0808080808080808080807070707070707070707070707070707070707070707),
-    .INIT_2B(256'h0808080808080808080808080808080808080808080808080808080808080808),
-    .INIT_2C(256'h0808080808080808080808080808080808080808080808080808080808080808),
-    .INIT_2D(256'h0808080808080808080808080808080808080808080808080808080808080808),
-    .INIT_2E(256'h0808080808080808080808080808080808080808080808080808080808080808),
-    .INIT_2F(256'h0808080808080808080808080808080808080808080808080808080808080808),
-    .INIT_30(256'h0909090909090909090908080808080808080808080808080808080808080808),
-    .INIT_31(256'h0909090909090909090909090909090909090909090909090909090909090909),
-    .INIT_32(256'h0909090909090909090909090909090909090909090909090909090909090909),
-    .INIT_33(256'h0909090909090909090909090909090909090909090909090909090909090909),
-    .INIT_34(256'h0909090909090909090909090909090909090909090909090909090909090909),
-    .INIT_35(256'h0909090909090909090909090909090909090909090909090909090909090909),
-    .INIT_36(256'h0909090909090909090909090909090909090909090909090909090909090909),
-    .INIT_37(256'h0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A09),
-    .INIT_38(256'h0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A),
-    .INIT_39(256'h0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A),
-    .INIT_3A(256'h0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A),
-    .INIT_3B(256'h0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A),
-    .INIT_3C(256'h0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A),
-    .INIT_3D(256'h0B0B0B0B0B0B0B0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A),
-    .INIT_3E(256'h0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B),
-    .INIT_3F(256'h0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B),
-    .INIT_40(256'h0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B),
-    .INIT_41(256'h0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B),
-    .INIT_42(256'h0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B),
-    .INIT_43(256'h0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B),
-    .INIT_44(256'h0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B),
-    .INIT_45(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0B0B0B0B),
-    .INIT_46(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C),
-    .INIT_47(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C),
-    .INIT_48(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C),
-    .INIT_49(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C),
-    .INIT_4A(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C),
-    .INIT_4B(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C),
-    .INIT_4C(256'h0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C),
-    .INIT_4D(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0C0C0C0C0C0C0C0C0C0C),
-    .INIT_4E(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_4F(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_50(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_51(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_52(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_53(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_54(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_55(256'h0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_56(256'h0E0E0E0E0E0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D),
-    .INIT_57(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_58(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_59(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_5A(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_5B(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_5C(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_5D(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_5E(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_5F(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_60(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_61(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_62(256'h0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E),
-    .INIT_63(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0E0E0E),
-    .INIT_64(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_65(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_66(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_67(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_68(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_69(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_6A(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_6B(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_6C(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_6D(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_6E(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_6F(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_70(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_71(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_72(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_73(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_74(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_75(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_76(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_77(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_78(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_79(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_7A(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_7B(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_7C(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_7D(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_7E(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_7F(256'h0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
+    .INIT_00(256'h0178015F0146012D011400FB00E200C900B00097007E0064004B003200190000),
+    .INIT_01(256'h030602EE02D502BC02A3028B0272025902400227020E01F501DC01C301AA0191),
+    .INIT_02(256'h048D0475045C0444042C041403FB03E303CB03B2039A0381036903500338031F),
+    .INIT_03(256'h060805F105D905C205AA0593057B0564054C0534051C050504ED04D504BD04A5),
+    .INIT_04(256'h0774075E07480731071B070406EE06D706C006A90692067B0664064D0636061F),
+    .INIT_05(256'h08CE08B908A4088F087A0864084F08390824080E07F807E207CD07B707A0078A),
+    .INIT_06(256'h0A1209FF09EB09D709C409B0099C09870973095F094A09360921090D08F808E3),
+    .INIT_07(256'h0B3E0B2C0B1A0B080AF50AE30AD10ABE0AAB0A990A860A730A600A4C0A390A26),
+    .INIT_08(256'h0C4D0C3D0C2D0C1D0C0C0BFC0BEB0BDA0BC90BB80BA70B960B840B730B610B50),
+    .INIT_09(256'h0D3F0D310D220D140D050CF70CE80CD90CCA0CBB0CAC0C9C0C8D0C7D0C6D0C5D),
+    .INIT_0A(256'h0E100E040DF70DEB0DDF0DD20DC50DB80DAB0D9E0D910D840D760D690D5B0D4D),
+    .INIT_0B(256'h0EBE0EB40EAA0EA00E950E8B0E810E760E6B0E600E550E4A0E3E0E330E270E1B),
+    .INIT_0C(256'h0F470F400F380F300F280F200F180F100F070EFE0EF60EED0EE30EDA0ED10EC7),
+    .INIT_0D(256'h0FAB0FA60FA10F9C0F960F900F8A0F840F7E0F780F710F6B0F640F5D0F560F4F),
+    .INIT_0E(256'h0FE90FE60FE30FE00FDD0FDA0FD60FD30FCF0FCB0FC70FC30FBE0FBA0FB50FB0),
+    .INIT_0F(256'h0FFF0FFF0FFE0FFE0FFD0FFC0FFB0FFA0FF90FF70FF60FF40FF20FF00FEE0FEB),
+    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_A(18'h00000),
+    .INIT_B(18'h00000),
     .RAM_MODE("TDP"),
     .RDADDR_COLLISION_HWCONFIG("PERFORMANCE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
+    .READ_WIDTH_A(18),
+    .READ_WIDTH_B(18),
     .RSTREG_PRIORITY_A("RSTREG"),
     .RSTREG_PRIORITY_B("RSTREG"),
     .SIM_COLLISION_CHECK("ALL"),
     .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
+    .SRVAL_A(18'h00000),
+    .SRVAL_B(18'h00000),
     .WRITE_MODE_A("WRITE_FIRST"),
     .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
+    .WRITE_WIDTH_A(18),
     .WRITE_WIDTH_B(0)) 
-    Quadrature_buffer_reg_1
-       (.ADDRARDADDR({1'b1,Quadrature_addr,1'b0,1'b0,1'b0}),
-        .ADDRBWRADDR({1'b1,dataAddr,1'b0,1'b0,1'b0}),
-        .CASCADEINA(1'b1),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(NLW_Quadrature_buffer_reg_1_CASCADEOUTA_UNCONNECTED),
-        .CASCADEOUTB(NLW_Quadrature_buffer_reg_1_CASCADEOUTB_UNCONNECTED),
+    Quadrature_buffer_reg
+       (.ADDRARDADDR({1'b0,1'b0,Quadrature_addr,1'b0,1'b0,1'b0,1'b0}),
+        .ADDRBWRADDR({1'b0,1'b0,dataAddr,1'b0,1'b0,1'b0,1'b0}),
         .CLKARDCLK(Clock),
         .CLKBWRCLK(Clock),
-        .DBITERR(NLW_Quadrature_buffer_reg_1_DBITERR_UNCONNECTED),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .DIBDI({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .DIPADIP({1'b0,1'b0,1'b0,1'b0}),
-        .DIPBDIP({1'b1,1'b1,1'b1,1'b1}),
-        .DOADO({NLW_Quadrature_buffer_reg_1_DOADO_UNCONNECTED[31:5],Quadrature_buffer_reg[12:8]}),
-        .DOBDO({NLW_Quadrature_buffer_reg_1_DOBDO_UNCONNECTED[31:5],databuffer_reg[12:8]}),
-        .DOPADOP(NLW_Quadrature_buffer_reg_1_DOPADOP_UNCONNECTED[3:0]),
-        .DOPBDOP(NLW_Quadrature_buffer_reg_1_DOPBDOP_UNCONNECTED[3:0]),
-        .ECCPARITY(NLW_Quadrature_buffer_reg_1_ECCPARITY_UNCONNECTED[7:0]),
+        .DIADI({1'b0,1'b0,1'b0,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
+        .DIBDI({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
+        .DIPADIP({1'b0,1'b0}),
+        .DIPBDIP({1'b1,1'b1}),
+        .DOADO({NLW_Quadrature_buffer_reg_DOADO_UNCONNECTED[15:13],\^Quadrature_buffer_reg }),
+        .DOBDO({NLW_Quadrature_buffer_reg_DOBDO_UNCONNECTED[15:13],databuffer_reg}),
+        .DOPADOP(NLW_Quadrature_buffer_reg_DOPADOP_UNCONNECTED[1:0]),
+        .DOPBDOP(NLW_Quadrature_buffer_reg_DOPBDOP_UNCONNECTED[1:0]),
         .ENARDEN(1'b1),
         .ENBWREN(1'b1),
-        .INJECTDBITERR(NLW_Quadrature_buffer_reg_1_INJECTDBITERR_UNCONNECTED),
-        .INJECTSBITERR(NLW_Quadrature_buffer_reg_1_INJECTSBITERR_UNCONNECTED),
-        .RDADDRECC(NLW_Quadrature_buffer_reg_1_RDADDRECC_UNCONNECTED[8:0]),
         .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(Reset),
         .RSTRAMB(Reset),
         .RSTREGARSTREG(1'b0),
         .RSTREGB(1'b0),
-        .SBITERR(NLW_Quadrature_buffer_reg_1_SBITERR_UNCONNECTED),
-        .WEA({1'b0,1'b0,1'b0,1'b0}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \dataAddr[0]_i_1 
-       (.I0(L[18]),
-        .I1(p_0_in[0]),
-        .O(\dataAddr[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \dataAddr[10]_i_1 
-       (.I0(L[28]),
-        .I1(p_0_in[0]),
-        .O(\dataAddr[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \dataAddr[11]_i_1 
-       (.I0(L[29]),
-        .I1(p_0_in[0]),
-        .O(\dataAddr[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \dataAddr[1]_i_1 
-       (.I0(L[19]),
-        .I1(p_0_in[0]),
-        .O(\dataAddr[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \dataAddr[2]_i_1 
-       (.I0(L[20]),
-        .I1(p_0_in[0]),
-        .O(\dataAddr[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \dataAddr[3]_i_1 
-       (.I0(L[21]),
-        .I1(p_0_in[0]),
-        .O(\dataAddr[3]_i_1_n_0 ));
+        .WEA({1'b0,1'b0}),
+        .WEBWE({1'b0,1'b0,1'b0,1'b0}));
   (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \dataAddr[4]_i_1 
+    \dataAddr[0]_i_1 
        (.I0(L[22]),
         .I1(p_0_in[0]),
-        .O(\dataAddr[4]_i_1_n_0 ));
+        .O(\dataAddr[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \dataAddr[5]_i_1 
+    \dataAddr[1]_i_1 
        (.I0(L[23]),
         .I1(p_0_in[0]),
-        .O(\dataAddr[5]_i_1_n_0 ));
+        .O(\dataAddr[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \dataAddr[6]_i_1 
+    \dataAddr[2]_i_1 
        (.I0(L[24]),
         .I1(p_0_in[0]),
-        .O(\dataAddr[6]_i_1_n_0 ));
+        .O(\dataAddr[2]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \dataAddr[7]_i_1 
+    \dataAddr[3]_i_1 
        (.I0(L[25]),
         .I1(p_0_in[0]),
-        .O(\dataAddr[7]_i_1_n_0 ));
+        .O(\dataAddr[3]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \dataAddr[8]_i_1 
+    \dataAddr[4]_i_1 
        (.I0(L[26]),
         .I1(p_0_in[0]),
-        .O(\dataAddr[8]_i_1_n_0 ));
+        .O(\dataAddr[4]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \dataAddr[9]_i_1 
+    \dataAddr[5]_i_1 
        (.I0(L[27]),
         .I1(p_0_in[0]),
-        .O(\dataAddr[9]_i_1_n_0 ));
+        .O(\dataAddr[5]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \dataAddr[6]_i_1 
+       (.I0(L[28]),
+        .I1(p_0_in[0]),
+        .O(\dataAddr[6]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \dataAddr[7]_i_1 
+       (.I0(L[29]),
+        .I1(p_0_in[0]),
+        .O(\dataAddr[7]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \dataAddr_reg[0] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[0]_i_1_n_0 ),
         .Q(dataAddr[0]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \dataAddr_reg[10] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\dataAddr[10]_i_1_n_0 ),
-        .Q(dataAddr[10]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \dataAddr_reg[11] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\dataAddr[11]_i_1_n_0 ),
-        .Q(dataAddr[11]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
     \dataAddr_reg[1] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[1]_i_1_n_0 ),
         .Q(dataAddr[1]),
         .R(1'b0));
@@ -13748,7 +13435,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[2] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[2]_i_1_n_0 ),
         .Q(dataAddr[2]),
         .R(1'b0));
@@ -13756,7 +13443,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[3] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[3]_i_1_n_0 ),
         .Q(dataAddr[3]),
         .R(1'b0));
@@ -13764,7 +13451,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[4] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[4]_i_1_n_0 ),
         .Q(dataAddr[4]),
         .R(1'b0));
@@ -13772,7 +13459,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[5] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[5]_i_1_n_0 ),
         .Q(dataAddr[5]),
         .R(1'b0));
@@ -13780,7 +13467,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[6] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[6]_i_1_n_0 ),
         .Q(dataAddr[6]),
         .R(1'b0));
@@ -13788,25 +13475,9 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_NCO
     .INIT(1'b0)) 
     \dataAddr_reg[7] 
        (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
+        .CE(\Quadrature_addr[7]_i_1_n_0 ),
         .D(\dataAddr[7]_i_1_n_0 ),
         .Q(dataAddr[7]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \dataAddr_reg[8] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\dataAddr[8]_i_1_n_0 ),
-        .Q(dataAddr[8]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \dataAddr_reg[9] 
-       (.C(Clock),
-        .CE(\Quadrature_addr[11]_i_1_n_0 ),
-        .D(\dataAddr[9]_i_1_n_0 ),
-        .Q(dataAddr[9]),
         .R(1'b0));
   LUT2 #(
     .INIT(4'h6)) 
@@ -14324,18 +13995,52 @@ endmodule
 
 (* ORIG_REF_NAME = "PID_Controller" *) 
 module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
-   (\SignalOutput_reg[31]_0 ,
+   (O,
+    \SignalOutput_reg[7]_0 ,
+    \SignalOutput_reg[11]_0 ,
+    \SignalOutput_reg[15]_0 ,
+    \SignalOutput_reg[19]_0 ,
+    \SignalOutput_reg[23]_0 ,
+    \SignalOutput_reg[27]_0 ,
+    \SignalOutput_reg[30]_0 ,
+    S,
+    \PLL_Guess_Freq[7] ,
+    \PLL_Guess_Freq[11] ,
+    \PLL_Guess_Freq[15] ,
+    \PLL_Guess_Freq[19] ,
+    \PLL_Guess_Freq[23] ,
+    \PLL_Guess_Freq[27] ,
+    \PLL_Guess_Freq[31] ,
     Clock,
     Control_Ki,
     Q,
     Control_Kp,
+    PLL_Guess_Freq,
+    Phase_Error,
     Integrator_Reset,
     Reset);
-  output [31:0]\SignalOutput_reg[31]_0 ;
+  output [3:0]O;
+  output [3:0]\SignalOutput_reg[7]_0 ;
+  output [3:0]\SignalOutput_reg[11]_0 ;
+  output [3:0]\SignalOutput_reg[15]_0 ;
+  output [3:0]\SignalOutput_reg[19]_0 ;
+  output [3:0]\SignalOutput_reg[23]_0 ;
+  output [3:0]\SignalOutput_reg[27]_0 ;
+  output [3:0]\SignalOutput_reg[30]_0 ;
+  output [3:0]S;
+  output [3:0]\PLL_Guess_Freq[7] ;
+  output [3:0]\PLL_Guess_Freq[11] ;
+  output [3:0]\PLL_Guess_Freq[15] ;
+  output [3:0]\PLL_Guess_Freq[19] ;
+  output [3:0]\PLL_Guess_Freq[23] ;
+  output [3:0]\PLL_Guess_Freq[27] ;
+  output [3:0]\PLL_Guess_Freq[31] ;
   input Clock;
   input [31:0]Control_Ki;
   input [25:0]Q;
   input [31:0]Control_Kp;
+  input [31:0]PLL_Guess_Freq;
+  input [31:0]Phase_Error;
   input Integrator_Reset;
   input Reset;
 
@@ -15172,6 +14877,15 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
   wire \I_pipeline_reg[7]_i_1_n_7 ;
   wire [31:0]Integral_Stage;
   wire Integrator_Reset;
+  wire [3:0]O;
+  wire [31:0]PLL_Guess_Freq;
+  wire [3:0]\PLL_Guess_Freq[11] ;
+  wire [3:0]\PLL_Guess_Freq[15] ;
+  wire [3:0]\PLL_Guess_Freq[19] ;
+  wire [3:0]\PLL_Guess_Freq[23] ;
+  wire [3:0]\PLL_Guess_Freq[27] ;
+  wire [3:0]\PLL_Guess_Freq[31] ;
+  wire [3:0]\PLL_Guess_Freq[7] ;
   wire [31:0]P_pipeline;
   wire \P_pipeline[11]_i_2_n_0 ;
   wire \P_pipeline[11]_i_3_n_0 ;
@@ -15267,8 +14981,73 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
   wire \P_pipeline_reg[7]_i_1_n_5 ;
   wire \P_pipeline_reg[7]_i_1_n_6 ;
   wire \P_pipeline_reg[7]_i_1_n_7 ;
+  wire \Phase_Accumulated[11]_i_2_n_0 ;
+  wire \Phase_Accumulated[11]_i_3_n_0 ;
+  wire \Phase_Accumulated[11]_i_4_n_0 ;
+  wire \Phase_Accumulated[11]_i_5_n_0 ;
+  wire \Phase_Accumulated[15]_i_2_n_0 ;
+  wire \Phase_Accumulated[15]_i_3_n_0 ;
+  wire \Phase_Accumulated[15]_i_4_n_0 ;
+  wire \Phase_Accumulated[15]_i_5_n_0 ;
+  wire \Phase_Accumulated[19]_i_2_n_0 ;
+  wire \Phase_Accumulated[19]_i_3_n_0 ;
+  wire \Phase_Accumulated[19]_i_4_n_0 ;
+  wire \Phase_Accumulated[19]_i_5_n_0 ;
+  wire \Phase_Accumulated[23]_i_2_n_0 ;
+  wire \Phase_Accumulated[23]_i_3_n_0 ;
+  wire \Phase_Accumulated[23]_i_4_n_0 ;
+  wire \Phase_Accumulated[23]_i_5_n_0 ;
+  wire \Phase_Accumulated[27]_i_2_n_0 ;
+  wire \Phase_Accumulated[27]_i_3_n_0 ;
+  wire \Phase_Accumulated[27]_i_4_n_0 ;
+  wire \Phase_Accumulated[27]_i_5_n_0 ;
+  wire \Phase_Accumulated[31]_i_2_n_0 ;
+  wire \Phase_Accumulated[31]_i_3_n_0 ;
+  wire \Phase_Accumulated[31]_i_4_n_0 ;
+  wire \Phase_Accumulated[31]_i_5_n_0 ;
+  wire \Phase_Accumulated[3]_i_2_n_0 ;
+  wire \Phase_Accumulated[3]_i_3_n_0 ;
+  wire \Phase_Accumulated[3]_i_4_n_0 ;
+  wire \Phase_Accumulated[3]_i_5_n_0 ;
+  wire \Phase_Accumulated[7]_i_2_n_0 ;
+  wire \Phase_Accumulated[7]_i_3_n_0 ;
+  wire \Phase_Accumulated[7]_i_4_n_0 ;
+  wire \Phase_Accumulated[7]_i_5_n_0 ;
+  wire \Phase_Accumulated_reg[11]_i_1_n_0 ;
+  wire \Phase_Accumulated_reg[11]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[11]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[11]_i_1_n_3 ;
+  wire \Phase_Accumulated_reg[15]_i_1_n_0 ;
+  wire \Phase_Accumulated_reg[15]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[15]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[15]_i_1_n_3 ;
+  wire \Phase_Accumulated_reg[19]_i_1_n_0 ;
+  wire \Phase_Accumulated_reg[19]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[19]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[19]_i_1_n_3 ;
+  wire \Phase_Accumulated_reg[23]_i_1_n_0 ;
+  wire \Phase_Accumulated_reg[23]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[23]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[23]_i_1_n_3 ;
+  wire \Phase_Accumulated_reg[27]_i_1_n_0 ;
+  wire \Phase_Accumulated_reg[27]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[27]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[27]_i_1_n_3 ;
+  wire \Phase_Accumulated_reg[31]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[31]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[31]_i_1_n_3 ;
+  wire \Phase_Accumulated_reg[3]_i_1_n_0 ;
+  wire \Phase_Accumulated_reg[3]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[3]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[3]_i_1_n_3 ;
+  wire \Phase_Accumulated_reg[7]_i_1_n_0 ;
+  wire \Phase_Accumulated_reg[7]_i_1_n_1 ;
+  wire \Phase_Accumulated_reg[7]_i_1_n_2 ;
+  wire \Phase_Accumulated_reg[7]_i_1_n_3 ;
+  wire [31:0]Phase_Error;
   wire [25:0]Q;
   wire Reset;
+  wire [3:0]S;
   wire Sig_Buffer_reg0_carry__0_i_1_n_0;
   wire Sig_Buffer_reg0_carry__0_i_2_n_0;
   wire Sig_Buffer_reg0_carry__0_i_3_n_0;
@@ -15397,7 +15176,45 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
   wire \Sig_Buffer_reg_n_0_[8] ;
   wire \Sig_Buffer_reg_n_0_[9] ;
   wire \SignalOutput[31]_i_1_n_0 ;
-  wire [31:0]\SignalOutput_reg[31]_0 ;
+  wire [3:0]\SignalOutput_reg[11]_0 ;
+  wire [3:0]\SignalOutput_reg[15]_0 ;
+  wire [3:0]\SignalOutput_reg[19]_0 ;
+  wire [3:0]\SignalOutput_reg[23]_0 ;
+  wire [3:0]\SignalOutput_reg[27]_0 ;
+  wire [3:0]\SignalOutput_reg[30]_0 ;
+  wire [3:0]\SignalOutput_reg[7]_0 ;
+  wire \SignalOutput_reg_n_0_[0] ;
+  wire \SignalOutput_reg_n_0_[10] ;
+  wire \SignalOutput_reg_n_0_[11] ;
+  wire \SignalOutput_reg_n_0_[12] ;
+  wire \SignalOutput_reg_n_0_[13] ;
+  wire \SignalOutput_reg_n_0_[14] ;
+  wire \SignalOutput_reg_n_0_[15] ;
+  wire \SignalOutput_reg_n_0_[16] ;
+  wire \SignalOutput_reg_n_0_[17] ;
+  wire \SignalOutput_reg_n_0_[18] ;
+  wire \SignalOutput_reg_n_0_[19] ;
+  wire \SignalOutput_reg_n_0_[1] ;
+  wire \SignalOutput_reg_n_0_[20] ;
+  wire \SignalOutput_reg_n_0_[21] ;
+  wire \SignalOutput_reg_n_0_[22] ;
+  wire \SignalOutput_reg_n_0_[23] ;
+  wire \SignalOutput_reg_n_0_[24] ;
+  wire \SignalOutput_reg_n_0_[25] ;
+  wire \SignalOutput_reg_n_0_[26] ;
+  wire \SignalOutput_reg_n_0_[27] ;
+  wire \SignalOutput_reg_n_0_[28] ;
+  wire \SignalOutput_reg_n_0_[29] ;
+  wire \SignalOutput_reg_n_0_[2] ;
+  wire \SignalOutput_reg_n_0_[30] ;
+  wire \SignalOutput_reg_n_0_[31] ;
+  wire \SignalOutput_reg_n_0_[3] ;
+  wire \SignalOutput_reg_n_0_[4] ;
+  wire \SignalOutput_reg_n_0_[5] ;
+  wire \SignalOutput_reg_n_0_[6] ;
+  wire \SignalOutput_reg_n_0_[7] ;
+  wire \SignalOutput_reg_n_0_[8] ;
+  wire \SignalOutput_reg_n_0_[9] ;
   wire NLW_ARG_CARRYCASCOUT_UNCONNECTED;
   wire NLW_ARG_MULTSIGNOUT_UNCONNECTED;
   wire NLW_ARG_OVERFLOW_UNCONNECTED;
@@ -15475,6 +15292,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
   wire [3:3]NLW_Accumulated_Output0_carry__6_CO_UNCONNECTED;
   wire [3:3]\NLW_I_pipeline_reg[31]_i_1_CO_UNCONNECTED ;
   wire [3:3]\NLW_P_pipeline_reg[31]_i_1_CO_UNCONNECTED ;
+  wire [3:3]\NLW_Phase_Accumulated_reg[31]_i_1_CO_UNCONNECTED ;
   wire [3:3]NLW_Sig_Buffer_reg0_carry__6_CO_UNCONNECTED;
 
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-10 {cell *THIS*} {string 15x18 4}}" *) 
@@ -17359,6 +17177,198 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
         .R(ARG_i_1_n_0));
   LUT2 #(
     .INIT(4'h6)) 
+    PLL_Freq0_carry__0_i_1
+       (.I0(PLL_Guess_Freq[7]),
+        .I1(\SignalOutput_reg_n_0_[7] ),
+        .O(\PLL_Guess_Freq[7] [3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__0_i_2
+       (.I0(PLL_Guess_Freq[6]),
+        .I1(\SignalOutput_reg_n_0_[6] ),
+        .O(\PLL_Guess_Freq[7] [2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__0_i_3
+       (.I0(PLL_Guess_Freq[5]),
+        .I1(\SignalOutput_reg_n_0_[5] ),
+        .O(\PLL_Guess_Freq[7] [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__0_i_4
+       (.I0(PLL_Guess_Freq[4]),
+        .I1(\SignalOutput_reg_n_0_[4] ),
+        .O(\PLL_Guess_Freq[7] [0]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__1_i_1
+       (.I0(PLL_Guess_Freq[11]),
+        .I1(\SignalOutput_reg_n_0_[11] ),
+        .O(\PLL_Guess_Freq[11] [3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__1_i_2
+       (.I0(PLL_Guess_Freq[10]),
+        .I1(\SignalOutput_reg_n_0_[10] ),
+        .O(\PLL_Guess_Freq[11] [2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__1_i_3
+       (.I0(PLL_Guess_Freq[9]),
+        .I1(\SignalOutput_reg_n_0_[9] ),
+        .O(\PLL_Guess_Freq[11] [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__1_i_4
+       (.I0(PLL_Guess_Freq[8]),
+        .I1(\SignalOutput_reg_n_0_[8] ),
+        .O(\PLL_Guess_Freq[11] [0]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__2_i_1
+       (.I0(PLL_Guess_Freq[15]),
+        .I1(\SignalOutput_reg_n_0_[15] ),
+        .O(\PLL_Guess_Freq[15] [3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__2_i_2
+       (.I0(PLL_Guess_Freq[14]),
+        .I1(\SignalOutput_reg_n_0_[14] ),
+        .O(\PLL_Guess_Freq[15] [2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__2_i_3
+       (.I0(PLL_Guess_Freq[13]),
+        .I1(\SignalOutput_reg_n_0_[13] ),
+        .O(\PLL_Guess_Freq[15] [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__2_i_4
+       (.I0(PLL_Guess_Freq[12]),
+        .I1(\SignalOutput_reg_n_0_[12] ),
+        .O(\PLL_Guess_Freq[15] [0]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__3_i_1
+       (.I0(PLL_Guess_Freq[19]),
+        .I1(\SignalOutput_reg_n_0_[19] ),
+        .O(\PLL_Guess_Freq[19] [3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__3_i_2
+       (.I0(PLL_Guess_Freq[18]),
+        .I1(\SignalOutput_reg_n_0_[18] ),
+        .O(\PLL_Guess_Freq[19] [2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__3_i_3
+       (.I0(PLL_Guess_Freq[17]),
+        .I1(\SignalOutput_reg_n_0_[17] ),
+        .O(\PLL_Guess_Freq[19] [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__3_i_4
+       (.I0(PLL_Guess_Freq[16]),
+        .I1(\SignalOutput_reg_n_0_[16] ),
+        .O(\PLL_Guess_Freq[19] [0]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__4_i_1
+       (.I0(PLL_Guess_Freq[23]),
+        .I1(\SignalOutput_reg_n_0_[23] ),
+        .O(\PLL_Guess_Freq[23] [3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__4_i_2
+       (.I0(PLL_Guess_Freq[22]),
+        .I1(\SignalOutput_reg_n_0_[22] ),
+        .O(\PLL_Guess_Freq[23] [2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__4_i_3
+       (.I0(PLL_Guess_Freq[21]),
+        .I1(\SignalOutput_reg_n_0_[21] ),
+        .O(\PLL_Guess_Freq[23] [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__4_i_4
+       (.I0(PLL_Guess_Freq[20]),
+        .I1(\SignalOutput_reg_n_0_[20] ),
+        .O(\PLL_Guess_Freq[23] [0]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__5_i_1
+       (.I0(PLL_Guess_Freq[27]),
+        .I1(\SignalOutput_reg_n_0_[27] ),
+        .O(\PLL_Guess_Freq[27] [3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__5_i_2
+       (.I0(PLL_Guess_Freq[26]),
+        .I1(\SignalOutput_reg_n_0_[26] ),
+        .O(\PLL_Guess_Freq[27] [2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__5_i_3
+       (.I0(PLL_Guess_Freq[25]),
+        .I1(\SignalOutput_reg_n_0_[25] ),
+        .O(\PLL_Guess_Freq[27] [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__5_i_4
+       (.I0(PLL_Guess_Freq[24]),
+        .I1(\SignalOutput_reg_n_0_[24] ),
+        .O(\PLL_Guess_Freq[27] [0]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__6_i_1
+       (.I0(PLL_Guess_Freq[31]),
+        .I1(\SignalOutput_reg_n_0_[31] ),
+        .O(\PLL_Guess_Freq[31] [3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__6_i_2
+       (.I0(PLL_Guess_Freq[30]),
+        .I1(\SignalOutput_reg_n_0_[30] ),
+        .O(\PLL_Guess_Freq[31] [2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__6_i_3
+       (.I0(PLL_Guess_Freq[29]),
+        .I1(\SignalOutput_reg_n_0_[29] ),
+        .O(\PLL_Guess_Freq[31] [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry__6_i_4
+       (.I0(PLL_Guess_Freq[28]),
+        .I1(\SignalOutput_reg_n_0_[28] ),
+        .O(\PLL_Guess_Freq[31] [0]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry_i_1
+       (.I0(PLL_Guess_Freq[3]),
+        .I1(\SignalOutput_reg_n_0_[3] ),
+        .O(S[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry_i_2
+       (.I0(PLL_Guess_Freq[2]),
+        .I1(\SignalOutput_reg_n_0_[2] ),
+        .O(S[2]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry_i_3
+       (.I0(PLL_Guess_Freq[1]),
+        .I1(\SignalOutput_reg_n_0_[1] ),
+        .O(S[1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    PLL_Freq0_carry_i_4
+       (.I0(PLL_Guess_Freq[0]),
+        .I1(\SignalOutput_reg_n_0_[0] ),
+        .O(S[0]));
+  LUT2 #(
+    .INIT(4'h6)) 
     \P_pipeline[11]_i_2 
        (.I0(ARG__6_n_95),
         .I1(ARG__3_n_95),
@@ -17855,6 +17865,262 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
         .D(\P_pipeline_reg[11]_i_1_n_6 ),
         .Q(P_pipeline[9]),
         .R(ARG_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[11]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[11] ),
+        .I1(Phase_Error[11]),
+        .O(\Phase_Accumulated[11]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[11]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[10] ),
+        .I1(Phase_Error[10]),
+        .O(\Phase_Accumulated[11]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[11]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[9] ),
+        .I1(Phase_Error[9]),
+        .O(\Phase_Accumulated[11]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[11]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[8] ),
+        .I1(Phase_Error[8]),
+        .O(\Phase_Accumulated[11]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[15]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[15] ),
+        .I1(Phase_Error[15]),
+        .O(\Phase_Accumulated[15]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[15]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[14] ),
+        .I1(Phase_Error[14]),
+        .O(\Phase_Accumulated[15]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[15]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[13] ),
+        .I1(Phase_Error[13]),
+        .O(\Phase_Accumulated[15]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[15]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[12] ),
+        .I1(Phase_Error[12]),
+        .O(\Phase_Accumulated[15]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[19]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[19] ),
+        .I1(Phase_Error[19]),
+        .O(\Phase_Accumulated[19]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[19]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[18] ),
+        .I1(Phase_Error[18]),
+        .O(\Phase_Accumulated[19]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[19]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[17] ),
+        .I1(Phase_Error[17]),
+        .O(\Phase_Accumulated[19]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[19]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[16] ),
+        .I1(Phase_Error[16]),
+        .O(\Phase_Accumulated[19]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[23]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[23] ),
+        .I1(Phase_Error[23]),
+        .O(\Phase_Accumulated[23]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[23]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[22] ),
+        .I1(Phase_Error[22]),
+        .O(\Phase_Accumulated[23]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[23]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[21] ),
+        .I1(Phase_Error[21]),
+        .O(\Phase_Accumulated[23]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[23]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[20] ),
+        .I1(Phase_Error[20]),
+        .O(\Phase_Accumulated[23]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[27]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[27] ),
+        .I1(Phase_Error[27]),
+        .O(\Phase_Accumulated[27]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[27]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[26] ),
+        .I1(Phase_Error[26]),
+        .O(\Phase_Accumulated[27]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[27]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[25] ),
+        .I1(Phase_Error[25]),
+        .O(\Phase_Accumulated[27]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[27]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[24] ),
+        .I1(Phase_Error[24]),
+        .O(\Phase_Accumulated[27]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[31]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[31] ),
+        .I1(Phase_Error[31]),
+        .O(\Phase_Accumulated[31]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[31]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[30] ),
+        .I1(Phase_Error[30]),
+        .O(\Phase_Accumulated[31]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[31]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[29] ),
+        .I1(Phase_Error[29]),
+        .O(\Phase_Accumulated[31]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[31]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[28] ),
+        .I1(Phase_Error[28]),
+        .O(\Phase_Accumulated[31]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[3]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[3] ),
+        .I1(Phase_Error[3]),
+        .O(\Phase_Accumulated[3]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[3]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[2] ),
+        .I1(Phase_Error[2]),
+        .O(\Phase_Accumulated[3]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[3]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[1] ),
+        .I1(Phase_Error[1]),
+        .O(\Phase_Accumulated[3]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[3]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[0] ),
+        .I1(Phase_Error[0]),
+        .O(\Phase_Accumulated[3]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[7]_i_2 
+       (.I0(\SignalOutput_reg_n_0_[7] ),
+        .I1(Phase_Error[7]),
+        .O(\Phase_Accumulated[7]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[7]_i_3 
+       (.I0(\SignalOutput_reg_n_0_[6] ),
+        .I1(Phase_Error[6]),
+        .O(\Phase_Accumulated[7]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[7]_i_4 
+       (.I0(\SignalOutput_reg_n_0_[5] ),
+        .I1(Phase_Error[5]),
+        .O(\Phase_Accumulated[7]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Phase_Accumulated[7]_i_5 
+       (.I0(\SignalOutput_reg_n_0_[4] ),
+        .I1(Phase_Error[4]),
+        .O(\Phase_Accumulated[7]_i_5_n_0 ));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[11]_i_1 
+       (.CI(\Phase_Accumulated_reg[7]_i_1_n_0 ),
+        .CO({\Phase_Accumulated_reg[11]_i_1_n_0 ,\Phase_Accumulated_reg[11]_i_1_n_1 ,\Phase_Accumulated_reg[11]_i_1_n_2 ,\Phase_Accumulated_reg[11]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({\SignalOutput_reg_n_0_[11] ,\SignalOutput_reg_n_0_[10] ,\SignalOutput_reg_n_0_[9] ,\SignalOutput_reg_n_0_[8] }),
+        .O(\SignalOutput_reg[11]_0 ),
+        .S({\Phase_Accumulated[11]_i_2_n_0 ,\Phase_Accumulated[11]_i_3_n_0 ,\Phase_Accumulated[11]_i_4_n_0 ,\Phase_Accumulated[11]_i_5_n_0 }));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[15]_i_1 
+       (.CI(\Phase_Accumulated_reg[11]_i_1_n_0 ),
+        .CO({\Phase_Accumulated_reg[15]_i_1_n_0 ,\Phase_Accumulated_reg[15]_i_1_n_1 ,\Phase_Accumulated_reg[15]_i_1_n_2 ,\Phase_Accumulated_reg[15]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({\SignalOutput_reg_n_0_[15] ,\SignalOutput_reg_n_0_[14] ,\SignalOutput_reg_n_0_[13] ,\SignalOutput_reg_n_0_[12] }),
+        .O(\SignalOutput_reg[15]_0 ),
+        .S({\Phase_Accumulated[15]_i_2_n_0 ,\Phase_Accumulated[15]_i_3_n_0 ,\Phase_Accumulated[15]_i_4_n_0 ,\Phase_Accumulated[15]_i_5_n_0 }));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[19]_i_1 
+       (.CI(\Phase_Accumulated_reg[15]_i_1_n_0 ),
+        .CO({\Phase_Accumulated_reg[19]_i_1_n_0 ,\Phase_Accumulated_reg[19]_i_1_n_1 ,\Phase_Accumulated_reg[19]_i_1_n_2 ,\Phase_Accumulated_reg[19]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({\SignalOutput_reg_n_0_[19] ,\SignalOutput_reg_n_0_[18] ,\SignalOutput_reg_n_0_[17] ,\SignalOutput_reg_n_0_[16] }),
+        .O(\SignalOutput_reg[19]_0 ),
+        .S({\Phase_Accumulated[19]_i_2_n_0 ,\Phase_Accumulated[19]_i_3_n_0 ,\Phase_Accumulated[19]_i_4_n_0 ,\Phase_Accumulated[19]_i_5_n_0 }));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[23]_i_1 
+       (.CI(\Phase_Accumulated_reg[19]_i_1_n_0 ),
+        .CO({\Phase_Accumulated_reg[23]_i_1_n_0 ,\Phase_Accumulated_reg[23]_i_1_n_1 ,\Phase_Accumulated_reg[23]_i_1_n_2 ,\Phase_Accumulated_reg[23]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({\SignalOutput_reg_n_0_[23] ,\SignalOutput_reg_n_0_[22] ,\SignalOutput_reg_n_0_[21] ,\SignalOutput_reg_n_0_[20] }),
+        .O(\SignalOutput_reg[23]_0 ),
+        .S({\Phase_Accumulated[23]_i_2_n_0 ,\Phase_Accumulated[23]_i_3_n_0 ,\Phase_Accumulated[23]_i_4_n_0 ,\Phase_Accumulated[23]_i_5_n_0 }));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[27]_i_1 
+       (.CI(\Phase_Accumulated_reg[23]_i_1_n_0 ),
+        .CO({\Phase_Accumulated_reg[27]_i_1_n_0 ,\Phase_Accumulated_reg[27]_i_1_n_1 ,\Phase_Accumulated_reg[27]_i_1_n_2 ,\Phase_Accumulated_reg[27]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({\SignalOutput_reg_n_0_[27] ,\SignalOutput_reg_n_0_[26] ,\SignalOutput_reg_n_0_[25] ,\SignalOutput_reg_n_0_[24] }),
+        .O(\SignalOutput_reg[27]_0 ),
+        .S({\Phase_Accumulated[27]_i_2_n_0 ,\Phase_Accumulated[27]_i_3_n_0 ,\Phase_Accumulated[27]_i_4_n_0 ,\Phase_Accumulated[27]_i_5_n_0 }));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[31]_i_1 
+       (.CI(\Phase_Accumulated_reg[27]_i_1_n_0 ),
+        .CO({\NLW_Phase_Accumulated_reg[31]_i_1_CO_UNCONNECTED [3],\Phase_Accumulated_reg[31]_i_1_n_1 ,\Phase_Accumulated_reg[31]_i_1_n_2 ,\Phase_Accumulated_reg[31]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,\SignalOutput_reg_n_0_[30] ,\SignalOutput_reg_n_0_[29] ,\SignalOutput_reg_n_0_[28] }),
+        .O(\SignalOutput_reg[30]_0 ),
+        .S({\Phase_Accumulated[31]_i_2_n_0 ,\Phase_Accumulated[31]_i_3_n_0 ,\Phase_Accumulated[31]_i_4_n_0 ,\Phase_Accumulated[31]_i_5_n_0 }));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[3]_i_1 
+       (.CI(1'b0),
+        .CO({\Phase_Accumulated_reg[3]_i_1_n_0 ,\Phase_Accumulated_reg[3]_i_1_n_1 ,\Phase_Accumulated_reg[3]_i_1_n_2 ,\Phase_Accumulated_reg[3]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({\SignalOutput_reg_n_0_[3] ,\SignalOutput_reg_n_0_[2] ,\SignalOutput_reg_n_0_[1] ,\SignalOutput_reg_n_0_[0] }),
+        .O(O),
+        .S({\Phase_Accumulated[3]_i_2_n_0 ,\Phase_Accumulated[3]_i_3_n_0 ,\Phase_Accumulated[3]_i_4_n_0 ,\Phase_Accumulated[3]_i_5_n_0 }));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \Phase_Accumulated_reg[7]_i_1 
+       (.CI(\Phase_Accumulated_reg[3]_i_1_n_0 ),
+        .CO({\Phase_Accumulated_reg[7]_i_1_n_0 ,\Phase_Accumulated_reg[7]_i_1_n_1 ,\Phase_Accumulated_reg[7]_i_1_n_2 ,\Phase_Accumulated_reg[7]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({\SignalOutput_reg_n_0_[7] ,\SignalOutput_reg_n_0_[6] ,\SignalOutput_reg_n_0_[5] ,\SignalOutput_reg_n_0_[4] }),
+        .O(\SignalOutput_reg[7]_0 ),
+        .S({\Phase_Accumulated[7]_i_2_n_0 ,\Phase_Accumulated[7]_i_3_n_0 ,\Phase_Accumulated[7]_i_4_n_0 ,\Phase_Accumulated[7]_i_5_n_0 }));
   CARRY4 Sig_Buffer_reg0_carry
        (.CI(1'b0),
         .CO({Sig_Buffer_reg0_carry_n_0,Sig_Buffer_reg0_carry_n_1,Sig_Buffer_reg0_carry_n_2,Sig_Buffer_reg0_carry_n_3}),
@@ -18371,7 +18637,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[0] ),
-        .Q(\SignalOutput_reg[31]_0 [0]),
+        .Q(\SignalOutput_reg_n_0_[0] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18379,7 +18645,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[10] ),
-        .Q(\SignalOutput_reg[31]_0 [10]),
+        .Q(\SignalOutput_reg_n_0_[10] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18387,7 +18653,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[11] ),
-        .Q(\SignalOutput_reg[31]_0 [11]),
+        .Q(\SignalOutput_reg_n_0_[11] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18395,7 +18661,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[12] ),
-        .Q(\SignalOutput_reg[31]_0 [12]),
+        .Q(\SignalOutput_reg_n_0_[12] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18403,7 +18669,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[13] ),
-        .Q(\SignalOutput_reg[31]_0 [13]),
+        .Q(\SignalOutput_reg_n_0_[13] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18411,7 +18677,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[14] ),
-        .Q(\SignalOutput_reg[31]_0 [14]),
+        .Q(\SignalOutput_reg_n_0_[14] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18419,7 +18685,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[15] ),
-        .Q(\SignalOutput_reg[31]_0 [15]),
+        .Q(\SignalOutput_reg_n_0_[15] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18427,7 +18693,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[16] ),
-        .Q(\SignalOutput_reg[31]_0 [16]),
+        .Q(\SignalOutput_reg_n_0_[16] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18435,7 +18701,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[17] ),
-        .Q(\SignalOutput_reg[31]_0 [17]),
+        .Q(\SignalOutput_reg_n_0_[17] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18443,7 +18709,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[18] ),
-        .Q(\SignalOutput_reg[31]_0 [18]),
+        .Q(\SignalOutput_reg_n_0_[18] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18451,7 +18717,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[19] ),
-        .Q(\SignalOutput_reg[31]_0 [19]),
+        .Q(\SignalOutput_reg_n_0_[19] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18459,7 +18725,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[1] ),
-        .Q(\SignalOutput_reg[31]_0 [1]),
+        .Q(\SignalOutput_reg_n_0_[1] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18467,7 +18733,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[20] ),
-        .Q(\SignalOutput_reg[31]_0 [20]),
+        .Q(\SignalOutput_reg_n_0_[20] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18475,7 +18741,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[21] ),
-        .Q(\SignalOutput_reg[31]_0 [21]),
+        .Q(\SignalOutput_reg_n_0_[21] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18483,7 +18749,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[22] ),
-        .Q(\SignalOutput_reg[31]_0 [22]),
+        .Q(\SignalOutput_reg_n_0_[22] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18491,7 +18757,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[23] ),
-        .Q(\SignalOutput_reg[31]_0 [23]),
+        .Q(\SignalOutput_reg_n_0_[23] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18499,7 +18765,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[24] ),
-        .Q(\SignalOutput_reg[31]_0 [24]),
+        .Q(\SignalOutput_reg_n_0_[24] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18507,7 +18773,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[25] ),
-        .Q(\SignalOutput_reg[31]_0 [25]),
+        .Q(\SignalOutput_reg_n_0_[25] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18515,7 +18781,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[26] ),
-        .Q(\SignalOutput_reg[31]_0 [26]),
+        .Q(\SignalOutput_reg_n_0_[26] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18523,7 +18789,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[27] ),
-        .Q(\SignalOutput_reg[31]_0 [27]),
+        .Q(\SignalOutput_reg_n_0_[27] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18531,7 +18797,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[28] ),
-        .Q(\SignalOutput_reg[31]_0 [28]),
+        .Q(\SignalOutput_reg_n_0_[28] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18539,7 +18805,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[29] ),
-        .Q(\SignalOutput_reg[31]_0 [29]),
+        .Q(\SignalOutput_reg_n_0_[29] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18547,7 +18813,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[2] ),
-        .Q(\SignalOutput_reg[31]_0 [2]),
+        .Q(\SignalOutput_reg_n_0_[2] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18555,7 +18821,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[30] ),
-        .Q(\SignalOutput_reg[31]_0 [30]),
+        .Q(\SignalOutput_reg_n_0_[30] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18563,7 +18829,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[31] ),
-        .Q(\SignalOutput_reg[31]_0 [31]),
+        .Q(\SignalOutput_reg_n_0_[31] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18571,7 +18837,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[3] ),
-        .Q(\SignalOutput_reg[31]_0 [3]),
+        .Q(\SignalOutput_reg_n_0_[3] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18579,7 +18845,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[4] ),
-        .Q(\SignalOutput_reg[31]_0 [4]),
+        .Q(\SignalOutput_reg_n_0_[4] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18587,7 +18853,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[5] ),
-        .Q(\SignalOutput_reg[31]_0 [5]),
+        .Q(\SignalOutput_reg_n_0_[5] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18595,7 +18861,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[6] ),
-        .Q(\SignalOutput_reg[31]_0 [6]),
+        .Q(\SignalOutput_reg_n_0_[6] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18603,7 +18869,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[7] ),
-        .Q(\SignalOutput_reg[31]_0 [7]),
+        .Q(\SignalOutput_reg_n_0_[7] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18611,7 +18877,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[8] ),
-        .Q(\SignalOutput_reg[31]_0 [8]),
+        .Q(\SignalOutput_reg_n_0_[8] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -18619,7 +18885,7 @@ module Differental_Phasemeter_Costa_Demodulator_1_0_PID_Controller
        (.C(Clock),
         .CE(\SignalOutput[31]_i_1_n_0 ),
         .D(\Sig_Buffer_reg_n_0_[9] ),
-        .Q(\SignalOutput_reg[31]_0 [9]),
+        .Q(\SignalOutput_reg_n_0_[9] ),
         .R(1'b0));
 endmodule
 `ifndef GLBL

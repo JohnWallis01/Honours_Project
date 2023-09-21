@@ -4,7 +4,8 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 
-entity Costa_Demodulator is
+entity Costa_Demodulator IS
+    generic(RAM_Size: integer := 14);
     port (
     --Signal Input
     Input_Signal: in std_logic_vector(13 downto 0);
@@ -19,6 +20,7 @@ entity Costa_Demodulator is
     --Measurments
     Freq_Measured: out std_logic_vector(31 downto 0);
     Phase_Measured: out std_logic_vector(31 downto 0);
+    Phase_Error: out std_logic_vector(31 downto 0);
     Lock_Strength: out std_logic_vector(25 downto 0);
     Message: out std_logic;
     Locked_Carrier: out std_logic_vector(13 downto 0);     
@@ -98,7 +100,10 @@ architecture Costa_arc of Costa_Demodulator is
     signal Cross_Mixed_Signal:          std_logic_vector(51 downto 0);
     signal Cross_Filtered_Signal:       std_logic_vector(25 downto 0);
     signal Control_Signal:              std_logic_vector(31 downto 0);
-    signal PLL_Freq:                    std_logic_vector(31 downto 0);   
+    signal PLL_Freq:                    std_logic_vector(31 downto 0);
+    signal Phase_Accumulated:           std_logic_vector(31 downto 0);    
+    signal Counter:                     unsigned(4 downto 0);     
+    signal Sample:                      std_logic;
 
 begin
 
@@ -206,7 +211,7 @@ begin
     end process;    
 
     Loop_Oscilator: NCO
-    generic map(Freq_Size => 32, ROM_Size => 12, DAC_Size => 14)
+    generic map(Freq_Size => 32, ROM_Size => RAM_Size, DAC_Size => 14)
     port map(
         Frequency => PLL_Freq,
         PhaseOffset => (others => '0'),
@@ -220,7 +225,36 @@ begin
     Locked_Carrier <= Locked_Carrier_InPhase; 
 
 
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Reset = '1' then
+                Counter <= to_unsigned(0, 5);
+            else
+                if Counter >= to_unsigned(31, 5) then
+                    Counter <= to_unsigned(0, 5);
+                else
+                    Counter <= Counter + to_unsigned(1, 5 );
+                end if;
+            end if;
+        end if;
+    end process;
 
+    Sample <= '1' when Counter = to_unsigned(1, 5) else '0';
 
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Integrator_Reset = '1' then
+                Phase_Accumulated <= (others => '0');
+            else
+                if Sample = '1' then
+                    Phase_Accumulated <= std_logic_vector(signed(Phase_Accumulated) + signed(Control_Signal));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    Phase_Error <= Phase_Accumulated;
 
 end Costa_arc ; -- Costa_arc

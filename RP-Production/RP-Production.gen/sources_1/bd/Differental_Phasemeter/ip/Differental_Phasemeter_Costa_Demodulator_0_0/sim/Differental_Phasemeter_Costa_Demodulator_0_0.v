@@ -63,6 +63,7 @@ module Differental_Phasemeter_Costa_Demodulator_0_0 (
   Threshold,
   Freq_Measured,
   Phase_Measured,
+  Phase_Error,
   Lock_Strength,
   Message,
   Locked_Carrier,
@@ -81,6 +82,7 @@ input wire Integrator_Reset;
 input wire [25 : 0] Threshold;
 output wire [31 : 0] Freq_Measured;
 output wire [31 : 0] Phase_Measured;
+output wire [31 : 0] Phase_Error;
 output wire [25 : 0] Lock_Strength;
 output wire Message;
 output wire [13 : 0] Locked_Carrier;
@@ -92,7 +94,9 @@ input wire Clock;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *)
 input wire Reset;
 
-  Costa_Demodulator inst (
+  Costa_Demodulator #(
+    .RAM_Size(8)
+  ) inst (
     .Input_Signal(Input_Signal),
     .PLL_Guess_Freq(PLL_Guess_Freq),
     .Control_Kp(Control_Kp),
@@ -101,6 +105,7 @@ input wire Reset;
     .Threshold(Threshold),
     .Freq_Measured(Freq_Measured),
     .Phase_Measured(Phase_Measured),
+    .Phase_Error(Phase_Error),
     .Lock_Strength(Lock_Strength),
     .Message(Message),
     .Locked_Carrier(Locked_Carrier),
