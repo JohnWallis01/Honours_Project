@@ -59,6 +59,10 @@ module Differental_Phasemeter_Costa_Demodulator_0_0 (
   PLL_Guess_Freq,
   Control_Kp,
   Control_Ki,
+  Control_Kii,
+  Control_fKp,
+  Control_fKi,
+  Control_fKii,
   Integrator_Reset,
   Threshold,
   Freq_Measured,
@@ -76,6 +80,10 @@ input wire [13 : 0] Input_Signal;
 input wire [31 : 0] PLL_Guess_Freq;
 input wire [31 : 0] Control_Kp;
 input wire [31 : 0] Control_Ki;
+input wire [31 : 0] Control_Kii;
+input wire [31 : 0] Control_fKp;
+input wire [31 : 0] Control_fKi;
+input wire [31 : 0] Control_fKii;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Integrator_Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Integrator_Reset RST" *)
 input wire Integrator_Reset;
@@ -95,12 +103,16 @@ input wire Clock;
 input wire Reset;
 
   Costa_Demodulator #(
-    .RAM_Size(8)
+    .RAM_Size(14)
   ) inst (
     .Input_Signal(Input_Signal),
     .PLL_Guess_Freq(PLL_Guess_Freq),
     .Control_Kp(Control_Kp),
     .Control_Ki(Control_Ki),
+    .Control_Kii(Control_Kii),
+    .Control_fKp(Control_fKp),
+    .Control_fKi(Control_fKi),
+    .Control_fKii(Control_fKii),
     .Integrator_Reset(Integrator_Reset),
     .Threshold(Threshold),
     .Freq_Measured(Freq_Measured),

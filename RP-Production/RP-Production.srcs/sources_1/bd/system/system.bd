@@ -6039,6 +6039,26 @@
             "left": "31",
             "right": "0"
           },
+          "Control_Kii": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_fKp": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_fKi": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Control_fKii": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
           "Integrator_Reset": {
             "type": "rst",
             "direction": "I"

@@ -14,6 +14,10 @@ entity Costa_Demodulator IS
     PLL_Guess_Freq: in std_logic_vector(31 downto 0);
     Control_Kp: in std_logic_vector(31 downto 0);
     Control_Ki: in std_logic_vector(31 downto 0);
+    Control_Kii: in std_logic_vector(31 downto 0);
+    Control_fKp: in std_logic_vector(31 downto 0);
+    Control_fKi: in std_logic_vector(31 downto 0);
+    Control_fKii: in std_logic_vector(31 downto 0);
     Integrator_Reset: in std_logic;
     Threshold: in std_logic_vector(25 downto 0);
 
@@ -78,6 +82,18 @@ architecture Costa_arc of Costa_Demodulator is
             Reset: in std_logic
       );
     end component;
+
+    component PII_Controller is
+        port(
+            Input_Signal:   in std_logic_vector(31 downto 0);
+            Output_Signal:  out std_logic_vector(31 downto 0);
+            kP:             in std_logic_vector(31 downto 0);
+            kI:             in std_logic_vector(31 downto 0);
+            kII:            in std_logic_vector(31 downto 0);
+            Clock:          in std_logic; 
+            Reset:          in std_logic
+        );
+    end component;
   
     component CIC32 IS
     PORT( 
@@ -104,6 +120,14 @@ architecture Costa_arc of Costa_Demodulator is
     signal Phase_Accumulated:           std_logic_vector(31 downto 0);    
     signal Counter:                     unsigned(4 downto 0);     
     signal Sample:                      std_logic;
+
+    signal InPhase_Filtered_Delay1:      std_logic_vector(25 downto 0);
+    signal InPhase_Filtered_Delay2:      std_logic_vector(25 downto 0);
+    signal Old_Quadrature_Signal:       std_logic_vector(25 downto 0);
+    signal Differentiated_Quadrature:   std_logic_vector(25 downto 0);
+    signal Mixed_Frequency_Error:       std_logic_vector(51 downto 0);
+    signal Filtered_Frequency_Error:    std_logic_vector(25 downto 0);
+    signal Frequency_Control:           std_logic_vector(31 downto 0);
 
 begin
 
@@ -190,22 +214,71 @@ begin
     ); 
 
 
-    Loop_Controller: PID_Controller
-    generic map(Data_Size => 32, Inital => 0)
+    Loop_Controller: PII_Controller
     port map(
-      SignalInput => std_logic_vector(resize(signed(Cross_Filtered_Signal), 32)),
-      SignalOutput => Control_Signal,
-      kI => Control_Ki,
+      Input_Signal => std_logic_vector(resize(signed(Cross_Filtered_Signal), 32)),
+      Output_Signal => Control_Signal,
       kP => Control_Kp,
-      kD => std_logic_vector(to_signed(0, 32)),
-      clock => Clock,
+      kI => Control_Ki,
+      kII => Control_Kii,
+      Clock => Clock,
       Reset => (Reset or Integrator_Reset)
     );
- 
+
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Reset = '1' then
+                Differentiated_Quadrature <= (others => '0');
+                Old_Quadrature_Signal <= (others => '0');
+                InPhase_Filtered_Delay1 <= (others => '0');
+                InPhase_Filtered_Delay2 <= (others => '0');
+            else
+                if Sample = '1' then
+                    InPhase_Filtered_Delay1 <= InPhase_Filtered_Signal;
+                    InPhase_Filtered_Delay2 <= InPhase_Filtered_Delay1;
+                    Old_Quadrature_Signal <= Quadrature_Filtered_Signal;
+                    Differentiated_Quadrature <= std_logic_vector(signed(Quadrature_Filtered_Signal) - signed(Old_Quadrature_Signal));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    Frequency_Mixer: Mixer
+    generic map(MixerSize => 26)
+    port map(
+        Q1 => Differentiated_Quadrature,
+        Q2 => InPhase_Filtered_Delay2,
+        Dout => Mixed_Frequency_Error,
+        clk => Clock,
+        Reset => Reset
+    );
+
+    Frequency_Filter: CIC32
+    port map(
+        clk => Clock,
+        clk_enable => '1',
+        reset => Reset,
+        filter_in => Mixed_Frequency_Error(51 downto 36),
+        filter_out => Filtered_Frequency_Error,
+        ce_out => open
+    );
+
+    Frequency_Controller: PII_Controller
+    port map(
+        Input_Signal=> std_logic_vector(resize(signed(Filtered_Frequency_Error), 32)),
+        Output_Signal => Frequency_Control,
+        kP => Control_fKp,
+        kI => Control_fKi,
+        kII => Control_fKii,
+        Clock => Clock,
+        Reset => Reset or Integrator_Reset
+    );
+
     process(Clock)
     begin
       if rising_edge(Clock) then
-        PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) + signed(Control_Signal));
+        PLL_Freq <= std_logic_vector(signed(PLL_Guess_Freq) + signed(Control_Signal)+signed(Frequency_Control));
         Freq_Measured <= PLL_Freq;
       end if;
     end process;    

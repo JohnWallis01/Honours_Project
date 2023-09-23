@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Sep 18 21:43:31 2023
+// Date        : Mon Sep 18 21:43:30 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_protocol_convert_0_1/Differental_Phasemeter_axi_protocol_convert_0_1_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_axi_protocol_convert_0_1 -prefix
+//               Differental_Phasemeter_axi_protocol_convert_0_1_ Differental_Phasemeter_axi_protocol_convert_0_1_sim_netlist.v
 // Design      : Differental_Phasemeter_axi_protocol_convert_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -337,10 +337,10 @@ endmodule
 (* C_AXI_RUSER_WIDTH = "1" *) (* C_AXI_SUPPORTS_READ = "1" *) (* C_AXI_SUPPORTS_USER_SIGNALS = "0" *) 
 (* C_AXI_SUPPORTS_WRITE = "1" *) (* C_AXI_WUSER_WIDTH = "1" *) (* C_FAMILY = "zynq" *) 
 (* C_IGNORE_ID = "0" *) (* C_M_AXI_PROTOCOL = "2" *) (* C_S_AXI_PROTOCOL = "0" *) 
-(* C_TRANSLATION_MODE = "2" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_axi_protocol_converter" *) 
-(* P_AXI3 = "1" *) (* P_AXI4 = "0" *) (* P_AXILITE = "2" *) 
-(* P_AXILITE_SIZE = "3'b010" *) (* P_CONVERSION = "2" *) (* P_DECERR = "2'b11" *) 
-(* P_INCR = "2'b01" *) (* P_PROTECTION = "1" *) (* P_SLVERR = "2'b10" *) 
+(* C_TRANSLATION_MODE = "2" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* P_AXI3 = "1" *) 
+(* P_AXI4 = "0" *) (* P_AXILITE = "2" *) (* P_AXILITE_SIZE = "3'b010" *) 
+(* P_CONVERSION = "2" *) (* P_DECERR = "2'b11" *) (* P_INCR = "2'b01" *) 
+(* P_PROTECTION = "1" *) (* P_SLVERR = "2'b10" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_axi_protocol_converter
    (aclk,
     aresetn,
@@ -717,7 +717,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .s_axi_rvalid(s_axi_rvalid));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s
    (s_axi_bvalid,
     s_axi_awready,
@@ -1197,7 +1196,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_ar_channel" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_ar_channel
    (sel_first,
     sel_first_reg,
@@ -1516,7 +1514,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_aw_channel" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_aw_channel
    (s_axburst_eq0,
     s_axburst_eq1,
@@ -1832,7 +1829,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_b_channel" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_b_channel
    (si_rs_bvalid,
     \FSM_sequential_state_reg[0] ,
@@ -2119,7 +2115,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .R(areset_d1));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_cmd_translator" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_cmd_translator
    (next_pending_r,
     wrap_next_pending,
@@ -2539,7 +2534,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .\wrap_second_len_r_reg[3]_0 (\wrap_second_len_r_reg[3] ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_incr_cmd" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_incr_cmd
    (next_pending_r,
     sel_first_reg_0,
@@ -3675,7 +3669,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_r_channel" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_r_channel
    (\cnt_read_reg[1] ,
     r_full,
@@ -3836,7 +3829,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .si_rs_rready(si_rs_rready));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_rd_cmd_fsm" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_rd_cmd_fsm
    (s_ready_i0,
     Q,
@@ -4231,7 +4223,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .O(\FSM_sequential_state_reg[1]_2 ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_simple_fifo" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_simple_fifo
    (\FSM_sequential_state_reg[0] ,
     \cnt_read_reg[0]_0 ,
@@ -5781,7 +5772,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .Q31(\NLW_memory_reg[31][9]_srl32_Q31_UNCONNECTED ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_wr_cmd_fsm" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_wr_cmd_fsm
    (\FSM_sequential_state_reg[1]_0 ,
     Q,
@@ -6072,7 +6062,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .O(\FSM_sequential_state_reg[1]_2 ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_protocol_converter_v2_1_27_b2s_wrap_cmd" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2_1_27_b2s_wrap_cmd
    (wrap_next_pending,
     sel_first,
@@ -7254,7 +7243,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_protocol_converter_v2
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_register_slice_v2_1_27_axi_register_slice" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_register_slice_v2_1_27_axi_register_slice
    (s_ready_i_reg,
     s_ready_i_reg_0,
@@ -7630,7 +7618,6 @@ module Differental_Phasemeter_axi_protocol_convert_0_1_axi_register_slice_v2_1_2
         .\skid_buffer_reg[46]_0 (\skid_buffer_reg[46] ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_register_slice_v2_1_27_axic_register_slice" *) 
 module Differental_Phasemeter_axi_protocol_convert_0_1_axi_register_slice_v2_1_27_axic_register_slice
    (s_ready_i_reg_0,
     m_valid_i_reg_0,

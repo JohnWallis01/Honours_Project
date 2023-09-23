@@ -46,7 +46,7 @@ f, Pxx = readBinarytoPSD("logger_dump.bin")
 plt.loglog(f,Pxx, label="14 Bit Test")
 
 # plt.title("Differential Noise Test with 10 MHz Optical Beat over 2km Fiber Link")
-plt.title("Differential Noise Test with 10 MHz Signal Generator (Out of Loop Integrator)")
+plt.title("Differential Noise Test with 10 MHz Signal Generator (Frequency Locking)")
 plt.xlabel('Frequency [Hz]')
 plt.ylabel('PSD [rad^2/Hz]')
 plt.xlim(0.1, 1e4)

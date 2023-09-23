@@ -8,11 +8,11 @@
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_0_0",
     "parameters": {
       "component_parameters": {
-        "RAM_Size": [ { "value": "8", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "RAM_Size": [ { "value": "14", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "Differental_Phasemeter_Costa_Demodulator_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
-        "RAM_Size": [ { "value": "8", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "RAM_Size": [ { "value": "14", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -46,6 +46,10 @@
         "PLL_Guess_Freq": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "Control_Kp": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "Control_Ki": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Control_Kii": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Control_fKp": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Control_fKi": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "Control_fKii": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "Integrator_Reset": [ { "direction": "in" } ],
         "Threshold": [ { "direction": "in", "size_left": "25", "size_right": "0" } ],
         "Freq_Measured": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],

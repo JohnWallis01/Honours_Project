@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Sep 18 21:40:36 2023
+// Date        : Mon Sep 18 21:40:35 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_DATA_LOGGER_0_0/Differental_Phasemeter_DATA_LOGGER_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_DATA_LOGGER_0_0 -prefix
+//               Differental_Phasemeter_DATA_LOGGER_0_0_ Differental_Phasemeter_DATA_LOGGER_0_0_sim_netlist.v
 // Design      : Differental_Phasemeter_DATA_LOGGER_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,156 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_DATA_LOGGER_0_0,DATA_LOGGER,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "DATA_LOGGER,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module Differental_Phasemeter_DATA_LOGGER_0_0
-   (m_axis_S2MMD_tdata,
-    m_axis_S2MMD_tvalid,
-    m_axis_S2MMD_tlast,
-    m_axis_S2MMD_tready,
-    m_axis_S2MMS_tdata,
-    m_axis_S2MMS_tvalid,
-    m_axis_S2MMS_tlast,
-    m_axis_S2MMS_tready,
-    s_axis_CH1_tready,
-    s_axis_CH1_tdata,
-    s_axis_CH1_tvalid,
-    s_axis_CH2_tready,
-    s_axis_CH2_tdata,
-    s_axis_CH2_tvalid,
-    down_sample,
-    s_axis_aclk,
-    m_axis_aclk,
-    rst,
-    trigger,
-    AFULL,
-    AEMPTY);
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TDATA" *) output [63:0]m_axis_S2MMD_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TVALID" *) output m_axis_S2MMD_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TLAST" *) output m_axis_S2MMD_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_S2MMD, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 125000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_S2MMD_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TDATA" *) output [31:0]m_axis_S2MMS_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TVALID" *) output m_axis_S2MMS_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TLAST" *) output m_axis_S2MMS_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_S2MMS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 125000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_S2MMS_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TREADY" *) output s_axis_CH1_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TDATA" *) input [31:0]s_axis_CH1_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_CH1, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_CH1_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TREADY" *) output s_axis_CH2_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TDATA" *) input [31:0]s_axis_CH2_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_CH2, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_CH2_tvalid;
-  input [4:0]down_sample;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input s_axis_aclk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_axis_aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_aclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input m_axis_aclk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
-  output trigger;
-  output AFULL;
-  output AEMPTY;
-
-  wire \<const0> ;
-  wire AEMPTY;
-  wire AFULL;
-  wire [4:0]down_sample;
-  wire [31:0]m_axis_S2MMS_tdata;
-  wire m_axis_S2MMS_tlast;
-  wire m_axis_S2MMS_tready;
-  wire m_axis_S2MMS_tvalid;
-  wire m_axis_aclk;
-  wire rst;
-  wire [31:0]s_axis_CH1_tdata;
-  wire s_axis_CH1_tready;
-  wire s_axis_CH1_tvalid;
-  wire s_axis_aclk;
-  wire trigger;
-
-  assign m_axis_S2MMD_tdata[63] = \<const0> ;
-  assign m_axis_S2MMD_tdata[62] = \<const0> ;
-  assign m_axis_S2MMD_tdata[61] = \<const0> ;
-  assign m_axis_S2MMD_tdata[60] = \<const0> ;
-  assign m_axis_S2MMD_tdata[59] = \<const0> ;
-  assign m_axis_S2MMD_tdata[58] = \<const0> ;
-  assign m_axis_S2MMD_tdata[57] = \<const0> ;
-  assign m_axis_S2MMD_tdata[56] = \<const0> ;
-  assign m_axis_S2MMD_tdata[55] = \<const0> ;
-  assign m_axis_S2MMD_tdata[54] = \<const0> ;
-  assign m_axis_S2MMD_tdata[53] = \<const0> ;
-  assign m_axis_S2MMD_tdata[52] = \<const0> ;
-  assign m_axis_S2MMD_tdata[51] = \<const0> ;
-  assign m_axis_S2MMD_tdata[50] = \<const0> ;
-  assign m_axis_S2MMD_tdata[49] = \<const0> ;
-  assign m_axis_S2MMD_tdata[48] = \<const0> ;
-  assign m_axis_S2MMD_tdata[47] = \<const0> ;
-  assign m_axis_S2MMD_tdata[46] = \<const0> ;
-  assign m_axis_S2MMD_tdata[45] = \<const0> ;
-  assign m_axis_S2MMD_tdata[44] = \<const0> ;
-  assign m_axis_S2MMD_tdata[43] = \<const0> ;
-  assign m_axis_S2MMD_tdata[42] = \<const0> ;
-  assign m_axis_S2MMD_tdata[41] = \<const0> ;
-  assign m_axis_S2MMD_tdata[40] = \<const0> ;
-  assign m_axis_S2MMD_tdata[39] = \<const0> ;
-  assign m_axis_S2MMD_tdata[38] = \<const0> ;
-  assign m_axis_S2MMD_tdata[37] = \<const0> ;
-  assign m_axis_S2MMD_tdata[36] = \<const0> ;
-  assign m_axis_S2MMD_tdata[35] = \<const0> ;
-  assign m_axis_S2MMD_tdata[34] = \<const0> ;
-  assign m_axis_S2MMD_tdata[33] = \<const0> ;
-  assign m_axis_S2MMD_tdata[32] = \<const0> ;
-  assign m_axis_S2MMD_tdata[31] = \<const0> ;
-  assign m_axis_S2MMD_tdata[30] = \<const0> ;
-  assign m_axis_S2MMD_tdata[29] = \<const0> ;
-  assign m_axis_S2MMD_tdata[28] = \<const0> ;
-  assign m_axis_S2MMD_tdata[27] = \<const0> ;
-  assign m_axis_S2MMD_tdata[26] = \<const0> ;
-  assign m_axis_S2MMD_tdata[25] = \<const0> ;
-  assign m_axis_S2MMD_tdata[24] = \<const0> ;
-  assign m_axis_S2MMD_tdata[23] = \<const0> ;
-  assign m_axis_S2MMD_tdata[22] = \<const0> ;
-  assign m_axis_S2MMD_tdata[21] = \<const0> ;
-  assign m_axis_S2MMD_tdata[20] = \<const0> ;
-  assign m_axis_S2MMD_tdata[19] = \<const0> ;
-  assign m_axis_S2MMD_tdata[18] = \<const0> ;
-  assign m_axis_S2MMD_tdata[17] = \<const0> ;
-  assign m_axis_S2MMD_tdata[16] = \<const0> ;
-  assign m_axis_S2MMD_tdata[15] = \<const0> ;
-  assign m_axis_S2MMD_tdata[14] = \<const0> ;
-  assign m_axis_S2MMD_tdata[13] = \<const0> ;
-  assign m_axis_S2MMD_tdata[12] = \<const0> ;
-  assign m_axis_S2MMD_tdata[11] = \<const0> ;
-  assign m_axis_S2MMD_tdata[10] = \<const0> ;
-  assign m_axis_S2MMD_tdata[9] = \<const0> ;
-  assign m_axis_S2MMD_tdata[8] = \<const0> ;
-  assign m_axis_S2MMD_tdata[7] = \<const0> ;
-  assign m_axis_S2MMD_tdata[6] = \<const0> ;
-  assign m_axis_S2MMD_tdata[5] = \<const0> ;
-  assign m_axis_S2MMD_tdata[4] = \<const0> ;
-  assign m_axis_S2MMD_tdata[3] = \<const0> ;
-  assign m_axis_S2MMD_tdata[2] = \<const0> ;
-  assign m_axis_S2MMD_tdata[1] = \<const0> ;
-  assign m_axis_S2MMD_tdata[0] = \<const0> ;
-  assign m_axis_S2MMD_tlast = \<const0> ;
-  assign m_axis_S2MMD_tvalid = \<const0> ;
-  assign s_axis_CH2_tready = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  Differental_Phasemeter_DATA_LOGGER_0_0_DATA_LOGGER inst
-       (.AEMPTY(AEMPTY),
-        .AFULL(AFULL),
-        .\SINGLE_CHANNEL.transfer_count_reg[13]_0 (m_axis_S2MMS_tlast),
-        .down_sample(down_sample),
-        .m_axis_S2MMS_tdata(m_axis_S2MMS_tdata),
-        .m_axis_S2MMS_tready(m_axis_S2MMS_tready),
-        .m_axis_S2MMS_tvalid(m_axis_S2MMS_tvalid),
-        .m_axis_aclk(m_axis_aclk),
-        .rst(rst),
-        .s_axis_CH1_tdata(s_axis_CH1_tdata),
-        .s_axis_CH1_tready(s_axis_CH1_tready),
-        .s_axis_CH1_tvalid(s_axis_CH1_tvalid),
-        .s_axis_aclk(s_axis_aclk),
-        .trigger(trigger));
-endmodule
-
-(* ORIG_REF_NAME = "DATA_LOGGER" *) 
 module Differental_Phasemeter_DATA_LOGGER_0_0_DATA_LOGGER
    (AFULL,
     trigger,
@@ -2854,6 +2704,155 @@ module Differental_Phasemeter_DATA_LOGGER_0_0_DATA_LOGGER
        (.I0(rst),
         .I1(AEMPTY),
         .O(m_axis_S2MMS_tvalid));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_DATA_LOGGER_0_0,DATA_LOGGER,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "DATA_LOGGER,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module Differental_Phasemeter_DATA_LOGGER_0_0
+   (m_axis_S2MMD_tdata,
+    m_axis_S2MMD_tvalid,
+    m_axis_S2MMD_tlast,
+    m_axis_S2MMD_tready,
+    m_axis_S2MMS_tdata,
+    m_axis_S2MMS_tvalid,
+    m_axis_S2MMS_tlast,
+    m_axis_S2MMS_tready,
+    s_axis_CH1_tready,
+    s_axis_CH1_tdata,
+    s_axis_CH1_tvalid,
+    s_axis_CH2_tready,
+    s_axis_CH2_tdata,
+    s_axis_CH2_tvalid,
+    down_sample,
+    s_axis_aclk,
+    m_axis_aclk,
+    rst,
+    trigger,
+    AFULL,
+    AEMPTY);
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TDATA" *) output [63:0]m_axis_S2MMD_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TVALID" *) output m_axis_S2MMD_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TLAST" *) output m_axis_S2MMD_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMD TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_S2MMD, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 125000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_S2MMD_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TDATA" *) output [31:0]m_axis_S2MMS_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TVALID" *) output m_axis_S2MMS_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TLAST" *) output m_axis_S2MMS_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_S2MMS TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_S2MMS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 125000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_S2MMS_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TREADY" *) output s_axis_CH1_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TDATA" *) input [31:0]s_axis_CH1_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH1 TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_CH1, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_CH1_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TREADY" *) output s_axis_CH2_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TDATA" *) input [31:0]s_axis_CH2_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_CH2 TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_CH2, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_CH2_tvalid;
+  input [4:0]down_sample;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input s_axis_aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_axis_aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_aclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input m_axis_aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
+  output trigger;
+  output AFULL;
+  output AEMPTY;
+
+  wire \<const0> ;
+  wire AEMPTY;
+  wire AFULL;
+  wire [4:0]down_sample;
+  wire [31:0]m_axis_S2MMS_tdata;
+  wire m_axis_S2MMS_tlast;
+  wire m_axis_S2MMS_tready;
+  wire m_axis_S2MMS_tvalid;
+  wire m_axis_aclk;
+  wire rst;
+  wire [31:0]s_axis_CH1_tdata;
+  wire s_axis_CH1_tready;
+  wire s_axis_CH1_tvalid;
+  wire s_axis_aclk;
+  wire trigger;
+
+  assign m_axis_S2MMD_tdata[63] = \<const0> ;
+  assign m_axis_S2MMD_tdata[62] = \<const0> ;
+  assign m_axis_S2MMD_tdata[61] = \<const0> ;
+  assign m_axis_S2MMD_tdata[60] = \<const0> ;
+  assign m_axis_S2MMD_tdata[59] = \<const0> ;
+  assign m_axis_S2MMD_tdata[58] = \<const0> ;
+  assign m_axis_S2MMD_tdata[57] = \<const0> ;
+  assign m_axis_S2MMD_tdata[56] = \<const0> ;
+  assign m_axis_S2MMD_tdata[55] = \<const0> ;
+  assign m_axis_S2MMD_tdata[54] = \<const0> ;
+  assign m_axis_S2MMD_tdata[53] = \<const0> ;
+  assign m_axis_S2MMD_tdata[52] = \<const0> ;
+  assign m_axis_S2MMD_tdata[51] = \<const0> ;
+  assign m_axis_S2MMD_tdata[50] = \<const0> ;
+  assign m_axis_S2MMD_tdata[49] = \<const0> ;
+  assign m_axis_S2MMD_tdata[48] = \<const0> ;
+  assign m_axis_S2MMD_tdata[47] = \<const0> ;
+  assign m_axis_S2MMD_tdata[46] = \<const0> ;
+  assign m_axis_S2MMD_tdata[45] = \<const0> ;
+  assign m_axis_S2MMD_tdata[44] = \<const0> ;
+  assign m_axis_S2MMD_tdata[43] = \<const0> ;
+  assign m_axis_S2MMD_tdata[42] = \<const0> ;
+  assign m_axis_S2MMD_tdata[41] = \<const0> ;
+  assign m_axis_S2MMD_tdata[40] = \<const0> ;
+  assign m_axis_S2MMD_tdata[39] = \<const0> ;
+  assign m_axis_S2MMD_tdata[38] = \<const0> ;
+  assign m_axis_S2MMD_tdata[37] = \<const0> ;
+  assign m_axis_S2MMD_tdata[36] = \<const0> ;
+  assign m_axis_S2MMD_tdata[35] = \<const0> ;
+  assign m_axis_S2MMD_tdata[34] = \<const0> ;
+  assign m_axis_S2MMD_tdata[33] = \<const0> ;
+  assign m_axis_S2MMD_tdata[32] = \<const0> ;
+  assign m_axis_S2MMD_tdata[31] = \<const0> ;
+  assign m_axis_S2MMD_tdata[30] = \<const0> ;
+  assign m_axis_S2MMD_tdata[29] = \<const0> ;
+  assign m_axis_S2MMD_tdata[28] = \<const0> ;
+  assign m_axis_S2MMD_tdata[27] = \<const0> ;
+  assign m_axis_S2MMD_tdata[26] = \<const0> ;
+  assign m_axis_S2MMD_tdata[25] = \<const0> ;
+  assign m_axis_S2MMD_tdata[24] = \<const0> ;
+  assign m_axis_S2MMD_tdata[23] = \<const0> ;
+  assign m_axis_S2MMD_tdata[22] = \<const0> ;
+  assign m_axis_S2MMD_tdata[21] = \<const0> ;
+  assign m_axis_S2MMD_tdata[20] = \<const0> ;
+  assign m_axis_S2MMD_tdata[19] = \<const0> ;
+  assign m_axis_S2MMD_tdata[18] = \<const0> ;
+  assign m_axis_S2MMD_tdata[17] = \<const0> ;
+  assign m_axis_S2MMD_tdata[16] = \<const0> ;
+  assign m_axis_S2MMD_tdata[15] = \<const0> ;
+  assign m_axis_S2MMD_tdata[14] = \<const0> ;
+  assign m_axis_S2MMD_tdata[13] = \<const0> ;
+  assign m_axis_S2MMD_tdata[12] = \<const0> ;
+  assign m_axis_S2MMD_tdata[11] = \<const0> ;
+  assign m_axis_S2MMD_tdata[10] = \<const0> ;
+  assign m_axis_S2MMD_tdata[9] = \<const0> ;
+  assign m_axis_S2MMD_tdata[8] = \<const0> ;
+  assign m_axis_S2MMD_tdata[7] = \<const0> ;
+  assign m_axis_S2MMD_tdata[6] = \<const0> ;
+  assign m_axis_S2MMD_tdata[5] = \<const0> ;
+  assign m_axis_S2MMD_tdata[4] = \<const0> ;
+  assign m_axis_S2MMD_tdata[3] = \<const0> ;
+  assign m_axis_S2MMD_tdata[2] = \<const0> ;
+  assign m_axis_S2MMD_tdata[1] = \<const0> ;
+  assign m_axis_S2MMD_tdata[0] = \<const0> ;
+  assign m_axis_S2MMD_tlast = \<const0> ;
+  assign m_axis_S2MMD_tvalid = \<const0> ;
+  assign s_axis_CH2_tready = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  Differental_Phasemeter_DATA_LOGGER_0_0_DATA_LOGGER inst
+       (.AEMPTY(AEMPTY),
+        .AFULL(AFULL),
+        .\SINGLE_CHANNEL.transfer_count_reg[13]_0 (m_axis_S2MMS_tlast),
+        .down_sample(down_sample),
+        .m_axis_S2MMS_tdata(m_axis_S2MMS_tdata),
+        .m_axis_S2MMS_tready(m_axis_S2MMS_tready),
+        .m_axis_S2MMS_tvalid(m_axis_S2MMS_tvalid),
+        .m_axis_aclk(m_axis_aclk),
+        .rst(rst),
+        .s_axis_CH1_tdata(s_axis_CH1_tdata),
+        .s_axis_CH1_tready(s_axis_CH1_tready),
+        .s_axis_CH1_tvalid(s_axis_CH1_tvalid),
+        .s_axis_aclk(s_axis_aclk),
+        .trigger(trigger));
 endmodule
 `ifndef GLBL
 `define GLBL

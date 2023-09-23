@@ -38,6 +38,17 @@
 #define Logging_ADDR                 0x81200000
 
 
+#define Kii_ADDR_A					0x41360000
+#define Kii_ADDR_B					0x41370000
+#define fKp_ADDR_A					0x41340000
+#define fKp_ADDR_B					0x41350000
+#define fKi_ADDR_A					0x41300000
+#define fKi_ADDR_B					0x41310000
+#define fKii_ADDR_A					0x41320000
+#define fKii_ADDR_B					0x41330000
+
+
+
 //Setup Constants
 #define fSampling 125 //in Mhz
 #define PI 3.14159265358979323846
@@ -49,9 +60,39 @@
 
 #define kp_value  -200000       
 #define ki_value  -50  
+#define kii_value 0
 
 #define kp_b_value  -200000       
 #define ki_b_value  -50  
+#define kii_b_value 0
+
+#define fkp_value 0
+#define fki_value 0
+#define fkii_value 0
+
+#define fkp_b_value 0
+#define fki_b_value 0
+#define fkii_b_value 0
+
+
+
+// #define kp_value  -100000       
+// #define ki_value  -1000  
+// #define kii_value 10
+
+// #define kp_b_value  -100000       
+// #define ki_b_value  -1000  
+// #define kii_b_value 10
+
+// #define fkp_value 0
+// #define fki_value 100000
+// #define fkii_value 0
+
+// #define fkp_b_value 0
+// #define fki_b_value 100000
+// #define fkii_b_value 0
+
+
 
 #define PLL_Lock_Threshold 60000000
 #define PLL_Low_Threshold 5000
@@ -131,6 +172,16 @@ int main(int argc, char *argv[]) {
     void *PRBS_Rate_Div             = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, PRBS_DIV_ADDR);
     void *Sampling_Reset            = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, SAMPLING_RESET_ADDR);
 
+
+	void *Kii_A       = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Kii_ADDR_A);
+	void *Kii_B		  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Kii_ADDR_B);
+	void *fKp_A		  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, fKp_ADDR_A);
+	void*fKp_B		  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, fKp_ADDR_B);
+	void*fKi_A		  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, fKi_ADDR_A);
+	void*fKi_B		  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, fKi_ADDR_B);
+	void*fKii_A		  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, fKii_ADDR_A);
+	void*fKii_B		  = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, fKii_ADDR_B);
+
     void *Data_Logging              = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ|PROT_WRITE, MAP_SHARED, dh, Logging_ADDR);
 
     *(uint32_t*)Delay_Control     =  0; 
@@ -140,8 +191,20 @@ int main(int argc, char *argv[]) {
     *(uint32_t*)LFSR_Polynomial         = TAPS_Polynomial; // This is the polynomial for an 8 bit LFSR
     *(uint32_t*)Ki_B                    = ki_b_value; 
     *(uint32_t*)Kp_B                    = kp_b_value;
+    *(uint32_t*)Kii_B                   = kii_b_value;
+
+    *(uint32_t*)Kii_A                   = kii_value;
     *(uint32_t*)Ki                      = ki_value; 
     *(uint32_t*)Kp                      = kp_value;
+
+	*(uint32_t*)fKp_A					= fkp_value;
+	*(uint32_t*)fKp_B					= fkp_b_value;
+	*(uint32_t*)fKi_A					= fki_value;
+	*(uint32_t*)fKi_B					= fki_b_value;
+	*(uint32_t*)fKii_A					= fkii_value;
+	*(uint32_t*)fKii_B					= fkii_b_value;
+
+
     *(uint32_t*)PLL_Guess_Freq = Debug_Freq_Value/125.0*pow(2,32);
 
     *(uint32_t*)Integrator_Reset = 0;

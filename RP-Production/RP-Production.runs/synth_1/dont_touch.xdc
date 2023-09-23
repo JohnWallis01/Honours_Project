@@ -149,6 +149,39 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Costa_Demodulator_1_0 || ORIG_REF_NAME==Differental_Phasemeter_Costa_Demodulator_1_0} -quiet] -quiet
 
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_2/Differental_Phasemeter_GPIO_Kp_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_2 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_2} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_3/Differental_Phasemeter_GPIO_Kp_3.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_3 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_3} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_4/Differental_Phasemeter_GPIO_Kp_4.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_4 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_4} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_5/Differental_Phasemeter_GPIO_Kp_5.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_5 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_5} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_6/Differental_Phasemeter_GPIO_Kp_6.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_6 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_6} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_7/Differental_Phasemeter_GPIO_Kp_7.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_7 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_7} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_8/Differental_Phasemeter_GPIO_Kp_8.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_8 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_8} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_9/Differental_Phasemeter_GPIO_Kp_9.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_GPIO_Kp_9 || ORIG_REF_NAME==Differental_Phasemeter_GPIO_Kp_9} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_0_0/Differental_Phasemeter_tier2_xbar_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_0_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_0_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_1_0/Differental_Phasemeter_tier2_xbar_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_1_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_1_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_2_0/Differental_Phasemeter_tier2_xbar_2_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_2_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_2_0} -quiet] -quiet
+
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_0/Differental_Phasemeter_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_0} -quiet] -quiet
 

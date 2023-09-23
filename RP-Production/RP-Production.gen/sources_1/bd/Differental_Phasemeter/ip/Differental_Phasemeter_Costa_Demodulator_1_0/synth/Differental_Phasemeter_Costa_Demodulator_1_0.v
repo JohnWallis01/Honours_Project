@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "Costa_Demodulator,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "Differental_Phasemeter_Costa_Demodulator_1_0,Costa_Demodulator,{}" *)
-(* CORE_GENERATION_INFO = "Differental_Phasemeter_Costa_Demodulator_1_0,Costa_Demodulator,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Costa_Demodulator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,RAM_Size=8}" *)
+(* CORE_GENERATION_INFO = "Differental_Phasemeter_Costa_Demodulator_1_0,Costa_Demodulator,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Costa_Demodulator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,RAM_Size=14}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module Differental_Phasemeter_Costa_Demodulator_1_0 (
@@ -60,6 +60,10 @@ module Differental_Phasemeter_Costa_Demodulator_1_0 (
   PLL_Guess_Freq,
   Control_Kp,
   Control_Ki,
+  Control_Kii,
+  Control_fKp,
+  Control_fKi,
+  Control_fKii,
   Integrator_Reset,
   Threshold,
   Freq_Measured,
@@ -77,6 +81,10 @@ input wire [13 : 0] Input_Signal;
 input wire [31 : 0] PLL_Guess_Freq;
 input wire [31 : 0] Control_Kp;
 input wire [31 : 0] Control_Ki;
+input wire [31 : 0] Control_Kii;
+input wire [31 : 0] Control_fKp;
+input wire [31 : 0] Control_fKi;
+input wire [31 : 0] Control_fKii;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Integrator_Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Integrator_Reset RST" *)
 input wire Integrator_Reset;
@@ -96,12 +104,16 @@ input wire Clock;
 input wire Reset;
 
   Costa_Demodulator #(
-    .RAM_Size(8)
+    .RAM_Size(14)
   ) inst (
     .Input_Signal(Input_Signal),
     .PLL_Guess_Freq(PLL_Guess_Freq),
     .Control_Kp(Control_Kp),
     .Control_Ki(Control_Ki),
+    .Control_Kii(Control_Kii),
+    .Control_fKp(Control_fKp),
+    .Control_fKi(Control_fKi),
+    .Control_fKii(Control_fKii),
     .Integrator_Reset(Integrator_Reset),
     .Threshold(Threshold),
     .Freq_Measured(Freq_Measured),

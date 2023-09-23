@@ -3,6 +3,64 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
+entity PII_Controller is
+    port(
+        Input_Signal:   in std_logic_vector(31 downto 0);
+        Output_Signal:  out std_logic_vector(31 downto 0);
+        kP:             in std_logic_vector(31 downto 0);
+        kI:             in std_logic_vector(31 downto 0);
+        kII:            in std_logic_vector(31 downto 0);
+        Clock:          in std_logic; 
+        Reset:          in std_logic
+    );
+end PII_Controller;
+
+architecture Controller_Behaviours of PII_Controller is
+
+    signal Accumulator:         std_logic_vector(63 downto 0);
+    signal Double_Accumulator:  std_logic_vector(63 downto 0); 
+    signal P_Pipeline:          std_logic_vector(63 downto 0);
+    signal I_Pipeline:          std_logic_vector(63 downto 0);
+    signal II_Pipeline:         std_logic_vector(63 downto 0);
+    signal Output_Register:     std_logic_vector(31 downto 0);
+    signal Sum_Buffer:          std_logic_vector(63 downto 0);
+begin
+
+    Output_Signal <= Output_Register;
+    process(Clock)
+    begin
+        if rising_edge(Clock) then
+            if Reset = '1' then
+                Accumulator         <= (others => '0');
+                Double_Accumulator  <= (others => '0');
+                P_Pipeline          <= (others => '0');
+                I_Pipeline          <= (others => '0');
+                II_Pipeline         <= (others => '0');
+                Output_Register     <= (others => '0');
+                Sum_Buffer          <= (others => '0');
+
+            else
+                Accumulator        <= std_logic_vector(signed(Accumulator)        + signed(I_Pipeline));
+                Double_Accumulator <= std_logic_vector(signed(Double_Accumulator) + signed(II_Pipeline));
+
+                P_Pipeline  <=  std_logic_vector(shift_right(signed(kP)  * signed(Input_Signal),  16));                
+                I_Pipeline  <=  std_logic_vector(shift_right(signed(kI)  * signed(Input_Signal),  16));
+                II_Pipeline <=  std_logic_vector(shift_right(signed(kII) * signed(Accumulator(31 downto 0)),  16));
+
+                Sum_Buffer <= std_logic_vector((signed(P_Pipeline) + signed(Accumulator)) + signed(Double_Accumulator));
+                Output_Register <= Sum_Buffer(31 downto 0);
+
+            end if;
+        end if;
+    end process;
+
+end Controller_Behaviours ; -- Controller_Behaviours
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+
 entity PID_Controller is
     generic(
         Data_Size: integer := 32;

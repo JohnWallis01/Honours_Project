@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Mon Sep 18 21:40:35 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_DMA_Interconnect_0_0/Differental_Phasemeter_DMA_Interconnect_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_DMA_Interconnect_0_0 -prefix
+//               Differental_Phasemeter_DMA_Interconnect_0_0_ Differental_Phasemeter_DMA_Interconnect_0_0_sim_netlist.v
 // Design      : Differental_Phasemeter_DMA_Interconnect_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,67 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_DMA_Interconnect_0_0,DMA_Interconnect,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "DMA_Interconnect,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module Differental_Phasemeter_DMA_Interconnect_0_0
-   (ADC_s_axis_tdata,
-    ADC_s_axis_tvalid,
-    Demodulated_PRBS,
-    Demodulated_PRBS_B,
-    Reference_PRBS,
-    Debug,
-    ADC_Data,
-    ADC_C1,
-    ADC_C2,
-    m_axis_tdata,
-    m_axis_tvalid,
-    m_axis_tready,
-    aclk);
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 ADC_s_axis TDATA" *) input [31:0]ADC_s_axis_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 ADC_s_axis TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ADC_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input ADC_s_axis_tvalid;
-  input Demodulated_PRBS;
-  input Demodulated_PRBS_B;
-  input Reference_PRBS;
-  input [12:0]Debug;
-  output [31:0]ADC_Data;
-  output [13:0]ADC_C1;
-  output [13:0]ADC_C2;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *) output [31:0]m_axis_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TVALID" *) output m_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input aclk;
-
-  wire \<const1> ;
-  wire [13:0]ADC_C1;
-  wire [13:0]ADC_C2;
-  wire [31:30]\^ADC_Data ;
-  wire [31:0]ADC_s_axis_tdata;
-  wire [12:0]Debug;
-  wire Demodulated_PRBS;
-  wire Demodulated_PRBS_B;
-  wire Reference_PRBS;
-  wire aclk;
-  wire [31:14]\^m_axis_tdata ;
-
-  assign ADC_Data[31:30] = \^ADC_Data [31:30];
-  assign ADC_Data[29:16] = ADC_C2;
-  assign ADC_Data[15:14] = \^m_axis_tdata [15:14];
-  assign ADC_Data[13:0] = ADC_C1;
-  assign m_axis_tdata[31:14] = \^m_axis_tdata [31:14];
-  assign m_axis_tdata[13:0] = ADC_C1;
-  assign m_axis_tvalid = \<const1> ;
-  VCC VCC
-       (.P(\<const1> ));
-  Differental_Phasemeter_DMA_Interconnect_0_0_DMA_Interconnect inst
-       (.ADC_Data({\^ADC_Data ,ADC_C2,\^m_axis_tdata [15:14],ADC_C1}),
-        .ADC_s_axis_tdata(ADC_s_axis_tdata),
-        .D({Debug,Demodulated_PRBS_B,Demodulated_PRBS,Reference_PRBS}),
-        .aclk(aclk),
-        .m_axis_tdata(\^m_axis_tdata [31:16]));
-endmodule
-
-(* ORIG_REF_NAME = "DMA_Interconnect" *) 
 module Differental_Phasemeter_DMA_Interconnect_0_0_DMA_Interconnect
    (ADC_Data,
     m_axis_tdata,
@@ -379,6 +318,66 @@ module Differental_Phasemeter_DMA_Interconnect_0_0_DMA_Interconnect
         .D(D[15]),
         .Q(m_axis_tdata[15]),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_DMA_Interconnect_0_0,DMA_Interconnect,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "DMA_Interconnect,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module Differental_Phasemeter_DMA_Interconnect_0_0
+   (ADC_s_axis_tdata,
+    ADC_s_axis_tvalid,
+    Demodulated_PRBS,
+    Demodulated_PRBS_B,
+    Reference_PRBS,
+    Debug,
+    ADC_Data,
+    ADC_C1,
+    ADC_C2,
+    m_axis_tdata,
+    m_axis_tvalid,
+    m_axis_tready,
+    aclk);
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 ADC_s_axis TDATA" *) input [31:0]ADC_s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 ADC_s_axis TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ADC_s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input ADC_s_axis_tvalid;
+  input Demodulated_PRBS;
+  input Demodulated_PRBS_B;
+  input Reference_PRBS;
+  input [12:0]Debug;
+  output [31:0]ADC_Data;
+  output [13:0]ADC_C1;
+  output [13:0]ADC_C2;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *) output [31:0]m_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TVALID" *) output m_axis_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) input m_axis_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF ADC_s_axis:m_axis, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input aclk;
+
+  wire \<const1> ;
+  wire [13:0]ADC_C1;
+  wire [13:0]ADC_C2;
+  wire [31:30]\^ADC_Data ;
+  wire [31:0]ADC_s_axis_tdata;
+  wire [12:0]Debug;
+  wire Demodulated_PRBS;
+  wire Demodulated_PRBS_B;
+  wire Reference_PRBS;
+  wire aclk;
+  wire [31:14]\^m_axis_tdata ;
+
+  assign ADC_Data[31:30] = \^ADC_Data [31:30];
+  assign ADC_Data[29:16] = ADC_C2;
+  assign ADC_Data[15:14] = \^m_axis_tdata [15:14];
+  assign ADC_Data[13:0] = ADC_C1;
+  assign m_axis_tdata[31:14] = \^m_axis_tdata [31:14];
+  assign m_axis_tdata[13:0] = ADC_C1;
+  assign m_axis_tvalid = \<const1> ;
+  VCC VCC
+       (.P(\<const1> ));
+  Differental_Phasemeter_DMA_Interconnect_0_0_DMA_Interconnect inst
+       (.ADC_Data({\^ADC_Data ,ADC_C2,\^m_axis_tdata [15:14],ADC_C1}),
+        .ADC_s_axis_tdata(ADC_s_axis_tdata),
+        .D({Debug,Demodulated_PRBS_B,Demodulated_PRBS,Reference_PRBS}),
+        .aclk(aclk),
+        .m_axis_tdata(\^m_axis_tdata [31:16]));
 endmodule
 `ifndef GLBL
 `define GLBL

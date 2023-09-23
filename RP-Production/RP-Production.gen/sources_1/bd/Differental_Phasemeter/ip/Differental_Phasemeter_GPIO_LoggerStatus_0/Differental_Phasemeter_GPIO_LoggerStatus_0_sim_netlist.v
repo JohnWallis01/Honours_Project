@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Mon Sep 18 21:42:10 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/Differental_Phasemeter_GPIO_LoggerStatus_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_GPIO_LoggerStatus_0 -prefix
+//               Differental_Phasemeter_GPIO_LoggerStatus_0_ Differental_Phasemeter_GPIO_LoggerStatus_0_sim_netlist.v
 // Design      : Differental_Phasemeter_GPIO_LoggerStatus_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -134,7 +134,6 @@ module Differental_Phasemeter_GPIO_LoggerStatus_0
         .s_axi_wvalid(s_axi_wvalid));
 endmodule
 
-(* ORIG_REF_NAME = "GPIO_Core" *) 
 module Differental_Phasemeter_GPIO_LoggerStatus_0_GPIO_Core
    (\Not_Dual.gpio_OE_reg[0]_0 ,
     ip2bus_wrack_i,
@@ -292,7 +291,6 @@ module Differental_Phasemeter_GPIO_LoggerStatus_0_GPIO_Core
         .O(ip2bus_wrack_i));
 endmodule
 
-(* ORIG_REF_NAME = "address_decoder" *) 
 module Differental_Phasemeter_GPIO_LoggerStatus_0_address_decoder
    (\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ,
     \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ,
@@ -500,7 +498,7 @@ endmodule
 (* C_FAMILY = "zynq" *) (* C_GPIO2_WIDTH = "32" *) (* C_GPIO_WIDTH = "1" *) 
 (* C_INTERRUPT_PRESENT = "0" *) (* C_IS_DUAL = "0" *) (* C_S_AXI_ADDR_WIDTH = "9" *) 
 (* C_S_AXI_DATA_WIDTH = "32" *) (* C_TRI_DEFAULT = "32'b11111111111111111111111111111111" *) (* C_TRI_DEFAULT_2 = "32'b11111111111111111111111111111111" *) 
-(* ORIG_REF_NAME = "axi_gpio" *) (* downgradeipidentifiedwarnings = "yes" *) (* ip_group = "LOGICORE" *) 
+(* downgradeipidentifiedwarnings = "yes" *) (* ip_group = "LOGICORE" *) 
 module Differental_Phasemeter_GPIO_LoggerStatus_0_axi_gpio
    (s_axi_aclk,
     s_axi_aresetn,
@@ -769,7 +767,6 @@ module Differental_Phasemeter_GPIO_LoggerStatus_0_axi_gpio
         .R(\I_SLAVE_ATTACHMENT/rst ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module Differental_Phasemeter_GPIO_LoggerStatus_0_axi_lite_ipif
    (rst,
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ,
@@ -892,7 +889,6 @@ module Differental_Phasemeter_GPIO_LoggerStatus_0_axi_lite_ipif
         .s_axi_wvalid(s_axi_wvalid));
 endmodule
 
-(* ORIG_REF_NAME = "cdc_sync" *) 
 module Differental_Phasemeter_GPIO_LoggerStatus_0_cdc_sync
    (scndry_vect_out,
     gpio_io_i,
@@ -958,7 +954,6 @@ module Differental_Phasemeter_GPIO_LoggerStatus_0_cdc_sync
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "slave_attachment" *) 
 module Differental_Phasemeter_GPIO_LoggerStatus_0_slave_attachment
    (SS,
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ,

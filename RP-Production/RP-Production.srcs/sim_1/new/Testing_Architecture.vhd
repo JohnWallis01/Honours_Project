@@ -64,28 +64,6 @@ architecture Behavioral of Testing_Architecture is
         );
     end component;
 
-    component LFSR is
-        generic (
-            Size: integer := 32 -- from size of 1 up to 32
-        );
-        port(
-            Taps: in std_logic_vector(Size-2 downto 0); --to set the this tap take the wikpedia article (throw away the msb and not the taps)
-            clock: in std_logic;
-            PRBS: out std_logic;
-            reset: in std_logic;
-            State: out std_logic_vector(Size -1 downto 0)
-        );
-    end component;
-    
-    component Clock_Divider is
-        generic(Div_Rate: integer := 6);
-          port( 
-            DivClock_In: in std_logic;
-            DivClock_Out: out std_logic;
-            Reset: in std_logic
-            );
-    end component;
-
     component Costa_Demodulator is
         port (
         --Signal Input
@@ -94,6 +72,10 @@ architecture Behavioral of Testing_Architecture is
         PLL_Guess_Freq: in std_logic_vector(31 downto 0);
         Control_Kp: in std_logic_vector(31 downto 0);
         Control_Ki: in std_logic_vector(31 downto 0);
+        Control_Kii: in std_logic_vector(31 downto 0);
+        Control_fKp: in std_logic_vector(31 downto 0);
+        Control_fKi: in std_logic_vector(31 downto 0);
+        Control_fKii: in std_logic_vector(31 downto 0);
         Integrator_Reset: in std_logic;
         Threshold: in std_logic_vector(25 downto 0);
         --Measurments
@@ -121,25 +103,6 @@ architecture Behavioral of Testing_Architecture is
 
     PSKMOD <= NCO_Data;
 
-    clkdiv: Clock_Divider
-    generic map(Div_Rate => 5)
-    port map(
-        DivClock_In => Clock,
-        DivClock_Out => Slow_Clock,
-        Reset => Reset
-    );
-
-
-    PRBS: LFSR
-    generic map(Size => 8)
-    port map(
-        Taps => "0111000", --0xB8
-        clock => Slow_Clock,
-        PRBS => PRBS_Value,
-        reset => Reset, 
-        State => open
-    );
-
     PSK_Gen: PSK
     port map(
         Frequency => std_logic_vector(to_unsigned(343597384, 32)),
@@ -147,18 +110,22 @@ architecture Behavioral of Testing_Architecture is
         Reset => Reset,
         PSKout => NCO_Data,
         REFout => PSKREF,
-        Modulation => PRBS_Value,
+        Modulation => '0',
         PSK_m_axis_tdata => open,
         PSK_m_axis_tvalid => open 
         );
-
+     
     Demodulator: Costa_Demodulator
     port map(
         Input_Signal => NCO_Data,
-        PLL_Guess_Freq =>   std_logic_vector(to_unsigned(343697384, 32)),
+        PLL_Guess_Freq =>   std_logic_vector(to_unsigned(385997384, 32)),
         Control_Kp =>       std_logic_vector(to_signed(-1000000, 32)),
         Control_Ki =>       std_logic_vector(to_signed(-1000, 32)),
-        Integrator_Reset => '0',
+        Control_Kii =>      std_logic_vector(to_signed(10, 32)),
+        Control_fKp =>      std_logic_vector(to_signed(0, 32)),
+        Control_fKi =>      std_logic_vector(to_signed(100000, 32)),
+        Control_fKii =>     std_logic_vector(to_signed(0, 32)),
+        Integrator_Reset => Reset,
         Threshold => std_logic_vector(to_signed(1000000, 26)),
         Freq_Measured => open,
         Phase_Measured => open,
