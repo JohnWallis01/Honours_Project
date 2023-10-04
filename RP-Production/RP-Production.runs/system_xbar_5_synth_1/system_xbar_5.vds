@@ -2,18 +2,19 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Mon Sep 18 22:52:13 2023
-# Process ID: 15112
+# Start of session at: Mon Oct  2 14:05:25 2023
+# Process ID: 25048
 # Current directory: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_5_synth_1
 # Command line: vivado.exe -log system_xbar_5.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_xbar_5.tcl
 # Log file: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_5_synth_1/system_xbar_5.vds
 # Journal file: C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_5_synth_1\vivado.jou
-# Running On: Centurion-Heavy, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17101 MB
+# Running On: Valkyrie, OS: Windows, CPU Frequency: 1996 MHz, CPU Physical cores: 16, Host memory: 14870 MB
 #-----------------------------------------------------------
 source system_xbar_5.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 393.617 ; gain = 60.242
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Desktop/Honours_Project/cores'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_xbar_5
 Command: synth_design -top system_xbar_5 -part xc7z010clg400-1 -incremental_mode off -mode out_of_context
 Starting synth_design
@@ -22,21 +23,25 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 30772
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 20256
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1226.312 ; gain = 407.840
+Starting RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 1224.422 ; gain = 408.176
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_xbar_5' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ip/system_xbar_5/synth/system_xbar_5.v:53]
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_28_axi_crossbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:4883]
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_28_crossbar' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:2238]
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_28_si_transactor' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:3799]
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_28_addr_decoder' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:793]
+INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_carry_and' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_carry_and' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
 INFO: [Synth 8-6155] done synthesizing module 'axi_crossbar_v2_1_28_addr_decoder' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:793]
 INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_26_axic_srl_fifo' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v:697]
 INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_26_ndeep_srl' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v:1134]
-INFO: [Synth 8-6157] synthesizing module 'SRLC32E' [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:131794]
-INFO: [Synth 8-6155] done synthesizing module 'SRLC32E' (0#1) [E:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:131794]
+INFO: [Synth 8-6157] synthesizing module 'SRLC32E' [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:131794]
+INFO: [Synth 8-6155] done synthesizing module 'SRLC32E' (0#1) [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:131794]
 INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_26_ndeep_srl' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v:1134]
 INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_26_axic_srl_fifo' (0#1) [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v:697]
 INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' [c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/system/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2451]
@@ -145,36 +150,6 @@ WARNING: [Synth 8-7129] Port s_axi_wid[0] in module axi_infrastructure_v1_1_0_ax
 WARNING: [Synth 8-7129] Port s_axi_wuser[0] in module axi_infrastructure_v1_1_0_axi2vector is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axi_aruser[0] in module axi_infrastructure_v1_1_0_axi2vector is either unconnected or has no load
 WARNING: [Synth 8-7129] Port aclk2x in module axi_register_slice_v2_1_27_axi_register_slice is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[31] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[30] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[29] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[28] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[27] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[26] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[25] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[24] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[23] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[22] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[21] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[20] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[19] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[18] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[17] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[16] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[15] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[14] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[13] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[12] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[11] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[10] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[9] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[8] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[7] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[6] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[5] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[4] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[3] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDR[2] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ADDR[1] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ADDR[0] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_ABURST[1] in module axi_crossbar_v2_1_28_si_transactor__parameterized1 is either unconnected or has no load
@@ -234,20 +209,50 @@ WARNING: [Synth 8-7129] Port S_AXI_ARSIZE[4] in module axi_crossbar_v2_1_28_cros
 WARNING: [Synth 8-7129] Port S_AXI_ARSIZE[3] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_ARBURST[3] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_ARBURST[2] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARLOCK[3] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARLOCK[2] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARCACHE[7] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARCACHE[6] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARCACHE[5] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARCACHE[4] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[5] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[4] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[3] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARQOS[7] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARQOS[6] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARQOS[5] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARQOS[4] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARUSER[1] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARVALID[1] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_RREADY[1] in module axi_crossbar_v2_1_28_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awid[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awid[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wid[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wid[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arid[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arid[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[63] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[62] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[61] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[60] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1461.773 ; gain = 643.301
+Finished RTL Elaboration : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1461.773 ; gain = 643.301
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1461.773 ; gain = 643.301
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.101 . Memory (MB): peak = 1461.773 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.252 . Memory (MB): peak = 1460.617 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -258,29 +263,29 @@ Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Product
 Finished Parsing XDC File [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_5_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1549.359 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1460.617 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1549.781 ; gain = 0.422
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.125 . Memory (MB): peak = 1460.617 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Constraint Validation : Time (s): cpu = 00:00:43 ; elapsed = 00:00:53 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:43 ; elapsed = 00:00:53 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_5_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:53 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_data_fifo_v2_1_26_axic_reg_srl_fifo'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_data_fifo_v2_1_26_axic_reg_srl_fifo__parameterized0'
@@ -332,7 +337,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'gen_axi.write_cs_reg' using encoding 'one-hot' in module 'axi_crossbar_v2_1_28_decerr_slave'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:55 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -362,7 +367,7 @@ Detailed RTL Component Info :
 	   2 Input    4 Bit        Muxes := 14    
 	   2 Input    3 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 20    
-	   2 Input    1 Bit        Muxes := 57    
+	   2 Input    1 Bit        Muxes := 60    
 	   4 Input    1 Bit        Muxes := 12    
 	   3 Input    1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
@@ -383,30 +388,28 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 INFO: [Synth 8-3332] Sequential element (gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.wdata_router_w/wrouter_aw_fifo/FSM_onehot_state_reg[2]) is unused and will be removed from module axi_crossbar_v2_1_28_axi_crossbar.
 INFO: [Synth 8-3332] Sequential element (gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/FSM_onehot_state_reg[2]) is unused and will be removed from module axi_crossbar_v2_1_28_axi_crossbar.
-INFO: [Synth 8-3332] Sequential element (gen_samd.crossbar_samd/gen_master_slots[0].gen_mi_write.wdata_mux_w/gen_wmux.wmux_aw_fifo/FSM_onehot_state_reg[3]) is unused and will be removed from module axi_crossbar_v2_1_28_axi_crossbar.
 INFO: [Synth 8-3332] Sequential element (gen_samd.crossbar_samd/gen_master_slots[0].gen_mi_write.wdata_mux_w/gen_wmux.wmux_aw_fifo/FSM_onehot_state_reg[2]) is unused and will be removed from module axi_crossbar_v2_1_28_axi_crossbar.
-INFO: [Synth 8-3332] Sequential element (gen_samd.crossbar_samd/gen_master_slots[0].gen_mi_write.wdata_mux_w/gen_wmux.wmux_aw_fifo/FSM_onehot_state_reg[1]) is unused and will be removed from module axi_crossbar_v2_1_28_axi_crossbar.
 INFO: [Synth 8-3332] Sequential element (gen_samd.crossbar_samd/gen_master_slots[1].gen_mi_write.wdata_mux_w/gen_wmux.wmux_aw_fifo/FSM_onehot_state_reg[2]) is unused and will be removed from module axi_crossbar_v2_1_28_axi_crossbar.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:12 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Timing Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:15 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Technology Mapping : Time (s): cpu = 00:01:05 ; elapsed = 00:01:16 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -424,37 +427,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished IO Insertion : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -470,38 +473,38 @@ Report Cell Usage:
 +------+--------+------+
 |      |Cell    |Count |
 +------+--------+------+
-|1     |LUT1    |     4|
-|2     |LUT2    |   145|
-|3     |LUT3    |   214|
-|4     |LUT4    |    47|
-|5     |LUT5    |    25|
-|6     |LUT6    |    51|
-|7     |SRLC32E |     3|
-|8     |FDRE    |   459|
-|9     |FDSE    |    16|
+|1     |LUT1    |     6|
+|2     |LUT2    |   144|
+|3     |LUT3    |   377|
+|4     |LUT4    |    45|
+|5     |LUT5    |    56|
+|6     |LUT6    |    70|
+|7     |SRLC32E |     4|
+|8     |FDRE    |   478|
+|9     |FDSE    |    19|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 1460.617 ; gain = 644.371
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 154 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:29 . Memory (MB): peak = 1549.781 ; gain = 643.301
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1549.781 ; gain = 731.309
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:01:17 . Memory (MB): peak = 1460.617 ; gain = 644.371
+Synthesis Optimization Complete : Time (s): cpu = 00:01:12 ; elapsed = 00:01:23 . Memory (MB): peak = 1460.617 ; gain = 644.371
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1549.781 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1460.617 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1549.781 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1460.617 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: f5151dc8
+Synth Design complete, checksum: 3d51d5dd
 INFO: [Common 17-83] Releasing license: Synthesis
-121 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
+123 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1549.781 ; gain = 1112.727
+synth_design: Time (s): cpu = 00:01:20 ; elapsed = 00:01:35 . Memory (MB): peak = 1460.617 ; gain = 1024.711
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_5_synth_1/system_xbar_5.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_xbar_5, cache-ID = 528a1aa85d4f4211
-INFO: [Coretcl 2-1174] Renamed 26 cell refs.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_xbar_5, cache-ID = e73abd66e44120b1
+INFO: [Coretcl 2-1174] Renamed 29 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.runs/system_xbar_5_synth_1/system_xbar_5.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_xbar_5_utilization_synth.rpt -pb system_xbar_5_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Sep 18 22:52:54 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct  2 14:07:18 2023...

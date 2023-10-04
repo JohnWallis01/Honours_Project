@@ -44,8 +44,8 @@ def main():
         print("Locking Strength", Lock_Strength)
         print("FFT Frequency", FFT_Tuning*125/(2**32), "(MHz)")
         print("PLL Frequency", PLL_Tuning*125/(2**32), "(MHz)")
-        CalibrationDelay = 295
-        Delay_Length = Ranging_Delay/(125e6)*(3e8)/(1.46) - CalibrationDelay
+        CalibrationDelay = 179
+        Delay_Length = 0.5*(Ranging_Delay-179)*3e8/125e6
         print("Delay Length", Delay_Length)
 
         PLL_Tuning_Data = np.roll(PLL_Tuning_Data ,-1)
