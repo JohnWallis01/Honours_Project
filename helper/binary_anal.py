@@ -29,13 +29,13 @@ def readBinarytoPSD(filename, bytes=1e100, Downsample=32):
     return sp.welch(data, fs = 30.5e3, nperseg=2**18)
 
 # f1, Pxx_den1 = readBinarytoPSD("../Data/20230920_DiffNoise8Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
-# plt.loglog(f1, Pxx_den1, label="8Bit NCO Phase")
+# plt.loglog(f1, Pxx_den1, label="8Bit PA Converter")
 
 # f2, Pxx_den2 = readBinarytoPSD("../Data/20230920_DiffNoise12Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
-# plt.loglog(f2, Pxx_den2, label="12Bit NCO Phase")
+# plt.loglog(f2, Pxx_den2, label="12Bit PA Converter")
 
 # f3, Pxx_den3 = readBinarytoPSD("../Data/20230920_DiffNoise14Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
-# plt.loglog(f3, Pxx_den3, label="14Bit NCO Phase")
+# plt.loglog(f3, Pxx_den3, label="14Bit PA Converter")
 
 # f4, Pxx_den4 = readBinarytoPSD("../Data/20230920_DiffNoise16Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
 # plt.loglog(f4, Pxx_den4, label="16Bit NCO Phase")
@@ -46,11 +46,11 @@ f, Pxx = readBinarytoPSD("logger_dump.bin")
 plt.loglog(f,Pxx, label="14 Bit Test")
 
 # plt.title("Differential Noise Test with 10 MHz Optical Beat over 2km Fiber Link")
-plt.title("Differential Noise Test with 10 MHz Signal Generator (Frequency Locking)")
+plt.title("Differential Noise Test with 10 MHz Signal Generator (1 ADC)")
 plt.xlabel('Frequency [Hz]')
-plt.ylabel('PSD [rad^2/Hz]')
+plt.ylabel('PSD [rad$^2$/Hz]')
 plt.xlim(0.1, 1e4)
-# plt.ylim(5e-14, 1e-10)
+# plt.ylim(5e-13, 1e-8)
 plt.legend()
 plt.grid()
 plt.savefig("../Plots/output.png", dpi=1200)

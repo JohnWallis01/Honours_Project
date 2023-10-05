@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 -- Date        : Mon Sep 18 21:43:13 2023
 -- Host        : Centurion-Heavy running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_proc_sys_reset_0_0/Differental_Phasemeter_proc_sys_reset_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top Differental_Phasemeter_proc_sys_reset_0_0 -prefix
+--               Differental_Phasemeter_proc_sys_reset_0_0_ Differental_Phasemeter_proc_sys_reset_0_0_sim_netlist.vhdl
 -- Design      : Differental_Phasemeter_proc_sys_reset_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,8 +25,6 @@ entity Differental_Phasemeter_proc_sys_reset_0_0_cdc_sync is
     aux_reset_in : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Differental_Phasemeter_proc_sys_reset_0_0_cdc_sync : entity is "cdc_sync";
 end Differental_Phasemeter_proc_sys_reset_0_0_cdc_sync;
 
 architecture STRUCTURE of Differental_Phasemeter_proc_sys_reset_0_0_cdc_sync is
@@ -247,8 +245,6 @@ entity Differental_Phasemeter_proc_sys_reset_0_0_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Differental_Phasemeter_proc_sys_reset_0_0_upcnt_n : entity is "upcnt_n";
 end Differental_Phasemeter_proc_sys_reset_0_0_upcnt_n;
 
 architecture STRUCTURE of Differental_Phasemeter_proc_sys_reset_0_0_upcnt_n is
@@ -413,8 +409,6 @@ entity Differental_Phasemeter_proc_sys_reset_0_0_lpf is
     ext_reset_in : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Differental_Phasemeter_proc_sys_reset_0_0_lpf : entity is "lpf";
 end Differental_Phasemeter_proc_sys_reset_0_0_lpf;
 
 architecture STRUCTURE of Differental_Phasemeter_proc_sys_reset_0_0_lpf is
@@ -603,8 +597,6 @@ entity Differental_Phasemeter_proc_sys_reset_0_0_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Differental_Phasemeter_proc_sys_reset_0_0_sequence_psr : entity is "sequence_psr";
 end Differental_Phasemeter_proc_sys_reset_0_0_sequence_psr;
 
 architecture STRUCTURE of Differental_Phasemeter_proc_sys_reset_0_0_sequence_psr is
@@ -943,8 +935,6 @@ entity Differental_Phasemeter_proc_sys_reset_0_0_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of Differental_Phasemeter_proc_sys_reset_0_0_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of Differental_Phasemeter_proc_sys_reset_0_0_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Differental_Phasemeter_proc_sys_reset_0_0_proc_sys_reset : entity is "proc_sys_reset";
 end Differental_Phasemeter_proc_sys_reset_0_0_proc_sys_reset;
 
 architecture STRUCTURE of Differental_Phasemeter_proc_sys_reset_0_0_proc_sys_reset is

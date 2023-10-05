@@ -9679,12 +9679,7 @@
       "DMA_Interconnect_0_ADC_C1": {
         "ports": [
           "DMA_Interconnect_0/ADC_C1",
-          "Costa_Demodulator_0/Input_Signal"
-        ]
-      },
-      "DMA_Interconnect_0_ADC_C2": {
-        "ports": [
-          "DMA_Interconnect_0/ADC_C2",
+          "Costa_Demodulator_0/Input_Signal",
           "Costa_Demodulator_1/Input_Signal"
         ]
       },

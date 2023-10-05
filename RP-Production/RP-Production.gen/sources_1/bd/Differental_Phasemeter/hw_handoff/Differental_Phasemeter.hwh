@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Sep 22 15:06:14 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct  5 17:14:35 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="Differental_Phasemeter" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -379,9 +379,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="13" NAME="Input_Signal" RIGHT="0" SIGIS="undef" SIGNAME="DMA_Interconnect_0_ADC_C2">
+        <PORT DIR="I" LEFT="13" NAME="Input_Signal" RIGHT="0" SIGIS="undef" SIGNAME="DMA_Interconnect_0_ADC_C1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DMA_Interconnect_0" PORT="ADC_C2"/>
+            <CONNECTION INSTANCE="DMA_Interconnect_0" PORT="ADC_C1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="PLL_Guess_Freq" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_PLL_GUESS_Freq_gpio_io_o">
@@ -1422,13 +1422,10 @@
         <PORT DIR="O" LEFT="13" NAME="ADC_C1" RIGHT="0" SIGIS="undef" SIGNAME="DMA_Interconnect_0_ADC_C1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Costa_Demodulator_0" PORT="Input_Signal"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="13" NAME="ADC_C2" RIGHT="0" SIGIS="undef" SIGNAME="DMA_Interconnect_0_ADC_C2">
-          <CONNECTIONS>
             <CONNECTION INSTANCE="Costa_Demodulator_1" PORT="Input_Signal"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="13" NAME="ADC_C2" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef"/>
         <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef"/>
@@ -14590,6 +14587,86 @@
             <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="M16_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M16_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M17_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M17_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M18_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M18_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M19_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M19_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M20_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M20_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M21_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M21_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M22_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M22_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M23_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M23_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="11" NAME="S00_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="PS7_axi_interconnect_1_S00_AXI_awid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="M_AXI_GP0_AWID"/>
@@ -16172,29 +16249,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_LoggerStatus1" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M16_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M16_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M16_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKi_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M16_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M16_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M16_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKi_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_awvalid"/>
@@ -16215,7 +16275,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M16_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M16_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKi_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_wvalid"/>
@@ -16246,14 +16305,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M16_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M16_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M16_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M16_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKi_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_arvalid"/>
@@ -16274,7 +16326,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M16_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M16_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKi_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_rvalid"/>
@@ -16285,29 +16336,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKi" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M17_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M17_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M17_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiB_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M17_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M17_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M17_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiB_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_awvalid"/>
@@ -16328,7 +16362,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M17_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M17_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiB_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_wvalid"/>
@@ -16359,14 +16392,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M17_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M17_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M17_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M17_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiB_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_arvalid"/>
@@ -16387,7 +16413,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M17_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M17_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiB_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_rvalid"/>
@@ -16398,29 +16423,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiB" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M18_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M18_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M18_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKii_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M18_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M18_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M18_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKii_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_awvalid"/>
@@ -16441,7 +16449,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M18_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M18_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKii_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_wvalid"/>
@@ -16472,14 +16479,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M18_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M18_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M18_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M18_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKii_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_arvalid"/>
@@ -16500,7 +16500,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M18_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M18_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKii_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_rvalid"/>
@@ -16511,29 +16510,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKii" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M19_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M19_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M19_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiiB_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M19_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M19_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M19_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiiB_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_awvalid"/>
@@ -16554,7 +16536,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M19_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M19_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiiB_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_wvalid"/>
@@ -16585,14 +16566,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M19_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M19_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M19_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M19_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiiB_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_arvalid"/>
@@ -16613,7 +16587,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M19_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M19_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKiiB_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_rvalid"/>
@@ -16624,29 +16597,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKiiB" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M20_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M20_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M20_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKp_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M20_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M20_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M20_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKp_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_awvalid"/>
@@ -16667,7 +16623,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M20_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M20_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKp_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_wvalid"/>
@@ -16698,14 +16653,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M20_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M20_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M20_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M20_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKp_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_arvalid"/>
@@ -16726,7 +16674,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M20_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M20_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKp_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_rvalid"/>
@@ -16737,29 +16684,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKp" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M21_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M21_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M21_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKpB_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M21_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M21_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M21_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKpB_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_awvalid"/>
@@ -16780,7 +16710,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M21_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M21_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKpB_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_wvalid"/>
@@ -16811,14 +16740,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M21_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M21_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M21_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M21_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKpB_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_arvalid"/>
@@ -16839,7 +16761,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M21_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M21_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_fKpB_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_rvalid"/>
@@ -16850,29 +16771,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_fKpB" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M22_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M22_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M22_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_Kii_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M22_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M22_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M22_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_Kii_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_awvalid"/>
@@ -16893,7 +16797,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M22_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M22_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_Kii_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_wvalid"/>
@@ -16924,14 +16827,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M22_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M22_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M22_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M22_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_Kii_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_arvalid"/>
@@ -16952,7 +16848,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M22_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M22_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_Kii_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_rvalid"/>
@@ -16963,29 +16858,12 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_Kii" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M23_ACLK" SIGIS="clk" SIGNAME="PS7_processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M23_ARESETN" SIGIS="rst" SIGNAME="PS7_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="PS7_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="31" NAME="M23_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_KiiB_s_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M23_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_awcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M23_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M23_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_KiiB_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_awvalid"/>
@@ -17006,7 +16884,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M23_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M23_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_KiiB_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_wvalid"/>
@@ -17037,14 +16914,7 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M23_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_arcache" SIGIS="undef"/>
         <PORT DIR="O" NAME="M23_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M23_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" LEFT="0" NAME="M23_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_KiiB_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_arvalid"/>
@@ -17065,7 +16935,6 @@
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M23_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="M23_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="GPIO_Interface_GPIO_KiiB_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPIO_Interface_GPIO_KiiB" PORT="s_axi_rvalid"/>
@@ -17491,38 +17360,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M16_AXI" DATAWIDTH="32" NAME="M16_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M16_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M16_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M16_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M16_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M16_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M16_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M16_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M16_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M16_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M16_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M16_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M16_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M16_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M16_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M16_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M16_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M16_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M16_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M16_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M16_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M16_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M16_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M16_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M16_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M16_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M16_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M16_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M16_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M16_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M16_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M16_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M16_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M16_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M16_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M16_AXI_rready"/>
           </PORTMAPS>
@@ -17530,38 +17383,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M17_AXI" DATAWIDTH="32" NAME="M17_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M17_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M17_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M17_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M17_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M17_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M17_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M17_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M17_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M17_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M17_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M17_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M17_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M17_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M17_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M17_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M17_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M17_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M17_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M17_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M17_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M17_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M17_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M17_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M17_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M17_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M17_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M17_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M17_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M17_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M17_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M17_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M17_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M17_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M17_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M17_AXI_rready"/>
           </PORTMAPS>
@@ -17569,38 +17406,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M18_AXI" DATAWIDTH="32" NAME="M18_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M18_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M18_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M18_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M18_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M18_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M18_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M18_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M18_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M18_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M18_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M18_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M18_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M18_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M18_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M18_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M18_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M18_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M18_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M18_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M18_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M18_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M18_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M18_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M18_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M18_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M18_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M18_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M18_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M18_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M18_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M18_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M18_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M18_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M18_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M18_AXI_rready"/>
           </PORTMAPS>
@@ -17608,38 +17429,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M19_AXI" DATAWIDTH="32" NAME="M19_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M19_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M19_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M19_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M19_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M19_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M19_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M19_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M19_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M19_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M19_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M19_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M19_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M19_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M19_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M19_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M19_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M19_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M19_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M19_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M19_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M19_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M19_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M19_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M19_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M19_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M19_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M19_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M19_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M19_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M19_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M19_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M19_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M19_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M19_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M19_AXI_rready"/>
           </PORTMAPS>
@@ -17647,38 +17452,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M20_AXI" DATAWIDTH="32" NAME="M20_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M20_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M20_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M20_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M20_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M20_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M20_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M20_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M20_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M20_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M20_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M20_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M20_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M20_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M20_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M20_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M20_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M20_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M20_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M20_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M20_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M20_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M20_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M20_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M20_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M20_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M20_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M20_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M20_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M20_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M20_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M20_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M20_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M20_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M20_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M20_AXI_rready"/>
           </PORTMAPS>
@@ -17686,38 +17475,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M21_AXI" DATAWIDTH="32" NAME="M21_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M21_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M21_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M21_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M21_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M21_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M21_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M21_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M21_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M21_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M21_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M21_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M21_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M21_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M21_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M21_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M21_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M21_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M21_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M21_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M21_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M21_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M21_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M21_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M21_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M21_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M21_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M21_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M21_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M21_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M21_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M21_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M21_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M21_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M21_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M21_AXI_rready"/>
           </PORTMAPS>
@@ -17725,38 +17498,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M22_AXI" DATAWIDTH="32" NAME="M22_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M22_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M22_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M22_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M22_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M22_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M22_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M22_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M22_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M22_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M22_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M22_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M22_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M22_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M22_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M22_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M22_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M22_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M22_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M22_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M22_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M22_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M22_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M22_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M22_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M22_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M22_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M22_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M22_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M22_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M22_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M22_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M22_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M22_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M22_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M22_AXI_rready"/>
           </PORTMAPS>
@@ -17764,38 +17521,22 @@
         <BUSINTERFACE BUSNAME="PS7_axi_interconnect_1_M23_AXI" DATAWIDTH="32" NAME="M23_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M23_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M23_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M23_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M23_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M23_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M23_AXI_awcache"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M23_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M23_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M23_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M23_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M23_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M23_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M23_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M23_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M23_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M23_AXI_wready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M23_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M23_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M23_AXI_bready"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M23_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M23_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M23_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M23_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M23_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M23_AXI_arcache"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="M23_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M23_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M23_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M23_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M23_AXI_arready"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M23_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M23_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M23_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M23_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M23_AXI_rready"/>
           </PORTMAPS>

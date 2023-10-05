@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Mon Sep 18 21:40:35 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_AXI_Stream_Writer_0_0/Differental_Phasemeter_AXI_Stream_Writer_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_AXI_Stream_Writer_0_0 -prefix
+//               Differental_Phasemeter_AXI_Stream_Writer_0_0_ Differental_Phasemeter_AXI_Stream_Writer_0_0_sim_netlist.v
 // Design      : Differental_Phasemeter_AXI_Stream_Writer_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.

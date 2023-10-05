@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "Differental_Phasemeter_GPIO_Kp_9",
-    "cell_name": "GPIO_KiiB",
+    "cell_name": "GPIO_Interface/GPIO_KiiB",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "29",
     "gen_directory": "../../../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_9",

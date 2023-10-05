@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Sep 22 15:06:10 2023
+//Date        : Thu Oct  5 17:14:31 2023
 //Host        : Valkyrie running 64-bit major release  (build 9200)
 //Command     : generate_target Differental_Phasemeter.bd
 //Design      : Differental_Phasemeter
@@ -770,7 +770,6 @@ module Differental_Phasemeter
   wire DATA_LOGGER_0_m_axis_S2MMS_TVALID;
   wire DATA_LOGGER_0_trigger;
   wire [13:0]DMA_Interconnect_0_ADC_C1;
-  wire [13:0]DMA_Interconnect_0_ADC_C2;
   wire [6:0]Delay_Select_1;
   wire [4:0]Div_Select_1;
   wire [31:0]GPIO_Interface_gpio_Ki;
@@ -1288,7 +1287,7 @@ module Differental_Phasemeter
         .Control_fKii(GPIO_Interface_gpio_io_o8),
         .Control_fKp(GPIO_Interface_gpio_io_o9),
         .Freq_Measured(Costa_Demodulator_1_Freq_Measured),
-        .Input_Signal(DMA_Interconnect_0_ADC_C2),
+        .Input_Signal(DMA_Interconnect_0_ADC_C1),
         .Integrator_Reset(Net2),
         .Message(Costa_Demodulator_1_Message),
         .PLL_Guess_Freq(Net1),
@@ -1322,7 +1321,6 @@ module Differental_Phasemeter
         .trigger(DATA_LOGGER_0_trigger));
   Differental_Phasemeter_DMA_Interconnect_0_0 DMA_Interconnect_0
        (.ADC_C1(DMA_Interconnect_0_ADC_C1),
-        .ADC_C2(DMA_Interconnect_0_ADC_C2),
         .ADC_s_axis_tdata(axis_red_pitaya_adc_0_M_AXIS_TDATA),
         .ADC_s_axis_tvalid(axis_red_pitaya_adc_0_M_AXIS_TVALID),
         .Debug({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),

@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Mon Sep 18 21:40:36 2023
 // Host        : Centurion-Heavy running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/ip/Differental_Phasemeter_Clock_Divider_0_0/Differental_Phasemeter_Clock_Divider_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Differental_Phasemeter_Clock_Divider_0_0 -prefix
+//               Differental_Phasemeter_Clock_Divider_0_0_ Differental_Phasemeter_Clock_Divider_0_0_sim_netlist.v
 // Design      : Differental_Phasemeter_Clock_Divider_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,32 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_Clock_Divider_0_0,Clock_Divider,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "Clock_Divider,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module Differental_Phasemeter_Clock_Divider_0_0
-   (DivClock_In,
-    DivClock_Out,
-    Div_Select,
-    Reset);
-  input DivClock_In;
-  output DivClock_Out;
-  input [4:0]Div_Select;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset;
-
-  wire DivClock_In;
-  wire DivClock_Out;
-  wire [4:0]Div_Select;
-  wire Reset;
-
-  Differental_Phasemeter_Clock_Divider_0_0_Clock_Divider inst
-       (.DivClock_In(DivClock_In),
-        .DivClock_Out(DivClock_Out),
-        .Div_Select(Div_Select),
-        .Reset(Reset));
-endmodule
-
-(* ORIG_REF_NAME = "Clock_Divider" *) 
 module Differental_Phasemeter_Clock_Divider_0_0_Clock_Divider
    (DivClock_Out,
     Reset,
@@ -502,6 +476,31 @@ module Differental_Phasemeter_Clock_Divider_0_0_Clock_Divider
         .I4(Div_Select[0]),
         .I5(Counter_reg[8]),
         .O(DivClock_Out_INST_0_i_9_n_0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "Differental_Phasemeter_Clock_Divider_0_0,Clock_Divider,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "Clock_Divider,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module Differental_Phasemeter_Clock_Divider_0_0
+   (DivClock_In,
+    DivClock_Out,
+    Div_Select,
+    Reset);
+  input DivClock_In;
+  output DivClock_Out;
+  input [4:0]Div_Select;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 Reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input Reset;
+
+  wire DivClock_In;
+  wire DivClock_Out;
+  wire [4:0]Div_Select;
+  wire Reset;
+
+  Differental_Phasemeter_Clock_Divider_0_0_Clock_Divider inst
+       (.DivClock_In(DivClock_In),
+        .DivClock_Out(DivClock_Out),
+        .Div_Select(Div_Select),
+        .Reset(Reset));
 endmodule
 `ifndef GLBL
 `define GLBL

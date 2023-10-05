@@ -1,0 +1,29 @@
+vhdl xil_defaultlib  \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Ki_0/sim/Differental_Phasemeter_GPIO_Ki_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_0/sim/Differental_Phasemeter_GPIO_Kp_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0/sim/Differental_Phasemeter_GPIO_PLL_GUESS_Freq_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_FreqMeasure_0/sim/Differental_Phasemeter_GPIO_FreqMeasure_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Integrator_Reset_0/sim/Differental_Phasemeter_GPIO_Integrator_Reset_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_FreqMeasureA_0/sim/Differental_Phasemeter_GPIO_FreqMeasureA_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Ki_1/sim/Differental_Phasemeter_GPIO_Ki_1.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_1/sim/Differental_Phasemeter_GPIO_Kp_1.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_KpB_0/sim/Differental_Phasemeter_GPIO_KpB_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_PRBS_Scale_0/sim/Differental_Phasemeter_GPIO_PRBS_Scale_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_PRBS_Scale_1/sim/Differental_Phasemeter_GPIO_PRBS_Scale_1.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_PRBS_Scale_2/sim/Differental_Phasemeter_GPIO_PRBS_Scale_2.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_PRBS_DIV_0/sim/Differental_Phasemeter_GPIO_PRBS_DIV_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Taps_0/sim/Differental_Phasemeter_GPIO_Taps_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_SamplingReset_1/sim/Differental_Phasemeter_GPIO_SamplingReset_1.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_LoggerStatus_0/sim/Differental_Phasemeter_GPIO_LoggerStatus_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_2/sim/Differental_Phasemeter_GPIO_Kp_2.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_3/sim/Differental_Phasemeter_GPIO_Kp_3.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_4/sim/Differental_Phasemeter_GPIO_Kp_4.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_5/sim/Differental_Phasemeter_GPIO_Kp_5.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_6/sim/Differental_Phasemeter_GPIO_Kp_6.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_7/sim/Differental_Phasemeter_GPIO_Kp_7.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_8/sim/Differental_Phasemeter_GPIO_Kp_8.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_GPIO_Kp_9/sim/Differental_Phasemeter_GPIO_Kp_9.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_proc_sys_reset_0_0/sim/Differental_Phasemeter_proc_sys_reset_0_0.vhd" \
+"../../../bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_dma_0_1/sim/Differental_Phasemeter_axi_dma_0_1.vhd" \
+
+nosort
