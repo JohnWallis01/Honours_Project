@@ -3,11 +3,5 @@
 Oct 14 2022
 05:20:55
 C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,axi_vip_v1_1_13;processing_system7_vip_v1_0_15;xilinx_vip,,,,,,
-C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Main_Sim.v,1695036372,verilog,,,,Main_Sim,,axi_vip_v1_1_13;processing_system7_vip_v1_0_15;xilinx_vip,../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/7698;../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/ec67/hdl;../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/ee60/hdl;C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include,,,,,
-C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Testing_Architecture.vhd,1695365156,vhdl,,,,testing_architecture,,,,,,,,
-C:/Users/John/Desktop/Honours_Project/VHDL_Modules/CIC32.vhd,1679372804,vhdl2008,,,,cic32,,,,,,,,
-C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Controllers.vhd,1695363177,vhdl2008,,,,pid_controller;pii_controller,,,,,,,,
-C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Costa_Demodulator.vhd,1695355416,vhdl,,,,costa_demodulator,,,,,,,,
-C:/Users/John/Desktop/Honours_Project/VHDL_Modules/Logic.vhd,1695036372,vhdl,,,,dac_interface;inverter;mixer;prbs_multiply;reset_gen;reset_latch;subtractor;test_pattern_gen;variable_delay,,,,,,,,
-C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd,1695187349,vhdl,,,,nco;nco_wrapper,,,,,,,,
-C:/Users/John/Desktop/Honours_Project/VHDL_Modules/PSK.vhd,1695036372,vhdl,,,,psk,,,,,,,,
+C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Main_Sim.v,1696479298,verilog,,,,Main_Sim,,axi_vip_v1_1_13;processing_system7_vip_v1_0_15;xilinx_vip,../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/7698;../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/ec67/hdl;../../../../RP-Production.gen/sources_1/bd/Differental_Phasemeter/ipshared/ee60/hdl;../../../../RP-Production.gen/sources_1/bd/system/ipshared/7698;../../../../RP-Production.gen/sources_1/bd/system/ipshared/ec67/hdl;../../../../RP-Production.gen/sources_1/bd/system/ipshared/ee60/hdl;C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include,,,,,
+C:/Users/John/Desktop/Honours_Project/VHDL_Modules/NCO.vhd,1696486832,vhdl,,,,highresnco;nco;nco_wrapper,,,,,,,,

@@ -4,6 +4,7 @@ Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --debug typical
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-9380] size mismatch in mixed-language port association of VHDL port 'i_out' [C:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.srcs/sim_1/new/Main_Sim.v:41]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -13,15 +14,7 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(dac_size=14)\]
-Compiling architecture psk_arch of entity xil_defaultlib.PSK [psk_default]
-Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=14)\]
-Compiling architecture rtl of entity xil_defaultlib.CIC32 [cic32_default]
-Compiling architecture mixer_arch of entity xil_defaultlib.Mixer [\Mixer(mixersize=26)\]
-Compiling architecture controller_behaviours of entity xil_defaultlib.PII_Controller [pii_controller_default]
-Compiling architecture nco_str of entity xil_defaultlib.NCO [\NCO(rom_size=14,dac_size=14)\]
-Compiling architecture costa_arc of entity xil_defaultlib.Costa_Demodulator [costa_demodulator_default]
-Compiling architecture behavioral of entity xil_defaultlib.Testing_Architecture [testing_architecture_default]
+Compiling architecture highresnco_beh of entity xil_defaultlib.HighResNCO [\HighResNCO(lut_size=8)\]
 Compiling module xil_defaultlib.Main_Sim
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot Main_Sim_behav
