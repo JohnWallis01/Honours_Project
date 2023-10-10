@@ -58,7 +58,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="1075"/>
+    <Option Name="WTXSimLaunchSim" Val="1080"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -151,14 +151,23 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xci">
-          <Proxy FileSetName="system_clk_wiz_0_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0.xci">
+          <Proxy FileSetName="system_Costa_Demodulator_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_PRBS_Gain_0/system_PRBS_Gain_0.xci">
-          <Proxy FileSetName="system_PRBS_Gain_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_2/system_xbar_2.xci">
+          <Proxy FileSetName="system_xbar_2"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
+          <Proxy FileSetName="system_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_GPIO_PLL_GUESS_Freq_0/system_GPIO_PLL_GUESS_Freq_0.xci">
+          <Proxy FileSetName="system_GPIO_PLL_GUESS_Freq_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Locking_Strength_1/system_Locking_Strength_1.xci">
           <Proxy FileSetName="system_Locking_Strength_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_PRBS_Gain_0/system_PRBS_Gain_0.xci">
+          <Proxy FileSetName="system_PRBS_Gain_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_gpio_0_6/system_axi_gpio_0_6.xci">
           <Proxy FileSetName="system_axi_gpio_0_6"/>
@@ -166,26 +175,17 @@
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_LFSR_0_0/system_LFSR_0_0.xci">
           <Proxy FileSetName="system_LFSR_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Costa_Demodulator_0_0/system_Costa_Demodulator_0_0.xci">
-          <Proxy FileSetName="system_Costa_Demodulator_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_GPIO_PLL_GUESS_Freq_0/system_GPIO_PLL_GUESS_Freq_0.xci">
-          <Proxy FileSetName="system_GPIO_PLL_GUESS_Freq_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_Delay_Amount_0/system_Delay_Amount_0.xci">
           <Proxy FileSetName="system_Delay_Amount_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_processing_system7_0_0/system_processing_system7_0_0.xci">
-          <Proxy FileSetName="system_processing_system7_0_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xci">
+          <Proxy FileSetName="system_clk_wiz_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_dma_0_2/system_axi_dma_0_2.xci">
           <Proxy FileSetName="system_axi_dma_0_2"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0.xci">
           <Proxy FileSetName="system_util_ds_buf_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_2/system_xbar_2.xci">
-          <Proxy FileSetName="system_xbar_2"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0.xci">
           <Proxy FileSetName="system_util_ds_buf_1_0"/>
@@ -224,17 +224,17 @@
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_tier2_xbar_2_0/Differental_Phasemeter_tier2_xbar_2_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_tier2_xbar_2_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Costa_Demodulator_0_0/Differental_Phasemeter_Costa_Demodulator_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_Costa_Demodulator_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_xbar_0/Differental_Phasemeter_xbar_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_xbar_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_tier2_xbar_0_0/Differental_Phasemeter_tier2_xbar_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_tier2_xbar_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_processing_system7_0_0/Differental_Phasemeter_processing_system7_0_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_processing_system7_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_tier2_xbar_0_0/Differental_Phasemeter_tier2_xbar_0_0.xci">
-          <Proxy FileSetName="Differental_Phasemeter_tier2_xbar_0_0"/>
+        <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Costa_Demodulator_0_0/Differental_Phasemeter_Costa_Demodulator_0_0.xci">
+          <Proxy FileSetName="Differental_Phasemeter_Costa_Demodulator_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="Differental_Phasemeter.bd" FileRelPathName="ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0.xci">
           <Proxy FileSetName="Differental_Phasemeter_Costa_Demodulator_1_0"/>
@@ -322,17 +322,16 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/new/Testing_Architecture.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sim_1/new/Main_Sim.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/new/Testing_Architecture.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
