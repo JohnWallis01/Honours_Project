@@ -141,29 +141,29 @@ n= 7500
 zero_crossing_index = np.argmax(np.diff(np.sign(20 * np.log10(abs(L[0:n])))))
 
 
-fig = plt.figure(figsize=(15, 5))  # Adjust the figure size
-ax1 = plt.subplot(1, 3, 1, projection='polar')
-ax2 = plt.subplot(1, 3, 2, projection='polar')
+fig = plt.figure(figsize=(10, 5))  # Adjust the figure size
+ax1 = plt.subplot(1, 2, 1, projection='polar')
+ax2 = plt.subplot(1, 2, 2, projection='polar')
 Polar_Plot_IC(ax1, initial_conditions)
 Polar_Plot_IC(ax2, initial_conditions2)
 
 # Create the third subplot for Nichols Plot
-ax3 = plt.subplot(1, 3, 3)
+# ax3 = plt.subplot(1, 3, 3)
 
-ax3.plot(np.angle(L[0:n]) * 180 / np.pi, 20 * np.log10(abs(L[0:n])))
-ax3.set_xlabel('Phase (degrees)')
-ax3.set_ylabel('Magnitude (dB)')
-ax3.set_ylim(-5, 150)
-ax3.axhline(y=0, color='r', linestyle='--')
+# ax3.plot(np.angle(L[0:n]) * 180 / np.pi, 20 * np.log10(abs(L[0:n])))
+# ax3.set_xlabel('Phase (degrees)')
+# ax3.set_ylabel('Magnitude (dB)')
+# ax3.set_ylim(-5, 150)
+# ax3.axhline(y=0, color='r', linestyle='--')
 
-# Annotate the phase margin
-pm = 180 + np.angle(L[UGF_index]) * 180 / np.pi
-ax3.text(np.angle(L[zero_crossing_index]) * 180 / np.pi + 15, 5, f'Phase Margin = {pm:.2f} degrees', color='black')
-ax3.grid(True)
+# # Annotate the phase margin
+# pm = 180 + np.angle(L[UGF_index]) * 180 / np.pi
+# ax3.text(np.angle(L[zero_crossing_index]) * 180 / np.pi + 15, 5, f'Phase Margin = {pm:.2f} degrees', color='black')
+# ax3.grid(True)
 
 ax1.set_title("a)")
 ax2.set_title("b)")
-ax3.set_title("c)")
+# ax3.set_title("c)")
 
 
 plt.subplots_adjust(bottom=0.19)
