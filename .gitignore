@@ -11,3 +11,8 @@ RP-simulation/RP-simulation.sim/sim_1/synth/func/xsim/test_bench_init_func_synth
 RP-simulation/RP-simulation.sim/sim_1/synth/func/xsim/xsim.dir/xil_defaultlib/@sliding_@d@f@t_@processor.sdb
 .vscode/settings.json
 /Data/*
+helper/logger_dump.bin
+helper/logger_dump.npy
+helper/logger_dump.bin
+helper/logger_dump.bin
+helper/logger_dump.bin

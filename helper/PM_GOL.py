@@ -69,7 +69,7 @@ plt.plot(np.angle(L[0:n]) * 180 / np.pi, 20 * np.log10(abs(L[0:n])))
 # Labeling the axes
 plt.xlabel('Phase (degrees)')
 plt.ylabel('Magnitude (dB)')
-
+plt.ylim(-5, 150)
 # Add a vertical line at 0 dB
 plt.axhline(y=0, color='r', linestyle='--')
 
@@ -83,4 +83,5 @@ plt.text(np.angle(L[zero_crossing_index]) * 180 / np.pi + 15, 5, f'Phase Margin 
 
 plt.grid(True)
 plt.title('Costas Loop Nichols Plot')
-plt.savefig('Costas_Loop_Nichols_Plot.png', dpi=300)
+# plt.savefig('Costas_Loop_Nichols_Plot.png', dpi=300)
+plt.show()
