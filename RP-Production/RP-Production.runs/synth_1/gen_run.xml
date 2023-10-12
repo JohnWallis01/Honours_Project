@@ -198,16 +198,17 @@
       <Option Id="IncrementalMode">3</Option>
     </Step>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="system_xbar_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_PRBS_Gain_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_xbar_2"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_0_6"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PRBS_Gain_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_5"/>
   <BlockFileSet Type="BlockSrcs" Name="system_Locking_Strength_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_Delay_Amount_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_dma_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_tier2_xbar_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Costa_Demodulator_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Differental_Phasemeter_Costa_Demodulator_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_clk_wiz_0_0"/>
