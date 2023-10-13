@@ -119,7 +119,6 @@
       "AXI_Stream_Writer_0": "",
       "PRBS_Multiply_0": "",
       "Reset_Gen_0": "",
-      "Subtractor_0": "",
       "Test_Pattern_Gen_0": "",
       "DATA_LOGGER_0": "",
       "xlconstant_0": "",
@@ -8731,48 +8730,6 @@
           }
         }
       },
-      "Subtractor_0": {
-        "vlnv": "xilinx.com:module_ref:Subtractor:1.0",
-        "xci_name": "Differental_Phasemeter_Subtractor_0_0",
-        "xci_path": "ip\\Differental_Phasemeter_Subtractor_0_0\\Differental_Phasemeter_Subtractor_0_0.xci",
-        "inst_hier_path": "Subtractor_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Subtractor",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Dplus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Dminus": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "Q": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
       "Test_Pattern_Gen_0": {
         "vlnv": "xilinx.com:module_ref:Test_Pattern_Gen:1.0",
         "xci_name": "Differental_Phasemeter_Test_Pattern_Gen_0_0",
@@ -9649,7 +9606,7 @@
       "Costa_Demodulator_0_Phase_Error": {
         "ports": [
           "Costa_Demodulator_0/Phase_Error",
-          "Subtractor_0/Dplus"
+          "AXI_Stream_Writer_0/D_In"
         ]
       },
       "Costa_Demodulator_1_Freq_Measured": {
@@ -9662,12 +9619,6 @@
         "ports": [
           "Costa_Demodulator_1/Message",
           "DMA_Interconnect_0/Demodulated_PRBS_B"
-        ]
-      },
-      "Costa_Demodulator_1_Phase_Error": {
-        "ports": [
-          "Costa_Demodulator_1/Phase_Error",
-          "Subtractor_0/Dminus"
         ]
       },
       "DATA_LOGGER_0_trigger": {
@@ -9806,7 +9757,6 @@
           "DMA_Interconnect_0/aclk",
           "PRBS_Multiply_0/Clock",
           "Reset_Gen_0/Clock",
-          "Subtractor_0/clock",
           "Test_Pattern_Gen_0/Clock",
           "DATA_LOGGER_0/m_axis_aclk",
           "DATA_LOGGER_0/s_axis_aclk",
@@ -9868,12 +9818,6 @@
         "ports": [
           "PS7/peripheral_aresetn",
           "GPIO_Interface/s_axi_aresetn"
-        ]
-      },
-      "Subtractor_0_Q": {
-        "ports": [
-          "Subtractor_0/Q",
-          "AXI_Stream_Writer_0/D_In"
         ]
       },
       "Taps_1": {

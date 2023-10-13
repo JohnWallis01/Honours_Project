@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Oct  5 17:30:26 2023
+| Date         : Fri Oct 13 10:34:33 2023
 | Host         : Valkyrie running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file Differental_Phasemeter_wrapper_clock_utilization_routed.rpt
 | Design       : Differental_Phasemeter_wrapper
@@ -51,7 +51,7 @@ Table of Contents
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                       | Driver Pin                                                                                 | Net                                                                                                   |
 +-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+---------------------------------------------+--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
 | g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 4 |        6197 |               0 |        8.000 | clk_fpga_0                                  | Differental_Phasemeter_i/PS7/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0                                      |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 4 |        5711 |               0 |        8.000 | adc_clk                                     | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk_inst/O                         | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk                                           |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 4 |        5652 |               0 |        8.000 | adc_clk                                     | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk_inst/O                         | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk                                           |
 | g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y2 | n/a          |                 1 |           2 |               0 |        4.000 | clk_out1_Differental_Phasemeter_clk_wiz_0_0 | Differental_Phasemeter_i/DAC_Interface/clk_wiz_0/inst/clkout1_buf/O                        | Differental_Phasemeter_i/DAC_Interface/clk_wiz_0/inst/clk_out1                                        |
 | g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y3 | n/a          |                 1 |           1 |               0 |        8.000 | clkfbout_Differental_Phasemeter_clk_wiz_0_0 | Differental_Phasemeter_i/DAC_Interface/clk_wiz_0/inst/clkf_buf/O                           | Differental_Phasemeter_i/DAC_Interface/clk_wiz_0/inst/clkfbout_buf_Differental_Phasemeter_clk_wiz_0_0 |
 +-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+---------------------------------------------+--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
@@ -82,10 +82,10 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 3671 |  1100 | 1484 |   400 |    0 |    20 |    7 |    10 |    7 |    20 |
-| X1Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |   14 |    50 |    0 |    50 | 3274 |  1100 | 1111 |   350 |    0 |    40 |    6 |    20 |    8 |    20 |
-| X0Y1              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 2257 |  1100 |  818 |   400 |    1 |    20 |    4 |    10 |    6 |    20 |
-| X1Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |   18 |    50 | 2329 |  1100 |  806 |   350 |    0 |    40 |   10 |    20 |    7 |    20 |
+| X0Y0              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 3695 |  1100 | 1512 |   400 |    0 |    20 |    7 |    10 |    7 |    20 |
+| X1Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |   14 |    50 |    0 |    50 | 3398 |  1100 | 1090 |   350 |    0 |    40 |    6 |    20 |    7 |    20 |
+| X0Y1              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 2052 |  1100 |  736 |   400 |    0 |    20 |    3 |    10 |    2 |    20 |
+| X1Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |   18 |    50 | 2327 |  1100 |  863 |   350 |    0 |    40 |   11 |    20 |   12 |    20 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -119,8 +119,8 @@ All Modules
 +----+-------+-------+-----------------------+
 |    | X0    | X1    | HORIZONTAL PROG DELAY |
 +----+-------+-------+-----------------------+
-| Y1 |  1628 |  1250 |                     0 |
-| Y0 |  1805 |  1514 |                     0 |
+| Y1 |  1739 |  1291 |                     0 |
+| Y0 |  1850 |  1317 |                     0 |
 +----+-------+-------+-----------------------+
 
 
@@ -130,7 +130,7 @@ All Modules
 +-----------+-----------------+-------------------+---------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock   | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                         |
 +-----------+-----------------+-------------------+---------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------------------------+
-| g1        | BUFG/O          | n/a               | adc_clk |       8.000 | {0.000 4.000} |        5691 |        0 |              1 |        0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk |
+| g1        | BUFG/O          | n/a               | adc_clk |       8.000 | {0.000 4.000} |        5632 |        0 |              1 |        0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk |
 +-----------+-----------------+-------------------+---------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -141,8 +141,8 @@ All Modules
 +----+-------+-------+-----------------------+
 |    | X0    | X1    | HORIZONTAL PROG DELAY |
 +----+-------+-------+-----------------------+
-| Y1 |   662 |  1112 |                     0 |
-| Y0 |  2094 |  1824 |                     0 |
+| Y1 |   361 |  1076 |                     0 |
+| Y0 |  2075 |  2121 |                     0 |
 +----+-------+-------+-----------------------+
 
 
@@ -196,8 +196,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                              |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        1805 |               0 | 1692 |         111 |    1 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0 |
-| g1        | n/a   | BUFG/O          | None       |        2094 |               0 | 1979 |         100 |    7 |   7 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk      |
+| g0        | n/a   | BUFG/O          | None       |        1850 |               0 | 1758 |          90 |    1 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |        2075 |               0 | 1937 |         123 |    7 |   7 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -210,8 +210,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                   |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        1514 |               0 | 1514 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0                                      |
-| g1        | n/a   | BUFG/O          | None       |        1824 |               0 | 1760 |          48 |    6 |   8 |  0 |    1 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk                                           |
+| g0        | n/a   | BUFG/O          | None       |        1317 |               0 | 1317 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0                                      |
+| g1        | n/a   | BUFG/O          | None       |        2121 |               0 | 2081 |          25 |    6 |   7 |  0 |    1 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk                                           |
 | g3        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | Differental_Phasemeter_i/DAC_Interface/clk_wiz_0/inst/clkfbout_buf_Differental_Phasemeter_clk_wiz_0_0 |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
@@ -225,8 +225,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                              |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        1628 |               0 | 1608 |          19 |    0 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0 |
-| g1        | n/a   | BUFG/O          | None       |         662 |               0 |  649 |           0 |    5 |   6 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk      |
+| g0        | n/a   | BUFG/O          | None       |        1739 |               0 | 1698 |          40 |    0 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |         361 |               0 |  354 |           0 |    3 |   2 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -239,8 +239,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                              |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        1250 |               0 | 1250 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0 |
-| g1        | n/a   | BUFG/O          | None       |        1112 |               0 | 1079 |           0 |   10 |   7 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk      |
+| g0        | n/a   | BUFG/O          | None       |        1291 |               0 | 1291 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/PS7/processing_system7_0/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |        1076 |               0 | 1036 |           0 |   11 |  12 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/axis_red_pitaya_adc_0/inst/adc_clk      |
 | g2        | n/a   | BUFG/O          | None       |           2 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Differental_Phasemeter_i/DAC_Interface/clk_wiz_0/inst/clk_out1   |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered

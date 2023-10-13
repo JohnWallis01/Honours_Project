@@ -149,9 +149,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Reset_Gen_0_0/Differental_Phasemeter_Reset_Gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Reset_Gen_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Reset_Gen_0_0} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Subtractor_0_0/Differental_Phasemeter_Subtractor_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Subtractor_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Subtractor_0_0} -quiet] -quiet
-
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Test_Pattern_Gen_0_0/Differental_Phasemeter_Test_Pattern_Gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Test_Pattern_Gen_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Test_Pattern_Gen_0_0} -quiet] -quiet
 

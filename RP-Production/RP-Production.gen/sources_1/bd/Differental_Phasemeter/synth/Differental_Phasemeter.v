@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Oct  5 17:14:31 2023
+//Date        : Fri Oct 13 10:28:08 2023
 //Host        : Valkyrie running 64-bit major release  (build 9200)
 //Command     : generate_target Differental_Phasemeter.bd
 //Design      : Differental_Phasemeter
@@ -675,7 +675,7 @@ module DMA_Engine_imp_1S5CNGA
         .s_axi_wvalid(processing_system7_0_M_AXI_GP1_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "Differental_Phasemeter,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Differental_Phasemeter,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=103,numReposBlks=59,numNonXlnxBlks=3,numHierBlks=44,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=18,da_board_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "Differental_Phasemeter.hwdef" *) 
+(* CORE_GENERATION_INFO = "Differental_Phasemeter,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Differental_Phasemeter,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=102,numReposBlks=58,numNonXlnxBlks=3,numHierBlks=44,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=13,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=18,da_board_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "Differental_Phasemeter.hwdef" *) 
 module Differental_Phasemeter
    (DDR_addr,
     DDR_ba,
@@ -763,7 +763,6 @@ module Differental_Phasemeter
   wire [31:0]Costa_Demodulator_0_Phase_Error;
   wire [31:0]Costa_Demodulator_1_Freq_Measured;
   wire Costa_Demodulator_1_Message;
-  wire [31:0]Costa_Demodulator_1_Phase_Error;
   wire [31:0]DATA_LOGGER_0_m_axis_S2MMS_TDATA;
   wire DATA_LOGGER_0_m_axis_S2MMS_TLAST;
   wire DATA_LOGGER_0_m_axis_S2MMS_TREADY;
@@ -1206,7 +1205,6 @@ module Differental_Phasemeter
   wire [0:0]S_AXI7_1_WREADY;
   wire [3:0]S_AXI7_1_WSTRB;
   wire [0:0]S_AXI7_1_WVALID;
-  wire [31:0]Subtractor_0_Q;
   wire [31:0]Taps_1;
   wire adc_clk_n_i_1;
   wire adc_clk_p_i_1;
@@ -1258,7 +1256,7 @@ module Differental_Phasemeter
   assign daisy_n_i_1 = daisy_n_i[1:0];
   assign daisy_p_i_1 = daisy_p_i[1:0];
   Differental_Phasemeter_AXI_Stream_Writer_0_0 AXI_Stream_Writer_0
-       (.D_In(Subtractor_0_Q),
+       (.D_In(Costa_Demodulator_0_Phase_Error),
         .m_axis_tdata(AXI_Stream_Writer_0_m_axis_TDATA),
         .m_axis_tvalid(AXI_Stream_Writer_0_m_axis_TVALID));
   Differental_Phasemeter_Costa_Demodulator_0_0 Costa_Demodulator_0
@@ -1291,7 +1289,6 @@ module Differental_Phasemeter
         .Integrator_Reset(Net2),
         .Message(Costa_Demodulator_1_Message),
         .PLL_Guess_Freq(Net1),
-        .Phase_Error(Costa_Demodulator_1_Phase_Error),
         .Reset(Net5),
         .Threshold(Net3));
   DAC_Interface_imp_10MNJJP DAC_Interface
@@ -2233,11 +2230,6 @@ module Differental_Phasemeter
   Differental_Phasemeter_Reset_Gen_0_0 Reset_Gen_0
        (.Clock(Net),
         .Reset(Net5));
-  Differental_Phasemeter_Subtractor_0_0 Subtractor_0
-       (.Dminus(Costa_Demodulator_1_Phase_Error),
-        .Dplus(Costa_Demodulator_0_Phase_Error),
-        .Q(Subtractor_0_Q),
-        .clock(Net));
   Differental_Phasemeter_Test_Pattern_Gen_0_0 Test_Pattern_Gen_0
        (.Clock(Net),
         .Reset(GPIO_Interface_gpio_io_o1));

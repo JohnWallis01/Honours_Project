@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Oct  5 17:30:18 2023
+| Date         : Fri Oct 13 10:34:25 2023
 | Host         : Valkyrie running 64-bit major release  (build 9200)
 | Command      : report_methodology -file Differental_Phasemeter_wrapper_methodology_drc_routed.rpt -pb Differental_Phasemeter_wrapper_methodology_drc_routed.pb -rpx Differental_Phasemeter_wrapper_methodology_drc_routed.rpx
 | Design       : Differental_Phasemeter_wrapper
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 850
+             Violations found: 852
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -33,7 +33,7 @@ Table of Contents
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
 | DPIR-1    | Warning          | Asynchronous driver check                          | 768        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                       | 7          |
-| TIMING-16 | Warning          | Large setup violation                              | 36         |
+| TIMING-16 | Warning          | Large setup violation                              | 38         |
 | TIMING-18 | Warning          | Missing input or output delay                      | 30         |
 | ULMTCS-1  | Warning          | Control Sets use limits recommend reduction        | 1          |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten    | 4          |
@@ -4043,182 +4043,192 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.000 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[11]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.002 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[6]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.002 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/ARG__5/CLK (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/II_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.010 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[2].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[19]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -1.007 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[14]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/I_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.011 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[21]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -1.008 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[11]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.014 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[24]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#5 Warning
 Large setup violation  
-There is a large setup violation of -1.009 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[10]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.022 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#6 Warning
 Large setup violation  
-There is a large setup violation of -1.010 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/ARG__5/CLK (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/II_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.023 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[6]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#7 Warning
 Large setup violation  
-There is a large setup violation of -1.011 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[26]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.024 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/I_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#8 Warning
 Large setup violation  
-There is a large setup violation of -1.022 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[11]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.025 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[6]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#9 Warning
 Large setup violation  
-There is a large setup violation of -1.028 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[14]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/I_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.030 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[26]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#10 Warning
 Large setup violation  
-There is a large setup violation of -1.031 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/I_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.041 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[6]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#11 Warning
 Large setup violation  
-There is a large setup violation of -1.034 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[7]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.043 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#12 Warning
 Large setup violation  
-There is a large setup violation of -1.040 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[2]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.045 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/I_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#13 Warning
 Large setup violation  
-There is a large setup violation of -1.042 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[11]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.049 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[8]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#14 Warning
 Large setup violation  
-There is a large setup violation of -1.042 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[7]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.056 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[10]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#15 Warning
 Large setup violation  
-There is a large setup violation of -1.048 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[2]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.056 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[14]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#16 Warning
 Large setup violation  
-There is a large setup violation of -1.052 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/I_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.056 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[8]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#17 Warning
 Large setup violation  
-There is a large setup violation of -1.056 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[7]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.056 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[9]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#18 Warning
 Large setup violation  
-There is a large setup violation of -1.062 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[2]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.057 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[8]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#19 Warning
 Large setup violation  
-There is a large setup violation of -1.077 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[7]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.065 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#20 Warning
 Large setup violation  
-There is a large setup violation of -1.079 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[7]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.067 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[5]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#21 Warning
 Large setup violation  
-There is a large setup violation of -1.082 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[2]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.073 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#22 Warning
 Large setup violation  
-There is a large setup violation of -1.083 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[10]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.088 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Filter/output_register_reg[5]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Frequency_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#23 Warning
 Large setup violation  
-There is a large setup violation of -1.085 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.101 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[0].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[4]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#24 Warning
 Large setup violation  
-There is a large setup violation of -1.095 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[7]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.104 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[27]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#25 Warning
 Large setup violation  
-There is a large setup violation of -1.104 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[10]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.115 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[6]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#26 Warning
 Large setup violation  
-There is a large setup violation of -1.106 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.125 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[25]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#27 Warning
 Large setup violation  
-There is a large setup violation of -1.110 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.127 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[28]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#28 Warning
 Large setup violation  
-There is a large setup violation of -1.118 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[11]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.136 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[6]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#29 Warning
 Large setup violation  
-There is a large setup violation of -1.126 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[11]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/I_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.139 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[0].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[7]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#30 Warning
 Large setup violation  
-There is a large setup violation of -1.126 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.143 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[30]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#31 Warning
 Large setup violation  
-There is a large setup violation of -1.158 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[2]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.144 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[1].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[40]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#32 Warning
 Large setup violation  
-There is a large setup violation of -1.166 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Cross_Filter/output_register_reg[2]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Loop_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.176 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[11]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#33 Warning
 Large setup violation  
-There is a large setup violation of -1.169 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[7]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.176 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[12]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#34 Warning
 Large setup violation  
-There is a large setup violation of -1.190 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[7]_replica/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/I_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.176 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[13]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#35 Warning
 Large setup violation  
-There is a large setup violation of -1.200 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.176 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[1].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[15]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#36 Warning
 Large setup violation  
-There is a large setup violation of -1.221 ns between Differental_Phasemeter_i/Costa_Demodulator_1/inst/Cross_Filter/output_register_reg[16]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_1/inst/Loop_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.195 ns between Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/storage_data1_reg[0]/C (clocked by adc_clk) and Differental_Phasemeter_i/PS7/DMA_Engine/axi_interconnect_0/s01_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.gen_non_fifo_w_upsizer.write_data_inst/WORD_LANE[0].USE_ALWAYS_PACKER.BYTE_LANE[0].USE_RTL_DATA.USE_REGISTER.M_AXI_WDATA_I_reg[3]/CE (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#37 Warning
+Large setup violation  
+There is a large setup violation of -1.217 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[31]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#38 Warning
+Large setup violation  
+There is a large setup violation of -1.238 ns between Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Filter/output_register_reg[13]/C (clocked by adc_clk) and Differental_Phasemeter_i/Costa_Demodulator_0/inst/Frequency_Controller/P_Pipeline_reg[29]/D (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -4373,7 +4383,7 @@ Related violations: <none>
 
 ULMTCS-1#1 Warning
 Control Sets use limits recommend reduction  
-This design uses 503 control sets (vs. available limit of 4400, determined by 1 control set per CLB). This exceeds the control set use guideline of 7.5 percent. This is at a level where reduction is RECOMMENDED (see UG949). Use report_control_sets to get more details.
+This design uses 504 control sets (vs. available limit of 4400, determined by 1 control set per CLB). This exceeds the control set use guideline of 7.5 percent. This is at a level where reduction is RECOMMENDED (see UG949). Use report_control_sets to get more details.
 Related violations: <none>
 
 XDCC-5#1 Warning

@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.605318",
-   "Default View_TopLeft":"-403,112",
+   "Default View_ScaleFactor":"0.526962",
+   "Default View_TopLeft":"53,139",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -33,77 +33,74 @@ preplace portBus dac_dat_o -pg 1 -lvl 12 -x 4260 -y 1300 -defaultsOSRD
 preplace inst axis_red_pitaya_adc_0 -pg 1 -lvl 2 -x 540 -y 1250 -defaultsOSRD
 preplace inst DAC_Interface -pg 1 -lvl 11 -x 4090 -y 1240 -defaultsOSRD
 preplace inst GPIO_Interface -pg 1 -lvl 9 -x 3210 -y 420 -defaultsOSRD
-preplace inst PS7 -pg 1 -lvl 8 -x 2720 -y 370 -defaultsOSRD
+preplace inst PS7 -pg 1 -lvl 8 -x 2730 -y 370 -defaultsOSRD
 preplace inst PRBS -pg 1 -lvl 2 -x 540 -y 1010 -defaultsOSRD
-preplace inst DMA_Interconnect_0 -pg 1 -lvl 3 -x 950 -y 1010 -defaultsOSRD
+preplace inst DMA_Interconnect_0 -pg 1 -lvl 3 -x 960 -y 1010 -defaultsOSRD
 preplace inst AXI_Stream_Writer_0 -pg 1 -lvl 6 -x 2000 -y 840 -defaultsOSRD
 preplace inst PRBS_Multiply_0 -pg 1 -lvl 10 -x 3770 -y 1130 -defaultsOSRD
 preplace inst Reset_Gen_0 -pg 1 -lvl 1 -x 120 -y 920 -defaultsOSRD
-preplace inst Subtractor_0 -pg 1 -lvl 5 -x 1730 -y 930 -defaultsOSRD
 preplace inst Test_Pattern_Gen_0 -pg 1 -lvl 10 -x 3770 -y 710 -defaultsOSRD
-preplace inst DATA_LOGGER_0 -pg 1 -lvl 7 -x 2300 -y 890 -defaultsOSRD
+preplace inst DATA_LOGGER_0 -pg 1 -lvl 7 -x 2310 -y 890 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 9 -x 3210 -y 1270 -defaultsOSRD
 preplace inst xlconstant_1 -pg 1 -lvl 1 -x 120 -y 810 -defaultsOSRD
 preplace inst NCO_Wrapper_0 -pg 1 -lvl 10 -x 3770 -y 1300 -defaultsOSRD
-preplace inst Costa_Demodulator_0 -pg 1 -lvl 4 -x 1380 -y 980 -defaultsOSRD
+preplace inst Costa_Demodulator_0 -pg 1 -lvl 4 -x 1390 -y 980 -defaultsOSRD
 preplace inst Costa_Demodulator_1 -pg 1 -lvl 2 -x 540 -y 740 -defaultsOSRD
-preplace netloc Costa_Demodulator_0_Freq_Measured 1 4 5 1570J 1010 NJ 1010 NJ 1010 NJ 1010 2990
-preplace netloc Costa_Demodulator_0_Message 1 2 3 780 710 NJ 710 1560
-preplace netloc Costa_Demodulator_0_Phase_Error 1 4 1 1580 910n
-preplace netloc Costa_Demodulator_1_Freq_Measured 1 2 7 NJ 680 NJ 680 NJ 680 NJ 680 NJ 680 2550J 700 2930
-preplace netloc Costa_Demodulator_1_Message 1 2 1 750 760n
-preplace netloc Costa_Demodulator_1_Phase_Error 1 2 3 720 730 NJ 730 1590J
-preplace netloc DATA_LOGGER_0_trigger 1 7 2 2530J 740 3000
-preplace netloc DMA_Interconnect_0_ADC_C1 1 1 3 330 910 730 880 1130
-preplace netloc Delay_Select_1 1 1 9 350 1140 740J 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 3530
-preplace netloc Div_Select_1 1 1 9 290 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 3470
-preplace netloc GPIO_Interface_gpio_Ki 1 3 7 1150 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 3460
-preplace netloc GPIO_Interface_gpio_KiB 1 1 9 300 1120 NJ 1120 1130J 1190 NJ 1190 NJ 1190 NJ 1190 NJ 1190 NJ 1190 3540
-preplace netloc GPIO_Interface_gpio_Kp 1 3 7 1190 720 NJ 720 NJ 720 NJ 720 2550J 750 2950J 760 3460
+preplace netloc Costa_Demodulator_0_Freq_Measured 1 4 5 NJ 920 NJ 920 2120J 1010 NJ 1010 3000
+preplace netloc Costa_Demodulator_0_Message 1 2 3 790 700 NJ 700 1570
+preplace netloc Costa_Demodulator_1_Freq_Measured 1 2 7 NJ 680 NJ 680 NJ 680 NJ 680 NJ 680 2570J 700 2940
+preplace netloc Costa_Demodulator_1_Message 1 2 1 770 760n
+preplace netloc DATA_LOGGER_0_trigger 1 7 2 2550J 730 3010
+preplace netloc DMA_Interconnect_0_ADC_C1 1 1 3 330 910 730 880 1140
+preplace netloc Delay_Select_1 1 1 9 350 1140 750J 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 3540
+preplace netloc Div_Select_1 1 1 9 290 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 3460
+preplace netloc GPIO_Interface_gpio_Ki 1 3 7 1160 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 3450
+preplace netloc GPIO_Interface_gpio_KiB 1 1 9 300 1120 NJ 1120 1160J 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 3530
+preplace netloc GPIO_Interface_gpio_Kp 1 3 7 1200 710 NJ 710 NJ 710 NJ 710 2570J 740 2970J 760 3450
 preplace netloc GPIO_Interface_gpio_KpB 1 1 9 320 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 3400
 preplace netloc GPIO_Interface_gpio_io_o 1 9 1 3560 350n
 preplace netloc GPIO_Interface_gpio_io_o1 1 9 1 3580 430n
-preplace netloc GPIO_Interface_gpio_io_o2 1 6 4 2140 1000 NJ 1000 NJ 1000 3450
-preplace netloc GPIO_Interface_gpio_io_o3 1 3 7 1160 750 1600J 730 NJ 730 NJ 730 2540J 770 NJ 770 3420
-preplace netloc GPIO_Interface_gpio_io_o4 1 1 9 270 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 3520
-preplace netloc GPIO_Interface_gpio_io_o5 1 3 7 1170 760 NJ 760 1850J 750 NJ 750 2500J 780 NJ 780 3410
-preplace netloc GPIO_Interface_gpio_io_o6 1 1 9 280 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 3490
-preplace netloc GPIO_Interface_gpio_io_o7 1 3 7 1180 770 NJ 770 1860J 760 NJ 760 2480J 790 NJ 790 3400
+preplace netloc GPIO_Interface_gpio_io_o2 1 6 4 2150 1000 NJ 1000 NJ 1000 3470
+preplace netloc GPIO_Interface_gpio_io_o3 1 3 7 1190 720 NJ 720 NJ 720 NJ 720 2560J 750 2940J 770 3430
+preplace netloc GPIO_Interface_gpio_io_o4 1 1 9 270 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 3500
+preplace netloc GPIO_Interface_gpio_io_o5 1 3 7 1170 730 NJ 730 NJ 730 NJ 730 2520J 780 NJ 780 3420
+preplace netloc GPIO_Interface_gpio_io_o6 1 1 9 280 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 3480
+preplace netloc GPIO_Interface_gpio_io_o7 1 3 7 1180 750 NJ 750 NJ 750 NJ 750 2510J 770 2890J 790 3410
 preplace netloc GPIO_Interface_gpio_io_o8 1 1 9 320 1350 NJ 1350 NJ 1350 NJ 1350 NJ 1350 NJ 1350 NJ 1350 NJ 1350 3440
-preplace netloc GPIO_Interface_gpio_io_o9 1 1 9 260 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 3470
-preplace netloc GPIO_Interface_gpio_io_o10 1 3 7 1190 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 3430
+preplace netloc GPIO_Interface_gpio_io_o9 1 1 9 260 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 3460
+preplace netloc GPIO_Interface_gpio_io_o10 1 3 7 1210 760 NJ 760 NJ 760 NJ 760 2490J 810 NJ 810 3400
 preplace netloc Input_C2_1 1 4 7 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 1020 3940
 preplace netloc NCO_Wrapper_0_Dout 1 10 1 3940 1270n
-preplace netloc Net 1 0 11 20 990 230 1340 780 1140 1170 1150 1600 1030 NJ 1030 2120 1030 2510 990 NJ 990 3570 1210 NJ
-preplace netloc Net1 1 1 9 310 1100 740J 890 1120 780 NJ 780 1870J 770 NJ 770 2470J 800 NJ 800 3510
-preplace netloc Net2 1 1 9 340 1110 760J 900 1140 790 NJ 790 1880J 780 NJ 780 2460J 810 NJ 810 3500
-preplace netloc Net3 1 1 3 240 1130 NJ 1130 1150J
-preplace netloc Net5 1 1 9 250 1150 NJ 1150 1160 1160 NJ 1160 NJ 1160 2130 1160 NJ 1160 NJ 1160 3560J
-preplace netloc PRBS_Delayed 1 2 8 720 740 NJ 740 NJ 740 NJ 740 NJ 740 2520J 760 2900J 820 3550J
-preplace netloc PRBS_Reference 1 2 1 730 1000n
-preplace netloc PS7_FCLK_CLK1 1 8 1 2970 610n
-preplace netloc PS7_peripheral_aresetn1 1 8 1 2980 630n
-preplace netloc Subtractor_0_Q 1 5 1 1860J 840n
-preplace netloc Taps_1 1 1 9 330 1160 NJ 1160 1120J 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 3480
+preplace netloc Net 1 0 11 20 990 230 1340 790 1140 1180 1190 N 1190 NJ 1190 2130 1030 2540 990 NJ 990 3570 1210 NJ
+preplace netloc Net1 1 1 9 310 1100 740J 890 1130 770 NJ 770 NJ 770 NJ 770 2480J 800 NJ 800 3490
+preplace netloc Net2 1 1 9 340 1110 760J 900 1150 780 NJ 780 NJ 780 NJ 780 2470J 820 NJ 820 3520
+preplace netloc Net3 1 1 3 240 1130 NJ 1130 1140J
+preplace netloc Net5 1 1 9 250 1150 NJ 1150 1200 1150 NJ 1150 NJ 1150 2140 1150 NJ 1150 NJ 1150 3560J
+preplace netloc PRBS_Delayed 1 2 8 720 740 NJ 740 NJ 740 NJ 740 NJ 740 2530J 760 2920J 830 3550J
+preplace netloc PRBS_Reference 1 2 1 750 1000n
+preplace netloc PS7_FCLK_CLK1 1 8 1 2980 610n
+preplace netloc PS7_peripheral_aresetn1 1 8 1 2990 630n
+preplace netloc Taps_1 1 1 9 330 1160 NJ 1160 1130J 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 3510
 preplace netloc adc_clk_n_i_1 1 0 2 NJ 1230 220J
 preplace netloc adc_clk_p_i_1 1 0 2 NJ 1200 220J
 preplace netloc adc_dat_a_i_1 1 0 2 NJ 1260 NJ
 preplace netloc adc_dat_b_i_1 1 0 2 20J 1280 NJ
-preplace netloc axis_red_pitaya_adc_0_adc_csn 1 2 10 NJ 1270 NJ 1270 NJ 1270 NJ 1270 NJ 1270 NJ 1270 2940J 1390 NJ 1390 NJ 1390 NJ
+preplace netloc axis_red_pitaya_adc_0_adc_csn 1 2 10 NJ 1270 NJ 1270 NJ 1270 NJ 1270 NJ 1270 NJ 1270 2950J 1390 NJ 1390 NJ 1390 NJ
 preplace netloc axis_red_pitaya_dac_1_dac_clk 1 11 1 4230J 1180n
 preplace netloc axis_red_pitaya_dac_1_dac_dat 1 11 1 4220J 1280n
 preplace netloc axis_red_pitaya_dac_1_dac_rst 1 11 1 4220J 1210n
 preplace netloc axis_red_pitaya_dac_1_dac_sel 1 11 1 NJ 1240
 preplace netloc axis_red_pitaya_dac_1_dac_wrt 1 11 1 4230J 1260n
 preplace netloc xlconstant_0_dout 1 9 1 NJ 1270
+preplace netloc Costa_Demodulator_0_Phase_Error 1 4 2 1580 840 NJ
 preplace netloc AXI_Stream_Writer_0_m_axis 1 6 1 N 840
-preplace netloc DATA_LOGGER_0_m_axis_S2MMS 1 7 1 2490 360n
+preplace netloc DATA_LOGGER_0_m_axis_S2MMS 1 7 1 2500 360n
 preplace netloc PS7_M00_AXI 1 8 1 N 150
 preplace netloc PS7_M03_AXI 1 8 1 N 130
-preplace netloc PS7_M05_AXI 1 8 1 2900 230n
-preplace netloc PS7_M06_AXI 1 8 1 2890 250n
-preplace netloc PS7_M07_AXI 1 8 1 2880 270n
-preplace netloc PS7_M08_AXI 1 8 1 2910 230n
+preplace netloc PS7_M05_AXI 1 8 1 2910 230n
+preplace netloc PS7_M06_AXI 1 8 1 2900 250n
+preplace netloc PS7_M07_AXI 1 8 1 2890 270n
+preplace netloc PS7_M08_AXI 1 8 1 2920 230n
 preplace netloc PS7_M09_AXI 1 8 1 N 310
 preplace netloc PS7_M10_AXI 1 8 1 N 210
 preplace netloc PS7_M10_AXI1 1 8 1 N 330
@@ -111,21 +108,21 @@ preplace netloc PS7_M11_AXI 1 8 1 N 350
 preplace netloc PS7_M12_AXI 1 8 1 N 370
 preplace netloc PS7_M13_AXI 1 8 1 N 390
 preplace netloc PS7_M14_AXI 1 8 1 N 410
-preplace netloc PS7_M15_AXI 1 8 1 2880 430n
-preplace netloc PS7_M16_AXI 1 8 1 2890 450n
-preplace netloc PS7_M17_AXI 1 8 1 2900 470n
-preplace netloc PS7_M18_AXI 1 8 1 2910 490n
-preplace netloc PS7_M19_AXI 1 8 1 2920 510n
-preplace netloc PS7_M20_AXI 1 8 1 2930 530n
-preplace netloc PS7_M21_AXI 1 8 1 2940 550n
-preplace netloc PS7_M22_AXI 1 8 1 2950 570n
-preplace netloc PS7_M23_AXI 1 8 1 2960 590n
+preplace netloc PS7_M15_AXI 1 8 1 2890 430n
+preplace netloc PS7_M16_AXI 1 8 1 2900 450n
+preplace netloc PS7_M17_AXI 1 8 1 2910 470n
+preplace netloc PS7_M18_AXI 1 8 1 2920 490n
+preplace netloc PS7_M19_AXI 1 8 1 2930 510n
+preplace netloc PS7_M20_AXI 1 8 1 2940 530n
+preplace netloc PS7_M21_AXI 1 8 1 2950 550n
+preplace netloc PS7_M22_AXI 1 8 1 2960 570n
+preplace netloc PS7_M23_AXI 1 8 1 2970 590n
 preplace netloc S_AXI6_1 1 8 1 N 170
 preplace netloc S_AXI7_1 1 8 1 N 190
-preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 2 1 770 960n
-preplace netloc processing_system7_0_DDR 1 8 4 2900J 60 NJ 60 NJ 60 4230J
-preplace netloc processing_system7_0_FIXED_IO 1 8 4 2910J 70 NJ 70 NJ 70 4220J
-levelinfo -pg 1 0 120 540 950 1380 1730 2000 2300 2720 3210 3770 4090 4260
+preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 2 1 780 960n
+preplace netloc processing_system7_0_DDR 1 8 4 2910J 60 NJ 60 NJ 60 4230J
+preplace netloc processing_system7_0_FIXED_IO 1 8 4 2920J 70 NJ 70 NJ 70 4220J
+levelinfo -pg 1 0 120 540 960 1390 1730 2000 2310 2730 3210 3770 4090 4260
 pagesize -pg 1 -db -bbox -sgen -160 0 4420 1410
 "
 }
