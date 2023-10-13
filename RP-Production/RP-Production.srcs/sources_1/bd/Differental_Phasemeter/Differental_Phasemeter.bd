@@ -7,8 +7,7 @@
       "name": "Differental_Phasemeter",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2",
-      "validated": "true"
+      "tool_version": "2022.2"
     },
     "design_tree": {
       "axis_red_pitaya_adc_0": "",
@@ -123,9 +122,10 @@
       "DATA_LOGGER_0": "",
       "xlconstant_0": "",
       "xlconstant_1": "",
-      "NCO_Wrapper_0": "",
       "Costa_Demodulator_0": "",
-      "Costa_Demodulator_1": ""
+      "Costa_Demodulator_1": "",
+      "Subtractor_0": "",
+      "NCO_Wrapper_0": ""
     },
     "interface_ports": {
       "Vaux0": {
@@ -379,21 +379,7 @@
         "right": "0"
       },
       "dac_clk_o": {
-        "direction": "O",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "Differental_Phasemeter_axis_red_pitaya_dac_1_0_dac_clk",
-            "value_src": "default_prop"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default_prop"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default_prop"
-          }
-        }
+        "direction": "O"
       },
       "dac_dat_o": {
         "direction": "O",
@@ -401,13 +387,7 @@
         "right": "0"
       },
       "dac_rst_o": {
-        "direction": "O",
-        "parameters": {
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default_prop"
-          }
-        }
+        "direction": "O"
       },
       "dac_sel_o": {
         "direction": "O"
@@ -9101,74 +9081,6 @@
           }
         }
       },
-      "NCO_Wrapper_0": {
-        "vlnv": "xilinx.com:module_ref:NCO_Wrapper:1.0",
-        "xci_name": "Differental_Phasemeter_NCO_Wrapper_0_0",
-        "xci_path": "ip\\Differental_Phasemeter_NCO_Wrapper_0_0\\Differental_Phasemeter_NCO_Wrapper_0_0.xci",
-        "inst_hier_path": "NCO_Wrapper_0",
-        "parameters": {
-          "DAC_SIZE": {
-            "value": "14"
-          },
-          "ROM_Size": {
-            "value": "12"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "NCO_Wrapper",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Frequency": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "PhaseOffset": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "clock": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "Differental_Phasemeter_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "Dout": {
-            "direction": "O",
-            "left": "13",
-            "right": "0"
-          },
-          "Quadrature_out": {
-            "direction": "O",
-            "left": "13",
-            "right": "0"
-          },
-          "Phase_Out": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          }
-        }
-      },
       "Costa_Demodulator_0": {
         "vlnv": "xilinx.com:module_ref:Costa_Demodulator:1.0",
         "xci_name": "Differental_Phasemeter_Costa_Demodulator_0_0",
@@ -9412,6 +9324,98 @@
             "direction": "I"
           }
         }
+      },
+      "Subtractor_0": {
+        "vlnv": "xilinx.com:module_ref:Subtractor:1.0",
+        "xci_name": "Differental_Phasemeter_Subtractor_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_Subtractor_0_0\\Differental_Phasemeter_Subtractor_0_0.xci",
+        "inst_hier_path": "Subtractor_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Subtractor",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Dplus": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Dminus": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "Q": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "clock": {
+            "type": "clk",
+            "direction": "I"
+          }
+        }
+      },
+      "NCO_Wrapper_0": {
+        "vlnv": "xilinx.com:module_ref:NCO_Wrapper:1.0",
+        "xci_name": "Differental_Phasemeter_NCO_Wrapper_0_0",
+        "xci_path": "ip\\Differental_Phasemeter_NCO_Wrapper_0_0\\Differental_Phasemeter_NCO_Wrapper_0_0.xci",
+        "inst_hier_path": "NCO_Wrapper_0",
+        "parameters": {
+          "DAC_SIZE": {
+            "value": "14"
+          },
+          "ROM_Size": {
+            "value": "12"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "NCO_Wrapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Frequency": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "PhaseOffset": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Quadrature_out": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "Phase_Out": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -9594,7 +9598,8 @@
       "Costa_Demodulator_0_Freq_Measured": {
         "ports": [
           "Costa_Demodulator_0/Freq_Measured",
-          "GPIO_Interface/gpio_Freq_Measured"
+          "GPIO_Interface/gpio_Freq_Measured",
+          "Subtractor_0/Dplus"
         ]
       },
       "Costa_Demodulator_0_Message": {
@@ -9603,16 +9608,11 @@
           "DMA_Interconnect_0/Demodulated_PRBS"
         ]
       },
-      "Costa_Demodulator_0_Phase_Error": {
-        "ports": [
-          "Costa_Demodulator_0/Phase_Error",
-          "AXI_Stream_Writer_0/D_In"
-        ]
-      },
       "Costa_Demodulator_1_Freq_Measured": {
         "ports": [
           "Costa_Demodulator_1/Freq_Measured",
-          "GPIO_Interface/FMeasuredB"
+          "GPIO_Interface/FMeasuredB",
+          "Subtractor_0/Dminus"
         ]
       },
       "Costa_Demodulator_1_Message": {
@@ -9760,9 +9760,10 @@
           "Test_Pattern_Gen_0/Clock",
           "DATA_LOGGER_0/m_axis_aclk",
           "DATA_LOGGER_0/s_axis_aclk",
-          "NCO_Wrapper_0/clock",
           "Costa_Demodulator_0/Clock",
-          "Costa_Demodulator_1/Clock"
+          "Costa_Demodulator_1/Clock",
+          "Subtractor_0/clock",
+          "NCO_Wrapper_0/clock"
         ]
       },
       "Net1": {
@@ -9791,9 +9792,9 @@
           "Reset_Gen_0/Reset",
           "PRBS/Reset",
           "DATA_LOGGER_0/rst",
-          "NCO_Wrapper_0/rst",
           "Costa_Demodulator_0/Reset",
-          "Costa_Demodulator_1/Reset"
+          "Costa_Demodulator_1/Reset",
+          "NCO_Wrapper_0/rst"
         ]
       },
       "PRBS_Delayed": {
@@ -9818,6 +9819,12 @@
         "ports": [
           "PS7/peripheral_aresetn",
           "GPIO_Interface/s_axi_aresetn"
+        ]
+      },
+      "Subtractor_0_Q": {
+        "ports": [
+          "Subtractor_0/Q",
+          "AXI_Stream_Writer_0/D_In"
         ]
       },
       "Taps_1": {

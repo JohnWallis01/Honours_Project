@@ -28,13 +28,13 @@ def readBinarytoPSD(filename, bytes=1e100, Downsample=32):
 
     data=unsigned_to_signed_array(np.array(data[int(len(data)*0.1):int(len(data)*0.9)]))
     data = data[data != 0]
-    data = 2*np.pi*Downsample*data/(2**32)
+    data = 2*np.pi*data/(2**32)
     np.save("logger_dump.npy", data)
     return sp.welch(data, fs = 30.5e3, nperseg=2**18)
 
-f1, Pxx_den1 = readBinarytoPSD("../Data/20230920_DiffNoise8Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
-f2, Pxx_den2 = readBinarytoPSD("../Data/20230920_DiffNoise12Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
-f3, Pxx_den3 = readBinarytoPSD("../Data/20230920_DiffNoise14Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
+f1, Pxx_den1 = readBinarytoPSD("../../Data/20230920_DiffNoise8Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
+f2, Pxx_den2 = readBinarytoPSD("../../Data/20230920_DiffNoise12Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
+f3, Pxx_den3 = readBinarytoPSD("../../Data/20230920_DiffNoise14Bit_30.5kHz600s_10MegSG_OutofLoopIntegral.bin")
 
 ##Generating the Data for Nichols Plot
 
@@ -55,8 +55,8 @@ M = 1
 T = 12 # CIC Truncation and scaling to 14 bits, 14 bits -> 24 bits (14+2*log2(32)) -> 14 bits
 Ps = 1
 KG = 1
-KI = 50/2**16
-KP = 200000/2**16
+KI = 5/2**16
+KP = 2000/2**16
 Pz =  2*np.pi*2**(14)*1/(1-zvals**-1) #Accumulator Transfer function
 M = 2**14
 Lz = 2**(-2*(np.log(R*M)/np.log(2)) + 1)*((1-(zvals**-R))/(1-(zvals**-1)))**N #CIC Transfer Function Normalised
@@ -80,7 +80,7 @@ fig = plt.figure(figsize=(10, 5))  # Adjust the figure size
 ax1 = plt.subplot(1, 2, 1)
 ax3 = plt.subplot(1, 2, 2)
 
-## Plotting Diff Phase
+# Plotting Diff Phase
 ax1.loglog(f1, Pxx_den1, label="8 Bit PA")
 ax1.loglog(f2, Pxx_den2, label="12 Bit PA")
 ax1.loglog(f3, Pxx_den3, label="14 Bit PA")
@@ -109,4 +109,5 @@ ax3.set_title("b)")
 
 # plt.subplots_adjust(bottom=0.19)
 plt.tight_layout()  # Adjust subplot spacing for cleaner visualization
-plt.savefig("../Plots/FuncPhaseNoise+Nichols.png", dpi=300)
+# plt.savefig("../Plots/FuncPhaseNoise+Nichols.png", dpi=300)
+plt.show()

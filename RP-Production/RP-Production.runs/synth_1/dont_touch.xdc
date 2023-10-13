@@ -104,6 +104,18 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_0/Differental_Phasemeter_xbar_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_xbar_0 || ORIG_REF_NAME==Differental_Phasemeter_xbar_0} -quiet] -quiet
 
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_0_0/Differental_Phasemeter_tier2_xbar_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_0_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_0_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_1_0/Differental_Phasemeter_tier2_xbar_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_1_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_1_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_2_0/Differental_Phasemeter_tier2_xbar_2_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_2_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_2_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_0/Differental_Phasemeter_auto_pc_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_0} -quiet] -quiet
+
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_interconnect_1_0/Differental_Phasemeter_axi_interconnect_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_axi_interconnect_1_0 || ORIG_REF_NAME==Differental_Phasemeter_axi_interconnect_1_0} -quiet] -quiet
 
@@ -119,11 +131,23 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_3/Differental_Phasemeter_xbar_3.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_xbar_3 || ORIG_REF_NAME==Differental_Phasemeter_xbar_3} -quiet] -quiet
 
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_us_0/Differental_Phasemeter_auto_us_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_us_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_us_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_ds_0/Differental_Phasemeter_auto_ds_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_ds_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_ds_0} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_1/Differental_Phasemeter_auto_pc_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_1 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_1} -quiet] -quiet
+
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_interconnect_0_2/Differental_Phasemeter_axi_interconnect_0_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_axi_interconnect_0_2 || ORIG_REF_NAME==Differental_Phasemeter_axi_interconnect_0_2} -quiet] -quiet
 
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_xbar_4/Differental_Phasemeter_xbar_4.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_xbar_4 || ORIG_REF_NAME==Differental_Phasemeter_xbar_4} -quiet] -quiet
+
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_2/Differental_Phasemeter_auto_pc_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_2 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_2} -quiet] -quiet
 
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_axi_interconnect_0_3/Differental_Phasemeter_axi_interconnect_0_3.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_axi_interconnect_0_3 || ORIG_REF_NAME==Differental_Phasemeter_axi_interconnect_0_3} -quiet] -quiet
@@ -161,37 +185,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_xlconstant_0_1/Differental_Phasemeter_xlconstant_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_xlconstant_0_1 || ORIG_REF_NAME==Differental_Phasemeter_xlconstant_0_1} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_NCO_Wrapper_0_0/Differental_Phasemeter_NCO_Wrapper_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_NCO_Wrapper_0_0 || ORIG_REF_NAME==Differental_Phasemeter_NCO_Wrapper_0_0} -quiet] -quiet
-
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_0_0/Differental_Phasemeter_Costa_Demodulator_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Costa_Demodulator_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Costa_Demodulator_0_0} -quiet] -quiet
 
 # IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Costa_Demodulator_1_0/Differental_Phasemeter_Costa_Demodulator_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Costa_Demodulator_1_0 || ORIG_REF_NAME==Differental_Phasemeter_Costa_Demodulator_1_0} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_0_0/Differental_Phasemeter_tier2_xbar_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_0_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_0_0} -quiet] -quiet
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_Subtractor_0_0/Differental_Phasemeter_Subtractor_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_Subtractor_0_0 || ORIG_REF_NAME==Differental_Phasemeter_Subtractor_0_0} -quiet] -quiet
 
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_1_0/Differental_Phasemeter_tier2_xbar_1_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_1_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_1_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_tier2_xbar_2_0/Differental_Phasemeter_tier2_xbar_2_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_tier2_xbar_2_0 || ORIG_REF_NAME==Differental_Phasemeter_tier2_xbar_2_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_0/Differental_Phasemeter_auto_pc_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_us_0/Differental_Phasemeter_auto_us_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_us_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_us_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_ds_0/Differental_Phasemeter_auto_ds_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_ds_0 || ORIG_REF_NAME==Differental_Phasemeter_auto_ds_0} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_1/Differental_Phasemeter_auto_pc_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_1 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_1} -quiet] -quiet
-
-# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_auto_pc_2/Differental_Phasemeter_auto_pc_2.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_auto_pc_2 || ORIG_REF_NAME==Differental_Phasemeter_auto_pc_2} -quiet] -quiet
-
-# XDC: c:/Users/John/Desktop/Honours_Project/RP-Production/RP-Production.gen/sources_1/bd/Differental_Phasemeter/Differental_Phasemeter_ooc.xdc
+# IP: bd/Differental_Phasemeter/ip/Differental_Phasemeter_NCO_Wrapper_0_0/Differental_Phasemeter_NCO_Wrapper_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Differental_Phasemeter_NCO_Wrapper_0_0 || ORIG_REF_NAME==Differental_Phasemeter_NCO_Wrapper_0_0} -quiet] -quiet
