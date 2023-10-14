@@ -55,8 +55,8 @@ M = 1
 T = 12 # CIC Truncation and scaling to 14 bits, 14 bits -> 24 bits (14+2*log2(32)) -> 14 bits
 Ps = 1
 KG = 1
-KI = 5/2**16
-KP = 2000/2**16
+KI = 50/2**16
+KP = 20000/2**16
 Pz =  2*np.pi*2**(14)*1/(1-zvals**-1) #Accumulator Transfer function
 M = 2**14
 Lz = 2**(-2*(np.log(R*M)/np.log(2)) + 1)*((1-(zvals**-R))/(1-(zvals**-1)))**N #CIC Transfer Function Normalised
@@ -109,5 +109,5 @@ ax3.set_title("b)")
 
 # plt.subplots_adjust(bottom=0.19)
 plt.tight_layout()  # Adjust subplot spacing for cleaner visualization
-# plt.savefig("../Plots/FuncPhaseNoise+Nichols.png", dpi=300)
-plt.show()
+plt.savefig("../../Plots/FuncPhaseNoise+Nichols.png", dpi=300)
+# plt.show()
