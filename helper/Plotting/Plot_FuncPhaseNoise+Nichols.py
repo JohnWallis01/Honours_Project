@@ -28,7 +28,7 @@ def readBinarytoPSD(filename, bytes=1e100, Downsample=32):
 
     data=unsigned_to_signed_array(np.array(data[int(len(data)*0.1):int(len(data)*0.9)]))
     data = data[data != 0]
-    data = 2*np.pi*data/(2**32)
+    data = 2*np.pi*Downsample*data/(2**32)
     np.save("logger_dump.npy", data)
     return sp.welch(data, fs = 30.5e3, nperseg=2**18)
 

@@ -16,3 +16,4 @@ helper/logger_dump.npy
 helper/logger_dump.bin
 helper/logger_dump.bin
 helper/logger_dump.bin
+*.npy

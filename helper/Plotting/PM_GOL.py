@@ -27,8 +27,8 @@ T = 12 # CIC Truncation and scaling to 14 bits, 14 bits -> 24 bits (14+2*log2(32
 
 Ps = 1
 KG = 1
-KI = 50/2**16
-KP = 200000/2**16
+KI = 0.001/2**16
+KP = 20000/2**16
 
 
 ###ACCUMULATOR IN LOOP###
@@ -64,22 +64,19 @@ zero_crossing_index = np.argmax(np.diff(np.sign(20 * np.log10(abs(L[0:n])))))
 
 # Plot the phase and magnitude response
 plt.figure(figsize=(10, 6))  # Adjust the figure size as needed
-plt.plot(np.angle(L[0:n]) * 180 / np.pi, 20 * np.log10(abs(L[0:n])))
+plt.plot(20 * np.log10(abs(L[0:n])))
+plt.plot(np.angle(L[0:n]) * 180 / np.pi)
 
 # Labeling the axes
-plt.xlabel('Phase (degrees)')
-plt.ylabel('Magnitude (dB)')
-plt.ylim(-5, 150)
+plt.xlabel('frequency Hz')
+plt.ylabel('Magnitude (dB)/phase deg')
 # Add a vertical line at 0 dB
 plt.axhline(y=0, color='r', linestyle='--')
 
 # Annotate the phase margin
 pm = 180 + np.angle(L[UGF_index]) * 180 / np.pi
-plt.annotate(f'Phase Margin: {pm:.2f} degrees', xy=(pm, 0), xytext=(pm, 10),
-             arrowprops=dict(arrowstyle='->'))
 
 # Add text for phase margin near the zero crossing
-plt.text(np.angle(L[zero_crossing_index]) * 180 / np.pi + 15, 5, f'Phase Margin = {pm:.2f} degrees', color='black')
 
 plt.grid(True)
 plt.title('Costas Loop Nichols Plot')
