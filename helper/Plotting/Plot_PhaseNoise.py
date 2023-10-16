@@ -5,7 +5,7 @@ from scipy.optimize import curve_fit
 
 # data =np.load("../../Data/20231012_DiffNoise_14Bit_FreeSpace600s.npy")
 data =np.load("logger_dump.npy")
-print(data)
+
 # f, Pxx = sp.welch(np.sin(data/32), fs = 30.5e3, nperseg=2**18)
 # plt.loglog(f,(30.5e3)**(-2)*Pxx*4*np.pi**2*f*f, label="Cycle Slip Compensation Off")
 

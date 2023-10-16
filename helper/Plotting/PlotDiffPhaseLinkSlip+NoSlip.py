@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import scipy.signal as sp
 from scipy.optimize import curve_fit
 from collections import Counter
-Slips = 20
+Slips = 6
 
 # data =np.load("../Data/20231012_DiffNoise_14Bit_FreeSpace600s.npy")
 data = np.load("logger_dump.npy")

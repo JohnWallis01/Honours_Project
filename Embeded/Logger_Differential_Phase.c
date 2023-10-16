@@ -58,11 +58,11 @@
 #define Enable_Relocking 1
 #define CalibrationDelay 295
 
-#define kp_value  -20000       
+#define kp_value  -200000       
 #define ki_value -50
 #define kii_value 0
 
-#define kp_b_value  -20000       
+#define kp_b_value  -200000       
 #define ki_b_value  -50
 #define kii_b_value 0
 

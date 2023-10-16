@@ -26,7 +26,7 @@ def readRawPhaseToNPPhaes(filename, bytes=1e100, Downsample=32):
     # data = np.array(data[int(len(data)*0.1):int(len(data)*0.9)]) 
     data = data[data != 0]
     data = 2*np.pi*Downsample*data/(2**32) # for phase conversion
-    # data = data/2**32*125e6
+    # data = data/(2**32)*125e6
     np.save("logger_dump.npy", data)
 
 
