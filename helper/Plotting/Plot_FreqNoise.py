@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import scipy.signal as sp
 from scipy.optimize import curve_fit
 
-data =np.load("logger_dump.npy")
+data =np.load("../../Data/20231013_LinkFreqNoise60s(-20k).npy")
 
 freq = np.mean(data)
 data = (data - freq)
