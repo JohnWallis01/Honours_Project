@@ -27,7 +27,7 @@ T = 12 # CIC Truncation and scaling to 14 bits, 14 bits -> 24 bits (14+2*log2(32
 
 Ps = 1
 KG = 1
-KI = 0.001/2**16
+KI = 50/2**16
 KP = 20000/2**16
 
 

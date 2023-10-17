@@ -32,14 +32,14 @@ x_fit = np.logspace(-1, 3, 1000)  # Generate x values for the fitted curve
 y_fit = power_law(x_fit, a_fit, b_fit)
 ax1.loglog(x_fit, y_fit, 'r', label='Fitted Curve $f^{-8/3}$')
 
-params, covariance = curve_fit(power_law, f, Pxx, p0=[1e15, -17/3])
-a_fit, b_fit = params
-print("Fitted parameters:")
-print("a =", a_fit)
-print("b =", b_fit)
-x_fit = np.logspace(3.8, 4.2, 1000)  # Generate x values for the fitted curve
-y_fit = power_law(x_fit, a_fit, b_fit)
-ax1.loglog(x_fit, y_fit, 'g', label='Fitted Curve $f^{-17/3}$')
+# params, covariance = curve_fit(power_law, f, Pxx, p0=[1e15, -17/3])
+# a_fit, b_fit = params
+# print("Fitted parameters:")
+# print("a =", a_fit)
+# print("b =", b_fit)
+# x_fit = np.logspace(3.8, 4.2, 1000)  # Generate x values for the fitted curve
+# y_fit = power_law(x_fit, a_fit, b_fit)
+# ax1.loglog(x_fit, y_fit, 'g', label='Fitted Curve $f^{-17/3}$')
 ax1.grid()
 ax1.set_title("a)")
 ax1.legend()
