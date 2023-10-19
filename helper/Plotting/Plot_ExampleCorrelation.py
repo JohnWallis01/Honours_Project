@@ -41,11 +41,10 @@ ax2 = plt.subplot(2,1,2)
 # ax2 = plt.axes(frameon=False)
 ax2.spines['top'].set_visible(False)
 ax2.spines['right'].set_visible(False)
-ax2.spines['bottom'].set_visible(False)
-ax2.spines['left'].set_visible(False)
+# ax2.spines['bottom'].set_visible(False)
+# ax2.spines['left'].set_visible(False)
 ax2.get_xaxis().set_ticks([])
 ax2.get_yaxis().set_ticks([])
-
 
 data = np.abs(periodic_corr(PRBS, np.roll(PRBS, delay))) 
 interval = stretch
@@ -66,4 +65,5 @@ for i in range(3):
     plt.scatter(x_positions[i], data[indices][i], c=Colours[i])
 
 plt.tight_layout()
-plt.show()
+plt.savefig("../../Plots/ExampleCorrelation.png", dpi=300)
+# plt.show()

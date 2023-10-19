@@ -1,6 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'custom'
+matplotlib.rcParams['mathtext.rm'] = 'Times New Roman'
+matplotlib.rcParams['mathtext.it'] = 'Times New Roman:italic'
+matplotlib.rcParams['mathtext.bf'] = 'Times New Roman:bold'
+times = {'fontname': 'Times New Roman'}
 
 # Define the simple pendulum equations
 def Costas(t, state, Kp, Ki):
@@ -144,6 +150,11 @@ zero_crossing_index = np.argmax(np.diff(np.sign(20 * np.log10(abs(L[0:n])))))
 fig = plt.figure(figsize=(10, 5))  # Adjust the figure size
 ax1 = plt.subplot(1, 2, 1, projection='polar')
 ax2 = plt.subplot(1, 2, 2, projection='polar')
+label_position=ax1.get_rlabel_position()
+ax1.text(np.radians(label_position+10),2,'$\Delta\omega$' ,ha='center',va='center', fontdict={'fontfamily': 'Times New Roman', 'size': 16})
+ax1.text(0.2,5.15,'$\Delta\phi$' ,ha='center',va='center', fontdict={'fontfamily': 'Times New Roman', 'size': 16})
+ax2.text(np.radians(label_position+10),ax1.get_rmax(),'$\Delta\omega$' ,ha='center',va='center', fontdict={'fontfamily': 'Times New Roman', 'size': 16})
+ax2.text(0.2,2.25,'$\Delta\phi$' ,ha='center',va='center', fontdict={'fontfamily': 'Times New Roman', 'size': 16})
 Polar_Plot_IC(ax1, initial_conditions)
 Polar_Plot_IC(ax2, initial_conditions2)
 
@@ -169,5 +180,5 @@ ax2.set_title("b)")
 plt.subplots_adjust(bottom=0.19)
 plt.tight_layout()  # Adjust subplot spacing for cleaner visualization
 
-plt.savefig("PLL_Behaviour", dpi=300)
+plt.savefig("../../Plots/PLL_Behaviour.png", dpi=300)
 # plt.show()
